@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **auto_orderable** | **bool** |  | [optional] 
 **cancel_other_auto_orders** | **bool** |  | [optional] 
 **free_shipping_auto_order** | **bool** |  | [optional] 
-**steps** | [**\\ultracart\admin\v2\models\ItemAutoOrderStep[]**](ItemAutoOrderStep.md) |  | [optional] 
+**steps** | [**\ultracart\admin\v2\models\ItemAutoOrderStep[]**](ItemAutoOrderStep.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

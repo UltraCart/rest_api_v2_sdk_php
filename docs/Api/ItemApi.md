@@ -1,4 +1,4 @@
-# \ultracart\admin\v2\swagger\ItemApi
+# ultracart\admin\v2\swagger\ItemApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/admin/v2*
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **itemItemsGet**
-> \\ultracart\admin\v2\models\ItemsResponse itemItemsGet($parent_category_id)
+> \ultracart\admin\v2\models\ItemsResponse itemItemsGet($parent_category_id)
 
 Retrieve items
 
@@ -25,13 +25,13 @@ Retrieves a group of items from the account.  If no parameters are specified, al
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
+$api_instance = new ultracart\admin\v2\swagger\Api\ItemApi();
 $parent_category_id = 56; // int | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root
 
 try {
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\ultracart\admin\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+[**\ultracart\admin\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
 
 ### Authorization
 
@@ -77,13 +77,13 @@ Delete an item on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
+$api_instance = new ultracart\admin\v2\swagger\Api\ItemApi();
 $merchant_item_oid = 56; // int | The item oid to delete.
 
 try {
@@ -116,7 +116,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **itemItemsMerchantItemOidGet**
-> \\ultracart\admin\v2\models\ItemResponse itemItemsMerchantItemOidGet($merchant_item_oid)
+> \ultracart\admin\v2\models\ItemResponse itemItemsMerchantItemOidGet($merchant_item_oid)
 
 Retrieve an item
 
@@ -128,13 +128,13 @@ Retrieves a single item using the specified item oid.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
+$api_instance = new ultracart\admin\v2\swagger\Api\ItemApi();
 $merchant_item_oid = 56; // int | The item oid to retrieve.
 
 try {
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\ultracart\admin\v2\models\ItemResponse**](../Model/ItemResponse.md)
+[**\ultracart\admin\v2\models\ItemResponse**](../Model/ItemResponse.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **itemItemsMerchantItemOidPut**
-> \\ultracart\admin\v2\models\ItemResponse itemItemsMerchantItemOidPut($item, $merchant_item_oid)
+> \ultracart\admin\v2\models\ItemResponse itemItemsMerchantItemOidPut($item, $merchant_item_oid)
 
 Update an item
 
@@ -180,14 +180,14 @@ Update a new item on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
-$item = new \\ultracart\admin\v2\models\Item(); // \\ultracart\admin\v2\models\Item | Item to create
+$api_instance = new ultracart\admin\v2\swagger\Api\ItemApi();
+$item = new \ultracart\admin\v2\models\Item(); // \ultracart\admin\v2\models\Item | Item to create
 $merchant_item_oid = 56; // int | The item oid to update.
 
 try {
@@ -203,12 +203,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item** | [**\\ultracart\admin\v2\models\Item**](../Model/\\ultracart\admin\v2\models\Item.md)| Item to create |
+ **item** | [**\ultracart\admin\v2\models\Item**](../Model/\ultracart\admin\v2\models\Item.md)| Item to create |
  **merchant_item_oid** | **int**| The item oid to update. |
 
 ### Return type
 
-[**\\ultracart\admin\v2\models\ItemResponse**](../Model/ItemResponse.md)
+[**\ultracart\admin\v2\models\ItemResponse**](../Model/ItemResponse.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **itemItemsPost**
-> \\ultracart\admin\v2\models\ItemResponse itemItemsPost($item)
+> \ultracart\admin\v2\models\ItemResponse itemItemsPost($item)
 
 Create an item
 
@@ -234,14 +234,14 @@ Create a new item on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
-$item = new \\ultracart\admin\v2\models\Item(); // \\ultracart\admin\v2\models\Item | Item to create
+$api_instance = new ultracart\admin\v2\swagger\Api\ItemApi();
+$item = new \ultracart\admin\v2\models\Item(); // \ultracart\admin\v2\models\Item | Item to create
 
 try {
     $result = $api_instance->itemItemsPost($item);
@@ -256,11 +256,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item** | [**\\ultracart\admin\v2\models\Item**](../Model/\\ultracart\admin\v2\models\Item.md)| Item to create |
+ **item** | [**\ultracart\admin\v2\models\Item**](../Model/\ultracart\admin\v2\models\Item.md)| Item to create |
 
 ### Return type
 
-[**\\ultracart\admin\v2\models\ItemResponse**](../Model/ItemResponse.md)
+[**\ultracart\admin\v2\models\ItemResponse**](../Model/ItemResponse.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **itemTempMultimediaPost**
-> \\ultracart\admin\v2\models\TempMultimediaResponse itemTempMultimediaPost($file)
+> \ultracart\admin\v2\models\TempMultimediaResponse itemTempMultimediaPost($file)
 
 Upload an image to the temporary multimedia.
 
@@ -286,13 +286,13 @@ Uploads an image and returns back meta information about the image as well as th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
+$api_instance = new ultracart\admin\v2\swagger\Api\ItemApi();
 $file = "/path/to/file.txt"; // \SplFileObject | File to upload
 
 try {
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\ultracart\admin\v2\models\TempMultimediaResponse**](../Model/TempMultimediaResponse.md)
+[**\ultracart\admin\v2\models\TempMultimediaResponse**](../Model/TempMultimediaResponse.md)
 
 ### Authorization
 

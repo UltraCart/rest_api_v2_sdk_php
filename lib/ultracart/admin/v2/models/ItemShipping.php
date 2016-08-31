@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  \ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2\swagger
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace \ultracart\admin\v2\models;
+namespace ultracart\admin\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     \ultracart\admin\v2\swagger
+ * @package     ultracart\admin\v2\swagger
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -70,7 +70,7 @@ class ItemShipping implements ArrayAccess
         'amazon_fba' => 'bool',
         'case_inner_packs' => 'int',
         'case_units' => 'int',
-        'cases' => '\\ultracart\admin\v2\models\ItemShippingCase[]',
+        'cases' => '\ultracart\admin\v2\models\ItemShippingCase[]',
         'country_of_origin' => 'string',
         'customs_description' => 'string',
         'customs_value' => 'double',
@@ -81,9 +81,9 @@ class ItemShipping implements ArrayAccess
         'delivery_on_thursday' => 'bool',
         'delivery_on_tuesday' => 'bool',
         'delivery_on_wednesday' => 'bool',
-        'destination_markups' => '\\ultracart\admin\v2\models\ItemShippingDestinationMarkup[]',
-        'destination_restrictions' => '\\ultracart\admin\v2\models\ItemShippingDestinationRestriction[]',
-        'distribution_centers' => '\\ultracart\admin\v2\models\ItemShippingDistributionCenter[]',
+        'destination_markups' => '\ultracart\admin\v2\models\ItemShippingDestinationMarkup[]',
+        'destination_restrictions' => '\ultracart\admin\v2\models\ItemShippingDestinationRestriction[]',
+        'distribution_centers' => '\ultracart\admin\v2\models\ItemShippingDistributionCenter[]',
         'eta' => 'string',
         'free_shipping' => 'bool',
         'freight_class' => 'string',
@@ -91,9 +91,9 @@ class ItemShipping implements ArrayAccess
         'made_to_order' => 'bool',
         'made_to_order_lead_time' => 'int',
         'max_days_time_in_transit' => 'int',
-        'methods' => '\\ultracart\admin\v2\models\ItemShippingMethod[]',
+        'methods' => '\ultracart\admin\v2\models\ItemShippingMethod[]',
         'no_shipping_discount' => 'bool',
-        'package_requirements' => '\\ultracart\admin\v2\models\ItemShippingPackageRequirement[]',
+        'package_requirements' => '\ultracart\admin\v2\models\ItemShippingPackageRequirement[]',
         'perishable_class_oid' => 'int',
         'preorder' => 'bool',
         'require_delivery_date' => 'bool',
@@ -105,11 +105,11 @@ class ItemShipping implements ArrayAccess
         'restrict_shipment_on_tuesday' => 'bool',
         'restrict_shipment_on_wednesday' => 'bool',
         'ship_separately' => 'bool',
-        'ship_separately_additional_weight' => '\\ultracart\admin\v2\models\Weight',
-        'ship_separately_height' => '\\ultracart\admin\v2\models\Distance',
-        'ship_separately_length' => '\\ultracart\admin\v2\models\Distance',
+        'ship_separately_additional_weight' => '\ultracart\admin\v2\models\Weight',
+        'ship_separately_height' => '\ultracart\admin\v2\models\Distance',
+        'ship_separately_length' => '\ultracart\admin\v2\models\Distance',
         'ship_separately_package_special_type' => 'string',
-        'ship_separately_width' => '\\ultracart\admin\v2\models\Distance',
+        'ship_separately_width' => '\ultracart\admin\v2\models\Distance',
         'special_product_type' => 'string',
         'track_inventory' => 'bool'
     );
@@ -466,7 +466,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets cases
-     * @return \\ultracart\admin\v2\models\ItemShippingCase[]
+     * @return \ultracart\admin\v2\models\ItemShippingCase[]
      */
     public function getCases()
     {
@@ -475,7 +475,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets cases
-     * @param \\ultracart\admin\v2\models\ItemShippingCase[] $cases
+     * @param \ultracart\admin\v2\models\ItemShippingCase[] $cases
      * @return $this
      */
     public function setCases($cases)
@@ -697,7 +697,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets destination_markups
-     * @return \\ultracart\admin\v2\models\ItemShippingDestinationMarkup[]
+     * @return \ultracart\admin\v2\models\ItemShippingDestinationMarkup[]
      */
     public function getDestinationMarkups()
     {
@@ -706,7 +706,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets destination_markups
-     * @param \\ultracart\admin\v2\models\ItemShippingDestinationMarkup[] $destination_markups
+     * @param \ultracart\admin\v2\models\ItemShippingDestinationMarkup[] $destination_markups
      * @return $this
      */
     public function setDestinationMarkups($destination_markups)
@@ -718,7 +718,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets destination_restrictions
-     * @return \\ultracart\admin\v2\models\ItemShippingDestinationRestriction[]
+     * @return \ultracart\admin\v2\models\ItemShippingDestinationRestriction[]
      */
     public function getDestinationRestrictions()
     {
@@ -727,7 +727,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets destination_restrictions
-     * @param \\ultracart\admin\v2\models\ItemShippingDestinationRestriction[] $destination_restrictions
+     * @param \ultracart\admin\v2\models\ItemShippingDestinationRestriction[] $destination_restrictions
      * @return $this
      */
     public function setDestinationRestrictions($destination_restrictions)
@@ -739,7 +739,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets distribution_centers
-     * @return \\ultracart\admin\v2\models\ItemShippingDistributionCenter[]
+     * @return \ultracart\admin\v2\models\ItemShippingDistributionCenter[]
      */
     public function getDistributionCenters()
     {
@@ -748,7 +748,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets distribution_centers
-     * @param \\ultracart\admin\v2\models\ItemShippingDistributionCenter[] $distribution_centers
+     * @param \ultracart\admin\v2\models\ItemShippingDistributionCenter[] $distribution_centers
      * @return $this
      */
     public function setDistributionCenters($distribution_centers)
@@ -907,7 +907,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets methods
-     * @return \\ultracart\admin\v2\models\ItemShippingMethod[]
+     * @return \ultracart\admin\v2\models\ItemShippingMethod[]
      */
     public function getMethods()
     {
@@ -916,7 +916,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets methods
-     * @param \\ultracart\admin\v2\models\ItemShippingMethod[] $methods
+     * @param \ultracart\admin\v2\models\ItemShippingMethod[] $methods
      * @return $this
      */
     public function setMethods($methods)
@@ -949,7 +949,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets package_requirements
-     * @return \\ultracart\admin\v2\models\ItemShippingPackageRequirement[]
+     * @return \ultracart\admin\v2\models\ItemShippingPackageRequirement[]
      */
     public function getPackageRequirements()
     {
@@ -958,7 +958,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets package_requirements
-     * @param \\ultracart\admin\v2\models\ItemShippingPackageRequirement[] $package_requirements
+     * @param \ultracart\admin\v2\models\ItemShippingPackageRequirement[] $package_requirements
      * @return $this
      */
     public function setPackageRequirements($package_requirements)
@@ -1201,7 +1201,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets ship_separately_additional_weight
-     * @return \\ultracart\admin\v2\models\Weight
+     * @return \ultracart\admin\v2\models\Weight
      */
     public function getShipSeparatelyAdditionalWeight()
     {
@@ -1210,7 +1210,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets ship_separately_additional_weight
-     * @param \\ultracart\admin\v2\models\Weight $ship_separately_additional_weight
+     * @param \ultracart\admin\v2\models\Weight $ship_separately_additional_weight
      * @return $this
      */
     public function setShipSeparatelyAdditionalWeight($ship_separately_additional_weight)
@@ -1222,7 +1222,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets ship_separately_height
-     * @return \\ultracart\admin\v2\models\Distance
+     * @return \ultracart\admin\v2\models\Distance
      */
     public function getShipSeparatelyHeight()
     {
@@ -1231,7 +1231,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets ship_separately_height
-     * @param \\ultracart\admin\v2\models\Distance $ship_separately_height
+     * @param \ultracart\admin\v2\models\Distance $ship_separately_height
      * @return $this
      */
     public function setShipSeparatelyHeight($ship_separately_height)
@@ -1243,7 +1243,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets ship_separately_length
-     * @return \\ultracart\admin\v2\models\Distance
+     * @return \ultracart\admin\v2\models\Distance
      */
     public function getShipSeparatelyLength()
     {
@@ -1252,7 +1252,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets ship_separately_length
-     * @param \\ultracart\admin\v2\models\Distance $ship_separately_length
+     * @param \ultracart\admin\v2\models\Distance $ship_separately_length
      * @return $this
      */
     public function setShipSeparatelyLength($ship_separately_length)
@@ -1285,7 +1285,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets ship_separately_width
-     * @return \\ultracart\admin\v2\models\Distance
+     * @return \ultracart\admin\v2\models\Distance
      */
     public function getShipSeparatelyWidth()
     {
@@ -1294,7 +1294,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets ship_separately_width
-     * @param \\ultracart\admin\v2\models\Distance $ship_separately_width
+     * @param \ultracart\admin\v2\models\Distance $ship_separately_width
      * @return $this
      */
     public function setShipSeparatelyWidth($ship_separately_width)
@@ -1397,10 +1397,10 @@ class ItemShipping implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

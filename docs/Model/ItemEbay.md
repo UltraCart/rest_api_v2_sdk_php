@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** |  | [optional] 
 **category_id** | **int** |  | [optional] 
-**category_specifics** | [**\\ultracart\admin\v2\models\ItemEbayCategorySpecific[]**](ItemEbayCategorySpecific.md) |  | [optional] 
+**category_specifics** | [**\ultracart\admin\v2\models\ItemEbayCategorySpecific[]**](ItemEbayCategorySpecific.md) |  | [optional] 
 **condition_description** | **string** |  | [optional] 
 **condition_id** | **int** |  | [optional] 
 **consecutive_failures** | **int** |  | [optional] 
@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 **listing_price** | **double** |  | [optional] 
 **listing_price_override** | **double** |  | [optional] 
 **listing_type** | **string** |  | [optional] 
-**marketplace_analysis** | [**\\ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis**](ItemEbayMarketPlaceAnalysis.md) |  | [optional] 
+**marketplace_analysis** | [**\ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis**](ItemEbayMarketPlaceAnalysis.md) |  | [optional] 
 **marketplace_analysis_perform** | **bool** |  | [optional] 
 **marketplace_final_value_fee_percentage** | **double** |  | [optional] 
 **marketplace_last_check_dts** | **string** |  | [optional] 

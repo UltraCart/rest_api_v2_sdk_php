@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  \ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2\swagger
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace \ultracart\admin\v2\models;
+namespace ultracart\admin\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     \ultracart\admin\v2\swagger
+ * @package     ultracart\admin\v2\swagger
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -68,7 +68,7 @@ class ItemEbay implements ArrayAccess
     protected static $swaggerTypes = array(
         'active' => 'bool',
         'category_id' => 'int',
-        'category_specifics' => '\\ultracart\admin\v2\models\ItemEbayCategorySpecific[]',
+        'category_specifics' => '\ultracart\admin\v2\models\ItemEbayCategorySpecific[]',
         'condition_description' => 'string',
         'condition_id' => 'int',
         'consecutive_failures' => 'int',
@@ -106,7 +106,7 @@ class ItemEbay implements ArrayAccess
         'listing_price' => 'double',
         'listing_price_override' => 'double',
         'listing_type' => 'string',
-        'marketplace_analysis' => '\\ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis',
+        'marketplace_analysis' => '\ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis',
         'marketplace_analysis_perform' => 'bool',
         'marketplace_final_value_fee_percentage' => 'double',
         'marketplace_last_check_dts' => 'string',
@@ -539,7 +539,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets category_specifics
-     * @return \\ultracart\admin\v2\models\ItemEbayCategorySpecific[]
+     * @return \ultracart\admin\v2\models\ItemEbayCategorySpecific[]
      */
     public function getCategorySpecifics()
     {
@@ -548,7 +548,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets category_specifics
-     * @param \\ultracart\admin\v2\models\ItemEbayCategorySpecific[] $category_specifics
+     * @param \ultracart\admin\v2\models\ItemEbayCategorySpecific[] $category_specifics
      * @return $this
      */
     public function setCategorySpecifics($category_specifics)
@@ -1337,7 +1337,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_analysis
-     * @return \\ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis
+     * @return \ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis
      */
     public function getMarketplaceAnalysis()
     {
@@ -1346,7 +1346,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_analysis
-     * @param \\ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis $marketplace_analysis
+     * @param \ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis $marketplace_analysis
      * @return $this
      */
     public function setMarketplaceAnalysis($marketplace_analysis)
@@ -1995,10 +1995,10 @@ class ItemEbay implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

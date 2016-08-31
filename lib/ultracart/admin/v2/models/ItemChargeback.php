@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  \ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2\swagger
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace \ultracart\admin\v2\models;
+namespace ultracart\admin\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     \ultracart\admin\v2\swagger
+ * @package     ultracart\admin\v2\swagger
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,8 +66,8 @@ class ItemChargeback implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'addendums' => '\\ultracart\admin\v2\models\ItemChargebackAddendum[]',
-        'adjustment_requests' => '\\ultracart\admin\v2\models\ItemChargebackAdjustmentRequest[]'
+        'addendums' => '\ultracart\admin\v2\models\ItemChargebackAddendum[]',
+        'adjustment_requests' => '\ultracart\admin\v2\models\ItemChargebackAdjustmentRequest[]'
     );
 
     public static function swaggerTypes()
@@ -162,7 +162,7 @@ class ItemChargeback implements ArrayAccess
 
     /**
      * Gets addendums
-     * @return \\ultracart\admin\v2\models\ItemChargebackAddendum[]
+     * @return \ultracart\admin\v2\models\ItemChargebackAddendum[]
      */
     public function getAddendums()
     {
@@ -171,7 +171,7 @@ class ItemChargeback implements ArrayAccess
 
     /**
      * Sets addendums
-     * @param \\ultracart\admin\v2\models\ItemChargebackAddendum[] $addendums
+     * @param \ultracart\admin\v2\models\ItemChargebackAddendum[] $addendums
      * @return $this
      */
     public function setAddendums($addendums)
@@ -183,7 +183,7 @@ class ItemChargeback implements ArrayAccess
 
     /**
      * Gets adjustment_requests
-     * @return \\ultracart\admin\v2\models\ItemChargebackAdjustmentRequest[]
+     * @return \ultracart\admin\v2\models\ItemChargebackAdjustmentRequest[]
      */
     public function getAdjustmentRequests()
     {
@@ -192,7 +192,7 @@ class ItemChargeback implements ArrayAccess
 
     /**
      * Sets adjustment_requests
-     * @param \\ultracart\admin\v2\models\ItemChargebackAdjustmentRequest[] $adjustment_requests
+     * @param \ultracart\admin\v2\models\ItemChargebackAdjustmentRequest[] $adjustment_requests
      * @return $this
      */
     public function setAdjustmentRequests($adjustment_requests)
@@ -253,10 +253,10 @@ class ItemChargeback implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

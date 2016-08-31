@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **cogs** | **double** |  | [optional] 
 **final_value_fee** | **double** |  | [optional] 
 **minimum_advertised_price** | **double** |  | [optional] 
-**other_listings** | [**\\ultracart\admin\v2\models\ItemEbayMarketListing[]**](ItemEbayMarketListing.md) |  | [optional] 
-**our_listing** | [**\\ultracart\admin\v2\models\ItemEbayMarketListing**](ItemEbayMarketListing.md) |  | [optional] 
+**other_listings** | [**\ultracart\admin\v2\models\ItemEbayMarketListing[]**](ItemEbayMarketListing.md) |  | [optional] 
+**our_listing** | [**\ultracart\admin\v2\models\ItemEbayMarketListing**](ItemEbayMarketListing.md) |  | [optional] 
 **overhead** | **double** |  | [optional] 
 **profit_potential** | **double** |  | [optional] 
 

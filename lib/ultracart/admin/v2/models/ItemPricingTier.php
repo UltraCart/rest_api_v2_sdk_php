@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  \ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2\swagger
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace \ultracart\admin\v2\models;
+namespace ultracart\admin\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     \ultracart\admin\v2\swagger
+ * @package     ultracart\admin\v2\swagger
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,8 +67,8 @@ class ItemPricingTier implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'default_tier' => 'bool',
-        'discounts' => '\\ultracart\admin\v2\models\ItemPricingTierDiscount[]',
-        'limit' => '\\ultracart\admin\v2\models\ItemPricingTierLimit',
+        'discounts' => '\ultracart\admin\v2\models\ItemPricingTierDiscount[]',
+        'limit' => '\ultracart\admin\v2\models\ItemPricingTierLimit',
         'name' => 'string',
         'pricing_tier_oid' => 'int'
     );
@@ -198,7 +198,7 @@ class ItemPricingTier implements ArrayAccess
 
     /**
      * Gets discounts
-     * @return \\ultracart\admin\v2\models\ItemPricingTierDiscount[]
+     * @return \ultracart\admin\v2\models\ItemPricingTierDiscount[]
      */
     public function getDiscounts()
     {
@@ -207,7 +207,7 @@ class ItemPricingTier implements ArrayAccess
 
     /**
      * Sets discounts
-     * @param \\ultracart\admin\v2\models\ItemPricingTierDiscount[] $discounts
+     * @param \ultracart\admin\v2\models\ItemPricingTierDiscount[] $discounts
      * @return $this
      */
     public function setDiscounts($discounts)
@@ -219,7 +219,7 @@ class ItemPricingTier implements ArrayAccess
 
     /**
      * Gets limit
-     * @return \\ultracart\admin\v2\models\ItemPricingTierLimit
+     * @return \ultracart\admin\v2\models\ItemPricingTierLimit
      */
     public function getLimit()
     {
@@ -228,7 +228,7 @@ class ItemPricingTier implements ArrayAccess
 
     /**
      * Sets limit
-     * @param \\ultracart\admin\v2\models\ItemPricingTierLimit $limit
+     * @param \ultracart\admin\v2\models\ItemPricingTierLimit $limit
      * @return $this
      */
     public function setLimit($limit)
@@ -331,10 +331,10 @@ class ItemPricingTier implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

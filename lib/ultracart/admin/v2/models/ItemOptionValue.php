@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  \ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2\swagger
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace \ultracart\admin\v2\models;
+namespace ultracart\admin\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     \ultracart\admin\v2\swagger
+ * @package     ultracart\admin\v2\swagger
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,20 +67,20 @@ class ItemOptionValue implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'additional_dimension_application' => 'string',
-        'additional_items' => '\\ultracart\admin\v2\models\ItemOptionValueAdditionalItem[]',
+        'additional_items' => '\ultracart\admin\v2\models\ItemOptionValueAdditionalItem[]',
         'cost_change' => 'double',
         'default_value' => 'bool',
-        'digital_items' => '\\ultracart\admin\v2\models\ItemOptionValueDigitalItem[]',
-        'height' => '\\ultracart\admin\v2\models\Distance',
-        'length' => '\\ultracart\admin\v2\models\Distance',
+        'digital_items' => '\ultracart\admin\v2\models\ItemOptionValueDigitalItem[]',
+        'height' => '\ultracart\admin\v2\models\Distance',
+        'length' => '\ultracart\admin\v2\models\Distance',
         'merchant_item_multimedia_oid' => 'int',
         'option_value_oid' => 'int',
         'percent_cost_change' => 'double',
         'translated_text_instance_oid' => 'int',
         'value' => 'string',
-        'weight_change' => '\\ultracart\admin\v2\models\Weight',
+        'weight_change' => '\ultracart\admin\v2\models\Weight',
         'weight_change_percent' => 'double',
-        'width' => '\\ultracart\admin\v2\models\Distance'
+        'width' => '\ultracart\admin\v2\models\Distance'
     );
 
     public static function swaggerTypes()
@@ -248,7 +248,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets additional_items
-     * @return \\ultracart\admin\v2\models\ItemOptionValueAdditionalItem[]
+     * @return \ultracart\admin\v2\models\ItemOptionValueAdditionalItem[]
      */
     public function getAdditionalItems()
     {
@@ -257,7 +257,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets additional_items
-     * @param \\ultracart\admin\v2\models\ItemOptionValueAdditionalItem[] $additional_items
+     * @param \ultracart\admin\v2\models\ItemOptionValueAdditionalItem[] $additional_items
      * @return $this
      */
     public function setAdditionalItems($additional_items)
@@ -311,7 +311,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets digital_items
-     * @return \\ultracart\admin\v2\models\ItemOptionValueDigitalItem[]
+     * @return \ultracart\admin\v2\models\ItemOptionValueDigitalItem[]
      */
     public function getDigitalItems()
     {
@@ -320,7 +320,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets digital_items
-     * @param \\ultracart\admin\v2\models\ItemOptionValueDigitalItem[] $digital_items
+     * @param \ultracart\admin\v2\models\ItemOptionValueDigitalItem[] $digital_items
      * @return $this
      */
     public function setDigitalItems($digital_items)
@@ -332,7 +332,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets height
-     * @return \\ultracart\admin\v2\models\Distance
+     * @return \ultracart\admin\v2\models\Distance
      */
     public function getHeight()
     {
@@ -341,7 +341,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets height
-     * @param \\ultracart\admin\v2\models\Distance $height
+     * @param \ultracart\admin\v2\models\Distance $height
      * @return $this
      */
     public function setHeight($height)
@@ -353,7 +353,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets length
-     * @return \\ultracart\admin\v2\models\Distance
+     * @return \ultracart\admin\v2\models\Distance
      */
     public function getLength()
     {
@@ -362,7 +362,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets length
-     * @param \\ultracart\admin\v2\models\Distance $length
+     * @param \ultracart\admin\v2\models\Distance $length
      * @return $this
      */
     public function setLength($length)
@@ -479,7 +479,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets weight_change
-     * @return \\ultracart\admin\v2\models\Weight
+     * @return \ultracart\admin\v2\models\Weight
      */
     public function getWeightChange()
     {
@@ -488,7 +488,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets weight_change
-     * @param \\ultracart\admin\v2\models\Weight $weight_change
+     * @param \ultracart\admin\v2\models\Weight $weight_change
      * @return $this
      */
     public function setWeightChange($weight_change)
@@ -521,7 +521,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets width
-     * @return \\ultracart\admin\v2\models\Distance
+     * @return \ultracart\admin\v2\models\Distance
      */
     public function getWidth()
     {
@@ -530,7 +530,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets width
-     * @param \\ultracart\admin\v2\models\Distance $width
+     * @param \ultracart\admin\v2\models\Distance $width
      * @return $this
      */
     public function setWidth($width)
@@ -591,10 +591,10 @@ class ItemOptionValue implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

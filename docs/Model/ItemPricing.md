@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **sale_cost** | **double** |  | [optional] 
 **sale_end** | **string** |  | [optional] 
 **sale_start** | **string** |  | [optional] 
-**tiers** | [**\\ultracart\admin\v2\models\ItemPricingTier[]**](ItemPricingTier.md) |  | [optional] 
+**tiers** | [**\ultracart\admin\v2\models\ItemPricingTier[]**](ItemPricingTier.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

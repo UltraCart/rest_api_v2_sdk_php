@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  \ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2\swagger
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace \ultracart\admin\v2\models;
+namespace ultracart\admin\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     \ultracart\admin\v2\swagger
+ * @package     ultracart\admin\v2\swagger
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -77,7 +77,7 @@ class ItemContentMultimedia implements ArrayAccess
         'orphan' => 'bool',
         'placeholder' => 'bool',
         'temp_multimedia_oid' => 'int',
-        'thumbnails' => '\\ultracart\admin\v2\models\ItemContentMultimediaThumbnail[]',
+        'thumbnails' => '\ultracart\admin\v2\models\ItemContentMultimediaThumbnail[]',
         'type' => 'string',
         'url' => 'string',
         'width' => 'int'
@@ -458,7 +458,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Gets thumbnails
-     * @return \\ultracart\admin\v2\models\ItemContentMultimediaThumbnail[]
+     * @return \ultracart\admin\v2\models\ItemContentMultimediaThumbnail[]
      */
     public function getThumbnails()
     {
@@ -467,7 +467,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets thumbnails
-     * @param \\ultracart\admin\v2\models\ItemContentMultimediaThumbnail[] $thumbnails
+     * @param \ultracart\admin\v2\models\ItemContentMultimediaThumbnail[] $thumbnails
      * @return $this
      */
     public function setThumbnails($thumbnails)
@@ -591,10 +591,10 @@ class ItemContentMultimedia implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

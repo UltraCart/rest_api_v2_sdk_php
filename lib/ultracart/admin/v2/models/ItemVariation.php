@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  \ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2\swagger
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace \ultracart\admin\v2\models;
+namespace ultracart\admin\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     \ultracart\admin\v2\swagger
+ * @package     ultracart\admin\v2\swagger
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -70,7 +70,7 @@ class ItemVariation implements ArrayAccess
         'default_text_translated_text_instance_oid' => 'int',
         'name' => 'string',
         'name_translated_text_instance_oid' => 'int',
-        'options' => '\\ultracart\admin\v2\models\ItemVariationOption[]'
+        'options' => '\ultracart\admin\v2\models\ItemVariationOption[]'
     );
 
     public static function swaggerTypes()
@@ -261,7 +261,7 @@ class ItemVariation implements ArrayAccess
 
     /**
      * Gets options
-     * @return \\ultracart\admin\v2\models\ItemVariationOption[]
+     * @return \ultracart\admin\v2\models\ItemVariationOption[]
      */
     public function getOptions()
     {
@@ -270,7 +270,7 @@ class ItemVariation implements ArrayAccess
 
     /**
      * Sets options
-     * @param \\ultracart\admin\v2\models\ItemVariationOption[] $options
+     * @param \ultracart\admin\v2\models\ItemVariationOption[] $options
      * @return $this
      */
     public function setOptions($options)
@@ -331,10 +331,10 @@ class ItemVariation implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **default_tier** | **bool** |  | [optional] 
-**discounts** | [**\\ultracart\admin\v2\models\ItemPricingTierDiscount[]**](ItemPricingTierDiscount.md) |  | [optional] 
-**limit** | [**\\ultracart\admin\v2\models\ItemPricingTierLimit**](ItemPricingTierLimit.md) |  | [optional] 
+**discounts** | [**\ultracart\admin\v2\models\ItemPricingTierDiscount[]**](ItemPricingTierDiscount.md) |  | [optional] 
+**limit** | [**\ultracart\admin\v2\models\ItemPricingTierLimit**](ItemPricingTierLimit.md) |  | [optional] 
 **name** | **string** |  | [optional] 
 **pricing_tier_oid** | **int** |  | [optional] 
 

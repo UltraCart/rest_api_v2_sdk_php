@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  \ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2\swagger
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace \ultracart\admin\v2\models;
+namespace ultracart\admin\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     \ultracart\admin\v2\swagger
+ * @package     ultracart\admin\v2\swagger
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,7 +66,7 @@ class ItemTax implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'exemptions' => '\\ultracart\admin\v2\models\ItemTaxExemption[]',
+        'exemptions' => '\ultracart\admin\v2\models\ItemTaxExemption[]',
         'tax_free' => 'bool',
         'taxable_cost' => 'double'
     );
@@ -167,7 +167,7 @@ class ItemTax implements ArrayAccess
 
     /**
      * Gets exemptions
-     * @return \\ultracart\admin\v2\models\ItemTaxExemption[]
+     * @return \ultracart\admin\v2\models\ItemTaxExemption[]
      */
     public function getExemptions()
     {
@@ -176,7 +176,7 @@ class ItemTax implements ArrayAccess
 
     /**
      * Sets exemptions
-     * @param \\ultracart\admin\v2\models\ItemTaxExemption[] $exemptions
+     * @param \ultracart\admin\v2\models\ItemTaxExemption[] $exemptions
      * @return $this
      */
     public function setExemptions($exemptions)
@@ -279,10 +279,10 @@ class ItemTax implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\admin\v2\swagger\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

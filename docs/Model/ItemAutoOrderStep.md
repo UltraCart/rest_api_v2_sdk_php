@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **arbitrary_schedule_days** | **int** |  | [optional] 
 **arbitrary_unit_cost** | **double** |  | [optional] 
-**arbitrary_unit_cost_schedules** | [**\\ultracart\admin\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]**](ItemAutoOrderStepArbitraryUnitCostSchedule.md) |  | [optional] 
-**grandfather_pricing** | [**\\ultracart\admin\v2\models\ItemAutoOrderStepGrandfatherPricing[]**](ItemAutoOrderStepGrandfatherPricing.md) |  | [optional] 
+**arbitrary_unit_cost_schedules** | [**\ultracart\admin\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]**](ItemAutoOrderStepArbitraryUnitCostSchedule.md) |  | [optional] 
+**grandfather_pricing** | [**\ultracart\admin\v2\models\ItemAutoOrderStepGrandfatherPricing[]**](ItemAutoOrderStepGrandfatherPricing.md) |  | [optional] 
 **managed_by** | **string** |  | [optional] 
 **pause_days** | **int** |  | [optional] 
 **pause_unit_date** | **string** |  | [optional] 

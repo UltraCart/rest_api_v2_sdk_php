@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **orphan** | **bool** |  | [optional] 
 **placeholder** | **bool** |  | [optional] 
 **temp_multimedia_oid** | **int** |  | [optional] 
-**thumbnails** | [**\\ultracart\admin\v2\models\ItemContentMultimediaThumbnail[]**](ItemContentMultimediaThumbnail.md) |  | [optional] 
+**thumbnails** | [**\ultracart\admin\v2\models\ItemContentMultimediaThumbnail[]**](ItemContentMultimediaThumbnail.md) |  | [optional] 
 **type** | **string** |  | [optional] 
 **url** | **string** |  | [optional] 
 **width** | **int** |  | [optional] 
