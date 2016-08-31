@@ -1,6 +1,6 @@
 # \ultracart\admin\v2\swagger\ItemApi
 
-All URIs are relative to *https://localhost/rest/admin/v2*
+All URIs are relative to *https://secure.ultracart.com/rest/admin/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

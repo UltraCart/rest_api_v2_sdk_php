@@ -73,7 +73,7 @@ class ItemApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://localhost/rest/admin/v2');
+            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest/admin/v2');
         }
 
         $this->apiClient = $apiClient;
