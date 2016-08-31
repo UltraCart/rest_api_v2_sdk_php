@@ -26,10 +26,10 @@
  * An example of a project-specific implementation.
  *
  * After registering this autoload function with SPL, the following line
- * would cause the function to attempt to load the \ultracart\admin\v2\swagger\Baz\Qux class
+ * would cause the function to attempt to load the \ultracart\admin\v2\Baz\Qux class
  * from /path/to/project/lib/Baz/Qux.php:
  *
- *      new \ultracart\admin\v2\swagger\Baz\Qux;
+ *      new \ultracart\admin\v2\Baz\Qux;
  *
  * @param string $class The fully-qualified class name.
  *
@@ -38,7 +38,7 @@
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    $prefix = 'ultracart\\admin\\v2\\swagger\\';
+    $prefix = 'ultracart\\admin\\v2\\';
 
     // base directory for the namespace prefix
     $base_dir = __DIR__ . '/lib/';

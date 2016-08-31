@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,14 +38,14 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\swagger;
+namespace ultracart\admin\v2;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2\swagger
+ * @package  ultracart\admin\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -93,7 +93,7 @@ class Configuration
     /**
      * The default instance of ApiClient
      *
-     * @var \ultracart\admin\v2\swagger\ApiClient
+     * @var \ultracart\admin\v2\ApiClient
      */
     protected $defaultHeaders = array();
 
@@ -519,7 +519,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (ultracart\admin\v2\swagger) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (ultracart\admin\v2) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . phpversion() . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 2.0.0' . PHP_EOL;
