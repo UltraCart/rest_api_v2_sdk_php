@@ -159,11 +159,6 @@ class ItemApi
             $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
         }
         // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-public-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-public-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
         if (strlen($apiKey) !== 0) {
             $headerParams['x-ultracart-simple-key'] = $apiKey;
@@ -278,11 +273,6 @@ class ItemApi
             $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
         }
         // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-public-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-public-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
         if (strlen($apiKey) !== 0) {
             $headerParams['x-ultracart-simple-key'] = $apiKey;
@@ -391,11 +381,6 @@ class ItemApi
         // this endpoint requires OAuth (access token)
         if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
             $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-public-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-public-key'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
@@ -523,11 +508,6 @@ class ItemApi
             $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
         }
         // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-public-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-public-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
         if (strlen($apiKey) !== 0) {
             $headerParams['x-ultracart-simple-key'] = $apiKey;
@@ -637,11 +617,6 @@ class ItemApi
         // this endpoint requires OAuth (access token)
         if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
             $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-public-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-public-key'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
@@ -758,11 +733,6 @@ class ItemApi
         // this endpoint requires OAuth (access token)
         if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
             $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-public-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-public-key'] = $apiKey;
         }
         // this endpoint requires API key authentication
         $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');

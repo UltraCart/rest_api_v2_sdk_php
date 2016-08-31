@@ -26,10 +26,6 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartPublicApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-public-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-public-key', 'Bearer');
 // Configure API key authorization: ultraCartSimpleApiKey
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -59,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartPublicApiKey](../../README.md#ultraCartPublicApiKey), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -82,10 +78,6 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartPublicApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-public-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-public-key', 'Bearer');
 // Configure API key authorization: ultraCartSimpleApiKey
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -114,7 +106,7 @@ void (empty response body)
 
 ### Authorization
 
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartPublicApiKey](../../README.md#ultraCartPublicApiKey), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -137,10 +129,6 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartPublicApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-public-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-public-key', 'Bearer');
 // Configure API key authorization: ultraCartSimpleApiKey
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -170,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartPublicApiKey](../../README.md#ultraCartPublicApiKey), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -193,10 +181,6 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartPublicApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-public-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-public-key', 'Bearer');
 // Configure API key authorization: ultraCartSimpleApiKey
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -228,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartPublicApiKey](../../README.md#ultraCartPublicApiKey), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -251,10 +235,6 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartPublicApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-public-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-public-key', 'Bearer');
 // Configure API key authorization: ultraCartSimpleApiKey
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -284,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartPublicApiKey](../../README.md#ultraCartPublicApiKey), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -307,10 +287,6 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartPublicApiKey
-\ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-public-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-public-key', 'Bearer');
 // Configure API key authorization: ultraCartSimpleApiKey
 \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -340,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartPublicApiKey](../../README.md#ultraCartPublicApiKey), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
