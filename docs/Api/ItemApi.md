@@ -1,15 +1,15 @@
-# \ultracart\admin\v2\swagger\DefaultApi
+# \ultracart\admin\v2\swagger\ItemApi
 
 All URIs are relative to *https://localhost/rest/admin/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**itemItemsGet**](DefaultApi.md#itemItemsGet) | **GET** /item/items | Retrieve items
-[**itemItemsMerchantItemOidDelete**](DefaultApi.md#itemItemsMerchantItemOidDelete) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
-[**itemItemsMerchantItemOidGet**](DefaultApi.md#itemItemsMerchantItemOidGet) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
-[**itemItemsMerchantItemOidPut**](DefaultApi.md#itemItemsMerchantItemOidPut) | **PUT** /item/items/{merchant_item_oid} | Update an item
-[**itemItemsPost**](DefaultApi.md#itemItemsPost) | **POST** /item/items | Create an item
-[**itemTempMultimediaPost**](DefaultApi.md#itemTempMultimediaPost) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
+[**itemItemsGet**](ItemApi.md#itemItemsGet) | **GET** /item/items | Retrieve items
+[**itemItemsMerchantItemOidDelete**](ItemApi.md#itemItemsMerchantItemOidDelete) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**itemItemsMerchantItemOidGet**](ItemApi.md#itemItemsMerchantItemOidGet) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
+[**itemItemsMerchantItemOidPut**](ItemApi.md#itemItemsMerchantItemOidPut) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**itemItemsPost**](ItemApi.md#itemItemsPost) | **POST** /item/items | Create an item
+[**itemTempMultimediaPost**](ItemApi.md#itemTempMultimediaPost) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
 # **itemItemsGet**
@@ -35,14 +35,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\DefaultApi();
+$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
 $parent_category_id = 56; // int | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root
 
 try {
     $result = $api_instance->itemItemsGet($parent_category_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->itemItemsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->itemItemsGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -91,13 +91,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\DefaultApi();
+$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
 $merchant_item_oid = 56; // int | The item oid to delete.
 
 try {
     $api_instance->itemItemsMerchantItemOidDelete($merchant_item_oid);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->itemItemsMerchantItemOidDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->itemItemsMerchantItemOidDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -146,14 +146,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\DefaultApi();
+$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
 $merchant_item_oid = 56; // int | The item oid to retrieve.
 
 try {
     $result = $api_instance->itemItemsMerchantItemOidGet($merchant_item_oid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->itemItemsMerchantItemOidGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->itemItemsMerchantItemOidGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -202,7 +202,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\DefaultApi();
+$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
 $item = new \\ultracart\admin\v2\models\Item(); // \\ultracart\admin\v2\models\Item | Item to create
 $merchant_item_oid = 56; // int | The item oid to update.
 
@@ -210,7 +210,7 @@ try {
     $result = $api_instance->itemItemsMerchantItemOidPut($item, $merchant_item_oid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->itemItemsMerchantItemOidPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->itemItemsMerchantItemOidPut: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -260,14 +260,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\DefaultApi();
+$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
 $item = new \\ultracart\admin\v2\models\Item(); // \\ultracart\admin\v2\models\Item | Item to create
 
 try {
     $result = $api_instance->itemItemsPost($item);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->itemItemsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->itemItemsPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -316,14 +316,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // \ultracart\admin\v2\swagger\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new \ultracart\admin\v2\swagger\Api\DefaultApi();
+$api_instance = new \ultracart\admin\v2\swagger\Api\ItemApi();
 $file = "/path/to/file.txt"; // \SplFileObject | File to upload
 
 try {
     $result = $api_instance->itemTempMultimediaPost($file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->itemTempMultimediaPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->itemTempMultimediaPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

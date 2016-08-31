@@ -1,6 +1,6 @@
 <?php
 /**
- * DefaultApi
+ * ItemApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \\ultracart\admin\v2\swagger\ApiException;
 use \\ultracart\admin\v2\swagger\ObjectSerializer;
 
 /**
- * DefaultApi Class Doc Comment
+ * ItemApi Class Doc Comment
  *
  * @category Class
  * @package  \ultracart\admin\v2\swagger
@@ -54,7 +54,7 @@ use \\ultracart\admin\v2\swagger\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DefaultApi
+class ItemApi
 {
 
     /**
@@ -94,7 +94,7 @@ class DefaultApi
      *
      * @param \\ultracart\admin\v2\swagger\ApiClient $apiClient set the API client
      *
-     * @return DefaultApi
+     * @return ItemApi
      */
     public function setApiClient(\\ultracart\admin\v2\swagger\ApiClient $apiClient)
     {

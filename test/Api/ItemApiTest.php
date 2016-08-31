@@ -1,6 +1,6 @@
 <?php
 /**
- * DefaultApiTest
+ * ItemApiTest
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \\ultracart\admin\v2\swagger\ApiException;
 use \\ultracart\admin\v2\swagger\ObjectSerializer;
 
 /**
- * DefaultApiTest Class Doc Comment
+ * ItemApiTest Class Doc Comment
  *
  * @category Class
  * @package  \ultracart\admin\v2\swagger
@@ -54,7 +54,7 @@ use \\ultracart\admin\v2\swagger\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DefaultApiTest extends \PHPUnit_Framework_TestCase
+class ItemApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
