@@ -208,7 +208,7 @@ class WebhookApi
      * Add a webhook
      *
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to create (required)
-     * @return \ultracart\admin\v2\models\WebhooksResponse
+     * @return \ultracart\admin\v2\models\WebhookResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
     public function webhookWebhooksPost($webhook)
@@ -223,7 +223,7 @@ class WebhookApi
      * Add a webhook
      *
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to create (required)
-     * @return Array of \ultracart\admin\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \ultracart\admin\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
     public function webhookWebhooksPostWithHttpInfo($webhook)
@@ -276,15 +276,15 @@ class WebhookApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\WebhooksResponse',
+                '\ultracart\admin\v2\models\WebhookResponse',
                 '/webhook/webhooks'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhooksResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhookResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\WebhooksResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\WebhookResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -672,7 +672,7 @@ class WebhookApi
      *
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to update (required)
      * @param int $webhook_oid The webhook oid to update. (required)
-     * @return \ultracart\admin\v2\models\WebhooksResponse
+     * @return \ultracart\admin\v2\models\WebhookResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
     public function webhookWebhooksWebhookOidPut($webhook, $webhook_oid)
@@ -688,7 +688,7 @@ class WebhookApi
      *
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to update (required)
      * @param int $webhook_oid The webhook oid to update. (required)
-     * @return Array of \ultracart\admin\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \ultracart\admin\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
     public function webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid)
@@ -753,15 +753,15 @@ class WebhookApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\WebhooksResponse',
+                '\ultracart\admin\v2\models\WebhookResponse',
                 '/webhook/webhooks/{webhookOid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhooksResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhookResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\WebhooksResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\WebhookResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

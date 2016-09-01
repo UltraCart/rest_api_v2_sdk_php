@@ -64,7 +64,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksPost**
-> \ultracart\admin\v2\models\WebhooksResponse webhookWebhooksPost($webhook)
+> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksPost($webhook)
 
 Add a webhook
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\WebhooksResponse**](../Model/WebhooksResponse.md)
+[**\ultracart\admin\v2\models\WebhookResponse**](../Model/WebhookResponse.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksWebhookOidPut**
-> \ultracart\admin\v2\models\WebhooksResponse webhookWebhooksWebhookOidPut($webhook, $webhook_oid)
+> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksWebhookOidPut($webhook, $webhook_oid)
 
 Update a webhook
 
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\WebhooksResponse**](../Model/WebhooksResponse.md)
+[**\ultracart\admin\v2\models\WebhookResponse**](../Model/WebhookResponse.md)
 
 ### Authorization
 
