@@ -108,12 +108,18 @@ class ItemApi
      * Retrieve items
      *
      * @param int $parent_category_id The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param int $_limit The maximum number of records to return on this one API call. (optional)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional)
+     * @param string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param string $_sort The sort order of the items.  See documentation for examples (optional)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return \ultracart\admin\v2\models\ItemsResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function itemItemsGet($parent_category_id = null)
+    public function itemItemsGet($parent_category_id = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->itemItemsGetWithHttpInfo($parent_category_id);
+        list($response) = $this->itemItemsGetWithHttpInfo($parent_category_id, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
         return $response;
     }
 
@@ -123,10 +129,16 @@ class ItemApi
      * Retrieve items
      *
      * @param int $parent_category_id The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param int $_limit The maximum number of records to return on this one API call. (optional)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional)
+     * @param string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param string $_sort The sort order of the items.  See documentation for examples (optional)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return Array of \ultracart\admin\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function itemItemsGetWithHttpInfo($parent_category_id = null)
+    public function itemItemsGetWithHttpInfo($parent_category_id = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
         // parse inputs
         $resourcePath = "/item/items";
@@ -143,6 +155,30 @@ class ItemApi
         // query params
         if ($parent_category_id !== null) {
             $queryParams['parent_category_id'] = $this->apiClient->getSerializer()->toQueryValue($parent_category_id);
+        }
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = $this->apiClient->getSerializer()->toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = $this->apiClient->getSerializer()->toQueryValue($_offset);
+        }
+        // query params
+        if ($_since !== null) {
+            $queryParams['_since'] = $this->apiClient->getSerializer()->toQueryValue($_since);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = $this->apiClient->getSerializer()->toQueryValue($_sort);
+        }
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -324,12 +360,14 @@ class ItemApi
      * Retrieve an item
      *
      * @param int $merchant_item_oid The item oid to retrieve. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return \ultracart\admin\v2\models\ItemResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function itemItemsMerchantItemOidGet($merchant_item_oid)
+    public function itemItemsMerchantItemOidGet($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->itemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid);
+        list($response) = $this->itemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid, $_expand, $_placeholders);
         return $response;
     }
 
@@ -339,10 +377,12 @@ class ItemApi
      * Retrieve an item
      *
      * @param int $merchant_item_oid The item oid to retrieve. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return Array of \ultracart\admin\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function itemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid)
+    public function itemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
         // verify the required parameter 'merchant_item_oid' is set
         if ($merchant_item_oid === null) {
@@ -360,6 +400,14 @@ class ItemApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
+        }
         // path params
         if ($merchant_item_oid !== null) {
             $resourcePath = str_replace(
