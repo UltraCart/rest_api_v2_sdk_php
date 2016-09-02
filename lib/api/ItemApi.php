@@ -107,8 +107,8 @@ class ItemApi
      *
      * Retrieve items
      *
-     * @param string $x_ultracart_api_version API version (required)
      * @param int $parent_category_id The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param string $x_ultracart_api_version API version (optional, default to 2.0.0)
      * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param string $_since Fetch items that have been created/modified since this date/time. (optional)
@@ -118,9 +118,9 @@ class ItemApi
      * @return \ultracart\admin\v2\models\ItemsResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function itemItemsGet($x_ultracart_api_version, $parent_category_id = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function itemItemsGet($parent_category_id = null, $x_ultracart_api_version = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->itemItemsGetWithHttpInfo($x_ultracart_api_version, $parent_category_id, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+        list($response) = $this->itemItemsGetWithHttpInfo($parent_category_id, $x_ultracart_api_version, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
         return $response;
     }
 
@@ -129,8 +129,8 @@ class ItemApi
      *
      * Retrieve items
      *
-     * @param string $x_ultracart_api_version API version (required)
      * @param int $parent_category_id The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param string $x_ultracart_api_version API version (optional, default to 2.0.0)
      * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
      * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param string $_since Fetch items that have been created/modified since this date/time. (optional)
@@ -140,12 +140,8 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function itemItemsGetWithHttpInfo($x_ultracart_api_version, $parent_category_id = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function itemItemsGetWithHttpInfo($parent_category_id = null, $x_ultracart_api_version = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
-        // verify the required parameter 'x_ultracart_api_version' is set
-        if ($x_ultracart_api_version === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $x_ultracart_api_version when calling itemItemsGet');
-        }
         // parse inputs
         $resourcePath = "/item/items";
         $httpBody = '';
