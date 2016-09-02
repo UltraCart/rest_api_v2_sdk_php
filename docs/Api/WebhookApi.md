@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **webhookWebhooksGet**
-> \ultracart\admin\v2\models\WebhooksResponse webhookWebhooksGet($_version)
+> \ultracart\admin\v2\models\WebhooksResponse webhookWebhooksGet()
 
 Retrieve webhooks
 
@@ -35,10 +35,9 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 // ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\admin\v2\Api\WebhookApi();
-$_version = "2.0"; // string | API version
 
 try {
-    $result = $api_instance->webhookWebhooksGet($_version);
+    $result = $api_instance->webhookWebhooksGet();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookWebhooksGet: ', $e->getMessage(), PHP_EOL;
@@ -47,10 +46,7 @@ try {
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_version** | **string**| API version | [default to 2.0]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -68,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksPost**
-> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksPost($_version, $webhook)
+> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksPost($webhook)
 
 Add a webhook
 
@@ -87,11 +83,10 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 // ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\admin\v2\Api\WebhookApi();
-$_version = "2.0"; // string | API version
 $webhook = new \ultracart\admin\v2\models\Webhook(); // \ultracart\admin\v2\models\Webhook | Webhook to create
 
 try {
-    $result = $api_instance->webhookWebhooksPost($_version, $webhook);
+    $result = $api_instance->webhookWebhooksPost($webhook);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookWebhooksPost: ', $e->getMessage(), PHP_EOL;
@@ -103,7 +98,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **_version** | **string**| API version | [default to 2.0]
  **webhook** | [**\ultracart\admin\v2\models\Webhook**](../Model/\ultracart\admin\v2\models\Webhook.md)| Webhook to create |
 
 ### Return type
