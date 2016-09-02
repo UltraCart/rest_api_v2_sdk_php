@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **itemItemsGet**
-> \ultracart\admin\v2\models\ItemsResponse itemItemsGet($parent_category_id, $_version, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
+> \ultracart\admin\v2\models\ItemsResponse itemItemsGet($parent_category_id, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
 
 Retrieve items
 
@@ -33,7 +33,6 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 
 $api_instance = new ultracart\admin\v2\Api\ItemApi();
 $parent_category_id = 56; // int | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root
-$_version = "2.0.0"; // string | API version
 $_limit = 100; // int | The maximum number of records to return on this one API call.
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_since = "_since_example"; // string | Fetch items that have been created/modified since this date/time.
@@ -42,7 +41,7 @@ $_expand = "_expand_example"; // string | The object expansion to perform on the
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->itemItemsGet($parent_category_id, $_version, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+    $result = $api_instance->itemItemsGet($parent_category_id, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->itemItemsGet: ', $e->getMessage(), PHP_EOL;
@@ -55,7 +54,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **parent_category_id** | **int**| The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional]
- **_version** | **string**| API version | [optional] [default to 2.0.0]
  **_limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_since** | **string**| Fetch items that have been created/modified since this date/time. | [optional]

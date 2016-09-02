@@ -107,12 +107,13 @@ class WebhookApi
      *
      * Retrieve webhooks
      *
+     * @param string $_version API version (required)
      * @return \ultracart\admin\v2\models\WebhooksResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksGet()
+    public function webhookWebhooksGet($_version)
     {
-        list($response) = $this->webhookWebhooksGetWithHttpInfo();
+        list($response) = $this->webhookWebhooksGetWithHttpInfo($_version);
         return $response;
     }
 
@@ -121,11 +122,16 @@ class WebhookApi
      *
      * Retrieve webhooks
      *
+     * @param string $_version API version (required)
      * @return Array of \ultracart\admin\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksGetWithHttpInfo()
+    public function webhookWebhooksGetWithHttpInfo($_version)
     {
+        // verify the required parameter '_version' is set
+        if ($_version === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $_version when calling webhookWebhooksGet');
+        }
         // parse inputs
         $resourcePath = "/webhook/webhooks";
         $httpBody = '';
@@ -138,6 +144,10 @@ class WebhookApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
 
+        // header params
+        if ($_version !== null) {
+            $headerParams['_version'] = $this->apiClient->getSerializer()->toHeaderValue($_version);
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
@@ -207,13 +217,14 @@ class WebhookApi
      *
      * Add a webhook
      *
+     * @param string $_version API version (required)
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to create (required)
      * @return \ultracart\admin\v2\models\WebhookResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksPost($webhook)
+    public function webhookWebhooksPost($_version, $webhook)
     {
-        list($response) = $this->webhookWebhooksPostWithHttpInfo($webhook);
+        list($response) = $this->webhookWebhooksPostWithHttpInfo($_version, $webhook);
         return $response;
     }
 
@@ -222,12 +233,17 @@ class WebhookApi
      *
      * Add a webhook
      *
+     * @param string $_version API version (required)
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to create (required)
      * @return Array of \ultracart\admin\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksPostWithHttpInfo($webhook)
+    public function webhookWebhooksPostWithHttpInfo($_version, $webhook)
     {
+        // verify the required parameter '_version' is set
+        if ($_version === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $_version when calling webhookWebhooksPost');
+        }
         // verify the required parameter 'webhook' is set
         if ($webhook === null) {
             throw new \InvalidArgumentException('Missing the required parameter $webhook when calling webhookWebhooksPost');
@@ -244,6 +260,10 @@ class WebhookApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
 
+        // header params
+        if ($_version !== null) {
+            $headerParams['_version'] = $this->apiClient->getSerializer()->toHeaderValue($_version);
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
