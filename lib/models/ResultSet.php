@@ -69,6 +69,7 @@ class ResultSet implements ArrayAccess
         'count' => 'int',
         'limit' => 'int',
         'more' => 'bool',
+        'next_offset' => 'int',
         'offset' => 'int'
     );
 
@@ -85,6 +86,7 @@ class ResultSet implements ArrayAccess
         'count' => 'count',
         'limit' => 'limit',
         'more' => 'more',
+        'next_offset' => 'next_offset',
         'offset' => 'offset'
     );
 
@@ -101,6 +103,7 @@ class ResultSet implements ArrayAccess
         'count' => 'setCount',
         'limit' => 'setLimit',
         'more' => 'setMore',
+        'next_offset' => 'setNextOffset',
         'offset' => 'setOffset'
     );
 
@@ -117,6 +120,7 @@ class ResultSet implements ArrayAccess
         'count' => 'getCount',
         'limit' => 'getLimit',
         'more' => 'getMore',
+        'next_offset' => 'getNextOffset',
         'offset' => 'getOffset'
     );
 
@@ -144,6 +148,7 @@ class ResultSet implements ArrayAccess
         $this->container['count'] = isset($data['count']) ? $data['count'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['more'] = isset($data['more']) ? $data['more'] : null;
+        $this->container['next_offset'] = isset($data['next_offset']) ? $data['next_offset'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
     }
 
@@ -229,6 +234,27 @@ class ResultSet implements ArrayAccess
     public function setMore($more)
     {
         $this->container['more'] = $more;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_offset
+     * @return int
+     */
+    public function getNextOffset()
+    {
+        return $this->container['next_offset'];
+    }
+
+    /**
+     * Sets next_offset
+     * @param int $next_offset
+     * @return $this
+     */
+    public function setNextOffset($next_offset)
+    {
+        $this->container['next_offset'] = $next_offset;
 
         return $this;
     }

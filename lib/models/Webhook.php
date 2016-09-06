@@ -67,6 +67,7 @@ class Webhook implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'api_user_oid' => 'int',
+        'api_version' => 'string',
         'application_profile' => '\ultracart\admin\v2\models\ApiUserApplicationProfile',
         'authentication_type' => 'string',
         'basic_password' => 'string',
@@ -94,6 +95,7 @@ class Webhook implements ArrayAccess
      */
     protected static $attributeMap = array(
         'api_user_oid' => 'api_user_oid',
+        'api_version' => 'api_version',
         'application_profile' => 'application_profile',
         'authentication_type' => 'authentication_type',
         'basic_password' => 'basic_password',
@@ -121,6 +123,7 @@ class Webhook implements ArrayAccess
      */
     protected static $setters = array(
         'api_user_oid' => 'setApiUserOid',
+        'api_version' => 'setApiVersion',
         'application_profile' => 'setApplicationProfile',
         'authentication_type' => 'setAuthenticationType',
         'basic_password' => 'setBasicPassword',
@@ -148,6 +151,7 @@ class Webhook implements ArrayAccess
      */
     protected static $getters = array(
         'api_user_oid' => 'getApiUserOid',
+        'api_version' => 'getApiVersion',
         'application_profile' => 'getApplicationProfile',
         'authentication_type' => 'getAuthenticationType',
         'basic_password' => 'getBasicPassword',
@@ -186,6 +190,7 @@ class Webhook implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['api_user_oid'] = isset($data['api_user_oid']) ? $data['api_user_oid'] : null;
+        $this->container['api_version'] = isset($data['api_version']) ? $data['api_version'] : null;
         $this->container['application_profile'] = isset($data['application_profile']) ? $data['application_profile'] : null;
         $this->container['authentication_type'] = isset($data['authentication_type']) ? $data['authentication_type'] : null;
         $this->container['basic_password'] = isset($data['basic_password']) ? $data['basic_password'] : null;
@@ -242,6 +247,27 @@ class Webhook implements ArrayAccess
     public function setApiUserOid($api_user_oid)
     {
         $this->container['api_user_oid'] = $api_user_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_version
+     * @return string
+     */
+    public function getApiVersion()
+    {
+        return $this->container['api_version'];
+    }
+
+    /**
+     * Sets api_version
+     * @param string $api_version
+     * @return $this
+     */
+    public function setApiVersion($api_version)
+    {
+        $this->container['api_version'] = $api_version;
 
         return $this;
     }

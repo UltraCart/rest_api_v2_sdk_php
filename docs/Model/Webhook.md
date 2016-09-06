@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **api_user_oid** | **int** |  | [optional] 
+**api_version** | **string** |  | [optional] 
 **application_profile** | [**\ultracart\admin\v2\models\ApiUserApplicationProfile**](ApiUserApplicationProfile.md) |  | [optional] 
 **authentication_type** | **string** |  | [optional] 
 **basic_password** | **string** |  | [optional] 
