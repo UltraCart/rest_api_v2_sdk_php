@@ -293,7 +293,6 @@ class ItemShipping implements ArrayAccess
         return self::$getters;
     }
 
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_ = '';
     const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_CRATE = 'Crate';
     const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_BOX = 'FedEx: Box';
     const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_ENVELOPE = 'FedEx: Envelope';
@@ -335,7 +334,6 @@ class ItemShipping implements ArrayAccess
     public function getShipSeparatelyPackageSpecialTypeAllowableValues()
     {
         return [
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_,
             self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_CRATE,
             self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_BOX,
             self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_ENVELOPE,
@@ -449,7 +447,7 @@ class ItemShipping implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("", "Crate", "FedEx: Box", "FedEx: Envelope", "FedEx: Pak", "FedEx: Tube", "Pallet Other", "Pallet 48 x 40", "Pallet 48 x 48", "Pallet 60 x 48", "Pallet 120 x 80", "Pallet 120 x 100", "Pallet 120 x 120", "UPS: Express Box", "UPS: Letter", "UPS: Pak", "UPS: Tube", "USPS: Express Mail Flat Rate Envelope", "USPS: Express Mail Padded Flat Rate Envelope", "USPS: Priority Mail Medium Flat Rate Box", "USPS: Priority Mail Large Flat Rate Box", "USPS: Priority Mail Small Flat Rate Box", "USPS: Priority Mail Regional Rate A Box", "USPS: Priority Mail Regional Rate B Box", "USPS: Priority Mail Regional Rate C Box", "USPS: Priority Mail Flat Rate Envelope", "USPS: Priority Mail Padded Flat Rate Envelope", "USPS: Priority Mail Legal Flat Rate Envelope");
+        $allowed_values = array("Crate", "FedEx: Box", "FedEx: Envelope", "FedEx: Pak", "FedEx: Tube", "Pallet Other", "Pallet 48 x 40", "Pallet 48 x 48", "Pallet 60 x 48", "Pallet 120 x 80", "Pallet 120 x 100", "Pallet 120 x 120", "UPS: Express Box", "UPS: Letter", "UPS: Pak", "UPS: Tube", "USPS: Express Mail Flat Rate Envelope", "USPS: Express Mail Padded Flat Rate Envelope", "USPS: Priority Mail Medium Flat Rate Box", "USPS: Priority Mail Large Flat Rate Box", "USPS: Priority Mail Small Flat Rate Box", "USPS: Priority Mail Regional Rate A Box", "USPS: Priority Mail Regional Rate B Box", "USPS: Priority Mail Regional Rate C Box", "USPS: Priority Mail Flat Rate Envelope", "USPS: Priority Mail Padded Flat Rate Envelope", "USPS: Priority Mail Legal Flat Rate Envelope");
         if (!in_array($this->container['ship_separately_package_special_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'ship_separately_package_special_type', must be one of #{allowed_values}.";
         }
@@ -470,7 +468,7 @@ class ItemShipping implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("", "Crate", "FedEx: Box", "FedEx: Envelope", "FedEx: Pak", "FedEx: Tube", "Pallet Other", "Pallet 48 x 40", "Pallet 48 x 48", "Pallet 60 x 48", "Pallet 120 x 80", "Pallet 120 x 100", "Pallet 120 x 120", "UPS: Express Box", "UPS: Letter", "UPS: Pak", "UPS: Tube", "USPS: Express Mail Flat Rate Envelope", "USPS: Express Mail Padded Flat Rate Envelope", "USPS: Priority Mail Medium Flat Rate Box", "USPS: Priority Mail Large Flat Rate Box", "USPS: Priority Mail Small Flat Rate Box", "USPS: Priority Mail Regional Rate A Box", "USPS: Priority Mail Regional Rate B Box", "USPS: Priority Mail Regional Rate C Box", "USPS: Priority Mail Flat Rate Envelope", "USPS: Priority Mail Padded Flat Rate Envelope", "USPS: Priority Mail Legal Flat Rate Envelope");
+        $allowed_values = array("Crate", "FedEx: Box", "FedEx: Envelope", "FedEx: Pak", "FedEx: Tube", "Pallet Other", "Pallet 48 x 40", "Pallet 48 x 48", "Pallet 60 x 48", "Pallet 120 x 80", "Pallet 120 x 100", "Pallet 120 x 120", "UPS: Express Box", "UPS: Letter", "UPS: Pak", "UPS: Tube", "USPS: Express Mail Flat Rate Envelope", "USPS: Express Mail Padded Flat Rate Envelope", "USPS: Priority Mail Medium Flat Rate Box", "USPS: Priority Mail Large Flat Rate Box", "USPS: Priority Mail Small Flat Rate Box", "USPS: Priority Mail Regional Rate A Box", "USPS: Priority Mail Regional Rate B Box", "USPS: Priority Mail Regional Rate C Box", "USPS: Priority Mail Flat Rate Envelope", "USPS: Priority Mail Padded Flat Rate Envelope", "USPS: Priority Mail Legal Flat Rate Envelope");
         if (!in_array($this->container['ship_separately_package_special_type'], $allowed_values)) {
             return false;
         }
@@ -1380,9 +1378,9 @@ class ItemShipping implements ArrayAccess
      */
     public function setShipSeparatelyPackageSpecialType($ship_separately_package_special_type)
     {
-        $allowed_values = array('', 'Crate', 'FedEx: Box', 'FedEx: Envelope', 'FedEx: Pak', 'FedEx: Tube', 'Pallet Other', 'Pallet 48 x 40', 'Pallet 48 x 48', 'Pallet 60 x 48', 'Pallet 120 x 80', 'Pallet 120 x 100', 'Pallet 120 x 120', 'UPS: Express Box', 'UPS: Letter', 'UPS: Pak', 'UPS: Tube', 'USPS: Express Mail Flat Rate Envelope', 'USPS: Express Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Medium Flat Rate Box', 'USPS: Priority Mail Large Flat Rate Box', 'USPS: Priority Mail Small Flat Rate Box', 'USPS: Priority Mail Regional Rate A Box', 'USPS: Priority Mail Regional Rate B Box', 'USPS: Priority Mail Regional Rate C Box', 'USPS: Priority Mail Flat Rate Envelope', 'USPS: Priority Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Legal Flat Rate Envelope');
+        $allowed_values = array('Crate', 'FedEx: Box', 'FedEx: Envelope', 'FedEx: Pak', 'FedEx: Tube', 'Pallet Other', 'Pallet 48 x 40', 'Pallet 48 x 48', 'Pallet 60 x 48', 'Pallet 120 x 80', 'Pallet 120 x 100', 'Pallet 120 x 120', 'UPS: Express Box', 'UPS: Letter', 'UPS: Pak', 'UPS: Tube', 'USPS: Express Mail Flat Rate Envelope', 'USPS: Express Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Medium Flat Rate Box', 'USPS: Priority Mail Large Flat Rate Box', 'USPS: Priority Mail Small Flat Rate Box', 'USPS: Priority Mail Regional Rate A Box', 'USPS: Priority Mail Regional Rate B Box', 'USPS: Priority Mail Regional Rate C Box', 'USPS: Priority Mail Flat Rate Envelope', 'USPS: Priority Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Legal Flat Rate Envelope');
         if (!in_array($ship_separately_package_special_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'ship_separately_package_special_type', must be one of '', 'Crate', 'FedEx: Box', 'FedEx: Envelope', 'FedEx: Pak', 'FedEx: Tube', 'Pallet Other', 'Pallet 48 x 40', 'Pallet 48 x 48', 'Pallet 60 x 48', 'Pallet 120 x 80', 'Pallet 120 x 100', 'Pallet 120 x 120', 'UPS: Express Box', 'UPS: Letter', 'UPS: Pak', 'UPS: Tube', 'USPS: Express Mail Flat Rate Envelope', 'USPS: Express Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Medium Flat Rate Box', 'USPS: Priority Mail Large Flat Rate Box', 'USPS: Priority Mail Small Flat Rate Box', 'USPS: Priority Mail Regional Rate A Box', 'USPS: Priority Mail Regional Rate B Box', 'USPS: Priority Mail Regional Rate C Box', 'USPS: Priority Mail Flat Rate Envelope', 'USPS: Priority Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Legal Flat Rate Envelope'");
+            throw new \InvalidArgumentException("Invalid value for 'ship_separately_package_special_type', must be one of 'Crate', 'FedEx: Box', 'FedEx: Envelope', 'FedEx: Pak', 'FedEx: Tube', 'Pallet Other', 'Pallet 48 x 40', 'Pallet 48 x 48', 'Pallet 60 x 48', 'Pallet 120 x 80', 'Pallet 120 x 100', 'Pallet 120 x 120', 'UPS: Express Box', 'UPS: Letter', 'UPS: Pak', 'UPS: Tube', 'USPS: Express Mail Flat Rate Envelope', 'USPS: Express Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Medium Flat Rate Box', 'USPS: Priority Mail Large Flat Rate Box', 'USPS: Priority Mail Small Flat Rate Box', 'USPS: Priority Mail Regional Rate A Box', 'USPS: Priority Mail Regional Rate B Box', 'USPS: Priority Mail Regional Rate C Box', 'USPS: Priority Mail Flat Rate Envelope', 'USPS: Priority Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Legal Flat Rate Envelope'");
         }
         $this->container['ship_separately_package_special_type'] = $ship_separately_package_special_type;
 
