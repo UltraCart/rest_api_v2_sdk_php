@@ -117,8 +117,24 @@ class Weight implements ArrayAccess
         return self::$getters;
     }
 
+    const UOM_KG = 'KG';
+    const UOM_LB = 'LB';
+    const UOM_OZ = 'OZ';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getUomAllowableValues()
+    {
+        return [
+            self::UOM_KG,
+            self::UOM_LB,
+            self::UOM_OZ,
+        ];
+    }
     
 
     /**
@@ -145,6 +161,11 @@ class Weight implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("KG", "LB", "OZ");
+        if (!in_array($this->container['uom'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'uom', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -156,6 +177,10 @@ class Weight implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("KG", "LB", "OZ");
+        if (!in_array($this->container['uom'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -176,6 +201,10 @@ class Weight implements ArrayAccess
      */
     public function setUom($uom)
     {
+        $allowed_values = array('KG', 'LB', 'OZ');
+        if (!in_array($uom, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'uom', must be one of 'KG', 'LB', 'OZ'");
+        }
         $this->container['uom'] = $uom;
 
         return $this;

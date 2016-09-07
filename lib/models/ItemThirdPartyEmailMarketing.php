@@ -129,8 +129,40 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
         return self::$getters;
     }
 
+    const PROVIDER_NAME_ACTIVE_CAMPAIGN = 'ActiveCampaign';
+    const PROVIDER_NAME_A_WEBER = 'AWeber';
+    const PROVIDER_NAME_CAMPAIGN_MONITOR = 'Campaign Monitor';
+    const PROVIDER_NAME_CONSTANT_CONTACT = 'ConstantContact';
+    const PROVIDER_NAME_EMMA = 'Emma';
+    const PROVIDER_NAME_GET_RESPONSE = 'GetResponse';
+    const PROVIDER_NAME_I_CONTACT = 'iContact';
+    const PROVIDER_NAME_LYRIS = 'Lyris';
+    const PROVIDER_NAME_LYRIS_HQ = 'LyrisHQ';
+    const PROVIDER_NAME_MAIL_CHIMP = 'MailChimp';
+    const PROVIDER_NAME_SILVER_POP = 'SilverPop';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getProviderNameAllowableValues()
+    {
+        return [
+            self::PROVIDER_NAME_ACTIVE_CAMPAIGN,
+            self::PROVIDER_NAME_A_WEBER,
+            self::PROVIDER_NAME_CAMPAIGN_MONITOR,
+            self::PROVIDER_NAME_CONSTANT_CONTACT,
+            self::PROVIDER_NAME_EMMA,
+            self::PROVIDER_NAME_GET_RESPONSE,
+            self::PROVIDER_NAME_I_CONTACT,
+            self::PROVIDER_NAME_LYRIS,
+            self::PROVIDER_NAME_LYRIS_HQ,
+            self::PROVIDER_NAME_MAIL_CHIMP,
+            self::PROVIDER_NAME_SILVER_POP,
+        ];
+    }
     
 
     /**
@@ -160,6 +192,11 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("ActiveCampaign", "AWeber", "Campaign Monitor", "ConstantContact", "Emma", "GetResponse", "iContact", "Lyris", "LyrisHQ", "MailChimp", "SilverPop");
+        if (!in_array($this->container['provider_name'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'provider_name', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -171,6 +208,10 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("ActiveCampaign", "AWeber", "Campaign Monitor", "ConstantContact", "Emma", "GetResponse", "iContact", "Lyris", "LyrisHQ", "MailChimp", "SilverPop");
+        if (!in_array($this->container['provider_name'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -212,6 +253,10 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
      */
     public function setProviderName($provider_name)
     {
+        $allowed_values = array('ActiveCampaign', 'AWeber', 'Campaign Monitor', 'ConstantContact', 'Emma', 'GetResponse', 'iContact', 'Lyris', 'LyrisHQ', 'MailChimp', 'SilverPop');
+        if (!in_array($provider_name, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'provider_name', must be one of 'ActiveCampaign', 'AWeber', 'Campaign Monitor', 'ConstantContact', 'Emma', 'GetResponse', 'iContact', 'Lyris', 'LyrisHQ', 'MailChimp', 'SilverPop'");
+        }
         $this->container['provider_name'] = $provider_name;
 
         return $this;

@@ -165,8 +165,32 @@ class ItemOption implements ArrayAccess
         return self::$getters;
     }
 
+    const TYPE_DROPDOWN = 'dropdown';
+    const TYPE_FILE_ATTACHMENT = 'file attachment';
+    const TYPE_FIXED = 'fixed';
+    const TYPE_HIDDEN = 'hidden';
+    const TYPE_MULTILINE = 'multiline';
+    const TYPE_RADIO = 'radio';
+    const TYPE_SINGLE = 'single';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_DROPDOWN,
+            self::TYPE_FILE_ATTACHMENT,
+            self::TYPE_FIXED,
+            self::TYPE_HIDDEN,
+            self::TYPE_MULTILINE,
+            self::TYPE_RADIO,
+            self::TYPE_SINGLE,
+        ];
+    }
     
 
     /**
@@ -205,6 +229,11 @@ class ItemOption implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("dropdown", "file attachment", "fixed", "hidden", "multiline", "radio", "single");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -216,6 +245,10 @@ class ItemOption implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("dropdown", "file attachment", "fixed", "hidden", "multiline", "radio", "single");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -488,6 +521,10 @@ class ItemOption implements ArrayAccess
      */
     public function setType($type)
     {
+        $allowed_values = array('dropdown', 'file attachment', 'fixed', 'hidden', 'multiline', 'radio', 'single');
+        if (!in_array($type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'dropdown', 'file attachment', 'fixed', 'hidden', 'multiline', 'radio', 'single'");
+        }
         $this->container['type'] = $type;
 
         return $this;

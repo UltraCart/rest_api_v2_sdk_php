@@ -169,8 +169,24 @@ class ItemOptionValue implements ArrayAccess
         return self::$getters;
     }
 
+    const ADDITIONAL_DIMENSION_APPLICATION_NONE = 'none';
+    const ADDITIONAL_DIMENSION_APPLICATION_SET_ITEM_TO = 'set item to';
+    const ADDITIONAL_DIMENSION_APPLICATION_ADD_ITEM = 'add item';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getAdditionalDimensionApplicationAllowableValues()
+    {
+        return [
+            self::ADDITIONAL_DIMENSION_APPLICATION_NONE,
+            self::ADDITIONAL_DIMENSION_APPLICATION_SET_ITEM_TO,
+            self::ADDITIONAL_DIMENSION_APPLICATION_ADD_ITEM,
+        ];
+    }
     
 
     /**
@@ -210,6 +226,11 @@ class ItemOptionValue implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("none", "set item to", "add item");
+        if (!in_array($this->container['additional_dimension_application'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'additional_dimension_application', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -221,6 +242,10 @@ class ItemOptionValue implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("none", "set item to", "add item");
+        if (!in_array($this->container['additional_dimension_application'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -241,6 +266,10 @@ class ItemOptionValue implements ArrayAccess
      */
     public function setAdditionalDimensionApplication($additional_dimension_application)
     {
+        $allowed_values = array('none', 'set item to', 'add item');
+        if (!in_array($additional_dimension_application, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'additional_dimension_application', must be one of 'none', 'set item to', 'add item'");
+        }
         $this->container['additional_dimension_application'] = $additional_dimension_application;
 
         return $this;

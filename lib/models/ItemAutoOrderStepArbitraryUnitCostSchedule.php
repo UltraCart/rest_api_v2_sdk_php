@@ -80,7 +80,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'arbitrary_unit_cost' => 'arbitrary_unit_Cost',
+        'arbitrary_unit_cost' => 'arbitrary_unit_cost',
         'retry_days' => 'retry_days'
     );
 

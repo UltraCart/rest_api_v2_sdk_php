@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **grandfather_pricing** | [**\ultracart\admin\v2\models\ItemAutoOrderStepGrandfatherPricing[]**](ItemAutoOrderStepGrandfatherPricing.md) |  | [optional] 
 **managed_by** | **string** |  | [optional] 
 **pause_days** | **int** |  | [optional] 
-**pause_unit_date** | **string** |  | [optional] 
+**pause_until_date** | **string** |  | [optional] 
 **preshipment_notice_days** | **int** |  | [optional] 
 **recurring_merchant_item_id** | **string** |  | [optional] 
 **recurring_merchant_item_oid** | **int** |  | [optional] 

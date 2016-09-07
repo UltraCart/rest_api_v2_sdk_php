@@ -121,8 +121,24 @@ class ItemRestrictionItem implements ArrayAccess
         return self::$getters;
     }
 
+    const TYPE_CAN_NOT_BE_PURCHASED_WITH = 'can not be purchased with';
+    const TYPE_CAN_ONLY_BE_PURCHASED_WITH = 'can only be purchased with';
+    const TYPE_MUST_BE_PURCHASED_WITH = 'must be purchased with';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_CAN_NOT_BE_PURCHASED_WITH,
+            self::TYPE_CAN_ONLY_BE_PURCHASED_WITH,
+            self::TYPE_MUST_BE_PURCHASED_WITH,
+        ];
+    }
     
 
     /**
@@ -150,6 +166,11 @@ class ItemRestrictionItem implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("can not be purchased with", "can only be purchased with", "must be purchased with");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -161,6 +182,10 @@ class ItemRestrictionItem implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("can not be purchased with", "can only be purchased with", "must be purchased with");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -223,6 +248,10 @@ class ItemRestrictionItem implements ArrayAccess
      */
     public function setType($type)
     {
+        $allowed_values = array('can not be purchased with', 'can only be purchased with', 'must be purchased with');
+        if (!in_array($type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'can not be purchased with', 'can only be purchased with', 'must be purchased with'");
+        }
         $this->container['type'] = $type;
 
         return $this;

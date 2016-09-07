@@ -124,7 +124,7 @@ class ItemEbay implements ArrayAccess
         'marketplace_our_total' => 'double',
         'marketplace_overhead' => 'double',
         'marketplace_profitable' => 'bool',
-        'next_attemp_dts' => 'string',
+        'next_attempt_dts' => 'string',
         'next_listing_duration' => 'string',
         'no_promotional_shipping' => 'bool',
         'packaging_handling_costs' => 'double',
@@ -205,7 +205,7 @@ class ItemEbay implements ArrayAccess
         'marketplace_our_total' => 'marketplace_our_total',
         'marketplace_overhead' => 'marketplace_overhead',
         'marketplace_profitable' => 'marketplace_profitable',
-        'next_attemp_dts' => 'next_attemp_dts',
+        'next_attempt_dts' => 'next_attempt_dts',
         'next_listing_duration' => 'next_listing_duration',
         'no_promotional_shipping' => 'no_promotional_shipping',
         'packaging_handling_costs' => 'packaging_handling_costs',
@@ -286,7 +286,7 @@ class ItemEbay implements ArrayAccess
         'marketplace_our_total' => 'setMarketplaceOurTotal',
         'marketplace_overhead' => 'setMarketplaceOverhead',
         'marketplace_profitable' => 'setMarketplaceProfitable',
-        'next_attemp_dts' => 'setNextAttempDts',
+        'next_attempt_dts' => 'setNextAttemptDts',
         'next_listing_duration' => 'setNextListingDuration',
         'no_promotional_shipping' => 'setNoPromotionalShipping',
         'packaging_handling_costs' => 'setPackagingHandlingCosts',
@@ -367,7 +367,7 @@ class ItemEbay implements ArrayAccess
         'marketplace_our_total' => 'getMarketplaceOurTotal',
         'marketplace_overhead' => 'getMarketplaceOverhead',
         'marketplace_profitable' => 'getMarketplaceProfitable',
-        'next_attemp_dts' => 'getNextAttempDts',
+        'next_attempt_dts' => 'getNextAttemptDts',
         'next_listing_duration' => 'getNextListingDuration',
         'no_promotional_shipping' => 'getNoPromotionalShipping',
         'packaging_handling_costs' => 'getPackagingHandlingCosts',
@@ -459,7 +459,7 @@ class ItemEbay implements ArrayAccess
         $this->container['marketplace_our_total'] = isset($data['marketplace_our_total']) ? $data['marketplace_our_total'] : null;
         $this->container['marketplace_overhead'] = isset($data['marketplace_overhead']) ? $data['marketplace_overhead'] : null;
         $this->container['marketplace_profitable'] = isset($data['marketplace_profitable']) ? $data['marketplace_profitable'] : null;
-        $this->container['next_attemp_dts'] = isset($data['next_attemp_dts']) ? $data['next_attemp_dts'] : null;
+        $this->container['next_attempt_dts'] = isset($data['next_attempt_dts']) ? $data['next_attempt_dts'] : null;
         $this->container['next_listing_duration'] = isset($data['next_listing_duration']) ? $data['next_listing_duration'] : null;
         $this->container['no_promotional_shipping'] = isset($data['no_promotional_shipping']) ? $data['no_promotional_shipping'] : null;
         $this->container['packaging_handling_costs'] = isset($data['packaging_handling_costs']) ? $data['packaging_handling_costs'] : null;
@@ -1714,22 +1714,22 @@ class ItemEbay implements ArrayAccess
     }
 
     /**
-     * Gets next_attemp_dts
+     * Gets next_attempt_dts
      * @return string
      */
-    public function getNextAttempDts()
+    public function getNextAttemptDts()
     {
-        return $this->container['next_attemp_dts'];
+        return $this->container['next_attempt_dts'];
     }
 
     /**
-     * Sets next_attemp_dts
-     * @param string $next_attemp_dts
+     * Sets next_attempt_dts
+     * @param string $next_attempt_dts
      * @return $this
      */
-    public function setNextAttempDts($next_attemp_dts)
+    public function setNextAttemptDts($next_attempt_dts)
     {
-        $this->container['next_attemp_dts'] = $next_attemp_dts;
+        $this->container['next_attempt_dts'] = $next_attempt_dts;
 
         return $this;
     }

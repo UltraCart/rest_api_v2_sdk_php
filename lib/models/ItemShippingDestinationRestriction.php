@@ -121,8 +121,22 @@ class ItemShippingDestinationRestriction implements ArrayAccess
         return self::$getters;
     }
 
+    const VALIDITY_VALID_ONLY_FOR = 'valid only for';
+    const VALIDITY_INVALID_FOR = 'invalid for';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getValidityAllowableValues()
+    {
+        return [
+            self::VALIDITY_VALID_ONLY_FOR,
+            self::VALIDITY_INVALID_FOR,
+        ];
+    }
     
 
     /**
@@ -150,6 +164,11 @@ class ItemShippingDestinationRestriction implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("valid only for", "invalid for");
+        if (!in_array($this->container['validity'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'validity', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -161,6 +180,10 @@ class ItemShippingDestinationRestriction implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("valid only for", "invalid for");
+        if (!in_array($this->container['validity'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -223,6 +246,10 @@ class ItemShippingDestinationRestriction implements ArrayAccess
      */
     public function setValidity($validity)
     {
+        $allowed_values = array('valid only for', 'invalid for');
+        if (!in_array($validity, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'validity', must be one of 'valid only for', 'invalid for'");
+        }
         $this->container['validity'] = $validity;
 
         return $this;

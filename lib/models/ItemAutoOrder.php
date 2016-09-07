@@ -74,12 +74,8 @@ class ItemAutoOrder implements ArrayAccess
         'auto_order_schedules' => 'int',
         'auto_order_upgrade_items' => 'string',
         'auto_order_upsell' => 'bool',
-        'auto_order_upsell_delay' => 'int',
-        'auto_order_upsell_merchant_item_oid' => 'int',
         'auto_order_upsell_no_easy_cancel' => 'bool',
         'auto_order_upsell_one_per_customer' => 'bool',
-        'auto_order_upsell_repeat_count' => 'int',
-        'auto_order_upsell_schedule' => 'string',
         'auto_orderable' => 'bool',
         'cancel_other_auto_orders' => 'bool',
         'free_shipping_auto_order' => 'bool',
@@ -104,12 +100,8 @@ class ItemAutoOrder implements ArrayAccess
         'auto_order_schedules' => 'auto_order_schedules',
         'auto_order_upgrade_items' => 'auto_order_upgrade_items',
         'auto_order_upsell' => 'auto_order_upsell',
-        'auto_order_upsell_delay' => 'auto_order_upsell_delay',
-        'auto_order_upsell_merchant_item_oid' => 'auto_order_upsell_merchant_item_oid',
         'auto_order_upsell_no_easy_cancel' => 'auto_order_upsell_no_easy_cancel',
         'auto_order_upsell_one_per_customer' => 'auto_order_upsell_one_per_customer',
-        'auto_order_upsell_repeat_count' => 'auto_order_upsell_repeat_count',
-        'auto_order_upsell_schedule' => 'auto_order_upsell_schedule',
         'auto_orderable' => 'auto_orderable',
         'cancel_other_auto_orders' => 'cancel_other_auto_orders',
         'free_shipping_auto_order' => 'free_shipping_auto_order',
@@ -134,12 +126,8 @@ class ItemAutoOrder implements ArrayAccess
         'auto_order_schedules' => 'setAutoOrderSchedules',
         'auto_order_upgrade_items' => 'setAutoOrderUpgradeItems',
         'auto_order_upsell' => 'setAutoOrderUpsell',
-        'auto_order_upsell_delay' => 'setAutoOrderUpsellDelay',
-        'auto_order_upsell_merchant_item_oid' => 'setAutoOrderUpsellMerchantItemOid',
         'auto_order_upsell_no_easy_cancel' => 'setAutoOrderUpsellNoEasyCancel',
         'auto_order_upsell_one_per_customer' => 'setAutoOrderUpsellOnePerCustomer',
-        'auto_order_upsell_repeat_count' => 'setAutoOrderUpsellRepeatCount',
-        'auto_order_upsell_schedule' => 'setAutoOrderUpsellSchedule',
         'auto_orderable' => 'setAutoOrderable',
         'cancel_other_auto_orders' => 'setCancelOtherAutoOrders',
         'free_shipping_auto_order' => 'setFreeShippingAutoOrder',
@@ -164,12 +152,8 @@ class ItemAutoOrder implements ArrayAccess
         'auto_order_schedules' => 'getAutoOrderSchedules',
         'auto_order_upgrade_items' => 'getAutoOrderUpgradeItems',
         'auto_order_upsell' => 'getAutoOrderUpsell',
-        'auto_order_upsell_delay' => 'getAutoOrderUpsellDelay',
-        'auto_order_upsell_merchant_item_oid' => 'getAutoOrderUpsellMerchantItemOid',
         'auto_order_upsell_no_easy_cancel' => 'getAutoOrderUpsellNoEasyCancel',
         'auto_order_upsell_one_per_customer' => 'getAutoOrderUpsellOnePerCustomer',
-        'auto_order_upsell_repeat_count' => 'getAutoOrderUpsellRepeatCount',
-        'auto_order_upsell_schedule' => 'getAutoOrderUpsellSchedule',
         'auto_orderable' => 'getAutoOrderable',
         'cancel_other_auto_orders' => 'getCancelOtherAutoOrders',
         'free_shipping_auto_order' => 'getFreeShippingAutoOrder',
@@ -205,12 +189,8 @@ class ItemAutoOrder implements ArrayAccess
         $this->container['auto_order_schedules'] = isset($data['auto_order_schedules']) ? $data['auto_order_schedules'] : null;
         $this->container['auto_order_upgrade_items'] = isset($data['auto_order_upgrade_items']) ? $data['auto_order_upgrade_items'] : null;
         $this->container['auto_order_upsell'] = isset($data['auto_order_upsell']) ? $data['auto_order_upsell'] : null;
-        $this->container['auto_order_upsell_delay'] = isset($data['auto_order_upsell_delay']) ? $data['auto_order_upsell_delay'] : null;
-        $this->container['auto_order_upsell_merchant_item_oid'] = isset($data['auto_order_upsell_merchant_item_oid']) ? $data['auto_order_upsell_merchant_item_oid'] : null;
         $this->container['auto_order_upsell_no_easy_cancel'] = isset($data['auto_order_upsell_no_easy_cancel']) ? $data['auto_order_upsell_no_easy_cancel'] : null;
         $this->container['auto_order_upsell_one_per_customer'] = isset($data['auto_order_upsell_one_per_customer']) ? $data['auto_order_upsell_one_per_customer'] : null;
-        $this->container['auto_order_upsell_repeat_count'] = isset($data['auto_order_upsell_repeat_count']) ? $data['auto_order_upsell_repeat_count'] : null;
-        $this->container['auto_order_upsell_schedule'] = isset($data['auto_order_upsell_schedule']) ? $data['auto_order_upsell_schedule'] : null;
         $this->container['auto_orderable'] = isset($data['auto_orderable']) ? $data['auto_orderable'] : null;
         $this->container['cancel_other_auto_orders'] = isset($data['cancel_other_auto_orders']) ? $data['cancel_other_auto_orders'] : null;
         $this->container['free_shipping_auto_order'] = isset($data['free_shipping_auto_order']) ? $data['free_shipping_auto_order'] : null;
@@ -409,48 +389,6 @@ class ItemAutoOrder implements ArrayAccess
     }
 
     /**
-     * Gets auto_order_upsell_delay
-     * @return int
-     */
-    public function getAutoOrderUpsellDelay()
-    {
-        return $this->container['auto_order_upsell_delay'];
-    }
-
-    /**
-     * Sets auto_order_upsell_delay
-     * @param int $auto_order_upsell_delay
-     * @return $this
-     */
-    public function setAutoOrderUpsellDelay($auto_order_upsell_delay)
-    {
-        $this->container['auto_order_upsell_delay'] = $auto_order_upsell_delay;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_order_upsell_merchant_item_oid
-     * @return int
-     */
-    public function getAutoOrderUpsellMerchantItemOid()
-    {
-        return $this->container['auto_order_upsell_merchant_item_oid'];
-    }
-
-    /**
-     * Sets auto_order_upsell_merchant_item_oid
-     * @param int $auto_order_upsell_merchant_item_oid
-     * @return $this
-     */
-    public function setAutoOrderUpsellMerchantItemOid($auto_order_upsell_merchant_item_oid)
-    {
-        $this->container['auto_order_upsell_merchant_item_oid'] = $auto_order_upsell_merchant_item_oid;
-
-        return $this;
-    }
-
-    /**
      * Gets auto_order_upsell_no_easy_cancel
      * @return bool
      */
@@ -488,48 +426,6 @@ class ItemAutoOrder implements ArrayAccess
     public function setAutoOrderUpsellOnePerCustomer($auto_order_upsell_one_per_customer)
     {
         $this->container['auto_order_upsell_one_per_customer'] = $auto_order_upsell_one_per_customer;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_order_upsell_repeat_count
-     * @return int
-     */
-    public function getAutoOrderUpsellRepeatCount()
-    {
-        return $this->container['auto_order_upsell_repeat_count'];
-    }
-
-    /**
-     * Sets auto_order_upsell_repeat_count
-     * @param int $auto_order_upsell_repeat_count
-     * @return $this
-     */
-    public function setAutoOrderUpsellRepeatCount($auto_order_upsell_repeat_count)
-    {
-        $this->container['auto_order_upsell_repeat_count'] = $auto_order_upsell_repeat_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_order_upsell_schedule
-     * @return string
-     */
-    public function getAutoOrderUpsellSchedule()
-    {
-        return $this->container['auto_order_upsell_schedule'];
-    }
-
-    /**
-     * Sets auto_order_upsell_schedule
-     * @param string $auto_order_upsell_schedule
-     * @return $this
-     */
-    public function setAutoOrderUpsellSchedule($auto_order_upsell_schedule)
-    {
-        $this->container['auto_order_upsell_schedule'] = $auto_order_upsell_schedule;
 
         return $this;
     }

@@ -133,8 +133,24 @@ class ItemDigitalDelivery implements ArrayAccess
         return self::$getters;
     }
 
+    const ACTIVATION_CODE_TYPE_OFF = 'off';
+    const ACTIVATION_CODE_TYPE_LIST = 'list';
+    const ACTIVATION_CODE_TYPE_REALTIME = 'realtime';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getActivationCodeTypeAllowableValues()
+    {
+        return [
+            self::ACTIVATION_CODE_TYPE_OFF,
+            self::ACTIVATION_CODE_TYPE_LIST,
+            self::ACTIVATION_CODE_TYPE_REALTIME,
+        ];
+    }
     
 
     /**
@@ -165,6 +181,11 @@ class ItemDigitalDelivery implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("off", "list", "realtime");
+        if (!in_array($this->container['activation_code_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'activation_code_type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -176,6 +197,10 @@ class ItemDigitalDelivery implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("off", "list", "realtime");
+        if (!in_array($this->container['activation_code_type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -280,6 +305,10 @@ class ItemDigitalDelivery implements ArrayAccess
      */
     public function setActivationCodeType($activation_code_type)
     {
+        $allowed_values = array('off', 'list', 'realtime');
+        if (!in_array($activation_code_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'activation_code_type', must be one of 'off', 'list', 'realtime'");
+        }
         $this->container['activation_code_type'] = $activation_code_type;
 
         return $this;

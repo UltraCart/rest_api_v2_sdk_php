@@ -169,8 +169,24 @@ class ItemShippingMethod implements ArrayAccess
         return self::$getters;
     }
 
+    const SHIPPING_METHOD_VALIDITY_INVALID_FOR = 'invalid for';
+    const SHIPPING_METHOD_VALIDITY_VALID_FOR = 'valid for';
+    const SHIPPING_METHOD_VALIDITY_VALID_ONLY_FOR = 'valid only for';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getShippingMethodValidityAllowableValues()
+    {
+        return [
+            self::SHIPPING_METHOD_VALIDITY_INVALID_FOR,
+            self::SHIPPING_METHOD_VALIDITY_VALID_FOR,
+            self::SHIPPING_METHOD_VALIDITY_VALID_ONLY_FOR,
+        ];
+    }
     
 
     /**
@@ -210,6 +226,11 @@ class ItemShippingMethod implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("invalid for", "valid for", "valid only for");
+        if (!in_array($this->container['shipping_method_validity'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'shipping_method_validity', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -221,6 +242,10 @@ class ItemShippingMethod implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("invalid for", "valid for", "valid only for");
+        if (!in_array($this->container['shipping_method_validity'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -514,6 +539,10 @@ class ItemShippingMethod implements ArrayAccess
      */
     public function setShippingMethodValidity($shipping_method_validity)
     {
+        $allowed_values = array('invalid for', 'valid for', 'valid only for');
+        if (!in_array($shipping_method_validity, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'shipping_method_validity', must be one of 'invalid for', 'valid for', 'valid only for'");
+        }
         $this->container['shipping_method_validity'] = $shipping_method_validity;
 
         return $this;

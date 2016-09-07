@@ -66,9 +66,6 @@ class ItemContentAttribute implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'item_meta_description' => 'string',
-        'item_meta_keywords' => 'string',
-        'item_meta_title' => 'string',
         'name' => 'string',
         'translated_text_instance_oid' => 'int',
         'type' => 'string',
@@ -85,9 +82,6 @@ class ItemContentAttribute implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'item_meta_description' => 'ITEM_META_DESCRIPTION',
-        'item_meta_keywords' => 'ITEM_META_KEYWORDS',
-        'item_meta_title' => 'ITEM_META_TITLE',
         'name' => 'name',
         'translated_text_instance_oid' => 'translated_text_instance_oid',
         'type' => 'type',
@@ -104,9 +98,6 @@ class ItemContentAttribute implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'item_meta_description' => 'setItemMetaDescription',
-        'item_meta_keywords' => 'setItemMetaKeywords',
-        'item_meta_title' => 'setItemMetaTitle',
         'name' => 'setName',
         'translated_text_instance_oid' => 'setTranslatedTextInstanceOid',
         'type' => 'setType',
@@ -123,9 +114,6 @@ class ItemContentAttribute implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'item_meta_description' => 'getItemMetaDescription',
-        'item_meta_keywords' => 'getItemMetaKeywords',
-        'item_meta_title' => 'getItemMetaTitle',
         'name' => 'getName',
         'translated_text_instance_oid' => 'getTranslatedTextInstanceOid',
         'type' => 'getType',
@@ -153,9 +141,6 @@ class ItemContentAttribute implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['item_meta_description'] = isset($data['item_meta_description']) ? $data['item_meta_description'] : null;
-        $this->container['item_meta_keywords'] = isset($data['item_meta_keywords']) ? $data['item_meta_keywords'] : null;
-        $this->container['item_meta_title'] = isset($data['item_meta_title']) ? $data['item_meta_title'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['translated_text_instance_oid'] = isset($data['translated_text_instance_oid']) ? $data['translated_text_instance_oid'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -184,69 +169,6 @@ class ItemContentAttribute implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets item_meta_description
-     * @return string
-     */
-    public function getItemMetaDescription()
-    {
-        return $this->container['item_meta_description'];
-    }
-
-    /**
-     * Sets item_meta_description
-     * @param string $item_meta_description
-     * @return $this
-     */
-    public function setItemMetaDescription($item_meta_description)
-    {
-        $this->container['item_meta_description'] = $item_meta_description;
-
-        return $this;
-    }
-
-    /**
-     * Gets item_meta_keywords
-     * @return string
-     */
-    public function getItemMetaKeywords()
-    {
-        return $this->container['item_meta_keywords'];
-    }
-
-    /**
-     * Sets item_meta_keywords
-     * @param string $item_meta_keywords
-     * @return $this
-     */
-    public function setItemMetaKeywords($item_meta_keywords)
-    {
-        $this->container['item_meta_keywords'] = $item_meta_keywords;
-
-        return $this;
-    }
-
-    /**
-     * Gets item_meta_title
-     * @return string
-     */
-    public function getItemMetaTitle()
-    {
-        return $this->container['item_meta_title'];
-    }
-
-    /**
-     * Sets item_meta_title
-     * @param string $item_meta_title
-     * @return $this
-     */
-    public function setItemMetaTitle($item_meta_title)
-    {
-        $this->container['item_meta_title'] = $item_meta_title;
-
-        return $this;
-    }
 
     /**
      * Gets name

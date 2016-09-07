@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 **marketplace_our_total** | **double** |  | [optional] 
 **marketplace_overhead** | **double** |  | [optional] 
 **marketplace_profitable** | **bool** |  | [optional] 
-**next_attemp_dts** | **string** |  | [optional] 
+**next_attempt_dts** | **string** |  | [optional] 
 **next_listing_duration** | **string** |  | [optional] 
 **no_promotional_shipping** | **bool** |  | [optional] 
 **packaging_handling_costs** | **double** |  | [optional] 

@@ -72,7 +72,7 @@ class ItemAutoOrderStep implements ArrayAccess
         'grandfather_pricing' => '\ultracart\admin\v2\models\ItemAutoOrderStepGrandfatherPricing[]',
         'managed_by' => 'string',
         'pause_days' => 'int',
-        'pause_unit_date' => 'string',
+        'pause_until_date' => 'string',
         'preshipment_notice_days' => 'int',
         'recurring_merchant_item_id' => 'string',
         'recurring_merchant_item_oid' => 'int',
@@ -99,7 +99,7 @@ class ItemAutoOrderStep implements ArrayAccess
         'grandfather_pricing' => 'grandfather_pricing',
         'managed_by' => 'managed_by',
         'pause_days' => 'pause_days',
-        'pause_unit_date' => 'pause_unit_date',
+        'pause_until_date' => 'pause_until_date',
         'preshipment_notice_days' => 'preshipment_notice_days',
         'recurring_merchant_item_id' => 'recurring_merchant_item_id',
         'recurring_merchant_item_oid' => 'recurring_merchant_item_oid',
@@ -126,7 +126,7 @@ class ItemAutoOrderStep implements ArrayAccess
         'grandfather_pricing' => 'setGrandfatherPricing',
         'managed_by' => 'setManagedBy',
         'pause_days' => 'setPauseDays',
-        'pause_unit_date' => 'setPauseUnitDate',
+        'pause_until_date' => 'setPauseUntilDate',
         'preshipment_notice_days' => 'setPreshipmentNoticeDays',
         'recurring_merchant_item_id' => 'setRecurringMerchantItemId',
         'recurring_merchant_item_oid' => 'setRecurringMerchantItemOid',
@@ -153,7 +153,7 @@ class ItemAutoOrderStep implements ArrayAccess
         'grandfather_pricing' => 'getGrandfatherPricing',
         'managed_by' => 'getManagedBy',
         'pause_days' => 'getPauseDays',
-        'pause_unit_date' => 'getPauseUnitDate',
+        'pause_until_date' => 'getPauseUntilDate',
         'preshipment_notice_days' => 'getPreshipmentNoticeDays',
         'recurring_merchant_item_id' => 'getRecurringMerchantItemId',
         'recurring_merchant_item_oid' => 'getRecurringMerchantItemOid',
@@ -169,8 +169,58 @@ class ItemAutoOrderStep implements ArrayAccess
         return self::$getters;
     }
 
+    const SCHEDULE_WEEKLY = 'Weekly';
+    const SCHEDULE_EVERY = 'Every...';
+    const SCHEDULE_EVERY_10_DAYS = 'Every 10 Days';
+    const SCHEDULE_BIWEEKLY = 'Biweekly';
+    const SCHEDULE_EVERY_24_DAYS = 'Every 24 Days';
+    const SCHEDULE_EVERY_28_DAYS = 'Every 28 Days';
+    const SCHEDULE_MONTHLY = 'Monthly';
+    const SCHEDULE_EVERY_45_DAYS = 'Every 45 Days';
+    const SCHEDULE_EVERY_2_MONTHS = 'Every 2 Months';
+    const SCHEDULE_EVERY_3_MONTHS = 'Every 3 Months';
+    const SCHEDULE_EVERY_4_MONTHS = 'Every 4 Months';
+    const SCHEDULE_EVERY_6_MONTHS = 'Every 6 Months';
+    const SCHEDULE_YEARLY = 'Yearly';
+    const TYPE_ITEM = 'item';
+    const TYPE_PAUSE = 'pause';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getScheduleAllowableValues()
+    {
+        return [
+            self::SCHEDULE_WEEKLY,
+            self::SCHEDULE_EVERY,
+            self::SCHEDULE_EVERY_10_DAYS,
+            self::SCHEDULE_BIWEEKLY,
+            self::SCHEDULE_EVERY_24_DAYS,
+            self::SCHEDULE_EVERY_28_DAYS,
+            self::SCHEDULE_MONTHLY,
+            self::SCHEDULE_EVERY_45_DAYS,
+            self::SCHEDULE_EVERY_2_MONTHS,
+            self::SCHEDULE_EVERY_3_MONTHS,
+            self::SCHEDULE_EVERY_4_MONTHS,
+            self::SCHEDULE_EVERY_6_MONTHS,
+            self::SCHEDULE_YEARLY,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ITEM,
+            self::TYPE_PAUSE,
+        ];
+    }
     
 
     /**
@@ -191,7 +241,7 @@ class ItemAutoOrderStep implements ArrayAccess
         $this->container['grandfather_pricing'] = isset($data['grandfather_pricing']) ? $data['grandfather_pricing'] : null;
         $this->container['managed_by'] = isset($data['managed_by']) ? $data['managed_by'] : null;
         $this->container['pause_days'] = isset($data['pause_days']) ? $data['pause_days'] : null;
-        $this->container['pause_unit_date'] = isset($data['pause_unit_date']) ? $data['pause_unit_date'] : null;
+        $this->container['pause_until_date'] = isset($data['pause_until_date']) ? $data['pause_until_date'] : null;
         $this->container['preshipment_notice_days'] = isset($data['preshipment_notice_days']) ? $data['preshipment_notice_days'] : null;
         $this->container['recurring_merchant_item_id'] = isset($data['recurring_merchant_item_id']) ? $data['recurring_merchant_item_id'] : null;
         $this->container['recurring_merchant_item_oid'] = isset($data['recurring_merchant_item_oid']) ? $data['recurring_merchant_item_oid'] : null;
@@ -210,6 +260,16 @@ class ItemAutoOrderStep implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("Weekly", "Every...", "Every 10 Days", "Biweekly", "Every 24 Days", "Every 28 Days", "Monthly", "Every 45 Days", "Every 2 Months", "Every 3 Months", "Every 4 Months", "Every 6 Months", "Yearly");
+        if (!in_array($this->container['schedule'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'schedule', must be one of #{allowed_values}.";
+        }
+
+        $allowed_values = array("item", "pause");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -221,6 +281,14 @@ class ItemAutoOrderStep implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("Weekly", "Every...", "Every 10 Days", "Biweekly", "Every 24 Days", "Every 28 Days", "Monthly", "Every 45 Days", "Every 2 Months", "Every 3 Months", "Every 4 Months", "Every 6 Months", "Yearly");
+        if (!in_array($this->container['schedule'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = array("item", "pause");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -352,22 +420,22 @@ class ItemAutoOrderStep implements ArrayAccess
     }
 
     /**
-     * Gets pause_unit_date
+     * Gets pause_until_date
      * @return string
      */
-    public function getPauseUnitDate()
+    public function getPauseUntilDate()
     {
-        return $this->container['pause_unit_date'];
+        return $this->container['pause_until_date'];
     }
 
     /**
-     * Sets pause_unit_date
-     * @param string $pause_unit_date
+     * Sets pause_until_date
+     * @param string $pause_until_date
      * @return $this
      */
-    public function setPauseUnitDate($pause_unit_date)
+    public function setPauseUntilDate($pause_until_date)
     {
-        $this->container['pause_unit_date'] = $pause_unit_date;
+        $this->container['pause_until_date'] = $pause_until_date;
 
         return $this;
     }
@@ -472,6 +540,10 @@ class ItemAutoOrderStep implements ArrayAccess
      */
     public function setSchedule($schedule)
     {
+        $allowed_values = array('Weekly', 'Every...', 'Every 10 Days', 'Biweekly', 'Every 24 Days', 'Every 28 Days', 'Monthly', 'Every 45 Days', 'Every 2 Months', 'Every 3 Months', 'Every 4 Months', 'Every 6 Months', 'Yearly');
+        if (!in_array($schedule, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'schedule', must be one of 'Weekly', 'Every...', 'Every 10 Days', 'Biweekly', 'Every 24 Days', 'Every 28 Days', 'Monthly', 'Every 45 Days', 'Every 2 Months', 'Every 3 Months', 'Every 4 Months', 'Every 6 Months', 'Yearly'");
+        }
         $this->container['schedule'] = $schedule;
 
         return $this;
@@ -535,6 +607,10 @@ class ItemAutoOrderStep implements ArrayAccess
      */
     public function setType($type)
     {
+        $allowed_values = array('item', 'pause');
+        if (!in_array($type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'item', 'pause'");
+        }
         $this->container['type'] = $type;
 
         return $this;

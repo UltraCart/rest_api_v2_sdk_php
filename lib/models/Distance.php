@@ -117,8 +117,22 @@ class Distance implements ArrayAccess
         return self::$getters;
     }
 
+    const UOM_IN = 'IN';
+    const UOM_CM = 'CM';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getUomAllowableValues()
+    {
+        return [
+            self::UOM_IN,
+            self::UOM_CM,
+        ];
+    }
     
 
     /**
@@ -145,6 +159,11 @@ class Distance implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("IN", "CM");
+        if (!in_array($this->container['uom'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'uom', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -156,6 +175,10 @@ class Distance implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("IN", "CM");
+        if (!in_array($this->container['uom'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -176,6 +199,10 @@ class Distance implements ArrayAccess
      */
     public function setUom($uom)
     {
+        $allowed_values = array('IN', 'CM');
+        if (!in_array($uom, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'uom', must be one of 'IN', 'CM'");
+        }
         $this->container['uom'] = $uom;
 
         return $this;
