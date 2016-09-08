@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **auto_order_cancel_item_oid** | **int** |  | [optional] 
 **auto_order_downgrade_items** | **string[]** |  | [optional] 
 **auto_order_paused** | **bool** |  | [optional] 
-**auto_order_schedules** | **int** |  | [optional] 
+**auto_order_schedules** | **string[]** |  | [optional] 
 **auto_order_upgrade_items** | **string[]** |  | [optional] 
 **auto_order_upsell** | **bool** |  | [optional] 
 **auto_order_upsell_no_easy_cancel** | **bool** |  | [optional] 

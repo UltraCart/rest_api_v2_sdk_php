@@ -72,7 +72,7 @@ class ItemAutoOrder implements ArrayAccess
         'auto_order_cancel_item_oid' => 'int',
         'auto_order_downgrade_items' => 'string[]',
         'auto_order_paused' => 'bool',
-        'auto_order_schedules' => 'int',
+        'auto_order_schedules' => 'string[]',
         'auto_order_upgrade_items' => 'string[]',
         'auto_order_upsell' => 'bool',
         'auto_order_upsell_no_easy_cancel' => 'bool',
@@ -353,7 +353,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Gets auto_order_schedules
-     * @return int
+     * @return string[]
      */
     public function getAutoOrderSchedules()
     {
@@ -362,7 +362,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_schedules
-     * @param int $auto_order_schedules
+     * @param string[] $auto_order_schedules
      * @return $this
      */
     public function setAutoOrderSchedules($auto_order_schedules)

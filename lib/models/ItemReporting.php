@@ -67,7 +67,7 @@ class ItemReporting implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'report_as_upsell' => 'bool',
-        'report_pickable_quantities' => 'string'
+        'report_pickable_quantities' => 'int[]'
     );
 
     public static function swaggerTypes()
@@ -183,7 +183,7 @@ class ItemReporting implements ArrayAccess
 
     /**
      * Gets report_pickable_quantities
-     * @return string
+     * @return int[]
      */
     public function getReportPickableQuantities()
     {
@@ -192,7 +192,7 @@ class ItemReporting implements ArrayAccess
 
     /**
      * Sets report_pickable_quantities
-     * @param string $report_pickable_quantities
+     * @param int[] $report_pickable_quantities
      * @return $this
      */
     public function setReportPickableQuantities($report_pickable_quantities)
