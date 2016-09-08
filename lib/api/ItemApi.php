@@ -526,7 +526,7 @@ class ItemApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // path params
         if ($merchant_item_oid !== null) {
@@ -645,7 +645,7 @@ class ItemApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);

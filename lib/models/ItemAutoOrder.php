@@ -68,11 +68,12 @@ class ItemAutoOrder implements ArrayAccess
     protected static $swaggerTypes = array(
         'auth_future_amount' => 'double',
         'auth_test_amount' => 'double',
+        'auto_order_cancel_item_id' => 'string',
         'auto_order_cancel_item_oid' => 'int',
-        'auto_order_downgrade_items' => 'string',
+        'auto_order_downgrade_items' => 'string[]',
         'auto_order_paused' => 'bool',
         'auto_order_schedules' => 'int',
-        'auto_order_upgrade_items' => 'string',
+        'auto_order_upgrade_items' => 'string[]',
         'auto_order_upsell' => 'bool',
         'auto_order_upsell_no_easy_cancel' => 'bool',
         'auto_order_upsell_one_per_customer' => 'bool',
@@ -94,6 +95,7 @@ class ItemAutoOrder implements ArrayAccess
     protected static $attributeMap = array(
         'auth_future_amount' => 'auth_future_amount',
         'auth_test_amount' => 'auth_test_amount',
+        'auto_order_cancel_item_id' => 'auto_order_cancel_item_id',
         'auto_order_cancel_item_oid' => 'auto_order_cancel_item_oid',
         'auto_order_downgrade_items' => 'auto_order_downgrade_items',
         'auto_order_paused' => 'auto_order_paused',
@@ -120,6 +122,7 @@ class ItemAutoOrder implements ArrayAccess
     protected static $setters = array(
         'auth_future_amount' => 'setAuthFutureAmount',
         'auth_test_amount' => 'setAuthTestAmount',
+        'auto_order_cancel_item_id' => 'setAutoOrderCancelItemId',
         'auto_order_cancel_item_oid' => 'setAutoOrderCancelItemOid',
         'auto_order_downgrade_items' => 'setAutoOrderDowngradeItems',
         'auto_order_paused' => 'setAutoOrderPaused',
@@ -146,6 +149,7 @@ class ItemAutoOrder implements ArrayAccess
     protected static $getters = array(
         'auth_future_amount' => 'getAuthFutureAmount',
         'auth_test_amount' => 'getAuthTestAmount',
+        'auto_order_cancel_item_id' => 'getAutoOrderCancelItemId',
         'auto_order_cancel_item_oid' => 'getAutoOrderCancelItemOid',
         'auto_order_downgrade_items' => 'getAutoOrderDowngradeItems',
         'auto_order_paused' => 'getAutoOrderPaused',
@@ -183,6 +187,7 @@ class ItemAutoOrder implements ArrayAccess
     {
         $this->container['auth_future_amount'] = isset($data['auth_future_amount']) ? $data['auth_future_amount'] : null;
         $this->container['auth_test_amount'] = isset($data['auth_test_amount']) ? $data['auth_test_amount'] : null;
+        $this->container['auto_order_cancel_item_id'] = isset($data['auto_order_cancel_item_id']) ? $data['auto_order_cancel_item_id'] : null;
         $this->container['auto_order_cancel_item_oid'] = isset($data['auto_order_cancel_item_oid']) ? $data['auto_order_cancel_item_oid'] : null;
         $this->container['auto_order_downgrade_items'] = isset($data['auto_order_downgrade_items']) ? $data['auto_order_downgrade_items'] : null;
         $this->container['auto_order_paused'] = isset($data['auto_order_paused']) ? $data['auto_order_paused'] : null;
@@ -263,6 +268,27 @@ class ItemAutoOrder implements ArrayAccess
     }
 
     /**
+     * Gets auto_order_cancel_item_id
+     * @return string
+     */
+    public function getAutoOrderCancelItemId()
+    {
+        return $this->container['auto_order_cancel_item_id'];
+    }
+
+    /**
+     * Sets auto_order_cancel_item_id
+     * @param string $auto_order_cancel_item_id
+     * @return $this
+     */
+    public function setAutoOrderCancelItemId($auto_order_cancel_item_id)
+    {
+        $this->container['auto_order_cancel_item_id'] = $auto_order_cancel_item_id;
+
+        return $this;
+    }
+
+    /**
      * Gets auto_order_cancel_item_oid
      * @return int
      */
@@ -285,7 +311,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Gets auto_order_downgrade_items
-     * @return string
+     * @return string[]
      */
     public function getAutoOrderDowngradeItems()
     {
@@ -294,7 +320,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_downgrade_items
-     * @param string $auto_order_downgrade_items
+     * @param string[] $auto_order_downgrade_items
      * @return $this
      */
     public function setAutoOrderDowngradeItems($auto_order_downgrade_items)
@@ -348,7 +374,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Gets auto_order_upgrade_items
-     * @return string
+     * @return string[]
      */
     public function getAutoOrderUpgradeItems()
     {
@@ -357,7 +383,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_upgrade_items
-     * @param string $auto_order_upgrade_items
+     * @param string[] $auto_order_upgrade_items
      * @return $this
      */
     public function setAutoOrderUpgradeItems($auto_order_upgrade_items)

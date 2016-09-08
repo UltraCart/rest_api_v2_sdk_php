@@ -94,6 +94,7 @@ class ItemShipping implements ArrayAccess
         'methods' => '\ultracart\admin\v2\models\ItemShippingMethod[]',
         'no_shipping_discount' => 'bool',
         'package_requirements' => '\ultracart\admin\v2\models\ItemShippingPackageRequirement[]',
+        'perishable_class_name' => 'string',
         'perishable_class_oid' => 'int',
         'preorder' => 'bool',
         'require_delivery_date' => 'bool',
@@ -152,6 +153,7 @@ class ItemShipping implements ArrayAccess
         'methods' => 'methods',
         'no_shipping_discount' => 'no_shipping_discount',
         'package_requirements' => 'package_requirements',
+        'perishable_class_name' => 'perishable_class_name',
         'perishable_class_oid' => 'perishable_class_oid',
         'preorder' => 'preorder',
         'require_delivery_date' => 'require_delivery_date',
@@ -210,6 +212,7 @@ class ItemShipping implements ArrayAccess
         'methods' => 'setMethods',
         'no_shipping_discount' => 'setNoShippingDiscount',
         'package_requirements' => 'setPackageRequirements',
+        'perishable_class_name' => 'setPerishableClassName',
         'perishable_class_oid' => 'setPerishableClassOid',
         'preorder' => 'setPreorder',
         'require_delivery_date' => 'setRequireDeliveryDate',
@@ -268,6 +271,7 @@ class ItemShipping implements ArrayAccess
         'methods' => 'getMethods',
         'no_shipping_discount' => 'getNoShippingDiscount',
         'package_requirements' => 'getPackageRequirements',
+        'perishable_class_name' => 'getPerishableClassName',
         'perishable_class_oid' => 'getPerishableClassOid',
         'preorder' => 'getPreorder',
         'require_delivery_date' => 'getRequireDeliveryDate',
@@ -293,90 +297,8 @@ class ItemShipping implements ArrayAccess
         return self::$getters;
     }
 
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_CRATE = 'Crate';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_BOX = 'FedEx: Box';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_ENVELOPE = 'FedEx: Envelope';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_PAK = 'FedEx: Pak';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_TUBE = 'FedEx: Tube';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_OTHER = 'Pallet Other';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_48_X_40 = 'Pallet 48 x 40';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_48_X_48 = 'Pallet 48 x 48';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_60_X_48 = 'Pallet 60 x 48';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_120_X_80 = 'Pallet 120 x 80';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_120_X_100 = 'Pallet 120 x 100';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_120_X_120 = 'Pallet 120 x 120';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_UPS_EXPRESS_BOX = 'UPS: Express Box';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_UPS_LETTER = 'UPS: Letter';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_UPS_PAK = 'UPS: Pak';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_UPS_TUBE = 'UPS: Tube';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_EXPRESS_MAIL_FLAT_RATE_ENVELOPE = 'USPS: Express Mail Flat Rate Envelope';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_EXPRESS_MAIL_PADDED_FLAT_RATE_ENVELOPE = 'USPS: Express Mail Padded Flat Rate Envelope';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_MEDIUM_FLAT_RATE_BOX = 'USPS: Priority Mail Medium Flat Rate Box';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_LARGE_FLAT_RATE_BOX = 'USPS: Priority Mail Large Flat Rate Box';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_SMALL_FLAT_RATE_BOX = 'USPS: Priority Mail Small Flat Rate Box';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_REGIONAL_RATE_A_BOX = 'USPS: Priority Mail Regional Rate A Box';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_REGIONAL_RATE_B_BOX = 'USPS: Priority Mail Regional Rate B Box';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_REGIONAL_RATE_C_BOX = 'USPS: Priority Mail Regional Rate C Box';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_FLAT_RATE_ENVELOPE = 'USPS: Priority Mail Flat Rate Envelope';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_PADDED_FLAT_RATE_ENVELOPE = 'USPS: Priority Mail Padded Flat Rate Envelope';
-    const SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_LEGAL_FLAT_RATE_ENVELOPE = 'USPS: Priority Mail Legal Flat Rate Envelope';
-    const SPECIAL_PRODUCT_TYPE_ = '';
-    const SPECIAL_PRODUCT_TYPE_BOOK_OR_SOFTWARE = 'Book or Software';
-    const SPECIAL_PRODUCT_TYPE_MUSIC = 'Music';
-    const SPECIAL_PRODUCT_TYPE_EDITORICAL = 'Editorical';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getShipSeparatelyPackageSpecialTypeAllowableValues()
-    {
-        return [
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_CRATE,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_BOX,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_ENVELOPE,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_PAK,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_FED_EX_TUBE,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_OTHER,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_48_X_40,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_48_X_48,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_60_X_48,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_120_X_80,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_120_X_100,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_PALLET_120_X_120,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_UPS_EXPRESS_BOX,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_UPS_LETTER,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_UPS_PAK,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_UPS_TUBE,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_EXPRESS_MAIL_FLAT_RATE_ENVELOPE,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_EXPRESS_MAIL_PADDED_FLAT_RATE_ENVELOPE,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_MEDIUM_FLAT_RATE_BOX,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_LARGE_FLAT_RATE_BOX,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_SMALL_FLAT_RATE_BOX,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_REGIONAL_RATE_A_BOX,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_REGIONAL_RATE_B_BOX,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_REGIONAL_RATE_C_BOX,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_FLAT_RATE_ENVELOPE,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_PADDED_FLAT_RATE_ENVELOPE,
-            self::SHIP_SEPARATELY_PACKAGE_SPECIAL_TYPE_USPS_PRIORITY_MAIL_LEGAL_FLAT_RATE_ENVELOPE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getSpecialProductTypeAllowableValues()
-    {
-        return [
-            self::SPECIAL_PRODUCT_TYPE_,
-            self::SPECIAL_PRODUCT_TYPE_BOOK_OR_SOFTWARE,
-            self::SPECIAL_PRODUCT_TYPE_MUSIC,
-            self::SPECIAL_PRODUCT_TYPE_EDITORICAL,
-        ];
-    }
     
 
     /**
@@ -419,6 +341,7 @@ class ItemShipping implements ArrayAccess
         $this->container['methods'] = isset($data['methods']) ? $data['methods'] : null;
         $this->container['no_shipping_discount'] = isset($data['no_shipping_discount']) ? $data['no_shipping_discount'] : null;
         $this->container['package_requirements'] = isset($data['package_requirements']) ? $data['package_requirements'] : null;
+        $this->container['perishable_class_name'] = isset($data['perishable_class_name']) ? $data['perishable_class_name'] : null;
         $this->container['perishable_class_oid'] = isset($data['perishable_class_oid']) ? $data['perishable_class_oid'] : null;
         $this->container['preorder'] = isset($data['preorder']) ? $data['preorder'] : null;
         $this->container['require_delivery_date'] = isset($data['require_delivery_date']) ? $data['require_delivery_date'] : null;
@@ -447,16 +370,6 @@ class ItemShipping implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("Crate", "FedEx: Box", "FedEx: Envelope", "FedEx: Pak", "FedEx: Tube", "Pallet Other", "Pallet 48 x 40", "Pallet 48 x 48", "Pallet 60 x 48", "Pallet 120 x 80", "Pallet 120 x 100", "Pallet 120 x 120", "UPS: Express Box", "UPS: Letter", "UPS: Pak", "UPS: Tube", "USPS: Express Mail Flat Rate Envelope", "USPS: Express Mail Padded Flat Rate Envelope", "USPS: Priority Mail Medium Flat Rate Box", "USPS: Priority Mail Large Flat Rate Box", "USPS: Priority Mail Small Flat Rate Box", "USPS: Priority Mail Regional Rate A Box", "USPS: Priority Mail Regional Rate B Box", "USPS: Priority Mail Regional Rate C Box", "USPS: Priority Mail Flat Rate Envelope", "USPS: Priority Mail Padded Flat Rate Envelope", "USPS: Priority Mail Legal Flat Rate Envelope");
-        if (!in_array($this->container['ship_separately_package_special_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'ship_separately_package_special_type', must be one of #{allowed_values}.";
-        }
-
-        $allowed_values = array("", "Book or Software", "Music", "Editorical");
-        if (!in_array($this->container['special_product_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'special_product_type', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -468,14 +381,6 @@ class ItemShipping implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("Crate", "FedEx: Box", "FedEx: Envelope", "FedEx: Pak", "FedEx: Tube", "Pallet Other", "Pallet 48 x 40", "Pallet 48 x 48", "Pallet 60 x 48", "Pallet 120 x 80", "Pallet 120 x 100", "Pallet 120 x 120", "UPS: Express Box", "UPS: Letter", "UPS: Pak", "UPS: Tube", "USPS: Express Mail Flat Rate Envelope", "USPS: Express Mail Padded Flat Rate Envelope", "USPS: Priority Mail Medium Flat Rate Box", "USPS: Priority Mail Large Flat Rate Box", "USPS: Priority Mail Small Flat Rate Box", "USPS: Priority Mail Regional Rate A Box", "USPS: Priority Mail Regional Rate B Box", "USPS: Priority Mail Regional Rate C Box", "USPS: Priority Mail Flat Rate Envelope", "USPS: Priority Mail Padded Flat Rate Envelope", "USPS: Priority Mail Legal Flat Rate Envelope");
-        if (!in_array($this->container['ship_separately_package_special_type'], $allowed_values)) {
-            return false;
-        }
-        $allowed_values = array("", "Book or Software", "Music", "Editorical");
-        if (!in_array($this->container['special_product_type'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -1069,6 +974,27 @@ class ItemShipping implements ArrayAccess
     }
 
     /**
+     * Gets perishable_class_name
+     * @return string
+     */
+    public function getPerishableClassName()
+    {
+        return $this->container['perishable_class_name'];
+    }
+
+    /**
+     * Sets perishable_class_name
+     * @param string $perishable_class_name
+     * @return $this
+     */
+    public function setPerishableClassName($perishable_class_name)
+    {
+        $this->container['perishable_class_name'] = $perishable_class_name;
+
+        return $this;
+    }
+
+    /**
      * Gets perishable_class_oid
      * @return int
      */
@@ -1378,10 +1304,6 @@ class ItemShipping implements ArrayAccess
      */
     public function setShipSeparatelyPackageSpecialType($ship_separately_package_special_type)
     {
-        $allowed_values = array('Crate', 'FedEx: Box', 'FedEx: Envelope', 'FedEx: Pak', 'FedEx: Tube', 'Pallet Other', 'Pallet 48 x 40', 'Pallet 48 x 48', 'Pallet 60 x 48', 'Pallet 120 x 80', 'Pallet 120 x 100', 'Pallet 120 x 120', 'UPS: Express Box', 'UPS: Letter', 'UPS: Pak', 'UPS: Tube', 'USPS: Express Mail Flat Rate Envelope', 'USPS: Express Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Medium Flat Rate Box', 'USPS: Priority Mail Large Flat Rate Box', 'USPS: Priority Mail Small Flat Rate Box', 'USPS: Priority Mail Regional Rate A Box', 'USPS: Priority Mail Regional Rate B Box', 'USPS: Priority Mail Regional Rate C Box', 'USPS: Priority Mail Flat Rate Envelope', 'USPS: Priority Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Legal Flat Rate Envelope');
-        if (!in_array($ship_separately_package_special_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'ship_separately_package_special_type', must be one of 'Crate', 'FedEx: Box', 'FedEx: Envelope', 'FedEx: Pak', 'FedEx: Tube', 'Pallet Other', 'Pallet 48 x 40', 'Pallet 48 x 48', 'Pallet 60 x 48', 'Pallet 120 x 80', 'Pallet 120 x 100', 'Pallet 120 x 120', 'UPS: Express Box', 'UPS: Letter', 'UPS: Pak', 'UPS: Tube', 'USPS: Express Mail Flat Rate Envelope', 'USPS: Express Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Medium Flat Rate Box', 'USPS: Priority Mail Large Flat Rate Box', 'USPS: Priority Mail Small Flat Rate Box', 'USPS: Priority Mail Regional Rate A Box', 'USPS: Priority Mail Regional Rate B Box', 'USPS: Priority Mail Regional Rate C Box', 'USPS: Priority Mail Flat Rate Envelope', 'USPS: Priority Mail Padded Flat Rate Envelope', 'USPS: Priority Mail Legal Flat Rate Envelope'");
-        }
         $this->container['ship_separately_package_special_type'] = $ship_separately_package_special_type;
 
         return $this;
@@ -1424,10 +1346,6 @@ class ItemShipping implements ArrayAccess
      */
     public function setSpecialProductType($special_product_type)
     {
-        $allowed_values = array('', 'Book or Software', 'Music', 'Editorical');
-        if (!in_array($special_product_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'special_product_type', must be one of '', 'Book or Software', 'Music', 'Editorical'");
-        }
         $this->container['special_product_type'] = $special_product_type;
 
         return $this;

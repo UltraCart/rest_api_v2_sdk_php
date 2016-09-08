@@ -169,46 +169,10 @@ class ItemAutoOrderStep implements ArrayAccess
         return self::$getters;
     }
 
-    const SCHEDULE_WEEKLY = 'Weekly';
-    const SCHEDULE_EVERY = 'Every...';
-    const SCHEDULE_EVERY_10_DAYS = 'Every 10 Days';
-    const SCHEDULE_BIWEEKLY = 'Biweekly';
-    const SCHEDULE_EVERY_24_DAYS = 'Every 24 Days';
-    const SCHEDULE_EVERY_28_DAYS = 'Every 28 Days';
-    const SCHEDULE_MONTHLY = 'Monthly';
-    const SCHEDULE_EVERY_45_DAYS = 'Every 45 Days';
-    const SCHEDULE_EVERY_2_MONTHS = 'Every 2 Months';
-    const SCHEDULE_EVERY_3_MONTHS = 'Every 3 Months';
-    const SCHEDULE_EVERY_4_MONTHS = 'Every 4 Months';
-    const SCHEDULE_EVERY_6_MONTHS = 'Every 6 Months';
-    const SCHEDULE_YEARLY = 'Yearly';
     const TYPE_ITEM = 'item';
     const TYPE_PAUSE = 'pause';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getScheduleAllowableValues()
-    {
-        return [
-            self::SCHEDULE_WEEKLY,
-            self::SCHEDULE_EVERY,
-            self::SCHEDULE_EVERY_10_DAYS,
-            self::SCHEDULE_BIWEEKLY,
-            self::SCHEDULE_EVERY_24_DAYS,
-            self::SCHEDULE_EVERY_28_DAYS,
-            self::SCHEDULE_MONTHLY,
-            self::SCHEDULE_EVERY_45_DAYS,
-            self::SCHEDULE_EVERY_2_MONTHS,
-            self::SCHEDULE_EVERY_3_MONTHS,
-            self::SCHEDULE_EVERY_4_MONTHS,
-            self::SCHEDULE_EVERY_6_MONTHS,
-            self::SCHEDULE_YEARLY,
-        ];
-    }
     
     /**
      * Gets allowable values of the enum
@@ -260,11 +224,6 @@ class ItemAutoOrderStep implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("Weekly", "Every...", "Every 10 Days", "Biweekly", "Every 24 Days", "Every 28 Days", "Monthly", "Every 45 Days", "Every 2 Months", "Every 3 Months", "Every 4 Months", "Every 6 Months", "Yearly");
-        if (!in_array($this->container['schedule'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'schedule', must be one of #{allowed_values}.";
-        }
-
         $allowed_values = array("item", "pause");
         if (!in_array($this->container['type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
@@ -281,10 +240,6 @@ class ItemAutoOrderStep implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("Weekly", "Every...", "Every 10 Days", "Biweekly", "Every 24 Days", "Every 28 Days", "Monthly", "Every 45 Days", "Every 2 Months", "Every 3 Months", "Every 4 Months", "Every 6 Months", "Yearly");
-        if (!in_array($this->container['schedule'], $allowed_values)) {
-            return false;
-        }
         $allowed_values = array("item", "pause");
         if (!in_array($this->container['type'], $allowed_values)) {
             return false;
@@ -540,10 +495,6 @@ class ItemAutoOrderStep implements ArrayAccess
      */
     public function setSchedule($schedule)
     {
-        $allowed_values = array('Weekly', 'Every...', 'Every 10 Days', 'Biweekly', 'Every 24 Days', 'Every 28 Days', 'Monthly', 'Every 45 Days', 'Every 2 Months', 'Every 3 Months', 'Every 4 Months', 'Every 6 Months', 'Yearly');
-        if (!in_array($schedule, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'schedule', must be one of 'Weekly', 'Every...', 'Every 10 Days', 'Biweekly', 'Every 24 Days', 'Every 28 Days', 'Monthly', 'Every 45 Days', 'Every 2 Months', 'Every 3 Months', 'Every 4 Months', 'Every 6 Months', 'Yearly'");
-        }
         $this->container['schedule'] = $schedule;
 
         return $this;

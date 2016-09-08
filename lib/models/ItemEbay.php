@@ -385,8 +385,26 @@ class ItemEbay implements ArrayAccess
         return self::$getters;
     }
 
+    const LISTING_TYPE_ = '';
+    const LISTING_TYPE_AUCTION = 'Auction';
+    const LISTING_TYPE_FIXED = 'Fixed';
+    const LISTING_TYPE_STORE = 'Store';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getListingTypeAllowableValues()
+    {
+        return [
+            self::LISTING_TYPE_,
+            self::LISTING_TYPE_AUCTION,
+            self::LISTING_TYPE_FIXED,
+            self::LISTING_TYPE_STORE,
+        ];
+    }
     
 
     /**
@@ -480,6 +498,11 @@ class ItemEbay implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("", "Auction", "Fixed", "Store");
+        if (!in_array($this->container['listing_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'listing_type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -491,6 +514,10 @@ class ItemEbay implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("", "Auction", "Fixed", "Store");
+        if (!in_array($this->container['listing_type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -1330,6 +1357,10 @@ class ItemEbay implements ArrayAccess
      */
     public function setListingType($listing_type)
     {
+        $allowed_values = array('', 'Auction', 'Fixed', 'Store');
+        if (!in_array($listing_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'listing_type', must be one of '', 'Auction', 'Fixed', 'Store'");
+        }
         $this->container['listing_type'] = $listing_type;
 
         return $this;

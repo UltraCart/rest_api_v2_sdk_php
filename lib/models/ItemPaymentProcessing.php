@@ -70,7 +70,7 @@ class ItemPaymentProcessing implements ArrayAccess
         'credit_card_transaction_type' => 'string',
         'no_realtime_charge' => 'bool',
         'payment_method_validity' => 'string',
-        'rotating_transaction_gateway_codes' => 'string'
+        'rotating_transaction_gateway_codes' => 'string[]'
     );
 
     public static function swaggerTypes()
@@ -129,26 +129,8 @@ class ItemPaymentProcessing implements ArrayAccess
         return self::$getters;
     }
 
-    const CREDIT_CARD_TRANSACTION_TYPE_ = '';
-    const CREDIT_CARD_TRANSACTION_TYPE_AUTH_AND_CAPTURE = 'auth and capture';
-    const CREDIT_CARD_TRANSACTION_TYPE_AUTH_THEN_CAPTURE = 'auth then capture';
-    const CREDIT_CARD_TRANSACTION_TYPE_AUTH_ONLY = 'auth only';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getCreditCardTransactionTypeAllowableValues()
-    {
-        return [
-            self::CREDIT_CARD_TRANSACTION_TYPE_,
-            self::CREDIT_CARD_TRANSACTION_TYPE_AUTH_AND_CAPTURE,
-            self::CREDIT_CARD_TRANSACTION_TYPE_AUTH_THEN_CAPTURE,
-            self::CREDIT_CARD_TRANSACTION_TYPE_AUTH_ONLY,
-        ];
-    }
     
 
     /**
@@ -178,11 +160,6 @@ class ItemPaymentProcessing implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("", "auth and capture", "auth then capture", "auth only");
-        if (!in_array($this->container['credit_card_transaction_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'credit_card_transaction_type', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -194,10 +171,6 @@ class ItemPaymentProcessing implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("", "auth and capture", "auth then capture", "auth only");
-        if (!in_array($this->container['credit_card_transaction_type'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -239,10 +212,6 @@ class ItemPaymentProcessing implements ArrayAccess
      */
     public function setCreditCardTransactionType($credit_card_transaction_type)
     {
-        $allowed_values = array('', 'auth and capture', 'auth then capture', 'auth only');
-        if (!in_array($credit_card_transaction_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'credit_card_transaction_type', must be one of '', 'auth and capture', 'auth then capture', 'auth only'");
-        }
         $this->container['credit_card_transaction_type'] = $credit_card_transaction_type;
 
         return $this;
@@ -292,7 +261,7 @@ class ItemPaymentProcessing implements ArrayAccess
 
     /**
      * Gets rotating_transaction_gateway_codes
-     * @return string
+     * @return string[]
      */
     public function getRotatingTransactionGatewayCodes()
     {
@@ -301,7 +270,7 @@ class ItemPaymentProcessing implements ArrayAccess
 
     /**
      * Sets rotating_transaction_gateway_codes
-     * @param string $rotating_transaction_gateway_codes
+     * @param string[] $rotating_transaction_gateway_codes
      * @return $this
      */
     public function setRotatingTransactionGatewayCodes($rotating_transaction_gateway_codes)

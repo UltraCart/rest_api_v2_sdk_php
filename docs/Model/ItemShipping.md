@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **methods** | [**\ultracart\admin\v2\models\ItemShippingMethod[]**](ItemShippingMethod.md) |  | [optional] 
 **no_shipping_discount** | **bool** |  | [optional] 
 **package_requirements** | [**\ultracart\admin\v2\models\ItemShippingPackageRequirement[]**](ItemShippingPackageRequirement.md) |  | [optional] 
+**perishable_class_name** | **string** |  | [optional] 
 **perishable_class_oid** | **int** |  | [optional] 
 **preorder** | **bool** |  | [optional] 
 **require_delivery_date** | **bool** |  | [optional] 
