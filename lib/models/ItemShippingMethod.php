@@ -261,7 +261,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets cost
-     * @param double $cost
+     * @param double $cost Cost
      * @return $this
      */
     public function setCost($cost)
@@ -282,7 +282,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets each_additional_item_markup
-     * @param double $each_additional_item_markup
+     * @param double $each_additional_item_markup Each additional item markup
      * @return $this
      */
     public function setEachAdditionalItemMarkup($each_additional_item_markup)
@@ -303,7 +303,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets filter_to_if_available
-     * @param bool $filter_to_if_available
+     * @param bool $filter_to_if_available Filter to this method if available
      * @return $this
      */
     public function setFilterToIfAvailable($filter_to_if_available)
@@ -324,7 +324,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets first_item_markup
-     * @param double $first_item_markup
+     * @param double $first_item_markup First item markup
      * @return $this
      */
     public function setFirstItemMarkup($first_item_markup)
@@ -345,7 +345,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets fixed_shipping_cost
-     * @param double $fixed_shipping_cost
+     * @param double $fixed_shipping_cost Fixed shipping cost
      * @return $this
      */
     public function setFixedShippingCost($fixed_shipping_cost)
@@ -366,7 +366,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets flat_fee_markup
-     * @param double $flat_fee_markup
+     * @param double $flat_fee_markup Flat fee markup
      * @return $this
      */
     public function setFlatFeeMarkup($flat_fee_markup)
@@ -387,7 +387,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets free_shipping
-     * @param bool $free_shipping
+     * @param bool $free_shipping Free shipping
      * @return $this
      */
     public function setFreeShipping($free_shipping)
@@ -408,7 +408,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets per_item_fee_markup
-     * @param double $per_item_fee_markup
+     * @param double $per_item_fee_markup Per item fee markup
      * @return $this
      */
     public function setPerItemFeeMarkup($per_item_fee_markup)
@@ -429,7 +429,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets percentage_markup
-     * @param double $percentage_markup
+     * @param double $percentage_markup Percentage markup
      * @return $this
      */
     public function setPercentageMarkup($percentage_markup)
@@ -450,7 +450,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets percentage_of_item_markup
-     * @param double $percentage_of_item_markup
+     * @param double $percentage_of_item_markup Percentage of item markup
      * @return $this
      */
     public function setPercentageOfItemMarkup($percentage_of_item_markup)
@@ -471,7 +471,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets relax_restrictions_on_upsell
-     * @param bool $relax_restrictions_on_upsell
+     * @param bool $relax_restrictions_on_upsell Relax restrictions on upsell
      * @return $this
      */
     public function setRelaxRestrictionsOnUpsell($relax_restrictions_on_upsell)
@@ -492,7 +492,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets shipping_method
-     * @param string $shipping_method
+     * @param string $shipping_method Shipping method name
      * @return $this
      */
     public function setShippingMethod($shipping_method)
@@ -513,7 +513,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets shipping_method_oid
-     * @param int $shipping_method_oid
+     * @param int $shipping_method_oid Shipping method object identifier
      * @return $this
      */
     public function setShippingMethodOid($shipping_method_oid)
@@ -534,7 +534,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets shipping_method_validity
-     * @param string $shipping_method_validity
+     * @param string $shipping_method_validity Shipping method validity
      * @return $this
      */
     public function setShippingMethodValidity($shipping_method_validity)
@@ -559,7 +559,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets signature_required
-     * @param bool $signature_required
+     * @param bool $signature_required Signature required
      * @return $this
      */
     public function setSignatureRequired($signature_required)

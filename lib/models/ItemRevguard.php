@@ -196,7 +196,7 @@ class ItemRevguard implements ArrayAccess
 
     /**
      * Sets revguard_canceled_csr_prompt_group
-     * @param int $revguard_canceled_csr_prompt_group
+     * @param int $revguard_canceled_csr_prompt_group Canceled CSR prompt group
      * @return $this
      */
     public function setRevguardCanceledCsrPromptGroup($revguard_canceled_csr_prompt_group)
@@ -217,7 +217,7 @@ class ItemRevguard implements ArrayAccess
 
     /**
      * Sets revguard_canceled_ivr_prompt_group
-     * @param int $revguard_canceled_ivr_prompt_group
+     * @param int $revguard_canceled_ivr_prompt_group IVR prompt group
      * @return $this
      */
     public function setRevguardCanceledIvrPromptGroup($revguard_canceled_ivr_prompt_group)
@@ -238,7 +238,7 @@ class ItemRevguard implements ArrayAccess
 
     /**
      * Sets revguard_canceled_web_prompt_group
-     * @param int $revguard_canceled_web_prompt_group
+     * @param int $revguard_canceled_web_prompt_group Canceled web prompt group
      * @return $this
      */
     public function setRevguardCanceledWebPromptGroup($revguard_canceled_web_prompt_group)
@@ -259,7 +259,7 @@ class ItemRevguard implements ArrayAccess
 
     /**
      * Sets revguard_client_brand
-     * @param int $revguard_client_brand
+     * @param int $revguard_client_brand Client brand
      * @return $this
      */
     public function setRevguardClientBrand($revguard_client_brand)
@@ -280,7 +280,7 @@ class ItemRevguard implements ArrayAccess
 
     /**
      * Sets revguard_csr_prompt_group
-     * @param int $revguard_csr_prompt_group
+     * @param int $revguard_csr_prompt_group CSR prompt group
      * @return $this
      */
     public function setRevguardCsrPromptGroup($revguard_csr_prompt_group)
@@ -301,7 +301,7 @@ class ItemRevguard implements ArrayAccess
 
     /**
      * Sets revguard_ivr_prompt_group
-     * @param int $revguard_ivr_prompt_group
+     * @param int $revguard_ivr_prompt_group IVR prompt group
      * @return $this
      */
     public function setRevguardIvrPromptGroup($revguard_ivr_prompt_group)
@@ -322,7 +322,7 @@ class ItemRevguard implements ArrayAccess
 
     /**
      * Sets revguard_web_prompt_group
-     * @param int $revguard_web_prompt_group
+     * @param int $revguard_web_prompt_group Web prompt group
      * @return $this
      */
     public function setRevguardWebPromptGroup($revguard_web_prompt_group)

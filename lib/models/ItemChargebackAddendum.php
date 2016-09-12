@@ -181,7 +181,7 @@ class ItemChargebackAddendum implements ArrayAccess
 
     /**
      * Sets chargeback_addendum_oid
-     * @param int $chargeback_addendum_oid
+     * @param int $chargeback_addendum_oid Chargeback addendum object identifier
      * @return $this
      */
     public function setChargebackAddendumOid($chargeback_addendum_oid)
@@ -202,7 +202,7 @@ class ItemChargebackAddendum implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description
+     * @param string $description Description
      * @return $this
      */
     public function setDescription($description)
@@ -223,7 +223,7 @@ class ItemChargebackAddendum implements ArrayAccess
 
     /**
      * Sets file_size
-     * @param int $file_size
+     * @param int $file_size Size of the file
      * @return $this
      */
     public function setFileSize($file_size)
@@ -244,7 +244,7 @@ class ItemChargebackAddendum implements ArrayAccess
 
     /**
      * Sets pages
-     * @param int $pages
+     * @param int $pages Number of pages
      * @return $this
      */
     public function setPages($pages)

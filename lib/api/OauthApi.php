@@ -216,10 +216,10 @@ class OauthApi
      * Exchange authorization code for access token.
      *
      * @param string $client_id The OAuth application client_id. (required)
-     * @param string $grant_type must be authorization_code or refresh_token (required)
-     * @param string $code required for authorization_code (optional)
-     * @param string $redirect_uri required for authorization_code (optional)
-     * @param string $refresh_token required for refresh_token (optional)
+     * @param string $grant_type Type of grant (required)
+     * @param string $code Authorization code received back from the browser redirect (optional)
+     * @param string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      * @return \ultracart\admin\v2\models\OauthTokenSuccessResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
@@ -235,10 +235,10 @@ class OauthApi
      * Exchange authorization code for access token.
      *
      * @param string $client_id The OAuth application client_id. (required)
-     * @param string $grant_type must be authorization_code or refresh_token (required)
-     * @param string $code required for authorization_code (optional)
-     * @param string $redirect_uri required for authorization_code (optional)
-     * @param string $refresh_token required for refresh_token (optional)
+     * @param string $grant_type Type of grant (required)
+     * @param string $code Authorization code received back from the browser redirect (optional)
+     * @param string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      * @return Array of \ultracart\admin\v2\models\OauthTokenSuccessResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */

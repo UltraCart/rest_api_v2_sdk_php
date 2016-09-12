@@ -201,7 +201,7 @@ class ItemRestriction implements ArrayAccess
 
     /**
      * Sets exclude_coupon
-     * @param bool $exclude_coupon
+     * @param bool $exclude_coupon Exclude coupons
      * @return $this
      */
     public function setExcludeCoupon($exclude_coupon)
@@ -222,7 +222,7 @@ class ItemRestriction implements ArrayAccess
 
     /**
      * Sets exclude_from_free_promotion
-     * @param bool $exclude_from_free_promotion
+     * @param bool $exclude_from_free_promotion Exclude from free promotion
      * @return $this
      */
     public function setExcludeFromFreePromotion($exclude_from_free_promotion)
@@ -243,7 +243,7 @@ class ItemRestriction implements ArrayAccess
 
     /**
      * Sets items
-     * @param \ultracart\admin\v2\models\ItemRestrictionItem[] $items
+     * @param \ultracart\admin\v2\models\ItemRestrictionItem[] $items Items
      * @return $this
      */
     public function setItems($items)
@@ -264,7 +264,7 @@ class ItemRestriction implements ArrayAccess
 
     /**
      * Sets maximum_quantity
-     * @param int $maximum_quantity
+     * @param int $maximum_quantity Maximum quantity
      * @return $this
      */
     public function setMaximumQuantity($maximum_quantity)
@@ -285,7 +285,7 @@ class ItemRestriction implements ArrayAccess
 
     /**
      * Sets minimum_quantity
-     * @param int $minimum_quantity
+     * @param int $minimum_quantity Minimum quantity (defaults to 1)
      * @return $this
      */
     public function setMinimumQuantity($minimum_quantity)
@@ -306,7 +306,7 @@ class ItemRestriction implements ArrayAccess
 
     /**
      * Sets multiple_quantity
-     * @param int $multiple_quantity
+     * @param int $multiple_quantity Multiple of quantity
      * @return $this
      */
     public function setMultipleQuantity($multiple_quantity)
@@ -327,7 +327,7 @@ class ItemRestriction implements ArrayAccess
 
     /**
      * Sets one_per_customer
-     * @param bool $one_per_customer
+     * @param bool $one_per_customer One per customer
      * @return $this
      */
     public function setOnePerCustomer($one_per_customer)
@@ -348,7 +348,7 @@ class ItemRestriction implements ArrayAccess
 
     /**
      * Sets purchase_separately
-     * @param bool $purchase_separately
+     * @param bool $purchase_separately Purchase separately
      * @return $this
      */
     public function setPurchaseSeparately($purchase_separately)

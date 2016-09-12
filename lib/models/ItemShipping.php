@@ -396,7 +396,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets allow_back_order
-     * @param bool $allow_back_order
+     * @param bool $allow_back_order Allow back order
      * @return $this
      */
     public function setAllowBackOrder($allow_back_order)
@@ -417,7 +417,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets amazon_fba
-     * @param bool $amazon_fba
+     * @param bool $amazon_fba Fulfillment by Amazon.com
      * @return $this
      */
     public function setAmazonFba($amazon_fba)
@@ -438,7 +438,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets case_inner_packs
-     * @param int $case_inner_packs
+     * @param int $case_inner_packs Case inner packs
      * @return $this
      */
     public function setCaseInnerPacks($case_inner_packs)
@@ -459,7 +459,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets case_units
-     * @param int $case_units
+     * @param int $case_units Case units
      * @return $this
      */
     public function setCaseUnits($case_units)
@@ -480,7 +480,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets cases
-     * @param \ultracart\admin\v2\models\ItemShippingCase[] $cases
+     * @param \ultracart\admin\v2\models\ItemShippingCase[] $cases Cases
      * @return $this
      */
     public function setCases($cases)
@@ -501,7 +501,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets country_of_origin
-     * @param string $country_of_origin
+     * @param string $country_of_origin Country of origin (for customs)
      * @return $this
      */
     public function setCountryOfOrigin($country_of_origin)
@@ -522,7 +522,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets customs_description
-     * @param string $customs_description
+     * @param string $customs_description Customs description
      * @return $this
      */
     public function setCustomsDescription($customs_description)
@@ -543,7 +543,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets customs_value
-     * @param double $customs_value
+     * @param double $customs_value Customs value
      * @return $this
      */
     public function setCustomsValue($customs_value)
@@ -564,7 +564,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets delivery_on_friday
-     * @param bool $delivery_on_friday
+     * @param bool $delivery_on_friday Delivery on Friday
      * @return $this
      */
     public function setDeliveryOnFriday($delivery_on_friday)
@@ -585,7 +585,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets delivery_on_monday
-     * @param bool $delivery_on_monday
+     * @param bool $delivery_on_monday Delivery on Monday
      * @return $this
      */
     public function setDeliveryOnMonday($delivery_on_monday)
@@ -606,7 +606,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets delivery_on_saturday
-     * @param bool $delivery_on_saturday
+     * @param bool $delivery_on_saturday Delivery on Saturday
      * @return $this
      */
     public function setDeliveryOnSaturday($delivery_on_saturday)
@@ -627,7 +627,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets delivery_on_sunday
-     * @param bool $delivery_on_sunday
+     * @param bool $delivery_on_sunday Delivery on Sunday
      * @return $this
      */
     public function setDeliveryOnSunday($delivery_on_sunday)
@@ -648,7 +648,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets delivery_on_thursday
-     * @param bool $delivery_on_thursday
+     * @param bool $delivery_on_thursday Delivery on Thursday
      * @return $this
      */
     public function setDeliveryOnThursday($delivery_on_thursday)
@@ -669,7 +669,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets delivery_on_tuesday
-     * @param bool $delivery_on_tuesday
+     * @param bool $delivery_on_tuesday Delivery on Tuesday
      * @return $this
      */
     public function setDeliveryOnTuesday($delivery_on_tuesday)
@@ -690,7 +690,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets delivery_on_wednesday
-     * @param bool $delivery_on_wednesday
+     * @param bool $delivery_on_wednesday Delivery on Wednesday
      * @return $this
      */
     public function setDeliveryOnWednesday($delivery_on_wednesday)
@@ -711,7 +711,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets destination_markups
-     * @param \ultracart\admin\v2\models\ItemShippingDestinationMarkup[] $destination_markups
+     * @param \ultracart\admin\v2\models\ItemShippingDestinationMarkup[] $destination_markups Destination markups
      * @return $this
      */
     public function setDestinationMarkups($destination_markups)
@@ -732,7 +732,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets destination_restrictions
-     * @param \ultracart\admin\v2\models\ItemShippingDestinationRestriction[] $destination_restrictions
+     * @param \ultracart\admin\v2\models\ItemShippingDestinationRestriction[] $destination_restrictions Destination restrictions
      * @return $this
      */
     public function setDestinationRestrictions($destination_restrictions)
@@ -753,7 +753,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets distribution_centers
-     * @param \ultracart\admin\v2\models\ItemShippingDistributionCenter[] $distribution_centers
+     * @param \ultracart\admin\v2\models\ItemShippingDistributionCenter[] $distribution_centers Distribution centers
      * @return $this
      */
     public function setDistributionCenters($distribution_centers)
@@ -774,7 +774,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets eta
-     * @param string $eta
+     * @param string $eta Estimated time of arrival
      * @return $this
      */
     public function setEta($eta)
@@ -795,7 +795,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets free_shipping
-     * @param bool $free_shipping
+     * @param bool $free_shipping Qualifies for free shipping
      * @return $this
      */
     public function setFreeShipping($free_shipping)
@@ -816,7 +816,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets freight_class
-     * @param string $freight_class
+     * @param string $freight_class Freight class
      * @return $this
      */
     public function setFreightClass($freight_class)
@@ -837,7 +837,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets hazmat
-     * @param bool $hazmat
+     * @param bool $hazmat Hazardous material
      * @return $this
      */
     public function setHazmat($hazmat)
@@ -858,7 +858,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets made_to_order
-     * @param bool $made_to_order
+     * @param bool $made_to_order True if this item is made to order
      * @return $this
      */
     public function setMadeToOrder($made_to_order)
@@ -879,7 +879,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets made_to_order_lead_time
-     * @param int $made_to_order_lead_time
+     * @param int $made_to_order_lead_time Number of days lead time it takes to make the item before ite can ship
      * @return $this
      */
     public function setMadeToOrderLeadTime($made_to_order_lead_time)
@@ -900,7 +900,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets max_days_time_in_transit
-     * @param int $max_days_time_in_transit
+     * @param int $max_days_time_in_transit Maximum days allowed in transit
      * @return $this
      */
     public function setMaxDaysTimeInTransit($max_days_time_in_transit)
@@ -921,7 +921,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets methods
-     * @param \ultracart\admin\v2\models\ItemShippingMethod[] $methods
+     * @param \ultracart\admin\v2\models\ItemShippingMethod[] $methods Methods
      * @return $this
      */
     public function setMethods($methods)
@@ -942,7 +942,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets no_shipping_discount
-     * @param bool $no_shipping_discount
+     * @param bool $no_shipping_discount No shipping discounts
      * @return $this
      */
     public function setNoShippingDiscount($no_shipping_discount)
@@ -963,7 +963,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets package_requirements
-     * @param \ultracart\admin\v2\models\ItemShippingPackageRequirement[] $package_requirements
+     * @param \ultracart\admin\v2\models\ItemShippingPackageRequirement[] $package_requirements Package requirements
      * @return $this
      */
     public function setPackageRequirements($package_requirements)
@@ -984,7 +984,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets perishable_class_name
-     * @param string $perishable_class_name
+     * @param string $perishable_class_name Perishable class name
      * @return $this
      */
     public function setPerishableClassName($perishable_class_name)
@@ -1005,7 +1005,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets perishable_class_oid
-     * @param int $perishable_class_oid
+     * @param int $perishable_class_oid Perishable class object identifier
      * @return $this
      */
     public function setPerishableClassOid($perishable_class_oid)
@@ -1026,7 +1026,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets preorder
-     * @param bool $preorder
+     * @param bool $preorder This item is on pre-order
      * @return $this
      */
     public function setPreorder($preorder)
@@ -1047,7 +1047,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets require_delivery_date
-     * @param bool $require_delivery_date
+     * @param bool $require_delivery_date True to require customer to select a delivery date
      * @return $this
      */
     public function setRequireDeliveryDate($require_delivery_date)
@@ -1068,7 +1068,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets restrict_shipment_on_friday
-     * @param bool $restrict_shipment_on_friday
+     * @param bool $restrict_shipment_on_friday Restrict shipment on Friday
      * @return $this
      */
     public function setRestrictShipmentOnFriday($restrict_shipment_on_friday)
@@ -1089,7 +1089,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets restrict_shipment_on_monday
-     * @param bool $restrict_shipment_on_monday
+     * @param bool $restrict_shipment_on_monday Restrict shipment on Monday
      * @return $this
      */
     public function setRestrictShipmentOnMonday($restrict_shipment_on_monday)
@@ -1110,7 +1110,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets restrict_shipment_on_saturday
-     * @param bool $restrict_shipment_on_saturday
+     * @param bool $restrict_shipment_on_saturday Restrict shipment on Saturday
      * @return $this
      */
     public function setRestrictShipmentOnSaturday($restrict_shipment_on_saturday)
@@ -1131,7 +1131,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets restrict_shipment_on_sunday
-     * @param bool $restrict_shipment_on_sunday
+     * @param bool $restrict_shipment_on_sunday Restrict shipment on Sunday
      * @return $this
      */
     public function setRestrictShipmentOnSunday($restrict_shipment_on_sunday)
@@ -1152,7 +1152,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets restrict_shipment_on_thursday
-     * @param bool $restrict_shipment_on_thursday
+     * @param bool $restrict_shipment_on_thursday Restrict shipment on Thursday
      * @return $this
      */
     public function setRestrictShipmentOnThursday($restrict_shipment_on_thursday)
@@ -1173,7 +1173,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets restrict_shipment_on_tuesday
-     * @param bool $restrict_shipment_on_tuesday
+     * @param bool $restrict_shipment_on_tuesday Restrict shipment on Tuesday
      * @return $this
      */
     public function setRestrictShipmentOnTuesday($restrict_shipment_on_tuesday)
@@ -1194,7 +1194,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets restrict_shipment_on_wednesday
-     * @param bool $restrict_shipment_on_wednesday
+     * @param bool $restrict_shipment_on_wednesday Restrict shipment on Wednesday
      * @return $this
      */
     public function setRestrictShipmentOnWednesday($restrict_shipment_on_wednesday)
@@ -1215,7 +1215,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets ship_separately
-     * @param bool $ship_separately
+     * @param bool $ship_separately Ship this item in a separate box
      * @return $this
      */
     public function setShipSeparately($ship_separately)
@@ -1299,7 +1299,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets ship_separately_package_special_type
-     * @param string $ship_separately_package_special_type
+     * @param string $ship_separately_package_special_type Ship separately package special type
      * @return $this
      */
     public function setShipSeparatelyPackageSpecialType($ship_separately_package_special_type)
@@ -1341,7 +1341,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets special_product_type
-     * @param string $special_product_type
+     * @param string $special_product_type Special product type (USPS Media Mail)
      * @return $this
      */
     public function setSpecialProductType($special_product_type)
@@ -1362,7 +1362,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets track_inventory
-     * @param bool $track_inventory
+     * @param bool $track_inventory Track inventory
      * @return $this
      */
     public function setTrackInventory($track_inventory)

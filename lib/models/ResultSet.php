@@ -70,7 +70,8 @@ class ResultSet implements ArrayAccess
         'limit' => 'int',
         'more' => 'bool',
         'next_offset' => 'int',
-        'offset' => 'int'
+        'offset' => 'int',
+        'total_records' => 'int'
     );
 
     public static function swaggerTypes()
@@ -87,7 +88,8 @@ class ResultSet implements ArrayAccess
         'limit' => 'limit',
         'more' => 'more',
         'next_offset' => 'next_offset',
-        'offset' => 'offset'
+        'offset' => 'offset',
+        'total_records' => 'total_records'
     );
 
     public static function attributeMap()
@@ -104,7 +106,8 @@ class ResultSet implements ArrayAccess
         'limit' => 'setLimit',
         'more' => 'setMore',
         'next_offset' => 'setNextOffset',
-        'offset' => 'setOffset'
+        'offset' => 'setOffset',
+        'total_records' => 'setTotalRecords'
     );
 
     public static function setters()
@@ -121,7 +124,8 @@ class ResultSet implements ArrayAccess
         'limit' => 'getLimit',
         'more' => 'getMore',
         'next_offset' => 'getNextOffset',
-        'offset' => 'getOffset'
+        'offset' => 'getOffset',
+        'total_records' => 'getTotalRecords'
     );
 
     public static function getters()
@@ -150,6 +154,7 @@ class ResultSet implements ArrayAccess
         $this->container['more'] = isset($data['more']) ? $data['more'] : null;
         $this->container['next_offset'] = isset($data['next_offset']) ? $data['next_offset'] : null;
         $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['total_records'] = isset($data['total_records']) ? $data['total_records'] : null;
     }
 
     /**
@@ -186,7 +191,7 @@ class ResultSet implements ArrayAccess
 
     /**
      * Sets count
-     * @param int $count
+     * @param int $count Number of results in this set
      * @return $this
      */
     public function setCount($count)
@@ -207,7 +212,7 @@ class ResultSet implements ArrayAccess
 
     /**
      * Sets limit
-     * @param int $limit
+     * @param int $limit Maximum number of results that can be returned in a set
      * @return $this
      */
     public function setLimit($limit)
@@ -228,7 +233,7 @@ class ResultSet implements ArrayAccess
 
     /**
      * Sets more
-     * @param bool $more
+     * @param bool $more True if there are more results to query
      * @return $this
      */
     public function setMore($more)
@@ -249,7 +254,7 @@ class ResultSet implements ArrayAccess
 
     /**
      * Sets next_offset
-     * @param int $next_offset
+     * @param int $next_offset The next offset that you should query to retrieve more results
      * @return $this
      */
     public function setNextOffset($next_offset)
@@ -270,12 +275,33 @@ class ResultSet implements ArrayAccess
 
     /**
      * Sets offset
-     * @param int $offset
+     * @param int $offset Offset of this result set (zero based)
      * @return $this
      */
     public function setOffset($offset)
     {
         $this->container['offset'] = $offset;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_records
+     * @return int
+     */
+    public function getTotalRecords()
+    {
+        return $this->container['total_records'];
+    }
+
+    /**
+     * Sets total_records
+     * @param int $total_records The total number of records in the result set.  May be null if the number is not known and the client should continue iterating as long as more is true.
+     * @return $this
+     */
+    public function setTotalRecords($total_records)
+    {
+        $this->container['total_records'] = $total_records;
 
         return $this;
     }

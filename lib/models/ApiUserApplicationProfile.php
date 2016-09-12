@@ -186,7 +186,7 @@ class ApiUserApplicationProfile implements ArrayAccess
 
     /**
      * Sets api_application_logo_url
-     * @param string $api_application_logo_url
+     * @param string $api_application_logo_url Application logo URL
      * @return $this
      */
     public function setApiApplicationLogoUrl($api_application_logo_url)
@@ -207,7 +207,7 @@ class ApiUserApplicationProfile implements ArrayAccess
 
     /**
      * Sets application_description
-     * @param string $application_description
+     * @param string $application_description Application description
      * @return $this
      */
     public function setApplicationDescription($application_description)
@@ -228,7 +228,7 @@ class ApiUserApplicationProfile implements ArrayAccess
 
     /**
      * Sets application_name
-     * @param string $application_name
+     * @param string $application_name Application name
      * @return $this
      */
     public function setApplicationName($application_name)
@@ -249,7 +249,7 @@ class ApiUserApplicationProfile implements ArrayAccess
 
     /**
      * Sets developer_name
-     * @param string $developer_name
+     * @param string $developer_name Developer name
      * @return $this
      */
     public function setDeveloperName($developer_name)
@@ -270,7 +270,7 @@ class ApiUserApplicationProfile implements ArrayAccess
 
     /**
      * Sets developer_website
-     * @param string $developer_website
+     * @param string $developer_website Developer website
      * @return $this
      */
     public function setDeveloperWebsite($developer_website)

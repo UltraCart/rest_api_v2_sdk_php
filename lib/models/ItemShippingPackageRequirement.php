@@ -171,7 +171,7 @@ class ItemShippingPackageRequirement implements ArrayAccess
 
     /**
      * Sets package_name
-     * @param string $package_name
+     * @param string $package_name Package name
      * @return $this
      */
     public function setPackageName($package_name)
@@ -192,7 +192,7 @@ class ItemShippingPackageRequirement implements ArrayAccess
 
     /**
      * Sets package_oid
-     * @param int $package_oid
+     * @param int $package_oid Package object identifier
      * @return $this
      */
     public function setPackageOid($package_oid)

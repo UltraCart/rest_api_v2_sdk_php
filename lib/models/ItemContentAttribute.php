@@ -181,7 +181,7 @@ class ItemContentAttribute implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name
+     * @param string $name Attribute name
      * @return $this
      */
     public function setName($name)
@@ -202,7 +202,7 @@ class ItemContentAttribute implements ArrayAccess
 
     /**
      * Sets translated_text_instance_oid
-     * @param int $translated_text_instance_oid
+     * @param int $translated_text_instance_oid Attribute translated text instance identifier
      * @return $this
      */
     public function setTranslatedTextInstanceOid($translated_text_instance_oid)
@@ -223,7 +223,7 @@ class ItemContentAttribute implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type
+     * @param string $type Attribute type
      * @return $this
      */
     public function setType($type)
@@ -244,7 +244,7 @@ class ItemContentAttribute implements ArrayAccess
 
     /**
      * Sets value
-     * @param string $value
+     * @param string $value Attribute value
      * @return $this
      */
     public function setValue($value)

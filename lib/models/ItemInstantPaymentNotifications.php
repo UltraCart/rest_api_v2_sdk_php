@@ -166,7 +166,7 @@ class ItemInstantPaymentNotifications implements ArrayAccess
 
     /**
      * Sets notifications
-     * @param \ultracart\admin\v2\models\ItemInstantPaymentNotification[] $notifications
+     * @param \ultracart\admin\v2\models\ItemInstantPaymentNotification[] $notifications Notifications
      * @return $this
      */
     public function setNotifications($notifications)

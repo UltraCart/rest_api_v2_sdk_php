@@ -69,7 +69,7 @@ class ItemPaymentProcessing implements ArrayAccess
         'block_prepaid' => 'bool',
         'credit_card_transaction_type' => 'string',
         'no_realtime_charge' => 'bool',
-        'payment_method_validity' => 'string',
+        'payment_method_validity' => 'string[]',
         'rotating_transaction_gateway_codes' => 'string[]'
     );
 
@@ -186,7 +186,7 @@ class ItemPaymentProcessing implements ArrayAccess
 
     /**
      * Sets block_prepaid
-     * @param bool $block_prepaid
+     * @param bool $block_prepaid True if prepaid cards should be blocked from buying this item
      * @return $this
      */
     public function setBlockPrepaid($block_prepaid)
@@ -207,7 +207,7 @@ class ItemPaymentProcessing implements ArrayAccess
 
     /**
      * Sets credit_card_transaction_type
-     * @param string $credit_card_transaction_type
+     * @param string $credit_card_transaction_type Credit card transaction type
      * @return $this
      */
     public function setCreditCardTransactionType($credit_card_transaction_type)
@@ -228,7 +228,7 @@ class ItemPaymentProcessing implements ArrayAccess
 
     /**
      * Sets no_realtime_charge
-     * @param bool $no_realtime_charge
+     * @param bool $no_realtime_charge True if no real-time charge should be performed on this item.
      * @return $this
      */
     public function setNoRealtimeCharge($no_realtime_charge)
@@ -240,7 +240,7 @@ class ItemPaymentProcessing implements ArrayAccess
 
     /**
      * Gets payment_method_validity
-     * @return string
+     * @return string[]
      */
     public function getPaymentMethodValidity()
     {
@@ -249,7 +249,7 @@ class ItemPaymentProcessing implements ArrayAccess
 
     /**
      * Sets payment_method_validity
-     * @param string $payment_method_validity
+     * @param string[] $payment_method_validity Payment method validity
      * @return $this
      */
     public function setPaymentMethodValidity($payment_method_validity)
@@ -270,7 +270,7 @@ class ItemPaymentProcessing implements ArrayAccess
 
     /**
      * Sets rotating_transaction_gateway_codes
-     * @param string[] $rotating_transaction_gateway_codes
+     * @param string[] $rotating_transaction_gateway_codes Rotating transaction gateway codes
      * @return $this
      */
     public function setRotatingTransactionGatewayCodes($rotating_transaction_gateway_codes)

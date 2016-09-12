@@ -171,7 +171,7 @@ class ItemOptionValueDigitalItem implements ArrayAccess
 
     /**
      * Sets digital_item_oid
-     * @param int $digital_item_oid
+     * @param int $digital_item_oid Digital item object identifier
      * @return $this
      */
     public function setDigitalItemOid($digital_item_oid)
@@ -192,7 +192,7 @@ class ItemOptionValueDigitalItem implements ArrayAccess
 
     /**
      * Sets original_filename
-     * @param string $original_filename
+     * @param string $original_filename Original filename
      * @return $this
      */
     public function setOriginalFilename($original_filename)

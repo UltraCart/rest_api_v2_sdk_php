@@ -176,7 +176,7 @@ class WebhookLogSummary implements ArrayAccess
 
     /**
      * Sets delivery_dts
-     * @param string $delivery_dts
+     * @param string $delivery_dts Date/time of the delivery
      * @return $this
      */
     public function setDeliveryDts($delivery_dts)
@@ -197,7 +197,7 @@ class WebhookLogSummary implements ArrayAccess
 
     /**
      * Sets request_id
-     * @param string $request_id
+     * @param string $request_id Request id
      * @return $this
      */
     public function setRequestId($request_id)
@@ -218,7 +218,7 @@ class WebhookLogSummary implements ArrayAccess
 
     /**
      * Sets success
-     * @param bool $success
+     * @param bool $success True if the notification was successful
      * @return $this
      */
     public function setSuccess($success)

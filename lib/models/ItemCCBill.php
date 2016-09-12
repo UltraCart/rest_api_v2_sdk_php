@@ -191,7 +191,7 @@ class ItemCCBill implements ArrayAccess
 
     /**
      * Sets ccbill_allowed_currencies
-     * @param string $ccbill_allowed_currencies
+     * @param string $ccbill_allowed_currencies Allowed currencies
      * @return $this
      */
     public function setCcbillAllowedCurrencies($ccbill_allowed_currencies)
@@ -212,7 +212,7 @@ class ItemCCBill implements ArrayAccess
 
     /**
      * Sets ccbill_allowed_types
-     * @param string $ccbill_allowed_types
+     * @param string $ccbill_allowed_types Allowed types
      * @return $this
      */
     public function setCcbillAllowedTypes($ccbill_allowed_types)
@@ -233,7 +233,7 @@ class ItemCCBill implements ArrayAccess
 
     /**
      * Sets ccbill_currency_code
-     * @param string $ccbill_currency_code
+     * @param string $ccbill_currency_code Currency code
      * @return $this
      */
     public function setCcbillCurrencyCode($ccbill_currency_code)
@@ -254,7 +254,7 @@ class ItemCCBill implements ArrayAccess
 
     /**
      * Sets ccbill_form_name
-     * @param string $ccbill_form_name
+     * @param string $ccbill_form_name Form name
      * @return $this
      */
     public function setCcbillFormName($ccbill_form_name)
@@ -275,7 +275,7 @@ class ItemCCBill implements ArrayAccess
 
     /**
      * Sets ccbill_subaccount_id
-     * @param string $ccbill_subaccount_id
+     * @param string $ccbill_subaccount_id Sub-account id
      * @return $this
      */
     public function setCcbillSubaccountId($ccbill_subaccount_id)
@@ -296,7 +296,7 @@ class ItemCCBill implements ArrayAccess
 
     /**
      * Sets ccbill_subscription_type_id
-     * @param string $ccbill_subscription_type_id
+     * @param string $ccbill_subscription_type_id Subscription type id
      * @return $this
      */
     public function setCcbillSubscriptionTypeId($ccbill_subscription_type_id)

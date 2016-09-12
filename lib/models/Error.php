@@ -181,7 +181,7 @@ class Error implements ArrayAccess
 
     /**
      * Sets developer_message
-     * @param string $developer_message
+     * @param string $developer_message A technical message meant to be read by a developer
      * @return $this
      */
     public function setDeveloperMessage($developer_message)
@@ -202,7 +202,7 @@ class Error implements ArrayAccess
 
     /**
      * Sets error_code
-     * @param string $error_code
+     * @param string $error_code HTTP status code
      * @return $this
      */
     public function setErrorCode($error_code)
@@ -223,7 +223,7 @@ class Error implements ArrayAccess
 
     /**
      * Sets more_info
-     * @param string $more_info
+     * @param string $more_info Additional information often a link to additional documentation
      * @return $this
      */
     public function setMoreInfo($more_info)
@@ -244,7 +244,7 @@ class Error implements ArrayAccess
 
     /**
      * Sets user_message
-     * @param string $user_message
+     * @param string $user_message An end-user friendly message suitable for display to the customer
      * @return $this
      */
     public function setUserMessage($user_message)

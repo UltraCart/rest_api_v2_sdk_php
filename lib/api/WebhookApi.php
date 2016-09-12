@@ -107,12 +107,16 @@ class WebhookApi
      *
      * Retrieve webhooks
      *
+     * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param string $_sort The sort order of the webhooks.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return \ultracart\admin\v2\models\WebhooksResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksGet()
+    public function webhookWebhooksGet($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
     {
-        list($response) = $this->webhookWebhooksGetWithHttpInfo();
+        list($response) = $this->webhookWebhooksGetWithHttpInfo($_limit, $_offset, $_sort, $_placeholders);
         return $response;
     }
 
@@ -121,10 +125,14 @@ class WebhookApi
      *
      * Retrieve webhooks
      *
+     * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param string $_sort The sort order of the webhooks.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return Array of \ultracart\admin\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksGetWithHttpInfo()
+    public function webhookWebhooksGetWithHttpInfo($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
     {
         // parse inputs
         $resourcePath = "/webhook/webhooks";
@@ -138,6 +146,22 @@ class WebhookApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
 
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = $this->apiClient->getSerializer()->toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = $this->apiClient->getSerializer()->toQueryValue($_offset);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = $this->apiClient->getSerializer()->toQueryValue($_sort);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
@@ -242,7 +266,7 @@ class WebhookApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -429,12 +453,15 @@ class WebhookApi
      * Retrieve the log summaries
      *
      * @param int $webhook_oid The webhook oid to retrieve log summaries for. (required)
+     * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param string $_since Fetch log summaries that have been delivered since this date/time. (optional)
      * @return \ultracart\admin\v2\models\WebhookLogSummariesResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsGet($webhook_oid)
+    public function webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit = null, $_offset = null, $_since = null)
     {
-        list($response) = $this->webhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid);
+        list($response) = $this->webhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid, $_limit, $_offset, $_since);
         return $response;
     }
 
@@ -444,10 +471,13 @@ class WebhookApi
      * Retrieve the log summaries
      *
      * @param int $webhook_oid The webhook oid to retrieve log summaries for. (required)
+     * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param string $_since Fetch log summaries that have been delivered since this date/time. (optional)
      * @return Array of \ultracart\admin\v2\models\WebhookLogSummariesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid)
+    public function webhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid, $_limit = null, $_offset = null, $_since = null)
     {
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
@@ -465,6 +495,18 @@ class WebhookApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
 
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = $this->apiClient->getSerializer()->toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = $this->apiClient->getSerializer()->toQueryValue($_offset);
+        }
+        // query params
+        if ($_since !== null) {
+            $queryParams['_since'] = $this->apiClient->getSerializer()->toQueryValue($_since);
+        }
         // path params
         if ($webhook_oid !== null) {
             $resourcePath = str_replace(
@@ -711,7 +753,7 @@ class WebhookApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // path params
         if ($webhook_oid !== null) {
@@ -836,7 +878,7 @@ class WebhookApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // path params
         if ($webhook_oid !== null) {
@@ -1078,7 +1120,7 @@ class WebhookApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // path params
         if ($webhook_oid !== null) {

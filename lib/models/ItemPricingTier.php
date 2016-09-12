@@ -186,7 +186,7 @@ class ItemPricingTier implements ArrayAccess
 
     /**
      * Sets default_tier
-     * @param bool $default_tier
+     * @param bool $default_tier True if this is the default tier
      * @return $this
      */
     public function setDefaultTier($default_tier)
@@ -207,7 +207,7 @@ class ItemPricingTier implements ArrayAccess
 
     /**
      * Sets discounts
-     * @param \ultracart\admin\v2\models\ItemPricingTierDiscount[] $discounts
+     * @param \ultracart\admin\v2\models\ItemPricingTierDiscount[] $discounts Discounts
      * @return $this
      */
     public function setDiscounts($discounts)
@@ -249,7 +249,7 @@ class ItemPricingTier implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name
+     * @param string $name Pricing tier name
      * @return $this
      */
     public function setName($name)
@@ -270,7 +270,7 @@ class ItemPricingTier implements ArrayAccess
 
     /**
      * Sets pricing_tier_oid
-     * @param int $pricing_tier_oid
+     * @param int $pricing_tier_oid Pricing tier object identifier
      * @return $this
      */
     public function setPricingTierOid($pricing_tier_oid)

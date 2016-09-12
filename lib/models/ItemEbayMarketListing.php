@@ -186,7 +186,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Sets auction_id
-     * @param string $auction_id
+     * @param string $auction_id Auction ID
      * @return $this
      */
     public function setAuctionId($auction_id)
@@ -207,7 +207,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Sets price
-     * @param double $price
+     * @param double $price Price
      * @return $this
      */
     public function setPrice($price)
@@ -228,7 +228,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Sets seller
-     * @param string $seller
+     * @param string $seller Seller
      * @return $this
      */
     public function setSeller($seller)
@@ -249,7 +249,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Sets shipping
-     * @param double $shipping
+     * @param double $shipping Shipping
      * @return $this
      */
     public function setShipping($shipping)
@@ -270,7 +270,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Sets total
-     * @param double $total
+     * @param double $total Total
      * @return $this
      */
     public function setTotal($total)

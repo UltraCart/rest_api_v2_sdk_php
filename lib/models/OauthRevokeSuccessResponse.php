@@ -171,7 +171,7 @@ class OauthRevokeSuccessResponse implements ArrayAccess
 
     /**
      * Sets message
-     * @param string $message
+     * @param string $message Message confirming revocation of credentials
      * @return $this
      */
     public function setMessage($message)
@@ -192,7 +192,7 @@ class OauthRevokeSuccessResponse implements ArrayAccess
 
     /**
      * Sets successful
-     * @param bool $successful
+     * @param bool $successful True if revoke was successful
      * @return $this
      */
     public function setSuccessful($successful)

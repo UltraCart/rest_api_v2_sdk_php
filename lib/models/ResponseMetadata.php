@@ -171,7 +171,7 @@ class ResponseMetadata implements ArrayAccess
 
     /**
      * Sets payload_name
-     * @param string $payload_name
+     * @param string $payload_name Payload name
      * @return $this
      */
     public function setPayloadName($payload_name)

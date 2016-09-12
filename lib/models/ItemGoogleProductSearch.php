@@ -396,7 +396,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets adwords_grouping
-     * @param string $adwords_grouping
+     * @param string $adwords_grouping Adwords grouping
      * @return $this
      */
     public function setAdwordsGrouping($adwords_grouping)
@@ -417,7 +417,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets adwords_label1
-     * @param string $adwords_label1
+     * @param string $adwords_label1 Adwords label 1
      * @return $this
      */
     public function setAdwordsLabel1($adwords_label1)
@@ -438,7 +438,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets adwords_label2
-     * @param string $adwords_label2
+     * @param string $adwords_label2 Adwords label 2
      * @return $this
      */
     public function setAdwordsLabel2($adwords_label2)
@@ -459,7 +459,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets adwords_label3
-     * @param string $adwords_label3
+     * @param string $adwords_label3 Adwords label 3
      * @return $this
      */
     public function setAdwordsLabel3($adwords_label3)
@@ -480,7 +480,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets adwords_label4
-     * @param string $adwords_label4
+     * @param string $adwords_label4 Adwords label 4
      * @return $this
      */
     public function setAdwordsLabel4($adwords_label4)
@@ -501,7 +501,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets adwords_label5
-     * @param string $adwords_label5
+     * @param string $adwords_label5 Adwords label 5
      * @return $this
      */
     public function setAdwordsLabel5($adwords_label5)
@@ -522,7 +522,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets age_group
-     * @param string $age_group
+     * @param string $age_group Age group
      * @return $this
      */
     public function setAgeGroup($age_group)
@@ -543,7 +543,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets available_at_physical_store
-     * @param bool $available_at_physical_store
+     * @param bool $available_at_physical_store Available at physical store
      * @return $this
      */
     public function setAvailableAtPhysicalStore($available_at_physical_store)
@@ -564,7 +564,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets book_author
-     * @param string $book_author
+     * @param string $book_author Book - author
      * @return $this
      */
     public function setBookAuthor($book_author)
@@ -585,7 +585,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets book_format
-     * @param string $book_format
+     * @param string $book_format Book - format
      * @return $this
      */
     public function setBookFormat($book_format)
@@ -606,7 +606,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets book_isbn
-     * @param string $book_isbn
+     * @param string $book_isbn Bood - ISBN
      * @return $this
      */
     public function setBookIsbn($book_isbn)
@@ -627,7 +627,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets book_publisher
-     * @param string $book_publisher
+     * @param string $book_publisher Book - publisher
      * @return $this
      */
     public function setBookPublisher($book_publisher)
@@ -648,7 +648,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets category_description
-     * @param string $category_description
+     * @param string $category_description Category description
      * @return $this
      */
     public function setCategoryDescription($category_description)
@@ -669,7 +669,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets color
-     * @param string $color
+     * @param string $color Color
      * @return $this
      */
     public function setColor($color)
@@ -690,7 +690,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets condition
-     * @param string $condition
+     * @param string $condition Condition
      * @return $this
      */
     public function setCondition($condition)
@@ -711,7 +711,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets custom_label0
-     * @param string $custom_label0
+     * @param string $custom_label0 Custom label 0
      * @return $this
      */
     public function setCustomLabel0($custom_label0)
@@ -732,7 +732,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets custom_label1
-     * @param string $custom_label1
+     * @param string $custom_label1 Custom label 1
      * @return $this
      */
     public function setCustomLabel1($custom_label1)
@@ -753,7 +753,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets custom_label2
-     * @param string $custom_label2
+     * @param string $custom_label2 Custom label 2
      * @return $this
      */
     public function setCustomLabel2($custom_label2)
@@ -774,7 +774,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets custom_label3
-     * @param string $custom_label3
+     * @param string $custom_label3 Custom label 3
      * @return $this
      */
     public function setCustomLabel3($custom_label3)
@@ -795,7 +795,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets custom_label4
-     * @param string $custom_label4
+     * @param string $custom_label4 Custom label 4
      * @return $this
      */
     public function setCustomLabel4($custom_label4)
@@ -816,7 +816,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets gender
-     * @param string $gender
+     * @param string $gender Gender
      * @return $this
      */
     public function setGender($gender)
@@ -837,7 +837,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets google_product_category
-     * @param string $google_product_category
+     * @param string $google_product_category Google product category
      * @return $this
      */
     public function setGoogleProductCategory($google_product_category)
@@ -858,7 +858,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets music_artist
-     * @param string $music_artist
+     * @param string $music_artist Music - artist
      * @return $this
      */
     public function setMusicArtist($music_artist)
@@ -879,7 +879,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets music_format
-     * @param string $music_format
+     * @param string $music_format Music - format
      * @return $this
      */
     public function setMusicFormat($music_format)
@@ -900,7 +900,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets music_release_date
-     * @param string $music_release_date
+     * @param string $music_release_date Music - release date
      * @return $this
      */
     public function setMusicReleaseDate($music_release_date)
@@ -921,7 +921,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets omit_from_feed
-     * @param bool $omit_from_feed
+     * @param bool $omit_from_feed Omit from feed
      * @return $this
      */
     public function setOmitFromFeed($omit_from_feed)
@@ -942,7 +942,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets product_type
-     * @param string $product_type
+     * @param string $product_type Product type
      * @return $this
      */
     public function setProductType($product_type)
@@ -963,7 +963,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id1
-     * @param string $promotion_id1
+     * @param string $promotion_id1 Promotion ID 1
      * @return $this
      */
     public function setPromotionId1($promotion_id1)
@@ -984,7 +984,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id10
-     * @param string $promotion_id10
+     * @param string $promotion_id10 Promotion ID 10
      * @return $this
      */
     public function setPromotionId10($promotion_id10)
@@ -1005,7 +1005,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id2
-     * @param string $promotion_id2
+     * @param string $promotion_id2 Promotion ID 2
      * @return $this
      */
     public function setPromotionId2($promotion_id2)
@@ -1026,7 +1026,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id3
-     * @param string $promotion_id3
+     * @param string $promotion_id3 Promotion ID 3
      * @return $this
      */
     public function setPromotionId3($promotion_id3)
@@ -1047,7 +1047,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id4
-     * @param string $promotion_id4
+     * @param string $promotion_id4 Promotion ID 4
      * @return $this
      */
     public function setPromotionId4($promotion_id4)
@@ -1068,7 +1068,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id5
-     * @param string $promotion_id5
+     * @param string $promotion_id5 Promotion ID 5
      * @return $this
      */
     public function setPromotionId5($promotion_id5)
@@ -1089,7 +1089,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id6
-     * @param string $promotion_id6
+     * @param string $promotion_id6 Promotion ID 6
      * @return $this
      */
     public function setPromotionId6($promotion_id6)
@@ -1110,7 +1110,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id7
-     * @param string $promotion_id7
+     * @param string $promotion_id7 Promotion ID 7
      * @return $this
      */
     public function setPromotionId7($promotion_id7)
@@ -1131,7 +1131,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id8
-     * @param string $promotion_id8
+     * @param string $promotion_id8 Promotion ID 8
      * @return $this
      */
     public function setPromotionId8($promotion_id8)
@@ -1152,7 +1152,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets promotion_id9
-     * @param string $promotion_id9
+     * @param string $promotion_id9 Promotion ID 9
      * @return $this
      */
     public function setPromotionId9($promotion_id9)
@@ -1173,7 +1173,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets search_dts
-     * @param string $search_dts
+     * @param string $search_dts Search date/time
      * @return $this
      */
     public function setSearchDts($search_dts)
@@ -1194,7 +1194,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets search_lowest_price
-     * @param double $search_lowest_price
+     * @param double $search_lowest_price Search lowest price
      * @return $this
      */
     public function setSearchLowestPrice($search_lowest_price)
@@ -1215,7 +1215,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets search_lowest_url
-     * @param string $search_lowest_url
+     * @param string $search_lowest_url Search lowest URL
      * @return $this
      */
     public function setSearchLowestUrl($search_lowest_url)
@@ -1236,7 +1236,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets search_position
-     * @param int $search_position
+     * @param int $search_position Search position
      * @return $this
      */
     public function setSearchPosition($search_position)
@@ -1257,7 +1257,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets size
-     * @param string $size
+     * @param string $size Size
      * @return $this
      */
     public function setSize($size)
@@ -1278,7 +1278,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets video_director
-     * @param string $video_director
+     * @param string $video_director Video - director
      * @return $this
      */
     public function setVideoDirector($video_director)
@@ -1299,7 +1299,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets video_format
-     * @param string $video_format
+     * @param string $video_format Video - format
      * @return $this
      */
     public function setVideoFormat($video_format)
@@ -1320,7 +1320,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets video_rating
-     * @param string $video_rating
+     * @param string $video_rating Video - rating
      * @return $this
      */
     public function setVideoRating($video_rating)
@@ -1341,7 +1341,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets video_release_date
-     * @param string $video_release_date
+     * @param string $video_release_date Video - release date
      * @return $this
      */
     public function setVideoReleaseDate($video_release_date)
@@ -1362,7 +1362,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets video_starring
-     * @param string $video_starring
+     * @param string $video_starring Video - starring
      * @return $this
      */
     public function setVideoStarring($video_starring)

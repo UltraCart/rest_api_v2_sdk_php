@@ -121,8 +121,8 @@ class ItemRelatedItem implements ArrayAccess
         return self::$getters;
     }
 
-    const TYPE_S = 'S';
-    const TYPE_U = 'U';
+    const TYPE_SYSTEM = 'System';
+    const TYPE_USER_DEFINED = 'UserDefined';
     
 
     
@@ -133,8 +133,8 @@ class ItemRelatedItem implements ArrayAccess
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_S,
-            self::TYPE_U,
+            self::TYPE_SYSTEM,
+            self::TYPE_USER_DEFINED,
         ];
     }
     
@@ -164,7 +164,7 @@ class ItemRelatedItem implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("S", "U");
+        $allowed_values = array("System", "UserDefined");
         if (!in_array($this->container['type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
         }
@@ -180,7 +180,7 @@ class ItemRelatedItem implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("S", "U");
+        $allowed_values = array("System", "UserDefined");
         if (!in_array($this->container['type'], $allowed_values)) {
             return false;
         }
@@ -199,7 +199,7 @@ class ItemRelatedItem implements ArrayAccess
 
     /**
      * Sets related_merchant_item_id
-     * @param string $related_merchant_item_id
+     * @param string $related_merchant_item_id Related item id
      * @return $this
      */
     public function setRelatedMerchantItemId($related_merchant_item_id)
@@ -220,7 +220,7 @@ class ItemRelatedItem implements ArrayAccess
 
     /**
      * Sets related_merchant_item_oid
-     * @param int $related_merchant_item_oid
+     * @param int $related_merchant_item_oid Related item object identifier
      * @return $this
      */
     public function setRelatedMerchantItemOid($related_merchant_item_oid)
@@ -241,14 +241,14 @@ class ItemRelatedItem implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type
+     * @param string $type Relationship type
      * @return $this
      */
     public function setType($type)
     {
-        $allowed_values = array('S', 'U');
+        $allowed_values = array('System', 'UserDefined');
         if (!in_array($type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'S', 'U'");
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'System', 'UserDefined'");
         }
         $this->container['type'] = $type;
 

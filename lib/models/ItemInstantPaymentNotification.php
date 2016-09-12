@@ -176,7 +176,7 @@ class ItemInstantPaymentNotification implements ArrayAccess
 
     /**
      * Sets post_operation
-     * @param bool $post_operation
+     * @param bool $post_operation True for HTTP POST instead of GET
      * @return $this
      */
     public function setPostOperation($post_operation)
@@ -197,7 +197,7 @@ class ItemInstantPaymentNotification implements ArrayAccess
 
     /**
      * Sets successful_response_text
-     * @param string $successful_response_text
+     * @param string $successful_response_text Successful response text
      * @return $this
      */
     public function setSuccessfulResponseText($successful_response_text)
@@ -218,7 +218,7 @@ class ItemInstantPaymentNotification implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url
+     * @param string $url URL
      * @return $this
      */
     public function setUrl($url)

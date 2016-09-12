@@ -223,7 +223,7 @@ class WebhookLogSummariesResponse implements ArrayAccess
 
     /**
      * Sets success
-     * @param bool $success
+     * @param bool $success Indicates if API call was successful
      * @return $this
      */
     public function setSuccess($success)
@@ -244,7 +244,7 @@ class WebhookLogSummariesResponse implements ArrayAccess
 
     /**
      * Sets webhook_log_summaries
-     * @param \ultracart\admin\v2\models\WebhookLogSummary[] $webhook_log_summaries
+     * @param \ultracart\admin\v2\models\WebhookLogSummary[] $webhook_log_summaries Webhook log summaries
      * @return $this
      */
     public function setWebhookLogSummaries($webhook_log_summaries)

@@ -191,7 +191,7 @@ class ItemContentMultimediaThumbnail implements ArrayAccess
 
     /**
      * Sets height
-     * @param int $height
+     * @param int $height Height of the thumbnail
      * @return $this
      */
     public function setHeight($height)
@@ -212,7 +212,7 @@ class ItemContentMultimediaThumbnail implements ArrayAccess
 
     /**
      * Sets http_url
-     * @param string $http_url
+     * @param string $http_url HTTP URL to view the thumbnail
      * @return $this
      */
     public function setHttpUrl($http_url)
@@ -233,7 +233,7 @@ class ItemContentMultimediaThumbnail implements ArrayAccess
 
     /**
      * Sets https_url
-     * @param string $https_url
+     * @param string $https_url HTTPS URL to view the thumbnail
      * @return $this
      */
     public function setHttpsUrl($https_url)
@@ -254,7 +254,7 @@ class ItemContentMultimediaThumbnail implements ArrayAccess
 
     /**
      * Sets png_format
-     * @param bool $png_format
+     * @param bool $png_format True if PNG, false if JPEG
      * @return $this
      */
     public function setPngFormat($png_format)
@@ -275,7 +275,7 @@ class ItemContentMultimediaThumbnail implements ArrayAccess
 
     /**
      * Sets square
-     * @param bool $square
+     * @param bool $square True if the thumbnail is square
      * @return $this
      */
     public function setSquare($square)
@@ -296,7 +296,7 @@ class ItemContentMultimediaThumbnail implements ArrayAccess
 
     /**
      * Sets width
-     * @param int $width
+     * @param int $width Width of the thumbnail
      * @return $this
      */
     public function setWidth($width)

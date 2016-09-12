@@ -176,7 +176,7 @@ class ItemRelated implements ArrayAccess
 
     /**
      * Sets no_system_calculated_related_items
-     * @param bool $no_system_calculated_related_items
+     * @param bool $no_system_calculated_related_items True to suppress system calculated relationships
      * @return $this
      */
     public function setNoSystemCalculatedRelatedItems($no_system_calculated_related_items)
@@ -197,7 +197,7 @@ class ItemRelated implements ArrayAccess
 
     /**
      * Sets not_relatable
-     * @param bool $not_relatable
+     * @param bool $not_relatable Not relatable
      * @return $this
      */
     public function setNotRelatable($not_relatable)
@@ -218,7 +218,7 @@ class ItemRelated implements ArrayAccess
 
     /**
      * Sets related_items
-     * @param \ultracart\admin\v2\models\ItemRelatedItem[] $related_items
+     * @param \ultracart\admin\v2\models\ItemRelatedItem[] $related_items Related items
      * @return $this
      */
     public function setRelatedItems($related_items)

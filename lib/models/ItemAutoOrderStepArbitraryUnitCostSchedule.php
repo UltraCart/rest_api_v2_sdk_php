@@ -171,7 +171,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule implements ArrayAccess
 
     /**
      * Sets arbitrary_unit_cost
-     * @param double $arbitrary_unit_cost
+     * @param double $arbitrary_unit_cost Arbitrary unit cost
      * @return $this
      */
     public function setArbitraryUnitCost($arbitrary_unit_cost)
@@ -192,7 +192,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule implements ArrayAccess
 
     /**
      * Sets retry_days
-     * @param int $retry_days
+     * @param int $retry_days Retry days
      * @return $this
      */
     public function setRetryDays($retry_days)

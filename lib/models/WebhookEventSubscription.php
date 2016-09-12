@@ -201,7 +201,7 @@ class WebhookEventSubscription implements ArrayAccess
 
     /**
      * Sets comments
-     * @param string $comments
+     * @param string $comments Comment about the event to provide further clarification to the end user
      * @return $this
      */
     public function setComments($comments)
@@ -222,7 +222,7 @@ class WebhookEventSubscription implements ArrayAccess
 
     /**
      * Sets deprecated_flag
-     * @param bool $deprecated_flag
+     * @param bool $deprecated_flag True if the event is deprecated.  See the API change log for details on when it will be discontinued.
      * @return $this
      */
     public function setDeprecatedFlag($deprecated_flag)
@@ -243,7 +243,7 @@ class WebhookEventSubscription implements ArrayAccess
 
     /**
      * Sets discontinued_flag
-     * @param bool $discontinued_flag
+     * @param bool $discontinued_flag True if the event is discontinued.  See the API change log for details on migration details.
      * @return $this
      */
     public function setDiscontinuedFlag($discontinued_flag)
@@ -264,7 +264,7 @@ class WebhookEventSubscription implements ArrayAccess
 
     /**
      * Sets event_description
-     * @param string $event_description
+     * @param string $event_description Description of the event
      * @return $this
      */
     public function setEventDescription($event_description)
@@ -285,7 +285,7 @@ class WebhookEventSubscription implements ArrayAccess
 
     /**
      * Sets event_name
-     * @param string $event_name
+     * @param string $event_name Event name
      * @return $this
      */
     public function setEventName($event_name)
@@ -306,7 +306,7 @@ class WebhookEventSubscription implements ArrayAccess
 
     /**
      * Sets expansion
-     * @param string $expansion
+     * @param string $expansion The expand string for the notification object.  See the individual resource _expand documentation for valid values.
      * @return $this
      */
     public function setExpansion($expansion)
@@ -327,7 +327,7 @@ class WebhookEventSubscription implements ArrayAccess
 
     /**
      * Sets subscribed
-     * @param bool $subscribed
+     * @param bool $subscribed True if this is event is subscribed to
      * @return $this
      */
     public function setSubscribed($subscribed)
@@ -348,7 +348,7 @@ class WebhookEventSubscription implements ArrayAccess
 
     /**
      * Sets webhook_event_oid
-     * @param int $webhook_event_oid
+     * @param int $webhook_event_oid The webhook event object identifier
      * @return $this
      */
     public function setWebhookEventOid($webhook_event_oid)

@@ -166,7 +166,7 @@ class ItemKitDefinition implements ArrayAccess
 
     /**
      * Sets components
-     * @param \ultracart\admin\v2\models\ItemKitComponent[] $components
+     * @param \ultracart\admin\v2\models\ItemKitComponent[] $components Components
      * @return $this
      */
     public function setComponents($components)

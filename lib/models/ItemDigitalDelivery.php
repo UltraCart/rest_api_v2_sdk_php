@@ -191,7 +191,7 @@ class ItemDigitalDelivery implements ArrayAccess
 
     /**
      * Sets activation_code_description
-     * @param string $activation_code_description
+     * @param string $activation_code_description Description of the activation code
      * @return $this
      */
     public function setActivationCodeDescription($activation_code_description)
@@ -212,7 +212,7 @@ class ItemDigitalDelivery implements ArrayAccess
 
     /**
      * Sets activation_code_low_warning
-     * @param int $activation_code_low_warning
+     * @param int $activation_code_low_warning The number of activation codes whcih should generate a warning email
      * @return $this
      */
     public function setActivationCodeLowWarning($activation_code_low_warning)
@@ -233,7 +233,7 @@ class ItemDigitalDelivery implements ArrayAccess
 
     /**
      * Sets activation_code_realtime_url
-     * @param string $activation_code_realtime_url
+     * @param string $activation_code_realtime_url The URL to retrieve activation codes from in real-time
      * @return $this
      */
     public function setActivationCodeRealtimeUrl($activation_code_realtime_url)
@@ -254,7 +254,7 @@ class ItemDigitalDelivery implements ArrayAccess
 
     /**
      * Sets activation_code_shared_secret
-     * @param string $activation_code_shared_secret
+     * @param string $activation_code_shared_secret Shared secret used when communicating with the real-time URL
      * @return $this
      */
     public function setActivationCodeSharedSecret($activation_code_shared_secret)
@@ -275,7 +275,7 @@ class ItemDigitalDelivery implements ArrayAccess
 
     /**
      * Sets activation_code_type
-     * @param string $activation_code_type
+     * @param string $activation_code_type Type of activation code
      * @return $this
      */
     public function setActivationCodeType($activation_code_type)
@@ -296,7 +296,7 @@ class ItemDigitalDelivery implements ArrayAccess
 
     /**
      * Sets digital_items
-     * @param \ultracart\admin\v2\models\ItemDigitalItem[] $digital_items
+     * @param \ultracart\admin\v2\models\ItemDigitalItem[] $digital_items Digital items that customer can download when this item is purchased
      * @return $this
      */
     public function setDigitalItems($digital_items)

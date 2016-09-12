@@ -227,7 +227,7 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
 
     /**
      * Sets add_tags
-     * @param string[] $add_tags
+     * @param string[] $add_tags Add tags
      * @return $this
      */
     public function setAddTags($add_tags)
@@ -248,7 +248,7 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
 
     /**
      * Sets provider_name
-     * @param string $provider_name
+     * @param string $provider_name Provider name
      * @return $this
      */
     public function setProviderName($provider_name)
@@ -273,7 +273,7 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
 
     /**
      * Sets remove_tags
-     * @param string[] $remove_tags
+     * @param string[] $remove_tags Remove tags
      * @return $this
      */
     public function setRemoveTags($remove_tags)
@@ -294,7 +294,7 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
 
     /**
      * Sets subscribe_lists
-     * @param string[] $subscribe_lists
+     * @param string[] $subscribe_lists Subscribe to lists
      * @return $this
      */
     public function setSubscribeLists($subscribe_lists)
@@ -315,7 +315,7 @@ class ItemThirdPartyEmailMarketing implements ArrayAccess
 
     /**
      * Sets unsubscribe_lists
-     * @param string[] $unsubscribe_lists
+     * @param string[] $unsubscribe_lists Unsubscribe from lists
      * @return $this
      */
     public function setUnsubscribeLists($unsubscribe_lists)

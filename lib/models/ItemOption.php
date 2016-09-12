@@ -264,7 +264,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets cost_if_specified
-     * @param double $cost_if_specified
+     * @param double $cost_if_specified Cost if specified
      * @return $this
      */
     public function setCostIfSpecified($cost_if_specified)
@@ -285,7 +285,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets cost_per_letter
-     * @param double $cost_per_letter
+     * @param double $cost_per_letter Cost per letter
      * @return $this
      */
     public function setCostPerLetter($cost_per_letter)
@@ -306,7 +306,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets cost_per_line
-     * @param double $cost_per_line
+     * @param double $cost_per_line Cost per line
      * @return $this
      */
     public function setCostPerLine($cost_per_line)
@@ -327,7 +327,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets ignore_if_default
-     * @param bool $ignore_if_default
+     * @param bool $ignore_if_default Ignore this option on the order if the default value is selected
      * @return $this
      */
     public function setIgnoreIfDefault($ignore_if_default)
@@ -348,7 +348,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets label
-     * @param string $label
+     * @param string $label Label
      * @return $this
      */
     public function setLabel($label)
@@ -369,7 +369,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets label_translated_text_instance_oid
-     * @param int $label_translated_text_instance_oid
+     * @param int $label_translated_text_instance_oid Label translated text instance ID
      * @return $this
      */
     public function setLabelTranslatedTextInstanceOid($label_translated_text_instance_oid)
@@ -390,7 +390,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name
+     * @param string $name Name
      * @return $this
      */
     public function setName($name)
@@ -411,7 +411,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets name_translated_text_instance_oid
-     * @param int $name_translated_text_instance_oid
+     * @param int $name_translated_text_instance_oid Name translated text instance ID
      * @return $this
      */
     public function setNameTranslatedTextInstanceOid($name_translated_text_instance_oid)
@@ -432,7 +432,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets one_time_fee
-     * @param bool $one_time_fee
+     * @param bool $one_time_fee One time fee
      * @return $this
      */
     public function setOneTimeFee($one_time_fee)
@@ -453,7 +453,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets option_oid
-     * @param int $option_oid
+     * @param int $option_oid Option object identifier
      * @return $this
      */
     public function setOptionOid($option_oid)
@@ -474,7 +474,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets required
-     * @param bool $required
+     * @param bool $required True if the customer is required to specify an answer
      * @return $this
      */
     public function setRequired($required)
@@ -495,7 +495,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets system_option
-     * @param bool $system_option
+     * @param bool $system_option True if this is a system option
      * @return $this
      */
     public function setSystemOption($system_option)
@@ -516,7 +516,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type
+     * @param string $type Type of option
      * @return $this
      */
     public function setType($type)
@@ -541,7 +541,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets values
-     * @param \ultracart\admin\v2\models\ItemOptionValue[] $values
+     * @param \ultracart\admin\v2\models\ItemOptionValue[] $values Values
      * @return $this
      */
     public function setValues($values)

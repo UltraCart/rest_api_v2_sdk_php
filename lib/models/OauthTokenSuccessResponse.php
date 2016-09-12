@@ -129,8 +129,20 @@ class OauthTokenSuccessResponse implements ArrayAccess
         return self::$getters;
     }
 
+    const TOKEN_TYPE_BEARER = 'bearer';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTokenTypeAllowableValues()
+    {
+        return [
+            self::TOKEN_TYPE_BEARER,
+        ];
+    }
     
 
     /**
@@ -160,6 +172,11 @@ class OauthTokenSuccessResponse implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("bearer");
+        if (!in_array($this->container['token_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'token_type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -171,6 +188,10 @@ class OauthTokenSuccessResponse implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("bearer");
+        if (!in_array($this->container['token_type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -186,7 +207,7 @@ class OauthTokenSuccessResponse implements ArrayAccess
 
     /**
      * Sets access_token
-     * @param string $access_token
+     * @param string $access_token Access token to use in OAuth authenticated API call
      * @return $this
      */
     public function setAccessToken($access_token)
@@ -207,7 +228,7 @@ class OauthTokenSuccessResponse implements ArrayAccess
 
     /**
      * Sets expires_in
-     * @param string $expires_in
+     * @param string $expires_in The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token
      * @return $this
      */
     public function setExpiresIn($expires_in)
@@ -228,7 +249,7 @@ class OauthTokenSuccessResponse implements ArrayAccess
 
     /**
      * Sets refresh_token
-     * @param string $refresh_token
+     * @param string $refresh_token The refresh token that should be used to fetch a new access token when the expiration occurs
      * @return $this
      */
     public function setRefreshToken($refresh_token)
@@ -249,7 +270,7 @@ class OauthTokenSuccessResponse implements ArrayAccess
 
     /**
      * Sets scope
-     * @param string $scope
+     * @param string $scope The scope of permissions associated with teh access token
      * @return $this
      */
     public function setScope($scope)
@@ -270,11 +291,15 @@ class OauthTokenSuccessResponse implements ArrayAccess
 
     /**
      * Sets token_type
-     * @param string $token_type
+     * @param string $token_type Type of token
      * @return $this
      */
     public function setTokenType($token_type)
     {
+        $allowed_values = array('bearer');
+        if (!in_array($token_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'token_type', must be one of 'bearer'");
+        }
         $this->container['token_type'] = $token_type;
 
         return $this;

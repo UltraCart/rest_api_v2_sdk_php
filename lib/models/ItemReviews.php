@@ -196,7 +196,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Sets has_approved_review
-     * @param bool $has_approved_review
+     * @param bool $has_approved_review True if the item has an approved review
      * @return $this
      */
     public function setHasApprovedReview($has_approved_review)
@@ -217,7 +217,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Sets has_review
-     * @param bool $has_review
+     * @param bool $has_review True if the item has a review
      * @return $this
      */
     public function setHasReview($has_review)
@@ -238,7 +238,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Sets review_count
-     * @param int $review_count
+     * @param int $review_count Number of approved reviews
      * @return $this
      */
     public function setReviewCount($review_count)
@@ -259,7 +259,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Sets review_overall
-     * @param double $review_overall
+     * @param double $review_overall Overall score of reviews
      * @return $this
      */
     public function setReviewOverall($review_overall)
@@ -280,7 +280,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Sets review_template_name
-     * @param string $review_template_name
+     * @param string $review_template_name Review template name
      * @return $this
      */
     public function setReviewTemplateName($review_template_name)
@@ -301,7 +301,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Sets review_template_oid
-     * @param int $review_template_oid
+     * @param int $review_template_oid Review template object identifier
      * @return $this
      */
     public function setReviewTemplateOid($review_template_oid)
@@ -322,7 +322,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Sets reviewable
-     * @param bool $reviewable
+     * @param bool $reviewable True if the item is reviewable
      * @return $this
      */
     public function setReviewable($reviewable)

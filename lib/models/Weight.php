@@ -196,7 +196,7 @@ class Weight implements ArrayAccess
 
     /**
      * Sets uom
-     * @param string $uom
+     * @param string $uom Unit of measure
      * @return $this
      */
     public function setUom($uom)
@@ -221,7 +221,7 @@ class Weight implements ArrayAccess
 
     /**
      * Sets value
-     * @param double $value
+     * @param double $value Weight
      * @return $this
      */
     public function setValue($value)

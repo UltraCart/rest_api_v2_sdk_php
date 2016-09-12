@@ -171,7 +171,7 @@ class HTTPHeader implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name
+     * @param string $name Name of the HTTP header
      * @return $this
      */
     public function setName($name)
@@ -192,7 +192,7 @@ class HTTPHeader implements ArrayAccess
 
     /**
      * Sets value
-     * @param string $value
+     * @param string $value Value of the HTTP header
      * @return $this
      */
     public function setValue($value)

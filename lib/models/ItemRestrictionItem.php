@@ -201,7 +201,7 @@ class ItemRestrictionItem implements ArrayAccess
 
     /**
      * Sets restrict_merchant_item_id
-     * @param string $restrict_merchant_item_id
+     * @param string $restrict_merchant_item_id Restrict item id
      * @return $this
      */
     public function setRestrictMerchantItemId($restrict_merchant_item_id)
@@ -222,7 +222,7 @@ class ItemRestrictionItem implements ArrayAccess
 
     /**
      * Sets restrict_merchant_item_oid
-     * @param int $restrict_merchant_item_oid
+     * @param int $restrict_merchant_item_oid Restrict item object identifier
      * @return $this
      */
     public function setRestrictMerchantItemOid($restrict_merchant_item_oid)
@@ -243,7 +243,7 @@ class ItemRestrictionItem implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type
+     * @param string $type Restriction type
      * @return $this
      */
     public function setType($type)

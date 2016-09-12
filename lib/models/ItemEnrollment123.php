@@ -166,7 +166,7 @@ class ItemEnrollment123 implements ArrayAccess
 
     /**
      * Sets enrollment123_product_code
-     * @param string $enrollment123_product_code
+     * @param string $enrollment123_product_code Enrolment 123 product code
      * @return $this
      */
     public function setEnrollment123ProductCode($enrollment123_product_code)

@@ -176,7 +176,7 @@ class ItemWishlistMember implements ArrayAccess
 
     /**
      * Sets wishlist_member_instance_description
-     * @param string $wishlist_member_instance_description
+     * @param string $wishlist_member_instance_description WishList Member instance description
      * @return $this
      */
     public function setWishlistMemberInstanceDescription($wishlist_member_instance_description)
@@ -197,7 +197,7 @@ class ItemWishlistMember implements ArrayAccess
 
     /**
      * Sets wishlist_member_instance_oid
-     * @param int $wishlist_member_instance_oid
+     * @param int $wishlist_member_instance_oid WishList Member instance object identifier
      * @return $this
      */
     public function setWishlistMemberInstanceOid($wishlist_member_instance_oid)
@@ -218,7 +218,7 @@ class ItemWishlistMember implements ArrayAccess
 
     /**
      * Sets wishlist_member_sku
-     * @param string $wishlist_member_sku
+     * @param string $wishlist_member_sku WishList Member SKU
      * @return $this
      */
     public function setWishlistMemberSku($wishlist_member_sku)

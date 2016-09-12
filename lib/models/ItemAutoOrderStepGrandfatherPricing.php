@@ -171,7 +171,7 @@ class ItemAutoOrderStepGrandfatherPricing implements ArrayAccess
 
     /**
      * Sets on_or_before_date
-     * @param string $on_or_before_date
+     * @param string $on_or_before_date On or before date
      * @return $this
      */
     public function setOnOrBeforeDate($on_or_before_date)
@@ -192,7 +192,7 @@ class ItemAutoOrderStepGrandfatherPricing implements ArrayAccess
 
     /**
      * Sets unit_cost
-     * @param double $unit_cost
+     * @param double $unit_cost Unit cost
      * @return $this
      */
     public function setUnitCost($unit_cost)

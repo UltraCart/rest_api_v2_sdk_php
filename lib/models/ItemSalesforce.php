@@ -171,7 +171,7 @@ class ItemSalesforce implements ArrayAccess
 
     /**
      * Sets sfdc_pricebook_id
-     * @param string $sfdc_pricebook_id
+     * @param string $sfdc_pricebook_id Salesforce.com pricebook id
      * @return $this
      */
     public function setSfdcPricebookId($sfdc_pricebook_id)
@@ -192,7 +192,7 @@ class ItemSalesforce implements ArrayAccess
 
     /**
      * Sets sfdc_product_id
-     * @param string $sfdc_product_id
+     * @param string $sfdc_product_id Salesforce.com product id
      * @return $this
      */
     public function setSfdcProductId($sfdc_product_id)

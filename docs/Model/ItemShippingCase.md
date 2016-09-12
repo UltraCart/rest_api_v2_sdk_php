@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**case_label** | **string** |  | [optional] 
-**case_merchant_item_id** | **string** |  | [optional] 
-**case_merchant_item_oid** | **int** |  | [optional] 
-**quantity** | **int** |  | [optional] 
+**case_label** | **string** | Case label | [optional] 
+**case_merchant_item_id** | **string** | Case item id | [optional] 
+**case_merchant_item_oid** | **int** | Case item object identifier | [optional] 
+**quantity** | **int** | Case quantity | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

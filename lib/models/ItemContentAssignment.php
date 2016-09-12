@@ -186,7 +186,7 @@ class ItemContentAssignment implements ArrayAccess
 
     /**
      * Sets group_oid
-     * @param int $group_oid
+     * @param int $group_oid Page (group) object identifier
      * @return $this
      */
     public function setGroupOid($group_oid)
@@ -207,7 +207,7 @@ class ItemContentAssignment implements ArrayAccess
 
     /**
      * Sets group_path
-     * @param string $group_path
+     * @param string $group_path Page (group) path
      * @return $this
      */
     public function setGroupPath($group_path)
@@ -228,7 +228,7 @@ class ItemContentAssignment implements ArrayAccess
 
     /**
      * Sets host
-     * @param string $host
+     * @param string $host StoreFront host name
      * @return $this
      */
     public function setHost($host)
@@ -249,7 +249,7 @@ class ItemContentAssignment implements ArrayAccess
 
     /**
      * Sets sort_order
-     * @param int $sort_order
+     * @param int $sort_order Sort order (optional)
      * @return $this
      */
     public function setSortOrder($sort_order)
@@ -270,7 +270,7 @@ class ItemContentAssignment implements ArrayAccess
 
     /**
      * Sets url_part
-     * @param string $url_part
+     * @param string $url_part URL part if the item id is not used
      * @return $this
      */
     public function setUrlPart($url_part)

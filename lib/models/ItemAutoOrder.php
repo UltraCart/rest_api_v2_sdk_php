@@ -236,7 +236,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auth_future_amount
-     * @param double $auth_future_amount
+     * @param double $auth_future_amount Amount to try and authorize for the future rebill
      * @return $this
      */
     public function setAuthFutureAmount($auth_future_amount)
@@ -257,7 +257,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auth_test_amount
-     * @param double $auth_test_amount
+     * @param double $auth_test_amount Amount to try and test authorize
      * @return $this
      */
     public function setAuthTestAmount($auth_test_amount)
@@ -278,7 +278,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_cancel_item_id
-     * @param string $auto_order_cancel_item_id
+     * @param string $auto_order_cancel_item_id Item id to attempt charging the customer for if they cancel
      * @return $this
      */
     public function setAutoOrderCancelItemId($auto_order_cancel_item_id)
@@ -299,7 +299,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_cancel_item_oid
-     * @param int $auto_order_cancel_item_oid
+     * @param int $auto_order_cancel_item_oid Item object identifier to attempt charging the customer for if they cancel
      * @return $this
      */
     public function setAutoOrderCancelItemOid($auto_order_cancel_item_oid)
@@ -320,7 +320,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_downgrade_items
-     * @param string[] $auto_order_downgrade_items
+     * @param string[] $auto_order_downgrade_items List of downgrade items presented to customer service representatives
      * @return $this
      */
     public function setAutoOrderDowngradeItems($auto_order_downgrade_items)
@@ -341,7 +341,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_paused
-     * @param bool $auto_order_paused
+     * @param bool $auto_order_paused True if the rebill processing of this item is paused
      * @return $this
      */
     public function setAutoOrderPaused($auto_order_paused)
@@ -362,7 +362,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_schedules
-     * @param string[] $auto_order_schedules
+     * @param string[] $auto_order_schedules The user selectable schedules that are available
      * @return $this
      */
     public function setAutoOrderSchedules($auto_order_schedules)
@@ -383,7 +383,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_upgrade_items
-     * @param string[] $auto_order_upgrade_items
+     * @param string[] $auto_order_upgrade_items List of upgrade items presented to customer service representatives
      * @return $this
      */
     public function setAutoOrderUpgradeItems($auto_order_upgrade_items)
@@ -404,7 +404,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_upsell
-     * @param bool $auto_order_upsell
+     * @param bool $auto_order_upsell True if this item uses a fixed upsell step schedule
      * @return $this
      */
     public function setAutoOrderUpsell($auto_order_upsell)
@@ -425,7 +425,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_upsell_no_easy_cancel
-     * @param bool $auto_order_upsell_no_easy_cancel
+     * @param bool $auto_order_upsell_no_easy_cancel Do not send the easy cancel email to the customer
      * @return $this
      */
     public function setAutoOrderUpsellNoEasyCancel($auto_order_upsell_no_easy_cancel)
@@ -446,7 +446,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_order_upsell_one_per_customer
-     * @param bool $auto_order_upsell_one_per_customer
+     * @param bool $auto_order_upsell_one_per_customer Limit the purchase of this item to one per customer
      * @return $this
      */
     public function setAutoOrderUpsellOnePerCustomer($auto_order_upsell_one_per_customer)
@@ -467,7 +467,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auto_orderable
-     * @param bool $auto_orderable
+     * @param bool $auto_orderable True if this item can be automatically ordered by the customer
      * @return $this
      */
     public function setAutoOrderable($auto_orderable)
@@ -488,7 +488,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets cancel_other_auto_orders
-     * @param bool $cancel_other_auto_orders
+     * @param bool $cancel_other_auto_orders True if other auto orders for this customer should be canceled when this item is ordered
      * @return $this
      */
     public function setCancelOtherAutoOrders($cancel_other_auto_orders)
@@ -509,7 +509,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets free_shipping_auto_order
-     * @param bool $free_shipping_auto_order
+     * @param bool $free_shipping_auto_order True if the customer should be given free shipping
      * @return $this
      */
     public function setFreeShippingAutoOrder($free_shipping_auto_order)
@@ -530,7 +530,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets steps
-     * @param \ultracart\admin\v2\models\ItemAutoOrderStep[] $steps
+     * @param \ultracart\admin\v2\models\ItemAutoOrderStep[] $steps The rebill steps if this auto order is an upsell
      * @return $this
      */
     public function setSteps($steps)

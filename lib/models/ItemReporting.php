@@ -171,7 +171,7 @@ class ItemReporting implements ArrayAccess
 
     /**
      * Sets report_as_upsell
-     * @param bool $report_as_upsell
+     * @param bool $report_as_upsell Report as an upsell
      * @return $this
      */
     public function setReportAsUpsell($report_as_upsell)
@@ -192,7 +192,7 @@ class ItemReporting implements ArrayAccess
 
     /**
      * Sets report_pickable_quantities
-     * @param int[] $report_pickable_quantities
+     * @param int[] $report_pickable_quantities Report pickable quantities
      * @return $this
      */
     public function setReportPickableQuantities($report_pickable_quantities)

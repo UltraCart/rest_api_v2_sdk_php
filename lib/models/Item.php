@@ -470,7 +470,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets channel_partner_mappings
-     * @param \ultracart\admin\v2\models\ItemChannelPartnerMapping[] $channel_partner_mappings
+     * @param \ultracart\admin\v2\models\ItemChannelPartnerMapping[] $channel_partner_mappings Channel Partner Item Mapping
      * @return $this
      */
     public function setChannelPartnerMappings($channel_partner_mappings)
@@ -554,7 +554,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets creation_dts
-     * @param string $creation_dts
+     * @param string $creation_dts Date/time of creation
      * @return $this
      */
     public function setCreationDts($creation_dts)
@@ -575,7 +575,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description
+     * @param string $description Description of the item up to 500 chracaters.
      * @return $this
      */
     public function setDescription($description)
@@ -596,7 +596,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets description_translated_text_instance_oid
-     * @param int $description_translated_text_instance_oid
+     * @param int $description_translated_text_instance_oid Description translated text instance id
      * @return $this
      */
     public function setDescriptionTranslatedTextInstanceOid($description_translated_text_instance_oid)
@@ -764,7 +764,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets inactive
-     * @param bool $inactive
+     * @param bool $inactive True if this item is inactive and can not be purchased
      * @return $this
      */
     public function setInactive($inactive)
@@ -827,7 +827,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets kit
-     * @param bool $kit
+     * @param bool $kit True if this item is a kit
      * @return $this
      */
     public function setKit($kit)
@@ -869,7 +869,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets last_modified_dts
-     * @param string $last_modified_dts
+     * @param string $last_modified_dts Date/time of last modification
      * @return $this
      */
     public function setLastModifiedDts($last_modified_dts)
@@ -890,7 +890,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets merchant_id
-     * @param string $merchant_id
+     * @param string $merchant_id UltraCart merchant ID owning item
      * @return $this
      */
     public function setMerchantId($merchant_id)
@@ -911,7 +911,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets merchant_item_id
-     * @param string $merchant_item_id
+     * @param string $merchant_item_id Unique item id assigned to this item
      * @return $this
      */
     public function setMerchantItemId($merchant_item_id)
@@ -932,7 +932,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets merchant_item_oid
-     * @param int $merchant_item_oid
+     * @param int $merchant_item_oid Unique object identifier for this item
      * @return $this
      */
     public function setMerchantItemOid($merchant_item_oid)
@@ -953,7 +953,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets options
-     * @param \ultracart\admin\v2\models\ItemOption[] $options
+     * @param \ultracart\admin\v2\models\ItemOption[] $options Options
      * @return $this
      */
     public function setOptions($options)
@@ -974,7 +974,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets parent_category_id
-     * @param int $parent_category_id
+     * @param int $parent_category_id Parent category of the item.  Zero indicates the root folder.
      * @return $this
      */
     public function setParentCategoryId($parent_category_id)
@@ -1247,7 +1247,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets third_party_email_marketing
-     * @param \ultracart\admin\v2\models\ItemThirdPartyEmailMarketing[] $third_party_email_marketing
+     * @param \ultracart\admin\v2\models\ItemThirdPartyEmailMarketing[] $third_party_email_marketing 3rd Party Email Marketing
      * @return $this
      */
     public function setThirdPartyEmailMarketing($third_party_email_marketing)
@@ -1268,7 +1268,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets variant_items
-     * @param \ultracart\admin\v2\models\ItemVariantItem[] $variant_items
+     * @param \ultracart\admin\v2\models\ItemVariantItem[] $variant_items Variant Items
      * @return $this
      */
     public function setVariantItems($variant_items)
@@ -1289,7 +1289,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets variations
-     * @param \ultracart\admin\v2\models\ItemVariation[] $variations
+     * @param \ultracart\admin\v2\models\ItemVariation[] $variations Variations
      * @return $this
      */
     public function setVariations($variations)

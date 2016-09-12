@@ -191,7 +191,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Sets country
-     * @param string $country
+     * @param string $country Country
      * @return $this
      */
     public function setCountry($country)
@@ -212,7 +212,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Sets flat_fee
-     * @param double $flat_fee
+     * @param double $flat_fee Flat fee
      * @return $this
      */
     public function setFlatFee($flat_fee)
@@ -233,7 +233,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Sets per_item
-     * @param double $per_item
+     * @param double $per_item Per item
      * @return $this
      */
     public function setPerItem($per_item)
@@ -254,7 +254,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Sets postal_code
-     * @param string $postal_code
+     * @param string $postal_code Postal code
      * @return $this
      */
     public function setPostalCode($postal_code)
@@ -275,7 +275,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Sets shipping_method
-     * @param string $shipping_method
+     * @param string $shipping_method Shipping method
      * @return $this
      */
     public function setShippingMethod($shipping_method)
@@ -296,7 +296,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Sets state
-     * @param string $state
+     * @param string $state State
      * @return $this
      */
     public function setState($state)

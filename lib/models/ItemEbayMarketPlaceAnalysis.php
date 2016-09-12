@@ -211,7 +211,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets adjusted_price
-     * @param double $adjusted_price
+     * @param double $adjusted_price Adjusted price
      * @return $this
      */
     public function setAdjustedPrice($adjusted_price)
@@ -232,7 +232,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets adjusted_shipping
-     * @param double $adjusted_shipping
+     * @param double $adjusted_shipping Adjusted shipping
      * @return $this
      */
     public function setAdjustedShipping($adjusted_shipping)
@@ -253,7 +253,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets adjusted_total
-     * @param double $adjusted_total
+     * @param double $adjusted_total Adjusted total
      * @return $this
      */
     public function setAdjustedTotal($adjusted_total)
@@ -274,7 +274,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets cogs
-     * @param double $cogs
+     * @param double $cogs Cost of goods sold
      * @return $this
      */
     public function setCogs($cogs)
@@ -295,7 +295,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets final_value_fee
-     * @param double $final_value_fee
+     * @param double $final_value_fee Final value fee
      * @return $this
      */
     public function setFinalValueFee($final_value_fee)
@@ -316,7 +316,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets minimum_advertised_price
-     * @param double $minimum_advertised_price
+     * @param double $minimum_advertised_price Minimum advertised price
      * @return $this
      */
     public function setMinimumAdvertisedPrice($minimum_advertised_price)
@@ -337,7 +337,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets other_listings
-     * @param \ultracart\admin\v2\models\ItemEbayMarketListing[] $other_listings
+     * @param \ultracart\admin\v2\models\ItemEbayMarketListing[] $other_listings Other listings
      * @return $this
      */
     public function setOtherListings($other_listings)
@@ -379,7 +379,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets overhead
-     * @param double $overhead
+     * @param double $overhead Overhead
      * @return $this
      */
     public function setOverhead($overhead)
@@ -400,7 +400,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets profit_potential
-     * @param double $profit_potential
+     * @param double $profit_potential Profit potential
      * @return $this
      */
     public function setProfitPotential($profit_potential)

@@ -218,7 +218,7 @@ class ErrorResponse implements ArrayAccess
 
     /**
      * Sets success
-     * @param bool $success
+     * @param bool $success Indicates if API call was successful
      * @return $this
      */
     public function setSuccess($success)

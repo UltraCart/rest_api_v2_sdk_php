@@ -176,7 +176,7 @@ class ItemPricingTierLimit implements ArrayAccess
 
     /**
      * Sets cumulative_order_limit
-     * @param int $cumulative_order_limit
+     * @param int $cumulative_order_limit Cumulative order limit
      * @return $this
      */
     public function setCumulativeOrderLimit($cumulative_order_limit)
@@ -197,7 +197,7 @@ class ItemPricingTierLimit implements ArrayAccess
 
     /**
      * Sets individual_order_limit
-     * @param int $individual_order_limit
+     * @param int $individual_order_limit Individual order limit
      * @return $this
      */
     public function setIndividualOrderLimit($individual_order_limit)
@@ -218,7 +218,7 @@ class ItemPricingTierLimit implements ArrayAccess
 
     /**
      * Sets multiple_quantity
-     * @param int $multiple_quantity
+     * @param int $multiple_quantity Multiple quantity
      * @return $this
      */
     public function setMultipleQuantity($multiple_quantity)

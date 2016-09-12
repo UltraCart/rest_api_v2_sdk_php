@@ -171,7 +171,7 @@ class ItemAccounting implements ArrayAccess
 
     /**
      * Sets accounting_code
-     * @param string $accounting_code
+     * @param string $accounting_code QuickBooks item name if different than the item id
      * @return $this
      */
     public function setAccountingCode($accounting_code)
@@ -192,7 +192,7 @@ class ItemAccounting implements ArrayAccess
 
     /**
      * Sets qb_class
-     * @param string $qb_class
+     * @param string $qb_class QuickBooks class if you are classifying items on your invoices/receipts
      * @return $this
      */
     public function setQbClass($qb_class)

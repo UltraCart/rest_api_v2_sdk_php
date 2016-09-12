@@ -181,7 +181,7 @@ class ItemShippingCase implements ArrayAccess
 
     /**
      * Sets case_label
-     * @param string $case_label
+     * @param string $case_label Case label
      * @return $this
      */
     public function setCaseLabel($case_label)
@@ -202,7 +202,7 @@ class ItemShippingCase implements ArrayAccess
 
     /**
      * Sets case_merchant_item_id
-     * @param string $case_merchant_item_id
+     * @param string $case_merchant_item_id Case item id
      * @return $this
      */
     public function setCaseMerchantItemId($case_merchant_item_id)
@@ -223,7 +223,7 @@ class ItemShippingCase implements ArrayAccess
 
     /**
      * Sets case_merchant_item_oid
-     * @param int $case_merchant_item_oid
+     * @param int $case_merchant_item_oid Case item object identifier
      * @return $this
      */
     public function setCaseMerchantItemOid($case_merchant_item_oid)
@@ -244,7 +244,7 @@ class ItemShippingCase implements ArrayAccess
 
     /**
      * Sets quantity
-     * @param int $quantity
+     * @param int $quantity Case quantity
      * @return $this
      */
     public function setQuantity($quantity)

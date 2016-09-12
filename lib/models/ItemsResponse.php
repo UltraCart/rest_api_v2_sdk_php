@@ -202,7 +202,7 @@ class ItemsResponse implements ArrayAccess
 
     /**
      * Sets items
-     * @param \ultracart\admin\v2\models\Item[] $items
+     * @param \ultracart\admin\v2\models\Item[] $items Items
      * @return $this
      */
     public function setItems($items)
@@ -244,7 +244,7 @@ class ItemsResponse implements ArrayAccess
 
     /**
      * Sets success
-     * @param bool $success
+     * @param bool $success Indicates if API call was successful
      * @return $this
      */
     public function setSuccess($success)

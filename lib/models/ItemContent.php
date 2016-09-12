@@ -216,7 +216,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets assignments
-     * @param \ultracart\admin\v2\models\ItemContentAssignment[] $assignments
+     * @param \ultracart\admin\v2\models\ItemContentAssignment[] $assignments StoreFront assignments
      * @return $this
      */
     public function setAssignments($assignments)
@@ -237,7 +237,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets attributes
-     * @param \ultracart\admin\v2\models\ItemContentAttribute[] $attributes
+     * @param \ultracart\admin\v2\models\ItemContentAttribute[] $attributes StoreFront attributes
      * @return $this
      */
     public function setAttributes($attributes)
@@ -258,7 +258,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets exclude_from_search
-     * @param bool $exclude_from_search
+     * @param bool $exclude_from_search Exclude from search
      * @return $this
      */
     public function setExcludeFromSearch($exclude_from_search)
@@ -279,7 +279,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets exclude_from_top_sellers
-     * @param bool $exclude_from_top_sellers
+     * @param bool $exclude_from_top_sellers Exclude from the top sellers list in the StoreFront
      * @return $this
      */
     public function setExcludeFromTopSellers($exclude_from_top_sellers)
@@ -300,7 +300,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets extended_description
-     * @param string $extended_description
+     * @param string $extended_description Extended description (max 2000 characters)
      * @return $this
      */
     public function setExtendedDescription($extended_description)
@@ -321,7 +321,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets extended_description_translated_text_instance_oid
-     * @param int $extended_description_translated_text_instance_oid
+     * @param int $extended_description_translated_text_instance_oid Extneded description text translation instance identifier
      * @return $this
      */
     public function setExtendedDescriptionTranslatedTextInstanceOid($extended_description_translated_text_instance_oid)
@@ -342,7 +342,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets multimedia
-     * @param \ultracart\admin\v2\models\ItemContentMultimedia[] $multimedia
+     * @param \ultracart\admin\v2\models\ItemContentMultimedia[] $multimedia Multimedia
      * @return $this
      */
     public function setMultimedia($multimedia)
@@ -363,7 +363,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets new_item
-     * @param bool $new_item
+     * @param bool $new_item True if the item is new
      * @return $this
      */
     public function setNewItem($new_item)
@@ -384,7 +384,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets new_item_end
-     * @param string $new_item_end
+     * @param string $new_item_end The date the item should no longer be considered new
      * @return $this
      */
     public function setNewItemEnd($new_item_end)
@@ -405,7 +405,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets new_item_start
-     * @param string $new_item_start
+     * @param string $new_item_start The date the item should start being considered new
      * @return $this
      */
     public function setNewItemStart($new_item_start)
@@ -426,7 +426,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets view_url
-     * @param string $view_url
+     * @param string $view_url Legacy view URL (not used by StoreFronts)
      * @return $this
      */
     public function setViewUrl($view_url)

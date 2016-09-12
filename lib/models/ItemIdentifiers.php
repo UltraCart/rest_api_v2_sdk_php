@@ -181,7 +181,7 @@ class ItemIdentifiers implements ArrayAccess
 
     /**
      * Sets barcode
-     * @param string $barcode
+     * @param string $barcode Barcode
      * @return $this
      */
     public function setBarcode($barcode)
@@ -202,7 +202,7 @@ class ItemIdentifiers implements ArrayAccess
 
     /**
      * Sets manufacturer_name
-     * @param string $manufacturer_name
+     * @param string $manufacturer_name Manufacturer Name
      * @return $this
      */
     public function setManufacturerName($manufacturer_name)
@@ -223,7 +223,7 @@ class ItemIdentifiers implements ArrayAccess
 
     /**
      * Sets manufacturer_sku
-     * @param string $manufacturer_sku
+     * @param string $manufacturer_sku Manufacturer SKU
      * @return $this
      */
     public function setManufacturerSku($manufacturer_sku)
@@ -244,7 +244,7 @@ class ItemIdentifiers implements ArrayAccess
 
     /**
      * Sets unspsc
-     * @param string $unspsc
+     * @param string $unspsc UNSPSC
      * @return $this
      */
     public function setUnspsc($unspsc)

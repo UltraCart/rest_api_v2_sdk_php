@@ -191,7 +191,7 @@ class ItemVariantItem implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description
+     * @param string $description Description
      * @return $this
      */
     public function setDescription($description)
@@ -212,7 +212,7 @@ class ItemVariantItem implements ArrayAccess
 
     /**
      * Sets merchant_item_multimedia_oid
-     * @param int $merchant_item_multimedia_oid
+     * @param int $merchant_item_multimedia_oid Multimedia object identifier
      * @return $this
      */
     public function setMerchantItemMultimediaOid($merchant_item_multimedia_oid)
@@ -233,7 +233,7 @@ class ItemVariantItem implements ArrayAccess
 
     /**
      * Sets variant_merchant_item_id
-     * @param string $variant_merchant_item_id
+     * @param string $variant_merchant_item_id Variant item id
      * @return $this
      */
     public function setVariantMerchantItemId($variant_merchant_item_id)
@@ -254,7 +254,7 @@ class ItemVariantItem implements ArrayAccess
 
     /**
      * Sets variant_merchant_item_oid
-     * @param int $variant_merchant_item_oid
+     * @param int $variant_merchant_item_oid Variant item object identifier
      * @return $this
      */
     public function setVariantMerchantItemOid($variant_merchant_item_oid)
@@ -275,7 +275,7 @@ class ItemVariantItem implements ArrayAccess
 
     /**
      * Sets variation_options
-     * @param string[] $variation_options
+     * @param string[] $variation_options Variation options
      * @return $this
      */
     public function setVariationOptions($variation_options)
@@ -296,7 +296,7 @@ class ItemVariantItem implements ArrayAccess
 
     /**
      * Sets variations
-     * @param string[] $variations
+     * @param string[] $variations Variations
      * @return $this
      */
     public function setVariations($variations)

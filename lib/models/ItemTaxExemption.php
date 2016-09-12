@@ -186,7 +186,7 @@ class ItemTaxExemption implements ArrayAccess
 
     /**
      * Sets city
-     * @param string $city
+     * @param string $city City
      * @return $this
      */
     public function setCity($city)
@@ -207,7 +207,7 @@ class ItemTaxExemption implements ArrayAccess
 
     /**
      * Sets country_code
-     * @param string $country_code
+     * @param string $country_code Country code
      * @return $this
      */
     public function setCountryCode($country_code)
@@ -228,7 +228,7 @@ class ItemTaxExemption implements ArrayAccess
 
     /**
      * Sets county
-     * @param string $county
+     * @param string $county County
      * @return $this
      */
     public function setCounty($county)
@@ -249,7 +249,7 @@ class ItemTaxExemption implements ArrayAccess
 
     /**
      * Sets postal_code
-     * @param string $postal_code
+     * @param string $postal_code Postal code
      * @return $this
      */
     public function setPostalCode($postal_code)
@@ -270,7 +270,7 @@ class ItemTaxExemption implements ArrayAccess
 
     /**
      * Sets state_code
-     * @param string $state_code
+     * @param string $state_code State code
      * @return $this
      */
     public function setStateCode($state_code)

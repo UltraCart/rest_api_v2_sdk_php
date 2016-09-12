@@ -176,7 +176,7 @@ class WebhookEventCategory implements ArrayAccess
 
     /**
      * Sets event_category
-     * @param string $event_category
+     * @param string $event_category Name of the event category
      * @return $this
      */
     public function setEventCategory($event_category)
@@ -197,7 +197,7 @@ class WebhookEventCategory implements ArrayAccess
 
     /**
      * Sets events
-     * @param \ultracart\admin\v2\models\WebhookEventSubscription[] $events
+     * @param \ultracart\admin\v2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
      * @return $this
      */
     public function setEvents($events)
@@ -218,7 +218,7 @@ class WebhookEventCategory implements ArrayAccess
 
     /**
      * Sets subscribed
-     * @param bool $subscribed
+     * @param bool $subscribed True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
      * @return $this
      */
     public function setSubscribed($subscribed)

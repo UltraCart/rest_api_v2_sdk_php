@@ -226,7 +226,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets allocated_to_placed_orders
-     * @param double $allocated_to_placed_orders
+     * @param double $allocated_to_placed_orders Allocated to placed orders
      * @return $this
      */
     public function setAllocatedToPlacedOrders($allocated_to_placed_orders)
@@ -247,7 +247,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets allocated_to_shopping_carts
-     * @param double $allocated_to_shopping_carts
+     * @param double $allocated_to_shopping_carts Allocated to shopping carts
      * @return $this
      */
     public function setAllocatedToShoppingCarts($allocated_to_shopping_carts)
@@ -268,7 +268,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets available_to_allocate
-     * @param double $available_to_allocate
+     * @param double $available_to_allocate Available to allocate
      * @return $this
      */
     public function setAvailableToAllocate($available_to_allocate)
@@ -289,7 +289,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets desired_inventory_level
-     * @param double $desired_inventory_level
+     * @param double $desired_inventory_level Desired inventory level
      * @return $this
      */
     public function setDesiredInventoryLevel($desired_inventory_level)
@@ -310,7 +310,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets distribution_center_code
-     * @param string $distribution_center_code
+     * @param string $distribution_center_code Distribution center code
      * @return $this
      */
     public function setDistributionCenterCode($distribution_center_code)
@@ -331,7 +331,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets distribution_center_oid
-     * @param int $distribution_center_oid
+     * @param int $distribution_center_oid Distribution center object identifier
      * @return $this
      */
     public function setDistributionCenterOid($distribution_center_oid)
@@ -352,7 +352,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets eta
-     * @param string $eta
+     * @param string $eta Estimated time of arrival
      * @return $this
      */
     public function setEta($eta)
@@ -373,7 +373,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets handles
-     * @param bool $handles
+     * @param bool $handles True if this distribution center handles this item
      * @return $this
      */
     public function setHandles($handles)
@@ -394,7 +394,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets inventory_level
-     * @param double $inventory_level
+     * @param double $inventory_level Inventory level
      * @return $this
      */
     public function setInventoryLevel($inventory_level)
@@ -415,7 +415,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets maximum_backorder
-     * @param int $maximum_backorder
+     * @param int $maximum_backorder Maximum back-order
      * @return $this
      */
     public function setMaximumBackorder($maximum_backorder)
@@ -436,7 +436,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets reorder_inventory_level
-     * @param double $reorder_inventory_level
+     * @param double $reorder_inventory_level Reorder inventory level (triggers notification)
      * @return $this
      */
     public function setReorderInventoryLevel($reorder_inventory_level)
@@ -457,7 +457,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets sku
-     * @param string $sku
+     * @param string $sku SKU
      * @return $this
      */
     public function setSku($sku)
@@ -478,7 +478,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets stock_picking_location
-     * @param string $stock_picking_location
+     * @param string $stock_picking_location Stock picking location
      * @return $this
      */
     public function setStockPickingLocation($stock_picking_location)

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **webhookWebhooksGet**
-> \ultracart\admin\v2\models\WebhooksResponse webhookWebhooksGet()
+> \ultracart\admin\v2\models\WebhooksResponse webhookWebhooksGet($_limit, $_offset, $_sort, $_placeholders)
 
 Retrieve webhooks
 
@@ -35,9 +35,13 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 // ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\admin\v2\Api\WebhookApi();
+$_limit = 100; // int | The maximum number of records to return on this one API call.
+$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
+$_sort = "_sort_example"; // string | The sort order of the webhooks.  See documentation for examples
+$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->webhookWebhooksGet();
+    $result = $api_instance->webhookWebhooksGet($_limit, $_offset, $_sort, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookWebhooksGet: ', $e->getMessage(), PHP_EOL;
@@ -46,7 +50,13 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
+ **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **_sort** | **string**| The sort order of the webhooks.  See documentation for examples | [optional]
+ **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 
@@ -68,7 +78,7 @@ This endpoint does not need any parameter.
 
 Add a webhook
 
-Adds a new webhook on the account
+Adds a new webhook on the account.  If you add a new webhook with the authentication_type set to basic, but do not specify the basic_username and basic_password, UltraCart will automatically generate random ones and return them.  This allows your application to have simpler logic on the setup of a secure webhook.
 
 ### Example
 ```php
@@ -110,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -167,7 +177,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksWebhookOidLogsGet**
-> \ultracart\admin\v2\models\WebhookLogSummariesResponse webhookWebhooksWebhookOidLogsGet($webhook_oid)
+> \ultracart\admin\v2\models\WebhookLogSummariesResponse webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit, $_offset, $_since)
 
 Retrieve the log summaries
 
@@ -187,9 +197,12 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 
 $api_instance = new ultracart\admin\v2\Api\WebhookApi();
 $webhook_oid = 56; // int | The webhook oid to retrieve log summaries for.
+$_limit = 100; // int | The maximum number of records to return on this one API call.
+$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
+$_since = "_since_example"; // string | Fetch log summaries that have been delivered since this date/time.
 
 try {
-    $result = $api_instance->webhookWebhooksWebhookOidLogsGet($webhook_oid);
+    $result = $api_instance->webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit, $_offset, $_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidLogsGet: ', $e->getMessage(), PHP_EOL;
@@ -202,6 +215,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook_oid** | **int**| The webhook oid to retrieve log summaries for. |
+ **_limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
+ **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **_since** | **string**| Fetch log summaries that have been delivered since this date/time. | [optional]
 
 ### Return type
 
@@ -321,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -375,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -481,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

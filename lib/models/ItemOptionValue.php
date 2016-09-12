@@ -261,7 +261,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets additional_dimension_application
-     * @param string $additional_dimension_application
+     * @param string $additional_dimension_application Additional dimensions application
      * @return $this
      */
     public function setAdditionalDimensionApplication($additional_dimension_application)
@@ -286,7 +286,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets additional_items
-     * @param \ultracart\admin\v2\models\ItemOptionValueAdditionalItem[] $additional_items
+     * @param \ultracart\admin\v2\models\ItemOptionValueAdditionalItem[] $additional_items Additional items to add to the order if this value is selected
      * @return $this
      */
     public function setAdditionalItems($additional_items)
@@ -307,7 +307,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets cost_change
-     * @param double $cost_change
+     * @param double $cost_change Cost change
      * @return $this
      */
     public function setCostChange($cost_change)
@@ -328,7 +328,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets default_value
-     * @param bool $default_value
+     * @param bool $default_value True if default value
      * @return $this
      */
     public function setDefaultValue($default_value)
@@ -349,7 +349,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets digital_items
-     * @param \ultracart\admin\v2\models\ItemOptionValueDigitalItem[] $digital_items
+     * @param \ultracart\admin\v2\models\ItemOptionValueDigitalItem[] $digital_items Digital items to allow the customer to download if this option value is selected
      * @return $this
      */
     public function setDigitalItems($digital_items)
@@ -412,7 +412,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets merchant_item_multimedia_oid
-     * @param int $merchant_item_multimedia_oid
+     * @param int $merchant_item_multimedia_oid Multimedia object identifier associated with this option value
      * @return $this
      */
     public function setMerchantItemMultimediaOid($merchant_item_multimedia_oid)
@@ -433,7 +433,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets option_value_oid
-     * @param int $option_value_oid
+     * @param int $option_value_oid Option value object identifier
      * @return $this
      */
     public function setOptionValueOid($option_value_oid)
@@ -454,7 +454,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets percent_cost_change
-     * @param double $percent_cost_change
+     * @param double $percent_cost_change Percentage cost change
      * @return $this
      */
     public function setPercentCostChange($percent_cost_change)
@@ -475,7 +475,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets translated_text_instance_oid
-     * @param int $translated_text_instance_oid
+     * @param int $translated_text_instance_oid Translated text instance id
      * @return $this
      */
     public function setTranslatedTextInstanceOid($translated_text_instance_oid)
@@ -496,7 +496,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets value
-     * @param string $value
+     * @param string $value Value
      * @return $this
      */
     public function setValue($value)
@@ -538,7 +538,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets weight_change_percent
-     * @param double $weight_change_percent
+     * @param double $weight_change_percent Percentage weight change
      * @return $this
      */
     public function setWeightChangePercent($weight_change_percent)

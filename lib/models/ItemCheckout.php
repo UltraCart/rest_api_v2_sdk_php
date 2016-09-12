@@ -176,7 +176,7 @@ class ItemCheckout implements ArrayAccess
 
     /**
      * Sets suppress_buysafe
-     * @param bool $suppress_buysafe
+     * @param bool $suppress_buysafe True to suppress buySAFE
      * @return $this
      */
     public function setSuppressBuysafe($suppress_buysafe)
@@ -197,7 +197,7 @@ class ItemCheckout implements ArrayAccess
 
     /**
      * Sets terms
-     * @param string $terms
+     * @param string $terms Terms for purchasing this item
      * @return $this
      */
     public function setTerms($terms)
@@ -218,7 +218,7 @@ class ItemCheckout implements ArrayAccess
 
     /**
      * Sets terms_translated_text_instance_oid
-     * @param int $terms_translated_text_instance_oid
+     * @param int $terms_translated_text_instance_oid Terms translated text instance identifier
      * @return $this
      */
     public function setTermsTranslatedTextInstanceOid($terms_translated_text_instance_oid)

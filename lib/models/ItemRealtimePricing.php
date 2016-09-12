@@ -176,7 +176,7 @@ class ItemRealtimePricing implements ArrayAccess
 
     /**
      * Sets realtime_pricing_parameter
-     * @param string $realtime_pricing_parameter
+     * @param string $realtime_pricing_parameter Real-time pricing provider parameters
      * @return $this
      */
     public function setRealtimePricingParameter($realtime_pricing_parameter)
@@ -197,7 +197,7 @@ class ItemRealtimePricing implements ArrayAccess
 
     /**
      * Sets realtime_pricing_provider
-     * @param string $realtime_pricing_provider
+     * @param string $realtime_pricing_provider Real-time pricing provider name
      * @return $this
      */
     public function setRealtimePricingProvider($realtime_pricing_provider)
@@ -218,7 +218,7 @@ class ItemRealtimePricing implements ArrayAccess
 
     /**
      * Sets realtime_pricing_provider_oid
-     * @param int $realtime_pricing_provider_oid
+     * @param int $realtime_pricing_provider_oid Real-time pricing provide object identifier
      * @return $this
      */
     public function setRealtimePricingProviderOid($realtime_pricing_provider_oid)

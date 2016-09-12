@@ -173,8 +173,34 @@ class Webhook implements ArrayAccess
         return self::$getters;
     }
 
+    const API_VERSION__01 = '2016-10-01';
+    const AUTHENTICATION_TYPE_NONE = 'none';
+    const AUTHENTICATION_TYPE_BASIC = 'basic';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getApiVersionAllowableValues()
+    {
+        return [
+            self::API_VERSION__01,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getAuthenticationTypeAllowableValues()
+    {
+        return [
+            self::AUTHENTICATION_TYPE_NONE,
+            self::AUTHENTICATION_TYPE_BASIC,
+        ];
+    }
     
 
     /**
@@ -215,6 +241,16 @@ class Webhook implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("2016-10-01");
+        if (!in_array($this->container['api_version'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'api_version', must be one of #{allowed_values}.";
+        }
+
+        $allowed_values = array("none", "basic");
+        if (!in_array($this->container['authentication_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'authentication_type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -226,6 +262,14 @@ class Webhook implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("2016-10-01");
+        if (!in_array($this->container['api_version'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = array("none", "basic");
+        if (!in_array($this->container['authentication_type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -241,7 +285,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets api_user_oid
-     * @param int $api_user_oid
+     * @param int $api_user_oid Populated if webhook associated with an API user
      * @return $this
      */
     public function setApiUserOid($api_user_oid)
@@ -262,11 +306,15 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets api_version
-     * @param string $api_version
+     * @param string $api_version Version of the API objects that are sent in notifications
      * @return $this
      */
     public function setApiVersion($api_version)
     {
+        $allowed_values = array('2016-10-01');
+        if (!in_array($api_version, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'api_version', must be one of '2016-10-01'");
+        }
         $this->container['api_version'] = $api_version;
 
         return $this;
@@ -304,11 +352,15 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets authentication_type
-     * @param string $authentication_type
+     * @param string $authentication_type The type of authentication this webhook will use when communicating with your server
      * @return $this
      */
     public function setAuthenticationType($authentication_type)
     {
+        $allowed_values = array('none', 'basic');
+        if (!in_array($authentication_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'authentication_type', must be one of 'none', 'basic'");
+        }
         $this->container['authentication_type'] = $authentication_type;
 
         return $this;
@@ -325,7 +377,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets basic_password
-     * @param string $basic_password
+     * @param string $basic_password Basic authentication password
      * @return $this
      */
     public function setBasicPassword($basic_password)
@@ -346,7 +398,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets basic_username
-     * @param string $basic_username
+     * @param string $basic_username Basic authentication user name
      * @return $this
      */
     public function setBasicUsername($basic_username)
@@ -367,7 +419,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets consecutive_failures
-     * @param int $consecutive_failures
+     * @param int $consecutive_failures The number of consecutive failures that have occurred trying to deliver notifications to the target server
      * @return $this
      */
     public function setConsecutiveFailures($consecutive_failures)
@@ -388,7 +440,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets disabled
-     * @param bool $disabled
+     * @param bool $disabled True if the webhook has been disabled
      * @return $this
      */
     public function setDisabled($disabled)
@@ -409,7 +461,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets event_categories
-     * @param \ultracart\admin\v2\models\WebhookEventCategory[] $event_categories
+     * @param \ultracart\admin\v2\models\WebhookEventCategory[] $event_categories The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.
      * @return $this
      */
     public function setEventCategories($event_categories)
@@ -430,7 +482,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets maximum_events
-     * @param int $maximum_events
+     * @param int $maximum_events The maximum number of events in the payload that UltraCart will deliver
      * @return $this
      */
     public function setMaximumEvents($maximum_events)
@@ -451,7 +503,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets maximum_size
-     * @param int $maximum_size
+     * @param int $maximum_size The maximum size of the payload that UltraCart will deliver
      * @return $this
      */
     public function setMaximumSize($maximum_size)
@@ -472,7 +524,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets merchant_id
-     * @param string $merchant_id
+     * @param string $merchant_id The UltraCart merchant ID that owns this webhook
      * @return $this
      */
     public function setMerchantId($merchant_id)
@@ -493,7 +545,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets next_retry_after
-     * @param string $next_retry_after
+     * @param string $next_retry_after The next time UltraCart will attempt delivery if failures have been occurring
      * @return $this
      */
     public function setNextRetryAfter($next_retry_after)
@@ -514,7 +566,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets pending
-     * @param int $pending
+     * @param int $pending The number of pending events for this webhook
      * @return $this
      */
     public function setPending($pending)
@@ -535,7 +587,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets webhook_oid
-     * @param int $webhook_oid
+     * @param int $webhook_oid The object identifier for this webhook
      * @return $this
      */
     public function setWebhookOid($webhook_oid)
@@ -556,7 +608,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets webhook_url
-     * @param string $webhook_url
+     * @param string $webhook_url The URL to deliver events to.  Must be HTTPS for customer related information.
      * @return $this
      */
     public function setWebhookUrl($webhook_url)

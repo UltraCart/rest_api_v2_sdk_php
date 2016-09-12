@@ -169,8 +169,28 @@ class ItemContentMultimedia implements ArrayAccess
         return self::$getters;
     }
 
+    const TYPE_IMAGE = 'Image';
+    const TYPE_PDF = 'PDF';
+    const TYPE_TEXT = 'Text';
+    const TYPE_UNKNOWN = 'Unknown';
+    const TYPE_VIDEO = 'Video';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_IMAGE,
+            self::TYPE_PDF,
+            self::TYPE_TEXT,
+            self::TYPE_UNKNOWN,
+            self::TYPE_VIDEO,
+        ];
+    }
     
 
     /**
@@ -210,6 +230,11 @@ class ItemContentMultimedia implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        $allowed_values = array("Image", "PDF", "Text", "Unknown", "Video");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
+        }
+
         return $invalid_properties;
     }
 
@@ -221,6 +246,10 @@ class ItemContentMultimedia implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = array("Image", "PDF", "Text", "Unknown", "Video");
+        if (!in_array($this->container['type'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -236,7 +265,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets cloud_url
-     * @param string $cloud_url
+     * @param string $cloud_url URL where the image can be downloaded from the cloud
      * @return $this
      */
     public function setCloudUrl($cloud_url)
@@ -257,7 +286,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets cloud_url_expiration
-     * @param string $cloud_url_expiration
+     * @param string $cloud_url_expiration Expiration date of the cloud URL
      * @return $this
      */
     public function setCloudUrlExpiration($cloud_url_expiration)
@@ -278,7 +307,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets code
-     * @param string $code
+     * @param string $code Code assigned to the file
      * @return $this
      */
     public function setCode($code)
@@ -299,7 +328,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description
+     * @param string $description Description
      * @return $this
      */
     public function setDescription($description)
@@ -320,7 +349,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets exclude_from_gallery
-     * @param bool $exclude_from_gallery
+     * @param bool $exclude_from_gallery True to exclude from multimedia gallery
      * @return $this
      */
     public function setExcludeFromGallery($exclude_from_gallery)
@@ -341,7 +370,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets file_name
-     * @param string $file_name
+     * @param string $file_name File name
      * @return $this
      */
     public function setFileName($file_name)
@@ -362,7 +391,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets height
-     * @param int $height
+     * @param int $height Height of the image
      * @return $this
      */
     public function setHeight($height)
@@ -383,7 +412,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets merchant_item_multimedia_oid
-     * @param int $merchant_item_multimedia_oid
+     * @param int $merchant_item_multimedia_oid Item multimedia object identifier
      * @return $this
      */
     public function setMerchantItemMultimediaOid($merchant_item_multimedia_oid)
@@ -404,7 +433,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets orphan
-     * @param bool $orphan
+     * @param bool $orphan True if the multimedia is an orphan of the active StoreFront themes
      * @return $this
      */
     public function setOrphan($orphan)
@@ -425,7 +454,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets placeholder
-     * @param bool $placeholder
+     * @param bool $placeholder True if the object is a place holder that can be populated
      * @return $this
      */
     public function setPlaceholder($placeholder)
@@ -446,7 +475,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets temp_multimedia_oid
-     * @param int $temp_multimedia_oid
+     * @param int $temp_multimedia_oid Temporary multimedia object identifier assigned if uploading new multimedia
      * @return $this
      */
     public function setTempMultimediaOid($temp_multimedia_oid)
@@ -467,7 +496,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets thumbnails
-     * @param \ultracart\admin\v2\models\ItemContentMultimediaThumbnail[] $thumbnails
+     * @param \ultracart\admin\v2\models\ItemContentMultimediaThumbnail[] $thumbnails Thumbnails of this image
      * @return $this
      */
     public function setThumbnails($thumbnails)
@@ -488,11 +517,15 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type
+     * @param string $type Type of file
      * @return $this
      */
     public function setType($type)
     {
+        $allowed_values = array('Image', 'PDF', 'Text', 'Unknown', 'Video');
+        if (!in_array($type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'type', must be one of 'Image', 'PDF', 'Text', 'Unknown', 'Video'");
+        }
         $this->container['type'] = $type;
 
         return $this;
@@ -509,7 +542,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url
+     * @param string $url URL to download file
      * @return $this
      */
     public function setUrl($url)
@@ -530,7 +563,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets width
-     * @param int $width
+     * @param int $width Width of the image
      * @return $this
      */
     public function setWidth($width)

@@ -246,7 +246,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets allow_arbitrary_cost
-     * @param bool $allow_arbitrary_cost
+     * @param bool $allow_arbitrary_cost Allow arbitrary cost
      * @return $this
      */
     public function setAllowArbitraryCost($allow_arbitrary_cost)
@@ -267,7 +267,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets arbitrary_cost_velocity_code
-     * @param string $arbitrary_cost_velocity_code
+     * @param string $arbitrary_cost_velocity_code Arbitrary cost velocity code
      * @return $this
      */
     public function setArbitraryCostVelocityCode($arbitrary_cost_velocity_code)
@@ -288,7 +288,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets automatic_pricing_tier_name
-     * @param string $automatic_pricing_tier_name
+     * @param string $automatic_pricing_tier_name Automatic pricing tier name
      * @return $this
      */
     public function setAutomaticPricingTierName($automatic_pricing_tier_name)
@@ -309,7 +309,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets automatic_pricing_tier_oid
-     * @param int $automatic_pricing_tier_oid
+     * @param int $automatic_pricing_tier_oid Automatic pricing tier object identifier
      * @return $this
      */
     public function setAutomaticPricingTierOid($automatic_pricing_tier_oid)
@@ -330,7 +330,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets cogs
-     * @param double $cogs
+     * @param double $cogs Cost of goods sold
      * @return $this
      */
     public function setCogs($cogs)
@@ -351,7 +351,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets cost
-     * @param double $cost
+     * @param double $cost Cost
      * @return $this
      */
     public function setCost($cost)
@@ -372,7 +372,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets currency_code
-     * @param string $currency_code
+     * @param string $currency_code Currency code
      * @return $this
      */
     public function setCurrencyCode($currency_code)
@@ -393,7 +393,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets manufacturer_suggested_retail_price
-     * @param double $manufacturer_suggested_retail_price
+     * @param double $manufacturer_suggested_retail_price Manufacturer suggested retail price
      * @return $this
      */
     public function setManufacturerSuggestedRetailPrice($manufacturer_suggested_retail_price)
@@ -414,7 +414,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets maximum_arbitrary_cost
-     * @param double $maximum_arbitrary_cost
+     * @param double $maximum_arbitrary_cost Maximum arbitrary cost
      * @return $this
      */
     public function setMaximumArbitraryCost($maximum_arbitrary_cost)
@@ -435,7 +435,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets minimum_advertised_price
-     * @param double $minimum_advertised_price
+     * @param double $minimum_advertised_price Minimum advertised price
      * @return $this
      */
     public function setMinimumAdvertisedPrice($minimum_advertised_price)
@@ -456,7 +456,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets minimum_arbitrary_cost
-     * @param double $minimum_arbitrary_cost
+     * @param double $minimum_arbitrary_cost Minimum arbitrary cost
      * @return $this
      */
     public function setMinimumArbitraryCost($minimum_arbitrary_cost)
@@ -477,7 +477,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets mix_and_match_group
-     * @param string $mix_and_match_group
+     * @param string $mix_and_match_group Mix and match group
      * @return $this
      */
     public function setMixAndMatchGroup($mix_and_match_group)
@@ -498,7 +498,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets mix_and_match_group_oid
-     * @param int $mix_and_match_group_oid
+     * @param int $mix_and_match_group_oid Mix and match group object identifier
      * @return $this
      */
     public function setMixAndMatchGroupOid($mix_and_match_group_oid)
@@ -519,7 +519,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets sale_cost
-     * @param double $sale_cost
+     * @param double $sale_cost Sale cost
      * @return $this
      */
     public function setSaleCost($sale_cost)
@@ -540,7 +540,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets sale_end
-     * @param string $sale_end
+     * @param string $sale_end Sale end
      * @return $this
      */
     public function setSaleEnd($sale_end)
@@ -561,7 +561,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets sale_start
-     * @param string $sale_start
+     * @param string $sale_start Sale start
      * @return $this
      */
     public function setSaleStart($sale_start)
@@ -582,7 +582,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets tiers
-     * @param \ultracart\admin\v2\models\ItemPricingTier[] $tiers
+     * @param \ultracart\admin\v2\models\ItemPricingTier[] $tiers Tiers
      * @return $this
      */
     public function setTiers($tiers)

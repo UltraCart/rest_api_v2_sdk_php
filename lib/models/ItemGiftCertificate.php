@@ -171,7 +171,7 @@ class ItemGiftCertificate implements ArrayAccess
 
     /**
      * Sets gift_certificate
-     * @param bool $gift_certificate
+     * @param bool $gift_certificate True if the purchase of this item generates a gift certificate
      * @return $this
      */
     public function setGiftCertificate($gift_certificate)
@@ -192,7 +192,7 @@ class ItemGiftCertificate implements ArrayAccess
 
     /**
      * Sets gift_certificate_expiration_days
-     * @param int $gift_certificate_expiration_days
+     * @param int $gift_certificate_expiration_days The number of days that the gift certificate is good for (optional)
      * @return $this
      */
     public function setGiftCertificateExpirationDays($gift_certificate_expiration_days)

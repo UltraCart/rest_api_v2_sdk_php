@@ -176,7 +176,7 @@ class ItemChargebackAdjustmentRequest implements ArrayAccess
 
     /**
      * Sets chargeback_adjustment_request_oid
-     * @param int $chargeback_adjustment_request_oid
+     * @param int $chargeback_adjustment_request_oid Chargeback adjustment request object identifier
      * @return $this
      */
     public function setChargebackAdjustmentRequestOid($chargeback_adjustment_request_oid)
@@ -197,7 +197,7 @@ class ItemChargebackAdjustmentRequest implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description
+     * @param string $description Description
      * @return $this
      */
     public function setDescription($description)
@@ -218,7 +218,7 @@ class ItemChargebackAdjustmentRequest implements ArrayAccess
 
     /**
      * Sets reason_code
-     * @param string $reason_code
+     * @param string $reason_code Reason code
      * @return $this
      */
     public function setReasonCode($reason_code)

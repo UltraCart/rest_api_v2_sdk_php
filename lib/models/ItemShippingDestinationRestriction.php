@@ -199,7 +199,7 @@ class ItemShippingDestinationRestriction implements ArrayAccess
 
     /**
      * Sets country
-     * @param string $country
+     * @param string $country Country
      * @return $this
      */
     public function setCountry($country)
@@ -220,7 +220,7 @@ class ItemShippingDestinationRestriction implements ArrayAccess
 
     /**
      * Sets state
-     * @param string $state
+     * @param string $state State
      * @return $this
      */
     public function setState($state)
@@ -241,7 +241,7 @@ class ItemShippingDestinationRestriction implements ArrayAccess
 
     /**
      * Sets validity
-     * @param string $validity
+     * @param string $validity Validity
      * @return $this
      */
     public function setValidity($validity)

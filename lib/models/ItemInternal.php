@@ -166,7 +166,7 @@ class ItemInternal implements ArrayAccess
 
     /**
      * Sets memo
-     * @param string $memo
+     * @param string $memo Memo (limit 250 characters)
      * @return $this
      */
     public function setMemo($memo)

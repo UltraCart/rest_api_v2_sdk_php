@@ -194,7 +194,7 @@ class Distance implements ArrayAccess
 
     /**
      * Sets uom
-     * @param string $uom
+     * @param string $uom Unit of measure
      * @return $this
      */
     public function setUom($uom)
@@ -219,7 +219,7 @@ class Distance implements ArrayAccess
 
     /**
      * Sets value
-     * @param double $value
+     * @param double $value The distance measured in UOM
      * @return $this
      */
     public function setValue($value)

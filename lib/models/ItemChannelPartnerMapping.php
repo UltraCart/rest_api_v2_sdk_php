@@ -246,7 +246,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets barcode_ua
-     * @param string $barcode_ua
+     * @param string $barcode_ua Barcode UA (EDI only)
      * @return $this
      */
     public function setBarcodeUa($barcode_ua)
@@ -267,7 +267,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets barcode_uc
-     * @param string $barcode_uc
+     * @param string $barcode_uc Barcode UC (EDI only)
      * @return $this
      */
     public function setBarcodeUc($barcode_uc)
@@ -288,7 +288,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets barcode_ui
-     * @param string $barcode_ui
+     * @param string $barcode_ui Barcode UI (EDI only)
      * @return $this
      */
     public function setBarcodeUi($barcode_ui)
@@ -309,7 +309,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets barcode_uk
-     * @param string $barcode_uk
+     * @param string $barcode_uk Barcode UK (EDI only)
      * @return $this
      */
     public function setBarcodeUk($barcode_uk)
@@ -330,7 +330,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets buyer_dpci
-     * @param string $buyer_dpci
+     * @param string $buyer_dpci Buyer DPCI (EDI only)
      * @return $this
      */
     public function setBuyerDpci($buyer_dpci)
@@ -351,7 +351,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets buyer_item_number
-     * @param string $buyer_item_number
+     * @param string $buyer_item_number Buyer item number (EDI only)
      * @return $this
      */
     public function setBuyerItemNumber($buyer_item_number)
@@ -372,7 +372,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets channel_partner_code
-     * @param string $channel_partner_code
+     * @param string $channel_partner_code Channel partner code
      * @return $this
      */
     public function setChannelPartnerCode($channel_partner_code)
@@ -393,7 +393,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets channel_partner_oid
-     * @param int $channel_partner_oid
+     * @param int $channel_partner_oid Channel partner object identifier
      * @return $this
      */
     public function setChannelPartnerOid($channel_partner_oid)
@@ -414,7 +414,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets from_item_id
-     * @param string $from_item_id
+     * @param string $from_item_id From Item ID
      * @return $this
      */
     public function setFromItemId($from_item_id)
@@ -435,7 +435,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets from_sku
-     * @param string $from_sku
+     * @param string $from_sku From SKU
      * @return $this
      */
     public function setFromSku($from_sku)
@@ -456,7 +456,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets mutually_defined_number
-     * @param string $mutually_defined_number
+     * @param string $mutually_defined_number Mutually defined number (EDI only)
      * @return $this
      */
     public function setMutuallyDefinedNumber($mutually_defined_number)
@@ -477,7 +477,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets quantity_ratio_cp
-     * @param int $quantity_ratio_cp
+     * @param int $quantity_ratio_cp Ratio (Channel Partner)
      * @return $this
      */
     public function setQuantityRatioCp($quantity_ratio_cp)
@@ -498,7 +498,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets quantity_ratio_uc
-     * @param int $quantity_ratio_uc
+     * @param int $quantity_ratio_uc Ratio (UltraCart)
      * @return $this
      */
     public function setQuantityRatioUc($quantity_ratio_uc)
@@ -519,7 +519,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets sku
-     * @param string $sku
+     * @param string $sku SKU
      * @return $this
      */
     public function setSku($sku)
@@ -540,7 +540,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets unit_of_measure
-     * @param string $unit_of_measure
+     * @param string $unit_of_measure Unit of measure
      * @return $this
      */
     public function setUnitOfMeasure($unit_of_measure)
@@ -561,7 +561,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets vendor_number
-     * @param string $vendor_number
+     * @param string $vendor_number Vendor number (EDI only)
      * @return $this
      */
     public function setVendorNumber($vendor_number)
@@ -582,7 +582,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
 
     /**
      * Sets vendor_style_number
-     * @param string $vendor_style_number
+     * @param string $vendor_style_number Vendor style number (EDI only)
      * @return $this
      */
     public function setVendorStyleNumber($vendor_style_number)

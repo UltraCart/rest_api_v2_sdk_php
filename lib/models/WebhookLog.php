@@ -211,7 +211,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets delivery_dts
-     * @param string $delivery_dts
+     * @param string $delivery_dts Date/time of delivery
      * @return $this
      */
     public function setDeliveryDts($delivery_dts)
@@ -232,7 +232,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets duration
-     * @param int $duration
+     * @param int $duration Number of milliseconds to process the notification
      * @return $this
      */
     public function setDuration($duration)
@@ -253,7 +253,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets request
-     * @param string $request
+     * @param string $request Request payload (first 100,000 characters)
      * @return $this
      */
     public function setRequest($request)
@@ -274,7 +274,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets request_headers
-     * @param \ultracart\admin\v2\models\HTTPHeader[] $request_headers
+     * @param \ultracart\admin\v2\models\HTTPHeader[] $request_headers Request headers sent to the server
      * @return $this
      */
     public function setRequestHeaders($request_headers)
@@ -295,7 +295,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets request_id
-     * @param string $request_id
+     * @param string $request_id Request id is a unique string that you can look up in the logs
      * @return $this
      */
     public function setRequestId($request_id)
@@ -316,7 +316,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets response
-     * @param string $response
+     * @param string $response Response payload (first 100,000 characters)
      * @return $this
      */
     public function setResponse($response)
@@ -337,7 +337,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets response_headers
-     * @param \ultracart\admin\v2\models\HTTPHeader[] $response_headers
+     * @param \ultracart\admin\v2\models\HTTPHeader[] $response_headers Response headers received from the server
      * @return $this
      */
     public function setResponseHeaders($response_headers)
@@ -358,7 +358,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets status_code
-     * @param int $status_code
+     * @param int $status_code HTTP status code received from the server
      * @return $this
      */
     public function setStatusCode($status_code)
@@ -379,7 +379,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets success
-     * @param bool $success
+     * @param bool $success True if the delivery was successful
      * @return $this
      */
     public function setSuccess($success)
@@ -400,7 +400,7 @@ class WebhookLog implements ArrayAccess
 
     /**
      * Sets uri
-     * @param string $uri
+     * @param string $uri URI of the webhook delivered to
      * @return $this
      */
     public function setUri($uri)

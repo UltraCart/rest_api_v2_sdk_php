@@ -196,7 +196,7 @@ class TempMultimedia implements ArrayAccess
 
     /**
      * Sets filename
-     * @param string $filename
+     * @param string $filename Filename
      * @return $this
      */
     public function setFilename($filename)
@@ -217,7 +217,7 @@ class TempMultimedia implements ArrayAccess
 
     /**
      * Sets height
-     * @param int $height
+     * @param int $height Height
      * @return $this
      */
     public function setHeight($height)
@@ -238,7 +238,7 @@ class TempMultimedia implements ArrayAccess
 
     /**
      * Sets multimedia_type
-     * @param string $multimedia_type
+     * @param string $multimedia_type Multimedia type
      * @return $this
      */
     public function setMultimediaType($multimedia_type)
@@ -259,7 +259,7 @@ class TempMultimedia implements ArrayAccess
 
     /**
      * Sets size
-     * @param int $size
+     * @param int $size Size
      * @return $this
      */
     public function setSize($size)
@@ -280,7 +280,7 @@ class TempMultimedia implements ArrayAccess
 
     /**
      * Sets temp_multimedia_oid
-     * @param int $temp_multimedia_oid
+     * @param int $temp_multimedia_oid Temporary multimedia object identifier
      * @return $this
      */
     public function setTempMultimediaOid($temp_multimedia_oid)
@@ -301,7 +301,7 @@ class TempMultimedia implements ArrayAccess
 
     /**
      * Sets url
-     * @param string $url
+     * @param string $url URL
      * @return $this
      */
     public function setUrl($url)
@@ -322,7 +322,7 @@ class TempMultimedia implements ArrayAccess
 
     /**
      * Sets width
-     * @param int $width
+     * @param int $width Width
      * @return $this
      */
     public function setWidth($width)

@@ -533,7 +533,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets active
-     * @param bool $active
+     * @param bool $active True if the item is active for listing
      * @return $this
      */
     public function setActive($active)
@@ -554,7 +554,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets category_id
-     * @param int $category_id
+     * @param int $category_id e-Bay category ID
      * @return $this
      */
     public function setCategoryId($category_id)
@@ -575,7 +575,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets category_specifics
-     * @param \ultracart\admin\v2\models\ItemEbayCategorySpecific[] $category_specifics
+     * @param \ultracart\admin\v2\models\ItemEbayCategorySpecific[] $category_specifics Answers to category specific questions
      * @return $this
      */
     public function setCategorySpecifics($category_specifics)
@@ -596,7 +596,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets condition_description
-     * @param string $condition_description
+     * @param string $condition_description Description of the condition (e-Bay constant)
      * @return $this
      */
     public function setConditionDescription($condition_description)
@@ -617,7 +617,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets condition_id
-     * @param int $condition_id
+     * @param int $condition_id Numerical ID of the condition (e-Bay constant)
      * @return $this
      */
     public function setConditionId($condition_id)
@@ -638,7 +638,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets consecutive_failures
-     * @param int $consecutive_failures
+     * @param int $consecutive_failures Number of consecutive failures trying to list this item
      * @return $this
      */
     public function setConsecutiveFailures($consecutive_failures)
@@ -659,7 +659,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets custom_category1
-     * @param int $custom_category1
+     * @param int $custom_category1 e-Bay Store category 1
      * @return $this
      */
     public function setCustomCategory1($custom_category1)
@@ -680,7 +680,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets custom_category2
-     * @param int $custom_category2
+     * @param int $custom_category2 e-Bay Store category 2
      * @return $this
      */
     public function setCustomCategory2($custom_category2)
@@ -701,7 +701,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets dispatch_time_max
-     * @param int $dispatch_time_max
+     * @param int $dispatch_time_max Maximum number of days it will take to ship the item
      * @return $this
      */
     public function setDispatchTimeMax($dispatch_time_max)
@@ -722,7 +722,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_1_additional_cost
-     * @param double $domestic_1_additional_cost
+     * @param double $domestic_1_additional_cost Domestic 1 method additional item cost
      * @return $this
      */
     public function setDomestic1AdditionalCost($domestic_1_additional_cost)
@@ -743,7 +743,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_1_first_cost
-     * @param double $domestic_1_first_cost
+     * @param double $domestic_1_first_cost Domestic 1 method first item cost
      * @return $this
      */
     public function setDomestic1FirstCost($domestic_1_first_cost)
@@ -764,7 +764,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_2_additional_cost
-     * @param double $domestic_2_additional_cost
+     * @param double $domestic_2_additional_cost Domestic 2 method additional item cost
      * @return $this
      */
     public function setDomestic2AdditionalCost($domestic_2_additional_cost)
@@ -785,7 +785,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_2_first_cost
-     * @param double $domestic_2_first_cost
+     * @param double $domestic_2_first_cost Domestic 2 method first item cost
      * @return $this
      */
     public function setDomestic2FirstCost($domestic_2_first_cost)
@@ -806,7 +806,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_3_additional_cost
-     * @param double $domestic_3_additional_cost
+     * @param double $domestic_3_additional_cost Domestic 3 method additional item cost
      * @return $this
      */
     public function setDomestic3AdditionalCost($domestic_3_additional_cost)
@@ -827,7 +827,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_3_first_cost
-     * @param double $domestic_3_first_cost
+     * @param double $domestic_3_first_cost Domestic 3 method first item cost
      * @return $this
      */
     public function setDomestic3FirstCost($domestic_3_first_cost)
@@ -848,7 +848,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_4_additional_cost
-     * @param double $domestic_4_additional_cost
+     * @param double $domestic_4_additional_cost Domestic 4 method additional item cost
      * @return $this
      */
     public function setDomestic4AdditionalCost($domestic_4_additional_cost)
@@ -869,7 +869,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_4_first_cost
-     * @param double $domestic_4_first_cost
+     * @param double $domestic_4_first_cost Domestic 4 method first item cost
      * @return $this
      */
     public function setDomestic4FirstCost($domestic_4_first_cost)
@@ -890,7 +890,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets ebay_auction_id
-     * @param string $ebay_auction_id
+     * @param string $ebay_auction_id If listed, this is the e-Bay auction id
      * @return $this
      */
     public function setEbayAuctionId($ebay_auction_id)
@@ -911,7 +911,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets ebay_specific_inventory
-     * @param int $ebay_specific_inventory
+     * @param int $ebay_specific_inventory e-Bay specific inventory
      * @return $this
      */
     public function setEbaySpecificInventory($ebay_specific_inventory)
@@ -932,7 +932,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets ebay_template_name
-     * @param string $ebay_template_name
+     * @param string $ebay_template_name The template name to use hwen rendering the e-Bay listing
      * @return $this
      */
     public function setEbayTemplateName($ebay_template_name)
@@ -953,7 +953,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets ebay_template_oid
-     * @param int $ebay_template_oid
+     * @param int $ebay_template_oid The template object identifier to use when rendering the e-Bay listing
      * @return $this
      */
     public function setEbayTemplateOid($ebay_template_oid)
@@ -974,7 +974,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets end_time
-     * @param string $end_time
+     * @param string $end_time Date/time of the auction end
      * @return $this
      */
     public function setEndTime($end_time)
@@ -995,7 +995,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets free_shipping
-     * @param bool $free_shipping
+     * @param bool $free_shipping True if item receives free shipping
      * @return $this
      */
     public function setFreeShipping($free_shipping)
@@ -1016,7 +1016,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets free_shipping_method
-     * @param string $free_shipping_method
+     * @param string $free_shipping_method The method that is free for free shipping
      * @return $this
      */
     public function setFreeShippingMethod($free_shipping_method)
@@ -1037,7 +1037,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_1_additional_cost
-     * @param double $international_1_additional_cost
+     * @param double $international_1_additional_cost International 1 method additional item cost
      * @return $this
      */
     public function setInternational1AdditionalCost($international_1_additional_cost)
@@ -1058,7 +1058,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_1_first_cost
-     * @param double $international_1_first_cost
+     * @param double $international_1_first_cost International 1 method first item cost
      * @return $this
      */
     public function setInternational1FirstCost($international_1_first_cost)
@@ -1079,7 +1079,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_2_additional_cost
-     * @param double $international_2_additional_cost
+     * @param double $international_2_additional_cost International 2 method additional item cost
      * @return $this
      */
     public function setInternational2AdditionalCost($international_2_additional_cost)
@@ -1100,7 +1100,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_2_first_cost
-     * @param double $international_2_first_cost
+     * @param double $international_2_first_cost International 2 method first item cost
      * @return $this
      */
     public function setInternational2FirstCost($international_2_first_cost)
@@ -1121,7 +1121,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_3_additional_cost
-     * @param double $international_3_additional_cost
+     * @param double $international_3_additional_cost International 3 method additional item cost
      * @return $this
      */
     public function setInternational3AdditionalCost($international_3_additional_cost)
@@ -1142,7 +1142,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_3_first_cost
-     * @param double $international_3_first_cost
+     * @param double $international_3_first_cost International 3 method first item cost
      * @return $this
      */
     public function setInternational3FirstCost($international_3_first_cost)
@@ -1163,7 +1163,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_4_additional_cost
-     * @param double $international_4_additional_cost
+     * @param double $international_4_additional_cost International 4 method additional item cost
      * @return $this
      */
     public function setInternational4AdditionalCost($international_4_additional_cost)
@@ -1184,7 +1184,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_4_first_cost
-     * @param double $international_4_first_cost
+     * @param double $international_4_first_cost International 4 method first item cost
      * @return $this
      */
     public function setInternational4FirstCost($international_4_first_cost)
@@ -1205,7 +1205,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets last_status_dts
-     * @param string $last_status_dts
+     * @param string $last_status_dts Date/time of the last status check
      * @return $this
      */
     public function setLastStatusDts($last_status_dts)
@@ -1226,7 +1226,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listed_dispatch_time_max
-     * @param int $listed_dispatch_time_max
+     * @param int $listed_dispatch_time_max Current listing dispatch time maximum
      * @return $this
      */
     public function setListedDispatchTimeMax($listed_dispatch_time_max)
@@ -1247,7 +1247,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listed_ebay_template_oid
-     * @param int $listed_ebay_template_oid
+     * @param int $listed_ebay_template_oid The template object identifier used for the listing
      * @return $this
      */
     public function setListedEbayTemplateOid($listed_ebay_template_oid)
@@ -1268,7 +1268,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listing_dts
-     * @param string $listing_dts
+     * @param string $listing_dts Date/time of the listing
      * @return $this
      */
     public function setListingDts($listing_dts)
@@ -1289,7 +1289,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listing_duration
-     * @param string $listing_duration
+     * @param string $listing_duration The duration of the listing
      * @return $this
      */
     public function setListingDuration($listing_duration)
@@ -1310,7 +1310,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listing_price
-     * @param double $listing_price
+     * @param double $listing_price Price to list the item at
      * @return $this
      */
     public function setListingPrice($listing_price)
@@ -1331,7 +1331,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listing_price_override
-     * @param double $listing_price_override
+     * @param double $listing_price_override The price to list the item at if different than the regular UltraCart item price
      * @return $this
      */
     public function setListingPriceOverride($listing_price_override)
@@ -1352,7 +1352,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listing_type
-     * @param string $listing_type
+     * @param string $listing_type The type of e-Bay listing
      * @return $this
      */
     public function setListingType($listing_type)
@@ -1398,7 +1398,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_analysis_perform
-     * @param bool $marketplace_analysis_perform
+     * @param bool $marketplace_analysis_perform True if marketplace analysis should be performed
      * @return $this
      */
     public function setMarketplaceAnalysisPerform($marketplace_analysis_perform)
@@ -1419,7 +1419,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_final_value_fee_percentage
-     * @param double $marketplace_final_value_fee_percentage
+     * @param double $marketplace_final_value_fee_percentage Marketplace FVF percentage
      * @return $this
      */
     public function setMarketplaceFinalValueFeePercentage($marketplace_final_value_fee_percentage)
@@ -1440,7 +1440,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_last_check_dts
-     * @param string $marketplace_last_check_dts
+     * @param string $marketplace_last_check_dts Date/time of the marketplace analysis last check
      * @return $this
      */
     public function setMarketplaceLastCheckDts($marketplace_last_check_dts)
@@ -1461,7 +1461,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_lowest
-     * @param bool $marketplace_lowest
+     * @param bool $marketplace_lowest True if we are the lowest offer in the marketplace
      * @return $this
      */
     public function setMarketplaceLowest($marketplace_lowest)
@@ -1482,7 +1482,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_map_violation
-     * @param bool $marketplace_map_violation
+     * @param bool $marketplace_map_violation True if another seller is violating MAP
      * @return $this
      */
     public function setMarketplaceMapViolation($marketplace_map_violation)
@@ -1503,7 +1503,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_multiplier
-     * @param double $marketplace_multiplier
+     * @param double $marketplace_multiplier Marketplace multiplier
      * @return $this
      */
     public function setMarketplaceMultiplier($marketplace_multiplier)
@@ -1524,7 +1524,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_other_price
-     * @param double $marketplace_other_price
+     * @param double $marketplace_other_price Marketplace other price
      * @return $this
      */
     public function setMarketplaceOtherPrice($marketplace_other_price)
@@ -1545,7 +1545,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_other_seller
-     * @param string $marketplace_other_seller
+     * @param string $marketplace_other_seller Marketplace other seller
      * @return $this
      */
     public function setMarketplaceOtherSeller($marketplace_other_seller)
@@ -1566,7 +1566,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_other_shipping
-     * @param double $marketplace_other_shipping
+     * @param double $marketplace_other_shipping Marketplace other shipping
      * @return $this
      */
     public function setMarketplaceOtherShipping($marketplace_other_shipping)
@@ -1587,7 +1587,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_other_total
-     * @param double $marketplace_other_total
+     * @param double $marketplace_other_total Marketplace other total
      * @return $this
      */
     public function setMarketplaceOtherTotal($marketplace_other_total)
@@ -1608,7 +1608,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_additional_profit_potential
-     * @param double $marketplace_our_additional_profit_potential
+     * @param double $marketplace_our_additional_profit_potential Marketplace our additional profit potential
      * @return $this
      */
     public function setMarketplaceOurAdditionalProfitPotential($marketplace_our_additional_profit_potential)
@@ -1629,7 +1629,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_price
-     * @param double $marketplace_our_price
+     * @param double $marketplace_our_price Marketplace our price
      * @return $this
      */
     public function setMarketplaceOurPrice($marketplace_our_price)
@@ -1650,7 +1650,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_profit
-     * @param double $marketplace_our_profit
+     * @param double $marketplace_our_profit Marketplace our profit
      * @return $this
      */
     public function setMarketplaceOurProfit($marketplace_our_profit)
@@ -1671,7 +1671,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_shipping
-     * @param double $marketplace_our_shipping
+     * @param double $marketplace_our_shipping Marketplace our shipping
      * @return $this
      */
     public function setMarketplaceOurShipping($marketplace_our_shipping)
@@ -1692,7 +1692,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_total
-     * @param double $marketplace_our_total
+     * @param double $marketplace_our_total Marketplace our total
      * @return $this
      */
     public function setMarketplaceOurTotal($marketplace_our_total)
@@ -1713,7 +1713,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_overhead
-     * @param double $marketplace_overhead
+     * @param double $marketplace_overhead Marketplace overhead
      * @return $this
      */
     public function setMarketplaceOverhead($marketplace_overhead)
@@ -1734,7 +1734,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_profitable
-     * @param bool $marketplace_profitable
+     * @param bool $marketplace_profitable True if our listing is profitable to sell
      * @return $this
      */
     public function setMarketplaceProfitable($marketplace_profitable)
@@ -1755,7 +1755,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets next_attempt_dts
-     * @param string $next_attempt_dts
+     * @param string $next_attempt_dts Date/time for the next attempt to list
      * @return $this
      */
     public function setNextAttemptDts($next_attempt_dts)
@@ -1776,7 +1776,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets next_listing_duration
-     * @param string $next_listing_duration
+     * @param string $next_listing_duration The next listing duration to use when the current listing ends.
      * @return $this
      */
     public function setNextListingDuration($next_listing_duration)
@@ -1797,7 +1797,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets no_promotional_shipping
-     * @param bool $no_promotional_shipping
+     * @param bool $no_promotional_shipping True if the item should not qualify for promotional shipping
      * @return $this
      */
     public function setNoPromotionalShipping($no_promotional_shipping)
@@ -1818,7 +1818,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets packaging_handling_costs
-     * @param double $packaging_handling_costs
+     * @param double $packaging_handling_costs Packaging and handling costs
      * @return $this
      */
     public function setPackagingHandlingCosts($packaging_handling_costs)
@@ -1839,7 +1839,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets previous_ebay_auction_id
-     * @param string $previous_ebay_auction_id
+     * @param string $previous_ebay_auction_id Previous e-Bay auction id
      * @return $this
      */
     public function setPreviousEbayAuctionId($previous_ebay_auction_id)
@@ -1860,7 +1860,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets quantity
-     * @param int $quantity
+     * @param int $quantity Quantity available of the item
      * @return $this
      */
     public function setQuantity($quantity)
@@ -1881,7 +1881,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets reserve_price
-     * @param double $reserve_price
+     * @param double $reserve_price Reserve price
      * @return $this
      */
     public function setReservePrice($reserve_price)
@@ -1902,7 +1902,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets send_dimensions_and_weight
-     * @param string $send_dimensions_and_weight
+     * @param string $send_dimensions_and_weight How to send the item dimensions and weights to e-Bay
      * @return $this
      */
     public function setSendDimensionsAndWeight($send_dimensions_and_weight)
@@ -1923,7 +1923,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets start_time
-     * @param string $start_time
+     * @param string $start_time Date/time of the auction start
      * @return $this
      */
     public function setStartTime($start_time)
@@ -1944,7 +1944,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status
+     * @param string $status Status of the item's listing
      * @return $this
      */
     public function setStatus($status)
@@ -1965,7 +1965,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets target_dispatch_time_max
-     * @param int $target_dispatch_time_max
+     * @param int $target_dispatch_time_max Typical number of days it will take to ship the item
      * @return $this
      */
     public function setTargetDispatchTimeMax($target_dispatch_time_max)

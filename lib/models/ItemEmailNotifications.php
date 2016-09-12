@@ -171,7 +171,7 @@ class ItemEmailNotifications implements ArrayAccess
 
     /**
      * Sets skip_receipt
-     * @param bool $skip_receipt
+     * @param bool $skip_receipt Skip receipt email to customer
      * @return $this
      */
     public function setSkipReceipt($skip_receipt)
@@ -192,7 +192,7 @@ class ItemEmailNotifications implements ArrayAccess
 
     /**
      * Sets skip_shipment_notification
-     * @param bool $skip_shipment_notification
+     * @param bool $skip_shipment_notification Skip shipment notification to customer
      * @return $this
      */
     public function setSkipShipmentNotification($skip_shipment_notification)

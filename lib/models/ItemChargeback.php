@@ -171,7 +171,7 @@ class ItemChargeback implements ArrayAccess
 
     /**
      * Sets addendums
-     * @param \ultracart\admin\v2\models\ItemChargebackAddendum[] $addendums
+     * @param \ultracart\admin\v2\models\ItemChargebackAddendum[] $addendums Addendums
      * @return $this
      */
     public function setAddendums($addendums)
@@ -192,7 +192,7 @@ class ItemChargeback implements ArrayAccess
 
     /**
      * Sets adjustment_requests
-     * @param \ultracart\admin\v2\models\ItemChargebackAdjustmentRequest[] $adjustment_requests
+     * @param \ultracart\admin\v2\models\ItemChargebackAdjustmentRequest[] $adjustment_requests Adjustment requests
      * @return $this
      */
     public function setAdjustmentRequests($adjustment_requests)

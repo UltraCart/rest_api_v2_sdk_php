@@ -171,7 +171,7 @@ class ItemPricingTierDiscount implements ArrayAccess
 
     /**
      * Sets cost
-     * @param double $cost
+     * @param double $cost Cost
      * @return $this
      */
     public function setCost($cost)
@@ -192,7 +192,7 @@ class ItemPricingTierDiscount implements ArrayAccess
 
     /**
      * Sets quantity
-     * @param int $quantity
+     * @param int $quantity Quantity
      * @return $this
      */
     public function setQuantity($quantity)

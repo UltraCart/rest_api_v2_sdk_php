@@ -83,7 +83,7 @@ class ItemKitComponent implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'component_cost' => 'component_Cost',
+        'component_cost' => 'component_cost',
         'component_description' => 'component_description',
         'component_merchant_item_id' => 'component_merchant_item_id',
         'component_merchant_item_oid' => 'component_merchant_item_oid',
@@ -186,7 +186,7 @@ class ItemKitComponent implements ArrayAccess
 
     /**
      * Sets component_cost
-     * @param double $component_cost
+     * @param double $component_cost Component item cost
      * @return $this
      */
     public function setComponentCost($component_cost)
@@ -207,7 +207,7 @@ class ItemKitComponent implements ArrayAccess
 
     /**
      * Sets component_description
-     * @param string $component_description
+     * @param string $component_description Component item description
      * @return $this
      */
     public function setComponentDescription($component_description)
@@ -228,7 +228,7 @@ class ItemKitComponent implements ArrayAccess
 
     /**
      * Sets component_merchant_item_id
-     * @param string $component_merchant_item_id
+     * @param string $component_merchant_item_id Component item ID
      * @return $this
      */
     public function setComponentMerchantItemId($component_merchant_item_id)
@@ -249,7 +249,7 @@ class ItemKitComponent implements ArrayAccess
 
     /**
      * Sets component_merchant_item_oid
-     * @param int $component_merchant_item_oid
+     * @param int $component_merchant_item_oid Component item object identifier
      * @return $this
      */
     public function setComponentMerchantItemOid($component_merchant_item_oid)
@@ -270,7 +270,7 @@ class ItemKitComponent implements ArrayAccess
 
     /**
      * Sets quantity
-     * @param int $quantity
+     * @param int $quantity Quantity
      * @return $this
      */
     public function setQuantity($quantity)

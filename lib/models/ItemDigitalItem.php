@@ -186,7 +186,7 @@ class ItemDigitalItem implements ArrayAccess
 
     /**
      * Sets creation_dts
-     * @param string $creation_dts
+     * @param string $creation_dts File creation date
      * @return $this
      */
     public function setCreationDts($creation_dts)
@@ -207,7 +207,7 @@ class ItemDigitalItem implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description
+     * @param string $description Description of the digital item
      * @return $this
      */
     public function setDescription($description)
@@ -228,7 +228,7 @@ class ItemDigitalItem implements ArrayAccess
 
     /**
      * Sets file_size
-     * @param int $file_size
+     * @param int $file_size File size
      * @return $this
      */
     public function setFileSize($file_size)
@@ -249,7 +249,7 @@ class ItemDigitalItem implements ArrayAccess
 
     /**
      * Sets mime_type
-     * @param string $mime_type
+     * @param string $mime_type Mime type associated with the file
      * @return $this
      */
     public function setMimeType($mime_type)
@@ -270,7 +270,7 @@ class ItemDigitalItem implements ArrayAccess
 
     /**
      * Sets original_filename
-     * @param string $original_filename
+     * @param string $original_filename Original filename
      * @return $this
      */
     public function setOriginalFilename($original_filename)

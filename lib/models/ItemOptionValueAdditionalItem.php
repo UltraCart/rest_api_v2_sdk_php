@@ -171,7 +171,7 @@ class ItemOptionValueAdditionalItem implements ArrayAccess
 
     /**
      * Sets additional_merchant_item_id
-     * @param string $additional_merchant_item_id
+     * @param string $additional_merchant_item_id Additional item id
      * @return $this
      */
     public function setAdditionalMerchantItemId($additional_merchant_item_id)
@@ -192,7 +192,7 @@ class ItemOptionValueAdditionalItem implements ArrayAccess
 
     /**
      * Sets additional_merchant_item_oid
-     * @param int $additional_merchant_item_oid
+     * @param int $additional_merchant_item_oid Additional item object identifier
      * @return $this
      */
     public function setAdditionalMerchantItemOid($additional_merchant_item_oid)

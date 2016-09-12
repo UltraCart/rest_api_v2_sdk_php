@@ -181,7 +181,7 @@ class WebhookSampleRequest implements ArrayAccess
 
     /**
      * Sets request
-     * @param string $request
+     * @param string $request Request
      * @return $this
      */
     public function setRequest($request)
@@ -202,7 +202,7 @@ class WebhookSampleRequest implements ArrayAccess
 
     /**
      * Sets request_headers
-     * @param \ultracart\admin\v2\models\HTTPHeader[] $request_headers
+     * @param \ultracart\admin\v2\models\HTTPHeader[] $request_headers Request headers
      * @return $this
      */
     public function setRequestHeaders($request_headers)
@@ -223,7 +223,7 @@ class WebhookSampleRequest implements ArrayAccess
 
     /**
      * Sets request_id
-     * @param string $request_id
+     * @param string $request_id Request id
      * @return $this
      */
     public function setRequestId($request_id)
@@ -244,7 +244,7 @@ class WebhookSampleRequest implements ArrayAccess
 
     /**
      * Sets uri
-     * @param string $uri
+     * @param string $uri URI to send request to
      * @return $this
      */
     public function setUri($uri)

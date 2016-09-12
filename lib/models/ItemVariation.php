@@ -186,7 +186,7 @@ class ItemVariation implements ArrayAccess
 
     /**
      * Sets default_text
-     * @param string $default_text
+     * @param string $default_text Default text
      * @return $this
      */
     public function setDefaultText($default_text)
@@ -207,7 +207,7 @@ class ItemVariation implements ArrayAccess
 
     /**
      * Sets default_text_translated_text_instance_oid
-     * @param int $default_text_translated_text_instance_oid
+     * @param int $default_text_translated_text_instance_oid Default text translated text instance id
      * @return $this
      */
     public function setDefaultTextTranslatedTextInstanceOid($default_text_translated_text_instance_oid)
@@ -228,7 +228,7 @@ class ItemVariation implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name
+     * @param string $name Name
      * @return $this
      */
     public function setName($name)
@@ -249,7 +249,7 @@ class ItemVariation implements ArrayAccess
 
     /**
      * Sets name_translated_text_instance_oid
-     * @param int $name_translated_text_instance_oid
+     * @param int $name_translated_text_instance_oid Name translated text instance id
      * @return $this
      */
     public function setNameTranslatedTextInstanceOid($name_translated_text_instance_oid)
@@ -270,7 +270,7 @@ class ItemVariation implements ArrayAccess
 
     /**
      * Sets options
-     * @param \ultracart\admin\v2\models\ItemVariationOption[] $options
+     * @param \ultracart\admin\v2\models\ItemVariationOption[] $options Options
      * @return $this
      */
     public function setOptions($options)

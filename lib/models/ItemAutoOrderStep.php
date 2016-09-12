@@ -259,7 +259,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets arbitrary_schedule_days
-     * @param int $arbitrary_schedule_days
+     * @param int $arbitrary_schedule_days If the schedule is arbitrary, then this is the number of days
      * @return $this
      */
     public function setArbitraryScheduleDays($arbitrary_schedule_days)
@@ -280,7 +280,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets arbitrary_unit_cost
-     * @param double $arbitrary_unit_cost
+     * @param double $arbitrary_unit_cost Arbitrary unit cost used to override the regular item cost
      * @return $this
      */
     public function setArbitraryUnitCost($arbitrary_unit_cost)
@@ -301,7 +301,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets arbitrary_unit_cost_schedules
-     * @param \ultracart\admin\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[] $arbitrary_unit_cost_schedules
+     * @param \ultracart\admin\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[] $arbitrary_unit_cost_schedules Arbitrary unit costs schedules for more advanced discounting by rebill attempt
      * @return $this
      */
     public function setArbitraryUnitCostSchedules($arbitrary_unit_cost_schedules)
@@ -322,7 +322,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets grandfather_pricing
-     * @param \ultracart\admin\v2\models\ItemAutoOrderStepGrandfatherPricing[] $grandfather_pricing
+     * @param \ultracart\admin\v2\models\ItemAutoOrderStepGrandfatherPricing[] $grandfather_pricing Grand-father pricing configuration if the rebill schedule has changed over time
      * @return $this
      */
     public function setGrandfatherPricing($grandfather_pricing)
@@ -343,7 +343,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets managed_by
-     * @param string $managed_by
+     * @param string $managed_by Managed by (defaults to UltraCart)
      * @return $this
      */
     public function setManagedBy($managed_by)
@@ -364,7 +364,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets pause_days
-     * @param int $pause_days
+     * @param int $pause_days Number of days to pause
      * @return $this
      */
     public function setPauseDays($pause_days)
@@ -385,7 +385,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets pause_until_date
-     * @param string $pause_until_date
+     * @param string $pause_until_date Wait for this step to happen until the specified date
      * @return $this
      */
     public function setPauseUntilDate($pause_until_date)
@@ -406,7 +406,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets preshipment_notice_days
-     * @param int $preshipment_notice_days
+     * @param int $preshipment_notice_days If set, a pre-shipment notice is sent to the customer this many days in advance
      * @return $this
      */
     public function setPreshipmentNoticeDays($preshipment_notice_days)
@@ -427,7 +427,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets recurring_merchant_item_id
-     * @param string $recurring_merchant_item_id
+     * @param string $recurring_merchant_item_id Item id to rebill
      * @return $this
      */
     public function setRecurringMerchantItemId($recurring_merchant_item_id)
@@ -448,7 +448,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets recurring_merchant_item_oid
-     * @param int $recurring_merchant_item_oid
+     * @param int $recurring_merchant_item_oid Item object identifier to rebill
      * @return $this
      */
     public function setRecurringMerchantItemOid($recurring_merchant_item_oid)
@@ -469,7 +469,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets repeat_count
-     * @param int $repeat_count
+     * @param int $repeat_count Number of times to rebill.  Last step can be null for infinite
      * @return $this
      */
     public function setRepeatCount($repeat_count)
@@ -490,7 +490,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets schedule
-     * @param string $schedule
+     * @param string $schedule Frequency of the rebill
      * @return $this
      */
     public function setSchedule($schedule)
@@ -511,7 +511,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets subscribe_email_list_name
-     * @param string $subscribe_email_list_name
+     * @param string $subscribe_email_list_name Email list name to subscribe teh customer to when the rebill occurs
      * @return $this
      */
     public function setSubscribeEmailListName($subscribe_email_list_name)
@@ -532,7 +532,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets subscribe_email_list_oid
-     * @param int $subscribe_email_list_oid
+     * @param int $subscribe_email_list_oid Email list identifier to subscribe the customer to when this rebill occurs
      * @return $this
      */
     public function setSubscribeEmailListOid($subscribe_email_list_oid)
@@ -553,7 +553,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type
+     * @param string $type Type of step (item or pause)
      * @return $this
      */
     public function setType($type)

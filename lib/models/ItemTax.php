@@ -176,7 +176,7 @@ class ItemTax implements ArrayAccess
 
     /**
      * Sets exemptions
-     * @param \ultracart\admin\v2\models\ItemTaxExemption[] $exemptions
+     * @param \ultracart\admin\v2\models\ItemTaxExemption[] $exemptions Exemptions
      * @return $this
      */
     public function setExemptions($exemptions)
@@ -197,7 +197,7 @@ class ItemTax implements ArrayAccess
 
     /**
      * Sets tax_free
-     * @param bool $tax_free
+     * @param bool $tax_free True if tax free
      * @return $this
      */
     public function setTaxFree($tax_free)
@@ -218,7 +218,7 @@ class ItemTax implements ArrayAccess
 
     /**
      * Sets taxable_cost
-     * @param double $taxable_cost
+     * @param double $taxable_cost Taxable cost if different than regular cost
      * @return $this
      */
     public function setTaxableCost($taxable_cost)

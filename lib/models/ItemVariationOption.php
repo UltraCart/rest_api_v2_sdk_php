@@ -181,7 +181,7 @@ class ItemVariationOption implements ArrayAccess
 
     /**
      * Sets default_option
-     * @param bool $default_option
+     * @param bool $default_option True if default option
      * @return $this
      */
     public function setDefaultOption($default_option)
@@ -202,7 +202,7 @@ class ItemVariationOption implements ArrayAccess
 
     /**
      * Sets merchant_item_multimedia_oid
-     * @param int $merchant_item_multimedia_oid
+     * @param int $merchant_item_multimedia_oid Multimedia object identifier
      * @return $this
      */
     public function setMerchantItemMultimediaOid($merchant_item_multimedia_oid)
@@ -223,7 +223,7 @@ class ItemVariationOption implements ArrayAccess
 
     /**
      * Sets translated_text_instance_oid
-     * @param int $translated_text_instance_oid
+     * @param int $translated_text_instance_oid Translated text instance id
      * @return $this
      */
     public function setTranslatedTextInstanceOid($translated_text_instance_oid)
@@ -244,7 +244,7 @@ class ItemVariationOption implements ArrayAccess
 
     /**
      * Sets value
-     * @param string $value
+     * @param string $value Value
      * @return $this
      */
     public function setValue($value)

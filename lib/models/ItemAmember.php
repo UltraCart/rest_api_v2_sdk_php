@@ -171,7 +171,7 @@ class ItemAmember implements ArrayAccess
 
     /**
      * Sets amember_payment_duration_days
-     * @param int $amember_payment_duration_days
+     * @param int $amember_payment_duration_days The number of days that the customer should be given access to the item
      * @return $this
      */
     public function setAmemberPaymentDurationDays($amember_payment_duration_days)
@@ -192,7 +192,7 @@ class ItemAmember implements ArrayAccess
 
     /**
      * Sets amember_product_id
-     * @param string $amember_product_id
+     * @param string $amember_product_id A-member product id give customer access to when they purchase this item
      * @return $this
      */
     public function setAmemberProductId($amember_product_id)
