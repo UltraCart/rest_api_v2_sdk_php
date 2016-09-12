@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksPost**
-> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksPost($webhook)
+> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksPost($webhook, $_placeholders)
 
 Add a webhook
 
@@ -92,9 +92,10 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 
 $api_instance = new ultracart\admin\v2\Api\WebhookApi();
 $webhook = new \ultracart\admin\v2\models\Webhook(); // \ultracart\admin\v2\models\Webhook | Webhook to create
+$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->webhookWebhooksPost($webhook);
+    $result = $api_instance->webhookWebhooksPost($webhook, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookWebhooksPost: ', $e->getMessage(), PHP_EOL;
@@ -107,6 +108,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook** | [**\ultracart\admin\v2\models\Webhook**](../Model/\ultracart\admin\v2\models\Webhook.md)| Webhook to create |
+ **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 
@@ -287,7 +289,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksWebhookOidPut**
-> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksWebhookOidPut($webhook, $webhook_oid)
+> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders)
 
 Update a webhook
 
@@ -308,9 +310,10 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 $api_instance = new ultracart\admin\v2\Api\WebhookApi();
 $webhook = new \ultracart\admin\v2\models\Webhook(); // \ultracart\admin\v2\models\Webhook | Webhook to update
 $webhook_oid = 56; // int | The webhook oid to update.
+$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->webhookWebhooksWebhookOidPut($webhook, $webhook_oid);
+    $result = $api_instance->webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidPut: ', $e->getMessage(), PHP_EOL;
@@ -324,6 +327,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **webhook** | [**\ultracart\admin\v2\models\Webhook**](../Model/\ultracart\admin\v2\models\Webhook.md)| Webhook to update |
  **webhook_oid** | **int**| The webhook oid to update. |
+ **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 

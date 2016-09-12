@@ -232,12 +232,13 @@ class WebhookApi
      * Add a webhook
      *
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to create (required)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return \ultracart\admin\v2\models\WebhookResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksPost($webhook)
+    public function webhookWebhooksPost($webhook, $_placeholders = null)
     {
-        list($response) = $this->webhookWebhooksPostWithHttpInfo($webhook);
+        list($response) = $this->webhookWebhooksPostWithHttpInfo($webhook, $_placeholders);
         return $response;
     }
 
@@ -247,10 +248,11 @@ class WebhookApi
      * Add a webhook
      *
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to create (required)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return Array of \ultracart\admin\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksPostWithHttpInfo($webhook)
+    public function webhookWebhooksPostWithHttpInfo($webhook, $_placeholders = null)
     {
         // verify the required parameter 'webhook' is set
         if ($webhook === null) {
@@ -268,6 +270,10 @@ class WebhookApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
@@ -714,12 +720,13 @@ class WebhookApi
      *
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to update (required)
      * @param int $webhook_oid The webhook oid to update. (required)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return \ultracart\admin\v2\models\WebhookResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidPut($webhook, $webhook_oid)
+    public function webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders = null)
     {
-        list($response) = $this->webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid);
+        list($response) = $this->webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid, $_placeholders);
         return $response;
     }
 
@@ -730,10 +737,11 @@ class WebhookApi
      *
      * @param \ultracart\admin\v2\models\Webhook $webhook Webhook to update (required)
      * @param int $webhook_oid The webhook oid to update. (required)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return Array of \ultracart\admin\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid)
+    public function webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
     {
         // verify the required parameter 'webhook' is set
         if ($webhook === null) {
@@ -755,6 +763,10 @@ class WebhookApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
+        }
         // path params
         if ($webhook_oid !== null) {
             $resourcePath = str_replace(
