@@ -11,8 +11,6 @@ Method | HTTP request | Description
 [**webhookWebhooksWebhookOidLogsRequestIdGet**](WebhookApi.md#webhookWebhooksWebhookOidLogsRequestIdGet) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 [**webhookWebhooksWebhookOidPut**](WebhookApi.md#webhookWebhooksWebhookOidPut) | **PUT** /webhook/webhooks/{webhookOid} | Update a webhook
 [**webhookWebhooksWebhookOidReflowEventNamePost**](WebhookApi.md#webhookWebhooksWebhookOidReflowEventNamePost) | **POST** /webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
-[**webhookWebhooksWebhookOidSamplesGet**](WebhookApi.md#webhookWebhooksWebhookOidSamplesGet) | **GET** /webhook/webhooks/{webhookOid}/samples | Retrieve a sample notification.
-[**webhookWebhooksWebhookOidValidatePost**](WebhookApi.md#webhookWebhooksWebhookOidValidatePost) | **POST** /webhook/webhooks/{webhookOid}/validate | Send test message to an endpoint.
 
 
 # **webhookWebhooksGet**
@@ -384,112 +382,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\admin\v2\models\WebhookSampleRequestResponse**](../Model/WebhookSampleRequestResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **webhookWebhooksWebhookOidSamplesGet**
-> \ultracart\admin\v2\models\WebhookSampleRequestResponse webhookWebhooksWebhookOidSamplesGet($webhook_oid)
-
-Retrieve a sample notification.
-
-Retrieves a sample notification for the webhook.  This provides as example of what the notifications that can be delivered will look like.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
-$webhook_oid = 56; // int | The webhook oid to retrieve samples for.
-
-try {
-    $result = $api_instance->webhookWebhooksWebhookOidSamplesGet($webhook_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidSamplesGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_oid** | **int**| The webhook oid to retrieve samples for. |
-
-### Return type
-
-[**\ultracart\admin\v2\models\WebhookSampleRequestResponse**](../Model/WebhookSampleRequestResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **webhookWebhooksWebhookOidValidatePost**
-> \ultracart\admin\v2\models\WebhookLogResponse webhookWebhooksWebhookOidValidatePost($samples, $webhook_oid)
-
-Send test message to an endpoint.
-
-Performs a test of the webhook endpoint given the specified sample request and returns the log associated with the response.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
-$samples = new \ultracart\admin\v2\models\WebhookSampleRequest(); // \ultracart\admin\v2\models\WebhookSampleRequest | Samples to send in the test
-$webhook_oid = 56; // int | The webhook oid that is being tested.
-
-try {
-    $result = $api_instance->webhookWebhooksWebhookOidValidatePost($samples, $webhook_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidValidatePost: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **samples** | [**\ultracart\admin\v2\models\WebhookSampleRequest**](../Model/\ultracart\admin\v2\models\WebhookSampleRequest.md)| Samples to send in the test |
- **webhook_oid** | **int**| The webhook oid that is being tested. |
-
-### Return type
-
-[**\ultracart\admin\v2\models\WebhookLogResponse**](../Model/WebhookLogResponse.md)
 
 ### Authorization
 
