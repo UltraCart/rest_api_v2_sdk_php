@@ -70,16 +70,16 @@ class ItemPricing implements ArrayAccess
         'arbitrary_cost_velocity_code' => 'string',
         'automatic_pricing_tier_name' => 'string',
         'automatic_pricing_tier_oid' => 'int',
-        'cogs' => 'double',
-        'cost' => 'double',
+        'cogs' => 'float',
+        'cost' => 'float',
         'currency_code' => 'string',
-        'manufacturer_suggested_retail_price' => 'double',
-        'maximum_arbitrary_cost' => 'double',
-        'minimum_advertised_price' => 'double',
-        'minimum_arbitrary_cost' => 'double',
+        'manufacturer_suggested_retail_price' => 'float',
+        'maximum_arbitrary_cost' => 'float',
+        'minimum_advertised_price' => 'float',
+        'minimum_arbitrary_cost' => 'float',
         'mix_and_match_group' => 'string',
         'mix_and_match_group_oid' => 'int',
-        'sale_cost' => 'double',
+        'sale_cost' => 'float',
         'sale_end' => 'string',
         'sale_start' => 'string',
         'tiers' => '\ultracart\admin\v2\models\ItemPricingTier[]'
@@ -220,6 +220,14 @@ class ItemPricing implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['arbitrary_cost_velocity_code']) && (strlen($this->container['arbitrary_cost_velocity_code']) > 10000)) {
+            $invalid_properties[] = "invalid value for 'arbitrary_cost_velocity_code', the character length must be smaller than or equal to 10000.";
+        }
+
+        if (!is_null($this->container['currency_code']) && (strlen($this->container['currency_code']) > 3)) {
+            $invalid_properties[] = "invalid value for 'currency_code', the character length must be smaller than or equal to 3.";
+        }
+
         return $invalid_properties;
     }
 
@@ -231,6 +239,12 @@ class ItemPricing implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['arbitrary_cost_velocity_code']) > 10000) {
+            return false;
+        }
+        if (strlen($this->container['currency_code']) > 3) {
+            return false;
+        }
         return true;
     }
 
@@ -272,6 +286,9 @@ class ItemPricing implements ArrayAccess
      */
     public function setArbitraryCostVelocityCode($arbitrary_cost_velocity_code)
     {
+        if (strlen($arbitrary_cost_velocity_code) > 10000) {
+            throw new \InvalidArgumentException('invalid length for $arbitrary_cost_velocity_code when calling ItemPricing., must be smaller than or equal to 10000.');
+        }
         $this->container['arbitrary_cost_velocity_code'] = $arbitrary_cost_velocity_code;
 
         return $this;
@@ -321,7 +338,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Gets cogs
-     * @return double
+     * @return float
      */
     public function getCogs()
     {
@@ -330,7 +347,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets cogs
-     * @param double $cogs Cost of goods sold
+     * @param float $cogs Cost of goods sold
      * @return $this
      */
     public function setCogs($cogs)
@@ -342,7 +359,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Gets cost
-     * @return double
+     * @return float
      */
     public function getCost()
     {
@@ -351,7 +368,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets cost
-     * @param double $cost Cost
+     * @param float $cost Cost
      * @return $this
      */
     public function setCost($cost)
@@ -377,6 +394,9 @@ class ItemPricing implements ArrayAccess
      */
     public function setCurrencyCode($currency_code)
     {
+        if (strlen($currency_code) > 3) {
+            throw new \InvalidArgumentException('invalid length for $currency_code when calling ItemPricing., must be smaller than or equal to 3.');
+        }
         $this->container['currency_code'] = $currency_code;
 
         return $this;
@@ -384,7 +404,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Gets manufacturer_suggested_retail_price
-     * @return double
+     * @return float
      */
     public function getManufacturerSuggestedRetailPrice()
     {
@@ -393,7 +413,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets manufacturer_suggested_retail_price
-     * @param double $manufacturer_suggested_retail_price Manufacturer suggested retail price
+     * @param float $manufacturer_suggested_retail_price Manufacturer suggested retail price
      * @return $this
      */
     public function setManufacturerSuggestedRetailPrice($manufacturer_suggested_retail_price)
@@ -405,7 +425,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Gets maximum_arbitrary_cost
-     * @return double
+     * @return float
      */
     public function getMaximumArbitraryCost()
     {
@@ -414,7 +434,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets maximum_arbitrary_cost
-     * @param double $maximum_arbitrary_cost Maximum arbitrary cost
+     * @param float $maximum_arbitrary_cost Maximum arbitrary cost
      * @return $this
      */
     public function setMaximumArbitraryCost($maximum_arbitrary_cost)
@@ -426,7 +446,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Gets minimum_advertised_price
-     * @return double
+     * @return float
      */
     public function getMinimumAdvertisedPrice()
     {
@@ -435,7 +455,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets minimum_advertised_price
-     * @param double $minimum_advertised_price Minimum advertised price
+     * @param float $minimum_advertised_price Minimum advertised price
      * @return $this
      */
     public function setMinimumAdvertisedPrice($minimum_advertised_price)
@@ -447,7 +467,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Gets minimum_arbitrary_cost
-     * @return double
+     * @return float
      */
     public function getMinimumArbitraryCost()
     {
@@ -456,7 +476,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets minimum_arbitrary_cost
-     * @param double $minimum_arbitrary_cost Minimum arbitrary cost
+     * @param float $minimum_arbitrary_cost Minimum arbitrary cost
      * @return $this
      */
     public function setMinimumArbitraryCost($minimum_arbitrary_cost)
@@ -510,7 +530,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Gets sale_cost
-     * @return double
+     * @return float
      */
     public function getSaleCost()
     {
@@ -519,7 +539,7 @@ class ItemPricing implements ArrayAccess
 
     /**
      * Sets sale_cost
-     * @param double $sale_cost Sale cost
+     * @param float $sale_cost Sale cost
      * @return $this
      */
     public function setSaleCost($sale_cost)

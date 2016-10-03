@@ -66,8 +66,8 @@ class ItemAutoOrder implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'auth_future_amount' => 'double',
-        'auth_test_amount' => 'double',
+        'auth_future_amount' => 'float',
+        'auth_test_amount' => 'float',
         'auto_order_cancel_item_id' => 'string',
         'auto_order_cancel_item_oid' => 'int',
         'auto_order_downgrade_items' => 'string[]',
@@ -210,6 +210,10 @@ class ItemAutoOrder implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['auto_order_cancel_item_id']) && (strlen($this->container['auto_order_cancel_item_id']) > 20)) {
+            $invalid_properties[] = "invalid value for 'auto_order_cancel_item_id', the character length must be smaller than or equal to 20.";
+        }
+
         return $invalid_properties;
     }
 
@@ -221,13 +225,16 @@ class ItemAutoOrder implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['auto_order_cancel_item_id']) > 20) {
+            return false;
+        }
         return true;
     }
 
 
     /**
      * Gets auth_future_amount
-     * @return double
+     * @return float
      */
     public function getAuthFutureAmount()
     {
@@ -236,7 +243,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auth_future_amount
-     * @param double $auth_future_amount Amount to try and authorize for the future rebill
+     * @param float $auth_future_amount Amount to try and authorize for the future rebill
      * @return $this
      */
     public function setAuthFutureAmount($auth_future_amount)
@@ -248,7 +255,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Gets auth_test_amount
-     * @return double
+     * @return float
      */
     public function getAuthTestAmount()
     {
@@ -257,7 +264,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets auth_test_amount
-     * @param double $auth_test_amount Amount to try and test authorize
+     * @param float $auth_test_amount Amount to try and test authorize
      * @return $this
      */
     public function setAuthTestAmount($auth_test_amount)
@@ -283,6 +290,9 @@ class ItemAutoOrder implements ArrayAccess
      */
     public function setAutoOrderCancelItemId($auto_order_cancel_item_id)
     {
+        if (strlen($auto_order_cancel_item_id) > 20) {
+            throw new \InvalidArgumentException('invalid length for $auto_order_cancel_item_id when calling ItemAutoOrder., must be smaller than or equal to 20.');
+        }
         $this->container['auto_order_cancel_item_id'] = $auto_order_cancel_item_id;
 
         return $this;

@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**auth_future_amount** | **double** | Amount to try and authorize for the future rebill | [optional] 
-**auth_test_amount** | **double** | Amount to try and test authorize | [optional] 
+**auth_future_amount** | **float** | Amount to try and authorize for the future rebill | [optional] 
+**auth_test_amount** | **float** | Amount to try and test authorize | [optional] 
 **auto_order_cancel_item_id** | **string** | Item id to attempt charging the customer for if they cancel | [optional] 
 **auto_order_cancel_item_oid** | **int** | Item object identifier to attempt charging the customer for if they cancel | [optional] 
 **auto_order_downgrade_items** | **string[]** | List of downgrade items presented to customer service representatives | [optional] 

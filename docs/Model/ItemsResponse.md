@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | [**\ultracart\admin\v2\models\Error**](Error.md) |  | [optional] 
-**items** | [**\ultracart\admin\v2\models\Item[]**](Item.md) | Items | [optional] 
+**items** | [**\ultracart\admin\v2\models\Item[]**](Item.md) | items | [optional] 
 **metadata** | [**\ultracart\admin\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 

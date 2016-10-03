@@ -66,16 +66,16 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'adjusted_price' => 'double',
-        'adjusted_shipping' => 'double',
-        'adjusted_total' => 'double',
-        'cogs' => 'double',
-        'final_value_fee' => 'double',
-        'minimum_advertised_price' => 'double',
+        'adjusted_price' => 'float',
+        'adjusted_shipping' => 'float',
+        'adjusted_total' => 'float',
+        'cogs' => 'float',
+        'final_value_fee' => 'float',
+        'minimum_advertised_price' => 'float',
         'other_listings' => '\ultracart\admin\v2\models\ItemEbayMarketListing[]',
         'our_listing' => '\ultracart\admin\v2\models\ItemEbayMarketListing',
-        'overhead' => 'double',
-        'profit_potential' => 'double'
+        'overhead' => 'float',
+        'profit_potential' => 'float'
     );
 
     public static function swaggerTypes()
@@ -202,7 +202,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets adjusted_price
-     * @return double
+     * @return float
      */
     public function getAdjustedPrice()
     {
@@ -211,7 +211,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets adjusted_price
-     * @param double $adjusted_price Adjusted price
+     * @param float $adjusted_price Adjusted price
      * @return $this
      */
     public function setAdjustedPrice($adjusted_price)
@@ -223,7 +223,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets adjusted_shipping
-     * @return double
+     * @return float
      */
     public function getAdjustedShipping()
     {
@@ -232,7 +232,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets adjusted_shipping
-     * @param double $adjusted_shipping Adjusted shipping
+     * @param float $adjusted_shipping Adjusted shipping
      * @return $this
      */
     public function setAdjustedShipping($adjusted_shipping)
@@ -244,7 +244,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets adjusted_total
-     * @return double
+     * @return float
      */
     public function getAdjustedTotal()
     {
@@ -253,7 +253,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets adjusted_total
-     * @param double $adjusted_total Adjusted total
+     * @param float $adjusted_total Adjusted total
      * @return $this
      */
     public function setAdjustedTotal($adjusted_total)
@@ -265,7 +265,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets cogs
-     * @return double
+     * @return float
      */
     public function getCogs()
     {
@@ -274,7 +274,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets cogs
-     * @param double $cogs Cost of goods sold
+     * @param float $cogs Cost of goods sold
      * @return $this
      */
     public function setCogs($cogs)
@@ -286,7 +286,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets final_value_fee
-     * @return double
+     * @return float
      */
     public function getFinalValueFee()
     {
@@ -295,7 +295,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets final_value_fee
-     * @param double $final_value_fee Final value fee
+     * @param float $final_value_fee Final value fee
      * @return $this
      */
     public function setFinalValueFee($final_value_fee)
@@ -307,7 +307,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets minimum_advertised_price
-     * @return double
+     * @return float
      */
     public function getMinimumAdvertisedPrice()
     {
@@ -316,7 +316,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets minimum_advertised_price
-     * @param double $minimum_advertised_price Minimum advertised price
+     * @param float $minimum_advertised_price Minimum advertised price
      * @return $this
      */
     public function setMinimumAdvertisedPrice($minimum_advertised_price)
@@ -370,7 +370,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets overhead
-     * @return double
+     * @return float
      */
     public function getOverhead()
     {
@@ -379,7 +379,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets overhead
-     * @param double $overhead Overhead
+     * @param float $overhead Overhead
      * @return $this
      */
     public function setOverhead($overhead)
@@ -391,7 +391,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets profit_potential
-     * @return double
+     * @return float
      */
     public function getProfitPotential()
     {
@@ -400,7 +400,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets profit_potential
-     * @param double $profit_potential Profit potential
+     * @param float $profit_potential Profit potential
      * @return $this
      */
     public function setProfitPotential($profit_potential)

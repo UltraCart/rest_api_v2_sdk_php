@@ -66,17 +66,17 @@ class ItemShippingDistributionCenter implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'allocated_to_placed_orders' => 'double',
-        'allocated_to_shopping_carts' => 'double',
-        'available_to_allocate' => 'double',
-        'desired_inventory_level' => 'double',
+        'allocated_to_placed_orders' => 'float',
+        'allocated_to_shopping_carts' => 'float',
+        'available_to_allocate' => 'float',
+        'desired_inventory_level' => 'float',
         'distribution_center_code' => 'string',
         'distribution_center_oid' => 'int',
         'eta' => 'string',
         'handles' => 'bool',
-        'inventory_level' => 'double',
+        'inventory_level' => 'float',
         'maximum_backorder' => 'int',
-        'reorder_inventory_level' => 'double',
+        'reorder_inventory_level' => 'float',
         'sku' => 'string',
         'stock_picking_location' => 'string'
     );
@@ -200,6 +200,14 @@ class ItemShippingDistributionCenter implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['sku']) && (strlen($this->container['sku']) > 50)) {
+            $invalid_properties[] = "invalid value for 'sku', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['stock_picking_location']) && (strlen($this->container['stock_picking_location']) > 20)) {
+            $invalid_properties[] = "invalid value for 'stock_picking_location', the character length must be smaller than or equal to 20.";
+        }
+
         return $invalid_properties;
     }
 
@@ -211,13 +219,19 @@ class ItemShippingDistributionCenter implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['sku']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['stock_picking_location']) > 20) {
+            return false;
+        }
         return true;
     }
 
 
     /**
      * Gets allocated_to_placed_orders
-     * @return double
+     * @return float
      */
     public function getAllocatedToPlacedOrders()
     {
@@ -226,7 +240,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets allocated_to_placed_orders
-     * @param double $allocated_to_placed_orders Allocated to placed orders
+     * @param float $allocated_to_placed_orders Allocated to placed orders
      * @return $this
      */
     public function setAllocatedToPlacedOrders($allocated_to_placed_orders)
@@ -238,7 +252,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Gets allocated_to_shopping_carts
-     * @return double
+     * @return float
      */
     public function getAllocatedToShoppingCarts()
     {
@@ -247,7 +261,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets allocated_to_shopping_carts
-     * @param double $allocated_to_shopping_carts Allocated to shopping carts
+     * @param float $allocated_to_shopping_carts Allocated to shopping carts
      * @return $this
      */
     public function setAllocatedToShoppingCarts($allocated_to_shopping_carts)
@@ -259,7 +273,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Gets available_to_allocate
-     * @return double
+     * @return float
      */
     public function getAvailableToAllocate()
     {
@@ -268,7 +282,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets available_to_allocate
-     * @param double $available_to_allocate Available to allocate
+     * @param float $available_to_allocate Available to allocate
      * @return $this
      */
     public function setAvailableToAllocate($available_to_allocate)
@@ -280,7 +294,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Gets desired_inventory_level
-     * @return double
+     * @return float
      */
     public function getDesiredInventoryLevel()
     {
@@ -289,7 +303,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets desired_inventory_level
-     * @param double $desired_inventory_level Desired inventory level
+     * @param float $desired_inventory_level Desired inventory level
      * @return $this
      */
     public function setDesiredInventoryLevel($desired_inventory_level)
@@ -385,7 +399,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Gets inventory_level
-     * @return double
+     * @return float
      */
     public function getInventoryLevel()
     {
@@ -394,7 +408,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets inventory_level
-     * @param double $inventory_level Inventory level
+     * @param float $inventory_level Inventory level
      * @return $this
      */
     public function setInventoryLevel($inventory_level)
@@ -427,7 +441,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Gets reorder_inventory_level
-     * @return double
+     * @return float
      */
     public function getReorderInventoryLevel()
     {
@@ -436,7 +450,7 @@ class ItemShippingDistributionCenter implements ArrayAccess
 
     /**
      * Sets reorder_inventory_level
-     * @param double $reorder_inventory_level Reorder inventory level (triggers notification)
+     * @param float $reorder_inventory_level Reorder inventory level (triggers notification)
      * @return $this
      */
     public function setReorderInventoryLevel($reorder_inventory_level)
@@ -462,6 +476,9 @@ class ItemShippingDistributionCenter implements ArrayAccess
      */
     public function setSku($sku)
     {
+        if (strlen($sku) > 50) {
+            throw new \InvalidArgumentException('invalid length for $sku when calling ItemShippingDistributionCenter., must be smaller than or equal to 50.');
+        }
         $this->container['sku'] = $sku;
 
         return $this;
@@ -483,6 +500,9 @@ class ItemShippingDistributionCenter implements ArrayAccess
      */
     public function setStockPickingLocation($stock_picking_location)
     {
+        if (strlen($stock_picking_location) > 20) {
+            throw new \InvalidArgumentException('invalid length for $stock_picking_location when calling ItemShippingDistributionCenter., must be smaller than or equal to 20.');
+        }
         $this->container['stock_picking_location'] = $stock_picking_location;
 
         return $this;

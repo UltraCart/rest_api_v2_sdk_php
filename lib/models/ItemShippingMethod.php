@@ -66,16 +66,16 @@ class ItemShippingMethod implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'cost' => 'double',
-        'each_additional_item_markup' => 'double',
+        'cost' => 'float',
+        'each_additional_item_markup' => 'float',
         'filter_to_if_available' => 'bool',
-        'first_item_markup' => 'double',
-        'fixed_shipping_cost' => 'double',
-        'flat_fee_markup' => 'double',
+        'first_item_markup' => 'float',
+        'fixed_shipping_cost' => 'float',
+        'flat_fee_markup' => 'float',
         'free_shipping' => 'bool',
-        'per_item_fee_markup' => 'double',
-        'percentage_markup' => 'double',
-        'percentage_of_item_markup' => 'double',
+        'per_item_fee_markup' => 'float',
+        'percentage_markup' => 'float',
+        'percentage_of_item_markup' => 'float',
         'relax_restrictions_on_upsell' => 'bool',
         'shipping_method' => 'string',
         'shipping_method_oid' => 'int',
@@ -252,7 +252,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Gets cost
-     * @return double
+     * @return float
      */
     public function getCost()
     {
@@ -261,7 +261,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets cost
-     * @param double $cost Cost
+     * @param float $cost Cost
      * @return $this
      */
     public function setCost($cost)
@@ -273,7 +273,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Gets each_additional_item_markup
-     * @return double
+     * @return float
      */
     public function getEachAdditionalItemMarkup()
     {
@@ -282,7 +282,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets each_additional_item_markup
-     * @param double $each_additional_item_markup Each additional item markup
+     * @param float $each_additional_item_markup Each additional item markup
      * @return $this
      */
     public function setEachAdditionalItemMarkup($each_additional_item_markup)
@@ -315,7 +315,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Gets first_item_markup
-     * @return double
+     * @return float
      */
     public function getFirstItemMarkup()
     {
@@ -324,7 +324,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets first_item_markup
-     * @param double $first_item_markup First item markup
+     * @param float $first_item_markup First item markup
      * @return $this
      */
     public function setFirstItemMarkup($first_item_markup)
@@ -336,7 +336,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Gets fixed_shipping_cost
-     * @return double
+     * @return float
      */
     public function getFixedShippingCost()
     {
@@ -345,7 +345,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets fixed_shipping_cost
-     * @param double $fixed_shipping_cost Fixed shipping cost
+     * @param float $fixed_shipping_cost Fixed shipping cost
      * @return $this
      */
     public function setFixedShippingCost($fixed_shipping_cost)
@@ -357,7 +357,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Gets flat_fee_markup
-     * @return double
+     * @return float
      */
     public function getFlatFeeMarkup()
     {
@@ -366,7 +366,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets flat_fee_markup
-     * @param double $flat_fee_markup Flat fee markup
+     * @param float $flat_fee_markup Flat fee markup
      * @return $this
      */
     public function setFlatFeeMarkup($flat_fee_markup)
@@ -399,7 +399,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Gets per_item_fee_markup
-     * @return double
+     * @return float
      */
     public function getPerItemFeeMarkup()
     {
@@ -408,7 +408,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets per_item_fee_markup
-     * @param double $per_item_fee_markup Per item fee markup
+     * @param float $per_item_fee_markup Per item fee markup
      * @return $this
      */
     public function setPerItemFeeMarkup($per_item_fee_markup)
@@ -420,7 +420,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Gets percentage_markup
-     * @return double
+     * @return float
      */
     public function getPercentageMarkup()
     {
@@ -429,7 +429,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets percentage_markup
-     * @param double $percentage_markup Percentage markup
+     * @param float $percentage_markup Percentage markup
      * @return $this
      */
     public function setPercentageMarkup($percentage_markup)
@@ -441,7 +441,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Gets percentage_of_item_markup
-     * @return double
+     * @return float
      */
     public function getPercentageOfItemMarkup()
     {
@@ -450,7 +450,7 @@ class ItemShippingMethod implements ArrayAccess
 
     /**
      * Sets percentage_of_item_markup
-     * @param double $percentage_of_item_markup Percentage of item markup
+     * @param float $percentage_of_item_markup Percentage of item markup
      * @return $this
      */
     public function setPercentageOfItemMarkup($percentage_of_item_markup)

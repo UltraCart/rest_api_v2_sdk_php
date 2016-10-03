@@ -160,6 +160,14 @@ class ItemVariation implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['default_text']) && (strlen($this->container['default_text']) > 50)) {
+            $invalid_properties[] = "invalid value for 'default_text', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 50)) {
+            $invalid_properties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
+        }
+
         return $invalid_properties;
     }
 
@@ -171,6 +179,12 @@ class ItemVariation implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['default_text']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['name']) > 50) {
+            return false;
+        }
         return true;
     }
 
@@ -191,6 +205,9 @@ class ItemVariation implements ArrayAccess
      */
     public function setDefaultText($default_text)
     {
+        if (strlen($default_text) > 50) {
+            throw new \InvalidArgumentException('invalid length for $default_text when calling ItemVariation., must be smaller than or equal to 50.');
+        }
         $this->container['default_text'] = $default_text;
 
         return $this;
@@ -233,6 +250,9 @@ class ItemVariation implements ArrayAccess
      */
     public function setName($name)
     {
+        if (strlen($name) > 50) {
+            throw new \InvalidArgumentException('invalid length for $name when calling ItemVariation., must be smaller than or equal to 50.');
+        }
         $this->container['name'] = $name;
 
         return $this;

@@ -66,9 +66,9 @@ class ItemOption implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'cost_if_specified' => 'double',
-        'cost_per_letter' => 'double',
-        'cost_per_line' => 'double',
+        'cost_if_specified' => 'float',
+        'cost_per_letter' => 'float',
+        'cost_per_line' => 'float',
         'ignore_if_default' => 'bool',
         'label' => 'string',
         'label_translated_text_instance_oid' => 'int',
@@ -229,6 +229,14 @@ class ItemOption implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['label']) && (strlen($this->container['label']) > 50)) {
+            $invalid_properties[] = "invalid value for 'label', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 50)) {
+            $invalid_properties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
+        }
+
         $allowed_values = array("dropdown", "file attachment", "fixed", "hidden", "multiline", "radio", "single");
         if (!in_array($this->container['type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
@@ -245,6 +253,12 @@ class ItemOption implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['label']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['name']) > 50) {
+            return false;
+        }
         $allowed_values = array("dropdown", "file attachment", "fixed", "hidden", "multiline", "radio", "single");
         if (!in_array($this->container['type'], $allowed_values)) {
             return false;
@@ -255,7 +269,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Gets cost_if_specified
-     * @return double
+     * @return float
      */
     public function getCostIfSpecified()
     {
@@ -264,7 +278,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets cost_if_specified
-     * @param double $cost_if_specified Cost if specified
+     * @param float $cost_if_specified Cost if specified
      * @return $this
      */
     public function setCostIfSpecified($cost_if_specified)
@@ -276,7 +290,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Gets cost_per_letter
-     * @return double
+     * @return float
      */
     public function getCostPerLetter()
     {
@@ -285,7 +299,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets cost_per_letter
-     * @param double $cost_per_letter Cost per letter
+     * @param float $cost_per_letter Cost per letter
      * @return $this
      */
     public function setCostPerLetter($cost_per_letter)
@@ -297,7 +311,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Gets cost_per_line
-     * @return double
+     * @return float
      */
     public function getCostPerLine()
     {
@@ -306,7 +320,7 @@ class ItemOption implements ArrayAccess
 
     /**
      * Sets cost_per_line
-     * @param double $cost_per_line Cost per line
+     * @param float $cost_per_line Cost per line
      * @return $this
      */
     public function setCostPerLine($cost_per_line)
@@ -353,6 +367,9 @@ class ItemOption implements ArrayAccess
      */
     public function setLabel($label)
     {
+        if (strlen($label) > 50) {
+            throw new \InvalidArgumentException('invalid length for $label when calling ItemOption., must be smaller than or equal to 50.');
+        }
         $this->container['label'] = $label;
 
         return $this;
@@ -395,6 +412,9 @@ class ItemOption implements ArrayAccess
      */
     public function setName($name)
     {
+        if (strlen($name) > 50) {
+            throw new \InvalidArgumentException('invalid length for $name when calling ItemOption., must be smaller than or equal to 50.');
+        }
         $this->container['name'] = $name;
 
         return $this;

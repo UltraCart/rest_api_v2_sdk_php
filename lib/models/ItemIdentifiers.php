@@ -155,6 +155,22 @@ class ItemIdentifiers implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['barcode']) && (strlen($this->container['barcode']) > 30)) {
+            $invalid_properties[] = "invalid value for 'barcode', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['manufacturer_name']) && (strlen($this->container['manufacturer_name']) > 50)) {
+            $invalid_properties[] = "invalid value for 'manufacturer_name', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['manufacturer_sku']) && (strlen($this->container['manufacturer_sku']) > 25)) {
+            $invalid_properties[] = "invalid value for 'manufacturer_sku', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['unspsc']) && (strlen($this->container['unspsc']) > 20)) {
+            $invalid_properties[] = "invalid value for 'unspsc', the character length must be smaller than or equal to 20.";
+        }
+
         return $invalid_properties;
     }
 
@@ -166,6 +182,18 @@ class ItemIdentifiers implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['barcode']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['manufacturer_name']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['manufacturer_sku']) > 25) {
+            return false;
+        }
+        if (strlen($this->container['unspsc']) > 20) {
+            return false;
+        }
         return true;
     }
 
@@ -186,6 +214,9 @@ class ItemIdentifiers implements ArrayAccess
      */
     public function setBarcode($barcode)
     {
+        if (strlen($barcode) > 30) {
+            throw new \InvalidArgumentException('invalid length for $barcode when calling ItemIdentifiers., must be smaller than or equal to 30.');
+        }
         $this->container['barcode'] = $barcode;
 
         return $this;
@@ -207,6 +238,9 @@ class ItemIdentifiers implements ArrayAccess
      */
     public function setManufacturerName($manufacturer_name)
     {
+        if (strlen($manufacturer_name) > 50) {
+            throw new \InvalidArgumentException('invalid length for $manufacturer_name when calling ItemIdentifiers., must be smaller than or equal to 50.');
+        }
         $this->container['manufacturer_name'] = $manufacturer_name;
 
         return $this;
@@ -228,6 +262,9 @@ class ItemIdentifiers implements ArrayAccess
      */
     public function setManufacturerSku($manufacturer_sku)
     {
+        if (strlen($manufacturer_sku) > 25) {
+            throw new \InvalidArgumentException('invalid length for $manufacturer_sku when calling ItemIdentifiers., must be smaller than or equal to 25.');
+        }
         $this->container['manufacturer_sku'] = $manufacturer_sku;
 
         return $this;
@@ -249,6 +286,9 @@ class ItemIdentifiers implements ArrayAccess
      */
     public function setUnspsc($unspsc)
     {
+        if (strlen($unspsc) > 20) {
+            throw new \InvalidArgumentException('invalid length for $unspsc when calling ItemIdentifiers., must be smaller than or equal to 20.');
+        }
         $this->container['unspsc'] = $unspsc;
 
         return $this;

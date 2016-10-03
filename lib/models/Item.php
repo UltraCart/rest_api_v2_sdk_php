@@ -360,6 +360,18 @@ class Item implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 512)) {
+            $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 512.";
+        }
+
+        if (!is_null($this->container['merchant_id']) && (strlen($this->container['merchant_id']) > 5)) {
+            $invalid_properties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 5.";
+        }
+
+        if (!is_null($this->container['merchant_item_id']) && (strlen($this->container['merchant_item_id']) > 20)) {
+            $invalid_properties[] = "invalid value for 'merchant_item_id', the character length must be smaller than or equal to 20.";
+        }
+
         return $invalid_properties;
     }
 
@@ -371,6 +383,15 @@ class Item implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['description']) > 512) {
+            return false;
+        }
+        if (strlen($this->container['merchant_id']) > 5) {
+            return false;
+        }
+        if (strlen($this->container['merchant_item_id']) > 20) {
+            return false;
+        }
         return true;
     }
 
@@ -575,11 +596,14 @@ class Item implements ArrayAccess
 
     /**
      * Sets description
-     * @param string $description Description of the item up to 500 chracaters.
+     * @param string $description Description of the item up to 500 characters.
      * @return $this
      */
     public function setDescription($description)
     {
+        if (strlen($description) > 512) {
+            throw new \InvalidArgumentException('invalid length for $description when calling Item., must be smaller than or equal to 512.');
+        }
         $this->container['description'] = $description;
 
         return $this;
@@ -895,6 +919,9 @@ class Item implements ArrayAccess
      */
     public function setMerchantId($merchant_id)
     {
+        if (strlen($merchant_id) > 5) {
+            throw new \InvalidArgumentException('invalid length for $merchant_id when calling Item., must be smaller than or equal to 5.');
+        }
         $this->container['merchant_id'] = $merchant_id;
 
         return $this;
@@ -916,6 +943,9 @@ class Item implements ArrayAccess
      */
     public function setMerchantItemId($merchant_item_id)
     {
+        if (strlen($merchant_item_id) > 20) {
+            throw new \InvalidArgumentException('invalid length for $merchant_item_id when calling Item., must be smaller than or equal to 20.');
+        }
         $this->container['merchant_item_id'] = $merchant_item_id;
 
         return $this;

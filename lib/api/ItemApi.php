@@ -485,7 +485,7 @@ class ItemApi
      *
      * Update an item
      *
-     * @param \ultracart\admin\v2\models\Item $item Item to create (required)
+     * @param \ultracart\admin\v2\models\Item $item Item to update (required)
      * @param int $merchant_item_oid The item oid to update. (required)
      * @return \ultracart\admin\v2\models\ItemResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
@@ -501,7 +501,7 @@ class ItemApi
      *
      * Update an item
      *
-     * @param \ultracart\admin\v2\models\Item $item Item to create (required)
+     * @param \ultracart\admin\v2\models\Item $item Item to update (required)
      * @param int $merchant_item_oid The item oid to update. (required)
      * @return Array of \ultracart\admin\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response

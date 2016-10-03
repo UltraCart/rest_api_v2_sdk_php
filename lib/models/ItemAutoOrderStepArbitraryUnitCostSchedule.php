@@ -66,7 +66,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'arbitrary_unit_cost' => 'double',
+        'arbitrary_unit_cost' => 'float',
         'retry_days' => 'int'
     );
 
@@ -162,7 +162,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule implements ArrayAccess
 
     /**
      * Gets arbitrary_unit_cost
-     * @return double
+     * @return float
      */
     public function getArbitraryUnitCost()
     {
@@ -171,7 +171,7 @@ class ItemAutoOrderStepArbitraryUnitCostSchedule implements ArrayAccess
 
     /**
      * Sets arbitrary_unit_cost
-     * @param double $arbitrary_unit_cost Arbitrary unit cost
+     * @param float $arbitrary_unit_cost Arbitrary unit cost
      * @return $this
      */
     public function setArbitraryUnitCost($arbitrary_unit_cost)

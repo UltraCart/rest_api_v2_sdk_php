@@ -170,6 +170,10 @@ class TempMultimedia implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['filename']) && (strlen($this->container['filename']) > 75)) {
+            $invalid_properties[] = "invalid value for 'filename', the character length must be smaller than or equal to 75.";
+        }
+
         return $invalid_properties;
     }
 
@@ -181,6 +185,9 @@ class TempMultimedia implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['filename']) > 75) {
+            return false;
+        }
         return true;
     }
 
@@ -201,6 +208,9 @@ class TempMultimedia implements ArrayAccess
      */
     public function setFilename($filename)
     {
+        if (strlen($filename) > 75) {
+            throw new \InvalidArgumentException('invalid length for $filename when calling TempMultimedia., must be smaller than or equal to 75.');
+        }
         $this->container['filename'] = $filename;
 
         return $this;

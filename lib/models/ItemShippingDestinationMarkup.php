@@ -66,9 +66,9 @@ class ItemShippingDestinationMarkup implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'country' => 'string',
-        'flat_fee' => 'double',
-        'per_item' => 'double',
+        'country_code' => 'string',
+        'flat_fee' => 'float',
+        'per_item' => 'float',
         'postal_code' => 'string',
         'shipping_method' => 'string',
         'state' => 'string'
@@ -84,7 +84,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'country' => 'country',
+        'country_code' => 'country_code',
         'flat_fee' => 'flat_fee',
         'per_item' => 'per_item',
         'postal_code' => 'postal_code',
@@ -102,7 +102,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'country' => 'setCountry',
+        'country_code' => 'setCountryCode',
         'flat_fee' => 'setFlatFee',
         'per_item' => 'setPerItem',
         'postal_code' => 'setPostalCode',
@@ -120,7 +120,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'country' => 'getCountry',
+        'country_code' => 'getCountryCode',
         'flat_fee' => 'getFlatFee',
         'per_item' => 'getPerItem',
         'postal_code' => 'getPostalCode',
@@ -149,7 +149,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
         $this->container['flat_fee'] = isset($data['flat_fee']) ? $data['flat_fee'] : null;
         $this->container['per_item'] = isset($data['per_item']) ? $data['per_item'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
@@ -165,6 +165,18 @@ class ItemShippingDestinationMarkup implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['country_code']) && (strlen($this->container['country_code']) > 2)) {
+            $invalid_properties[] = "invalid value for 'country_code', the character length must be smaller than or equal to 2.";
+        }
+
+        if (!is_null($this->container['postal_code']) && (strlen($this->container['postal_code']) > 20)) {
+            $invalid_properties[] = "invalid value for 'postal_code', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!is_null($this->container['state']) && (strlen($this->container['state']) > 32)) {
+            $invalid_properties[] = "invalid value for 'state', the character length must be smaller than or equal to 32.";
+        }
+
         return $invalid_properties;
     }
 
@@ -176,34 +188,46 @@ class ItemShippingDestinationMarkup implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['country_code']) > 2) {
+            return false;
+        }
+        if (strlen($this->container['postal_code']) > 20) {
+            return false;
+        }
+        if (strlen($this->container['state']) > 32) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets country
+     * Gets country_code
      * @return string
      */
-    public function getCountry()
+    public function getCountryCode()
     {
-        return $this->container['country'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets country
-     * @param string $country Country
+     * Sets country_code
+     * @param string $country_code Country code (ISO-3166 two letter)
      * @return $this
      */
-    public function setCountry($country)
+    public function setCountryCode($country_code)
     {
-        $this->container['country'] = $country;
+        if (strlen($country_code) > 2) {
+            throw new \InvalidArgumentException('invalid length for $country_code when calling ItemShippingDestinationMarkup., must be smaller than or equal to 2.');
+        }
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }
 
     /**
      * Gets flat_fee
-     * @return double
+     * @return float
      */
     public function getFlatFee()
     {
@@ -212,7 +236,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Sets flat_fee
-     * @param double $flat_fee Flat fee
+     * @param float $flat_fee Flat fee
      * @return $this
      */
     public function setFlatFee($flat_fee)
@@ -224,7 +248,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Gets per_item
-     * @return double
+     * @return float
      */
     public function getPerItem()
     {
@@ -233,7 +257,7 @@ class ItemShippingDestinationMarkup implements ArrayAccess
 
     /**
      * Sets per_item
-     * @param double $per_item Per item
+     * @param float $per_item Per item
      * @return $this
      */
     public function setPerItem($per_item)
@@ -259,6 +283,9 @@ class ItemShippingDestinationMarkup implements ArrayAccess
      */
     public function setPostalCode($postal_code)
     {
+        if (strlen($postal_code) > 20) {
+            throw new \InvalidArgumentException('invalid length for $postal_code when calling ItemShippingDestinationMarkup., must be smaller than or equal to 20.');
+        }
         $this->container['postal_code'] = $postal_code;
 
         return $this;
@@ -301,6 +328,9 @@ class ItemShippingDestinationMarkup implements ArrayAccess
      */
     public function setState($state)
     {
+        if (strlen($state) > 32) {
+            throw new \InvalidArgumentException('invalid length for $state when calling ItemShippingDestinationMarkup., must be smaller than or equal to 32.');
+        }
         $this->container['state'] = $state;
 
         return $this;

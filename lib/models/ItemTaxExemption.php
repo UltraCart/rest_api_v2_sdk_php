@@ -160,6 +160,26 @@ class ItemTaxExemption implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['city']) && (strlen($this->container['city']) > 32)) {
+            $invalid_properties[] = "invalid value for 'city', the character length must be smaller than or equal to 32.";
+        }
+
+        if (!is_null($this->container['country_code']) && (strlen($this->container['country_code']) > 2)) {
+            $invalid_properties[] = "invalid value for 'country_code', the character length must be smaller than or equal to 2.";
+        }
+
+        if (!is_null($this->container['county']) && (strlen($this->container['county']) > 32)) {
+            $invalid_properties[] = "invalid value for 'county', the character length must be smaller than or equal to 32.";
+        }
+
+        if (!is_null($this->container['postal_code']) && (strlen($this->container['postal_code']) > 20)) {
+            $invalid_properties[] = "invalid value for 'postal_code', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!is_null($this->container['state_code']) && (strlen($this->container['state_code']) > 32)) {
+            $invalid_properties[] = "invalid value for 'state_code', the character length must be smaller than or equal to 32.";
+        }
+
         return $invalid_properties;
     }
 
@@ -171,6 +191,21 @@ class ItemTaxExemption implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['city']) > 32) {
+            return false;
+        }
+        if (strlen($this->container['country_code']) > 2) {
+            return false;
+        }
+        if (strlen($this->container['county']) > 32) {
+            return false;
+        }
+        if (strlen($this->container['postal_code']) > 20) {
+            return false;
+        }
+        if (strlen($this->container['state_code']) > 32) {
+            return false;
+        }
         return true;
     }
 
@@ -191,6 +226,9 @@ class ItemTaxExemption implements ArrayAccess
      */
     public function setCity($city)
     {
+        if (strlen($city) > 32) {
+            throw new \InvalidArgumentException('invalid length for $city when calling ItemTaxExemption., must be smaller than or equal to 32.');
+        }
         $this->container['city'] = $city;
 
         return $this;
@@ -207,11 +245,14 @@ class ItemTaxExemption implements ArrayAccess
 
     /**
      * Sets country_code
-     * @param string $country_code Country code
+     * @param string $country_code Country code (ISO-3166 two letter)
      * @return $this
      */
     public function setCountryCode($country_code)
     {
+        if (strlen($country_code) > 2) {
+            throw new \InvalidArgumentException('invalid length for $country_code when calling ItemTaxExemption., must be smaller than or equal to 2.');
+        }
         $this->container['country_code'] = $country_code;
 
         return $this;
@@ -233,6 +274,9 @@ class ItemTaxExemption implements ArrayAccess
      */
     public function setCounty($county)
     {
+        if (strlen($county) > 32) {
+            throw new \InvalidArgumentException('invalid length for $county when calling ItemTaxExemption., must be smaller than or equal to 32.');
+        }
         $this->container['county'] = $county;
 
         return $this;
@@ -254,6 +298,9 @@ class ItemTaxExemption implements ArrayAccess
      */
     public function setPostalCode($postal_code)
     {
+        if (strlen($postal_code) > 20) {
+            throw new \InvalidArgumentException('invalid length for $postal_code when calling ItemTaxExemption., must be smaller than or equal to 20.');
+        }
         $this->container['postal_code'] = $postal_code;
 
         return $this;
@@ -275,6 +322,9 @@ class ItemTaxExemption implements ArrayAccess
      */
     public function setStateCode($state_code)
     {
+        if (strlen($state_code) > 32) {
+            throw new \InvalidArgumentException('invalid length for $state_code when calling ItemTaxExemption., must be smaller than or equal to 32.');
+        }
         $this->container['state_code'] = $state_code;
 
         return $this;

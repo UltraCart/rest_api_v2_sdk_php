@@ -160,6 +160,18 @@ class ItemDigitalItem implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 200)) {
+            $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['mime_type']) && (strlen($this->container['mime_type']) > 100)) {
+            $invalid_properties[] = "invalid value for 'mime_type', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['original_filename']) && (strlen($this->container['original_filename']) > 250)) {
+            $invalid_properties[] = "invalid value for 'original_filename', the character length must be smaller than or equal to 250.";
+        }
+
         return $invalid_properties;
     }
 
@@ -171,6 +183,15 @@ class ItemDigitalItem implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['description']) > 200) {
+            return false;
+        }
+        if (strlen($this->container['mime_type']) > 100) {
+            return false;
+        }
+        if (strlen($this->container['original_filename']) > 250) {
+            return false;
+        }
         return true;
     }
 
@@ -212,6 +233,9 @@ class ItemDigitalItem implements ArrayAccess
      */
     public function setDescription($description)
     {
+        if (strlen($description) > 200) {
+            throw new \InvalidArgumentException('invalid length for $description when calling ItemDigitalItem., must be smaller than or equal to 200.');
+        }
         $this->container['description'] = $description;
 
         return $this;
@@ -254,6 +278,9 @@ class ItemDigitalItem implements ArrayAccess
      */
     public function setMimeType($mime_type)
     {
+        if (strlen($mime_type) > 100) {
+            throw new \InvalidArgumentException('invalid length for $mime_type when calling ItemDigitalItem., must be smaller than or equal to 100.');
+        }
         $this->container['mime_type'] = $mime_type;
 
         return $this;
@@ -275,6 +302,9 @@ class ItemDigitalItem implements ArrayAccess
      */
     public function setOriginalFilename($original_filename)
     {
+        if (strlen($original_filename) > 250) {
+            throw new \InvalidArgumentException('invalid length for $original_filename when calling ItemDigitalItem., must be smaller than or equal to 250.');
+        }
         $this->container['original_filename'] = $original_filename;
 
         return $this;

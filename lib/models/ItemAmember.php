@@ -145,6 +145,10 @@ class ItemAmember implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['amember_product_id']) && (strlen($this->container['amember_product_id']) > 10)) {
+            $invalid_properties[] = "invalid value for 'amember_product_id', the character length must be smaller than or equal to 10.";
+        }
+
         return $invalid_properties;
     }
 
@@ -156,6 +160,9 @@ class ItemAmember implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['amember_product_id']) > 10) {
+            return false;
+        }
         return true;
     }
 
@@ -197,6 +204,9 @@ class ItemAmember implements ArrayAccess
      */
     public function setAmemberProductId($amember_product_id)
     {
+        if (strlen($amember_product_id) > 10) {
+            throw new \InvalidArgumentException('invalid length for $amember_product_id when calling ItemAmember., must be smaller than or equal to 10.');
+        }
         $this->container['amember_product_id'] = $amember_product_id;
 
         return $this;

@@ -67,7 +67,7 @@ class Weight implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'uom' => 'string',
-        'value' => 'double'
+        'value' => 'float'
     );
 
     public static function swaggerTypes()
@@ -212,7 +212,7 @@ class Weight implements ArrayAccess
 
     /**
      * Gets value
-     * @return double
+     * @return float
      */
     public function getValue()
     {
@@ -221,7 +221,7 @@ class Weight implements ArrayAccess
 
     /**
      * Sets value
-     * @param double $value Weight
+     * @param float $value Weight
      * @return $this
      */
     public function setValue($value)

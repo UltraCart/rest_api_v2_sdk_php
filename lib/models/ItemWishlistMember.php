@@ -150,6 +150,10 @@ class ItemWishlistMember implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['wishlist_member_sku']) && (strlen($this->container['wishlist_member_sku']) > 25)) {
+            $invalid_properties[] = "invalid value for 'wishlist_member_sku', the character length must be smaller than or equal to 25.";
+        }
+
         return $invalid_properties;
     }
 
@@ -161,6 +165,9 @@ class ItemWishlistMember implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['wishlist_member_sku']) > 25) {
+            return false;
+        }
         return true;
     }
 
@@ -223,6 +230,9 @@ class ItemWishlistMember implements ArrayAccess
      */
     public function setWishlistMemberSku($wishlist_member_sku)
     {
+        if (strlen($wishlist_member_sku) > 25) {
+            throw new \InvalidArgumentException('invalid length for $wishlist_member_sku when calling ItemWishlistMember., must be smaller than or equal to 25.');
+        }
         $this->container['wishlist_member_sku'] = $wishlist_member_sku;
 
         return $this;

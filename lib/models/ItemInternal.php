@@ -140,6 +140,10 @@ class ItemInternal implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['memo']) && (strlen($this->container['memo']) > 250)) {
+            $invalid_properties[] = "invalid value for 'memo', the character length must be smaller than or equal to 250.";
+        }
+
         return $invalid_properties;
     }
 
@@ -151,6 +155,9 @@ class ItemInternal implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['memo']) > 250) {
+            return false;
+        }
         return true;
     }
 
@@ -166,11 +173,14 @@ class ItemInternal implements ArrayAccess
 
     /**
      * Sets memo
-     * @param string $memo Memo (limit 250 characters)
+     * @param string $memo Memo
      * @return $this
      */
     public function setMemo($memo)
     {
+        if (strlen($memo) > 250) {
+            throw new \InvalidArgumentException('invalid length for $memo when calling ItemInternal., must be smaller than or equal to 250.');
+        }
         $this->container['memo'] = $memo;
 
         return $this;

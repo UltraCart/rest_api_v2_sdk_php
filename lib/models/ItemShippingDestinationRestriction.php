@@ -66,7 +66,7 @@ class ItemShippingDestinationRestriction implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'country' => 'string',
+        'country_code' => 'string',
         'state' => 'string',
         'validity' => 'string'
     );
@@ -81,7 +81,7 @@ class ItemShippingDestinationRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'country' => 'country',
+        'country_code' => 'country_code',
         'state' => 'state',
         'validity' => 'validity'
     );
@@ -96,7 +96,7 @@ class ItemShippingDestinationRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'country' => 'setCountry',
+        'country_code' => 'setCountryCode',
         'state' => 'setState',
         'validity' => 'setValidity'
     );
@@ -111,7 +111,7 @@ class ItemShippingDestinationRestriction implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'country' => 'getCountry',
+        'country_code' => 'getCountryCode',
         'state' => 'getState',
         'validity' => 'getValidity'
     );
@@ -151,7 +151,7 @@ class ItemShippingDestinationRestriction implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['validity'] = isset($data['validity']) ? $data['validity'] : null;
     }
@@ -164,6 +164,14 @@ class ItemShippingDestinationRestriction implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['country_code']) && (strlen($this->container['country_code']) > 2)) {
+            $invalid_properties[] = "invalid value for 'country_code', the character length must be smaller than or equal to 2.";
+        }
+
+        if (!is_null($this->container['state']) && (strlen($this->container['state']) > 32)) {
+            $invalid_properties[] = "invalid value for 'state', the character length must be smaller than or equal to 32.";
+        }
+
         $allowed_values = array("valid only for", "invalid for");
         if (!in_array($this->container['validity'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'validity', must be one of #{allowed_values}.";
@@ -180,6 +188,12 @@ class ItemShippingDestinationRestriction implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['country_code']) > 2) {
+            return false;
+        }
+        if (strlen($this->container['state']) > 32) {
+            return false;
+        }
         $allowed_values = array("valid only for", "invalid for");
         if (!in_array($this->container['validity'], $allowed_values)) {
             return false;
@@ -189,22 +203,25 @@ class ItemShippingDestinationRestriction implements ArrayAccess
 
 
     /**
-     * Gets country
+     * Gets country_code
      * @return string
      */
-    public function getCountry()
+    public function getCountryCode()
     {
-        return $this->container['country'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets country
-     * @param string $country Country
+     * Sets country_code
+     * @param string $country_code Country code (ISO-3166 two letter)
      * @return $this
      */
-    public function setCountry($country)
+    public function setCountryCode($country_code)
     {
-        $this->container['country'] = $country;
+        if (strlen($country_code) > 2) {
+            throw new \InvalidArgumentException('invalid length for $country_code when calling ItemShippingDestinationRestriction., must be smaller than or equal to 2.');
+        }
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }
@@ -225,6 +242,9 @@ class ItemShippingDestinationRestriction implements ArrayAccess
      */
     public function setState($state)
     {
+        if (strlen($state) > 32) {
+            throw new \InvalidArgumentException('invalid length for $state when calling ItemShippingDestinationRestriction., must be smaller than or equal to 32.');
+        }
         $this->container['state'] = $state;
 
         return $this;

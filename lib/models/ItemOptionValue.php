@@ -68,18 +68,18 @@ class ItemOptionValue implements ArrayAccess
     protected static $swaggerTypes = array(
         'additional_dimension_application' => 'string',
         'additional_items' => '\ultracart\admin\v2\models\ItemOptionValueAdditionalItem[]',
-        'cost_change' => 'double',
+        'cost_change' => 'float',
         'default_value' => 'bool',
         'digital_items' => '\ultracart\admin\v2\models\ItemOptionValueDigitalItem[]',
         'height' => '\ultracart\admin\v2\models\Distance',
         'length' => '\ultracart\admin\v2\models\Distance',
         'merchant_item_multimedia_oid' => 'int',
         'option_value_oid' => 'int',
-        'percent_cost_change' => 'double',
+        'percent_cost_change' => 'float',
         'translated_text_instance_oid' => 'int',
         'value' => 'string',
         'weight_change' => '\ultracart\admin\v2\models\Weight',
-        'weight_change_percent' => 'double',
+        'weight_change_percent' => 'float',
         'width' => '\ultracart\admin\v2\models\Distance'
     );
 
@@ -231,6 +231,10 @@ class ItemOptionValue implements ArrayAccess
             $invalid_properties[] = "invalid value for 'additional_dimension_application', must be one of #{allowed_values}.";
         }
 
+        if (!is_null($this->container['value']) && (strlen($this->container['value']) > 1024)) {
+            $invalid_properties[] = "invalid value for 'value', the character length must be smaller than or equal to 1024.";
+        }
+
         return $invalid_properties;
     }
 
@@ -244,6 +248,9 @@ class ItemOptionValue implements ArrayAccess
     {
         $allowed_values = array("none", "set item to", "add item");
         if (!in_array($this->container['additional_dimension_application'], $allowed_values)) {
+            return false;
+        }
+        if (strlen($this->container['value']) > 1024) {
             return false;
         }
         return true;
@@ -298,7 +305,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets cost_change
-     * @return double
+     * @return float
      */
     public function getCostChange()
     {
@@ -307,7 +314,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets cost_change
-     * @param double $cost_change Cost change
+     * @param float $cost_change Cost change
      * @return $this
      */
     public function setCostChange($cost_change)
@@ -445,7 +452,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets percent_cost_change
-     * @return double
+     * @return float
      */
     public function getPercentCostChange()
     {
@@ -454,7 +461,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets percent_cost_change
-     * @param double $percent_cost_change Percentage cost change
+     * @param float $percent_cost_change Percentage cost change
      * @return $this
      */
     public function setPercentCostChange($percent_cost_change)
@@ -501,6 +508,9 @@ class ItemOptionValue implements ArrayAccess
      */
     public function setValue($value)
     {
+        if (strlen($value) > 1024) {
+            throw new \InvalidArgumentException('invalid length for $value when calling ItemOptionValue., must be smaller than or equal to 1024.');
+        }
         $this->container['value'] = $value;
 
         return $this;
@@ -529,7 +539,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Gets weight_change_percent
-     * @return double
+     * @return float
      */
     public function getWeightChangePercent()
     {
@@ -538,7 +548,7 @@ class ItemOptionValue implements ArrayAccess
 
     /**
      * Sets weight_change_percent
-     * @param double $weight_change_percent Percentage weight change
+     * @param float $weight_change_percent Percentage weight change
      * @return $this
      */
     public function setWeightChangePercent($weight_change_percent)

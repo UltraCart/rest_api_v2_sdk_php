@@ -203,7 +203,7 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 // ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\admin\v2\Api\ItemApi();
-$item = new \ultracart\admin\v2\models\Item(); // \ultracart\admin\v2\models\Item | Item to create
+$item = new \ultracart\admin\v2\models\Item(); // \ultracart\admin\v2\models\Item | Item to update
 $merchant_item_oid = 56; // int | The item oid to update.
 
 try {
@@ -219,7 +219,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **item** | [**\ultracart\admin\v2\models\Item**](../Model/\ultracart\admin\v2\models\Item.md)| Item to create |
+ **item** | [**\ultracart\admin\v2\models\Item**](../Model/\ultracart\admin\v2\models\Item.md)| Item to update |
  **merchant_item_oid** | **int**| The item oid to update. |
 
 ### Return type

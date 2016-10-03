@@ -75,14 +75,14 @@ class ItemEbay implements ArrayAccess
         'custom_category1' => 'int',
         'custom_category2' => 'int',
         'dispatch_time_max' => 'int',
-        'domestic_1_additional_cost' => 'double',
-        'domestic_1_first_cost' => 'double',
-        'domestic_2_additional_cost' => 'double',
-        'domestic_2_first_cost' => 'double',
-        'domestic_3_additional_cost' => 'double',
-        'domestic_3_first_cost' => 'double',
-        'domestic_4_additional_cost' => 'double',
-        'domestic_4_first_cost' => 'double',
+        'domestic_1_additional_cost' => 'float',
+        'domestic_1_first_cost' => 'float',
+        'domestic_2_additional_cost' => 'float',
+        'domestic_2_first_cost' => 'float',
+        'domestic_3_additional_cost' => 'float',
+        'domestic_3_first_cost' => 'float',
+        'domestic_4_additional_cost' => 'float',
+        'domestic_4_first_cost' => 'float',
         'ebay_auction_id' => 'string',
         'ebay_specific_inventory' => 'int',
         'ebay_template_name' => 'string',
@@ -90,47 +90,47 @@ class ItemEbay implements ArrayAccess
         'end_time' => 'string',
         'free_shipping' => 'bool',
         'free_shipping_method' => 'string',
-        'international_1_additional_cost' => 'double',
-        'international_1_first_cost' => 'double',
-        'international_2_additional_cost' => 'double',
-        'international_2_first_cost' => 'double',
-        'international_3_additional_cost' => 'double',
-        'international_3_first_cost' => 'double',
-        'international_4_additional_cost' => 'double',
-        'international_4_first_cost' => 'double',
+        'international_1_additional_cost' => 'float',
+        'international_1_first_cost' => 'float',
+        'international_2_additional_cost' => 'float',
+        'international_2_first_cost' => 'float',
+        'international_3_additional_cost' => 'float',
+        'international_3_first_cost' => 'float',
+        'international_4_additional_cost' => 'float',
+        'international_4_first_cost' => 'float',
         'last_status_dts' => 'string',
         'listed_dispatch_time_max' => 'int',
         'listed_ebay_template_oid' => 'int',
         'listing_dts' => 'string',
         'listing_duration' => 'string',
-        'listing_price' => 'double',
-        'listing_price_override' => 'double',
+        'listing_price' => 'float',
+        'listing_price_override' => 'float',
         'listing_type' => 'string',
         'marketplace_analysis' => '\ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis',
         'marketplace_analysis_perform' => 'bool',
-        'marketplace_final_value_fee_percentage' => 'double',
+        'marketplace_final_value_fee_percentage' => 'float',
         'marketplace_last_check_dts' => 'string',
         'marketplace_lowest' => 'bool',
         'marketplace_map_violation' => 'bool',
-        'marketplace_multiplier' => 'double',
-        'marketplace_other_price' => 'double',
+        'marketplace_multiplier' => 'float',
+        'marketplace_other_price' => 'float',
         'marketplace_other_seller' => 'string',
-        'marketplace_other_shipping' => 'double',
-        'marketplace_other_total' => 'double',
-        'marketplace_our_additional_profit_potential' => 'double',
-        'marketplace_our_price' => 'double',
-        'marketplace_our_profit' => 'double',
-        'marketplace_our_shipping' => 'double',
-        'marketplace_our_total' => 'double',
-        'marketplace_overhead' => 'double',
+        'marketplace_other_shipping' => 'float',
+        'marketplace_other_total' => 'float',
+        'marketplace_our_additional_profit_potential' => 'float',
+        'marketplace_our_price' => 'float',
+        'marketplace_our_profit' => 'float',
+        'marketplace_our_shipping' => 'float',
+        'marketplace_our_total' => 'float',
+        'marketplace_overhead' => 'float',
         'marketplace_profitable' => 'bool',
         'next_attempt_dts' => 'string',
         'next_listing_duration' => 'string',
         'no_promotional_shipping' => 'bool',
-        'packaging_handling_costs' => 'double',
+        'packaging_handling_costs' => 'float',
         'previous_ebay_auction_id' => 'string',
         'quantity' => 'int',
-        'reserve_price' => 'double',
+        'reserve_price' => 'float',
         'send_dimensions_and_weight' => 'string',
         'start_time' => 'string',
         'status' => 'string',
@@ -713,7 +713,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets domestic_1_additional_cost
-     * @return double
+     * @return float
      */
     public function getDomestic1AdditionalCost()
     {
@@ -722,7 +722,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_1_additional_cost
-     * @param double $domestic_1_additional_cost Domestic 1 method additional item cost
+     * @param float $domestic_1_additional_cost Domestic 1 method additional item cost
      * @return $this
      */
     public function setDomestic1AdditionalCost($domestic_1_additional_cost)
@@ -734,7 +734,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets domestic_1_first_cost
-     * @return double
+     * @return float
      */
     public function getDomestic1FirstCost()
     {
@@ -743,7 +743,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_1_first_cost
-     * @param double $domestic_1_first_cost Domestic 1 method first item cost
+     * @param float $domestic_1_first_cost Domestic 1 method first item cost
      * @return $this
      */
     public function setDomestic1FirstCost($domestic_1_first_cost)
@@ -755,7 +755,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets domestic_2_additional_cost
-     * @return double
+     * @return float
      */
     public function getDomestic2AdditionalCost()
     {
@@ -764,7 +764,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_2_additional_cost
-     * @param double $domestic_2_additional_cost Domestic 2 method additional item cost
+     * @param float $domestic_2_additional_cost Domestic 2 method additional item cost
      * @return $this
      */
     public function setDomestic2AdditionalCost($domestic_2_additional_cost)
@@ -776,7 +776,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets domestic_2_first_cost
-     * @return double
+     * @return float
      */
     public function getDomestic2FirstCost()
     {
@@ -785,7 +785,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_2_first_cost
-     * @param double $domestic_2_first_cost Domestic 2 method first item cost
+     * @param float $domestic_2_first_cost Domestic 2 method first item cost
      * @return $this
      */
     public function setDomestic2FirstCost($domestic_2_first_cost)
@@ -797,7 +797,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets domestic_3_additional_cost
-     * @return double
+     * @return float
      */
     public function getDomestic3AdditionalCost()
     {
@@ -806,7 +806,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_3_additional_cost
-     * @param double $domestic_3_additional_cost Domestic 3 method additional item cost
+     * @param float $domestic_3_additional_cost Domestic 3 method additional item cost
      * @return $this
      */
     public function setDomestic3AdditionalCost($domestic_3_additional_cost)
@@ -818,7 +818,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets domestic_3_first_cost
-     * @return double
+     * @return float
      */
     public function getDomestic3FirstCost()
     {
@@ -827,7 +827,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_3_first_cost
-     * @param double $domestic_3_first_cost Domestic 3 method first item cost
+     * @param float $domestic_3_first_cost Domestic 3 method first item cost
      * @return $this
      */
     public function setDomestic3FirstCost($domestic_3_first_cost)
@@ -839,7 +839,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets domestic_4_additional_cost
-     * @return double
+     * @return float
      */
     public function getDomestic4AdditionalCost()
     {
@@ -848,7 +848,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_4_additional_cost
-     * @param double $domestic_4_additional_cost Domestic 4 method additional item cost
+     * @param float $domestic_4_additional_cost Domestic 4 method additional item cost
      * @return $this
      */
     public function setDomestic4AdditionalCost($domestic_4_additional_cost)
@@ -860,7 +860,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets domestic_4_first_cost
-     * @return double
+     * @return float
      */
     public function getDomestic4FirstCost()
     {
@@ -869,7 +869,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets domestic_4_first_cost
-     * @param double $domestic_4_first_cost Domestic 4 method first item cost
+     * @param float $domestic_4_first_cost Domestic 4 method first item cost
      * @return $this
      */
     public function setDomestic4FirstCost($domestic_4_first_cost)
@@ -1028,7 +1028,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets international_1_additional_cost
-     * @return double
+     * @return float
      */
     public function getInternational1AdditionalCost()
     {
@@ -1037,7 +1037,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_1_additional_cost
-     * @param double $international_1_additional_cost International 1 method additional item cost
+     * @param float $international_1_additional_cost International 1 method additional item cost
      * @return $this
      */
     public function setInternational1AdditionalCost($international_1_additional_cost)
@@ -1049,7 +1049,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets international_1_first_cost
-     * @return double
+     * @return float
      */
     public function getInternational1FirstCost()
     {
@@ -1058,7 +1058,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_1_first_cost
-     * @param double $international_1_first_cost International 1 method first item cost
+     * @param float $international_1_first_cost International 1 method first item cost
      * @return $this
      */
     public function setInternational1FirstCost($international_1_first_cost)
@@ -1070,7 +1070,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets international_2_additional_cost
-     * @return double
+     * @return float
      */
     public function getInternational2AdditionalCost()
     {
@@ -1079,7 +1079,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_2_additional_cost
-     * @param double $international_2_additional_cost International 2 method additional item cost
+     * @param float $international_2_additional_cost International 2 method additional item cost
      * @return $this
      */
     public function setInternational2AdditionalCost($international_2_additional_cost)
@@ -1091,7 +1091,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets international_2_first_cost
-     * @return double
+     * @return float
      */
     public function getInternational2FirstCost()
     {
@@ -1100,7 +1100,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_2_first_cost
-     * @param double $international_2_first_cost International 2 method first item cost
+     * @param float $international_2_first_cost International 2 method first item cost
      * @return $this
      */
     public function setInternational2FirstCost($international_2_first_cost)
@@ -1112,7 +1112,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets international_3_additional_cost
-     * @return double
+     * @return float
      */
     public function getInternational3AdditionalCost()
     {
@@ -1121,7 +1121,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_3_additional_cost
-     * @param double $international_3_additional_cost International 3 method additional item cost
+     * @param float $international_3_additional_cost International 3 method additional item cost
      * @return $this
      */
     public function setInternational3AdditionalCost($international_3_additional_cost)
@@ -1133,7 +1133,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets international_3_first_cost
-     * @return double
+     * @return float
      */
     public function getInternational3FirstCost()
     {
@@ -1142,7 +1142,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_3_first_cost
-     * @param double $international_3_first_cost International 3 method first item cost
+     * @param float $international_3_first_cost International 3 method first item cost
      * @return $this
      */
     public function setInternational3FirstCost($international_3_first_cost)
@@ -1154,7 +1154,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets international_4_additional_cost
-     * @return double
+     * @return float
      */
     public function getInternational4AdditionalCost()
     {
@@ -1163,7 +1163,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_4_additional_cost
-     * @param double $international_4_additional_cost International 4 method additional item cost
+     * @param float $international_4_additional_cost International 4 method additional item cost
      * @return $this
      */
     public function setInternational4AdditionalCost($international_4_additional_cost)
@@ -1175,7 +1175,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets international_4_first_cost
-     * @return double
+     * @return float
      */
     public function getInternational4FirstCost()
     {
@@ -1184,7 +1184,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets international_4_first_cost
-     * @param double $international_4_first_cost International 4 method first item cost
+     * @param float $international_4_first_cost International 4 method first item cost
      * @return $this
      */
     public function setInternational4FirstCost($international_4_first_cost)
@@ -1301,7 +1301,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets listing_price
-     * @return double
+     * @return float
      */
     public function getListingPrice()
     {
@@ -1310,7 +1310,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listing_price
-     * @param double $listing_price Price to list the item at
+     * @param float $listing_price Price to list the item at
      * @return $this
      */
     public function setListingPrice($listing_price)
@@ -1322,7 +1322,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets listing_price_override
-     * @return double
+     * @return float
      */
     public function getListingPriceOverride()
     {
@@ -1331,7 +1331,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets listing_price_override
-     * @param double $listing_price_override The price to list the item at if different than the regular UltraCart item price
+     * @param float $listing_price_override The price to list the item at if different than the regular UltraCart item price
      * @return $this
      */
     public function setListingPriceOverride($listing_price_override)
@@ -1410,7 +1410,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_final_value_fee_percentage
-     * @return double
+     * @return float
      */
     public function getMarketplaceFinalValueFeePercentage()
     {
@@ -1419,7 +1419,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_final_value_fee_percentage
-     * @param double $marketplace_final_value_fee_percentage Marketplace FVF percentage
+     * @param float $marketplace_final_value_fee_percentage Marketplace FVF percentage
      * @return $this
      */
     public function setMarketplaceFinalValueFeePercentage($marketplace_final_value_fee_percentage)
@@ -1494,7 +1494,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_multiplier
-     * @return double
+     * @return float
      */
     public function getMarketplaceMultiplier()
     {
@@ -1503,7 +1503,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_multiplier
-     * @param double $marketplace_multiplier Marketplace multiplier
+     * @param float $marketplace_multiplier Marketplace multiplier
      * @return $this
      */
     public function setMarketplaceMultiplier($marketplace_multiplier)
@@ -1515,7 +1515,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_other_price
-     * @return double
+     * @return float
      */
     public function getMarketplaceOtherPrice()
     {
@@ -1524,7 +1524,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_other_price
-     * @param double $marketplace_other_price Marketplace other price
+     * @param float $marketplace_other_price Marketplace other price
      * @return $this
      */
     public function setMarketplaceOtherPrice($marketplace_other_price)
@@ -1557,7 +1557,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_other_shipping
-     * @return double
+     * @return float
      */
     public function getMarketplaceOtherShipping()
     {
@@ -1566,7 +1566,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_other_shipping
-     * @param double $marketplace_other_shipping Marketplace other shipping
+     * @param float $marketplace_other_shipping Marketplace other shipping
      * @return $this
      */
     public function setMarketplaceOtherShipping($marketplace_other_shipping)
@@ -1578,7 +1578,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_other_total
-     * @return double
+     * @return float
      */
     public function getMarketplaceOtherTotal()
     {
@@ -1587,7 +1587,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_other_total
-     * @param double $marketplace_other_total Marketplace other total
+     * @param float $marketplace_other_total Marketplace other total
      * @return $this
      */
     public function setMarketplaceOtherTotal($marketplace_other_total)
@@ -1599,7 +1599,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_our_additional_profit_potential
-     * @return double
+     * @return float
      */
     public function getMarketplaceOurAdditionalProfitPotential()
     {
@@ -1608,7 +1608,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_additional_profit_potential
-     * @param double $marketplace_our_additional_profit_potential Marketplace our additional profit potential
+     * @param float $marketplace_our_additional_profit_potential Marketplace our additional profit potential
      * @return $this
      */
     public function setMarketplaceOurAdditionalProfitPotential($marketplace_our_additional_profit_potential)
@@ -1620,7 +1620,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_our_price
-     * @return double
+     * @return float
      */
     public function getMarketplaceOurPrice()
     {
@@ -1629,7 +1629,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_price
-     * @param double $marketplace_our_price Marketplace our price
+     * @param float $marketplace_our_price Marketplace our price
      * @return $this
      */
     public function setMarketplaceOurPrice($marketplace_our_price)
@@ -1641,7 +1641,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_our_profit
-     * @return double
+     * @return float
      */
     public function getMarketplaceOurProfit()
     {
@@ -1650,7 +1650,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_profit
-     * @param double $marketplace_our_profit Marketplace our profit
+     * @param float $marketplace_our_profit Marketplace our profit
      * @return $this
      */
     public function setMarketplaceOurProfit($marketplace_our_profit)
@@ -1662,7 +1662,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_our_shipping
-     * @return double
+     * @return float
      */
     public function getMarketplaceOurShipping()
     {
@@ -1671,7 +1671,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_shipping
-     * @param double $marketplace_our_shipping Marketplace our shipping
+     * @param float $marketplace_our_shipping Marketplace our shipping
      * @return $this
      */
     public function setMarketplaceOurShipping($marketplace_our_shipping)
@@ -1683,7 +1683,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_our_total
-     * @return double
+     * @return float
      */
     public function getMarketplaceOurTotal()
     {
@@ -1692,7 +1692,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_our_total
-     * @param double $marketplace_our_total Marketplace our total
+     * @param float $marketplace_our_total Marketplace our total
      * @return $this
      */
     public function setMarketplaceOurTotal($marketplace_our_total)
@@ -1704,7 +1704,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets marketplace_overhead
-     * @return double
+     * @return float
      */
     public function getMarketplaceOverhead()
     {
@@ -1713,7 +1713,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets marketplace_overhead
-     * @param double $marketplace_overhead Marketplace overhead
+     * @param float $marketplace_overhead Marketplace overhead
      * @return $this
      */
     public function setMarketplaceOverhead($marketplace_overhead)
@@ -1809,7 +1809,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets packaging_handling_costs
-     * @return double
+     * @return float
      */
     public function getPackagingHandlingCosts()
     {
@@ -1818,7 +1818,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets packaging_handling_costs
-     * @param double $packaging_handling_costs Packaging and handling costs
+     * @param float $packaging_handling_costs Packaging and handling costs
      * @return $this
      */
     public function setPackagingHandlingCosts($packaging_handling_costs)
@@ -1872,7 +1872,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Gets reserve_price
-     * @return double
+     * @return float
      */
     public function getReservePrice()
     {
@@ -1881,7 +1881,7 @@ class ItemEbay implements ArrayAccess
 
     /**
      * Sets reserve_price
-     * @param double $reserve_price Reserve price
+     * @param float $reserve_price Reserve price
      * @return $this
      */
     public function setReservePrice($reserve_price)

@@ -150,6 +150,10 @@ class ItemCheckout implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['terms']) && (strlen($this->container['terms']) > 10000)) {
+            $invalid_properties[] = "invalid value for 'terms', the character length must be smaller than or equal to 10000.";
+        }
+
         return $invalid_properties;
     }
 
@@ -161,6 +165,9 @@ class ItemCheckout implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['terms']) > 10000) {
+            return false;
+        }
         return true;
     }
 
@@ -202,6 +209,9 @@ class ItemCheckout implements ArrayAccess
      */
     public function setTerms($terms)
     {
+        if (strlen($terms) > 10000) {
+            throw new \InvalidArgumentException('invalid length for $terms when calling ItemCheckout., must be smaller than or equal to 10000.');
+        }
         $this->container['terms'] = $terms;
 
         return $this;

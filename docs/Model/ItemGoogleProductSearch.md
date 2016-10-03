@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **promotion_id8** | **string** | Promotion ID 8 | [optional] 
 **promotion_id9** | **string** | Promotion ID 9 | [optional] 
 **search_dts** | **string** | Search date/time | [optional] 
-**search_lowest_price** | **double** | Search lowest price | [optional] 
+**search_lowest_price** | **float** | Search lowest price | [optional] 
 **search_lowest_url** | **string** | Search lowest URL | [optional] 
 **search_position** | **int** | Search position | [optional] 
 **size** | **string** | Size | [optional] 

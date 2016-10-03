@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **checkout** | [**\ultracart\admin\v2\models\ItemCheckout**](ItemCheckout.md) |  | [optional] 
 **content** | [**\ultracart\admin\v2\models\ItemContent**](ItemContent.md) |  | [optional] 
 **creation_dts** | **string** | Date/time of creation | [optional] 
-**description** | **string** | Description of the item up to 500 chracaters. | [optional] 
+**description** | **string** | Description of the item up to 500 characters. | [optional] 
 **description_translated_text_instance_oid** | **int** | Description translated text instance id | [optional] 
 **digital_delivery** | [**\ultracart\admin\v2\models\ItemDigitalDelivery**](ItemDigitalDelivery.md) |  | [optional] 
 **ebay** | [**\ultracart\admin\v2\models\ItemEbay**](ItemEbay.md) |  | [optional] 

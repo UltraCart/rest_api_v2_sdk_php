@@ -155,6 +155,10 @@ class ItemShippingCase implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['case_label']) && (strlen($this->container['case_label']) > 20)) {
+            $invalid_properties[] = "invalid value for 'case_label', the character length must be smaller than or equal to 20.";
+        }
+
         return $invalid_properties;
     }
 
@@ -166,6 +170,9 @@ class ItemShippingCase implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['case_label']) > 20) {
+            return false;
+        }
         return true;
     }
 
@@ -186,6 +193,9 @@ class ItemShippingCase implements ArrayAccess
      */
     public function setCaseLabel($case_label)
     {
+        if (strlen($case_label) > 20) {
+            throw new \InvalidArgumentException('invalid length for $case_label when calling ItemShippingCase., must be smaller than or equal to 20.');
+        }
         $this->container['case_label'] = $case_label;
 
         return $this;

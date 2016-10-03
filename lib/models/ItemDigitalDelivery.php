@@ -165,6 +165,18 @@ class ItemDigitalDelivery implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['activation_code_description']) && (strlen($this->container['activation_code_description']) > 50)) {
+            $invalid_properties[] = "invalid value for 'activation_code_description', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['activation_code_realtime_url']) && (strlen($this->container['activation_code_realtime_url']) > 350)) {
+            $invalid_properties[] = "invalid value for 'activation_code_realtime_url', the character length must be smaller than or equal to 350.";
+        }
+
+        if (!is_null($this->container['activation_code_shared_secret']) && (strlen($this->container['activation_code_shared_secret']) > 20)) {
+            $invalid_properties[] = "invalid value for 'activation_code_shared_secret', the character length must be smaller than or equal to 20.";
+        }
+
         return $invalid_properties;
     }
 
@@ -176,6 +188,15 @@ class ItemDigitalDelivery implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['activation_code_description']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['activation_code_realtime_url']) > 350) {
+            return false;
+        }
+        if (strlen($this->container['activation_code_shared_secret']) > 20) {
+            return false;
+        }
         return true;
     }
 
@@ -196,6 +217,9 @@ class ItemDigitalDelivery implements ArrayAccess
      */
     public function setActivationCodeDescription($activation_code_description)
     {
+        if (strlen($activation_code_description) > 50) {
+            throw new \InvalidArgumentException('invalid length for $activation_code_description when calling ItemDigitalDelivery., must be smaller than or equal to 50.');
+        }
         $this->container['activation_code_description'] = $activation_code_description;
 
         return $this;
@@ -238,6 +262,9 @@ class ItemDigitalDelivery implements ArrayAccess
      */
     public function setActivationCodeRealtimeUrl($activation_code_realtime_url)
     {
+        if (strlen($activation_code_realtime_url) > 350) {
+            throw new \InvalidArgumentException('invalid length for $activation_code_realtime_url when calling ItemDigitalDelivery., must be smaller than or equal to 350.');
+        }
         $this->container['activation_code_realtime_url'] = $activation_code_realtime_url;
 
         return $this;
@@ -259,6 +286,9 @@ class ItemDigitalDelivery implements ArrayAccess
      */
     public function setActivationCodeSharedSecret($activation_code_shared_secret)
     {
+        if (strlen($activation_code_shared_secret) > 20) {
+            throw new \InvalidArgumentException('invalid length for $activation_code_shared_secret when calling ItemDigitalDelivery., must be smaller than or equal to 20.');
+        }
         $this->container['activation_code_shared_secret'] = $activation_code_shared_secret;
 
         return $this;

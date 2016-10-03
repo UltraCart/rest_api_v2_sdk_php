@@ -69,7 +69,7 @@ class ItemReviews implements ArrayAccess
         'has_approved_review' => 'bool',
         'has_review' => 'bool',
         'review_count' => 'int',
-        'review_overall' => 'double',
+        'review_overall' => 'float',
         'review_template_name' => 'string',
         'review_template_oid' => 'int',
         'reviewable' => 'bool'
@@ -250,7 +250,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Gets review_overall
-     * @return double
+     * @return float
      */
     public function getReviewOverall()
     {
@@ -259,7 +259,7 @@ class ItemReviews implements ArrayAccess
 
     /**
      * Sets review_overall
-     * @param double $review_overall Overall score of reviews
+     * @param float $review_overall Overall score of reviews
      * @return $this
      */
     public function setReviewOverall($review_overall)

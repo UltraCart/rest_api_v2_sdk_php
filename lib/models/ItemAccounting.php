@@ -145,6 +145,14 @@ class ItemAccounting implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['accounting_code']) && (strlen($this->container['accounting_code']) > 50)) {
+            $invalid_properties[] = "invalid value for 'accounting_code', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['qb_class']) && (strlen($this->container['qb_class']) > 31)) {
+            $invalid_properties[] = "invalid value for 'qb_class', the character length must be smaller than or equal to 31.";
+        }
+
         return $invalid_properties;
     }
 
@@ -156,6 +164,12 @@ class ItemAccounting implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['accounting_code']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['qb_class']) > 31) {
+            return false;
+        }
         return true;
     }
 
@@ -176,6 +190,9 @@ class ItemAccounting implements ArrayAccess
      */
     public function setAccountingCode($accounting_code)
     {
+        if (strlen($accounting_code) > 50) {
+            throw new \InvalidArgumentException('invalid length for $accounting_code when calling ItemAccounting., must be smaller than or equal to 50.');
+        }
         $this->container['accounting_code'] = $accounting_code;
 
         return $this;
@@ -197,6 +214,9 @@ class ItemAccounting implements ArrayAccess
      */
     public function setQbClass($qb_class)
     {
+        if (strlen($qb_class) > 31) {
+            throw new \InvalidArgumentException('invalid length for $qb_class when calling ItemAccounting., must be smaller than or equal to 31.');
+        }
         $this->container['qb_class'] = $qb_class;
 
         return $this;

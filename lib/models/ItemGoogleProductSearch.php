@@ -104,7 +104,7 @@ class ItemGoogleProductSearch implements ArrayAccess
         'promotion_id8' => 'string',
         'promotion_id9' => 'string',
         'search_dts' => 'string',
-        'search_lowest_price' => 'double',
+        'search_lowest_price' => 'float',
         'search_lowest_url' => 'string',
         'search_position' => 'int',
         'size' => 'string',
@@ -370,6 +370,166 @@ class ItemGoogleProductSearch implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['adwords_grouping']) && (strlen($this->container['adwords_grouping']) > 50)) {
+            $invalid_properties[] = "invalid value for 'adwords_grouping', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['adwords_label1']) && (strlen($this->container['adwords_label1']) > 50)) {
+            $invalid_properties[] = "invalid value for 'adwords_label1', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['adwords_label2']) && (strlen($this->container['adwords_label2']) > 50)) {
+            $invalid_properties[] = "invalid value for 'adwords_label2', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['adwords_label3']) && (strlen($this->container['adwords_label3']) > 50)) {
+            $invalid_properties[] = "invalid value for 'adwords_label3', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['adwords_label4']) && (strlen($this->container['adwords_label4']) > 50)) {
+            $invalid_properties[] = "invalid value for 'adwords_label4', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['adwords_label5']) && (strlen($this->container['adwords_label5']) > 50)) {
+            $invalid_properties[] = "invalid value for 'adwords_label5', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['age_group']) && (strlen($this->container['age_group']) > 5)) {
+            $invalid_properties[] = "invalid value for 'age_group', the character length must be smaller than or equal to 5.";
+        }
+
+        if (!is_null($this->container['book_author']) && (strlen($this->container['book_author']) > 50)) {
+            $invalid_properties[] = "invalid value for 'book_author', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['book_format']) && (strlen($this->container['book_format']) > 50)) {
+            $invalid_properties[] = "invalid value for 'book_format', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['book_isbn']) && (strlen($this->container['book_isbn']) > 20)) {
+            $invalid_properties[] = "invalid value for 'book_isbn', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!is_null($this->container['book_publisher']) && (strlen($this->container['book_publisher']) > 50)) {
+            $invalid_properties[] = "invalid value for 'book_publisher', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['category_description']) && (strlen($this->container['category_description']) > 1000)) {
+            $invalid_properties[] = "invalid value for 'category_description', the character length must be smaller than or equal to 1000.";
+        }
+
+        if (!is_null($this->container['color']) && (strlen($this->container['color']) > 20)) {
+            $invalid_properties[] = "invalid value for 'color', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!is_null($this->container['condition']) && (strlen($this->container['condition']) > 15)) {
+            $invalid_properties[] = "invalid value for 'condition', the character length must be smaller than or equal to 15.";
+        }
+
+        if (!is_null($this->container['custom_label0']) && (strlen($this->container['custom_label0']) > 50)) {
+            $invalid_properties[] = "invalid value for 'custom_label0', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['custom_label1']) && (strlen($this->container['custom_label1']) > 50)) {
+            $invalid_properties[] = "invalid value for 'custom_label1', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['custom_label2']) && (strlen($this->container['custom_label2']) > 50)) {
+            $invalid_properties[] = "invalid value for 'custom_label2', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['custom_label3']) && (strlen($this->container['custom_label3']) > 50)) {
+            $invalid_properties[] = "invalid value for 'custom_label3', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['custom_label4']) && (strlen($this->container['custom_label4']) > 50)) {
+            $invalid_properties[] = "invalid value for 'custom_label4', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['gender']) && (strlen($this->container['gender']) > 6)) {
+            $invalid_properties[] = "invalid value for 'gender', the character length must be smaller than or equal to 6.";
+        }
+
+        if (!is_null($this->container['google_product_category']) && (strlen($this->container['google_product_category']) > 250)) {
+            $invalid_properties[] = "invalid value for 'google_product_category', the character length must be smaller than or equal to 250.";
+        }
+
+        if (!is_null($this->container['music_artist']) && (strlen($this->container['music_artist']) > 50)) {
+            $invalid_properties[] = "invalid value for 'music_artist', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['music_format']) && (strlen($this->container['music_format']) > 5)) {
+            $invalid_properties[] = "invalid value for 'music_format', the character length must be smaller than or equal to 5.";
+        }
+
+        if (!is_null($this->container['product_type']) && (strlen($this->container['product_type']) > 10)) {
+            $invalid_properties[] = "invalid value for 'product_type', the character length must be smaller than or equal to 10.";
+        }
+
+        if (!is_null($this->container['promotion_id1']) && (strlen($this->container['promotion_id1']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id1', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id10']) && (strlen($this->container['promotion_id10']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id10', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id2']) && (strlen($this->container['promotion_id2']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id2', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id3']) && (strlen($this->container['promotion_id3']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id3', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id4']) && (strlen($this->container['promotion_id4']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id4', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id5']) && (strlen($this->container['promotion_id5']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id5', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id6']) && (strlen($this->container['promotion_id6']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id6', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id7']) && (strlen($this->container['promotion_id7']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id7', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id8']) && (strlen($this->container['promotion_id8']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id8', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['promotion_id9']) && (strlen($this->container['promotion_id9']) > 30)) {
+            $invalid_properties[] = "invalid value for 'promotion_id9', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['search_lowest_url']) && (strlen($this->container['search_lowest_url']) > 250)) {
+            $invalid_properties[] = "invalid value for 'search_lowest_url', the character length must be smaller than or equal to 250.";
+        }
+
+        if (!is_null($this->container['size']) && (strlen($this->container['size']) > 20)) {
+            $invalid_properties[] = "invalid value for 'size', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!is_null($this->container['video_director']) && (strlen($this->container['video_director']) > 50)) {
+            $invalid_properties[] = "invalid value for 'video_director', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['video_format']) && (strlen($this->container['video_format']) > 5)) {
+            $invalid_properties[] = "invalid value for 'video_format', the character length must be smaller than or equal to 5.";
+        }
+
+        if (!is_null($this->container['video_rating']) && (strlen($this->container['video_rating']) > 5)) {
+            $invalid_properties[] = "invalid value for 'video_rating', the character length must be smaller than or equal to 5.";
+        }
+
+        if (!is_null($this->container['video_starring']) && (strlen($this->container['video_starring']) > 150)) {
+            $invalid_properties[] = "invalid value for 'video_starring', the character length must be smaller than or equal to 150.";
+        }
+
         return $invalid_properties;
     }
 
@@ -381,6 +541,126 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['adwords_grouping']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['adwords_label1']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['adwords_label2']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['adwords_label3']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['adwords_label4']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['adwords_label5']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['age_group']) > 5) {
+            return false;
+        }
+        if (strlen($this->container['book_author']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['book_format']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['book_isbn']) > 20) {
+            return false;
+        }
+        if (strlen($this->container['book_publisher']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['category_description']) > 1000) {
+            return false;
+        }
+        if (strlen($this->container['color']) > 20) {
+            return false;
+        }
+        if (strlen($this->container['condition']) > 15) {
+            return false;
+        }
+        if (strlen($this->container['custom_label0']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['custom_label1']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['custom_label2']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['custom_label3']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['custom_label4']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['gender']) > 6) {
+            return false;
+        }
+        if (strlen($this->container['google_product_category']) > 250) {
+            return false;
+        }
+        if (strlen($this->container['music_artist']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['music_format']) > 5) {
+            return false;
+        }
+        if (strlen($this->container['product_type']) > 10) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id1']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id10']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id2']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id3']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id4']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id5']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id6']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id7']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id8']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['promotion_id9']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['search_lowest_url']) > 250) {
+            return false;
+        }
+        if (strlen($this->container['size']) > 20) {
+            return false;
+        }
+        if (strlen($this->container['video_director']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['video_format']) > 5) {
+            return false;
+        }
+        if (strlen($this->container['video_rating']) > 5) {
+            return false;
+        }
+        if (strlen($this->container['video_starring']) > 150) {
+            return false;
+        }
         return true;
     }
 
@@ -401,6 +681,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setAdwordsGrouping($adwords_grouping)
     {
+        if (strlen($adwords_grouping) > 50) {
+            throw new \InvalidArgumentException('invalid length for $adwords_grouping when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['adwords_grouping'] = $adwords_grouping;
 
         return $this;
@@ -422,6 +705,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setAdwordsLabel1($adwords_label1)
     {
+        if (strlen($adwords_label1) > 50) {
+            throw new \InvalidArgumentException('invalid length for $adwords_label1 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['adwords_label1'] = $adwords_label1;
 
         return $this;
@@ -443,6 +729,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setAdwordsLabel2($adwords_label2)
     {
+        if (strlen($adwords_label2) > 50) {
+            throw new \InvalidArgumentException('invalid length for $adwords_label2 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['adwords_label2'] = $adwords_label2;
 
         return $this;
@@ -464,6 +753,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setAdwordsLabel3($adwords_label3)
     {
+        if (strlen($adwords_label3) > 50) {
+            throw new \InvalidArgumentException('invalid length for $adwords_label3 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['adwords_label3'] = $adwords_label3;
 
         return $this;
@@ -485,6 +777,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setAdwordsLabel4($adwords_label4)
     {
+        if (strlen($adwords_label4) > 50) {
+            throw new \InvalidArgumentException('invalid length for $adwords_label4 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['adwords_label4'] = $adwords_label4;
 
         return $this;
@@ -506,6 +801,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setAdwordsLabel5($adwords_label5)
     {
+        if (strlen($adwords_label5) > 50) {
+            throw new \InvalidArgumentException('invalid length for $adwords_label5 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['adwords_label5'] = $adwords_label5;
 
         return $this;
@@ -527,6 +825,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setAgeGroup($age_group)
     {
+        if (strlen($age_group) > 5) {
+            throw new \InvalidArgumentException('invalid length for $age_group when calling ItemGoogleProductSearch., must be smaller than or equal to 5.');
+        }
         $this->container['age_group'] = $age_group;
 
         return $this;
@@ -569,6 +870,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setBookAuthor($book_author)
     {
+        if (strlen($book_author) > 50) {
+            throw new \InvalidArgumentException('invalid length for $book_author when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['book_author'] = $book_author;
 
         return $this;
@@ -590,6 +894,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setBookFormat($book_format)
     {
+        if (strlen($book_format) > 50) {
+            throw new \InvalidArgumentException('invalid length for $book_format when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['book_format'] = $book_format;
 
         return $this;
@@ -611,6 +918,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setBookIsbn($book_isbn)
     {
+        if (strlen($book_isbn) > 20) {
+            throw new \InvalidArgumentException('invalid length for $book_isbn when calling ItemGoogleProductSearch., must be smaller than or equal to 20.');
+        }
         $this->container['book_isbn'] = $book_isbn;
 
         return $this;
@@ -632,6 +942,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setBookPublisher($book_publisher)
     {
+        if (strlen($book_publisher) > 50) {
+            throw new \InvalidArgumentException('invalid length for $book_publisher when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['book_publisher'] = $book_publisher;
 
         return $this;
@@ -653,6 +966,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setCategoryDescription($category_description)
     {
+        if (strlen($category_description) > 1000) {
+            throw new \InvalidArgumentException('invalid length for $category_description when calling ItemGoogleProductSearch., must be smaller than or equal to 1000.');
+        }
         $this->container['category_description'] = $category_description;
 
         return $this;
@@ -674,6 +990,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setColor($color)
     {
+        if (strlen($color) > 20) {
+            throw new \InvalidArgumentException('invalid length for $color when calling ItemGoogleProductSearch., must be smaller than or equal to 20.');
+        }
         $this->container['color'] = $color;
 
         return $this;
@@ -695,6 +1014,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setCondition($condition)
     {
+        if (strlen($condition) > 15) {
+            throw new \InvalidArgumentException('invalid length for $condition when calling ItemGoogleProductSearch., must be smaller than or equal to 15.');
+        }
         $this->container['condition'] = $condition;
 
         return $this;
@@ -716,6 +1038,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setCustomLabel0($custom_label0)
     {
+        if (strlen($custom_label0) > 50) {
+            throw new \InvalidArgumentException('invalid length for $custom_label0 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['custom_label0'] = $custom_label0;
 
         return $this;
@@ -737,6 +1062,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setCustomLabel1($custom_label1)
     {
+        if (strlen($custom_label1) > 50) {
+            throw new \InvalidArgumentException('invalid length for $custom_label1 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['custom_label1'] = $custom_label1;
 
         return $this;
@@ -758,6 +1086,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setCustomLabel2($custom_label2)
     {
+        if (strlen($custom_label2) > 50) {
+            throw new \InvalidArgumentException('invalid length for $custom_label2 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['custom_label2'] = $custom_label2;
 
         return $this;
@@ -779,6 +1110,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setCustomLabel3($custom_label3)
     {
+        if (strlen($custom_label3) > 50) {
+            throw new \InvalidArgumentException('invalid length for $custom_label3 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['custom_label3'] = $custom_label3;
 
         return $this;
@@ -800,6 +1134,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setCustomLabel4($custom_label4)
     {
+        if (strlen($custom_label4) > 50) {
+            throw new \InvalidArgumentException('invalid length for $custom_label4 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['custom_label4'] = $custom_label4;
 
         return $this;
@@ -821,6 +1158,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setGender($gender)
     {
+        if (strlen($gender) > 6) {
+            throw new \InvalidArgumentException('invalid length for $gender when calling ItemGoogleProductSearch., must be smaller than or equal to 6.');
+        }
         $this->container['gender'] = $gender;
 
         return $this;
@@ -842,6 +1182,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setGoogleProductCategory($google_product_category)
     {
+        if (strlen($google_product_category) > 250) {
+            throw new \InvalidArgumentException('invalid length for $google_product_category when calling ItemGoogleProductSearch., must be smaller than or equal to 250.');
+        }
         $this->container['google_product_category'] = $google_product_category;
 
         return $this;
@@ -863,6 +1206,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setMusicArtist($music_artist)
     {
+        if (strlen($music_artist) > 50) {
+            throw new \InvalidArgumentException('invalid length for $music_artist when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['music_artist'] = $music_artist;
 
         return $this;
@@ -884,6 +1230,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setMusicFormat($music_format)
     {
+        if (strlen($music_format) > 5) {
+            throw new \InvalidArgumentException('invalid length for $music_format when calling ItemGoogleProductSearch., must be smaller than or equal to 5.');
+        }
         $this->container['music_format'] = $music_format;
 
         return $this;
@@ -947,6 +1296,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setProductType($product_type)
     {
+        if (strlen($product_type) > 10) {
+            throw new \InvalidArgumentException('invalid length for $product_type when calling ItemGoogleProductSearch., must be smaller than or equal to 10.');
+        }
         $this->container['product_type'] = $product_type;
 
         return $this;
@@ -968,6 +1320,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId1($promotion_id1)
     {
+        if (strlen($promotion_id1) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id1 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id1'] = $promotion_id1;
 
         return $this;
@@ -989,6 +1344,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId10($promotion_id10)
     {
+        if (strlen($promotion_id10) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id10 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id10'] = $promotion_id10;
 
         return $this;
@@ -1010,6 +1368,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId2($promotion_id2)
     {
+        if (strlen($promotion_id2) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id2 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id2'] = $promotion_id2;
 
         return $this;
@@ -1031,6 +1392,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId3($promotion_id3)
     {
+        if (strlen($promotion_id3) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id3 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id3'] = $promotion_id3;
 
         return $this;
@@ -1052,6 +1416,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId4($promotion_id4)
     {
+        if (strlen($promotion_id4) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id4 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id4'] = $promotion_id4;
 
         return $this;
@@ -1073,6 +1440,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId5($promotion_id5)
     {
+        if (strlen($promotion_id5) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id5 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id5'] = $promotion_id5;
 
         return $this;
@@ -1094,6 +1464,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId6($promotion_id6)
     {
+        if (strlen($promotion_id6) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id6 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id6'] = $promotion_id6;
 
         return $this;
@@ -1115,6 +1488,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId7($promotion_id7)
     {
+        if (strlen($promotion_id7) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id7 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id7'] = $promotion_id7;
 
         return $this;
@@ -1136,6 +1512,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId8($promotion_id8)
     {
+        if (strlen($promotion_id8) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id8 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id8'] = $promotion_id8;
 
         return $this;
@@ -1157,6 +1536,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setPromotionId9($promotion_id9)
     {
+        if (strlen($promotion_id9) > 30) {
+            throw new \InvalidArgumentException('invalid length for $promotion_id9 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
+        }
         $this->container['promotion_id9'] = $promotion_id9;
 
         return $this;
@@ -1185,7 +1567,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Gets search_lowest_price
-     * @return double
+     * @return float
      */
     public function getSearchLowestPrice()
     {
@@ -1194,7 +1576,7 @@ class ItemGoogleProductSearch implements ArrayAccess
 
     /**
      * Sets search_lowest_price
-     * @param double $search_lowest_price Search lowest price
+     * @param float $search_lowest_price Search lowest price
      * @return $this
      */
     public function setSearchLowestPrice($search_lowest_price)
@@ -1220,6 +1602,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setSearchLowestUrl($search_lowest_url)
     {
+        if (strlen($search_lowest_url) > 250) {
+            throw new \InvalidArgumentException('invalid length for $search_lowest_url when calling ItemGoogleProductSearch., must be smaller than or equal to 250.');
+        }
         $this->container['search_lowest_url'] = $search_lowest_url;
 
         return $this;
@@ -1262,6 +1647,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setSize($size)
     {
+        if (strlen($size) > 20) {
+            throw new \InvalidArgumentException('invalid length for $size when calling ItemGoogleProductSearch., must be smaller than or equal to 20.');
+        }
         $this->container['size'] = $size;
 
         return $this;
@@ -1283,6 +1671,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setVideoDirector($video_director)
     {
+        if (strlen($video_director) > 50) {
+            throw new \InvalidArgumentException('invalid length for $video_director when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
+        }
         $this->container['video_director'] = $video_director;
 
         return $this;
@@ -1304,6 +1695,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setVideoFormat($video_format)
     {
+        if (strlen($video_format) > 5) {
+            throw new \InvalidArgumentException('invalid length for $video_format when calling ItemGoogleProductSearch., must be smaller than or equal to 5.');
+        }
         $this->container['video_format'] = $video_format;
 
         return $this;
@@ -1325,6 +1719,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setVideoRating($video_rating)
     {
+        if (strlen($video_rating) > 5) {
+            throw new \InvalidArgumentException('invalid length for $video_rating when calling ItemGoogleProductSearch., must be smaller than or equal to 5.');
+        }
         $this->container['video_rating'] = $video_rating;
 
         return $this;
@@ -1367,6 +1764,9 @@ class ItemGoogleProductSearch implements ArrayAccess
      */
     public function setVideoStarring($video_starring)
     {
+        if (strlen($video_starring) > 150) {
+            throw new \InvalidArgumentException('invalid length for $video_starring when calling ItemGoogleProductSearch., must be smaller than or equal to 150.');
+        }
         $this->container['video_starring'] = $video_starring;
 
         return $this;

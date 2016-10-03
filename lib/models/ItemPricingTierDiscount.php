@@ -66,7 +66,7 @@ class ItemPricingTierDiscount implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'cost' => 'double',
+        'cost' => 'float',
         'quantity' => 'int'
     );
 
@@ -162,7 +162,7 @@ class ItemPricingTierDiscount implements ArrayAccess
 
     /**
      * Gets cost
-     * @return double
+     * @return float
      */
     public function getCost()
     {
@@ -171,7 +171,7 @@ class ItemPricingTierDiscount implements ArrayAccess
 
     /**
      * Sets cost
-     * @param double $cost Cost
+     * @param float $cost Cost
      * @return $this
      */
     public function setCost($cost)

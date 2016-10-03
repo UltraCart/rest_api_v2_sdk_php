@@ -190,6 +190,10 @@ class ItemContent implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['extended_description']) && (strlen($this->container['extended_description']) > 2000)) {
+            $invalid_properties[] = "invalid value for 'extended_description', the character length must be smaller than or equal to 2000.";
+        }
+
         return $invalid_properties;
     }
 
@@ -201,6 +205,9 @@ class ItemContent implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['extended_description']) > 2000) {
+            return false;
+        }
         return true;
     }
 
@@ -305,6 +312,9 @@ class ItemContent implements ArrayAccess
      */
     public function setExtendedDescription($extended_description)
     {
+        if (strlen($extended_description) > 2000) {
+            throw new \InvalidArgumentException('invalid length for $extended_description when calling ItemContent., must be smaller than or equal to 2000.');
+        }
         $this->container['extended_description'] = $extended_description;
 
         return $this;

@@ -71,9 +71,9 @@ class ItemShipping implements ArrayAccess
         'case_inner_packs' => 'int',
         'case_units' => 'int',
         'cases' => '\ultracart\admin\v2\models\ItemShippingCase[]',
-        'country_of_origin' => 'string',
+        'country_code_of_origin' => 'string',
         'customs_description' => 'string',
-        'customs_value' => 'double',
+        'customs_value' => 'float',
         'delivery_on_friday' => 'bool',
         'delivery_on_monday' => 'bool',
         'delivery_on_saturday' => 'bool',
@@ -130,7 +130,7 @@ class ItemShipping implements ArrayAccess
         'case_inner_packs' => 'case_inner_packs',
         'case_units' => 'case_units',
         'cases' => 'cases',
-        'country_of_origin' => 'country_of_origin',
+        'country_code_of_origin' => 'country_code_of_origin',
         'customs_description' => 'customs_description',
         'customs_value' => 'customs_value',
         'delivery_on_friday' => 'delivery_on_friday',
@@ -189,7 +189,7 @@ class ItemShipping implements ArrayAccess
         'case_inner_packs' => 'setCaseInnerPacks',
         'case_units' => 'setCaseUnits',
         'cases' => 'setCases',
-        'country_of_origin' => 'setCountryOfOrigin',
+        'country_code_of_origin' => 'setCountryCodeOfOrigin',
         'customs_description' => 'setCustomsDescription',
         'customs_value' => 'setCustomsValue',
         'delivery_on_friday' => 'setDeliveryOnFriday',
@@ -248,7 +248,7 @@ class ItemShipping implements ArrayAccess
         'case_inner_packs' => 'getCaseInnerPacks',
         'case_units' => 'getCaseUnits',
         'cases' => 'getCases',
-        'country_of_origin' => 'getCountryOfOrigin',
+        'country_code_of_origin' => 'getCountryCodeOfOrigin',
         'customs_description' => 'getCustomsDescription',
         'customs_value' => 'getCustomsValue',
         'delivery_on_friday' => 'getDeliveryOnFriday',
@@ -318,7 +318,7 @@ class ItemShipping implements ArrayAccess
         $this->container['case_inner_packs'] = isset($data['case_inner_packs']) ? $data['case_inner_packs'] : null;
         $this->container['case_units'] = isset($data['case_units']) ? $data['case_units'] : null;
         $this->container['cases'] = isset($data['cases']) ? $data['cases'] : null;
-        $this->container['country_of_origin'] = isset($data['country_of_origin']) ? $data['country_of_origin'] : null;
+        $this->container['country_code_of_origin'] = isset($data['country_code_of_origin']) ? $data['country_code_of_origin'] : null;
         $this->container['customs_description'] = isset($data['customs_description']) ? $data['customs_description'] : null;
         $this->container['customs_value'] = isset($data['customs_value']) ? $data['customs_value'] : null;
         $this->container['delivery_on_friday'] = isset($data['delivery_on_friday']) ? $data['delivery_on_friday'] : null;
@@ -370,6 +370,10 @@ class ItemShipping implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['country_code_of_origin']) && (strlen($this->container['country_code_of_origin']) > 2)) {
+            $invalid_properties[] = "invalid value for 'country_code_of_origin', the character length must be smaller than or equal to 2.";
+        }
+
         return $invalid_properties;
     }
 
@@ -381,6 +385,9 @@ class ItemShipping implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['country_code_of_origin']) > 2) {
+            return false;
+        }
         return true;
     }
 
@@ -491,22 +498,25 @@ class ItemShipping implements ArrayAccess
     }
 
     /**
-     * Gets country_of_origin
+     * Gets country_code_of_origin
      * @return string
      */
-    public function getCountryOfOrigin()
+    public function getCountryCodeOfOrigin()
     {
-        return $this->container['country_of_origin'];
+        return $this->container['country_code_of_origin'];
     }
 
     /**
-     * Sets country_of_origin
-     * @param string $country_of_origin Country of origin (for customs)
+     * Sets country_code_of_origin
+     * @param string $country_code_of_origin Country code of origin for customs forms.  (ISO-3166 two letter code)
      * @return $this
      */
-    public function setCountryOfOrigin($country_of_origin)
+    public function setCountryCodeOfOrigin($country_code_of_origin)
     {
-        $this->container['country_of_origin'] = $country_of_origin;
+        if (strlen($country_code_of_origin) > 2) {
+            throw new \InvalidArgumentException('invalid length for $country_code_of_origin when calling ItemShipping., must be smaller than or equal to 2.');
+        }
+        $this->container['country_code_of_origin'] = $country_code_of_origin;
 
         return $this;
     }
@@ -534,7 +544,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Gets customs_value
-     * @return double
+     * @return float
      */
     public function getCustomsValue()
     {
@@ -543,7 +553,7 @@ class ItemShipping implements ArrayAccess
 
     /**
      * Sets customs_value
-     * @param double $customs_value Customs value
+     * @param float $customs_value Customs value
      * @return $this
      */
     public function setCustomsValue($customs_value)

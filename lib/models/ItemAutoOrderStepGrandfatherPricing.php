@@ -67,7 +67,7 @@ class ItemAutoOrderStepGrandfatherPricing implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'on_or_before_date' => 'string',
-        'unit_cost' => 'double'
+        'unit_cost' => 'float'
     );
 
     public static function swaggerTypes()
@@ -183,7 +183,7 @@ class ItemAutoOrderStepGrandfatherPricing implements ArrayAccess
 
     /**
      * Gets unit_cost
-     * @return double
+     * @return float
      */
     public function getUnitCost()
     {
@@ -192,7 +192,7 @@ class ItemAutoOrderStepGrandfatherPricing implements ArrayAccess
 
     /**
      * Sets unit_cost
-     * @param double $unit_cost Unit cost
+     * @param float $unit_cost Unit cost
      * @return $this
      */
     public function setUnitCost($unit_cost)

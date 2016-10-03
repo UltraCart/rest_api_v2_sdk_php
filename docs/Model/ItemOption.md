@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cost_if_specified** | **double** | Cost if specified | [optional] 
-**cost_per_letter** | **double** | Cost per letter | [optional] 
-**cost_per_line** | **double** | Cost per line | [optional] 
+**cost_if_specified** | **float** | Cost if specified | [optional] 
+**cost_per_letter** | **float** | Cost per letter | [optional] 
+**cost_per_line** | **float** | Cost per line | [optional] 
 **ignore_if_default** | **bool** | Ignore this option on the order if the default value is selected | [optional] 
 **label** | **string** | Label | [optional] 
 **label_translated_text_instance_oid** | **int** | Label translated text instance ID | [optional] 

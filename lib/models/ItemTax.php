@@ -68,7 +68,7 @@ class ItemTax implements ArrayAccess
     protected static $swaggerTypes = array(
         'exemptions' => '\ultracart\admin\v2\models\ItemTaxExemption[]',
         'tax_free' => 'bool',
-        'taxable_cost' => 'double'
+        'taxable_cost' => 'float'
     );
 
     public static function swaggerTypes()
@@ -209,7 +209,7 @@ class ItemTax implements ArrayAccess
 
     /**
      * Gets taxable_cost
-     * @return double
+     * @return float
      */
     public function getTaxableCost()
     {
@@ -218,7 +218,7 @@ class ItemTax implements ArrayAccess
 
     /**
      * Sets taxable_cost
-     * @param double $taxable_cost Taxable cost if different than regular cost
+     * @param float $taxable_cost Taxable cost if different than regular cost
      * @return $this
      */
     public function setTaxableCost($taxable_cost)

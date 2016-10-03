@@ -67,7 +67,7 @@ class ItemAutoOrderStep implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'arbitrary_schedule_days' => 'int',
-        'arbitrary_unit_cost' => 'double',
+        'arbitrary_unit_cost' => 'float',
         'arbitrary_unit_cost_schedules' => '\ultracart\admin\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]',
         'grandfather_pricing' => '\ultracart\admin\v2\models\ItemAutoOrderStepGrandfatherPricing[]',
         'managed_by' => 'string',
@@ -224,6 +224,10 @@ class ItemAutoOrderStep implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['recurring_merchant_item_id']) && (strlen($this->container['recurring_merchant_item_id']) > 20)) {
+            $invalid_properties[] = "invalid value for 'recurring_merchant_item_id', the character length must be smaller than or equal to 20.";
+        }
+
         $allowed_values = array("item", "pause");
         if (!in_array($this->container['type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
@@ -240,6 +244,9 @@ class ItemAutoOrderStep implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['recurring_merchant_item_id']) > 20) {
+            return false;
+        }
         $allowed_values = array("item", "pause");
         if (!in_array($this->container['type'], $allowed_values)) {
             return false;
@@ -271,7 +278,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Gets arbitrary_unit_cost
-     * @return double
+     * @return float
      */
     public function getArbitraryUnitCost()
     {
@@ -280,7 +287,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets arbitrary_unit_cost
-     * @param double $arbitrary_unit_cost Arbitrary unit cost used to override the regular item cost
+     * @param float $arbitrary_unit_cost Arbitrary unit cost used to override the regular item cost
      * @return $this
      */
     public function setArbitraryUnitCost($arbitrary_unit_cost)
@@ -432,6 +439,9 @@ class ItemAutoOrderStep implements ArrayAccess
      */
     public function setRecurringMerchantItemId($recurring_merchant_item_id)
     {
+        if (strlen($recurring_merchant_item_id) > 20) {
+            throw new \InvalidArgumentException('invalid length for $recurring_merchant_item_id when calling ItemAutoOrderStep., must be smaller than or equal to 20.');
+        }
         $this->container['recurring_merchant_item_id'] = $recurring_merchant_item_id;
 
         return $this;
@@ -511,7 +521,7 @@ class ItemAutoOrderStep implements ArrayAccess
 
     /**
      * Sets subscribe_email_list_name
-     * @param string $subscribe_email_list_name Email list name to subscribe teh customer to when the rebill occurs
+     * @param string $subscribe_email_list_name Email list name to subscribe the customer to when the rebill occurs
      * @return $this
      */
     public function setSubscribeEmailListName($subscribe_email_list_name)

@@ -150,6 +150,14 @@ class ItemInstantPaymentNotification implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['successful_response_text']) && (strlen($this->container['successful_response_text']) > 1024)) {
+            $invalid_properties[] = "invalid value for 'successful_response_text', the character length must be smaller than or equal to 1024.";
+        }
+
+        if (!is_null($this->container['url']) && (strlen($this->container['url']) > 1024)) {
+            $invalid_properties[] = "invalid value for 'url', the character length must be smaller than or equal to 1024.";
+        }
+
         return $invalid_properties;
     }
 
@@ -161,6 +169,12 @@ class ItemInstantPaymentNotification implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['successful_response_text']) > 1024) {
+            return false;
+        }
+        if (strlen($this->container['url']) > 1024) {
+            return false;
+        }
         return true;
     }
 
@@ -202,6 +216,9 @@ class ItemInstantPaymentNotification implements ArrayAccess
      */
     public function setSuccessfulResponseText($successful_response_text)
     {
+        if (strlen($successful_response_text) > 1024) {
+            throw new \InvalidArgumentException('invalid length for $successful_response_text when calling ItemInstantPaymentNotification., must be smaller than or equal to 1024.');
+        }
         $this->container['successful_response_text'] = $successful_response_text;
 
         return $this;
@@ -223,6 +240,9 @@ class ItemInstantPaymentNotification implements ArrayAccess
      */
     public function setUrl($url)
     {
+        if (strlen($url) > 1024) {
+            throw new \InvalidArgumentException('invalid length for $url when calling ItemInstantPaymentNotification., must be smaller than or equal to 1024.');
+        }
         $this->container['url'] = $url;
 
         return $this;

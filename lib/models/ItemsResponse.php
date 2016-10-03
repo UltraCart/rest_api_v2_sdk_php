@@ -202,7 +202,7 @@ class ItemsResponse implements ArrayAccess
 
     /**
      * Sets items
-     * @param \ultracart\admin\v2\models\Item[] $items Items
+     * @param \ultracart\admin\v2\models\Item[] $items items
      * @return $this
      */
     public function setItems($items)

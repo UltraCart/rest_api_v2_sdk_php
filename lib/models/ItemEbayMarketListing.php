@@ -67,10 +67,10 @@ class ItemEbayMarketListing implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'auction_id' => 'string',
-        'price' => 'double',
+        'price' => 'float',
         'seller' => 'string',
-        'shipping' => 'double',
-        'total' => 'double'
+        'shipping' => 'float',
+        'total' => 'float'
     );
 
     public static function swaggerTypes()
@@ -198,7 +198,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Gets price
-     * @return double
+     * @return float
      */
     public function getPrice()
     {
@@ -207,7 +207,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Sets price
-     * @param double $price Price
+     * @param float $price Price
      * @return $this
      */
     public function setPrice($price)
@@ -240,7 +240,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Gets shipping
-     * @return double
+     * @return float
      */
     public function getShipping()
     {
@@ -249,7 +249,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Sets shipping
-     * @param double $shipping Shipping
+     * @param float $shipping Shipping
      * @return $this
      */
     public function setShipping($shipping)
@@ -261,7 +261,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Gets total
-     * @return double
+     * @return float
      */
     public function getTotal()
     {
@@ -270,7 +270,7 @@ class ItemEbayMarketListing implements ArrayAccess
 
     /**
      * Sets total
-     * @param double $total Total
+     * @param float $total Total
      * @return $this
      */
     public function setTotal($total)

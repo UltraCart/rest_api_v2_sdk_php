@@ -155,6 +155,10 @@ class ItemVariationOption implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['value']) && (strlen($this->container['value']) > 50)) {
+            $invalid_properties[] = "invalid value for 'value', the character length must be smaller than or equal to 50.";
+        }
+
         return $invalid_properties;
     }
 
@@ -166,6 +170,9 @@ class ItemVariationOption implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['value']) > 50) {
+            return false;
+        }
         return true;
     }
 
@@ -249,6 +256,9 @@ class ItemVariationOption implements ArrayAccess
      */
     public function setValue($value)
     {
+        if (strlen($value) > 50) {
+            throw new \InvalidArgumentException('invalid length for $value when calling ItemVariationOption., must be smaller than or equal to 50.');
+        }
         $this->container['value'] = $value;
 
         return $this;

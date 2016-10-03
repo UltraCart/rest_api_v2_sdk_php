@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **city** | **string** | City | [optional] 
-**country_code** | **string** | Country code | [optional] 
+**country_code** | **string** | Country code (ISO-3166 two letter) | [optional] 
 **county** | **string** | County | [optional] 
 **postal_code** | **string** | Postal code | [optional] 
 **state_code** | **string** | State code | [optional] 

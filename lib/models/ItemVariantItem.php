@@ -165,6 +165,10 @@ class ItemVariantItem implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 512)) {
+            $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 512.";
+        }
+
         return $invalid_properties;
     }
 
@@ -176,6 +180,9 @@ class ItemVariantItem implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['description']) > 512) {
+            return false;
+        }
         return true;
     }
 
@@ -196,6 +203,9 @@ class ItemVariantItem implements ArrayAccess
      */
     public function setDescription($description)
     {
+        if (strlen($description) > 512) {
+            throw new \InvalidArgumentException('invalid length for $description when calling ItemVariantItem., must be smaller than or equal to 512.');
+        }
         $this->container['description'] = $description;
 
         return $this;

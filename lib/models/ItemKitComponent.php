@@ -66,7 +66,7 @@ class ItemKitComponent implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'component_cost' => 'double',
+        'component_cost' => 'float',
         'component_description' => 'string',
         'component_merchant_item_id' => 'string',
         'component_merchant_item_oid' => 'int',
@@ -177,7 +177,7 @@ class ItemKitComponent implements ArrayAccess
 
     /**
      * Gets component_cost
-     * @return double
+     * @return float
      */
     public function getComponentCost()
     {
@@ -186,7 +186,7 @@ class ItemKitComponent implements ArrayAccess
 
     /**
      * Sets component_cost
-     * @param double $component_cost Component item cost
+     * @param float $component_cost Component item cost
      * @return $this
      */
     public function setComponentCost($component_cost)
