@@ -230,6 +230,18 @@ class ItemContentMultimedia implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['code']) && (strlen($this->container['code']) > 20)) {
+            $invalid_properties[] = "invalid value for 'code', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 50000)) {
+            $invalid_properties[] = "invalid value for 'description', the character length must be smaller than or equal to 50000.";
+        }
+
+        if (!is_null($this->container['file_name']) && (strlen($this->container['file_name']) > 75)) {
+            $invalid_properties[] = "invalid value for 'file_name', the character length must be smaller than or equal to 75.";
+        }
+
         $allowed_values = array("Image", "PDF", "Text", "Unknown", "Video");
         if (!in_array($this->container['type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
@@ -246,6 +258,15 @@ class ItemContentMultimedia implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['code']) > 20) {
+            return false;
+        }
+        if (strlen($this->container['description']) > 50000) {
+            return false;
+        }
+        if (strlen($this->container['file_name']) > 75) {
+            return false;
+        }
         $allowed_values = array("Image", "PDF", "Text", "Unknown", "Video");
         if (!in_array($this->container['type'], $allowed_values)) {
             return false;
@@ -312,6 +333,9 @@ class ItemContentMultimedia implements ArrayAccess
      */
     public function setCode($code)
     {
+        if (strlen($code) > 20) {
+            throw new \InvalidArgumentException('invalid length for $code when calling ItemContentMultimedia., must be smaller than or equal to 20.');
+        }
         $this->container['code'] = $code;
 
         return $this;
@@ -333,6 +357,9 @@ class ItemContentMultimedia implements ArrayAccess
      */
     public function setDescription($description)
     {
+        if (strlen($description) > 50000) {
+            throw new \InvalidArgumentException('invalid length for $description when calling ItemContentMultimedia., must be smaller than or equal to 50000.');
+        }
         $this->container['description'] = $description;
 
         return $this;
@@ -375,6 +402,9 @@ class ItemContentMultimedia implements ArrayAccess
      */
     public function setFileName($file_name)
     {
+        if (strlen($file_name) > 75) {
+            throw new \InvalidArgumentException('invalid length for $file_name when calling ItemContentMultimedia., must be smaller than or equal to 75.');
+        }
         $this->container['file_name'] = $file_name;
 
         return $this;

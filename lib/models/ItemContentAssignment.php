@@ -160,6 +160,10 @@ class ItemContentAssignment implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['url_part']) && (strlen($this->container['url_part']) > 150)) {
+            $invalid_properties[] = "invalid value for 'url_part', the character length must be smaller than or equal to 150.";
+        }
+
         return $invalid_properties;
     }
 
@@ -171,6 +175,9 @@ class ItemContentAssignment implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['url_part']) > 150) {
+            return false;
+        }
         return true;
     }
 
@@ -275,6 +282,9 @@ class ItemContentAssignment implements ArrayAccess
      */
     public function setUrlPart($url_part)
     {
+        if (strlen($url_part) > 150) {
+            throw new \InvalidArgumentException('invalid length for $url_part when calling ItemContentAssignment., must be smaller than or equal to 150.');
+        }
         $this->container['url_part'] = $url_part;
 
         return $this;

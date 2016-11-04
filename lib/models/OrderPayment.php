@@ -185,17 +185,11 @@ class OrderPayment implements ArrayAccess
     const PAYMENT_METHOD_COD = 'COD';
     const PAYMENT_METHOD_COINBASE = 'Coinbase';
     const PAYMENT_METHOD_CREDIT_CARD = 'Credit Card';
-    const PAYMENT_METHOD_DWOLLA = 'Dwolla';
     const PAYMENT_METHOD_E_CHECK = 'eCheck';
-    const PAYMENT_METHOD_GOOGLE_CHECKOUT = 'Google Checkout';
     const PAYMENT_METHOD_MONEY_ORDER = 'Money Order';
     const PAYMENT_METHOD_PAY_PAL = 'PayPal';
     const PAYMENT_METHOD_PURCHASE_ORDER = 'Purchase Order';
     const PAYMENT_METHOD_QUOTE_REQUEST = 'Quote Request';
-    const PAYMENT_METHOD_SAFETY_PAY = 'SafetyPay';
-    const PAYMENT_METHOD_SKY_MALL = 'SkyMall';
-    const PAYMENT_METHOD_SMART_BARGAINS = 'Smart Bargains';
-    const PAYMENT_METHOD_SOFORT = 'Sofort';
     const PAYMENT_METHOD_UNKNOWN = 'Unknown';
     const PAYMENT_METHOD_WIRE_TRANSFER = 'Wire Transfer';
     const PAYMENT_STATUS_UNPROCESSED = 'Unprocessed';
@@ -224,17 +218,11 @@ class OrderPayment implements ArrayAccess
             self::PAYMENT_METHOD_COD,
             self::PAYMENT_METHOD_COINBASE,
             self::PAYMENT_METHOD_CREDIT_CARD,
-            self::PAYMENT_METHOD_DWOLLA,
             self::PAYMENT_METHOD_E_CHECK,
-            self::PAYMENT_METHOD_GOOGLE_CHECKOUT,
             self::PAYMENT_METHOD_MONEY_ORDER,
             self::PAYMENT_METHOD_PAY_PAL,
             self::PAYMENT_METHOD_PURCHASE_ORDER,
             self::PAYMENT_METHOD_QUOTE_REQUEST,
-            self::PAYMENT_METHOD_SAFETY_PAY,
-            self::PAYMENT_METHOD_SKY_MALL,
-            self::PAYMENT_METHOD_SMART_BARGAINS,
-            self::PAYMENT_METHOD_SOFORT,
             self::PAYMENT_METHOD_UNKNOWN,
             self::PAYMENT_METHOD_WIRE_TRANSFER,
         ];
@@ -298,7 +286,7 @@ class OrderPayment implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Coinbase", "Credit Card", "Dwolla", "eCheck", "Google Checkout", "Money Order", "PayPal", "Purchase Order", "Quote Request", "SafetyPay", "SkyMall", "Smart Bargains", "Sofort", "Unknown", "Wire Transfer");
+        $allowed_values = array("Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Coinbase", "Credit Card", "eCheck", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer");
         if (!in_array($this->container['payment_method'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'payment_method', must be one of #{allowed_values}.";
         }
@@ -319,7 +307,7 @@ class OrderPayment implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Coinbase", "Credit Card", "Dwolla", "eCheck", "Google Checkout", "Money Order", "PayPal", "Purchase Order", "Quote Request", "SafetyPay", "SkyMall", "Smart Bargains", "Sofort", "Unknown", "Wire Transfer");
+        $allowed_values = array("Affirm", "Amazon", "Amazon SC", "Cash", "Check", "COD", "Coinbase", "Credit Card", "eCheck", "Money Order", "PayPal", "Purchase Order", "Quote Request", "Unknown", "Wire Transfer");
         if (!in_array($this->container['payment_method'], $allowed_values)) {
             return false;
         }
@@ -452,9 +440,9 @@ class OrderPayment implements ArrayAccess
      */
     public function setPaymentMethod($payment_method)
     {
-        $allowed_values = array('Affirm', 'Amazon', 'Amazon SC', 'Cash', 'Check', 'COD', 'Coinbase', 'Credit Card', 'Dwolla', 'eCheck', 'Google Checkout', 'Money Order', 'PayPal', 'Purchase Order', 'Quote Request', 'SafetyPay', 'SkyMall', 'Smart Bargains', 'Sofort', 'Unknown', 'Wire Transfer');
+        $allowed_values = array('Affirm', 'Amazon', 'Amazon SC', 'Cash', 'Check', 'COD', 'Coinbase', 'Credit Card', 'eCheck', 'Money Order', 'PayPal', 'Purchase Order', 'Quote Request', 'Unknown', 'Wire Transfer');
         if (!in_array($payment_method, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'payment_method', must be one of 'Affirm', 'Amazon', 'Amazon SC', 'Cash', 'Check', 'COD', 'Coinbase', 'Credit Card', 'Dwolla', 'eCheck', 'Google Checkout', 'Money Order', 'PayPal', 'Purchase Order', 'Quote Request', 'SafetyPay', 'SkyMall', 'Smart Bargains', 'Sofort', 'Unknown', 'Wire Transfer'");
+            throw new \InvalidArgumentException("Invalid value for 'payment_method', must be one of 'Affirm', 'Amazon', 'Amazon SC', 'Cash', 'Check', 'COD', 'Coinbase', 'Credit Card', 'eCheck', 'Money Order', 'PayPal', 'Purchase Order', 'Quote Request', 'Unknown', 'Wire Transfer'");
         }
         $this->container['payment_method'] = $payment_method;
 

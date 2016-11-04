@@ -220,7 +220,7 @@ class OauthApi
      * @param string $code Authorization code received back from the browser redirect (optional)
      * @param string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
      * @param string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
-     * @return \ultracart\admin\v2\models\OauthTokenSuccessResponse
+     * @return \ultracart\admin\v2\models\OauthTokenResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
     public function oauthTokenPost($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
@@ -239,7 +239,7 @@ class OauthApi
      * @param string $code Authorization code received back from the browser redirect (optional)
      * @param string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
      * @param string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
-     * @return Array of \ultracart\admin\v2\models\OauthTokenSuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \ultracart\admin\v2\models\OauthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
     public function oauthTokenPostWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
@@ -311,15 +311,15 @@ class OauthApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\OauthTokenSuccessResponse',
+                '\ultracart\admin\v2\models\OauthTokenResponse',
                 '/oauth/token'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OauthTokenSuccessResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OauthTokenResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\OauthTokenSuccessResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\OauthTokenResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

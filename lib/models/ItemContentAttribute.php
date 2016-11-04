@@ -155,6 +155,14 @@ class ItemContentAttribute implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 400)) {
+            $invalid_properties[] = "invalid value for 'name', the character length must be smaller than or equal to 400.";
+        }
+
+        if (!is_null($this->container['value']) && (strlen($this->container['value']) > 100000)) {
+            $invalid_properties[] = "invalid value for 'value', the character length must be smaller than or equal to 100000.";
+        }
+
         return $invalid_properties;
     }
 
@@ -166,6 +174,12 @@ class ItemContentAttribute implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['name']) > 400) {
+            return false;
+        }
+        if (strlen($this->container['value']) > 100000) {
+            return false;
+        }
         return true;
     }
 
@@ -186,6 +200,9 @@ class ItemContentAttribute implements ArrayAccess
      */
     public function setName($name)
     {
+        if (strlen($name) > 400) {
+            throw new \InvalidArgumentException('invalid length for $name when calling ItemContentAttribute., must be smaller than or equal to 400.');
+        }
         $this->container['name'] = $name;
 
         return $this;
@@ -249,6 +266,9 @@ class ItemContentAttribute implements ArrayAccess
      */
     public function setValue($value)
     {
+        if (strlen($value) > 100000) {
+            throw new \InvalidArgumentException('invalid length for $value when calling ItemContentAttribute., must be smaller than or equal to 100000.');
+        }
         $this->container['value'] = $value;
 
         return $this;

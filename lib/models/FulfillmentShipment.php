@@ -1,6 +1,6 @@
 <?php
 /**
- * Distance
+ * FulfillmentShipment
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace ultracart\admin\v2\models;
 use \ArrayAccess;
 
 /**
- * Distance Class Doc Comment
+ * FulfillmentShipment Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,21 +53,21 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Distance implements ArrayAccess
+class FulfillmentShipment implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Distance';
+    protected static $swaggerModelName = 'FulfillmentShipment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'uom' => 'string',
-        'value' => 'float'
+        'order_id' => 'string',
+        'tracking_numbers' => 'string[]'
     );
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'uom' => 'uom',
-        'value' => 'value'
+        'order_id' => 'order_id',
+        'tracking_numbers' => 'tracking_numbers'
     );
 
     public static function attributeMap()
@@ -94,8 +94,8 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'uom' => 'setUom',
-        'value' => 'setValue'
+        'order_id' => 'setOrderId',
+        'tracking_numbers' => 'setTrackingNumbers'
     );
 
     public static function setters()
@@ -108,8 +108,8 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'uom' => 'getUom',
-        'value' => 'getValue'
+        'order_id' => 'getOrderId',
+        'tracking_numbers' => 'getTrackingNumbers'
     );
 
     public static function getters()
@@ -117,22 +117,8 @@ class Distance implements ArrayAccess
         return self::$getters;
     }
 
-    const UOM_IN = 'IN';
-    const UOM_CM = 'CM';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getUomAllowableValues()
-    {
-        return [
-            self::UOM_IN,
-            self::UOM_CM,
-        ];
-    }
     
 
     /**
@@ -147,8 +133,8 @@ class Distance implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uom'] = isset($data['uom']) ? $data['uom'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['tracking_numbers'] = isset($data['tracking_numbers']) ? $data['tracking_numbers'] : null;
     }
 
     /**
@@ -159,15 +145,6 @@ class Distance implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("IN", "CM");
-        if (!in_array($this->container['uom'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'uom', must be one of #{allowed_values}.";
-        }
-
-        if (!is_null($this->container['uom']) && (strlen($this->container['uom']) > 2)) {
-            $invalid_properties[] = "invalid value for 'uom', the character length must be smaller than or equal to 2.";
-        }
-
         return $invalid_properties;
     }
 
@@ -179,62 +156,48 @@ class Distance implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("IN", "CM");
-        if (!in_array($this->container['uom'], $allowed_values)) {
-            return false;
-        }
-        if (strlen($this->container['uom']) > 2) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets uom
+     * Gets order_id
      * @return string
      */
-    public function getUom()
+    public function getOrderId()
     {
-        return $this->container['uom'];
+        return $this->container['order_id'];
     }
 
     /**
-     * Sets uom
-     * @param string $uom Unit of measure
+     * Sets order_id
+     * @param string $order_id Order ID that was shipped
      * @return $this
      */
-    public function setUom($uom)
+    public function setOrderId($order_id)
     {
-        $allowed_values = array('IN', 'CM');
-        if (!in_array($uom, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'uom', must be one of 'IN', 'CM'");
-        }
-        if (strlen($uom) > 2) {
-            throw new \InvalidArgumentException('invalid length for $uom when calling Distance., must be smaller than or equal to 2.');
-        }
-        $this->container['uom'] = $uom;
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }
 
     /**
-     * Gets value
-     * @return float
+     * Gets tracking_numbers
+     * @return string[]
      */
-    public function getValue()
+    public function getTrackingNumbers()
     {
-        return $this->container['value'];
+        return $this->container['tracking_numbers'];
     }
 
     /**
-     * Sets value
-     * @param float $value The distance measured in UOM
+     * Sets tracking_numbers
+     * @param string[] $tracking_numbers Tracking numbers associated with the shipment
      * @return $this
      */
-    public function setValue($value)
+    public function setTrackingNumbers($tracking_numbers)
     {
-        $this->container['value'] = $value;
+        $this->container['tracking_numbers'] = $tracking_numbers;
 
         return $this;
     }

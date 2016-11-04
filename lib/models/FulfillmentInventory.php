@@ -1,6 +1,6 @@
 <?php
 /**
- * Distance
+ * FulfillmentInventory
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace ultracart\admin\v2\models;
 use \ArrayAccess;
 
 /**
- * Distance Class Doc Comment
+ * FulfillmentInventory Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,21 +53,21 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Distance implements ArrayAccess
+class FulfillmentInventory implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Distance';
+    protected static $swaggerModelName = 'FulfillmentInventory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'uom' => 'string',
-        'value' => 'float'
+        'item_id' => 'string',
+        'quantity' => 'float'
     );
 
     public static function swaggerTypes()
@@ -80,8 +80,8 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'uom' => 'uom',
-        'value' => 'value'
+        'item_id' => 'itemId',
+        'quantity' => 'quantity'
     );
 
     public static function attributeMap()
@@ -94,8 +94,8 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'uom' => 'setUom',
-        'value' => 'setValue'
+        'item_id' => 'setItemId',
+        'quantity' => 'setQuantity'
     );
 
     public static function setters()
@@ -108,8 +108,8 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'uom' => 'getUom',
-        'value' => 'getValue'
+        'item_id' => 'getItemId',
+        'quantity' => 'getQuantity'
     );
 
     public static function getters()
@@ -117,22 +117,8 @@ class Distance implements ArrayAccess
         return self::$getters;
     }
 
-    const UOM_IN = 'IN';
-    const UOM_CM = 'CM';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getUomAllowableValues()
-    {
-        return [
-            self::UOM_IN,
-            self::UOM_CM,
-        ];
-    }
     
 
     /**
@@ -147,8 +133,8 @@ class Distance implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uom'] = isset($data['uom']) ? $data['uom'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
     /**
@@ -159,15 +145,6 @@ class Distance implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("IN", "CM");
-        if (!in_array($this->container['uom'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'uom', must be one of #{allowed_values}.";
-        }
-
-        if (!is_null($this->container['uom']) && (strlen($this->container['uom']) > 2)) {
-            $invalid_properties[] = "invalid value for 'uom', the character length must be smaller than or equal to 2.";
-        }
-
         return $invalid_properties;
     }
 
@@ -179,62 +156,48 @@ class Distance implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("IN", "CM");
-        if (!in_array($this->container['uom'], $allowed_values)) {
-            return false;
-        }
-        if (strlen($this->container['uom']) > 2) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets uom
+     * Gets item_id
      * @return string
      */
-    public function getUom()
+    public function getItemId()
     {
-        return $this->container['uom'];
+        return $this->container['item_id'];
     }
 
     /**
-     * Sets uom
-     * @param string $uom Unit of measure
+     * Sets item_id
+     * @param string $item_id
      * @return $this
      */
-    public function setUom($uom)
+    public function setItemId($item_id)
     {
-        $allowed_values = array('IN', 'CM');
-        if (!in_array($uom, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'uom', must be one of 'IN', 'CM'");
-        }
-        if (strlen($uom) > 2) {
-            throw new \InvalidArgumentException('invalid length for $uom when calling Distance., must be smaller than or equal to 2.');
-        }
-        $this->container['uom'] = $uom;
+        $this->container['item_id'] = $item_id;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets quantity
      * @return float
      */
-    public function getValue()
+    public function getQuantity()
     {
-        return $this->container['value'];
+        return $this->container['quantity'];
     }
 
     /**
-     * Sets value
-     * @param float $value The distance measured in UOM
+     * Sets quantity
+     * @param float $quantity
      * @return $this
      */
-    public function setValue($value)
+    public function setQuantity($quantity)
     {
-        $this->container['value'] = $value;
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }

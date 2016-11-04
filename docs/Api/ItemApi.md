@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **itemItemsGet**
-> \ultracart\admin\v2\models\ItemsResponse itemItemsGet($parent_category_id, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
+> \ultracart\admin\v2\models\ItemsResponse itemItemsGet($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
 
 Retrieve items
 
@@ -32,16 +32,17 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 // ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\admin\v2\Api\ItemApi();
-$parent_category_id = 56; // int | The parent category to retrieve items for.  Unspecified means all items on the account.  0 = root
-$_limit = 100; // int | The maximum number of records to return on this one API call.
+$parent_category_id = 56; // int | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root
+$parent_category_path = "parent_category_path_example"; // string | The parent category path to retrieve items for.  Unspecified means all items on the account.  / = root
+$_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 2000)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_since = "_since_example"; // string | Fetch items that have been created/modified since this date/time.
-$_sort = "_sort_example"; // string | The sort order of the items.  See documentation for examples
+$_sort = "_sort_example"; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->itemItemsGet($parent_category_id, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+    $result = $api_instance->itemItemsGet($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->itemItemsGet: ', $e->getMessage(), PHP_EOL;
@@ -53,11 +54,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent_category_id** | **int**| The parent category to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional]
- **_limit** | **int**| The maximum number of records to return on this one API call. | [optional] [default to 100]
+ **parent_category_id** | **int**| The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root | [optional]
+ **parent_category_path** | **string**| The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root | [optional]
+ **_limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_since** | **string**| Fetch items that have been created/modified since this date/time. | [optional]
- **_sort** | **string**| The sort order of the items.  See documentation for examples | [optional]
+ **_sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 

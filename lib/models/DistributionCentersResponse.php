@@ -1,6 +1,6 @@
 <?php
 /**
- * Distance
+ * DistributionCentersResponse
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace ultracart\admin\v2\models;
 use \ArrayAccess;
 
 /**
- * Distance Class Doc Comment
+ * DistributionCentersResponse Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,21 +53,23 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class Distance implements ArrayAccess
+class DistributionCentersResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'Distance';
+    protected static $swaggerModelName = 'DistributionCentersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'uom' => 'string',
-        'value' => 'float'
+        'distribution_centers' => '\ultracart\admin\v2\models\DistributionCenter[]',
+        'error' => '\ultracart\admin\v2\models\Error',
+        'metadata' => '\ultracart\admin\v2\models\ResponseMetadata',
+        'success' => 'bool'
     );
 
     public static function swaggerTypes()
@@ -80,8 +82,10 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'uom' => 'uom',
-        'value' => 'value'
+        'distribution_centers' => 'distribution_centers',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success'
     );
 
     public static function attributeMap()
@@ -94,8 +98,10 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'uom' => 'setUom',
-        'value' => 'setValue'
+        'distribution_centers' => 'setDistributionCenters',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess'
     );
 
     public static function setters()
@@ -108,8 +114,10 @@ class Distance implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'uom' => 'getUom',
-        'value' => 'getValue'
+        'distribution_centers' => 'getDistributionCenters',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess'
     );
 
     public static function getters()
@@ -117,22 +125,8 @@ class Distance implements ArrayAccess
         return self::$getters;
     }
 
-    const UOM_IN = 'IN';
-    const UOM_CM = 'CM';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getUomAllowableValues()
-    {
-        return [
-            self::UOM_IN,
-            self::UOM_CM,
-        ];
-    }
     
 
     /**
@@ -147,8 +141,10 @@ class Distance implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uom'] = isset($data['uom']) ? $data['uom'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['distribution_centers'] = isset($data['distribution_centers']) ? $data['distribution_centers'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -159,15 +155,6 @@ class Distance implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("IN", "CM");
-        if (!in_array($this->container['uom'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'uom', must be one of #{allowed_values}.";
-        }
-
-        if (!is_null($this->container['uom']) && (strlen($this->container['uom']) > 2)) {
-            $invalid_properties[] = "invalid value for 'uom', the character length must be smaller than or equal to 2.";
-        }
-
         return $invalid_properties;
     }
 
@@ -179,62 +166,90 @@ class Distance implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("IN", "CM");
-        if (!in_array($this->container['uom'], $allowed_values)) {
-            return false;
-        }
-        if (strlen($this->container['uom']) > 2) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets uom
-     * @return string
+     * Gets distribution_centers
+     * @return \ultracart\admin\v2\models\DistributionCenter[]
      */
-    public function getUom()
+    public function getDistributionCenters()
     {
-        return $this->container['uom'];
+        return $this->container['distribution_centers'];
     }
 
     /**
-     * Sets uom
-     * @param string $uom Unit of measure
+     * Sets distribution_centers
+     * @param \ultracart\admin\v2\models\DistributionCenter[] $distribution_centers
      * @return $this
      */
-    public function setUom($uom)
+    public function setDistributionCenters($distribution_centers)
     {
-        $allowed_values = array('IN', 'CM');
-        if (!in_array($uom, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'uom', must be one of 'IN', 'CM'");
-        }
-        if (strlen($uom) > 2) {
-            throw new \InvalidArgumentException('invalid length for $uom when calling Distance., must be smaller than or equal to 2.');
-        }
-        $this->container['uom'] = $uom;
+        $this->container['distribution_centers'] = $distribution_centers;
 
         return $this;
     }
 
     /**
-     * Gets value
-     * @return float
+     * Gets error
+     * @return \ultracart\admin\v2\models\Error
      */
-    public function getValue()
+    public function getError()
     {
-        return $this->container['value'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets value
-     * @param float $value The distance measured in UOM
+     * Sets error
+     * @param \ultracart\admin\v2\models\Error $error
      * @return $this
      */
-    public function setValue($value)
+    public function setError($error)
     {
-        $this->container['value'] = $value;
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     * @return \ultracart\admin\v2\models\ResponseMetadata
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     * @param \ultracart\admin\v2\models\ResponseMetadata $metadata
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     * @param bool $success Indicates if API call was successful
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
 
         return $this;
     }

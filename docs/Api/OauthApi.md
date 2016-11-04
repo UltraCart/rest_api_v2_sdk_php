@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **oauthTokenPost**
-> \ultracart\admin\v2\models\OauthTokenSuccessResponse oauthTokenPost($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
+> \ultracart\admin\v2\models\OauthTokenResponse oauthTokenPost($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
 
 Exchange authorization code for access token.
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\OauthTokenSuccessResponse**](../Model/OauthTokenSuccessResponse.md)
+[**\ultracart\admin\v2\models\OauthTokenResponse**](../Model/OauthTokenResponse.md)
 
 ### Authorization
 

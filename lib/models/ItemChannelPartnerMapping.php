@@ -220,6 +220,18 @@ class ItemChannelPartnerMapping implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
+        if (!is_null($this->container['from_item_id']) && (strlen($this->container['from_item_id']) > 30)) {
+            $invalid_properties[] = "invalid value for 'from_item_id', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['from_sku']) && (strlen($this->container['from_sku']) > 50)) {
+            $invalid_properties[] = "invalid value for 'from_sku', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['sku']) && (strlen($this->container['sku']) > 50)) {
+            $invalid_properties[] = "invalid value for 'sku', the character length must be smaller than or equal to 50.";
+        }
+
         return $invalid_properties;
     }
 
@@ -231,6 +243,15 @@ class ItemChannelPartnerMapping implements ArrayAccess
      */
     public function valid()
     {
+        if (strlen($this->container['from_item_id']) > 30) {
+            return false;
+        }
+        if (strlen($this->container['from_sku']) > 50) {
+            return false;
+        }
+        if (strlen($this->container['sku']) > 50) {
+            return false;
+        }
         return true;
     }
 
@@ -419,6 +440,9 @@ class ItemChannelPartnerMapping implements ArrayAccess
      */
     public function setFromItemId($from_item_id)
     {
+        if (strlen($from_item_id) > 30) {
+            throw new \InvalidArgumentException('invalid length for $from_item_id when calling ItemChannelPartnerMapping., must be smaller than or equal to 30.');
+        }
         $this->container['from_item_id'] = $from_item_id;
 
         return $this;
@@ -440,6 +464,9 @@ class ItemChannelPartnerMapping implements ArrayAccess
      */
     public function setFromSku($from_sku)
     {
+        if (strlen($from_sku) > 50) {
+            throw new \InvalidArgumentException('invalid length for $from_sku when calling ItemChannelPartnerMapping., must be smaller than or equal to 50.');
+        }
         $this->container['from_sku'] = $from_sku;
 
         return $this;
@@ -524,6 +551,9 @@ class ItemChannelPartnerMapping implements ArrayAccess
      */
     public function setSku($sku)
     {
+        if (strlen($sku) > 50) {
+            throw new \InvalidArgumentException('invalid length for $sku when calling ItemChannelPartnerMapping., must be smaller than or equal to 50.');
+        }
         $this->container['sku'] = $sku;
 
         return $this;

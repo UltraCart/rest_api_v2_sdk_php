@@ -136,7 +136,7 @@ class OrderApi
      * @param string $channel_partner_order_id Channel Partner Order ID (optional)
      * @param int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param string $_expand The object expansion to perform on the result. (optional)
      * @return \ultracart\admin\v2\models\OrdersResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
@@ -181,7 +181,7 @@ class OrderApi
      * @param string $channel_partner_order_id Channel Partner Order ID (optional)
      * @param int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param string $_expand The object expansion to perform on the result. (optional)
      * @return Array of \ultracart\admin\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response

@@ -62,7 +62,7 @@ $channel_partner_code = "channel_partner_code_example"; // string | Channel Part
 $channel_partner_order_id = "channel_partner_order_id_example"; // string | Channel Partner Order ID
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = "_sort_example"; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+$_sort = "_sort_example"; // string | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.
 
 try {
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
  **channel_partner_order_id** | **string**| Channel Partner Order ID | [optional]
  **_limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **_sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
+ **_sort** | **string**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
  **_expand** | **string**| The object expansion to perform on the result. | [optional]
 
 ### Return type

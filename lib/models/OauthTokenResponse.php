@@ -1,6 +1,6 @@
 <?php
 /**
- * TempMultimedia
+ * OauthTokenResponse
  *
  * PHP version 5
  *
@@ -44,7 +44,7 @@ namespace ultracart\admin\v2\models;
 use \ArrayAccess;
 
 /**
- * TempMultimedia Class Doc Comment
+ * OauthTokenResponse Class Doc Comment
  *
  * @category    Class */
 /** 
@@ -53,26 +53,27 @@ use \ArrayAccess;
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class TempMultimedia implements ArrayAccess
+class OauthTokenResponse implements ArrayAccess
 {
     /**
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'TempMultimedia';
+    protected static $swaggerModelName = 'OauthTokenResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'filename' => 'string',
-        'height' => 'int',
-        'multimedia_type' => 'string',
-        'size' => 'int',
-        'temp_multimedia_oid' => 'int',
-        'url' => 'string',
-        'width' => 'int'
+        'access_token' => 'string',
+        'error' => 'string',
+        'error_description' => 'string',
+        'error_uri' => 'string',
+        'expires_in' => 'string',
+        'refresh_token' => 'string',
+        'scope' => 'string',
+        'token_type' => 'string'
     );
 
     public static function swaggerTypes()
@@ -85,13 +86,14 @@ class TempMultimedia implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = array(
-        'filename' => 'filename',
-        'height' => 'height',
-        'multimedia_type' => 'multimedia_type',
-        'size' => 'size',
-        'temp_multimedia_oid' => 'temp_multimedia_oid',
-        'url' => 'url',
-        'width' => 'width'
+        'access_token' => 'access_token',
+        'error' => 'error',
+        'error_description' => 'error_description',
+        'error_uri' => 'error_uri',
+        'expires_in' => 'expires_in',
+        'refresh_token' => 'refresh_token',
+        'scope' => 'scope',
+        'token_type' => 'token_type'
     );
 
     public static function attributeMap()
@@ -104,13 +106,14 @@ class TempMultimedia implements ArrayAccess
      * @var string[]
      */
     protected static $setters = array(
-        'filename' => 'setFilename',
-        'height' => 'setHeight',
-        'multimedia_type' => 'setMultimediaType',
-        'size' => 'setSize',
-        'temp_multimedia_oid' => 'setTempMultimediaOid',
-        'url' => 'setUrl',
-        'width' => 'setWidth'
+        'access_token' => 'setAccessToken',
+        'error' => 'setError',
+        'error_description' => 'setErrorDescription',
+        'error_uri' => 'setErrorUri',
+        'expires_in' => 'setExpiresIn',
+        'refresh_token' => 'setRefreshToken',
+        'scope' => 'setScope',
+        'token_type' => 'setTokenType'
     );
 
     public static function setters()
@@ -123,13 +126,14 @@ class TempMultimedia implements ArrayAccess
      * @var string[]
      */
     protected static $getters = array(
-        'filename' => 'getFilename',
-        'height' => 'getHeight',
-        'multimedia_type' => 'getMultimediaType',
-        'size' => 'getSize',
-        'temp_multimedia_oid' => 'getTempMultimediaOid',
-        'url' => 'getUrl',
-        'width' => 'getWidth'
+        'access_token' => 'getAccessToken',
+        'error' => 'getError',
+        'error_description' => 'getErrorDescription',
+        'error_uri' => 'getErrorUri',
+        'expires_in' => 'getExpiresIn',
+        'refresh_token' => 'getRefreshToken',
+        'scope' => 'getScope',
+        'token_type' => 'getTokenType'
     );
 
     public static function getters()
@@ -137,10 +141,7 @@ class TempMultimedia implements ArrayAccess
         return self::$getters;
     }
 
-    const MULTIMEDIA_TYPE_IMAGE = 'Image';
-    const MULTIMEDIA_TYPE_PDF = 'PDF';
-    const MULTIMEDIA_TYPE_TEXT = 'Text';
-    const MULTIMEDIA_TYPE_VIDEO = 'Video';
+    const TOKEN_TYPE_BEARER = 'bearer';
     
 
     
@@ -148,13 +149,10 @@ class TempMultimedia implements ArrayAccess
      * Gets allowable values of the enum
      * @return string[]
      */
-    public function getMultimediaTypeAllowableValues()
+    public function getTokenTypeAllowableValues()
     {
         return [
-            self::MULTIMEDIA_TYPE_IMAGE,
-            self::MULTIMEDIA_TYPE_PDF,
-            self::MULTIMEDIA_TYPE_TEXT,
-            self::MULTIMEDIA_TYPE_VIDEO,
+            self::TOKEN_TYPE_BEARER,
         ];
     }
     
@@ -171,13 +169,14 @@ class TempMultimedia implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['filename'] = isset($data['filename']) ? $data['filename'] : null;
-        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['multimedia_type'] = isset($data['multimedia_type']) ? $data['multimedia_type'] : null;
-        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
-        $this->container['temp_multimedia_oid'] = isset($data['temp_multimedia_oid']) ? $data['temp_multimedia_oid'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['error_description'] = isset($data['error_description']) ? $data['error_description'] : null;
+        $this->container['error_uri'] = isset($data['error_uri']) ? $data['error_uri'] : null;
+        $this->container['expires_in'] = isset($data['expires_in']) ? $data['expires_in'] : null;
+        $this->container['refresh_token'] = isset($data['refresh_token']) ? $data['refresh_token'] : null;
+        $this->container['scope'] = isset($data['scope']) ? $data['scope'] : null;
+        $this->container['token_type'] = isset($data['token_type']) ? $data['token_type'] : null;
     }
 
     /**
@@ -188,13 +187,9 @@ class TempMultimedia implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        if (!is_null($this->container['filename']) && (strlen($this->container['filename']) > 75)) {
-            $invalid_properties[] = "invalid value for 'filename', the character length must be smaller than or equal to 75.";
-        }
-
-        $allowed_values = array("Image", "PDF", "Text", "Video");
-        if (!in_array($this->container['multimedia_type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'multimedia_type', must be one of #{allowed_values}.";
+        $allowed_values = array("bearer");
+        if (!in_array($this->container['token_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'token_type', must be one of #{allowed_values}.";
         }
 
         return $invalid_properties;
@@ -208,11 +203,8 @@ class TempMultimedia implements ArrayAccess
      */
     public function valid()
     {
-        if (strlen($this->container['filename']) > 75) {
-            return false;
-        }
-        $allowed_values = array("Image", "PDF", "Text", "Video");
-        if (!in_array($this->container['multimedia_type'], $allowed_values)) {
+        $allowed_values = array("bearer");
+        if (!in_array($this->container['token_type'], $allowed_values)) {
             return false;
         }
         return true;
@@ -220,155 +212,173 @@ class TempMultimedia implements ArrayAccess
 
 
     /**
-     * Gets filename
+     * Gets access_token
      * @return string
      */
-    public function getFilename()
+    public function getAccessToken()
     {
-        return $this->container['filename'];
+        return $this->container['access_token'];
     }
 
     /**
-     * Sets filename
-     * @param string $filename Filename
+     * Sets access_token
+     * @param string $access_token Access token to use in OAuth authenticated API call
      * @return $this
      */
-    public function setFilename($filename)
+    public function setAccessToken($access_token)
     {
-        if (strlen($filename) > 75) {
-            throw new \InvalidArgumentException('invalid length for $filename when calling TempMultimedia., must be smaller than or equal to 75.');
+        $this->container['access_token'] = $access_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     * @return string
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     * @param string $error
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_description
+     * @return string
+     */
+    public function getErrorDescription()
+    {
+        return $this->container['error_description'];
+    }
+
+    /**
+     * Sets error_description
+     * @param string $error_description
+     * @return $this
+     */
+    public function setErrorDescription($error_description)
+    {
+        $this->container['error_description'] = $error_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_uri
+     * @return string
+     */
+    public function getErrorUri()
+    {
+        return $this->container['error_uri'];
+    }
+
+    /**
+     * Sets error_uri
+     * @param string $error_uri
+     * @return $this
+     */
+    public function setErrorUri($error_uri)
+    {
+        $this->container['error_uri'] = $error_uri;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires_in
+     * @return string
+     */
+    public function getExpiresIn()
+    {
+        return $this->container['expires_in'];
+    }
+
+    /**
+     * Sets expires_in
+     * @param string $expires_in The number of seconds since issuance when the access token will expire and need to be refreshed using the refresh token
+     * @return $this
+     */
+    public function setExpiresIn($expires_in)
+    {
+        $this->container['expires_in'] = $expires_in;
+
+        return $this;
+    }
+
+    /**
+     * Gets refresh_token
+     * @return string
+     */
+    public function getRefreshToken()
+    {
+        return $this->container['refresh_token'];
+    }
+
+    /**
+     * Sets refresh_token
+     * @param string $refresh_token The refresh token that should be used to fetch a new access token when the expiration occurs
+     * @return $this
+     */
+    public function setRefreshToken($refresh_token)
+    {
+        $this->container['refresh_token'] = $refresh_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets scope
+     * @return string
+     */
+    public function getScope()
+    {
+        return $this->container['scope'];
+    }
+
+    /**
+     * Sets scope
+     * @param string $scope The scope of permissions associated with teh access token
+     * @return $this
+     */
+    public function setScope($scope)
+    {
+        $this->container['scope'] = $scope;
+
+        return $this;
+    }
+
+    /**
+     * Gets token_type
+     * @return string
+     */
+    public function getTokenType()
+    {
+        return $this->container['token_type'];
+    }
+
+    /**
+     * Sets token_type
+     * @param string $token_type Type of token
+     * @return $this
+     */
+    public function setTokenType($token_type)
+    {
+        $allowed_values = array('bearer');
+        if (!in_array($token_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'token_type', must be one of 'bearer'");
         }
-        $this->container['filename'] = $filename;
-
-        return $this;
-    }
-
-    /**
-     * Gets height
-     * @return int
-     */
-    public function getHeight()
-    {
-        return $this->container['height'];
-    }
-
-    /**
-     * Sets height
-     * @param int $height Height
-     * @return $this
-     */
-    public function setHeight($height)
-    {
-        $this->container['height'] = $height;
-
-        return $this;
-    }
-
-    /**
-     * Gets multimedia_type
-     * @return string
-     */
-    public function getMultimediaType()
-    {
-        return $this->container['multimedia_type'];
-    }
-
-    /**
-     * Sets multimedia_type
-     * @param string $multimedia_type Multimedia type
-     * @return $this
-     */
-    public function setMultimediaType($multimedia_type)
-    {
-        $allowed_values = array('Image', 'PDF', 'Text', 'Video');
-        if (!in_array($multimedia_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'multimedia_type', must be one of 'Image', 'PDF', 'Text', 'Video'");
-        }
-        $this->container['multimedia_type'] = $multimedia_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets size
-     * @return int
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     * @param int $size Size
-     * @return $this
-     */
-    public function setSize($size)
-    {
-        $this->container['size'] = $size;
-
-        return $this;
-    }
-
-    /**
-     * Gets temp_multimedia_oid
-     * @return int
-     */
-    public function getTempMultimediaOid()
-    {
-        return $this->container['temp_multimedia_oid'];
-    }
-
-    /**
-     * Sets temp_multimedia_oid
-     * @param int $temp_multimedia_oid Temporary multimedia object identifier
-     * @return $this
-     */
-    public function setTempMultimediaOid($temp_multimedia_oid)
-    {
-        $this->container['temp_multimedia_oid'] = $temp_multimedia_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->container['url'];
-    }
-
-    /**
-     * Sets url
-     * @param string $url URL
-     * @return $this
-     */
-    public function setUrl($url)
-    {
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets width
-     * @return int
-     */
-    public function getWidth()
-    {
-        return $this->container['width'];
-    }
-
-    /**
-     * Sets width
-     * @param int $width Width
-     * @return $this
-     */
-    public function setWidth($width)
-    {
-        $this->container['width'] = $width;
+        $this->container['token_type'] = $token_type;
 
         return $this;
     }

@@ -149,8 +149,36 @@ class OrderPaymentECheck implements ArrayAccess
         return self::$getters;
     }
 
+    const BANK_ACCOUNT_TYPE_CHECKING = 'Checking';
+    const BANK_ACCOUNT_TYPE_SAVINGS = 'Savings';
+    const BANK_OWNER_TYPE_PERSONAL = 'Personal';
+    const BANK_OWNER_TYPE_BUSINESS = 'Business';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getBankAccountTypeAllowableValues()
+    {
+        return [
+            self::BANK_ACCOUNT_TYPE_CHECKING,
+            self::BANK_ACCOUNT_TYPE_SAVINGS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getBankOwnerTypeAllowableValues()
+    {
+        return [
+            self::BANK_OWNER_TYPE_PERSONAL,
+            self::BANK_OWNER_TYPE_BUSINESS,
+        ];
+    }
     
 
     /**
@@ -197,12 +225,22 @@ class OrderPaymentECheck implements ArrayAccess
             $invalid_properties[] = "invalid value for 'bank_account_number', the character length must be smaller than or equal to 50.";
         }
 
+        $allowed_values = array("Checking", "Savings");
+        if (!in_array($this->container['bank_account_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'bank_account_type', must be one of #{allowed_values}.";
+        }
+
         if (!is_null($this->container['bank_account_type']) && (strlen($this->container['bank_account_type']) > 8)) {
             $invalid_properties[] = "invalid value for 'bank_account_type', the character length must be smaller than or equal to 8.";
         }
 
         if (!is_null($this->container['bank_name']) && (strlen($this->container['bank_name']) > 50)) {
             $invalid_properties[] = "invalid value for 'bank_name', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowed_values = array("Personal", "Business");
+        if (!in_array($this->container['bank_owner_type'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'bank_owner_type', must be one of #{allowed_values}.";
         }
 
         if (!is_null($this->container['bank_owner_type']) && (strlen($this->container['bank_owner_type']) > 8)) {
@@ -245,10 +283,18 @@ class OrderPaymentECheck implements ArrayAccess
         if (strlen($this->container['bank_account_number']) > 50) {
             return false;
         }
+        $allowed_values = array("Checking", "Savings");
+        if (!in_array($this->container['bank_account_type'], $allowed_values)) {
+            return false;
+        }
         if (strlen($this->container['bank_account_type']) > 8) {
             return false;
         }
         if (strlen($this->container['bank_name']) > 50) {
+            return false;
+        }
+        $allowed_values = array("Personal", "Business");
+        if (!in_array($this->container['bank_owner_type'], $allowed_values)) {
             return false;
         }
         if (strlen($this->container['bank_owner_type']) > 8) {
@@ -358,6 +404,10 @@ class OrderPaymentECheck implements ArrayAccess
      */
     public function setBankAccountType($bank_account_type)
     {
+        $allowed_values = array('Checking', 'Savings');
+        if (!in_array($bank_account_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'bank_account_type', must be one of 'Checking', 'Savings'");
+        }
         if (strlen($bank_account_type) > 8) {
             throw new \InvalidArgumentException('invalid length for $bank_account_type when calling OrderPaymentECheck., must be smaller than or equal to 8.');
         }
@@ -406,6 +456,10 @@ class OrderPaymentECheck implements ArrayAccess
      */
     public function setBankOwnerType($bank_owner_type)
     {
+        $allowed_values = array('Personal', 'Business');
+        if (!in_array($bank_owner_type, $allowed_values)) {
+            throw new \InvalidArgumentException("Invalid value for 'bank_owner_type', must be one of 'Personal', 'Business'");
+        }
         if (strlen($bank_owner_type) > 8) {
             throw new \InvalidArgumentException('invalid length for $bank_owner_type when calling OrderPaymentECheck., must be smaller than or equal to 8.');
         }
