@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **checkoutBrowserKeyPut**
-> \ultracart\v2\models\CartResponse checkoutBrowserKeyPut($browser_key_request)
+> \ultracart\v2\models\CheckoutSetupBrowserKeyResponse checkoutBrowserKeyPut($browser_key_request)
 
 Setup Browser Application
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracart\v2\models\CheckoutSetupBrowserKeyResponse**](../Model/CheckoutSetupBrowserKeyResponse.md)
 
 ### Authorization
 

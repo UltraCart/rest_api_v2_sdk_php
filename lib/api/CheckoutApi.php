@@ -108,7 +108,7 @@ class CheckoutApi
      * Setup Browser Application
      *
      * @param \ultracart\v2\models\CheckoutSetupBrowserKeyRequest $browser_key_request Setup browser key request (required)
-     * @return \ultracart\v2\models\CartResponse
+     * @return \ultracart\v2\models\CheckoutSetupBrowserKeyResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutBrowserKeyPut($browser_key_request)
@@ -123,7 +123,7 @@ class CheckoutApi
      * Setup Browser Application
      *
      * @param \ultracart\v2\models\CheckoutSetupBrowserKeyRequest $browser_key_request Setup browser key request (required)
-     * @return Array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \ultracart\v2\models\CheckoutSetupBrowserKeyResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutBrowserKeyPutWithHttpInfo($browser_key_request)
@@ -176,15 +176,15 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\CartResponse',
+                '\ultracart\v2\models\CheckoutSetupBrowserKeyResponse',
                 '/checkout/browser_key'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CheckoutSetupBrowserKeyResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CheckoutSetupBrowserKeyResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
