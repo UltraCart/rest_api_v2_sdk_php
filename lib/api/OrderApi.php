@@ -73,7 +73,7 @@ class OrderApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest');
+            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest/v2');
         }
 
         $this->apiClient = $apiClient;
@@ -103,7 +103,7 @@ class OrderApi
     }
 
     /**
-     * Operation adminV2OrderOrdersGet
+     * Operation orderOrdersGet
      *
      * Retrieve orders
      *
@@ -141,14 +141,14 @@ class OrderApi
      * @return \ultracart\admin\v2\models\OrdersResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersGet($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = null, $_offset = null, $_sort = null, $_expand = null)
+    public function orderOrdersGet($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = null, $_offset = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->adminV2OrderOrdersGetWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand);
+        list($response) = $this->orderOrdersGetWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand);
         return $response;
     }
 
     /**
-     * Operation adminV2OrderOrdersGetWithHttpInfo
+     * Operation orderOrdersGetWithHttpInfo
      *
      * Retrieve orders
      *
@@ -186,10 +186,10 @@ class OrderApi
      * @return Array of \ultracart\admin\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersGetWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = null, $_offset = null, $_sort = null, $_expand = null)
+    public function orderOrdersGetWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = null, $_offset = null, $_sort = null, $_expand = null)
     {
         // parse inputs
-        $resourcePath = "/admin/v2/order/orders";
+        $resourcePath = "/order/orders";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -352,7 +352,7 @@ class OrderApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\OrdersResponse',
-                '/admin/v2/order/orders'
+                '/order/orders'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OrdersResponse', $httpHeader), $statusCode, $httpHeader);
@@ -389,7 +389,7 @@ class OrderApi
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdCancelPost
+     * Operation orderOrdersOrderIdCancelPost
      *
      * Cancel an order
      *
@@ -397,14 +397,14 @@ class OrderApi
      * @return \ultracart\admin\v2\models\BaseResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdCancelPost($order_id)
+    public function orderOrdersOrderIdCancelPost($order_id)
     {
-        list($response) = $this->adminV2OrderOrdersOrderIdCancelPostWithHttpInfo($order_id);
+        list($response) = $this->orderOrdersOrderIdCancelPostWithHttpInfo($order_id);
         return $response;
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdCancelPostWithHttpInfo
+     * Operation orderOrdersOrderIdCancelPostWithHttpInfo
      *
      * Cancel an order
      *
@@ -412,14 +412,14 @@ class OrderApi
      * @return Array of \ultracart\admin\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdCancelPostWithHttpInfo($order_id)
+    public function orderOrdersOrderIdCancelPostWithHttpInfo($order_id)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling adminV2OrderOrdersOrderIdCancelPost');
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling orderOrdersOrderIdCancelPost');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/order/orders/{order_id}/cancel";
+        $resourcePath = "/order/orders/{order_id}/cancel";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -466,7 +466,7 @@ class OrderApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\BaseResponse',
-                '/admin/v2/order/orders/{order_id}/cancel'
+                '/order/orders/{order_id}/cancel'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\BaseResponse', $httpHeader), $statusCode, $httpHeader);
@@ -503,7 +503,7 @@ class OrderApi
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdDelete
+     * Operation orderOrdersOrderIdDelete
      *
      * Delete an order
      *
@@ -511,14 +511,14 @@ class OrderApi
      * @return void
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdDelete($order_id)
+    public function orderOrdersOrderIdDelete($order_id)
     {
-        list($response) = $this->adminV2OrderOrdersOrderIdDeleteWithHttpInfo($order_id);
+        list($response) = $this->orderOrdersOrderIdDeleteWithHttpInfo($order_id);
         return $response;
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdDeleteWithHttpInfo
+     * Operation orderOrdersOrderIdDeleteWithHttpInfo
      *
      * Delete an order
      *
@@ -526,14 +526,14 @@ class OrderApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdDeleteWithHttpInfo($order_id)
+    public function orderOrdersOrderIdDeleteWithHttpInfo($order_id)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling adminV2OrderOrdersOrderIdDelete');
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling orderOrdersOrderIdDelete');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/order/orders/{order_id}";
+        $resourcePath = "/order/orders/{order_id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -580,7 +580,7 @@ class OrderApi
                 $httpBody,
                 $headerParams,
                 null,
-                '/admin/v2/order/orders/{order_id}'
+                '/order/orders/{order_id}'
             );
 
             return array(null, $statusCode, $httpHeader);
@@ -613,7 +613,7 @@ class OrderApi
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdGet
+     * Operation orderOrdersOrderIdGet
      *
      * Retrieve an order
      *
@@ -622,14 +622,14 @@ class OrderApi
      * @return \ultracart\admin\v2\models\OrderResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdGet($order_id, $_expand = null)
+    public function orderOrdersOrderIdGet($order_id, $_expand = null)
     {
-        list($response) = $this->adminV2OrderOrdersOrderIdGetWithHttpInfo($order_id, $_expand);
+        list($response) = $this->orderOrdersOrderIdGetWithHttpInfo($order_id, $_expand);
         return $response;
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdGetWithHttpInfo
+     * Operation orderOrdersOrderIdGetWithHttpInfo
      *
      * Retrieve an order
      *
@@ -638,14 +638,14 @@ class OrderApi
      * @return Array of \ultracart\admin\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdGetWithHttpInfo($order_id, $_expand = null)
+    public function orderOrdersOrderIdGetWithHttpInfo($order_id, $_expand = null)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling adminV2OrderOrdersOrderIdGet');
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling orderOrdersOrderIdGet');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/order/orders/{order_id}";
+        $resourcePath = "/order/orders/{order_id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -696,7 +696,7 @@ class OrderApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\OrderResponse',
-                '/admin/v2/order/orders/{order_id}'
+                '/order/orders/{order_id}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OrderResponse', $httpHeader), $statusCode, $httpHeader);
@@ -733,7 +733,7 @@ class OrderApi
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdPut
+     * Operation orderOrdersOrderIdPut
      *
      * Update an order
      *
@@ -742,14 +742,14 @@ class OrderApi
      * @return \ultracart\admin\v2\models\OrderResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdPut($order, $order_id)
+    public function orderOrdersOrderIdPut($order, $order_id)
     {
-        list($response) = $this->adminV2OrderOrdersOrderIdPutWithHttpInfo($order, $order_id);
+        list($response) = $this->orderOrdersOrderIdPutWithHttpInfo($order, $order_id);
         return $response;
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdPutWithHttpInfo
+     * Operation orderOrdersOrderIdPutWithHttpInfo
      *
      * Update an order
      *
@@ -758,18 +758,18 @@ class OrderApi
      * @return Array of \ultracart\admin\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdPutWithHttpInfo($order, $order_id)
+    public function orderOrdersOrderIdPutWithHttpInfo($order, $order_id)
     {
         // verify the required parameter 'order' is set
         if ($order === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order when calling adminV2OrderOrdersOrderIdPut');
+            throw new \InvalidArgumentException('Missing the required parameter $order when calling orderOrdersOrderIdPut');
         }
         // verify the required parameter 'order_id' is set
         if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling adminV2OrderOrdersOrderIdPut');
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling orderOrdersOrderIdPut');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/order/orders/{order_id}";
+        $resourcePath = "/order/orders/{order_id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -821,7 +821,7 @@ class OrderApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\OrderResponse',
-                '/admin/v2/order/orders/{order_id}'
+                '/order/orders/{order_id}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OrderResponse', $httpHeader), $statusCode, $httpHeader);
@@ -858,7 +858,7 @@ class OrderApi
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdResendReceiptPost
+     * Operation orderOrdersOrderIdResendReceiptPost
      *
      * Resend receipt
      *
@@ -866,14 +866,14 @@ class OrderApi
      * @return \ultracart\admin\v2\models\BaseResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdResendReceiptPost($order_id)
+    public function orderOrdersOrderIdResendReceiptPost($order_id)
     {
-        list($response) = $this->adminV2OrderOrdersOrderIdResendReceiptPostWithHttpInfo($order_id);
+        list($response) = $this->orderOrdersOrderIdResendReceiptPostWithHttpInfo($order_id);
         return $response;
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdResendReceiptPostWithHttpInfo
+     * Operation orderOrdersOrderIdResendReceiptPostWithHttpInfo
      *
      * Resend receipt
      *
@@ -881,14 +881,14 @@ class OrderApi
      * @return Array of \ultracart\admin\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdResendReceiptPostWithHttpInfo($order_id)
+    public function orderOrdersOrderIdResendReceiptPostWithHttpInfo($order_id)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling adminV2OrderOrdersOrderIdResendReceiptPost');
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling orderOrdersOrderIdResendReceiptPost');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/order/orders/{order_id}/resend_receipt";
+        $resourcePath = "/order/orders/{order_id}/resend_receipt";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -935,7 +935,7 @@ class OrderApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\BaseResponse',
-                '/admin/v2/order/orders/{order_id}/resend_receipt'
+                '/order/orders/{order_id}/resend_receipt'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\BaseResponse', $httpHeader), $statusCode, $httpHeader);
@@ -972,7 +972,7 @@ class OrderApi
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdResendShipmentConfirmationPost
+     * Operation orderOrdersOrderIdResendShipmentConfirmationPost
      *
      * Resend shipment confirmation
      *
@@ -980,14 +980,14 @@ class OrderApi
      * @return \ultracart\admin\v2\models\BaseResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdResendShipmentConfirmationPost($order_id)
+    public function orderOrdersOrderIdResendShipmentConfirmationPost($order_id)
     {
-        list($response) = $this->adminV2OrderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo($order_id);
+        list($response) = $this->orderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo($order_id);
         return $response;
     }
 
     /**
-     * Operation adminV2OrderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo
+     * Operation orderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo
      *
      * Resend shipment confirmation
      *
@@ -995,14 +995,14 @@ class OrderApi
      * @return Array of \ultracart\admin\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OrderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo($order_id)
+    public function orderOrdersOrderIdResendShipmentConfirmationPostWithHttpInfo($order_id)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling adminV2OrderOrdersOrderIdResendShipmentConfirmationPost');
+            throw new \InvalidArgumentException('Missing the required parameter $order_id when calling orderOrdersOrderIdResendShipmentConfirmationPost');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/order/orders/{order_id}/resend_shipment_confirmation";
+        $resourcePath = "/order/orders/{order_id}/resend_shipment_confirmation";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1049,7 +1049,7 @@ class OrderApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\BaseResponse',
-                '/admin/v2/order/orders/{order_id}/resend_shipment_confirmation'
+                '/order/orders/{order_id}/resend_shipment_confirmation'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\BaseResponse', $httpHeader), $statusCode, $httpHeader);

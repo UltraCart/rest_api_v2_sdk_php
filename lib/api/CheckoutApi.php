@@ -73,7 +73,7 @@ class CheckoutApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest');
+            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest/v2');
         }
 
         $this->apiClient = $apiClient;
@@ -103,7 +103,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutBrowserKeyPut
+     * Operation checkoutBrowserKeyPut
      *
      * Setup Browser Application
      *
@@ -111,14 +111,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutBrowserKeyPut($browser_key_request)
+    public function checkoutBrowserKeyPut($browser_key_request)
     {
-        list($response) = $this->userV2CheckoutBrowserKeyPutWithHttpInfo($browser_key_request);
+        list($response) = $this->checkoutBrowserKeyPutWithHttpInfo($browser_key_request);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutBrowserKeyPutWithHttpInfo
+     * Operation checkoutBrowserKeyPutWithHttpInfo
      *
      * Setup Browser Application
      *
@@ -126,14 +126,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutBrowserKeyPutWithHttpInfo($browser_key_request)
+    public function checkoutBrowserKeyPutWithHttpInfo($browser_key_request)
     {
         // verify the required parameter 'browser_key_request' is set
         if ($browser_key_request === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $browser_key_request when calling userV2CheckoutBrowserKeyPut');
+            throw new \InvalidArgumentException('Missing the required parameter $browser_key_request when calling checkoutBrowserKeyPut');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/browser_key";
+        $resourcePath = "/checkout/browser_key";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -177,7 +177,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartResponse',
-                '/user/v2/checkout/browser_key'
+                '/checkout/browser_key'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
@@ -214,7 +214,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartCartIdGet
+     * Operation checkoutCartCartIdGet
      *
      * Get a cart
      *
@@ -223,14 +223,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartCartIdGet($cart_id, $_expand = null)
+    public function checkoutCartCartIdGet($cart_id, $_expand = null)
     {
-        list($response) = $this->userV2CheckoutCartCartIdGetWithHttpInfo($cart_id, $_expand);
+        list($response) = $this->checkoutCartCartIdGetWithHttpInfo($cart_id, $_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartCartIdGetWithHttpInfo
+     * Operation checkoutCartCartIdGetWithHttpInfo
      *
      * Get a cart
      *
@@ -239,14 +239,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartCartIdGetWithHttpInfo($cart_id, $_expand = null)
+    public function checkoutCartCartIdGetWithHttpInfo($cart_id, $_expand = null)
     {
         // verify the required parameter 'cart_id' is set
         if ($cart_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $cart_id when calling userV2CheckoutCartCartIdGet');
+            throw new \InvalidArgumentException('Missing the required parameter $cart_id when calling checkoutCartCartIdGet');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart/{cart_id}";
+        $resourcePath = "/checkout/cart/{cart_id}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -302,7 +302,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartResponse',
-                '/user/v2/checkout/cart/{cart_id}'
+                '/checkout/cart/{cart_id}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
@@ -339,7 +339,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartFinalizeOrderPost
+     * Operation checkoutCartFinalizeOrderPost
      *
      * Finalize Order
      *
@@ -347,14 +347,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartFinalizeOrderResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartFinalizeOrderPost($finalize_request)
+    public function checkoutCartFinalizeOrderPost($finalize_request)
     {
-        list($response) = $this->userV2CheckoutCartFinalizeOrderPostWithHttpInfo($finalize_request);
+        list($response) = $this->checkoutCartFinalizeOrderPostWithHttpInfo($finalize_request);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartFinalizeOrderPostWithHttpInfo
+     * Operation checkoutCartFinalizeOrderPostWithHttpInfo
      *
      * Finalize Order
      *
@@ -362,14 +362,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartFinalizeOrderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartFinalizeOrderPostWithHttpInfo($finalize_request)
+    public function checkoutCartFinalizeOrderPostWithHttpInfo($finalize_request)
     {
         // verify the required parameter 'finalize_request' is set
         if ($finalize_request === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $finalize_request when calling userV2CheckoutCartFinalizeOrderPost');
+            throw new \InvalidArgumentException('Missing the required parameter $finalize_request when calling checkoutCartFinalizeOrderPost');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart/finalizeOrder";
+        $resourcePath = "/checkout/cart/finalizeOrder";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -413,7 +413,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartFinalizeOrderResponse',
-                '/user/v2/checkout/cart/finalizeOrder'
+                '/checkout/cart/finalizeOrder'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartFinalizeOrderResponse', $httpHeader), $statusCode, $httpHeader);
@@ -450,7 +450,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartGet
+     * Operation checkoutCartGet
      *
      * Create a new cart
      *
@@ -458,14 +458,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartGet($_expand = null)
+    public function checkoutCartGet($_expand = null)
     {
-        list($response) = $this->userV2CheckoutCartGetWithHttpInfo($_expand);
+        list($response) = $this->checkoutCartGetWithHttpInfo($_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartGetWithHttpInfo
+     * Operation checkoutCartGetWithHttpInfo
      *
      * Create a new cart
      *
@@ -473,10 +473,10 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartGetWithHttpInfo($_expand = null)
+    public function checkoutCartGetWithHttpInfo($_expand = null)
     {
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart";
+        $resourcePath = "/checkout/cart";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -524,7 +524,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartResponse',
-                '/user/v2/checkout/cart'
+                '/checkout/cart'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
@@ -561,7 +561,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartHandoffPost
+     * Operation checkoutCartHandoffPost
      *
      * Handoff cart
      *
@@ -570,14 +570,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CheckoutHandoffResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartHandoffPost($handoff_request, $_expand = null)
+    public function checkoutCartHandoffPost($handoff_request, $_expand = null)
     {
-        list($response) = $this->userV2CheckoutCartHandoffPostWithHttpInfo($handoff_request, $_expand);
+        list($response) = $this->checkoutCartHandoffPostWithHttpInfo($handoff_request, $_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartHandoffPostWithHttpInfo
+     * Operation checkoutCartHandoffPostWithHttpInfo
      *
      * Handoff cart
      *
@@ -586,14 +586,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CheckoutHandoffResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartHandoffPostWithHttpInfo($handoff_request, $_expand = null)
+    public function checkoutCartHandoffPostWithHttpInfo($handoff_request, $_expand = null)
     {
         // verify the required parameter 'handoff_request' is set
         if ($handoff_request === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $handoff_request when calling userV2CheckoutCartHandoffPost');
+            throw new \InvalidArgumentException('Missing the required parameter $handoff_request when calling checkoutCartHandoffPost');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart/handoff";
+        $resourcePath = "/checkout/cart/handoff";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -646,7 +646,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CheckoutHandoffResponse',
-                '/user/v2/checkout/cart/handoff'
+                '/checkout/cart/handoff'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CheckoutHandoffResponse', $httpHeader), $statusCode, $httpHeader);
@@ -683,7 +683,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartProfileLoginPost
+     * Operation checkoutCartProfileLoginPost
      *
      * Profile login
      *
@@ -692,14 +692,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartProfileLoginResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartProfileLoginPost($login_request, $_expand = null)
+    public function checkoutCartProfileLoginPost($login_request, $_expand = null)
     {
-        list($response) = $this->userV2CheckoutCartProfileLoginPostWithHttpInfo($login_request, $_expand);
+        list($response) = $this->checkoutCartProfileLoginPostWithHttpInfo($login_request, $_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartProfileLoginPostWithHttpInfo
+     * Operation checkoutCartProfileLoginPostWithHttpInfo
      *
      * Profile login
      *
@@ -708,14 +708,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartProfileLoginResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartProfileLoginPostWithHttpInfo($login_request, $_expand = null)
+    public function checkoutCartProfileLoginPostWithHttpInfo($login_request, $_expand = null)
     {
         // verify the required parameter 'login_request' is set
         if ($login_request === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $login_request when calling userV2CheckoutCartProfileLoginPost');
+            throw new \InvalidArgumentException('Missing the required parameter $login_request when calling checkoutCartProfileLoginPost');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart/profile/login";
+        $resourcePath = "/checkout/cart/profile/login";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -768,7 +768,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartProfileLoginResponse',
-                '/user/v2/checkout/cart/profile/login'
+                '/checkout/cart/profile/login'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartProfileLoginResponse', $httpHeader), $statusCode, $httpHeader);
@@ -805,7 +805,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartProfileLogoutPost
+     * Operation checkoutCartProfileLogoutPost
      *
      * Profile logout
      *
@@ -814,14 +814,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartProfileLogoutPost($cart, $_expand = null)
+    public function checkoutCartProfileLogoutPost($cart, $_expand = null)
     {
-        list($response) = $this->userV2CheckoutCartProfileLogoutPostWithHttpInfo($cart, $_expand);
+        list($response) = $this->checkoutCartProfileLogoutPostWithHttpInfo($cart, $_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartProfileLogoutPostWithHttpInfo
+     * Operation checkoutCartProfileLogoutPostWithHttpInfo
      *
      * Profile logout
      *
@@ -830,14 +830,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartProfileLogoutPostWithHttpInfo($cart, $_expand = null)
+    public function checkoutCartProfileLogoutPostWithHttpInfo($cart, $_expand = null)
     {
         // verify the required parameter 'cart' is set
         if ($cart === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $cart when calling userV2CheckoutCartProfileLogoutPost');
+            throw new \InvalidArgumentException('Missing the required parameter $cart when calling checkoutCartProfileLogoutPost');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart/profile/logout";
+        $resourcePath = "/checkout/cart/profile/logout";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -890,7 +890,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartResponse',
-                '/user/v2/checkout/cart/profile/logout'
+                '/checkout/cart/profile/logout'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
@@ -927,7 +927,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartProfileRegisterPost
+     * Operation checkoutCartProfileRegisterPost
      *
      * Profile registration
      *
@@ -936,14 +936,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartProfileRegisterResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartProfileRegisterPost($register_request, $_expand = null)
+    public function checkoutCartProfileRegisterPost($register_request, $_expand = null)
     {
-        list($response) = $this->userV2CheckoutCartProfileRegisterPostWithHttpInfo($register_request, $_expand);
+        list($response) = $this->checkoutCartProfileRegisterPostWithHttpInfo($register_request, $_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartProfileRegisterPostWithHttpInfo
+     * Operation checkoutCartProfileRegisterPostWithHttpInfo
      *
      * Profile registration
      *
@@ -952,14 +952,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartProfileRegisterResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartProfileRegisterPostWithHttpInfo($register_request, $_expand = null)
+    public function checkoutCartProfileRegisterPostWithHttpInfo($register_request, $_expand = null)
     {
         // verify the required parameter 'register_request' is set
         if ($register_request === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $register_request when calling userV2CheckoutCartProfileRegisterPost');
+            throw new \InvalidArgumentException('Missing the required parameter $register_request when calling checkoutCartProfileRegisterPost');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart/profile/register";
+        $resourcePath = "/checkout/cart/profile/register";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1012,7 +1012,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartProfileRegisterResponse',
-                '/user/v2/checkout/cart/profile/register'
+                '/checkout/cart/profile/register'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartProfileRegisterResponse', $httpHeader), $statusCode, $httpHeader);
@@ -1049,7 +1049,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartPut
+     * Operation checkoutCartPut
      *
      * Update cart (by cookie)
      *
@@ -1058,14 +1058,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartPut($cart, $_expand = null)
+    public function checkoutCartPut($cart, $_expand = null)
     {
-        list($response) = $this->userV2CheckoutCartPutWithHttpInfo($cart, $_expand);
+        list($response) = $this->checkoutCartPutWithHttpInfo($cart, $_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartPutWithHttpInfo
+     * Operation checkoutCartPutWithHttpInfo
      *
      * Update cart (by cookie)
      *
@@ -1074,14 +1074,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartPutWithHttpInfo($cart, $_expand = null)
+    public function checkoutCartPutWithHttpInfo($cart, $_expand = null)
     {
         // verify the required parameter 'cart' is set
         if ($cart === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $cart when calling userV2CheckoutCartPut');
+            throw new \InvalidArgumentException('Missing the required parameter $cart when calling checkoutCartPut');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart";
+        $resourcePath = "/checkout/cart";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1134,7 +1134,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartResponse',
-                '/user/v2/checkout/cart'
+                '/checkout/cart'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
@@ -1171,7 +1171,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutCartValidatePost
+     * Operation checkoutCartValidatePost
      *
      * Validate
      *
@@ -1180,14 +1180,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartValidationResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartValidatePost($validation_request, $_expand = null)
+    public function checkoutCartValidatePost($validation_request, $_expand = null)
     {
-        list($response) = $this->userV2CheckoutCartValidatePostWithHttpInfo($validation_request, $_expand);
+        list($response) = $this->checkoutCartValidatePostWithHttpInfo($validation_request, $_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutCartValidatePostWithHttpInfo
+     * Operation checkoutCartValidatePostWithHttpInfo
      *
      * Validate
      *
@@ -1196,14 +1196,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartValidationResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutCartValidatePostWithHttpInfo($validation_request, $_expand = null)
+    public function checkoutCartValidatePostWithHttpInfo($validation_request, $_expand = null)
     {
         // verify the required parameter 'validation_request' is set
         if ($validation_request === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $validation_request when calling userV2CheckoutCartValidatePost');
+            throw new \InvalidArgumentException('Missing the required parameter $validation_request when calling checkoutCartValidatePost');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/cart/validate";
+        $resourcePath = "/checkout/cart/validate";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1256,7 +1256,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartValidationResponse',
-                '/user/v2/checkout/cart/validate'
+                '/checkout/cart/validate'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartValidationResponse', $httpHeader), $statusCode, $httpHeader);
@@ -1293,7 +1293,7 @@ class CheckoutApi
     }
 
     /**
-     * Operation userV2CheckoutReturnReturnCodeGet
+     * Operation checkoutReturnReturnCodeGet
      *
      * Get a cart by return code
      *
@@ -1302,14 +1302,14 @@ class CheckoutApi
      * @return \ultracart\admin\v2\models\CartResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutReturnReturnCodeGet($return_code, $_expand = null)
+    public function checkoutReturnReturnCodeGet($return_code, $_expand = null)
     {
-        list($response) = $this->userV2CheckoutReturnReturnCodeGetWithHttpInfo($return_code, $_expand);
+        list($response) = $this->checkoutReturnReturnCodeGetWithHttpInfo($return_code, $_expand);
         return $response;
     }
 
     /**
-     * Operation userV2CheckoutReturnReturnCodeGetWithHttpInfo
+     * Operation checkoutReturnReturnCodeGetWithHttpInfo
      *
      * Get a cart by return code
      *
@@ -1318,14 +1318,14 @@ class CheckoutApi
      * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function userV2CheckoutReturnReturnCodeGetWithHttpInfo($return_code, $_expand = null)
+    public function checkoutReturnReturnCodeGetWithHttpInfo($return_code, $_expand = null)
     {
         // verify the required parameter 'return_code' is set
         if ($return_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $return_code when calling userV2CheckoutReturnReturnCodeGet');
+            throw new \InvalidArgumentException('Missing the required parameter $return_code when calling checkoutReturnReturnCodeGet');
         }
         // parse inputs
-        $resourcePath = "/user/v2/checkout/return/{return_code}";
+        $resourcePath = "/checkout/return/{return_code}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1381,7 +1381,7 @@ class CheckoutApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\CartResponse',
-                '/user/v2/checkout/return/{return_code}'
+                '/checkout/return/{return_code}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);

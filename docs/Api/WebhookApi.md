@@ -1,20 +1,20 @@
 # ultracart\admin\v2\WebhookApi
 
-All URIs are relative to *https://secure.ultracart.com/rest*
+All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**adminV2WebhookWebhooksGet**](WebhookApi.md#adminV2WebhookWebhooksGet) | **GET** /admin/v2/webhook/webhooks | Retrieve webhooks
-[**adminV2WebhookWebhooksPost**](WebhookApi.md#adminV2WebhookWebhooksPost) | **POST** /admin/v2/webhook/webhooks | Add a webhook
-[**adminV2WebhookWebhooksWebhookOidDelete**](WebhookApi.md#adminV2WebhookWebhooksWebhookOidDelete) | **DELETE** /admin/v2/webhook/webhooks/{webhookOid} | Delete a webhook
-[**adminV2WebhookWebhooksWebhookOidLogsGet**](WebhookApi.md#adminV2WebhookWebhooksWebhookOidLogsGet) | **GET** /admin/v2/webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
-[**adminV2WebhookWebhooksWebhookOidLogsRequestIdGet**](WebhookApi.md#adminV2WebhookWebhooksWebhookOidLogsRequestIdGet) | **GET** /admin/v2/webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
-[**adminV2WebhookWebhooksWebhookOidPut**](WebhookApi.md#adminV2WebhookWebhooksWebhookOidPut) | **PUT** /admin/v2/webhook/webhooks/{webhookOid} | Update a webhook
-[**adminV2WebhookWebhooksWebhookOidReflowEventNamePost**](WebhookApi.md#adminV2WebhookWebhooksWebhookOidReflowEventNamePost) | **POST** /admin/v2/webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
+[**webhookWebhooksGet**](WebhookApi.md#webhookWebhooksGet) | **GET** /webhook/webhooks | Retrieve webhooks
+[**webhookWebhooksPost**](WebhookApi.md#webhookWebhooksPost) | **POST** /webhook/webhooks | Add a webhook
+[**webhookWebhooksWebhookOidDelete**](WebhookApi.md#webhookWebhooksWebhookOidDelete) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
+[**webhookWebhooksWebhookOidLogsGet**](WebhookApi.md#webhookWebhooksWebhookOidLogsGet) | **GET** /webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
+[**webhookWebhooksWebhookOidLogsRequestIdGet**](WebhookApi.md#webhookWebhooksWebhookOidLogsRequestIdGet) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
+[**webhookWebhooksWebhookOidPut**](WebhookApi.md#webhookWebhooksWebhookOidPut) | **PUT** /webhook/webhooks/{webhookOid} | Update a webhook
+[**webhookWebhooksWebhookOidReflowEventNamePost**](WebhookApi.md#webhookWebhooksWebhookOidReflowEventNamePost) | **POST** /webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
 
 
-# **adminV2WebhookWebhooksGet**
-> \ultracart\admin\v2\models\WebhooksResponse adminV2WebhookWebhooksGet($_limit, $_offset, $_sort, $_placeholders)
+# **webhookWebhooksGet**
+> \ultracart\admin\v2\models\WebhooksResponse webhookWebhooksGet($_limit, $_offset, $_sort, $_placeholders)
 
 Retrieve webhooks
 
@@ -39,10 +39,10 @@ $_sort = "_sort_example"; // string | The sort order of the webhooks.  See docum
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->adminV2WebhookWebhooksGet($_limit, $_offset, $_sort, $_placeholders);
+    $result = $api_instance->webhookWebhooksGet($_limit, $_offset, $_sort, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->adminV2WebhookWebhooksGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhookApi->webhookWebhooksGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -71,8 +71,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2WebhookWebhooksPost**
-> \ultracart\admin\v2\models\WebhookResponse adminV2WebhookWebhooksPost($webhook, $_placeholders)
+# **webhookWebhooksPost**
+> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksPost($webhook, $_placeholders)
 
 Add a webhook
 
@@ -95,10 +95,10 @@ $webhook = new \ultracart\admin\v2\models\Webhook(); // \ultracart\admin\v2\mode
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->adminV2WebhookWebhooksPost($webhook, $_placeholders);
+    $result = $api_instance->webhookWebhooksPost($webhook, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->adminV2WebhookWebhooksPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhookApi->webhookWebhooksPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -125,8 +125,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2WebhookWebhooksWebhookOidDelete**
-> adminV2WebhookWebhooksWebhookOidDelete($webhook_oid)
+# **webhookWebhooksWebhookOidDelete**
+> webhookWebhooksWebhookOidDelete($webhook_oid)
 
 Delete a webhook
 
@@ -148,9 +148,9 @@ $api_instance = new ultracart\admin\v2\Api\WebhookApi();
 $webhook_oid = 56; // int | The webhook oid to delete.
 
 try {
-    $api_instance->adminV2WebhookWebhooksWebhookOidDelete($webhook_oid);
+    $api_instance->webhookWebhooksWebhookOidDelete($webhook_oid);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->adminV2WebhookWebhooksWebhookOidDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -176,8 +176,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2WebhookWebhooksWebhookOidLogsGet**
-> \ultracart\admin\v2\models\WebhookLogSummariesResponse adminV2WebhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit, $_offset, $_since)
+# **webhookWebhooksWebhookOidLogsGet**
+> \ultracart\admin\v2\models\WebhookLogSummariesResponse webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit, $_offset, $_since)
 
 Retrieve the log summaries
 
@@ -202,10 +202,10 @@ $_offset = 0; // int | Pagination of the record set.  Offset is a zero based ind
 $_since = "_since_example"; // string | Fetch log summaries that have been delivered since this date/time.
 
 try {
-    $result = $api_instance->adminV2WebhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit, $_offset, $_since);
+    $result = $api_instance->webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit, $_offset, $_since);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->adminV2WebhookWebhooksWebhookOidLogsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidLogsGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -234,8 +234,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2WebhookWebhooksWebhookOidLogsRequestIdGet**
-> \ultracart\admin\v2\models\WebhookLogResponse adminV2WebhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id)
+# **webhookWebhooksWebhookOidLogsRequestIdGet**
+> \ultracart\admin\v2\models\WebhookLogResponse webhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id)
 
 Retrieve an individual log
 
@@ -258,10 +258,10 @@ $webhook_oid = 56; // int | The webhook oid that owns the log.
 $request_id = "request_id_example"; // string | The request id associated with the log to view.
 
 try {
-    $result = $api_instance->adminV2WebhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id);
+    $result = $api_instance->webhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->adminV2WebhookWebhooksWebhookOidLogsRequestIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidLogsRequestIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -288,8 +288,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2WebhookWebhooksWebhookOidPut**
-> \ultracart\admin\v2\models\WebhookResponse adminV2WebhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders)
+# **webhookWebhooksWebhookOidPut**
+> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders)
 
 Update a webhook
 
@@ -313,10 +313,10 @@ $webhook_oid = 56; // int | The webhook oid to update.
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->adminV2WebhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders);
+    $result = $api_instance->webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->adminV2WebhookWebhooksWebhookOidPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidPut: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -344,8 +344,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2WebhookWebhooksWebhookOidReflowEventNamePost**
-> \ultracart\admin\v2\models\WebhookSampleRequestResponse adminV2WebhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name)
+# **webhookWebhooksWebhookOidReflowEventNamePost**
+> \ultracart\admin\v2\models\WebhookSampleRequestResponse webhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name)
 
 Resend events to the webhook endpoint.
 
@@ -368,10 +368,10 @@ $webhook_oid = 56; // int | The webhook oid that is receiving the reflowed event
 $event_name = "event_name_example"; // string | The event to reflow.
 
 try {
-    $result = $api_instance->adminV2WebhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name);
+    $result = $api_instance->webhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhookApi->adminV2WebhookWebhooksWebhookOidReflowEventNamePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhookApi->webhookWebhooksWebhookOidReflowEventNamePost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

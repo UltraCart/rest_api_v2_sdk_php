@@ -73,7 +73,7 @@ class OauthApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest');
+            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest/v2');
         }
 
         $this->apiClient = $apiClient;
@@ -103,7 +103,7 @@ class OauthApi
     }
 
     /**
-     * Operation adminV2OauthRevokePost
+     * Operation oauthRevokePost
      *
      * Revoke this OAuth application.
      *
@@ -112,14 +112,14 @@ class OauthApi
      * @return \ultracart\admin\v2\models\OauthRevokeSuccessResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OauthRevokePost($client_id, $token)
+    public function oauthRevokePost($client_id, $token)
     {
-        list($response) = $this->adminV2OauthRevokePostWithHttpInfo($client_id, $token);
+        list($response) = $this->oauthRevokePostWithHttpInfo($client_id, $token);
         return $response;
     }
 
     /**
-     * Operation adminV2OauthRevokePostWithHttpInfo
+     * Operation oauthRevokePostWithHttpInfo
      *
      * Revoke this OAuth application.
      *
@@ -128,18 +128,18 @@ class OauthApi
      * @return Array of \ultracart\admin\v2\models\OauthRevokeSuccessResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OauthRevokePostWithHttpInfo($client_id, $token)
+    public function oauthRevokePostWithHttpInfo($client_id, $token)
     {
         // verify the required parameter 'client_id' is set
         if ($client_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling adminV2OauthRevokePost');
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling oauthRevokePost');
         }
         // verify the required parameter 'token' is set
         if ($token === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $token when calling adminV2OauthRevokePost');
+            throw new \InvalidArgumentException('Missing the required parameter $token when calling oauthRevokePost');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/oauth/revoke";
+        $resourcePath = "/oauth/revoke";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -191,7 +191,7 @@ class OauthApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\OauthRevokeSuccessResponse',
-                '/admin/v2/oauth/revoke'
+                '/oauth/revoke'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OauthRevokeSuccessResponse', $httpHeader), $statusCode, $httpHeader);
@@ -216,7 +216,7 @@ class OauthApi
     }
 
     /**
-     * Operation adminV2OauthTokenPost
+     * Operation oauthTokenPost
      *
      * Exchange authorization code for access token.
      *
@@ -228,14 +228,14 @@ class OauthApi
      * @return \ultracart\admin\v2\models\OauthTokenResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OauthTokenPost($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthTokenPost($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
-        list($response) = $this->adminV2OauthTokenPostWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
+        list($response) = $this->oauthTokenPostWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
         return $response;
     }
 
     /**
-     * Operation adminV2OauthTokenPostWithHttpInfo
+     * Operation oauthTokenPostWithHttpInfo
      *
      * Exchange authorization code for access token.
      *
@@ -247,18 +247,18 @@ class OauthApi
      * @return Array of \ultracart\admin\v2\models\OauthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2OauthTokenPostWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthTokenPostWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
         // verify the required parameter 'client_id' is set
         if ($client_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling adminV2OauthTokenPost');
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling oauthTokenPost');
         }
         // verify the required parameter 'grant_type' is set
         if ($grant_type === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $grant_type when calling adminV2OauthTokenPost');
+            throw new \InvalidArgumentException('Missing the required parameter $grant_type when calling oauthTokenPost');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/oauth/token";
+        $resourcePath = "/oauth/token";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -322,7 +322,7 @@ class OauthApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\OauthTokenResponse',
-                '/admin/v2/oauth/token'
+                '/oauth/token'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OauthTokenResponse', $httpHeader), $statusCode, $httpHeader);

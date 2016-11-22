@@ -1,24 +1,24 @@
 # ultracart\admin\v2\CheckoutApi
 
-All URIs are relative to *https://secure.ultracart.com/rest*
+All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**userV2CheckoutBrowserKeyPut**](CheckoutApi.md#userV2CheckoutBrowserKeyPut) | **PUT** /user/v2/checkout/browser_key | Setup Browser Application
-[**userV2CheckoutCartCartIdGet**](CheckoutApi.md#userV2CheckoutCartCartIdGet) | **GET** /user/v2/checkout/cart/{cart_id} | Get a cart
-[**userV2CheckoutCartFinalizeOrderPost**](CheckoutApi.md#userV2CheckoutCartFinalizeOrderPost) | **POST** /user/v2/checkout/cart/finalizeOrder | Finalize Order
-[**userV2CheckoutCartGet**](CheckoutApi.md#userV2CheckoutCartGet) | **GET** /user/v2/checkout/cart | Create a new cart
-[**userV2CheckoutCartHandoffPost**](CheckoutApi.md#userV2CheckoutCartHandoffPost) | **POST** /user/v2/checkout/cart/handoff | Handoff cart
-[**userV2CheckoutCartProfileLoginPost**](CheckoutApi.md#userV2CheckoutCartProfileLoginPost) | **POST** /user/v2/checkout/cart/profile/login | Profile login
-[**userV2CheckoutCartProfileLogoutPost**](CheckoutApi.md#userV2CheckoutCartProfileLogoutPost) | **POST** /user/v2/checkout/cart/profile/logout | Profile logout
-[**userV2CheckoutCartProfileRegisterPost**](CheckoutApi.md#userV2CheckoutCartProfileRegisterPost) | **POST** /user/v2/checkout/cart/profile/register | Profile registration
-[**userV2CheckoutCartPut**](CheckoutApi.md#userV2CheckoutCartPut) | **PUT** /user/v2/checkout/cart | Update cart (by cookie)
-[**userV2CheckoutCartValidatePost**](CheckoutApi.md#userV2CheckoutCartValidatePost) | **POST** /user/v2/checkout/cart/validate | Validate
-[**userV2CheckoutReturnReturnCodeGet**](CheckoutApi.md#userV2CheckoutReturnReturnCodeGet) | **GET** /user/v2/checkout/return/{return_code} | Get a cart by return code
+[**checkoutBrowserKeyPut**](CheckoutApi.md#checkoutBrowserKeyPut) | **PUT** /checkout/browser_key | Setup Browser Application
+[**checkoutCartCartIdGet**](CheckoutApi.md#checkoutCartCartIdGet) | **GET** /checkout/cart/{cart_id} | Get a cart
+[**checkoutCartFinalizeOrderPost**](CheckoutApi.md#checkoutCartFinalizeOrderPost) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+[**checkoutCartGet**](CheckoutApi.md#checkoutCartGet) | **GET** /checkout/cart | Create a new cart
+[**checkoutCartHandoffPost**](CheckoutApi.md#checkoutCartHandoffPost) | **POST** /checkout/cart/handoff | Handoff cart
+[**checkoutCartProfileLoginPost**](CheckoutApi.md#checkoutCartProfileLoginPost) | **POST** /checkout/cart/profile/login | Profile login
+[**checkoutCartProfileLogoutPost**](CheckoutApi.md#checkoutCartProfileLogoutPost) | **POST** /checkout/cart/profile/logout | Profile logout
+[**checkoutCartProfileRegisterPost**](CheckoutApi.md#checkoutCartProfileRegisterPost) | **POST** /checkout/cart/profile/register | Profile registration
+[**checkoutCartPut**](CheckoutApi.md#checkoutCartPut) | **PUT** /checkout/cart | Update cart (by cookie)
+[**checkoutCartValidatePost**](CheckoutApi.md#checkoutCartValidatePost) | **POST** /checkout/cart/validate | Validate
+[**checkoutReturnReturnCodeGet**](CheckoutApi.md#checkoutReturnReturnCodeGet) | **GET** /checkout/return/{return_code} | Get a cart by return code
 
 
-# **userV2CheckoutBrowserKeyPut**
-> \ultracart\admin\v2\models\CartResponse userV2CheckoutBrowserKeyPut($browser_key_request)
+# **checkoutBrowserKeyPut**
+> \ultracart\admin\v2\models\CartResponse checkoutBrowserKeyPut($browser_key_request)
 
 Setup Browser Application
 
@@ -40,10 +40,10 @@ $api_instance = new ultracart\admin\v2\Api\CheckoutApi();
 $browser_key_request = new \ultracart\admin\v2\models\CheckoutSetupBrowserKeyRequest(); // \ultracart\admin\v2\models\CheckoutSetupBrowserKeyRequest | Setup browser key request
 
 try {
-    $result = $api_instance->userV2CheckoutBrowserKeyPut($browser_key_request);
+    $result = $api_instance->checkoutBrowserKeyPut($browser_key_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutBrowserKeyPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutBrowserKeyPut: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -69,8 +69,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartCartIdGet**
-> \ultracart\admin\v2\models\CartResponse userV2CheckoutCartCartIdGet($cart_id, $_expand)
+# **checkoutCartCartIdGet**
+> \ultracart\admin\v2\models\CartResponse checkoutCartCartIdGet($cart_id, $_expand)
 
 Get a cart
 
@@ -97,10 +97,10 @@ $cart_id = "cart_id_example"; // string | Cart ID to retrieve
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutCartCartIdGet($cart_id, $_expand);
+    $result = $api_instance->checkoutCartCartIdGet($cart_id, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartCartIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartCartIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -127,8 +127,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartFinalizeOrderPost**
-> \ultracart\admin\v2\models\CartFinalizeOrderResponse userV2CheckoutCartFinalizeOrderPost($finalize_request)
+# **checkoutCartFinalizeOrderPost**
+> \ultracart\admin\v2\models\CartFinalizeOrderResponse checkoutCartFinalizeOrderPost($finalize_request)
 
 Finalize Order
 
@@ -150,10 +150,10 @@ $api_instance = new ultracart\admin\v2\Api\CheckoutApi();
 $finalize_request = new \ultracart\admin\v2\models\CartFinalizeOrderRequest(); // \ultracart\admin\v2\models\CartFinalizeOrderRequest | Finalize request
 
 try {
-    $result = $api_instance->userV2CheckoutCartFinalizeOrderPost($finalize_request);
+    $result = $api_instance->checkoutCartFinalizeOrderPost($finalize_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartFinalizeOrderPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartFinalizeOrderPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -179,8 +179,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartGet**
-> \ultracart\admin\v2\models\CartResponse userV2CheckoutCartGet($_expand)
+# **checkoutCartGet**
+> \ultracart\admin\v2\models\CartResponse checkoutCartGet($_expand)
 
 Create a new cart
 
@@ -206,10 +206,10 @@ $api_instance = new ultracart\admin\v2\Api\CheckoutApi();
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutCartGet($_expand);
+    $result = $api_instance->checkoutCartGet($_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -235,8 +235,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartHandoffPost**
-> \ultracart\admin\v2\models\CheckoutHandoffResponse userV2CheckoutCartHandoffPost($handoff_request, $_expand)
+# **checkoutCartHandoffPost**
+> \ultracart\admin\v2\models\CheckoutHandoffResponse checkoutCartHandoffPost($handoff_request, $_expand)
 
 Handoff cart
 
@@ -263,10 +263,10 @@ $handoff_request = new \ultracart\admin\v2\models\CheckoutHandoffRequest(); // \
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutCartHandoffPost($handoff_request, $_expand);
+    $result = $api_instance->checkoutCartHandoffPost($handoff_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartHandoffPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartHandoffPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -293,8 +293,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartProfileLoginPost**
-> \ultracart\admin\v2\models\CartProfileLoginResponse userV2CheckoutCartProfileLoginPost($login_request, $_expand)
+# **checkoutCartProfileLoginPost**
+> \ultracart\admin\v2\models\CartProfileLoginResponse checkoutCartProfileLoginPost($login_request, $_expand)
 
 Profile login
 
@@ -321,10 +321,10 @@ $login_request = new \ultracart\admin\v2\models\CartProfileLoginRequest(); // \u
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutCartProfileLoginPost($login_request, $_expand);
+    $result = $api_instance->checkoutCartProfileLoginPost($login_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartProfileLoginPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartProfileLoginPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -351,8 +351,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartProfileLogoutPost**
-> \ultracart\admin\v2\models\CartResponse userV2CheckoutCartProfileLogoutPost($cart, $_expand)
+# **checkoutCartProfileLogoutPost**
+> \ultracart\admin\v2\models\CartResponse checkoutCartProfileLogoutPost($cart, $_expand)
 
 Profile logout
 
@@ -379,10 +379,10 @@ $cart = new \ultracart\admin\v2\models\Cart(); // \ultracart\admin\v2\models\Car
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutCartProfileLogoutPost($cart, $_expand);
+    $result = $api_instance->checkoutCartProfileLogoutPost($cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartProfileLogoutPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartProfileLogoutPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -409,8 +409,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartProfileRegisterPost**
-> \ultracart\admin\v2\models\CartProfileRegisterResponse userV2CheckoutCartProfileRegisterPost($register_request, $_expand)
+# **checkoutCartProfileRegisterPost**
+> \ultracart\admin\v2\models\CartProfileRegisterResponse checkoutCartProfileRegisterPost($register_request, $_expand)
 
 Profile registration
 
@@ -437,10 +437,10 @@ $register_request = new \ultracart\admin\v2\models\CartProfileRegisterRequest();
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutCartProfileRegisterPost($register_request, $_expand);
+    $result = $api_instance->checkoutCartProfileRegisterPost($register_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartProfileRegisterPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartProfileRegisterPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -467,8 +467,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartPut**
-> \ultracart\admin\v2\models\CartResponse userV2CheckoutCartPut($cart, $_expand)
+# **checkoutCartPut**
+> \ultracart\admin\v2\models\CartResponse checkoutCartPut($cart, $_expand)
 
 Update cart (by cookie)
 
@@ -495,10 +495,10 @@ $cart = new \ultracart\admin\v2\models\Cart(); // \ultracart\admin\v2\models\Car
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutCartPut($cart, $_expand);
+    $result = $api_instance->checkoutCartPut($cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartPut: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -525,8 +525,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutCartValidatePost**
-> \ultracart\admin\v2\models\CartValidationResponse userV2CheckoutCartValidatePost($validation_request, $_expand)
+# **checkoutCartValidatePost**
+> \ultracart\admin\v2\models\CartValidationResponse checkoutCartValidatePost($validation_request, $_expand)
 
 Validate
 
@@ -553,10 +553,10 @@ $validation_request = new \ultracart\admin\v2\models\CartValidationRequest(); //
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutCartValidatePost($validation_request, $_expand);
+    $result = $api_instance->checkoutCartValidatePost($validation_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutCartValidatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutCartValidatePost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -583,8 +583,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **userV2CheckoutReturnReturnCodeGet**
-> \ultracart\admin\v2\models\CartResponse userV2CheckoutReturnReturnCodeGet($return_code, $_expand)
+# **checkoutReturnReturnCodeGet**
+> \ultracart\admin\v2\models\CartResponse checkoutReturnReturnCodeGet($return_code, $_expand)
 
 Get a cart by return code
 
@@ -611,10 +611,10 @@ $return_code = "return_code_example"; // string | Return code to lookup cart ID 
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->userV2CheckoutReturnReturnCodeGet($return_code, $_expand);
+    $result = $api_instance->checkoutReturnReturnCodeGet($return_code, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->userV2CheckoutReturnReturnCodeGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->checkoutReturnReturnCodeGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

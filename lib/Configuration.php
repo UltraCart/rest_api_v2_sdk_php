@@ -102,7 +102,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://secure.ultracart.com/rest';
+    protected $host = 'https://secure.ultracart.com/rest/v2';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout

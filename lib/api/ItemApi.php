@@ -73,7 +73,7 @@ class ItemApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest');
+            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest/v2');
         }
 
         $this->apiClient = $apiClient;
@@ -103,7 +103,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2AutoOrderAutoOrdersAutoOrderOidGet
+     * Operation autoOrderAutoOrdersAutoOrderOidGet
      *
      * Retrieve an auto order
      *
@@ -112,14 +112,14 @@ class ItemApi
      * @return \ultracart\admin\v2\models\AutoOrderResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2AutoOrderAutoOrdersAutoOrderOidGet($auto_order_oid, $_expand = null)
+    public function autoOrderAutoOrdersAutoOrderOidGet($auto_order_oid, $_expand = null)
     {
-        list($response) = $this->adminV2AutoOrderAutoOrdersAutoOrderOidGetWithHttpInfo($auto_order_oid, $_expand);
+        list($response) = $this->autoOrderAutoOrdersAutoOrderOidGetWithHttpInfo($auto_order_oid, $_expand);
         return $response;
     }
 
     /**
-     * Operation adminV2AutoOrderAutoOrdersAutoOrderOidGetWithHttpInfo
+     * Operation autoOrderAutoOrdersAutoOrderOidGetWithHttpInfo
      *
      * Retrieve an auto order
      *
@@ -128,14 +128,14 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2AutoOrderAutoOrdersAutoOrderOidGetWithHttpInfo($auto_order_oid, $_expand = null)
+    public function autoOrderAutoOrdersAutoOrderOidGetWithHttpInfo($auto_order_oid, $_expand = null)
     {
         // verify the required parameter 'auto_order_oid' is set
         if ($auto_order_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $auto_order_oid when calling adminV2AutoOrderAutoOrdersAutoOrderOidGet');
+            throw new \InvalidArgumentException('Missing the required parameter $auto_order_oid when calling autoOrderAutoOrdersAutoOrderOidGet');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/auto_order/auto_orders/{auto_order_oid}";
+        $resourcePath = "/auto_order/auto_orders/{auto_order_oid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -186,7 +186,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\AutoOrderResponse',
-                '/admin/v2/auto_order/auto_orders/{auto_order_oid}'
+                '/auto_order/auto_orders/{auto_order_oid}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\AutoOrderResponse', $httpHeader), $statusCode, $httpHeader);
@@ -223,7 +223,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2AutoOrderAutoOrdersAutoOrderOidPut
+     * Operation autoOrderAutoOrdersAutoOrderOidPut
      *
      * Update an auto order
      *
@@ -232,14 +232,14 @@ class ItemApi
      * @return \ultracart\admin\v2\models\AutoOrderResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2AutoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid)
+    public function autoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid)
     {
-        list($response) = $this->adminV2AutoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid);
+        list($response) = $this->autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid);
         return $response;
     }
 
     /**
-     * Operation adminV2AutoOrderAutoOrdersAutoOrderOidPutWithHttpInfo
+     * Operation autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo
      *
      * Update an auto order
      *
@@ -248,18 +248,18 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2AutoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid)
+    public function autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid)
     {
         // verify the required parameter 'auto_order' is set
         if ($auto_order === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $auto_order when calling adminV2AutoOrderAutoOrdersAutoOrderOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $auto_order when calling autoOrderAutoOrdersAutoOrderOidPut');
         }
         // verify the required parameter 'auto_order_oid' is set
         if ($auto_order_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $auto_order_oid when calling adminV2AutoOrderAutoOrdersAutoOrderOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $auto_order_oid when calling autoOrderAutoOrdersAutoOrderOidPut');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/auto_order/auto_orders/{auto_order_oid}";
+        $resourcePath = "/auto_order/auto_orders/{auto_order_oid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -311,7 +311,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\AutoOrderResponse',
-                '/admin/v2/auto_order/auto_orders/{auto_order_oid}'
+                '/auto_order/auto_orders/{auto_order_oid}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\AutoOrderResponse', $httpHeader), $statusCode, $httpHeader);
@@ -348,7 +348,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2AutoOrderAutoOrdersGet
+     * Operation autoOrderAutoOrdersGet
      *
      * Retrieve auto orders
      *
@@ -378,14 +378,14 @@ class ItemApi
      * @return \ultracart\admin\v2\models\AutoOrdersResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2AutoOrderAutoOrdersGet($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function autoOrderAutoOrdersGet($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->adminV2AutoOrderAutoOrdersGetWithHttpInfo($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
+        list($response) = $this->autoOrderAutoOrdersGetWithHttpInfo($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
         return $response;
     }
 
     /**
-     * Operation adminV2AutoOrderAutoOrdersGetWithHttpInfo
+     * Operation autoOrderAutoOrdersGetWithHttpInfo
      *
      * Retrieve auto orders
      *
@@ -415,10 +415,10 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2AutoOrderAutoOrdersGetWithHttpInfo($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function autoOrderAutoOrdersGetWithHttpInfo($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
         // parse inputs
-        $resourcePath = "/admin/v2/auto_order/auto_orders";
+        $resourcePath = "/auto_order/auto_orders";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -549,7 +549,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\AutoOrdersResponse',
-                '/admin/v2/auto_order/auto_orders'
+                '/auto_order/auto_orders'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\AutoOrdersResponse', $httpHeader), $statusCode, $httpHeader);
@@ -586,7 +586,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2ItemItemsGet
+     * Operation itemItemsGet
      *
      * Retrieve items
      *
@@ -601,14 +601,14 @@ class ItemApi
      * @return \ultracart\admin\v2\models\ItemsResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsGet($parent_category_id = null, $parent_category_path = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function itemItemsGet($parent_category_id = null, $parent_category_path = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->adminV2ItemItemsGetWithHttpInfo($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+        list($response) = $this->itemItemsGetWithHttpInfo($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation adminV2ItemItemsGetWithHttpInfo
+     * Operation itemItemsGetWithHttpInfo
      *
      * Retrieve items
      *
@@ -623,10 +623,10 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsGetWithHttpInfo($parent_category_id = null, $parent_category_path = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function itemItemsGetWithHttpInfo($parent_category_id = null, $parent_category_path = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
         // parse inputs
-        $resourcePath = "/admin/v2/item/items";
+        $resourcePath = "/item/items";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -697,7 +697,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\ItemsResponse',
-                '/admin/v2/item/items'
+                '/item/items'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\ItemsResponse', $httpHeader), $statusCode, $httpHeader);
@@ -734,7 +734,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2ItemItemsMerchantItemOidDelete
+     * Operation itemItemsMerchantItemOidDelete
      *
      * Delete an item
      *
@@ -742,14 +742,14 @@ class ItemApi
      * @return void
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsMerchantItemOidDelete($merchant_item_oid)
+    public function itemItemsMerchantItemOidDelete($merchant_item_oid)
     {
-        list($response) = $this->adminV2ItemItemsMerchantItemOidDeleteWithHttpInfo($merchant_item_oid);
+        list($response) = $this->itemItemsMerchantItemOidDeleteWithHttpInfo($merchant_item_oid);
         return $response;
     }
 
     /**
-     * Operation adminV2ItemItemsMerchantItemOidDeleteWithHttpInfo
+     * Operation itemItemsMerchantItemOidDeleteWithHttpInfo
      *
      * Delete an item
      *
@@ -757,14 +757,14 @@ class ItemApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsMerchantItemOidDeleteWithHttpInfo($merchant_item_oid)
+    public function itemItemsMerchantItemOidDeleteWithHttpInfo($merchant_item_oid)
     {
         // verify the required parameter 'merchant_item_oid' is set
         if ($merchant_item_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling adminV2ItemItemsMerchantItemOidDelete');
+            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling itemItemsMerchantItemOidDelete');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/item/items/{merchant_item_oid}";
+        $resourcePath = "/item/items/{merchant_item_oid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -811,7 +811,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 null,
-                '/admin/v2/item/items/{merchant_item_oid}'
+                '/item/items/{merchant_item_oid}'
             );
 
             return array(null, $statusCode, $httpHeader);
@@ -844,7 +844,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2ItemItemsMerchantItemOidGet
+     * Operation itemItemsMerchantItemOidGet
      *
      * Retrieve an item
      *
@@ -854,14 +854,14 @@ class ItemApi
      * @return \ultracart\admin\v2\models\ItemResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsMerchantItemOidGet($merchant_item_oid, $_expand = null, $_placeholders = null)
+    public function itemItemsMerchantItemOidGet($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->adminV2ItemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid, $_expand, $_placeholders);
+        list($response) = $this->itemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid, $_expand, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation adminV2ItemItemsMerchantItemOidGetWithHttpInfo
+     * Operation itemItemsMerchantItemOidGetWithHttpInfo
      *
      * Retrieve an item
      *
@@ -871,14 +871,14 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
+    public function itemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
         // verify the required parameter 'merchant_item_oid' is set
         if ($merchant_item_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling adminV2ItemItemsMerchantItemOidGet');
+            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling itemItemsMerchantItemOidGet');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/item/items/{merchant_item_oid}";
+        $resourcePath = "/item/items/{merchant_item_oid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -933,7 +933,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\ItemResponse',
-                '/admin/v2/item/items/{merchant_item_oid}'
+                '/item/items/{merchant_item_oid}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\ItemResponse', $httpHeader), $statusCode, $httpHeader);
@@ -970,7 +970,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2ItemItemsMerchantItemOidPut
+     * Operation itemItemsMerchantItemOidPut
      *
      * Update an item
      *
@@ -979,14 +979,14 @@ class ItemApi
      * @return \ultracart\admin\v2\models\ItemResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsMerchantItemOidPut($item, $merchant_item_oid)
+    public function itemItemsMerchantItemOidPut($item, $merchant_item_oid)
     {
-        list($response) = $this->adminV2ItemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid);
+        list($response) = $this->itemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid);
         return $response;
     }
 
     /**
-     * Operation adminV2ItemItemsMerchantItemOidPutWithHttpInfo
+     * Operation itemItemsMerchantItemOidPutWithHttpInfo
      *
      * Update an item
      *
@@ -995,18 +995,18 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid)
+    public function itemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid)
     {
         // verify the required parameter 'item' is set
         if ($item === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item when calling adminV2ItemItemsMerchantItemOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $item when calling itemItemsMerchantItemOidPut');
         }
         // verify the required parameter 'merchant_item_oid' is set
         if ($merchant_item_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling adminV2ItemItemsMerchantItemOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling itemItemsMerchantItemOidPut');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/item/items/{merchant_item_oid}";
+        $resourcePath = "/item/items/{merchant_item_oid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1058,7 +1058,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\ItemResponse',
-                '/admin/v2/item/items/{merchant_item_oid}'
+                '/item/items/{merchant_item_oid}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\ItemResponse', $httpHeader), $statusCode, $httpHeader);
@@ -1095,7 +1095,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2ItemItemsPost
+     * Operation itemItemsPost
      *
      * Create an item
      *
@@ -1103,14 +1103,14 @@ class ItemApi
      * @return \ultracart\admin\v2\models\ItemResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsPost($item)
+    public function itemItemsPost($item)
     {
-        list($response) = $this->adminV2ItemItemsPostWithHttpInfo($item);
+        list($response) = $this->itemItemsPostWithHttpInfo($item);
         return $response;
     }
 
     /**
-     * Operation adminV2ItemItemsPostWithHttpInfo
+     * Operation itemItemsPostWithHttpInfo
      *
      * Create an item
      *
@@ -1118,14 +1118,14 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemItemsPostWithHttpInfo($item)
+    public function itemItemsPostWithHttpInfo($item)
     {
         // verify the required parameter 'item' is set
         if ($item === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item when calling adminV2ItemItemsPost');
+            throw new \InvalidArgumentException('Missing the required parameter $item when calling itemItemsPost');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/item/items";
+        $resourcePath = "/item/items";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1169,7 +1169,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\ItemResponse',
-                '/admin/v2/item/items'
+                '/item/items'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\ItemResponse', $httpHeader), $statusCode, $httpHeader);
@@ -1206,7 +1206,7 @@ class ItemApi
     }
 
     /**
-     * Operation adminV2ItemTempMultimediaPost
+     * Operation itemTempMultimediaPost
      *
      * Upload an image to the temporary multimedia.
      *
@@ -1214,14 +1214,14 @@ class ItemApi
      * @return \ultracart\admin\v2\models\TempMultimediaResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemTempMultimediaPost($file)
+    public function itemTempMultimediaPost($file)
     {
-        list($response) = $this->adminV2ItemTempMultimediaPostWithHttpInfo($file);
+        list($response) = $this->itemTempMultimediaPostWithHttpInfo($file);
         return $response;
     }
 
     /**
-     * Operation adminV2ItemTempMultimediaPostWithHttpInfo
+     * Operation itemTempMultimediaPostWithHttpInfo
      *
      * Upload an image to the temporary multimedia.
      *
@@ -1229,14 +1229,14 @@ class ItemApi
      * @return Array of \ultracart\admin\v2\models\TempMultimediaResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function adminV2ItemTempMultimediaPostWithHttpInfo($file)
+    public function itemTempMultimediaPostWithHttpInfo($file)
     {
         // verify the required parameter 'file' is set
         if ($file === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $file when calling adminV2ItemTempMultimediaPost');
+            throw new \InvalidArgumentException('Missing the required parameter $file when calling itemTempMultimediaPost');
         }
         // parse inputs
-        $resourcePath = "/admin/v2/item/temp_multimedia";
+        $resourcePath = "/item/temp_multimedia";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -1285,7 +1285,7 @@ class ItemApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\TempMultimediaResponse',
-                '/admin/v2/item/temp_multimedia'
+                '/item/temp_multimedia'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\TempMultimediaResponse', $httpHeader), $statusCode, $httpHeader);

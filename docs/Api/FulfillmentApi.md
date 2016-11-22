@@ -1,18 +1,18 @@
 # ultracart\admin\v2\FulfillmentApi
 
-All URIs are relative to *https://secure.ultracart.com/rest*
+All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut**](FulfillmentApi.md#adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut) | **PUT** /admin/v2/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
-[**adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost**](FulfillmentApi.md#adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost) | **POST** /admin/v2/fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
-[**adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet**](FulfillmentApi.md#adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet) | **GET** /admin/v2/fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
-[**adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost**](FulfillmentApi.md#adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost) | **POST** /admin/v2/fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
-[**adminV2FulfillmentDistributionCentersGet**](FulfillmentApi.md#adminV2FulfillmentDistributionCentersGet) | **GET** /admin/v2/fulfillment/distribution_centers | Retrieve distribution centers
+[**fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut**](FulfillmentApi.md#fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
+[**fulfillmentDistributionCentersDistributionCenterCodeInventoryPost**](FulfillmentApi.md#fulfillmentDistributionCentersDistributionCenterCodeInventoryPost) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
+[**fulfillmentDistributionCentersDistributionCenterCodeOrdersGet**](FulfillmentApi.md#fulfillmentDistributionCentersDistributionCenterCodeOrdersGet) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
+[**fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost**](FulfillmentApi.md#fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
+[**fulfillmentDistributionCentersGet**](FulfillmentApi.md#fulfillmentDistributionCentersGet) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
 
 
-# **adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut**
-> adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut($distribution_center_code, $order_ids)
+# **fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut**
+> fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut($distribution_center_code, $order_ids)
 
 Acknowledge receipt of orders.
 
@@ -35,9 +35,9 @@ $distribution_center_code = "distribution_center_code_example"; // string | Dist
 $order_ids = array(new string[]()); // string[] | Orders to acknowledge receipt of (limit 100)
 
 try {
-    $api_instance->adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut($distribution_center_code, $order_ids);
+    $api_instance->fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut($distribution_center_code, $order_ids);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentApi->adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentApi->fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -64,8 +64,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost**
-> adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories)
+# **fulfillmentDistributionCentersDistributionCenterCodeInventoryPost**
+> fulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories)
 
 Update inventory
 
@@ -88,9 +88,9 @@ $distribution_center_code = "distribution_center_code_example"; // string | Dist
 $inventories = array(new FulfillmentInventory()); // \ultracart\admin\v2\models\FulfillmentInventory[] | Inventory updates (limit 500)
 
 try {
-    $api_instance->adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories);
+    $api_instance->fulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentApi->adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentApi->fulfillmentDistributionCentersDistributionCenterCodeInventoryPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -117,8 +117,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet**
-> \ultracart\admin\v2\models\OrdersResponse adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code)
+# **fulfillmentDistributionCentersDistributionCenterCodeOrdersGet**
+> \ultracart\admin\v2\models\OrdersResponse fulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code)
 
 Retrieve orders queued up for this distribution center.
 
@@ -140,10 +140,10 @@ $api_instance = new ultracart\admin\v2\Api\FulfillmentApi();
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
 
 try {
-    $result = $api_instance->adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code);
+    $result = $api_instance->fulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentApi->adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentApi->fulfillmentDistributionCentersDistributionCenterCodeOrdersGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -169,8 +169,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost**
-> adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments)
+# **fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost**
+> fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments)
 
 Mark orders as shipped
 
@@ -193,9 +193,9 @@ $distribution_center_code = "distribution_center_code_example"; // string | Dist
 $shipments = array(new FulfillmentShipment()); // \ultracart\admin\v2\models\FulfillmentShipment[] | Orders to mark shipped
 
 try {
-    $api_instance->adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments);
+    $api_instance->fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentApi->adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentApi->fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -222,8 +222,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2FulfillmentDistributionCentersGet**
-> \ultracart\admin\v2\models\DistributionCentersResponse adminV2FulfillmentDistributionCentersGet()
+# **fulfillmentDistributionCentersGet**
+> \ultracart\admin\v2\models\DistributionCentersResponse fulfillmentDistributionCentersGet()
 
 Retrieve distribution centers
 
@@ -244,10 +244,10 @@ ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultrac
 $api_instance = new ultracart\admin\v2\Api\FulfillmentApi();
 
 try {
-    $result = $api_instance->adminV2FulfillmentDistributionCentersGet();
+    $result = $api_instance->fulfillmentDistributionCentersGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FulfillmentApi->adminV2FulfillmentDistributionCentersGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FulfillmentApi->fulfillmentDistributionCentersGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

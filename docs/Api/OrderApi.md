@@ -1,20 +1,20 @@
 # ultracart\admin\v2\OrderApi
 
-All URIs are relative to *https://secure.ultracart.com/rest*
+All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**adminV2OrderOrdersGet**](OrderApi.md#adminV2OrderOrdersGet) | **GET** /admin/v2/order/orders | Retrieve orders
-[**adminV2OrderOrdersOrderIdCancelPost**](OrderApi.md#adminV2OrderOrdersOrderIdCancelPost) | **POST** /admin/v2/order/orders/{order_id}/cancel | Cancel an order
-[**adminV2OrderOrdersOrderIdDelete**](OrderApi.md#adminV2OrderOrdersOrderIdDelete) | **DELETE** /admin/v2/order/orders/{order_id} | Delete an order
-[**adminV2OrderOrdersOrderIdGet**](OrderApi.md#adminV2OrderOrdersOrderIdGet) | **GET** /admin/v2/order/orders/{order_id} | Retrieve an order
-[**adminV2OrderOrdersOrderIdPut**](OrderApi.md#adminV2OrderOrdersOrderIdPut) | **PUT** /admin/v2/order/orders/{order_id} | Update an order
-[**adminV2OrderOrdersOrderIdResendReceiptPost**](OrderApi.md#adminV2OrderOrdersOrderIdResendReceiptPost) | **POST** /admin/v2/order/orders/{order_id}/resend_receipt | Resend receipt
-[**adminV2OrderOrdersOrderIdResendShipmentConfirmationPost**](OrderApi.md#adminV2OrderOrdersOrderIdResendShipmentConfirmationPost) | **POST** /admin/v2/order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
+[**orderOrdersGet**](OrderApi.md#orderOrdersGet) | **GET** /order/orders | Retrieve orders
+[**orderOrdersOrderIdCancelPost**](OrderApi.md#orderOrdersOrderIdCancelPost) | **POST** /order/orders/{order_id}/cancel | Cancel an order
+[**orderOrdersOrderIdDelete**](OrderApi.md#orderOrdersOrderIdDelete) | **DELETE** /order/orders/{order_id} | Delete an order
+[**orderOrdersOrderIdGet**](OrderApi.md#orderOrdersOrderIdGet) | **GET** /order/orders/{order_id} | Retrieve an order
+[**orderOrdersOrderIdPut**](OrderApi.md#orderOrdersOrderIdPut) | **PUT** /order/orders/{order_id} | Update an order
+[**orderOrdersOrderIdResendReceiptPost**](OrderApi.md#orderOrdersOrderIdResendReceiptPost) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
+[**orderOrdersOrderIdResendShipmentConfirmationPost**](OrderApi.md#orderOrdersOrderIdResendShipmentConfirmationPost) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 
 
-# **adminV2OrderOrdersGet**
-> \ultracart\admin\v2\models\OrdersResponse adminV2OrderOrdersGet($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand)
+# **orderOrdersGet**
+> \ultracart\admin\v2\models\OrdersResponse orderOrdersGet($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve orders
 
@@ -66,10 +66,10 @@ $_sort = "_sort_example"; // string | The sort order of the orders.  See Sorting
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.
 
 try {
-    $result = $api_instance->adminV2OrderOrdersGet($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand);
+    $result = $api_instance->orderOrdersGet($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->adminV2OrderOrdersGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderApi->orderOrdersGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -125,8 +125,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2OrderOrdersOrderIdCancelPost**
-> \ultracart\admin\v2\models\BaseResponse adminV2OrderOrdersOrderIdCancelPost($order_id)
+# **orderOrdersOrderIdCancelPost**
+> \ultracart\admin\v2\models\BaseResponse orderOrdersOrderIdCancelPost($order_id)
 
 Cancel an order
 
@@ -148,10 +148,10 @@ $api_instance = new ultracart\admin\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to cancel.
 
 try {
-    $result = $api_instance->adminV2OrderOrdersOrderIdCancelPost($order_id);
+    $result = $api_instance->orderOrdersOrderIdCancelPost($order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->adminV2OrderOrdersOrderIdCancelPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderApi->orderOrdersOrderIdCancelPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -177,8 +177,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2OrderOrdersOrderIdDelete**
-> adminV2OrderOrdersOrderIdDelete($order_id)
+# **orderOrdersOrderIdDelete**
+> orderOrdersOrderIdDelete($order_id)
 
 Delete an order
 
@@ -200,9 +200,9 @@ $api_instance = new ultracart\admin\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to delete.
 
 try {
-    $api_instance->adminV2OrderOrdersOrderIdDelete($order_id);
+    $api_instance->orderOrdersOrderIdDelete($order_id);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->adminV2OrderOrdersOrderIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderApi->orderOrdersOrderIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -228,8 +228,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2OrderOrdersOrderIdGet**
-> \ultracart\admin\v2\models\OrderResponse adminV2OrderOrdersOrderIdGet($order_id, $_expand)
+# **orderOrdersOrderIdGet**
+> \ultracart\admin\v2\models\OrderResponse orderOrdersOrderIdGet($order_id, $_expand)
 
 Retrieve an order
 
@@ -252,10 +252,10 @@ $order_id = "order_id_example"; // string | The order id to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->adminV2OrderOrdersOrderIdGet($order_id, $_expand);
+    $result = $api_instance->orderOrdersOrderIdGet($order_id, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->adminV2OrderOrdersOrderIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderApi->orderOrdersOrderIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -282,8 +282,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2OrderOrdersOrderIdPut**
-> \ultracart\admin\v2\models\OrderResponse adminV2OrderOrdersOrderIdPut($order, $order_id)
+# **orderOrdersOrderIdPut**
+> \ultracart\admin\v2\models\OrderResponse orderOrdersOrderIdPut($order, $order_id)
 
 Update an order
 
@@ -306,10 +306,10 @@ $order = new \ultracart\admin\v2\models\Order(); // \ultracart\admin\v2\models\O
 $order_id = "order_id_example"; // string | The order id to update.
 
 try {
-    $result = $api_instance->adminV2OrderOrdersOrderIdPut($order, $order_id);
+    $result = $api_instance->orderOrdersOrderIdPut($order, $order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->adminV2OrderOrdersOrderIdPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderApi->orderOrdersOrderIdPut: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -336,8 +336,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2OrderOrdersOrderIdResendReceiptPost**
-> \ultracart\admin\v2\models\BaseResponse adminV2OrderOrdersOrderIdResendReceiptPost($order_id)
+# **orderOrdersOrderIdResendReceiptPost**
+> \ultracart\admin\v2\models\BaseResponse orderOrdersOrderIdResendReceiptPost($order_id)
 
 Resend receipt
 
@@ -359,10 +359,10 @@ $api_instance = new ultracart\admin\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to resend the receipt for.
 
 try {
-    $result = $api_instance->adminV2OrderOrdersOrderIdResendReceiptPost($order_id);
+    $result = $api_instance->orderOrdersOrderIdResendReceiptPost($order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->adminV2OrderOrdersOrderIdResendReceiptPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderApi->orderOrdersOrderIdResendReceiptPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -388,8 +388,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **adminV2OrderOrdersOrderIdResendShipmentConfirmationPost**
-> \ultracart\admin\v2\models\BaseResponse adminV2OrderOrdersOrderIdResendShipmentConfirmationPost($order_id)
+# **orderOrdersOrderIdResendShipmentConfirmationPost**
+> \ultracart\admin\v2\models\BaseResponse orderOrdersOrderIdResendShipmentConfirmationPost($order_id)
 
 Resend shipment confirmation
 
@@ -411,10 +411,10 @@ $api_instance = new ultracart\admin\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to resend the shipment notification for.
 
 try {
-    $result = $api_instance->adminV2OrderOrdersOrderIdResendShipmentConfirmationPost($order_id);
+    $result = $api_instance->orderOrdersOrderIdResendShipmentConfirmationPost($order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->adminV2OrderOrdersOrderIdResendShipmentConfirmationPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderApi->orderOrdersOrderIdResendShipmentConfirmationPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
