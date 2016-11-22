@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,8 +67,8 @@ class CartFinalizeOrderResponse implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'errors' => 'string[]',
-        'next_cart' => '\ultracart\admin\v2\models\Cart',
-        'order' => '\ultracart\admin\v2\models\Order',
+        'next_cart' => '\ultracart\v2\models\Cart',
+        'order' => '\ultracart\v2\models\Order',
         'order_id' => 'string',
         'successful' => 'bool'
     );
@@ -198,7 +198,7 @@ class CartFinalizeOrderResponse implements ArrayAccess
 
     /**
      * Gets next_cart
-     * @return \ultracart\admin\v2\models\Cart
+     * @return \ultracart\v2\models\Cart
      */
     public function getNextCart()
     {
@@ -207,7 +207,7 @@ class CartFinalizeOrderResponse implements ArrayAccess
 
     /**
      * Sets next_cart
-     * @param \ultracart\admin\v2\models\Cart $next_cart
+     * @param \ultracart\v2\models\Cart $next_cart
      * @return $this
      */
     public function setNextCart($next_cart)
@@ -219,7 +219,7 @@ class CartFinalizeOrderResponse implements ArrayAccess
 
     /**
      * Gets order
-     * @return \ultracart\admin\v2\models\Order
+     * @return \ultracart\v2\models\Order
      */
     public function getOrder()
     {
@@ -228,7 +228,7 @@ class CartFinalizeOrderResponse implements ArrayAccess
 
     /**
      * Sets order
-     * @param \ultracart\admin\v2\models\Order $order
+     * @param \ultracart\v2\models\Order $order
      * @return $this
      */
     public function setOrder($order)
@@ -331,10 +331,10 @@ class CartFinalizeOrderResponse implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

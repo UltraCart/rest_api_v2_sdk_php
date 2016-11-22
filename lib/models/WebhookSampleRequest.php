@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,7 +67,7 @@ class WebhookSampleRequest implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'request' => 'string',
-        'request_headers' => '\ultracart\admin\v2\models\HTTPHeader[]',
+        'request_headers' => '\ultracart\v2\models\HTTPHeader[]',
         'request_id' => 'string',
         'uri' => 'string'
     );
@@ -193,7 +193,7 @@ class WebhookSampleRequest implements ArrayAccess
 
     /**
      * Gets request_headers
-     * @return \ultracart\admin\v2\models\HTTPHeader[]
+     * @return \ultracart\v2\models\HTTPHeader[]
      */
     public function getRequestHeaders()
     {
@@ -202,7 +202,7 @@ class WebhookSampleRequest implements ArrayAccess
 
     /**
      * Sets request_headers
-     * @param \ultracart\admin\v2\models\HTTPHeader[] $request_headers Request headers
+     * @param \ultracart\v2\models\HTTPHeader[] $request_headers Request headers
      * @return $this
      */
     public function setRequestHeaders($request_headers)
@@ -305,10 +305,10 @@ class WebhookSampleRequest implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

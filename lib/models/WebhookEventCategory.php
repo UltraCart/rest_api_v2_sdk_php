@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,7 +67,7 @@ class WebhookEventCategory implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'event_category' => 'string',
-        'events' => '\ultracart\admin\v2\models\WebhookEventSubscription[]',
+        'events' => '\ultracart\v2\models\WebhookEventSubscription[]',
         'subscribed' => 'bool'
     );
 
@@ -188,7 +188,7 @@ class WebhookEventCategory implements ArrayAccess
 
     /**
      * Gets events
-     * @return \ultracart\admin\v2\models\WebhookEventSubscription[]
+     * @return \ultracart\v2\models\WebhookEventSubscription[]
      */
     public function getEvents()
     {
@@ -197,7 +197,7 @@ class WebhookEventCategory implements ArrayAccess
 
     /**
      * Sets events
-     * @param \ultracart\admin\v2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
+     * @param \ultracart\v2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
      * @return $this
      */
     public function setEvents($events)
@@ -279,10 +279,10 @@ class WebhookEventCategory implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

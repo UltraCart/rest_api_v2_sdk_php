@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amazon** | [**\ultracart\admin\v2\models\CartSettingsPaymentAmazon**](CartSettingsPaymentAmazon.md) |  | [optional] 
-**credit_card** | [**\ultracart\admin\v2\models\CartSettingsPaymentCreditCard**](CartSettingsPaymentCreditCard.md) |  | [optional] 
+**amazon** | [**\ultracart\v2\models\CartSettingsPaymentAmazon**](CartSettingsPaymentAmazon.md) |  | [optional] 
+**credit_card** | [**\ultracart\v2\models\CartSettingsPaymentCreditCard**](CartSettingsPaymentCreditCard.md) |  | [optional] 
 **need_payment** | **bool** | True if this card requires a payment from the customer | [optional] 
-**paypal** | [**\ultracart\admin\v2\models\CartSettingsPaymentPayPal**](CartSettingsPaymentPayPal.md) |  | [optional] 
+**paypal** | [**\ultracart\v2\models\CartSettingsPaymentPayPal**](CartSettingsPaymentPayPal.md) |  | [optional] 
 **supports_amazon** | **bool** | True if Amazon payments are available on this order | [optional] 
 **supports_check** | **bool** | True if check payments are available on this order | [optional] 
 **supports_cod** | **bool** | True if COD payments are available on this order | [optional] 

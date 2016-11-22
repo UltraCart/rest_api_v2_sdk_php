@@ -1,4 +1,4 @@
-# ultracart\admin\v2\CheckoutApi
+# ultracart\v2\CheckoutApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **checkoutBrowserKeyPut**
-> \ultracart\admin\v2\models\CartResponse checkoutBrowserKeyPut($browser_key_request)
+> \ultracart\v2\models\CartResponse checkoutBrowserKeyPut($browser_key_request)
 
 Setup Browser Application
 
@@ -30,14 +30,14 @@ Setup a browser key authenticated application with checkout permissions.  This R
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
-$browser_key_request = new \ultracart\admin\v2\models\CheckoutSetupBrowserKeyRequest(); // \ultracart\admin\v2\models\CheckoutSetupBrowserKeyRequest | Setup browser key request
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$browser_key_request = new \ultracart\v2\models\CheckoutSetupBrowserKeyRequest(); // \ultracart\v2\models\CheckoutSetupBrowserKeyRequest | Setup browser key request
 
 try {
     $result = $api_instance->checkoutBrowserKeyPut($browser_key_request);
@@ -52,11 +52,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **browser_key_request** | [**\ultracart\admin\v2\models\CheckoutSetupBrowserKeyRequest**](../Model/\ultracart\admin\v2\models\CheckoutSetupBrowserKeyRequest.md)| Setup browser key request |
+ **browser_key_request** | [**\ultracart\v2\models\CheckoutSetupBrowserKeyRequest**](../Model/\ultracart\v2\models\CheckoutSetupBrowserKeyRequest.md)| Setup browser key request |
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartCartIdGet**
-> \ultracart\admin\v2\models\CartResponse checkoutCartCartIdGet($cart_id, $_expand)
+> \ultracart\v2\models\CartResponse checkoutCartCartIdGet($cart_id, $_expand)
 
 Get a cart
 
@@ -82,17 +82,17 @@ Get a cart specified by the cart_id parameter.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi();
 $cart_id = "cart_id_example"; // string | Cart ID to retrieve
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartFinalizeOrderPost**
-> \ultracart\admin\v2\models\CartFinalizeOrderResponse checkoutCartFinalizeOrderPost($finalize_request)
+> \ultracart\v2\models\CartFinalizeOrderResponse checkoutCartFinalizeOrderPost($finalize_request)
 
 Finalize Order
 
@@ -140,14 +140,14 @@ Finalize the cart into an order.  This method can not be called with browser key
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
-$finalize_request = new \ultracart\admin\v2\models\CartFinalizeOrderRequest(); // \ultracart\admin\v2\models\CartFinalizeOrderRequest | Finalize request
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$finalize_request = new \ultracart\v2\models\CartFinalizeOrderRequest(); // \ultracart\v2\models\CartFinalizeOrderRequest | Finalize request
 
 try {
     $result = $api_instance->checkoutCartFinalizeOrderPost($finalize_request);
@@ -162,11 +162,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **finalize_request** | [**\ultracart\admin\v2\models\CartFinalizeOrderRequest**](../Model/\ultracart\admin\v2\models\CartFinalizeOrderRequest.md)| Finalize request |
+ **finalize_request** | [**\ultracart\v2\models\CartFinalizeOrderRequest**](../Model/\ultracart\v2\models\CartFinalizeOrderRequest.md)| Finalize request |
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartFinalizeOrderResponse**](../Model/CartFinalizeOrderResponse.md)
+[**\ultracart\v2\models\CartFinalizeOrderResponse**](../Model/CartFinalizeOrderResponse.md)
 
 ### Authorization
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartGet**
-> \ultracart\admin\v2\models\CartResponse checkoutCartGet($_expand)
+> \ultracart\v2\models\CartResponse checkoutCartGet($_expand)
 
 Create a new cart
 
@@ -192,17 +192,17 @@ Create a new shopping cart session.  If the cookie is set on the browser making 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi();
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartHandoffPost**
-> \ultracart\admin\v2\models\CheckoutHandoffResponse checkoutCartHandoffPost($handoff_request, $_expand)
+> \ultracart\v2\models\CheckoutHandoffResponse checkoutCartHandoffPost($handoff_request, $_expand)
 
 Handoff cart
 
@@ -248,18 +248,18 @@ Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
-$handoff_request = new \ultracart\admin\v2\models\CheckoutHandoffRequest(); // \ultracart\admin\v2\models\CheckoutHandoffRequest | Handoff request
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$handoff_request = new \ultracart\v2\models\CheckoutHandoffRequest(); // \ultracart\v2\models\CheckoutHandoffRequest | Handoff request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -275,12 +275,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **handoff_request** | [**\ultracart\admin\v2\models\CheckoutHandoffRequest**](../Model/\ultracart\admin\v2\models\CheckoutHandoffRequest.md)| Handoff request |
+ **handoff_request** | [**\ultracart\v2\models\CheckoutHandoffRequest**](../Model/\ultracart\v2\models\CheckoutHandoffRequest.md)| Handoff request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CheckoutHandoffResponse**](../Model/CheckoutHandoffResponse.md)
+[**\ultracart\v2\models\CheckoutHandoffResponse**](../Model/CheckoutHandoffResponse.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartProfileLoginPost**
-> \ultracart\admin\v2\models\CartProfileLoginResponse checkoutCartProfileLoginPost($login_request, $_expand)
+> \ultracart\v2\models\CartProfileLoginResponse checkoutCartProfileLoginPost($login_request, $_expand)
 
 Profile login
 
@@ -306,18 +306,18 @@ Login in to the customer profile specified by cart.billing.email and password
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
-$login_request = new \ultracart\admin\v2\models\CartProfileLoginRequest(); // \ultracart\admin\v2\models\CartProfileLoginRequest | Login request
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$login_request = new \ultracart\v2\models\CartProfileLoginRequest(); // \ultracart\v2\models\CartProfileLoginRequest | Login request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -333,12 +333,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **login_request** | [**\ultracart\admin\v2\models\CartProfileLoginRequest**](../Model/\ultracart\admin\v2\models\CartProfileLoginRequest.md)| Login request |
+ **login_request** | [**\ultracart\v2\models\CartProfileLoginRequest**](../Model/\ultracart\v2\models\CartProfileLoginRequest.md)| Login request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartProfileLoginResponse**](../Model/CartProfileLoginResponse.md)
+[**\ultracart\v2\models\CartProfileLoginResponse**](../Model/CartProfileLoginResponse.md)
 
 ### Authorization
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartProfileLogoutPost**
-> \ultracart\admin\v2\models\CartResponse checkoutCartProfileLogoutPost($cart, $_expand)
+> \ultracart\v2\models\CartResponse checkoutCartProfileLogoutPost($cart, $_expand)
 
 Profile logout
 
@@ -364,18 +364,18 @@ Log the cart out of the current profile.  No error will occur if they are not lo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
-$cart = new \ultracart\admin\v2\models\Cart(); // \ultracart\admin\v2\models\Cart | Cart
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -391,12 +391,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\admin\v2\models\Cart**](../Model/\ultracart\admin\v2\models\Cart.md)| Cart |
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartProfileRegisterPost**
-> \ultracart\admin\v2\models\CartProfileRegisterResponse checkoutCartProfileRegisterPost($register_request, $_expand)
+> \ultracart\v2\models\CartProfileRegisterResponse checkoutCartProfileRegisterPost($register_request, $_expand)
 
 Profile registration
 
@@ -422,18 +422,18 @@ Register a new customer profile.  Requires the cart.billing object to be populat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
-$register_request = new \ultracart\admin\v2\models\CartProfileRegisterRequest(); // \ultracart\admin\v2\models\CartProfileRegisterRequest | Register request
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$register_request = new \ultracart\v2\models\CartProfileRegisterRequest(); // \ultracart\v2\models\CartProfileRegisterRequest | Register request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -449,12 +449,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **register_request** | [**\ultracart\admin\v2\models\CartProfileRegisterRequest**](../Model/\ultracart\admin\v2\models\CartProfileRegisterRequest.md)| Register request |
+ **register_request** | [**\ultracart\v2\models\CartProfileRegisterRequest**](../Model/\ultracart\v2\models\CartProfileRegisterRequest.md)| Register request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartProfileRegisterResponse**](../Model/CartProfileRegisterResponse.md)
+[**\ultracart\v2\models\CartProfileRegisterResponse**](../Model/CartProfileRegisterResponse.md)
 
 ### Authorization
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartPut**
-> \ultracart\admin\v2\models\CartResponse checkoutCartPut($cart, $_expand)
+> \ultracart\v2\models\CartResponse checkoutCartPut($cart, $_expand)
 
 Update cart (by cookie)
 
@@ -480,18 +480,18 @@ Update the cart by cookie
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
-$cart = new \ultracart\admin\v2\models\Cart(); // \ultracart\admin\v2\models\Cart | Cart
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -507,12 +507,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\admin\v2\models\Cart**](../Model/\ultracart\admin\v2\models\Cart.md)| Cart |
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutCartValidatePost**
-> \ultracart\admin\v2\models\CartValidationResponse checkoutCartValidatePost($validation_request, $_expand)
+> \ultracart\v2\models\CartValidationResponse checkoutCartValidatePost($validation_request, $_expand)
 
 Validate
 
@@ -538,18 +538,18 @@ Validate the cart for errors.  Specific checks can be passed and multiple valida
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
-$validation_request = new \ultracart\admin\v2\models\CartValidationRequest(); // \ultracart\admin\v2\models\CartValidationRequest | Validation request
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$validation_request = new \ultracart\v2\models\CartValidationRequest(); // \ultracart\v2\models\CartValidationRequest | Validation request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -565,12 +565,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **validation_request** | [**\ultracart\admin\v2\models\CartValidationRequest**](../Model/\ultracart\admin\v2\models\CartValidationRequest.md)| Validation request |
+ **validation_request** | [**\ultracart\v2\models\CartValidationRequest**](../Model/\ultracart\v2\models\CartValidationRequest.md)| Validation request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartValidationResponse**](../Model/CartValidationResponse.md)
+[**\ultracart\v2\models\CartValidationResponse**](../Model/CartValidationResponse.md)
 
 ### Authorization
 
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutReturnReturnCodeGet**
-> \ultracart\admin\v2\models\CartResponse checkoutReturnReturnCodeGet($return_code, $_expand)
+> \ultracart\v2\models\CartResponse checkoutReturnReturnCodeGet($return_code, $_expand)
 
 Get a cart by return code
 
@@ -596,17 +596,17 @@ Get a cart specified by the return code parameter.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi();
 $return_code = "return_code_example"; // string | Return code to lookup cart ID by
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -628,7 +628,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 

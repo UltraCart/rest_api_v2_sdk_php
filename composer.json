@@ -27,9 +27,9 @@
         "squizlabs/php_codesniffer": "~2.6"
     },
     "autoload": {
-        "psr-4": { "ultracart\\admin\\v2\\" : "lib/" }
+        "psr-4": { "ultracart\\v2\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "ultracart\\admin\\v2\\" : "test/" }
+        "psr-4": { "ultracart\\v2\\" : "test/" }
     }
 }

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cart** | [**\ultracart\admin\v2\models\Cart**](Cart.md) |  | [optional] 
+**cart** | [**\ultracart\v2\models\Cart**](Cart.md) |  | [optional] 
 **error_parameter_name** | **string** | If any error happen during the processing on the UltraCart side, the browser will be redirected to your error_return_url with the error passed in this parameter name. | [optional] 
 **error_return_url** | **string** | The URL to return the browser to if there are processing errors on the UltraCart side. | [optional] 
 **operation** | **string** | The type of handoff operation to perform | [optional] 

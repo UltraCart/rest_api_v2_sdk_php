@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -79,7 +79,7 @@ class AutoOrderItem implements ArrayAccess
         'next_shipment_dts' => 'string',
         'no_order_after_dts' => 'string',
         'number_of_rebills' => 'int',
-        'options' => '\ultracart\admin\v2\models\AutoOrderItemOption[]',
+        'options' => '\ultracart\v2\models\AutoOrderItemOption[]',
         'original_item_id' => 'string',
         'original_quantity' => 'float',
         'preshipment_notice_sent' => 'bool',
@@ -569,7 +569,7 @@ class AutoOrderItem implements ArrayAccess
 
     /**
      * Gets options
-     * @return \ultracart\admin\v2\models\AutoOrderItemOption[]
+     * @return \ultracart\v2\models\AutoOrderItemOption[]
      */
     public function getOptions()
     {
@@ -578,7 +578,7 @@ class AutoOrderItem implements ArrayAccess
 
     /**
      * Sets options
-     * @param \ultracart\admin\v2\models\AutoOrderItemOption[] $options Options associated with this item
+     * @param \ultracart\v2\models\AutoOrderItemOption[] $options Options associated with this item
      * @return $this
      */
     public function setOptions($options)
@@ -744,10 +744,10 @@ class AutoOrderItem implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

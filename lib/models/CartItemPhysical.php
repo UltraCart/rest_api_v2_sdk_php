@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,10 +66,10 @@ class CartItemPhysical implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'height' => '\ultracart\admin\v2\models\Distance',
-        'length' => '\ultracart\admin\v2\models\Distance',
-        'weight' => '\ultracart\admin\v2\models\Weight',
-        'width' => '\ultracart\admin\v2\models\Distance'
+        'height' => '\ultracart\v2\models\Distance',
+        'length' => '\ultracart\v2\models\Distance',
+        'weight' => '\ultracart\v2\models\Weight',
+        'width' => '\ultracart\v2\models\Distance'
     );
 
     public static function swaggerTypes()
@@ -172,7 +172,7 @@ class CartItemPhysical implements ArrayAccess
 
     /**
      * Gets height
-     * @return \ultracart\admin\v2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getHeight()
     {
@@ -181,7 +181,7 @@ class CartItemPhysical implements ArrayAccess
 
     /**
      * Sets height
-     * @param \ultracart\admin\v2\models\Distance $height
+     * @param \ultracart\v2\models\Distance $height
      * @return $this
      */
     public function setHeight($height)
@@ -193,7 +193,7 @@ class CartItemPhysical implements ArrayAccess
 
     /**
      * Gets length
-     * @return \ultracart\admin\v2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getLength()
     {
@@ -202,7 +202,7 @@ class CartItemPhysical implements ArrayAccess
 
     /**
      * Sets length
-     * @param \ultracart\admin\v2\models\Distance $length
+     * @param \ultracart\v2\models\Distance $length
      * @return $this
      */
     public function setLength($length)
@@ -214,7 +214,7 @@ class CartItemPhysical implements ArrayAccess
 
     /**
      * Gets weight
-     * @return \ultracart\admin\v2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getWeight()
     {
@@ -223,7 +223,7 @@ class CartItemPhysical implements ArrayAccess
 
     /**
      * Sets weight
-     * @param \ultracart\admin\v2\models\Weight $weight
+     * @param \ultracart\v2\models\Weight $weight
      * @return $this
      */
     public function setWeight($weight)
@@ -235,7 +235,7 @@ class CartItemPhysical implements ArrayAccess
 
     /**
      * Gets width
-     * @return \ultracart\admin\v2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getWidth()
     {
@@ -244,7 +244,7 @@ class CartItemPhysical implements ArrayAccess
 
     /**
      * Sets width
-     * @param \ultracart\admin\v2\models\Distance $width
+     * @param \ultracart\v2\models\Distance $width
      * @return $this
      */
     public function setWidth($width)
@@ -305,10 +305,10 @@ class CartItemPhysical implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

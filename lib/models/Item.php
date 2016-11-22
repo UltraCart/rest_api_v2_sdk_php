@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,51 +66,51 @@ class Item implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'accounting' => '\ultracart\admin\v2\models\ItemAccounting',
-        'amember' => '\ultracart\admin\v2\models\ItemAmember',
-        'auto_order' => '\ultracart\admin\v2\models\ItemAutoOrder',
-        'ccbill' => '\ultracart\admin\v2\models\ItemCCBill',
-        'channel_partner_mappings' => '\ultracart\admin\v2\models\ItemChannelPartnerMapping[]',
-        'chargeback' => '\ultracart\admin\v2\models\ItemChargeback',
-        'checkout' => '\ultracart\admin\v2\models\ItemCheckout',
-        'content' => '\ultracart\admin\v2\models\ItemContent',
+        'accounting' => '\ultracart\v2\models\ItemAccounting',
+        'amember' => '\ultracart\v2\models\ItemAmember',
+        'auto_order' => '\ultracart\v2\models\ItemAutoOrder',
+        'ccbill' => '\ultracart\v2\models\ItemCCBill',
+        'channel_partner_mappings' => '\ultracart\v2\models\ItemChannelPartnerMapping[]',
+        'chargeback' => '\ultracart\v2\models\ItemChargeback',
+        'checkout' => '\ultracart\v2\models\ItemCheckout',
+        'content' => '\ultracart\v2\models\ItemContent',
         'creation_dts' => 'string',
         'description' => 'string',
         'description_translated_text_instance_oid' => 'int',
-        'digital_delivery' => '\ultracart\admin\v2\models\ItemDigitalDelivery',
-        'ebay' => '\ultracart\admin\v2\models\ItemEbay',
-        'email_notifications' => '\ultracart\admin\v2\models\ItemEmailNotifications',
-        'enrollment123' => '\ultracart\admin\v2\models\ItemEnrollment123',
-        'gift_certificate' => '\ultracart\admin\v2\models\ItemGiftCertificate',
-        'google_product_search' => '\ultracart\admin\v2\models\ItemGoogleProductSearch',
-        'identifiers' => '\ultracart\admin\v2\models\ItemIdentifiers',
+        'digital_delivery' => '\ultracart\v2\models\ItemDigitalDelivery',
+        'ebay' => '\ultracart\v2\models\ItemEbay',
+        'email_notifications' => '\ultracart\v2\models\ItemEmailNotifications',
+        'enrollment123' => '\ultracart\v2\models\ItemEnrollment123',
+        'gift_certificate' => '\ultracart\v2\models\ItemGiftCertificate',
+        'google_product_search' => '\ultracart\v2\models\ItemGoogleProductSearch',
+        'identifiers' => '\ultracart\v2\models\ItemIdentifiers',
         'inactive' => 'bool',
-        'instant_payment_notifications' => '\ultracart\admin\v2\models\ItemInstantPaymentNotifications',
-        'internal' => '\ultracart\admin\v2\models\ItemInternal',
+        'instant_payment_notifications' => '\ultracart\v2\models\ItemInstantPaymentNotifications',
+        'internal' => '\ultracart\v2\models\ItemInternal',
         'kit' => 'bool',
-        'kit_definition' => '\ultracart\admin\v2\models\ItemKitDefinition',
+        'kit_definition' => '\ultracart\v2\models\ItemKitDefinition',
         'last_modified_dts' => 'string',
         'merchant_id' => 'string',
         'merchant_item_id' => 'string',
         'merchant_item_oid' => 'int',
-        'options' => '\ultracart\admin\v2\models\ItemOption[]',
+        'options' => '\ultracart\v2\models\ItemOption[]',
         'parent_category_id' => 'int',
-        'payment_processing' => '\ultracart\admin\v2\models\ItemPaymentProcessing',
-        'physical' => '\ultracart\admin\v2\models\ItemPhysical',
-        'pricing' => '\ultracart\admin\v2\models\ItemPricing',
-        'realtime_pricing' => '\ultracart\admin\v2\models\ItemRealtimePricing',
-        'related' => '\ultracart\admin\v2\models\ItemRelated',
-        'reporting' => '\ultracart\admin\v2\models\ItemReporting',
-        'restriction' => '\ultracart\admin\v2\models\ItemRestriction',
-        'revguard' => '\ultracart\admin\v2\models\ItemRevguard',
-        'reviews' => '\ultracart\admin\v2\models\ItemReviews',
-        'salesforce' => '\ultracart\admin\v2\models\ItemSalesforce',
-        'shipping' => '\ultracart\admin\v2\models\ItemShipping',
-        'tax' => '\ultracart\admin\v2\models\ItemTax',
-        'third_party_email_marketing' => '\ultracart\admin\v2\models\ItemThirdPartyEmailMarketing[]',
-        'variant_items' => '\ultracart\admin\v2\models\ItemVariantItem[]',
-        'variations' => '\ultracart\admin\v2\models\ItemVariation[]',
-        'wishlist_member' => '\ultracart\admin\v2\models\ItemWishlistMember'
+        'payment_processing' => '\ultracart\v2\models\ItemPaymentProcessing',
+        'physical' => '\ultracart\v2\models\ItemPhysical',
+        'pricing' => '\ultracart\v2\models\ItemPricing',
+        'realtime_pricing' => '\ultracart\v2\models\ItemRealtimePricing',
+        'related' => '\ultracart\v2\models\ItemRelated',
+        'reporting' => '\ultracart\v2\models\ItemReporting',
+        'restriction' => '\ultracart\v2\models\ItemRestriction',
+        'revguard' => '\ultracart\v2\models\ItemRevguard',
+        'reviews' => '\ultracart\v2\models\ItemReviews',
+        'salesforce' => '\ultracart\v2\models\ItemSalesforce',
+        'shipping' => '\ultracart\v2\models\ItemShipping',
+        'tax' => '\ultracart\v2\models\ItemTax',
+        'third_party_email_marketing' => '\ultracart\v2\models\ItemThirdPartyEmailMarketing[]',
+        'variant_items' => '\ultracart\v2\models\ItemVariantItem[]',
+        'variations' => '\ultracart\v2\models\ItemVariation[]',
+        'wishlist_member' => '\ultracart\v2\models\ItemWishlistMember'
     );
 
     public static function swaggerTypes()
@@ -398,7 +398,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets accounting
-     * @return \ultracart\admin\v2\models\ItemAccounting
+     * @return \ultracart\v2\models\ItemAccounting
      */
     public function getAccounting()
     {
@@ -407,7 +407,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets accounting
-     * @param \ultracart\admin\v2\models\ItemAccounting $accounting
+     * @param \ultracart\v2\models\ItemAccounting $accounting
      * @return $this
      */
     public function setAccounting($accounting)
@@ -419,7 +419,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets amember
-     * @return \ultracart\admin\v2\models\ItemAmember
+     * @return \ultracart\v2\models\ItemAmember
      */
     public function getAmember()
     {
@@ -428,7 +428,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets amember
-     * @param \ultracart\admin\v2\models\ItemAmember $amember
+     * @param \ultracart\v2\models\ItemAmember $amember
      * @return $this
      */
     public function setAmember($amember)
@@ -440,7 +440,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets auto_order
-     * @return \ultracart\admin\v2\models\ItemAutoOrder
+     * @return \ultracart\v2\models\ItemAutoOrder
      */
     public function getAutoOrder()
     {
@@ -449,7 +449,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets auto_order
-     * @param \ultracart\admin\v2\models\ItemAutoOrder $auto_order
+     * @param \ultracart\v2\models\ItemAutoOrder $auto_order
      * @return $this
      */
     public function setAutoOrder($auto_order)
@@ -461,7 +461,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets ccbill
-     * @return \ultracart\admin\v2\models\ItemCCBill
+     * @return \ultracart\v2\models\ItemCCBill
      */
     public function getCcbill()
     {
@@ -470,7 +470,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets ccbill
-     * @param \ultracart\admin\v2\models\ItemCCBill $ccbill
+     * @param \ultracart\v2\models\ItemCCBill $ccbill
      * @return $this
      */
     public function setCcbill($ccbill)
@@ -482,7 +482,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets channel_partner_mappings
-     * @return \ultracart\admin\v2\models\ItemChannelPartnerMapping[]
+     * @return \ultracart\v2\models\ItemChannelPartnerMapping[]
      */
     public function getChannelPartnerMappings()
     {
@@ -491,7 +491,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets channel_partner_mappings
-     * @param \ultracart\admin\v2\models\ItemChannelPartnerMapping[] $channel_partner_mappings Channel Partner Item Mapping
+     * @param \ultracart\v2\models\ItemChannelPartnerMapping[] $channel_partner_mappings Channel Partner Item Mapping
      * @return $this
      */
     public function setChannelPartnerMappings($channel_partner_mappings)
@@ -503,7 +503,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets chargeback
-     * @return \ultracart\admin\v2\models\ItemChargeback
+     * @return \ultracart\v2\models\ItemChargeback
      */
     public function getChargeback()
     {
@@ -512,7 +512,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets chargeback
-     * @param \ultracart\admin\v2\models\ItemChargeback $chargeback
+     * @param \ultracart\v2\models\ItemChargeback $chargeback
      * @return $this
      */
     public function setChargeback($chargeback)
@@ -524,7 +524,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets checkout
-     * @return \ultracart\admin\v2\models\ItemCheckout
+     * @return \ultracart\v2\models\ItemCheckout
      */
     public function getCheckout()
     {
@@ -533,7 +533,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets checkout
-     * @param \ultracart\admin\v2\models\ItemCheckout $checkout
+     * @param \ultracart\v2\models\ItemCheckout $checkout
      * @return $this
      */
     public function setCheckout($checkout)
@@ -545,7 +545,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets content
-     * @return \ultracart\admin\v2\models\ItemContent
+     * @return \ultracart\v2\models\ItemContent
      */
     public function getContent()
     {
@@ -554,7 +554,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets content
-     * @param \ultracart\admin\v2\models\ItemContent $content
+     * @param \ultracart\v2\models\ItemContent $content
      * @return $this
      */
     public function setContent($content)
@@ -632,7 +632,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets digital_delivery
-     * @return \ultracart\admin\v2\models\ItemDigitalDelivery
+     * @return \ultracart\v2\models\ItemDigitalDelivery
      */
     public function getDigitalDelivery()
     {
@@ -641,7 +641,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets digital_delivery
-     * @param \ultracart\admin\v2\models\ItemDigitalDelivery $digital_delivery
+     * @param \ultracart\v2\models\ItemDigitalDelivery $digital_delivery
      * @return $this
      */
     public function setDigitalDelivery($digital_delivery)
@@ -653,7 +653,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets ebay
-     * @return \ultracart\admin\v2\models\ItemEbay
+     * @return \ultracart\v2\models\ItemEbay
      */
     public function getEbay()
     {
@@ -662,7 +662,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets ebay
-     * @param \ultracart\admin\v2\models\ItemEbay $ebay
+     * @param \ultracart\v2\models\ItemEbay $ebay
      * @return $this
      */
     public function setEbay($ebay)
@@ -674,7 +674,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets email_notifications
-     * @return \ultracart\admin\v2\models\ItemEmailNotifications
+     * @return \ultracart\v2\models\ItemEmailNotifications
      */
     public function getEmailNotifications()
     {
@@ -683,7 +683,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets email_notifications
-     * @param \ultracart\admin\v2\models\ItemEmailNotifications $email_notifications
+     * @param \ultracart\v2\models\ItemEmailNotifications $email_notifications
      * @return $this
      */
     public function setEmailNotifications($email_notifications)
@@ -695,7 +695,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets enrollment123
-     * @return \ultracart\admin\v2\models\ItemEnrollment123
+     * @return \ultracart\v2\models\ItemEnrollment123
      */
     public function getEnrollment123()
     {
@@ -704,7 +704,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets enrollment123
-     * @param \ultracart\admin\v2\models\ItemEnrollment123 $enrollment123
+     * @param \ultracart\v2\models\ItemEnrollment123 $enrollment123
      * @return $this
      */
     public function setEnrollment123($enrollment123)
@@ -716,7 +716,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets gift_certificate
-     * @return \ultracart\admin\v2\models\ItemGiftCertificate
+     * @return \ultracart\v2\models\ItemGiftCertificate
      */
     public function getGiftCertificate()
     {
@@ -725,7 +725,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets gift_certificate
-     * @param \ultracart\admin\v2\models\ItemGiftCertificate $gift_certificate
+     * @param \ultracart\v2\models\ItemGiftCertificate $gift_certificate
      * @return $this
      */
     public function setGiftCertificate($gift_certificate)
@@ -737,7 +737,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets google_product_search
-     * @return \ultracart\admin\v2\models\ItemGoogleProductSearch
+     * @return \ultracart\v2\models\ItemGoogleProductSearch
      */
     public function getGoogleProductSearch()
     {
@@ -746,7 +746,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets google_product_search
-     * @param \ultracart\admin\v2\models\ItemGoogleProductSearch $google_product_search
+     * @param \ultracart\v2\models\ItemGoogleProductSearch $google_product_search
      * @return $this
      */
     public function setGoogleProductSearch($google_product_search)
@@ -758,7 +758,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets identifiers
-     * @return \ultracart\admin\v2\models\ItemIdentifiers
+     * @return \ultracart\v2\models\ItemIdentifiers
      */
     public function getIdentifiers()
     {
@@ -767,7 +767,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets identifiers
-     * @param \ultracart\admin\v2\models\ItemIdentifiers $identifiers
+     * @param \ultracart\v2\models\ItemIdentifiers $identifiers
      * @return $this
      */
     public function setIdentifiers($identifiers)
@@ -800,7 +800,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets instant_payment_notifications
-     * @return \ultracart\admin\v2\models\ItemInstantPaymentNotifications
+     * @return \ultracart\v2\models\ItemInstantPaymentNotifications
      */
     public function getInstantPaymentNotifications()
     {
@@ -809,7 +809,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets instant_payment_notifications
-     * @param \ultracart\admin\v2\models\ItemInstantPaymentNotifications $instant_payment_notifications
+     * @param \ultracart\v2\models\ItemInstantPaymentNotifications $instant_payment_notifications
      * @return $this
      */
     public function setInstantPaymentNotifications($instant_payment_notifications)
@@ -821,7 +821,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets internal
-     * @return \ultracart\admin\v2\models\ItemInternal
+     * @return \ultracart\v2\models\ItemInternal
      */
     public function getInternal()
     {
@@ -830,7 +830,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets internal
-     * @param \ultracart\admin\v2\models\ItemInternal $internal
+     * @param \ultracart\v2\models\ItemInternal $internal
      * @return $this
      */
     public function setInternal($internal)
@@ -863,7 +863,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets kit_definition
-     * @return \ultracart\admin\v2\models\ItemKitDefinition
+     * @return \ultracart\v2\models\ItemKitDefinition
      */
     public function getKitDefinition()
     {
@@ -872,7 +872,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets kit_definition
-     * @param \ultracart\admin\v2\models\ItemKitDefinition $kit_definition
+     * @param \ultracart\v2\models\ItemKitDefinition $kit_definition
      * @return $this
      */
     public function setKitDefinition($kit_definition)
@@ -974,7 +974,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets options
-     * @return \ultracart\admin\v2\models\ItemOption[]
+     * @return \ultracart\v2\models\ItemOption[]
      */
     public function getOptions()
     {
@@ -983,7 +983,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets options
-     * @param \ultracart\admin\v2\models\ItemOption[] $options Options
+     * @param \ultracart\v2\models\ItemOption[] $options Options
      * @return $this
      */
     public function setOptions($options)
@@ -1016,7 +1016,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets payment_processing
-     * @return \ultracart\admin\v2\models\ItemPaymentProcessing
+     * @return \ultracart\v2\models\ItemPaymentProcessing
      */
     public function getPaymentProcessing()
     {
@@ -1025,7 +1025,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets payment_processing
-     * @param \ultracart\admin\v2\models\ItemPaymentProcessing $payment_processing
+     * @param \ultracart\v2\models\ItemPaymentProcessing $payment_processing
      * @return $this
      */
     public function setPaymentProcessing($payment_processing)
@@ -1037,7 +1037,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets physical
-     * @return \ultracart\admin\v2\models\ItemPhysical
+     * @return \ultracart\v2\models\ItemPhysical
      */
     public function getPhysical()
     {
@@ -1046,7 +1046,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets physical
-     * @param \ultracart\admin\v2\models\ItemPhysical $physical
+     * @param \ultracart\v2\models\ItemPhysical $physical
      * @return $this
      */
     public function setPhysical($physical)
@@ -1058,7 +1058,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets pricing
-     * @return \ultracart\admin\v2\models\ItemPricing
+     * @return \ultracart\v2\models\ItemPricing
      */
     public function getPricing()
     {
@@ -1067,7 +1067,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets pricing
-     * @param \ultracart\admin\v2\models\ItemPricing $pricing
+     * @param \ultracart\v2\models\ItemPricing $pricing
      * @return $this
      */
     public function setPricing($pricing)
@@ -1079,7 +1079,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets realtime_pricing
-     * @return \ultracart\admin\v2\models\ItemRealtimePricing
+     * @return \ultracart\v2\models\ItemRealtimePricing
      */
     public function getRealtimePricing()
     {
@@ -1088,7 +1088,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets realtime_pricing
-     * @param \ultracart\admin\v2\models\ItemRealtimePricing $realtime_pricing
+     * @param \ultracart\v2\models\ItemRealtimePricing $realtime_pricing
      * @return $this
      */
     public function setRealtimePricing($realtime_pricing)
@@ -1100,7 +1100,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets related
-     * @return \ultracart\admin\v2\models\ItemRelated
+     * @return \ultracart\v2\models\ItemRelated
      */
     public function getRelated()
     {
@@ -1109,7 +1109,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets related
-     * @param \ultracart\admin\v2\models\ItemRelated $related
+     * @param \ultracart\v2\models\ItemRelated $related
      * @return $this
      */
     public function setRelated($related)
@@ -1121,7 +1121,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets reporting
-     * @return \ultracart\admin\v2\models\ItemReporting
+     * @return \ultracart\v2\models\ItemReporting
      */
     public function getReporting()
     {
@@ -1130,7 +1130,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets reporting
-     * @param \ultracart\admin\v2\models\ItemReporting $reporting
+     * @param \ultracart\v2\models\ItemReporting $reporting
      * @return $this
      */
     public function setReporting($reporting)
@@ -1142,7 +1142,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets restriction
-     * @return \ultracart\admin\v2\models\ItemRestriction
+     * @return \ultracart\v2\models\ItemRestriction
      */
     public function getRestriction()
     {
@@ -1151,7 +1151,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets restriction
-     * @param \ultracart\admin\v2\models\ItemRestriction $restriction
+     * @param \ultracart\v2\models\ItemRestriction $restriction
      * @return $this
      */
     public function setRestriction($restriction)
@@ -1163,7 +1163,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets revguard
-     * @return \ultracart\admin\v2\models\ItemRevguard
+     * @return \ultracart\v2\models\ItemRevguard
      */
     public function getRevguard()
     {
@@ -1172,7 +1172,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets revguard
-     * @param \ultracart\admin\v2\models\ItemRevguard $revguard
+     * @param \ultracart\v2\models\ItemRevguard $revguard
      * @return $this
      */
     public function setRevguard($revguard)
@@ -1184,7 +1184,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets reviews
-     * @return \ultracart\admin\v2\models\ItemReviews
+     * @return \ultracart\v2\models\ItemReviews
      */
     public function getReviews()
     {
@@ -1193,7 +1193,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets reviews
-     * @param \ultracart\admin\v2\models\ItemReviews $reviews
+     * @param \ultracart\v2\models\ItemReviews $reviews
      * @return $this
      */
     public function setReviews($reviews)
@@ -1205,7 +1205,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets salesforce
-     * @return \ultracart\admin\v2\models\ItemSalesforce
+     * @return \ultracart\v2\models\ItemSalesforce
      */
     public function getSalesforce()
     {
@@ -1214,7 +1214,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets salesforce
-     * @param \ultracart\admin\v2\models\ItemSalesforce $salesforce
+     * @param \ultracart\v2\models\ItemSalesforce $salesforce
      * @return $this
      */
     public function setSalesforce($salesforce)
@@ -1226,7 +1226,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets shipping
-     * @return \ultracart\admin\v2\models\ItemShipping
+     * @return \ultracart\v2\models\ItemShipping
      */
     public function getShipping()
     {
@@ -1235,7 +1235,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets shipping
-     * @param \ultracart\admin\v2\models\ItemShipping $shipping
+     * @param \ultracart\v2\models\ItemShipping $shipping
      * @return $this
      */
     public function setShipping($shipping)
@@ -1247,7 +1247,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets tax
-     * @return \ultracart\admin\v2\models\ItemTax
+     * @return \ultracart\v2\models\ItemTax
      */
     public function getTax()
     {
@@ -1256,7 +1256,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets tax
-     * @param \ultracart\admin\v2\models\ItemTax $tax
+     * @param \ultracart\v2\models\ItemTax $tax
      * @return $this
      */
     public function setTax($tax)
@@ -1268,7 +1268,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets third_party_email_marketing
-     * @return \ultracart\admin\v2\models\ItemThirdPartyEmailMarketing[]
+     * @return \ultracart\v2\models\ItemThirdPartyEmailMarketing[]
      */
     public function getThirdPartyEmailMarketing()
     {
@@ -1277,7 +1277,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets third_party_email_marketing
-     * @param \ultracart\admin\v2\models\ItemThirdPartyEmailMarketing[] $third_party_email_marketing 3rd Party Email Marketing
+     * @param \ultracart\v2\models\ItemThirdPartyEmailMarketing[] $third_party_email_marketing 3rd Party Email Marketing
      * @return $this
      */
     public function setThirdPartyEmailMarketing($third_party_email_marketing)
@@ -1289,7 +1289,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets variant_items
-     * @return \ultracart\admin\v2\models\ItemVariantItem[]
+     * @return \ultracart\v2\models\ItemVariantItem[]
      */
     public function getVariantItems()
     {
@@ -1298,7 +1298,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets variant_items
-     * @param \ultracart\admin\v2\models\ItemVariantItem[] $variant_items Variant Items
+     * @param \ultracart\v2\models\ItemVariantItem[] $variant_items Variant Items
      * @return $this
      */
     public function setVariantItems($variant_items)
@@ -1310,7 +1310,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets variations
-     * @return \ultracart\admin\v2\models\ItemVariation[]
+     * @return \ultracart\v2\models\ItemVariation[]
      */
     public function getVariations()
     {
@@ -1319,7 +1319,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets variations
-     * @param \ultracart\admin\v2\models\ItemVariation[] $variations Variations
+     * @param \ultracart\v2\models\ItemVariation[] $variations Variations
      * @return $this
      */
     public function setVariations($variations)
@@ -1331,7 +1331,7 @@ class Item implements ArrayAccess
 
     /**
      * Gets wishlist_member
-     * @return \ultracart\admin\v2\models\ItemWishlistMember
+     * @return \ultracart\v2\models\ItemWishlistMember
      */
     public function getWishlistMember()
     {
@@ -1340,7 +1340,7 @@ class Item implements ArrayAccess
 
     /**
      * Sets wishlist_member
-     * @param \ultracart\admin\v2\models\ItemWishlistMember $wishlist_member
+     * @param \ultracart\v2\models\ItemWishlistMember $wishlist_member
      * @return $this
      */
     public function setWishlistMember($wishlist_member)
@@ -1401,10 +1401,10 @@ class Item implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

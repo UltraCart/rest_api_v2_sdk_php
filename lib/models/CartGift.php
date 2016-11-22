@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,10 +67,10 @@ class CartGift implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'gift' => 'bool',
-        'gift_charge' => '\ultracart\admin\v2\models\Currency',
+        'gift_charge' => '\ultracart\v2\models\Currency',
         'gift_email' => 'string',
         'gift_message' => 'string',
-        'gift_wrap_cost' => '\ultracart\admin\v2\models\Currency',
+        'gift_wrap_cost' => '\ultracart\v2\models\Currency',
         'gift_wrap_title' => 'string'
     );
 
@@ -224,7 +224,7 @@ class CartGift implements ArrayAccess
 
     /**
      * Gets gift_charge
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftCharge()
     {
@@ -233,7 +233,7 @@ class CartGift implements ArrayAccess
 
     /**
      * Sets gift_charge
-     * @param \ultracart\admin\v2\models\Currency $gift_charge
+     * @param \ultracart\v2\models\Currency $gift_charge
      * @return $this
      */
     public function setGiftCharge($gift_charge)
@@ -293,7 +293,7 @@ class CartGift implements ArrayAccess
 
     /**
      * Gets gift_wrap_cost
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftWrapCost()
     {
@@ -302,7 +302,7 @@ class CartGift implements ArrayAccess
 
     /**
      * Sets gift_wrap_cost
-     * @param \ultracart\admin\v2\models\Currency $gift_wrap_cost
+     * @param \ultracart\v2\models\Currency $gift_wrap_cost
      * @return $this
      */
     public function setGiftWrapCost($gift_wrap_cost)
@@ -387,10 +387,10 @@ class CartGift implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

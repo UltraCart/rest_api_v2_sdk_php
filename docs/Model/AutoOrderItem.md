@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **next_shipment_dts** | **string** | Date/time that this item is scheduled to rebill | [optional] 
 **no_order_after_dts** | **string** | Date/time after which no additional rebills of this item should occur | [optional] 
 **number_of_rebills** | **int** | The number of times this item has rebilled | [optional] 
-**options** | [**\ultracart\admin\v2\models\AutoOrderItemOption[]**](AutoOrderItemOption.md) | Options associated with this item | [optional] 
+**options** | [**\ultracart\v2\models\AutoOrderItemOption[]**](AutoOrderItemOption.md) | Options associated with this item | [optional] 
 **original_item_id** | **string** | The original item id purchased | [optional] 
 **original_quantity** | **float** | The original quantity purchased | [optional] 
 **preshipment_notice_sent** | **bool** | True if the preshipment notice associated with the next rebill has been sent | [optional] 

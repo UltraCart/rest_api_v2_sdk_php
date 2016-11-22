@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,9 +66,9 @@ class CartKitComponentOption implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'cost_if_specified' => '\ultracart\admin\v2\models\Currency',
-        'cost_per_letter' => '\ultracart\admin\v2\models\Currency',
-        'cost_per_line' => '\ultracart\admin\v2\models\Currency',
+        'cost_if_specified' => '\ultracart\v2\models\Currency',
+        'cost_per_letter' => '\ultracart\v2\models\Currency',
+        'cost_per_line' => '\ultracart\v2\models\Currency',
         'ignore_if_default' => 'bool',
         'item_id' => 'string',
         'item_oid' => 'int',
@@ -79,7 +79,7 @@ class CartKitComponentOption implements ArrayAccess
         'required' => 'bool',
         'selected_value' => 'string',
         'type' => 'string',
-        'values' => '\ultracart\admin\v2\models\CartItemOptionValue[]'
+        'values' => '\ultracart\v2\models\CartItemOptionValue[]'
     );
 
     public static function swaggerTypes()
@@ -260,7 +260,7 @@ class CartKitComponentOption implements ArrayAccess
 
     /**
      * Gets cost_if_specified
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCostIfSpecified()
     {
@@ -269,7 +269,7 @@ class CartKitComponentOption implements ArrayAccess
 
     /**
      * Sets cost_if_specified
-     * @param \ultracart\admin\v2\models\Currency $cost_if_specified
+     * @param \ultracart\v2\models\Currency $cost_if_specified
      * @return $this
      */
     public function setCostIfSpecified($cost_if_specified)
@@ -281,7 +281,7 @@ class CartKitComponentOption implements ArrayAccess
 
     /**
      * Gets cost_per_letter
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCostPerLetter()
     {
@@ -290,7 +290,7 @@ class CartKitComponentOption implements ArrayAccess
 
     /**
      * Sets cost_per_letter
-     * @param \ultracart\admin\v2\models\Currency $cost_per_letter
+     * @param \ultracart\v2\models\Currency $cost_per_letter
      * @return $this
      */
     public function setCostPerLetter($cost_per_letter)
@@ -302,7 +302,7 @@ class CartKitComponentOption implements ArrayAccess
 
     /**
      * Gets cost_per_line
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCostPerLine()
     {
@@ -311,7 +311,7 @@ class CartKitComponentOption implements ArrayAccess
 
     /**
      * Sets cost_per_line
-     * @param \ultracart\admin\v2\models\Currency $cost_per_line
+     * @param \ultracart\v2\models\Currency $cost_per_line
      * @return $this
      */
     public function setCostPerLine($cost_per_line)
@@ -540,7 +540,7 @@ class CartKitComponentOption implements ArrayAccess
 
     /**
      * Gets values
-     * @return \ultracart\admin\v2\models\CartItemOptionValue[]
+     * @return \ultracart\v2\models\CartItemOptionValue[]
      */
     public function getValues()
     {
@@ -549,7 +549,7 @@ class CartKitComponentOption implements ArrayAccess
 
     /**
      * Sets values
-     * @param \ultracart\admin\v2\models\CartItemOptionValue[] $values Values that the customer can select from for radio or select type options
+     * @param \ultracart\v2\models\CartItemOptionValue[] $values Values that the customer can select from for radio or select type options
      * @return $this
      */
     public function setValues($values)
@@ -610,10 +610,10 @@ class CartKitComponentOption implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

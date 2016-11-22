@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,10 +66,10 @@ class CartSettingsPayment implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'amazon' => '\ultracart\admin\v2\models\CartSettingsPaymentAmazon',
-        'credit_card' => '\ultracart\admin\v2\models\CartSettingsPaymentCreditCard',
+        'amazon' => '\ultracart\v2\models\CartSettingsPaymentAmazon',
+        'credit_card' => '\ultracart\v2\models\CartSettingsPaymentCreditCard',
         'need_payment' => 'bool',
-        'paypal' => '\ultracart\admin\v2\models\CartSettingsPaymentPayPal',
+        'paypal' => '\ultracart\v2\models\CartSettingsPaymentPayPal',
         'supports_amazon' => 'bool',
         'supports_check' => 'bool',
         'supports_cod' => 'bool',
@@ -217,7 +217,7 @@ class CartSettingsPayment implements ArrayAccess
 
     /**
      * Gets amazon
-     * @return \ultracart\admin\v2\models\CartSettingsPaymentAmazon
+     * @return \ultracart\v2\models\CartSettingsPaymentAmazon
      */
     public function getAmazon()
     {
@@ -226,7 +226,7 @@ class CartSettingsPayment implements ArrayAccess
 
     /**
      * Sets amazon
-     * @param \ultracart\admin\v2\models\CartSettingsPaymentAmazon $amazon
+     * @param \ultracart\v2\models\CartSettingsPaymentAmazon $amazon
      * @return $this
      */
     public function setAmazon($amazon)
@@ -238,7 +238,7 @@ class CartSettingsPayment implements ArrayAccess
 
     /**
      * Gets credit_card
-     * @return \ultracart\admin\v2\models\CartSettingsPaymentCreditCard
+     * @return \ultracart\v2\models\CartSettingsPaymentCreditCard
      */
     public function getCreditCard()
     {
@@ -247,7 +247,7 @@ class CartSettingsPayment implements ArrayAccess
 
     /**
      * Sets credit_card
-     * @param \ultracart\admin\v2\models\CartSettingsPaymentCreditCard $credit_card
+     * @param \ultracart\v2\models\CartSettingsPaymentCreditCard $credit_card
      * @return $this
      */
     public function setCreditCard($credit_card)
@@ -280,7 +280,7 @@ class CartSettingsPayment implements ArrayAccess
 
     /**
      * Gets paypal
-     * @return \ultracart\admin\v2\models\CartSettingsPaymentPayPal
+     * @return \ultracart\v2\models\CartSettingsPaymentPayPal
      */
     public function getPaypal()
     {
@@ -289,7 +289,7 @@ class CartSettingsPayment implements ArrayAccess
 
     /**
      * Sets paypal
-     * @param \ultracart\admin\v2\models\CartSettingsPaymentPayPal $paypal
+     * @param \ultracart\v2\models\CartSettingsPaymentPayPal $paypal
      * @return $this
      */
     public function setPaypal($paypal)
@@ -539,10 +539,10 @@ class CartSettingsPayment implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

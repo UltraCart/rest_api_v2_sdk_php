@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -71,7 +71,7 @@ class ItemDigitalDelivery implements ArrayAccess
         'activation_code_realtime_url' => 'string',
         'activation_code_shared_secret' => 'string',
         'activation_code_type' => 'string',
-        'digital_items' => '\ultracart\admin\v2\models\ItemDigitalItem[]'
+        'digital_items' => '\ultracart\v2\models\ItemDigitalItem[]'
     );
 
     public static function swaggerTypes()
@@ -317,7 +317,7 @@ class ItemDigitalDelivery implements ArrayAccess
 
     /**
      * Gets digital_items
-     * @return \ultracart\admin\v2\models\ItemDigitalItem[]
+     * @return \ultracart\v2\models\ItemDigitalItem[]
      */
     public function getDigitalItems()
     {
@@ -326,7 +326,7 @@ class ItemDigitalDelivery implements ArrayAccess
 
     /**
      * Sets digital_items
-     * @param \ultracart\admin\v2\models\ItemDigitalItem[] $digital_items Digital items that customer can download when this item is purchased
+     * @param \ultracart\v2\models\ItemDigitalItem[] $digital_items Digital items that customer can download when this item is purchased
      * @return $this
      */
     public function setDigitalItems($digital_items)
@@ -387,10 +387,10 @@ class ItemDigitalDelivery implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

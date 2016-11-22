@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bond_available** | **bool** | True if buySAFE is willing to bond the order | [optional] 
-**bond_cost** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**bond_cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **bond_free** | **bool** | True if the bond is free (merchant paying for it) | [optional] 
 **bond_wanted** | **bool** | True if the customer wants the bond | [optional] 
 **cart_display_text** | **string** | Recommend text to display to the customer | [optional] 

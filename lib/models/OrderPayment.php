@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,23 +66,23 @@ class OrderPayment implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'check' => '\ultracart\admin\v2\models\OrderPaymentCheck',
-        'credit_card' => '\ultracart\admin\v2\models\OrderPaymentCreditCard',
-        'echeck' => '\ultracart\admin\v2\models\OrderPaymentECheck',
+        'check' => '\ultracart\v2\models\OrderPaymentCheck',
+        'credit_card' => '\ultracart\v2\models\OrderPaymentCreditCard',
+        'echeck' => '\ultracart\v2\models\OrderPaymentECheck',
         'hold_for_fraud_review' => 'bool',
         'payment_dts' => 'string',
         'payment_method' => 'string',
         'payment_method_accounting_code' => 'string',
         'payment_method_deposit_to_account' => 'string',
         'payment_status' => 'string',
-        'purchase_order' => '\ultracart\admin\v2\models\OrderPaymentPurchaseOrder',
+        'purchase_order' => '\ultracart\v2\models\OrderPaymentPurchaseOrder',
         'rotating_transaction_gateway_code' => 'string',
-        'surcharge' => '\ultracart\admin\v2\models\Currency',
+        'surcharge' => '\ultracart\v2\models\Currency',
         'surcharge_accounting_code' => 'string',
         'surcharge_transaction_fee' => 'float',
         'surcharge_transaction_percentage' => 'float',
         'test_order' => 'bool',
-        'transactions' => '\ultracart\admin\v2\models\OrderPaymentTransaction[]'
+        'transactions' => '\ultracart\v2\models\OrderPaymentTransaction[]'
     );
 
     public static function swaggerTypes()
@@ -321,7 +321,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Gets check
-     * @return \ultracart\admin\v2\models\OrderPaymentCheck
+     * @return \ultracart\v2\models\OrderPaymentCheck
      */
     public function getCheck()
     {
@@ -330,7 +330,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Sets check
-     * @param \ultracart\admin\v2\models\OrderPaymentCheck $check
+     * @param \ultracart\v2\models\OrderPaymentCheck $check
      * @return $this
      */
     public function setCheck($check)
@@ -342,7 +342,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Gets credit_card
-     * @return \ultracart\admin\v2\models\OrderPaymentCreditCard
+     * @return \ultracart\v2\models\OrderPaymentCreditCard
      */
     public function getCreditCard()
     {
@@ -351,7 +351,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Sets credit_card
-     * @param \ultracart\admin\v2\models\OrderPaymentCreditCard $credit_card
+     * @param \ultracart\v2\models\OrderPaymentCreditCard $credit_card
      * @return $this
      */
     public function setCreditCard($credit_card)
@@ -363,7 +363,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Gets echeck
-     * @return \ultracart\admin\v2\models\OrderPaymentECheck
+     * @return \ultracart\v2\models\OrderPaymentECheck
      */
     public function getEcheck()
     {
@@ -372,7 +372,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Sets echeck
-     * @param \ultracart\admin\v2\models\OrderPaymentECheck $echeck
+     * @param \ultracart\v2\models\OrderPaymentECheck $echeck
      * @return $this
      */
     public function setEcheck($echeck)
@@ -518,7 +518,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Gets purchase_order
-     * @return \ultracart\admin\v2\models\OrderPaymentPurchaseOrder
+     * @return \ultracart\v2\models\OrderPaymentPurchaseOrder
      */
     public function getPurchaseOrder()
     {
@@ -527,7 +527,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Sets purchase_order
-     * @param \ultracart\admin\v2\models\OrderPaymentPurchaseOrder $purchase_order
+     * @param \ultracart\v2\models\OrderPaymentPurchaseOrder $purchase_order
      * @return $this
      */
     public function setPurchaseOrder($purchase_order)
@@ -560,7 +560,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Gets surcharge
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getSurcharge()
     {
@@ -569,7 +569,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Sets surcharge
-     * @param \ultracart\admin\v2\models\Currency $surcharge
+     * @param \ultracart\v2\models\Currency $surcharge
      * @return $this
      */
     public function setSurcharge($surcharge)
@@ -665,7 +665,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Gets transactions
-     * @return \ultracart\admin\v2\models\OrderPaymentTransaction[]
+     * @return \ultracart\v2\models\OrderPaymentTransaction[]
      */
     public function getTransactions()
     {
@@ -674,7 +674,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Sets transactions
-     * @param \ultracart\admin\v2\models\OrderPaymentTransaction[] $transactions Transactions associated with processing this payment
+     * @param \ultracart\v2\models\OrderPaymentTransaction[] $transactions Transactions associated with processing this payment
      * @return $this
      */
     public function setTransactions($transactions)
@@ -735,10 +735,10 @@ class OrderPayment implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

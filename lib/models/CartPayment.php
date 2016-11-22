@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,11 +66,11 @@ class CartPayment implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'amazon' => '\ultracart\admin\v2\models\CartPaymentAmazon',
-        'check' => '\ultracart\admin\v2\models\CartPaymentCheck',
-        'credit_card' => '\ultracart\admin\v2\models\CartPaymentCreditCard',
+        'amazon' => '\ultracart\v2\models\CartPaymentAmazon',
+        'check' => '\ultracart\v2\models\CartPaymentCheck',
+        'credit_card' => '\ultracart\v2\models\CartPaymentCreditCard',
         'payment_method' => 'string',
-        'purchase_order' => '\ultracart\admin\v2\models\CartPaymentPurchaseOrder'
+        'purchase_order' => '\ultracart\v2\models\CartPaymentPurchaseOrder'
     );
 
     public static function swaggerTypes()
@@ -177,7 +177,7 @@ class CartPayment implements ArrayAccess
 
     /**
      * Gets amazon
-     * @return \ultracart\admin\v2\models\CartPaymentAmazon
+     * @return \ultracart\v2\models\CartPaymentAmazon
      */
     public function getAmazon()
     {
@@ -186,7 +186,7 @@ class CartPayment implements ArrayAccess
 
     /**
      * Sets amazon
-     * @param \ultracart\admin\v2\models\CartPaymentAmazon $amazon
+     * @param \ultracart\v2\models\CartPaymentAmazon $amazon
      * @return $this
      */
     public function setAmazon($amazon)
@@ -198,7 +198,7 @@ class CartPayment implements ArrayAccess
 
     /**
      * Gets check
-     * @return \ultracart\admin\v2\models\CartPaymentCheck
+     * @return \ultracart\v2\models\CartPaymentCheck
      */
     public function getCheck()
     {
@@ -207,7 +207,7 @@ class CartPayment implements ArrayAccess
 
     /**
      * Sets check
-     * @param \ultracart\admin\v2\models\CartPaymentCheck $check
+     * @param \ultracart\v2\models\CartPaymentCheck $check
      * @return $this
      */
     public function setCheck($check)
@@ -219,7 +219,7 @@ class CartPayment implements ArrayAccess
 
     /**
      * Gets credit_card
-     * @return \ultracart\admin\v2\models\CartPaymentCreditCard
+     * @return \ultracart\v2\models\CartPaymentCreditCard
      */
     public function getCreditCard()
     {
@@ -228,7 +228,7 @@ class CartPayment implements ArrayAccess
 
     /**
      * Sets credit_card
-     * @param \ultracart\admin\v2\models\CartPaymentCreditCard $credit_card
+     * @param \ultracart\v2\models\CartPaymentCreditCard $credit_card
      * @return $this
      */
     public function setCreditCard($credit_card)
@@ -261,7 +261,7 @@ class CartPayment implements ArrayAccess
 
     /**
      * Gets purchase_order
-     * @return \ultracart\admin\v2\models\CartPaymentPurchaseOrder
+     * @return \ultracart\v2\models\CartPaymentPurchaseOrder
      */
     public function getPurchaseOrder()
     {
@@ -270,7 +270,7 @@ class CartPayment implements ArrayAccess
 
     /**
      * Sets purchase_order
-     * @param \ultracart\admin\v2\models\CartPaymentPurchaseOrder $purchase_order
+     * @param \ultracart\v2\models\CartPaymentPurchaseOrder $purchase_order
      * @return $this
      */
     public function setPurchaseOrder($purchase_order)
@@ -331,10 +331,10 @@ class CartPayment implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

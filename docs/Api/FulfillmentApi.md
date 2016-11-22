@@ -1,4 +1,4 @@
-# ultracart\admin\v2\FulfillmentApi
+# ultracart\v2\FulfillmentApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -24,13 +24,13 @@ Acknowledge receipt of orders so that they are removed from the fulfillment queu
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi();
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
 $order_ids = array(new string[]()); // string[] | Orders to acknowledge receipt of (limit 100)
 
@@ -77,15 +77,15 @@ Update the inventory for items associated with this distribution center
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi();
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
-$inventories = array(new FulfillmentInventory()); // \ultracart\admin\v2\models\FulfillmentInventory[] | Inventory updates (limit 500)
+$inventories = array(new FulfillmentInventory()); // \ultracart\v2\models\FulfillmentInventory[] | Inventory updates (limit 500)
 
 try {
     $api_instance->fulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories);
@@ -100,7 +100,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **distribution_center_code** | **string**| Distribution center code |
- **inventories** | [**\ultracart\admin\v2\models\FulfillmentInventory[]**](../Model/FulfillmentInventory.md)| Inventory updates (limit 500) |
+ **inventories** | [**\ultracart\v2\models\FulfillmentInventory[]**](../Model/FulfillmentInventory.md)| Inventory updates (limit 500) |
 
 ### Return type
 
@@ -118,7 +118,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **fulfillmentDistributionCentersDistributionCenterCodeOrdersGet**
-> \ultracart\admin\v2\models\OrdersResponse fulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code)
+> \ultracart\v2\models\OrdersResponse fulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code)
 
 Retrieve orders queued up for this distribution center.
 
@@ -130,13 +130,13 @@ Retrieves up to 100 orders that are queued up in this distribution center.  You 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi();
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
 
 try {
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
 
 ### Authorization
 
@@ -182,15 +182,15 @@ Store the tracking information and mark the order shipped for this distribution 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi();
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
-$shipments = array(new FulfillmentShipment()); // \ultracart\admin\v2\models\FulfillmentShipment[] | Orders to mark shipped
+$shipments = array(new FulfillmentShipment()); // \ultracart\v2\models\FulfillmentShipment[] | Orders to mark shipped
 
 try {
     $api_instance->fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments);
@@ -205,7 +205,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **distribution_center_code** | **string**| Distribution center code |
- **shipments** | [**\ultracart\admin\v2\models\FulfillmentShipment[]**](../Model/FulfillmentShipment.md)| Orders to mark shipped |
+ **shipments** | [**\ultracart\v2\models\FulfillmentShipment[]**](../Model/FulfillmentShipment.md)| Orders to mark shipped |
 
 ### Return type
 
@@ -223,7 +223,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **fulfillmentDistributionCentersGet**
-> \ultracart\admin\v2\models\DistributionCentersResponse fulfillmentDistributionCentersGet()
+> \ultracart\v2\models\DistributionCentersResponse fulfillmentDistributionCentersGet()
 
 Retrieve distribution centers
 
@@ -235,13 +235,13 @@ Retrieves the distribution centers that this user has access to.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi();
 
 try {
     $result = $api_instance->fulfillmentDistributionCentersGet();
@@ -257,7 +257,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\admin\v2\models\DistributionCentersResponse**](../Model/DistributionCentersResponse.md)
+[**\ultracart\v2\models\DistributionCentersResponse**](../Model/DistributionCentersResponse.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\api;
+namespace ultracart\v2\api;
 
-use \ultracart\admin\v2\Configuration;
-use \ultracart\admin\v2\ApiClient;
-use \ultracart\admin\v2\ApiException;
-use \ultracart\admin\v2\ObjectSerializer;
+use \ultracart\v2\Configuration;
+use \ultracart\v2\ApiClient;
+use \ultracart\v2\ApiException;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CheckoutApi Class Doc Comment
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class CheckoutApi
     /**
      * API Client
      *
-     * @var \ultracart\admin\v2\ApiClient instance of the ApiClient
+     * @var \ultracart\v2\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \ultracart\admin\v2\ApiClient|null $apiClient The api client to use
+     * @param \ultracart\v2\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\ultracart\admin\v2\ApiClient $apiClient = null)
+    public function __construct(\ultracart\v2\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class CheckoutApi
     /**
      * Get API client
      *
-     * @return \ultracart\admin\v2\ApiClient get the API client
+     * @return \ultracart\v2\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class CheckoutApi
     /**
      * Set the API client
      *
-     * @param \ultracart\admin\v2\ApiClient $apiClient set the API client
+     * @param \ultracart\v2\ApiClient $apiClient set the API client
      *
      * @return CheckoutApi
      */
-    public function setApiClient(\ultracart\admin\v2\ApiClient $apiClient)
+    public function setApiClient(\ultracart\v2\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -107,9 +107,9 @@ class CheckoutApi
      *
      * Setup Browser Application
      *
-     * @param \ultracart\admin\v2\models\CheckoutSetupBrowserKeyRequest $browser_key_request Setup browser key request (required)
-     * @return \ultracart\admin\v2\models\CartResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @param \ultracart\v2\models\CheckoutSetupBrowserKeyRequest $browser_key_request Setup browser key request (required)
+     * @return \ultracart\v2\models\CartResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutBrowserKeyPut($browser_key_request)
     {
@@ -122,9 +122,9 @@ class CheckoutApi
      *
      * Setup Browser Application
      *
-     * @param \ultracart\admin\v2\models\CheckoutSetupBrowserKeyRequest $browser_key_request Setup browser key request (required)
-     * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @param \ultracart\v2\models\CheckoutSetupBrowserKeyRequest $browser_key_request Setup browser key request (required)
+     * @return Array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutBrowserKeyPutWithHttpInfo($browser_key_request)
     {
@@ -176,35 +176,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartResponse',
+                '\ultracart\v2\models\CartResponse',
                 '/checkout/browser_key'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -220,8 +220,8 @@ class CheckoutApi
      *
      * @param string $cart_id Cart ID to retrieve (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CartResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CartResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartCartIdGet($cart_id, $_expand = null)
     {
@@ -236,8 +236,8 @@ class CheckoutApi
      *
      * @param string $cart_id Cart ID to retrieve (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartCartIdGetWithHttpInfo($cart_id, $_expand = null)
     {
@@ -301,35 +301,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartResponse',
+                '\ultracart\v2\models\CartResponse',
                 '/checkout/cart/{cart_id}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -343,9 +343,9 @@ class CheckoutApi
      *
      * Finalize Order
      *
-     * @param \ultracart\admin\v2\models\CartFinalizeOrderRequest $finalize_request Finalize request (required)
-     * @return \ultracart\admin\v2\models\CartFinalizeOrderResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @param \ultracart\v2\models\CartFinalizeOrderRequest $finalize_request Finalize request (required)
+     * @return \ultracart\v2\models\CartFinalizeOrderResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartFinalizeOrderPost($finalize_request)
     {
@@ -358,9 +358,9 @@ class CheckoutApi
      *
      * Finalize Order
      *
-     * @param \ultracart\admin\v2\models\CartFinalizeOrderRequest $finalize_request Finalize request (required)
-     * @return Array of \ultracart\admin\v2\models\CartFinalizeOrderResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @param \ultracart\v2\models\CartFinalizeOrderRequest $finalize_request Finalize request (required)
+     * @return Array of \ultracart\v2\models\CartFinalizeOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartFinalizeOrderPostWithHttpInfo($finalize_request)
     {
@@ -412,35 +412,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartFinalizeOrderResponse',
+                '\ultracart\v2\models\CartFinalizeOrderResponse',
                 '/checkout/cart/finalizeOrder'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartFinalizeOrderResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartFinalizeOrderResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartFinalizeOrderResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartFinalizeOrderResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -455,8 +455,8 @@ class CheckoutApi
      * Create a new cart
      *
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CartResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CartResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartGet($_expand = null)
     {
@@ -470,8 +470,8 @@ class CheckoutApi
      * Create a new cart
      *
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartGetWithHttpInfo($_expand = null)
     {
@@ -523,35 +523,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartResponse',
+                '\ultracart\v2\models\CartResponse',
                 '/checkout/cart'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -565,10 +565,10 @@ class CheckoutApi
      *
      * Handoff cart
      *
-     * @param \ultracart\admin\v2\models\CheckoutHandoffRequest $handoff_request Handoff request (required)
+     * @param \ultracart\v2\models\CheckoutHandoffRequest $handoff_request Handoff request (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CheckoutHandoffResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CheckoutHandoffResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartHandoffPost($handoff_request, $_expand = null)
     {
@@ -581,10 +581,10 @@ class CheckoutApi
      *
      * Handoff cart
      *
-     * @param \ultracart\admin\v2\models\CheckoutHandoffRequest $handoff_request Handoff request (required)
+     * @param \ultracart\v2\models\CheckoutHandoffRequest $handoff_request Handoff request (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CheckoutHandoffResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CheckoutHandoffResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartHandoffPostWithHttpInfo($handoff_request, $_expand = null)
     {
@@ -645,35 +645,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CheckoutHandoffResponse',
+                '\ultracart\v2\models\CheckoutHandoffResponse',
                 '/checkout/cart/handoff'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CheckoutHandoffResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CheckoutHandoffResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CheckoutHandoffResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CheckoutHandoffResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -687,10 +687,10 @@ class CheckoutApi
      *
      * Profile login
      *
-     * @param \ultracart\admin\v2\models\CartProfileLoginRequest $login_request Login request (required)
+     * @param \ultracart\v2\models\CartProfileLoginRequest $login_request Login request (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CartProfileLoginResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CartProfileLoginResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartProfileLoginPost($login_request, $_expand = null)
     {
@@ -703,10 +703,10 @@ class CheckoutApi
      *
      * Profile login
      *
-     * @param \ultracart\admin\v2\models\CartProfileLoginRequest $login_request Login request (required)
+     * @param \ultracart\v2\models\CartProfileLoginRequest $login_request Login request (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CartProfileLoginResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CartProfileLoginResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartProfileLoginPostWithHttpInfo($login_request, $_expand = null)
     {
@@ -767,35 +767,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartProfileLoginResponse',
+                '\ultracart\v2\models\CartProfileLoginResponse',
                 '/checkout/cart/profile/login'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartProfileLoginResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartProfileLoginResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartProfileLoginResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartProfileLoginResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -809,10 +809,10 @@ class CheckoutApi
      *
      * Profile logout
      *
-     * @param \ultracart\admin\v2\models\Cart $cart Cart (required)
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CartResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CartResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartProfileLogoutPost($cart, $_expand = null)
     {
@@ -825,10 +825,10 @@ class CheckoutApi
      *
      * Profile logout
      *
-     * @param \ultracart\admin\v2\models\Cart $cart Cart (required)
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartProfileLogoutPostWithHttpInfo($cart, $_expand = null)
     {
@@ -889,35 +889,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartResponse',
+                '\ultracart\v2\models\CartResponse',
                 '/checkout/cart/profile/logout'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -931,10 +931,10 @@ class CheckoutApi
      *
      * Profile registration
      *
-     * @param \ultracart\admin\v2\models\CartProfileRegisterRequest $register_request Register request (required)
+     * @param \ultracart\v2\models\CartProfileRegisterRequest $register_request Register request (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CartProfileRegisterResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CartProfileRegisterResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartProfileRegisterPost($register_request, $_expand = null)
     {
@@ -947,10 +947,10 @@ class CheckoutApi
      *
      * Profile registration
      *
-     * @param \ultracart\admin\v2\models\CartProfileRegisterRequest $register_request Register request (required)
+     * @param \ultracart\v2\models\CartProfileRegisterRequest $register_request Register request (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CartProfileRegisterResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CartProfileRegisterResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartProfileRegisterPostWithHttpInfo($register_request, $_expand = null)
     {
@@ -1011,35 +1011,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartProfileRegisterResponse',
+                '\ultracart\v2\models\CartProfileRegisterResponse',
                 '/checkout/cart/profile/register'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartProfileRegisterResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartProfileRegisterResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartProfileRegisterResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartProfileRegisterResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1053,10 +1053,10 @@ class CheckoutApi
      *
      * Update cart (by cookie)
      *
-     * @param \ultracart\admin\v2\models\Cart $cart Cart (required)
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CartResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CartResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartPut($cart, $_expand = null)
     {
@@ -1069,10 +1069,10 @@ class CheckoutApi
      *
      * Update cart (by cookie)
      *
-     * @param \ultracart\admin\v2\models\Cart $cart Cart (required)
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartPutWithHttpInfo($cart, $_expand = null)
     {
@@ -1133,35 +1133,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartResponse',
+                '\ultracart\v2\models\CartResponse',
                 '/checkout/cart'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1175,10 +1175,10 @@ class CheckoutApi
      *
      * Validate
      *
-     * @param \ultracart\admin\v2\models\CartValidationRequest $validation_request Validation request (required)
+     * @param \ultracart\v2\models\CartValidationRequest $validation_request Validation request (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CartValidationResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CartValidationResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartValidatePost($validation_request, $_expand = null)
     {
@@ -1191,10 +1191,10 @@ class CheckoutApi
      *
      * Validate
      *
-     * @param \ultracart\admin\v2\models\CartValidationRequest $validation_request Validation request (required)
+     * @param \ultracart\v2\models\CartValidationRequest $validation_request Validation request (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CartValidationResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CartValidationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutCartValidatePostWithHttpInfo($validation_request, $_expand = null)
     {
@@ -1255,35 +1255,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartValidationResponse',
+                '\ultracart\v2\models\CartValidationResponse',
                 '/checkout/cart/validate'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartValidationResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartValidationResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartValidationResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartValidationResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -1299,8 +1299,8 @@ class CheckoutApi
      *
      * @param string $return_code Return code to lookup cart ID by (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\admin\v2\models\CartResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\CartResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutReturnReturnCodeGet($return_code, $_expand = null)
     {
@@ -1315,8 +1315,8 @@ class CheckoutApi
      *
      * @param string $return_code Return code to lookup cart ID by (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\admin\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function checkoutReturnReturnCodeGetWithHttpInfo($return_code, $_expand = null)
     {
@@ -1380,35 +1380,35 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\CartResponse',
+                '\ultracart\v2\models\CartResponse',
                 '/checkout/return/{return_code}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CartResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\CartResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CartResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

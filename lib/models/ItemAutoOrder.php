@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -80,7 +80,7 @@ class ItemAutoOrder implements ArrayAccess
         'auto_orderable' => 'bool',
         'cancel_other_auto_orders' => 'bool',
         'free_shipping_auto_order' => 'bool',
-        'steps' => '\ultracart\admin\v2\models\ItemAutoOrderStep[]'
+        'steps' => '\ultracart\v2\models\ItemAutoOrderStep[]'
     );
 
     public static function swaggerTypes()
@@ -531,7 +531,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Gets steps
-     * @return \ultracart\admin\v2\models\ItemAutoOrderStep[]
+     * @return \ultracart\v2\models\ItemAutoOrderStep[]
      */
     public function getSteps()
     {
@@ -540,7 +540,7 @@ class ItemAutoOrder implements ArrayAccess
 
     /**
      * Sets steps
-     * @param \ultracart\admin\v2\models\ItemAutoOrderStep[] $steps The rebill steps if this auto order is an upsell
+     * @param \ultracart\v2\models\ItemAutoOrderStep[] $steps The rebill steps if this auto order is an upsell
      * @return $this
      */
     public function setSteps($steps)
@@ -601,10 +601,10 @@ class ItemAutoOrder implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

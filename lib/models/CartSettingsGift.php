@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,8 +67,8 @@ class CartSettingsGift implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'allow_gifts' => 'bool',
-        'gift_charge' => '\ultracart\admin\v2\models\Currency',
-        'gift_wraps' => '\ultracart\admin\v2\models\CartSettingsGiftWrap[]',
+        'gift_charge' => '\ultracart\v2\models\Currency',
+        'gift_wraps' => '\ultracart\v2\models\CartSettingsGiftWrap[]',
         'max_message_length' => 'int'
     );
 
@@ -193,7 +193,7 @@ class CartSettingsGift implements ArrayAccess
 
     /**
      * Gets gift_charge
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftCharge()
     {
@@ -202,7 +202,7 @@ class CartSettingsGift implements ArrayAccess
 
     /**
      * Sets gift_charge
-     * @param \ultracart\admin\v2\models\Currency $gift_charge
+     * @param \ultracart\v2\models\Currency $gift_charge
      * @return $this
      */
     public function setGiftCharge($gift_charge)
@@ -214,7 +214,7 @@ class CartSettingsGift implements ArrayAccess
 
     /**
      * Gets gift_wraps
-     * @return \ultracart\admin\v2\models\CartSettingsGiftWrap[]
+     * @return \ultracart\v2\models\CartSettingsGiftWrap[]
      */
     public function getGiftWraps()
     {
@@ -223,7 +223,7 @@ class CartSettingsGift implements ArrayAccess
 
     /**
      * Sets gift_wraps
-     * @param \ultracart\admin\v2\models\CartSettingsGiftWrap[] $gift_wraps The gift wraps available for the customer to select from
+     * @param \ultracart\v2\models\CartSettingsGiftWrap[] $gift_wraps The gift wraps available for the customer to select from
      * @return $this
      */
     public function setGiftWraps($gift_wraps)
@@ -305,10 +305,10 @@ class CartSettingsGift implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

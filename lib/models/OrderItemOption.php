@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,16 +67,16 @@ class OrderItemOption implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'additional_dimension_application' => 'string',
-        'cost_change' => '\ultracart\admin\v2\models\Currency',
-        'file_attachment' => '\ultracart\admin\v2\models\OrderItemOptionFileAttachment',
-        'height' => '\ultracart\admin\v2\models\Distance',
+        'cost_change' => '\ultracart\v2\models\Currency',
+        'file_attachment' => '\ultracart\v2\models\OrderItemOptionFileAttachment',
+        'height' => '\ultracart\v2\models\Distance',
         'hidden' => 'bool',
         'label' => 'string',
-        'length' => '\ultracart\admin\v2\models\Distance',
+        'length' => '\ultracart\v2\models\Distance',
         'one_time_fee' => 'bool',
         'value' => 'string',
-        'weight_change' => '\ultracart\admin\v2\models\Weight',
-        'width' => '\ultracart\admin\v2\models\Distance'
+        'weight_change' => '\ultracart\v2\models\Weight',
+        'width' => '\ultracart\v2\models\Distance'
     );
 
     public static function swaggerTypes()
@@ -271,7 +271,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Gets cost_change
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCostChange()
     {
@@ -280,7 +280,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Sets cost_change
-     * @param \ultracart\admin\v2\models\Currency $cost_change
+     * @param \ultracart\v2\models\Currency $cost_change
      * @return $this
      */
     public function setCostChange($cost_change)
@@ -292,7 +292,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Gets file_attachment
-     * @return \ultracart\admin\v2\models\OrderItemOptionFileAttachment
+     * @return \ultracart\v2\models\OrderItemOptionFileAttachment
      */
     public function getFileAttachment()
     {
@@ -301,7 +301,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Sets file_attachment
-     * @param \ultracart\admin\v2\models\OrderItemOptionFileAttachment $file_attachment
+     * @param \ultracart\v2\models\OrderItemOptionFileAttachment $file_attachment
      * @return $this
      */
     public function setFileAttachment($file_attachment)
@@ -313,7 +313,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Gets height
-     * @return \ultracart\admin\v2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getHeight()
     {
@@ -322,7 +322,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Sets height
-     * @param \ultracart\admin\v2\models\Distance $height
+     * @param \ultracart\v2\models\Distance $height
      * @return $this
      */
     public function setHeight($height)
@@ -379,7 +379,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Gets length
-     * @return \ultracart\admin\v2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getLength()
     {
@@ -388,7 +388,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Sets length
-     * @param \ultracart\admin\v2\models\Distance $length
+     * @param \ultracart\v2\models\Distance $length
      * @return $this
      */
     public function setLength($length)
@@ -445,7 +445,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Gets weight_change
-     * @return \ultracart\admin\v2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getWeightChange()
     {
@@ -454,7 +454,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Sets weight_change
-     * @param \ultracart\admin\v2\models\Weight $weight_change
+     * @param \ultracart\v2\models\Weight $weight_change
      * @return $this
      */
     public function setWeightChange($weight_change)
@@ -466,7 +466,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Gets width
-     * @return \ultracart\admin\v2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getWidth()
     {
@@ -475,7 +475,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Sets width
-     * @param \ultracart\admin\v2\models\Distance $width
+     * @param \ultracart\v2\models\Distance $width
      * @return $this
      */
     public function setWidth($width)
@@ -536,10 +536,10 @@ class OrderItemOption implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

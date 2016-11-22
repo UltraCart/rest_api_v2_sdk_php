@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** | True if the item is active for listing | [optional] 
 **category_id** | **int** | e-Bay category ID | [optional] 
-**category_specifics** | [**\ultracart\admin\v2\models\ItemEbayCategorySpecific[]**](ItemEbayCategorySpecific.md) | Answers to category specific questions | [optional] 
+**category_specifics** | [**\ultracart\v2\models\ItemEbayCategorySpecific[]**](ItemEbayCategorySpecific.md) | Answers to category specific questions | [optional] 
 **condition_description** | **string** | Description of the condition (e-Bay constant) | [optional] 
 **condition_id** | **int** | Numerical ID of the condition (e-Bay constant) | [optional] 
 **consecutive_failures** | **int** | Number of consecutive failures trying to list this item | [optional] 
@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 **listing_price** | **float** | Price to list the item at | [optional] 
 **listing_price_override** | **float** | The price to list the item at if different than the regular UltraCart item price | [optional] 
 **listing_type** | **string** | The type of e-Bay listing | [optional] 
-**marketplace_analysis** | [**\ultracart\admin\v2\models\ItemEbayMarketPlaceAnalysis**](ItemEbayMarketPlaceAnalysis.md) |  | [optional] 
+**marketplace_analysis** | [**\ultracart\v2\models\ItemEbayMarketPlaceAnalysis**](ItemEbayMarketPlaceAnalysis.md) |  | [optional] 
 **marketplace_analysis_perform** | **bool** | True if marketplace analysis should be performed | [optional] 
 **marketplace_final_value_fee_percentage** | **float** | Marketplace FVF percentage | [optional] 
 **marketplace_last_check_dts** | **string** | Date/time of the marketplace analysis last check | [optional] 

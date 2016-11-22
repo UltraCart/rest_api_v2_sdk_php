@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,13 +66,13 @@ class ItemContent implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'assignments' => '\ultracart\admin\v2\models\ItemContentAssignment[]',
-        'attributes' => '\ultracart\admin\v2\models\ItemContentAttribute[]',
+        'assignments' => '\ultracart\v2\models\ItemContentAssignment[]',
+        'attributes' => '\ultracart\v2\models\ItemContentAttribute[]',
         'exclude_from_search' => 'bool',
         'exclude_from_top_sellers' => 'bool',
         'extended_description' => 'string',
         'extended_description_translated_text_instance_oid' => 'int',
-        'multimedia' => '\ultracart\admin\v2\models\ItemContentMultimedia[]',
+        'multimedia' => '\ultracart\v2\models\ItemContentMultimedia[]',
         'new_item' => 'bool',
         'new_item_end' => 'string',
         'new_item_start' => 'string',
@@ -214,7 +214,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Gets assignments
-     * @return \ultracart\admin\v2\models\ItemContentAssignment[]
+     * @return \ultracart\v2\models\ItemContentAssignment[]
      */
     public function getAssignments()
     {
@@ -223,7 +223,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets assignments
-     * @param \ultracart\admin\v2\models\ItemContentAssignment[] $assignments StoreFront assignments
+     * @param \ultracart\v2\models\ItemContentAssignment[] $assignments StoreFront assignments
      * @return $this
      */
     public function setAssignments($assignments)
@@ -235,7 +235,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Gets attributes
-     * @return \ultracart\admin\v2\models\ItemContentAttribute[]
+     * @return \ultracart\v2\models\ItemContentAttribute[]
      */
     public function getAttributes()
     {
@@ -244,7 +244,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets attributes
-     * @param \ultracart\admin\v2\models\ItemContentAttribute[] $attributes StoreFront attributes
+     * @param \ultracart\v2\models\ItemContentAttribute[] $attributes StoreFront attributes
      * @return $this
      */
     public function setAttributes($attributes)
@@ -343,7 +343,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Gets multimedia
-     * @return \ultracart\admin\v2\models\ItemContentMultimedia[]
+     * @return \ultracart\v2\models\ItemContentMultimedia[]
      */
     public function getMultimedia()
     {
@@ -352,7 +352,7 @@ class ItemContent implements ArrayAccess
 
     /**
      * Sets multimedia
-     * @param \ultracart\admin\v2\models\ItemContentMultimedia[] $multimedia Multimedia
+     * @param \ultracart\v2\models\ItemContentMultimedia[] $multimedia Multimedia
      * @return $this
      */
     public function setMultimedia($multimedia)
@@ -497,10 +497,10 @@ class ItemContent implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

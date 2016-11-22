@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -68,13 +68,13 @@ class Webhook implements ArrayAccess
     protected static $swaggerTypes = array(
         'api_user_oid' => 'int',
         'api_version' => 'string',
-        'application_profile' => '\ultracart\admin\v2\models\ApiUserApplicationProfile',
+        'application_profile' => '\ultracart\v2\models\ApiUserApplicationProfile',
         'authentication_type' => 'string',
         'basic_password' => 'string',
         'basic_username' => 'string',
         'consecutive_failures' => 'int',
         'disabled' => 'bool',
-        'event_categories' => '\ultracart\admin\v2\models\WebhookEventCategory[]',
+        'event_categories' => '\ultracart\v2\models\WebhookEventCategory[]',
         'maximum_events' => 'int',
         'maximum_size' => 'int',
         'merchant_id' => 'string',
@@ -322,7 +322,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Gets application_profile
-     * @return \ultracart\admin\v2\models\ApiUserApplicationProfile
+     * @return \ultracart\v2\models\ApiUserApplicationProfile
      */
     public function getApplicationProfile()
     {
@@ -331,7 +331,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets application_profile
-     * @param \ultracart\admin\v2\models\ApiUserApplicationProfile $application_profile
+     * @param \ultracart\v2\models\ApiUserApplicationProfile $application_profile
      * @return $this
      */
     public function setApplicationProfile($application_profile)
@@ -452,7 +452,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Gets event_categories
-     * @return \ultracart\admin\v2\models\WebhookEventCategory[]
+     * @return \ultracart\v2\models\WebhookEventCategory[]
      */
     public function getEventCategories()
     {
@@ -461,7 +461,7 @@ class Webhook implements ArrayAccess
 
     /**
      * Sets event_categories
-     * @param \ultracart\admin\v2\models\WebhookEventCategory[] $event_categories The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.
+     * @param \ultracart\v2\models\WebhookEventCategory[] $event_categories The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.
      * @return $this
      */
     public function setEventCategories($event_categories)
@@ -669,10 +669,10 @@ class Webhook implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

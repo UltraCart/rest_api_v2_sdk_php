@@ -1,4 +1,4 @@
-# ultracart\admin\v2\OrderApi
+# ultracart\v2\OrderApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **orderOrdersGet**
-> \ultracart\admin\v2\models\OrdersResponse orderOrdersGet($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand)
+> \ultracart\v2\models\OrdersResponse orderOrdersGet($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve orders
 
@@ -26,13 +26,13 @@ Retrieves a group of orders from the account.  If no parameters are specified, t
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | Order Id
 $payment_method = "payment_method_example"; // string | Payment Method
 $company = "company_example"; // string | Company
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
 
 ### Authorization
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderOrdersOrderIdCancelPost**
-> \ultracart\admin\v2\models\BaseResponse orderOrdersOrderIdCancelPost($order_id)
+> \ultracart\v2\models\BaseResponse orderOrdersOrderIdCancelPost($order_id)
 
 Cancel an order
 
@@ -138,13 +138,13 @@ Cancel an order on the UltraCart account.  If the success flag is false, then co
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to cancel.
 
 try {
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\BaseResponse**](../Model/BaseResponse.md)
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
 
 ### Authorization
 
@@ -190,13 +190,13 @@ Delete an order on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to delete.
 
 try {
@@ -229,7 +229,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderOrdersOrderIdGet**
-> \ultracart\admin\v2\models\OrderResponse orderOrdersOrderIdGet($order_id, $_expand)
+> \ultracart\v2\models\OrderResponse orderOrdersOrderIdGet($order_id, $_expand)
 
 Retrieve an order
 
@@ -241,13 +241,13 @@ Retrieves a single order using the specified order id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\OrderResponse**](../Model/OrderResponse.md)
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderOrdersOrderIdPut**
-> \ultracart\admin\v2\models\OrderResponse orderOrdersOrderIdPut($order, $order_id)
+> \ultracart\v2\models\OrderResponse orderOrdersOrderIdPut($order, $order_id)
 
 Update an order
 
@@ -295,14 +295,14 @@ Update a new order on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\OrderApi();
-$order = new \ultracart\admin\v2\models\Order(); // \ultracart\admin\v2\models\Order | Order to update
+$api_instance = new ultracart\v2\Api\OrderApi();
+$order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to update
 $order_id = "order_id_example"; // string | The order id to update.
 
 try {
@@ -318,12 +318,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order** | [**\ultracart\admin\v2\models\Order**](../Model/\ultracart\admin\v2\models\Order.md)| Order to update |
+ **order** | [**\ultracart\v2\models\Order**](../Model/\ultracart\v2\models\Order.md)| Order to update |
  **order_id** | **string**| The order id to update. |
 
 ### Return type
 
-[**\ultracart\admin\v2\models\OrderResponse**](../Model/OrderResponse.md)
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
 
 ### Authorization
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderOrdersOrderIdResendReceiptPost**
-> \ultracart\admin\v2\models\BaseResponse orderOrdersOrderIdResendReceiptPost($order_id)
+> \ultracart\v2\models\BaseResponse orderOrdersOrderIdResendReceiptPost($order_id)
 
 Resend receipt
 
@@ -349,13 +349,13 @@ Resend the receipt for an order on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to resend the receipt for.
 
 try {
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\BaseResponse**](../Model/BaseResponse.md)
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
 
 ### Authorization
 
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderOrdersOrderIdResendShipmentConfirmationPost**
-> \ultracart\admin\v2\models\BaseResponse orderOrdersOrderIdResendShipmentConfirmationPost($order_id)
+> \ultracart\v2\models\BaseResponse orderOrdersOrderIdResendShipmentConfirmationPost($order_id)
 
 Resend shipment confirmation
 
@@ -401,13 +401,13 @@ Resend shipment confirmation for an order on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi();
 $order_id = "order_id_example"; // string | The order id to resend the shipment notification for.
 
 try {
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\BaseResponse**](../Model/BaseResponse.md)
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
 
 ### Authorization
 

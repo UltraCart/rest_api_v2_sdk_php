@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,11 +66,11 @@ class CartSettingsShipping implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'deliver_on_date' => '\ultracart\admin\v2\models\CartSettingsShippingCalendar',
-        'estimates' => '\ultracart\admin\v2\models\CartSettingsShippingEstimate[]',
+        'deliver_on_date' => '\ultracart\v2\models\CartSettingsShippingCalendar',
+        'estimates' => '\ultracart\v2\models\CartSettingsShippingEstimate[]',
         'need_shipping' => 'bool',
-        'provinces' => '\ultracart\admin\v2\models\CartSettingsProvince[]',
-        'ship_on_date' => '\ultracart\admin\v2\models\CartSettingsShippingCalendar'
+        'provinces' => '\ultracart\v2\models\CartSettingsProvince[]',
+        'ship_on_date' => '\ultracart\v2\models\CartSettingsShippingCalendar'
     );
 
     public static function swaggerTypes()
@@ -177,7 +177,7 @@ class CartSettingsShipping implements ArrayAccess
 
     /**
      * Gets deliver_on_date
-     * @return \ultracart\admin\v2\models\CartSettingsShippingCalendar
+     * @return \ultracart\v2\models\CartSettingsShippingCalendar
      */
     public function getDeliverOnDate()
     {
@@ -186,7 +186,7 @@ class CartSettingsShipping implements ArrayAccess
 
     /**
      * Sets deliver_on_date
-     * @param \ultracart\admin\v2\models\CartSettingsShippingCalendar $deliver_on_date
+     * @param \ultracart\v2\models\CartSettingsShippingCalendar $deliver_on_date
      * @return $this
      */
     public function setDeliverOnDate($deliver_on_date)
@@ -198,7 +198,7 @@ class CartSettingsShipping implements ArrayAccess
 
     /**
      * Gets estimates
-     * @return \ultracart\admin\v2\models\CartSettingsShippingEstimate[]
+     * @return \ultracart\v2\models\CartSettingsShippingEstimate[]
      */
     public function getEstimates()
     {
@@ -207,7 +207,7 @@ class CartSettingsShipping implements ArrayAccess
 
     /**
      * Sets estimates
-     * @param \ultracart\admin\v2\models\CartSettingsShippingEstimate[] $estimates Estimates for this cart
+     * @param \ultracart\v2\models\CartSettingsShippingEstimate[] $estimates Estimates for this cart
      * @return $this
      */
     public function setEstimates($estimates)
@@ -240,7 +240,7 @@ class CartSettingsShipping implements ArrayAccess
 
     /**
      * Gets provinces
-     * @return \ultracart\admin\v2\models\CartSettingsProvince[]
+     * @return \ultracart\v2\models\CartSettingsProvince[]
      */
     public function getProvinces()
     {
@@ -249,7 +249,7 @@ class CartSettingsShipping implements ArrayAccess
 
     /**
      * Sets provinces
-     * @param \ultracart\admin\v2\models\CartSettingsProvince[] $provinces Provinces
+     * @param \ultracart\v2\models\CartSettingsProvince[] $provinces Provinces
      * @return $this
      */
     public function setProvinces($provinces)
@@ -261,7 +261,7 @@ class CartSettingsShipping implements ArrayAccess
 
     /**
      * Gets ship_on_date
-     * @return \ultracart\admin\v2\models\CartSettingsShippingCalendar
+     * @return \ultracart\v2\models\CartSettingsShippingCalendar
      */
     public function getShipOnDate()
     {
@@ -270,7 +270,7 @@ class CartSettingsShipping implements ArrayAccess
 
     /**
      * Sets ship_on_date
-     * @param \ultracart\admin\v2\models\CartSettingsShippingCalendar $ship_on_date
+     * @param \ultracart\v2\models\CartSettingsShippingCalendar $ship_on_date
      * @return $this
      */
     public function setShipOnDate($ship_on_date)
@@ -331,10 +331,10 @@ class CartSettingsShipping implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -90,7 +90,7 @@ class OrderShipping implements ArrayAccess
         'state_region' => 'string',
         'title' => 'string',
         'tracking_numbers' => 'string[]',
-        'weight' => '\ultracart\admin\v2\models\Weight'
+        'weight' => '\ultracart\v2\models\Weight'
     );
 
     public static function swaggerTypes()
@@ -931,7 +931,7 @@ class OrderShipping implements ArrayAccess
 
     /**
      * Gets weight
-     * @return \ultracart\admin\v2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getWeight()
     {
@@ -940,7 +940,7 @@ class OrderShipping implements ArrayAccess
 
     /**
      * Sets weight
-     * @param \ultracart\admin\v2\models\Weight $weight
+     * @param \ultracart\v2\models\Weight $weight
      * @return $this
      */
     public function setWeight($weight)
@@ -1001,10 +1001,10 @@ class OrderShipping implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

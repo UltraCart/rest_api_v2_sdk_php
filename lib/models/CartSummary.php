@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,22 +66,22 @@ class CartSummary implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'arbitrary_shipping_handling_total' => '\ultracart\admin\v2\models\Currency',
-        'arbitrary_tax' => '\ultracart\admin\v2\models\Currency',
-        'arbitrary_tax_rate' => '\ultracart\admin\v2\models\Currency',
-        'arbitrary_taxable_subtotal' => '\ultracart\admin\v2\models\Currency',
-        'shipping_handling' => '\ultracart\admin\v2\models\Currency',
-        'shipping_handling_discount' => '\ultracart\admin\v2\models\Currency',
-        'shipping_handling_with_discount' => '\ultracart\admin\v2\models\Currency',
-        'subtotal' => '\ultracart\admin\v2\models\Currency',
-        'subtotal_discount' => '\ultracart\admin\v2\models\Currency',
-        'subtotal_with_discount' => '\ultracart\admin\v2\models\Currency',
-        'surcharge' => '\ultracart\admin\v2\models\Currency',
-        'tax' => '\ultracart\admin\v2\models\Currency',
-        'taxable_subtotal' => '\ultracart\admin\v2\models\Currency',
-        'taxable_subtotal_discount' => '\ultracart\admin\v2\models\Currency',
-        'taxable_subtotal_with_discount' => '\ultracart\admin\v2\models\Currency',
-        'total' => '\ultracart\admin\v2\models\Currency'
+        'arbitrary_shipping_handling_total' => '\ultracart\v2\models\Currency',
+        'arbitrary_tax' => '\ultracart\v2\models\Currency',
+        'arbitrary_tax_rate' => '\ultracart\v2\models\Currency',
+        'arbitrary_taxable_subtotal' => '\ultracart\v2\models\Currency',
+        'shipping_handling' => '\ultracart\v2\models\Currency',
+        'shipping_handling_discount' => '\ultracart\v2\models\Currency',
+        'shipping_handling_with_discount' => '\ultracart\v2\models\Currency',
+        'subtotal' => '\ultracart\v2\models\Currency',
+        'subtotal_discount' => '\ultracart\v2\models\Currency',
+        'subtotal_with_discount' => '\ultracart\v2\models\Currency',
+        'surcharge' => '\ultracart\v2\models\Currency',
+        'tax' => '\ultracart\v2\models\Currency',
+        'taxable_subtotal' => '\ultracart\v2\models\Currency',
+        'taxable_subtotal_discount' => '\ultracart\v2\models\Currency',
+        'taxable_subtotal_with_discount' => '\ultracart\v2\models\Currency',
+        'total' => '\ultracart\v2\models\Currency'
     );
 
     public static function swaggerTypes()
@@ -232,7 +232,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets arbitrary_shipping_handling_total
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getArbitraryShippingHandlingTotal()
     {
@@ -241,7 +241,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets arbitrary_shipping_handling_total
-     * @param \ultracart\admin\v2\models\Currency $arbitrary_shipping_handling_total
+     * @param \ultracart\v2\models\Currency $arbitrary_shipping_handling_total
      * @return $this
      */
     public function setArbitraryShippingHandlingTotal($arbitrary_shipping_handling_total)
@@ -253,7 +253,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets arbitrary_tax
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getArbitraryTax()
     {
@@ -262,7 +262,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets arbitrary_tax
-     * @param \ultracart\admin\v2\models\Currency $arbitrary_tax
+     * @param \ultracart\v2\models\Currency $arbitrary_tax
      * @return $this
      */
     public function setArbitraryTax($arbitrary_tax)
@@ -274,7 +274,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets arbitrary_tax_rate
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getArbitraryTaxRate()
     {
@@ -283,7 +283,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets arbitrary_tax_rate
-     * @param \ultracart\admin\v2\models\Currency $arbitrary_tax_rate
+     * @param \ultracart\v2\models\Currency $arbitrary_tax_rate
      * @return $this
      */
     public function setArbitraryTaxRate($arbitrary_tax_rate)
@@ -295,7 +295,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets arbitrary_taxable_subtotal
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getArbitraryTaxableSubtotal()
     {
@@ -304,7 +304,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets arbitrary_taxable_subtotal
-     * @param \ultracart\admin\v2\models\Currency $arbitrary_taxable_subtotal
+     * @param \ultracart\v2\models\Currency $arbitrary_taxable_subtotal
      * @return $this
      */
     public function setArbitraryTaxableSubtotal($arbitrary_taxable_subtotal)
@@ -316,7 +316,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets shipping_handling
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getShippingHandling()
     {
@@ -325,7 +325,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets shipping_handling
-     * @param \ultracart\admin\v2\models\Currency $shipping_handling
+     * @param \ultracart\v2\models\Currency $shipping_handling
      * @return $this
      */
     public function setShippingHandling($shipping_handling)
@@ -337,7 +337,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets shipping_handling_discount
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getShippingHandlingDiscount()
     {
@@ -346,7 +346,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets shipping_handling_discount
-     * @param \ultracart\admin\v2\models\Currency $shipping_handling_discount
+     * @param \ultracart\v2\models\Currency $shipping_handling_discount
      * @return $this
      */
     public function setShippingHandlingDiscount($shipping_handling_discount)
@@ -358,7 +358,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets shipping_handling_with_discount
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getShippingHandlingWithDiscount()
     {
@@ -367,7 +367,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets shipping_handling_with_discount
-     * @param \ultracart\admin\v2\models\Currency $shipping_handling_with_discount
+     * @param \ultracart\v2\models\Currency $shipping_handling_with_discount
      * @return $this
      */
     public function setShippingHandlingWithDiscount($shipping_handling_with_discount)
@@ -379,7 +379,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets subtotal
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getSubtotal()
     {
@@ -388,7 +388,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets subtotal
-     * @param \ultracart\admin\v2\models\Currency $subtotal
+     * @param \ultracart\v2\models\Currency $subtotal
      * @return $this
      */
     public function setSubtotal($subtotal)
@@ -400,7 +400,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets subtotal_discount
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getSubtotalDiscount()
     {
@@ -409,7 +409,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets subtotal_discount
-     * @param \ultracart\admin\v2\models\Currency $subtotal_discount
+     * @param \ultracart\v2\models\Currency $subtotal_discount
      * @return $this
      */
     public function setSubtotalDiscount($subtotal_discount)
@@ -421,7 +421,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets subtotal_with_discount
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getSubtotalWithDiscount()
     {
@@ -430,7 +430,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets subtotal_with_discount
-     * @param \ultracart\admin\v2\models\Currency $subtotal_with_discount
+     * @param \ultracart\v2\models\Currency $subtotal_with_discount
      * @return $this
      */
     public function setSubtotalWithDiscount($subtotal_with_discount)
@@ -442,7 +442,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets surcharge
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getSurcharge()
     {
@@ -451,7 +451,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets surcharge
-     * @param \ultracart\admin\v2\models\Currency $surcharge
+     * @param \ultracart\v2\models\Currency $surcharge
      * @return $this
      */
     public function setSurcharge($surcharge)
@@ -463,7 +463,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets tax
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTax()
     {
@@ -472,7 +472,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets tax
-     * @param \ultracart\admin\v2\models\Currency $tax
+     * @param \ultracart\v2\models\Currency $tax
      * @return $this
      */
     public function setTax($tax)
@@ -484,7 +484,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets taxable_subtotal
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTaxableSubtotal()
     {
@@ -493,7 +493,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets taxable_subtotal
-     * @param \ultracart\admin\v2\models\Currency $taxable_subtotal
+     * @param \ultracart\v2\models\Currency $taxable_subtotal
      * @return $this
      */
     public function setTaxableSubtotal($taxable_subtotal)
@@ -505,7 +505,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets taxable_subtotal_discount
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTaxableSubtotalDiscount()
     {
@@ -514,7 +514,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets taxable_subtotal_discount
-     * @param \ultracart\admin\v2\models\Currency $taxable_subtotal_discount
+     * @param \ultracart\v2\models\Currency $taxable_subtotal_discount
      * @return $this
      */
     public function setTaxableSubtotalDiscount($taxable_subtotal_discount)
@@ -526,7 +526,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets taxable_subtotal_with_discount
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTaxableSubtotalWithDiscount()
     {
@@ -535,7 +535,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets taxable_subtotal_with_discount
-     * @param \ultracart\admin\v2\models\Currency $taxable_subtotal_with_discount
+     * @param \ultracart\v2\models\Currency $taxable_subtotal_with_discount
      * @return $this
      */
     public function setTaxableSubtotalWithDiscount($taxable_subtotal_with_discount)
@@ -547,7 +547,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Gets total
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTotal()
     {
@@ -556,7 +556,7 @@ class CartSummary implements ArrayAccess
 
     /**
      * Sets total
-     * @param \ultracart\admin\v2\models\Currency $total
+     * @param \ultracart\v2\models\Currency $total
      * @return $this
      */
     public function setTotal($total)
@@ -617,10 +617,10 @@ class CartSummary implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

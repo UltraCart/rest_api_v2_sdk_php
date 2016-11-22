@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -77,7 +77,7 @@ class ItemContentMultimedia implements ArrayAccess
         'orphan' => 'bool',
         'placeholder' => 'bool',
         'temp_multimedia_oid' => 'int',
-        'thumbnails' => '\ultracart\admin\v2\models\ItemContentMultimediaThumbnail[]',
+        'thumbnails' => '\ultracart\v2\models\ItemContentMultimediaThumbnail[]',
         'type' => 'string',
         'url' => 'string',
         'width' => 'int'
@@ -517,7 +517,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Gets thumbnails
-     * @return \ultracart\admin\v2\models\ItemContentMultimediaThumbnail[]
+     * @return \ultracart\v2\models\ItemContentMultimediaThumbnail[]
      */
     public function getThumbnails()
     {
@@ -526,7 +526,7 @@ class ItemContentMultimedia implements ArrayAccess
 
     /**
      * Sets thumbnails
-     * @param \ultracart\admin\v2\models\ItemContentMultimediaThumbnail[] $thumbnails Thumbnails of this image
+     * @param \ultracart\v2\models\ItemContentMultimediaThumbnail[] $thumbnails Thumbnails of this image
      * @return $this
      */
     public function setThumbnails($thumbnails)
@@ -654,10 +654,10 @@ class ItemContentMultimedia implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

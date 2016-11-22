@@ -1,4 +1,4 @@
-# ultracart\admin\v2\WebhookApi
+# ultracart\v2\WebhookApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **webhookWebhooksGet**
-> \ultracart\admin\v2\models\WebhooksResponse webhookWebhooksGet($_limit, $_offset, $_sort, $_placeholders)
+> \ultracart\v2\models\WebhooksResponse webhookWebhooksGet($_limit, $_offset, $_sort, $_placeholders)
 
 Retrieve webhooks
 
@@ -26,13 +26,13 @@ Retrieves the webhooks associated with this application.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
+$api_instance = new ultracart\v2\Api\WebhookApi();
 $_limit = 100; // int | The maximum number of records to return on this one API call.
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_sort = "_sort_example"; // string | The sort order of the webhooks.  See documentation for examples
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\WebhooksResponse**](../Model/WebhooksResponse.md)
+[**\ultracart\v2\models\WebhooksResponse**](../Model/WebhooksResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksPost**
-> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksPost($webhook, $_placeholders)
+> \ultracart\v2\models\WebhookResponse webhookWebhooksPost($webhook, $_placeholders)
 
 Add a webhook
 
@@ -84,14 +84,14 @@ Adds a new webhook on the account.  If you add a new webhook with the authentica
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
-$webhook = new \ultracart\admin\v2\models\Webhook(); // \ultracart\admin\v2\models\Webhook | Webhook to create
+$api_instance = new ultracart\v2\Api\WebhookApi();
+$webhook = new \ultracart\v2\models\Webhook(); // \ultracart\v2\models\Webhook | Webhook to create
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
@@ -107,12 +107,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook** | [**\ultracart\admin\v2\models\Webhook**](../Model/\ultracart\admin\v2\models\Webhook.md)| Webhook to create |
+ **webhook** | [**\ultracart\v2\models\Webhook**](../Model/\ultracart\v2\models\Webhook.md)| Webhook to create |
  **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 
-[**\ultracart\admin\v2\models\WebhookResponse**](../Model/WebhookResponse.md)
+[**\ultracart\v2\models\WebhookResponse**](../Model/WebhookResponse.md)
 
 ### Authorization
 
@@ -138,13 +138,13 @@ Delete a webhook on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
+$api_instance = new ultracart\v2\Api\WebhookApi();
 $webhook_oid = 56; // int | The webhook oid to delete.
 
 try {
@@ -177,7 +177,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksWebhookOidLogsGet**
-> \ultracart\admin\v2\models\WebhookLogSummariesResponse webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit, $_offset, $_since)
+> \ultracart\v2\models\WebhookLogSummariesResponse webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit, $_offset, $_since)
 
 Retrieve the log summaries
 
@@ -189,13 +189,13 @@ Retrieves the log summary information for a given webhook.  This is useful for d
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
+$api_instance = new ultracart\v2\Api\WebhookApi();
 $webhook_oid = 56; // int | The webhook oid to retrieve log summaries for.
 $_limit = 100; // int | The maximum number of records to return on this one API call.
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\WebhookLogSummariesResponse**](../Model/WebhookLogSummariesResponse.md)
+[**\ultracart\v2\models\WebhookLogSummariesResponse**](../Model/WebhookLogSummariesResponse.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksWebhookOidLogsRequestIdGet**
-> \ultracart\admin\v2\models\WebhookLogResponse webhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id)
+> \ultracart\v2\models\WebhookLogResponse webhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id)
 
 Retrieve an individual log
 
@@ -247,13 +247,13 @@ Retrieves an individual log for a webhook given the webhook oid the request id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
+$api_instance = new ultracart\v2\Api\WebhookApi();
 $webhook_oid = 56; // int | The webhook oid that owns the log.
 $request_id = "request_id_example"; // string | The request id associated with the log to view.
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\WebhookLogResponse**](../Model/WebhookLogResponse.md)
+[**\ultracart\v2\models\WebhookLogResponse**](../Model/WebhookLogResponse.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksWebhookOidPut**
-> \ultracart\admin\v2\models\WebhookResponse webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders)
+> \ultracart\v2\models\WebhookResponse webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders)
 
 Update a webhook
 
@@ -301,14 +301,14 @@ Update a webhook on the account
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
-$webhook = new \ultracart\admin\v2\models\Webhook(); // \ultracart\admin\v2\models\Webhook | Webhook to update
+$api_instance = new ultracart\v2\Api\WebhookApi();
+$webhook = new \ultracart\v2\models\Webhook(); // \ultracart\v2\models\Webhook | Webhook to update
 $webhook_oid = 56; // int | The webhook oid to update.
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
@@ -325,13 +325,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook** | [**\ultracart\admin\v2\models\Webhook**](../Model/\ultracart\admin\v2\models\Webhook.md)| Webhook to update |
+ **webhook** | [**\ultracart\v2\models\Webhook**](../Model/\ultracart\v2\models\Webhook.md)| Webhook to update |
  **webhook_oid** | **int**| The webhook oid to update. |
  **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 
-[**\ultracart\admin\v2\models\WebhookResponse**](../Model/WebhookResponse.md)
+[**\ultracart\v2\models\WebhookResponse**](../Model/WebhookResponse.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **webhookWebhooksWebhookOidReflowEventNamePost**
-> \ultracart\admin\v2\models\WebhookSampleRequestResponse webhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name)
+> \ultracart\v2\models\WebhookSampleRequestResponse webhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name)
 
 Resend events to the webhook endpoint.
 
@@ -357,13 +357,13 @@ This method will resend events to the webhook endpoint.  This method can be used
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\admin\v2\Api\WebhookApi();
+$api_instance = new ultracart\v2\Api\WebhookApi();
 $webhook_oid = 56; // int | The webhook oid that is receiving the reflowed events.
 $event_name = "event_name_example"; // string | The event to reflow.
 
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\admin\v2\models\WebhookSampleRequestResponse**](../Model/WebhookSampleRequestResponse.md)
+[**\ultracart\v2\models\WebhookSampleRequestResponse**](../Model/WebhookSampleRequestResponse.md)
 
 ### Authorization
 

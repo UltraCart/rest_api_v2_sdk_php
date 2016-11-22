@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -67,9 +67,9 @@ class OrderBuysafe implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'buysafe_bond_available' => 'bool',
-        'buysafe_bond_cost' => '\ultracart\admin\v2\models\Currency',
+        'buysafe_bond_cost' => '\ultracart\v2\models\Currency',
         'buysafe_bond_free' => 'bool',
-        'buysafe_bond_refunded' => '\ultracart\admin\v2\models\Currency',
+        'buysafe_bond_refunded' => '\ultracart\v2\models\Currency',
         'buysafe_bond_wanted' => 'bool',
         'buysafe_shopping_cart_id' => 'string'
     );
@@ -203,7 +203,7 @@ class OrderBuysafe implements ArrayAccess
 
     /**
      * Gets buysafe_bond_cost
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getBuysafeBondCost()
     {
@@ -212,7 +212,7 @@ class OrderBuysafe implements ArrayAccess
 
     /**
      * Sets buysafe_bond_cost
-     * @param \ultracart\admin\v2\models\Currency $buysafe_bond_cost
+     * @param \ultracart\v2\models\Currency $buysafe_bond_cost
      * @return $this
      */
     public function setBuysafeBondCost($buysafe_bond_cost)
@@ -245,7 +245,7 @@ class OrderBuysafe implements ArrayAccess
 
     /**
      * Gets buysafe_bond_refunded
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getBuysafeBondRefunded()
     {
@@ -254,7 +254,7 @@ class OrderBuysafe implements ArrayAccess
 
     /**
      * Sets buysafe_bond_refunded
-     * @param \ultracart\admin\v2\models\Currency $buysafe_bond_refunded
+     * @param \ultracart\v2\models\Currency $buysafe_bond_refunded
      * @return $this
      */
     public function setBuysafeBondRefunded($buysafe_bond_refunded)
@@ -357,10 +357,10 @@ class OrderBuysafe implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

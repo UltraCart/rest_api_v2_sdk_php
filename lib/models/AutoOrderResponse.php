@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,9 +66,9 @@ class AutoOrderResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'auto_order' => '\ultracart\admin\v2\models\AutoOrder',
-        'error' => '\ultracart\admin\v2\models\Error',
-        'metadata' => '\ultracart\admin\v2\models\ResponseMetadata',
+        'auto_order' => '\ultracart\v2\models\AutoOrder',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool'
     );
 
@@ -172,7 +172,7 @@ class AutoOrderResponse implements ArrayAccess
 
     /**
      * Gets auto_order
-     * @return \ultracart\admin\v2\models\AutoOrder
+     * @return \ultracart\v2\models\AutoOrder
      */
     public function getAutoOrder()
     {
@@ -181,7 +181,7 @@ class AutoOrderResponse implements ArrayAccess
 
     /**
      * Sets auto_order
-     * @param \ultracart\admin\v2\models\AutoOrder $auto_order
+     * @param \ultracart\v2\models\AutoOrder $auto_order
      * @return $this
      */
     public function setAutoOrder($auto_order)
@@ -193,7 +193,7 @@ class AutoOrderResponse implements ArrayAccess
 
     /**
      * Gets error
-     * @return \ultracart\admin\v2\models\Error
+     * @return \ultracart\v2\models\Error
      */
     public function getError()
     {
@@ -202,7 +202,7 @@ class AutoOrderResponse implements ArrayAccess
 
     /**
      * Sets error
-     * @param \ultracart\admin\v2\models\Error $error
+     * @param \ultracart\v2\models\Error $error
      * @return $this
      */
     public function setError($error)
@@ -214,7 +214,7 @@ class AutoOrderResponse implements ArrayAccess
 
     /**
      * Gets metadata
-     * @return \ultracart\admin\v2\models\ResponseMetadata
+     * @return \ultracart\v2\models\ResponseMetadata
      */
     public function getMetadata()
     {
@@ -223,7 +223,7 @@ class AutoOrderResponse implements ArrayAccess
 
     /**
      * Sets metadata
-     * @param \ultracart\admin\v2\models\ResponseMetadata $metadata
+     * @param \ultracart\v2\models\ResponseMetadata $metadata
      * @return $this
      */
     public function setMetadata($metadata)
@@ -305,10 +305,10 @@ class AutoOrderResponse implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

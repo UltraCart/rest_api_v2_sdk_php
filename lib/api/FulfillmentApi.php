@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +38,18 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\api;
+namespace ultracart\v2\api;
 
-use \ultracart\admin\v2\Configuration;
-use \ultracart\admin\v2\ApiClient;
-use \ultracart\admin\v2\ApiException;
-use \ultracart\admin\v2\ObjectSerializer;
+use \ultracart\v2\Configuration;
+use \ultracart\v2\ApiClient;
+use \ultracart\v2\ApiException;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * FulfillmentApi Class Doc Comment
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -60,16 +60,16 @@ class FulfillmentApi
     /**
      * API Client
      *
-     * @var \ultracart\admin\v2\ApiClient instance of the ApiClient
+     * @var \ultracart\v2\ApiClient instance of the ApiClient
      */
     protected $apiClient;
 
     /**
      * Constructor
      *
-     * @param \ultracart\admin\v2\ApiClient|null $apiClient The api client to use
+     * @param \ultracart\v2\ApiClient|null $apiClient The api client to use
      */
-    public function __construct(\ultracart\admin\v2\ApiClient $apiClient = null)
+    public function __construct(\ultracart\v2\ApiClient $apiClient = null)
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
@@ -82,7 +82,7 @@ class FulfillmentApi
     /**
      * Get API client
      *
-     * @return \ultracart\admin\v2\ApiClient get the API client
+     * @return \ultracart\v2\ApiClient get the API client
      */
     public function getApiClient()
     {
@@ -92,11 +92,11 @@ class FulfillmentApi
     /**
      * Set the API client
      *
-     * @param \ultracart\admin\v2\ApiClient $apiClient set the API client
+     * @param \ultracart\v2\ApiClient $apiClient set the API client
      *
      * @return FulfillmentApi
      */
-    public function setApiClient(\ultracart\admin\v2\ApiClient $apiClient)
+    public function setApiClient(\ultracart\v2\ApiClient $apiClient)
     {
         $this->apiClient = $apiClient;
         return $this;
@@ -110,7 +110,7 @@ class FulfillmentApi
      * @param string $distribution_center_code Distribution center code (required)
      * @param string[] $order_ids Orders to acknowledge receipt of (limit 100) (required)
      * @return void
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut($distribution_center_code, $order_ids)
     {
@@ -126,7 +126,7 @@ class FulfillmentApi
      * @param string $distribution_center_code Distribution center code (required)
      * @param string[] $order_ids Orders to acknowledge receipt of (limit 100) (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo($distribution_center_code, $order_ids)
     {
@@ -198,23 +198,23 @@ class FulfillmentApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -229,9 +229,9 @@ class FulfillmentApi
      * Update inventory
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @param \ultracart\admin\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @param \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      * @return void
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories)
     {
@@ -245,9 +245,9 @@ class FulfillmentApi
      * Update inventory
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @param \ultracart\admin\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @param \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo($distribution_center_code, $inventories)
     {
@@ -319,23 +319,23 @@ class FulfillmentApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -350,8 +350,8 @@ class FulfillmentApi
      * Retrieve orders queued up for this distribution center.
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @return \ultracart\admin\v2\models\OrdersResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\OrdersResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code)
     {
@@ -365,8 +365,8 @@ class FulfillmentApi
      * Retrieve orders queued up for this distribution center.
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @return Array of \ultracart\admin\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo($distribution_center_code)
     {
@@ -421,35 +421,35 @@ class FulfillmentApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\OrdersResponse',
+                '\ultracart\v2\models\OrdersResponse',
                 '/fulfillment/distribution_centers/{distribution_center_code}/orders'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OrdersResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\OrdersResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\OrdersResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\OrdersResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -464,9 +464,9 @@ class FulfillmentApi
      * Mark orders as shipped
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @param \ultracart\admin\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
+     * @param \ultracart\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
      * @return void
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments)
     {
@@ -480,9 +480,9 @@ class FulfillmentApi
      * Mark orders as shipped
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @param \ultracart\admin\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
+     * @param \ultracart\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo($distribution_center_code, $shipments)
     {
@@ -554,23 +554,23 @@ class FulfillmentApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -584,8 +584,8 @@ class FulfillmentApi
      *
      * Retrieve distribution centers
      *
-     * @return \ultracart\admin\v2\models\DistributionCentersResponse
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return \ultracart\v2\models\DistributionCentersResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersGet()
     {
@@ -598,8 +598,8 @@ class FulfillmentApi
      *
      * Retrieve distribution centers
      *
-     * @return Array of \ultracart\admin\v2\models\DistributionCentersResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\admin\v2\ApiException on non-2xx response
+     * @return Array of \ultracart\v2\models\DistributionCentersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function fulfillmentDistributionCentersGetWithHttpInfo()
     {
@@ -642,35 +642,35 @@ class FulfillmentApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\admin\v2\models\DistributionCentersResponse',
+                '\ultracart\v2\models\DistributionCentersResponse',
                 '/fulfillment/distribution_centers'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\DistributionCentersResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\DistributionCentersResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\DistributionCentersResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\DistributionCentersResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\admin\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,8 +66,8 @@ class CartFinalizeOrderRequest implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'cart' => '\ultracart\admin\v2\models\Cart',
-        'options' => '\ultracart\admin\v2\models\CartFinalizeOrderRequestOptions'
+        'cart' => '\ultracart\v2\models\Cart',
+        'options' => '\ultracart\v2\models\CartFinalizeOrderRequestOptions'
     );
 
     public static function swaggerTypes()
@@ -162,7 +162,7 @@ class CartFinalizeOrderRequest implements ArrayAccess
 
     /**
      * Gets cart
-     * @return \ultracart\admin\v2\models\Cart
+     * @return \ultracart\v2\models\Cart
      */
     public function getCart()
     {
@@ -171,7 +171,7 @@ class CartFinalizeOrderRequest implements ArrayAccess
 
     /**
      * Sets cart
-     * @param \ultracart\admin\v2\models\Cart $cart
+     * @param \ultracart\v2\models\Cart $cart
      * @return $this
      */
     public function setCart($cart)
@@ -183,7 +183,7 @@ class CartFinalizeOrderRequest implements ArrayAccess
 
     /**
      * Gets options
-     * @return \ultracart\admin\v2\models\CartFinalizeOrderRequestOptions
+     * @return \ultracart\v2\models\CartFinalizeOrderRequestOptions
      */
     public function getOptions()
     {
@@ -192,7 +192,7 @@ class CartFinalizeOrderRequest implements ArrayAccess
 
     /**
      * Sets options
-     * @param \ultracart\admin\v2\models\CartFinalizeOrderRequestOptions $options
+     * @param \ultracart\v2\models\CartFinalizeOrderRequestOptions $options
      * @return $this
      */
     public function setOptions($options)
@@ -253,10 +253,10 @@ class CartFinalizeOrderRequest implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request** | **string** | Request | [optional] 
-**request_headers** | [**\ultracart\admin\v2\models\HTTPHeader[]**](HTTPHeader.md) | Request headers | [optional] 
+**request_headers** | [**\ultracart\v2\models\HTTPHeader[]**](HTTPHeader.md) | Request headers | [optional] 
 **request_id** | **string** | Request id | [optional] 
 **uri** | **string** | URI to send request to | [optional] 
 

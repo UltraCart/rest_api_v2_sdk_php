@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -72,8 +72,8 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
         'cogs' => 'float',
         'final_value_fee' => 'float',
         'minimum_advertised_price' => 'float',
-        'other_listings' => '\ultracart\admin\v2\models\ItemEbayMarketListing[]',
-        'our_listing' => '\ultracart\admin\v2\models\ItemEbayMarketListing',
+        'other_listings' => '\ultracart\v2\models\ItemEbayMarketListing[]',
+        'our_listing' => '\ultracart\v2\models\ItemEbayMarketListing',
         'overhead' => 'float',
         'profit_potential' => 'float'
     );
@@ -328,7 +328,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets other_listings
-     * @return \ultracart\admin\v2\models\ItemEbayMarketListing[]
+     * @return \ultracart\v2\models\ItemEbayMarketListing[]
      */
     public function getOtherListings()
     {
@@ -337,7 +337,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets other_listings
-     * @param \ultracart\admin\v2\models\ItemEbayMarketListing[] $other_listings Other listings
+     * @param \ultracart\v2\models\ItemEbayMarketListing[] $other_listings Other listings
      * @return $this
      */
     public function setOtherListings($other_listings)
@@ -349,7 +349,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Gets our_listing
-     * @return \ultracart\admin\v2\models\ItemEbayMarketListing
+     * @return \ultracart\v2\models\ItemEbayMarketListing
      */
     public function getOurListing()
     {
@@ -358,7 +358,7 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
 
     /**
      * Sets our_listing
-     * @param \ultracart\admin\v2\models\ItemEbayMarketListing $our_listing
+     * @param \ultracart\v2\models\ItemEbayMarketListing $our_listing
      * @return $this
      */
     public function setOurListing($our_listing)
@@ -461,10 +461,10 @@ class ItemEbayMarketPlaceAnalysis implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,9 +66,9 @@ class CartGiftCertificate implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'gift_certificate_amount' => '\ultracart\admin\v2\models\Currency',
+        'gift_certificate_amount' => '\ultracart\v2\models\Currency',
         'gift_certificate_code' => 'string',
-        'gift_certificate_remaining_balance_after_order' => '\ultracart\admin\v2\models\Currency'
+        'gift_certificate_remaining_balance_after_order' => '\ultracart\v2\models\Currency'
     );
 
     public static function swaggerTypes()
@@ -167,7 +167,7 @@ class CartGiftCertificate implements ArrayAccess
 
     /**
      * Gets gift_certificate_amount
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftCertificateAmount()
     {
@@ -176,7 +176,7 @@ class CartGiftCertificate implements ArrayAccess
 
     /**
      * Sets gift_certificate_amount
-     * @param \ultracart\admin\v2\models\Currency $gift_certificate_amount
+     * @param \ultracart\v2\models\Currency $gift_certificate_amount
      * @return $this
      */
     public function setGiftCertificateAmount($gift_certificate_amount)
@@ -209,7 +209,7 @@ class CartGiftCertificate implements ArrayAccess
 
     /**
      * Gets gift_certificate_remaining_balance_after_order
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftCertificateRemainingBalanceAfterOrder()
     {
@@ -218,7 +218,7 @@ class CartGiftCertificate implements ArrayAccess
 
     /**
      * Sets gift_certificate_remaining_balance_after_order
-     * @param \ultracart\admin\v2\models\Currency $gift_certificate_remaining_balance_after_order
+     * @param \ultracart\v2\models\Currency $gift_certificate_remaining_balance_after_order
      * @return $this
      */
     public function setGiftCertificateRemainingBalanceAfterOrder($gift_certificate_remaining_balance_after_order)
@@ -279,10 +279,10 @@ class CartGiftCertificate implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

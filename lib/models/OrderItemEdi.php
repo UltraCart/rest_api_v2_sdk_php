@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,8 +66,8 @@ class OrderItemEdi implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'identifications' => '\ultracart\admin\v2\models\OrderItemEdiIdentification[]',
-        'lots' => '\ultracart\admin\v2\models\OrderItemEdiLot[]'
+        'identifications' => '\ultracart\v2\models\OrderItemEdiIdentification[]',
+        'lots' => '\ultracart\v2\models\OrderItemEdiLot[]'
     );
 
     public static function swaggerTypes()
@@ -162,7 +162,7 @@ class OrderItemEdi implements ArrayAccess
 
     /**
      * Gets identifications
-     * @return \ultracart\admin\v2\models\OrderItemEdiIdentification[]
+     * @return \ultracart\v2\models\OrderItemEdiIdentification[]
      */
     public function getIdentifications()
     {
@@ -171,7 +171,7 @@ class OrderItemEdi implements ArrayAccess
 
     /**
      * Sets identifications
-     * @param \ultracart\admin\v2\models\OrderItemEdiIdentification[] $identifications Identification information receives on the EDI purchase order
+     * @param \ultracart\v2\models\OrderItemEdiIdentification[] $identifications Identification information receives on the EDI purchase order
      * @return $this
      */
     public function setIdentifications($identifications)
@@ -183,7 +183,7 @@ class OrderItemEdi implements ArrayAccess
 
     /**
      * Gets lots
-     * @return \ultracart\admin\v2\models\OrderItemEdiLot[]
+     * @return \ultracart\v2\models\OrderItemEdiLot[]
      */
     public function getLots()
     {
@@ -192,7 +192,7 @@ class OrderItemEdi implements ArrayAccess
 
     /**
      * Sets lots
-     * @param \ultracart\admin\v2\models\OrderItemEdiLot[] $lots Lot information
+     * @param \ultracart\v2\models\OrderItemEdiLot[] $lots Lot information
      * @return $this
      */
     public function setLots($lots)
@@ -253,10 +253,10 @@ class OrderItemEdi implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

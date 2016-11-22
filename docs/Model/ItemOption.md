@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **required** | **bool** | True if the customer is required to specify an answer | [optional] 
 **system_option** | **bool** | True if this is a system option | [optional] 
 **type** | **string** | Type of option | [optional] 
-**values** | [**\ultracart\admin\v2\models\ItemOptionValue[]**](ItemOptionValue.md) | Values | [optional] 
+**values** | [**\ultracart\v2\models\ItemOptionValue[]**](ItemOptionValue.md) | Values | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

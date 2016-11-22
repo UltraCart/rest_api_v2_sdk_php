@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exemptions** | [**\ultracart\admin\v2\models\ItemTaxExemption[]**](ItemTaxExemption.md) | Exemptions | [optional] 
+**exemptions** | [**\ultracart\v2\models\ItemTaxExemption[]**](ItemTaxExemption.md) | Exemptions | [optional] 
 **tax_free** | **bool** | True if tax free | [optional] 
 **taxable_cost** | **float** | Taxable cost if different than regular cost | [optional] 
 

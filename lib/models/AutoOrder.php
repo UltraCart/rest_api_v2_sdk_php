@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -77,12 +77,12 @@ class AutoOrder implements ArrayAccess
         'disabled_dts' => 'string',
         'enabled' => 'bool',
         'failure_reason' => 'string',
-        'items' => '\ultracart\admin\v2\models\AutoOrderItem[]',
+        'items' => '\ultracart\v2\models\AutoOrderItem[]',
         'next_attempt' => 'string',
-        'original_order' => '\ultracart\admin\v2\models\Order',
+        'original_order' => '\ultracart\v2\models\Order',
         'original_order_id' => 'string',
         'override_affiliate_id' => 'int',
-        'rebill_orders' => '\ultracart\admin\v2\models\Order[]',
+        'rebill_orders' => '\ultracart\v2\models\Order[]',
         'rotating_transaction_gateway_code' => 'string'
     );
 
@@ -473,7 +473,7 @@ class AutoOrder implements ArrayAccess
 
     /**
      * Gets items
-     * @return \ultracart\admin\v2\models\AutoOrderItem[]
+     * @return \ultracart\v2\models\AutoOrderItem[]
      */
     public function getItems()
     {
@@ -482,7 +482,7 @@ class AutoOrder implements ArrayAccess
 
     /**
      * Sets items
-     * @param \ultracart\admin\v2\models\AutoOrderItem[] $items The items that are setup to rebill
+     * @param \ultracart\v2\models\AutoOrderItem[] $items The items that are setup to rebill
      * @return $this
      */
     public function setItems($items)
@@ -515,7 +515,7 @@ class AutoOrder implements ArrayAccess
 
     /**
      * Gets original_order
-     * @return \ultracart\admin\v2\models\Order
+     * @return \ultracart\v2\models\Order
      */
     public function getOriginalOrder()
     {
@@ -524,7 +524,7 @@ class AutoOrder implements ArrayAccess
 
     /**
      * Sets original_order
-     * @param \ultracart\admin\v2\models\Order $original_order
+     * @param \ultracart\v2\models\Order $original_order
      * @return $this
      */
     public function setOriginalOrder($original_order)
@@ -578,7 +578,7 @@ class AutoOrder implements ArrayAccess
 
     /**
      * Gets rebill_orders
-     * @return \ultracart\admin\v2\models\Order[]
+     * @return \ultracart\v2\models\Order[]
      */
     public function getRebillOrders()
     {
@@ -587,7 +587,7 @@ class AutoOrder implements ArrayAccess
 
     /**
      * Sets rebill_orders
-     * @param \ultracart\admin\v2\models\Order[] $rebill_orders Rebill orders that have taken place on this auto order
+     * @param \ultracart\v2\models\Order[] $rebill_orders Rebill orders that have taken place on this auto order
      * @return $this
      */
     public function setRebillOrders($rebill_orders)
@@ -669,10 +669,10 @@ class AutoOrder implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

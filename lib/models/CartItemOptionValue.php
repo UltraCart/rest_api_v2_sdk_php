@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,8 +66,8 @@ class CartItemOptionValue implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'additional_cost' => '\ultracart\admin\v2\models\Currency',
-        'additional_weight' => '\ultracart\admin\v2\models\Weight',
+        'additional_cost' => '\ultracart\v2\models\Currency',
+        'additional_weight' => '\ultracart\v2\models\Weight',
         'default_value' => 'bool',
         'display_order' => 'int',
         'value' => 'string'
@@ -177,7 +177,7 @@ class CartItemOptionValue implements ArrayAccess
 
     /**
      * Gets additional_cost
-     * @return \ultracart\admin\v2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getAdditionalCost()
     {
@@ -186,7 +186,7 @@ class CartItemOptionValue implements ArrayAccess
 
     /**
      * Sets additional_cost
-     * @param \ultracart\admin\v2\models\Currency $additional_cost
+     * @param \ultracart\v2\models\Currency $additional_cost
      * @return $this
      */
     public function setAdditionalCost($additional_cost)
@@ -198,7 +198,7 @@ class CartItemOptionValue implements ArrayAccess
 
     /**
      * Gets additional_weight
-     * @return \ultracart\admin\v2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getAdditionalWeight()
     {
@@ -207,7 +207,7 @@ class CartItemOptionValue implements ArrayAccess
 
     /**
      * Sets additional_weight
-     * @param \ultracart\admin\v2\models\Weight $additional_weight
+     * @param \ultracart\v2\models\Weight $additional_weight
      * @return $this
      */
     public function setAdditionalWeight($additional_weight)
@@ -331,10 +331,10 @@ class CartItemOptionValue implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 

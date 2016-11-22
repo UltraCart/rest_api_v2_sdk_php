@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracart\admin\v2
+ * @package  ultracart\v2
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracart\admin\v2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
 
@@ -48,7 +48,7 @@ use \ArrayAccess;
  *
  * @category    Class */
 /** 
- * @package     ultracart\admin\v2
+ * @package     ultracart\v2
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -66,29 +66,29 @@ class Cart implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'affiliate' => '\ultracart\admin\v2\models\CartAffiliate',
+        'affiliate' => '\ultracart\v2\models\CartAffiliate',
         'base_currency_code' => 'string',
-        'billing' => '\ultracart\admin\v2\models\CartBilling',
-        'buysafe' => '\ultracart\admin\v2\models\CartBuysafe',
+        'billing' => '\ultracart\v2\models\CartBilling',
+        'buysafe' => '\ultracart\v2\models\CartBuysafe',
         'cart_id' => 'string',
-        'checkout' => '\ultracart\admin\v2\models\CartCheckout',
-        'coupons' => '\ultracart\admin\v2\models\CartCoupon[]',
+        'checkout' => '\ultracart\v2\models\CartCheckout',
+        'coupons' => '\ultracart\v2\models\CartCoupon[]',
         'currency_code' => 'string',
-        'customer_profile' => '\ultracart\admin\v2\models\CartCustomerProfile',
+        'customer_profile' => '\ultracart\v2\models\CartCustomerProfile',
         'exchange_rate' => 'float',
-        'gift' => '\ultracart\admin\v2\models\CartGift',
-        'gift_certificate' => '\ultracart\admin\v2\models\CartGiftCertificate',
-        'items' => '\ultracart\admin\v2\models\CartItem[]',
+        'gift' => '\ultracart\v2\models\CartGift',
+        'gift_certificate' => '\ultracart\v2\models\CartGiftCertificate',
+        'items' => '\ultracart\v2\models\CartItem[]',
         'language_iso_code' => 'string',
         'logged_in' => 'bool',
-        'marketing' => '\ultracart\admin\v2\models\CartMarketing',
+        'marketing' => '\ultracart\v2\models\CartMarketing',
         'merchant_id' => 'string',
-        'payment' => '\ultracart\admin\v2\models\CartPayment',
-        'settings' => '\ultracart\admin\v2\models\CartSettings',
-        'shipping' => '\ultracart\admin\v2\models\CartShipping',
-        'summary' => '\ultracart\admin\v2\models\CartSummary',
-        'taxes' => '\ultracart\admin\v2\models\CartTaxes',
-        'upsell_after' => '\ultracart\admin\v2\models\CartUpsellAfter'
+        'payment' => '\ultracart\v2\models\CartPayment',
+        'settings' => '\ultracart\v2\models\CartSettings',
+        'shipping' => '\ultracart\v2\models\CartShipping',
+        'summary' => '\ultracart\v2\models\CartSummary',
+        'taxes' => '\ultracart\v2\models\CartTaxes',
+        'upsell_after' => '\ultracart\v2\models\CartUpsellAfter'
     );
 
     public static function swaggerTypes()
@@ -288,7 +288,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets affiliate
-     * @return \ultracart\admin\v2\models\CartAffiliate
+     * @return \ultracart\v2\models\CartAffiliate
      */
     public function getAffiliate()
     {
@@ -297,7 +297,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets affiliate
-     * @param \ultracart\admin\v2\models\CartAffiliate $affiliate
+     * @param \ultracart\v2\models\CartAffiliate $affiliate
      * @return $this
      */
     public function setAffiliate($affiliate)
@@ -333,7 +333,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets billing
-     * @return \ultracart\admin\v2\models\CartBilling
+     * @return \ultracart\v2\models\CartBilling
      */
     public function getBilling()
     {
@@ -342,7 +342,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets billing
-     * @param \ultracart\admin\v2\models\CartBilling $billing
+     * @param \ultracart\v2\models\CartBilling $billing
      * @return $this
      */
     public function setBilling($billing)
@@ -354,7 +354,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets buysafe
-     * @return \ultracart\admin\v2\models\CartBuysafe
+     * @return \ultracart\v2\models\CartBuysafe
      */
     public function getBuysafe()
     {
@@ -363,7 +363,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets buysafe
-     * @param \ultracart\admin\v2\models\CartBuysafe $buysafe
+     * @param \ultracart\v2\models\CartBuysafe $buysafe
      * @return $this
      */
     public function setBuysafe($buysafe)
@@ -396,7 +396,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets checkout
-     * @return \ultracart\admin\v2\models\CartCheckout
+     * @return \ultracart\v2\models\CartCheckout
      */
     public function getCheckout()
     {
@@ -405,7 +405,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets checkout
-     * @param \ultracart\admin\v2\models\CartCheckout $checkout
+     * @param \ultracart\v2\models\CartCheckout $checkout
      * @return $this
      */
     public function setCheckout($checkout)
@@ -417,7 +417,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets coupons
-     * @return \ultracart\admin\v2\models\CartCoupon[]
+     * @return \ultracart\v2\models\CartCoupon[]
      */
     public function getCoupons()
     {
@@ -426,7 +426,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets coupons
-     * @param \ultracart\admin\v2\models\CartCoupon[] $coupons Coupons
+     * @param \ultracart\v2\models\CartCoupon[] $coupons Coupons
      * @return $this
      */
     public function setCoupons($coupons)
@@ -462,7 +462,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets customer_profile
-     * @return \ultracart\admin\v2\models\CartCustomerProfile
+     * @return \ultracart\v2\models\CartCustomerProfile
      */
     public function getCustomerProfile()
     {
@@ -471,7 +471,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets customer_profile
-     * @param \ultracart\admin\v2\models\CartCustomerProfile $customer_profile
+     * @param \ultracart\v2\models\CartCustomerProfile $customer_profile
      * @return $this
      */
     public function setCustomerProfile($customer_profile)
@@ -504,7 +504,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets gift
-     * @return \ultracart\admin\v2\models\CartGift
+     * @return \ultracart\v2\models\CartGift
      */
     public function getGift()
     {
@@ -513,7 +513,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets gift
-     * @param \ultracart\admin\v2\models\CartGift $gift
+     * @param \ultracart\v2\models\CartGift $gift
      * @return $this
      */
     public function setGift($gift)
@@ -525,7 +525,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets gift_certificate
-     * @return \ultracart\admin\v2\models\CartGiftCertificate
+     * @return \ultracart\v2\models\CartGiftCertificate
      */
     public function getGiftCertificate()
     {
@@ -534,7 +534,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets gift_certificate
-     * @param \ultracart\admin\v2\models\CartGiftCertificate $gift_certificate
+     * @param \ultracart\v2\models\CartGiftCertificate $gift_certificate
      * @return $this
      */
     public function setGiftCertificate($gift_certificate)
@@ -546,7 +546,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets items
-     * @return \ultracart\admin\v2\models\CartItem[]
+     * @return \ultracart\v2\models\CartItem[]
      */
     public function getItems()
     {
@@ -555,7 +555,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets items
-     * @param \ultracart\admin\v2\models\CartItem[] $items Items
+     * @param \ultracart\v2\models\CartItem[] $items Items
      * @return $this
      */
     public function setItems($items)
@@ -612,7 +612,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets marketing
-     * @return \ultracart\admin\v2\models\CartMarketing
+     * @return \ultracart\v2\models\CartMarketing
      */
     public function getMarketing()
     {
@@ -621,7 +621,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets marketing
-     * @param \ultracart\admin\v2\models\CartMarketing $marketing
+     * @param \ultracart\v2\models\CartMarketing $marketing
      * @return $this
      */
     public function setMarketing($marketing)
@@ -654,7 +654,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets payment
-     * @return \ultracart\admin\v2\models\CartPayment
+     * @return \ultracart\v2\models\CartPayment
      */
     public function getPayment()
     {
@@ -663,7 +663,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets payment
-     * @param \ultracart\admin\v2\models\CartPayment $payment
+     * @param \ultracart\v2\models\CartPayment $payment
      * @return $this
      */
     public function setPayment($payment)
@@ -675,7 +675,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets settings
-     * @return \ultracart\admin\v2\models\CartSettings
+     * @return \ultracart\v2\models\CartSettings
      */
     public function getSettings()
     {
@@ -684,7 +684,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets settings
-     * @param \ultracart\admin\v2\models\CartSettings $settings
+     * @param \ultracart\v2\models\CartSettings $settings
      * @return $this
      */
     public function setSettings($settings)
@@ -696,7 +696,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets shipping
-     * @return \ultracart\admin\v2\models\CartShipping
+     * @return \ultracart\v2\models\CartShipping
      */
     public function getShipping()
     {
@@ -705,7 +705,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets shipping
-     * @param \ultracart\admin\v2\models\CartShipping $shipping
+     * @param \ultracart\v2\models\CartShipping $shipping
      * @return $this
      */
     public function setShipping($shipping)
@@ -717,7 +717,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets summary
-     * @return \ultracart\admin\v2\models\CartSummary
+     * @return \ultracart\v2\models\CartSummary
      */
     public function getSummary()
     {
@@ -726,7 +726,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets summary
-     * @param \ultracart\admin\v2\models\CartSummary $summary
+     * @param \ultracart\v2\models\CartSummary $summary
      * @return $this
      */
     public function setSummary($summary)
@@ -738,7 +738,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets taxes
-     * @return \ultracart\admin\v2\models\CartTaxes
+     * @return \ultracart\v2\models\CartTaxes
      */
     public function getTaxes()
     {
@@ -747,7 +747,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets taxes
-     * @param \ultracart\admin\v2\models\CartTaxes $taxes
+     * @param \ultracart\v2\models\CartTaxes $taxes
      * @return $this
      */
     public function setTaxes($taxes)
@@ -759,7 +759,7 @@ class Cart implements ArrayAccess
 
     /**
      * Gets upsell_after
-     * @return \ultracart\admin\v2\models\CartUpsellAfter
+     * @return \ultracart\v2\models\CartUpsellAfter
      */
     public function getUpsellAfter()
     {
@@ -768,7 +768,7 @@ class Cart implements ArrayAccess
 
     /**
      * Sets upsell_after
-     * @param \ultracart\admin\v2\models\CartUpsellAfter $upsell_after
+     * @param \ultracart\v2\models\CartUpsellAfter $upsell_after
      * @return $this
      */
     public function setUpsellAfter($upsell_after)
@@ -829,10 +829,10 @@ class Cart implements ArrayAccess
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+            return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
         }
 
-        return json_encode(\ultracart\admin\v2\ObjectSerializer::sanitizeForSerialization($this));
+        return json_encode(\ultracart\v2\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
 
