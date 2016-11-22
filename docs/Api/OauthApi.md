@@ -1,15 +1,15 @@
 # ultracart\admin\v2\OauthApi
 
-All URIs are relative to *https://secure.ultracart.com/rest/admin/v2*
+All URIs are relative to *https://secure.ultracart.com/rest*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**oauthRevokePost**](OauthApi.md#oauthRevokePost) | **POST** /oauth/revoke | Revoke this OAuth application.
-[**oauthTokenPost**](OauthApi.md#oauthTokenPost) | **POST** /oauth/token | Exchange authorization code for access token.
+[**adminV2OauthRevokePost**](OauthApi.md#adminV2OauthRevokePost) | **POST** /admin/v2/oauth/revoke | Revoke this OAuth application.
+[**adminV2OauthTokenPost**](OauthApi.md#adminV2OauthTokenPost) | **POST** /admin/v2/oauth/token | Exchange authorization code for access token.
 
 
-# **oauthRevokePost**
-> \ultracart\admin\v2\models\OauthRevokeSuccessResponse oauthRevokePost($client_id, $token)
+# **adminV2OauthRevokePost**
+> \ultracart\admin\v2\models\OauthRevokeSuccessResponse adminV2OauthRevokePost($client_id, $token)
 
 Revoke this OAuth application.
 
@@ -20,6 +20,10 @@ Revokes the OAuth application associated with the specified client_id and token.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
 ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
@@ -32,10 +36,10 @@ $client_id = "client_id_example"; // string | The OAuth application client_id.
 $token = "token_example"; // string | The OAuth access token that is to be revoked..
 
 try {
-    $result = $api_instance->oauthRevokePost($client_id, $token);
+    $result = $api_instance->adminV2OauthRevokePost($client_id, $token);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OauthApi->oauthRevokePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OauthApi->adminV2OauthRevokePost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -53,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 
@@ -62,8 +66,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **oauthTokenPost**
-> \ultracart\admin\v2\models\OauthTokenResponse oauthTokenPost($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
+# **adminV2OauthTokenPost**
+> \ultracart\admin\v2\models\OauthTokenResponse adminV2OauthTokenPost($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
 
 Exchange authorization code for access token.
 
@@ -74,6 +78,10 @@ The final leg in the OAuth process which exchanges the specified access token fo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\admin\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
 ultracart\admin\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
@@ -89,10 +97,10 @@ $redirect_uri = "redirect_uri_example"; // string | The URI that you redirect th
 $refresh_token = "refresh_token_example"; // string | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token
 
 try {
-    $result = $api_instance->oauthTokenPost($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
+    $result = $api_instance->adminV2OauthTokenPost($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OauthApi->oauthTokenPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OauthApi->adminV2OauthTokenPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -113,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 

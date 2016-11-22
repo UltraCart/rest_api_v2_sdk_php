@@ -66,7 +66,7 @@ class OrderGiftCertificate implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'gift_certificate_amount' => 'float',
+        'gift_certificate_amount' => '\ultracart\admin\v2\models\Currency',
         'gift_certificate_code' => 'string',
         'gift_certificate_oid' => 'int'
     );
@@ -167,7 +167,7 @@ class OrderGiftCertificate implements ArrayAccess
 
     /**
      * Gets gift_certificate_amount
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getGiftCertificateAmount()
     {
@@ -176,7 +176,7 @@ class OrderGiftCertificate implements ArrayAccess
 
     /**
      * Sets gift_certificate_amount
-     * @param float $gift_certificate_amount Gift certificate amount applied to the order
+     * @param \ultracart\admin\v2\models\Currency $gift_certificate_amount
      * @return $this
      */
     public function setGiftCertificateAmount($gift_certificate_amount)

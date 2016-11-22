@@ -73,7 +73,7 @@ class FulfillmentApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest/admin/v2');
+            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest');
         }
 
         $this->apiClient = $apiClient;
@@ -103,43 +103,43 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut
+     * Operation adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut
      *
      * Acknowledge receipt of orders.
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @param string[] $order_ids Orders to acknowledge receipt of (required)
+     * @param string[] $order_ids Orders to acknowledge receipt of (limit 100) (required)
      * @return void
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut($distribution_center_code, $order_ids)
+    public function adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut($distribution_center_code, $order_ids)
     {
-        list($response) = $this->fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo($distribution_center_code, $order_ids);
+        list($response) = $this->adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo($distribution_center_code, $order_ids);
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo
+     * Operation adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo
      *
      * Acknowledge receipt of orders.
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @param string[] $order_ids Orders to acknowledge receipt of (required)
+     * @param string[] $order_ids Orders to acknowledge receipt of (limit 100) (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo($distribution_center_code, $order_ids)
+    public function adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo($distribution_center_code, $order_ids)
     {
         // verify the required parameter 'distribution_center_code' is set
         if ($distribution_center_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut');
+            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut');
         }
         // verify the required parameter 'order_ids' is set
         if ($order_ids === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_ids when calling fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut');
+            throw new \InvalidArgumentException('Missing the required parameter $order_ids when calling adminV2FulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut');
         }
         // parse inputs
-        $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements";
+        $resourcePath = "/admin/v2/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -191,7 +191,7 @@ class FulfillmentApi
                 $httpBody,
                 $headerParams,
                 null,
-                '/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements'
+                '/admin/v2/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements'
             );
 
             return array(null, $statusCode, $httpHeader);
@@ -224,43 +224,43 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeInventoryPost
+     * Operation adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost
      *
      * Update inventory
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @param \ultracart\admin\v2\models\FulfillmentInventory[] $inventories Inventory updates (required)
+     * @param \ultracart\admin\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      * @return void
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories)
+    public function adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories)
     {
-        list($response) = $this->fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo($distribution_center_code, $inventories);
+        list($response) = $this->adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo($distribution_center_code, $inventories);
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo
+     * Operation adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo
      *
      * Update inventory
      *
      * @param string $distribution_center_code Distribution center code (required)
-     * @param \ultracart\admin\v2\models\FulfillmentInventory[] $inventories Inventory updates (required)
+     * @param \ultracart\admin\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo($distribution_center_code, $inventories)
+    public function adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo($distribution_center_code, $inventories)
     {
         // verify the required parameter 'distribution_center_code' is set
         if ($distribution_center_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling fulfillmentDistributionCentersDistributionCenterCodeInventoryPost');
+            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost');
         }
         // verify the required parameter 'inventories' is set
         if ($inventories === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $inventories when calling fulfillmentDistributionCentersDistributionCenterCodeInventoryPost');
+            throw new \InvalidArgumentException('Missing the required parameter $inventories when calling adminV2FulfillmentDistributionCentersDistributionCenterCodeInventoryPost');
         }
         // parse inputs
-        $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory";
+        $resourcePath = "/admin/v2/fulfillment/distribution_centers/{distribution_center_code}/inventory";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -312,7 +312,7 @@ class FulfillmentApi
                 $httpBody,
                 $headerParams,
                 null,
-                '/fulfillment/distribution_centers/{distribution_center_code}/inventory'
+                '/admin/v2/fulfillment/distribution_centers/{distribution_center_code}/inventory'
             );
 
             return array(null, $statusCode, $httpHeader);
@@ -345,7 +345,7 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeOrdersGet
+     * Operation adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet
      *
      * Retrieve orders queued up for this distribution center.
      *
@@ -353,14 +353,14 @@ class FulfillmentApi
      * @return \ultracart\admin\v2\models\OrdersResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code)
+    public function adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code)
     {
-        list($response) = $this->fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo($distribution_center_code);
+        list($response) = $this->adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo($distribution_center_code);
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo
+     * Operation adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo
      *
      * Retrieve orders queued up for this distribution center.
      *
@@ -368,14 +368,14 @@ class FulfillmentApi
      * @return Array of \ultracart\admin\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo($distribution_center_code)
+    public function adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo($distribution_center_code)
     {
         // verify the required parameter 'distribution_center_code' is set
         if ($distribution_center_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling fulfillmentDistributionCentersDistributionCenterCodeOrdersGet');
+            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling adminV2FulfillmentDistributionCentersDistributionCenterCodeOrdersGet');
         }
         // parse inputs
-        $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/orders";
+        $resourcePath = "/admin/v2/fulfillment/distribution_centers/{distribution_center_code}/orders";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -422,7 +422,7 @@ class FulfillmentApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\OrdersResponse',
-                '/fulfillment/distribution_centers/{distribution_center_code}/orders'
+                '/admin/v2/fulfillment/distribution_centers/{distribution_center_code}/orders'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OrdersResponse', $httpHeader), $statusCode, $httpHeader);
@@ -459,7 +459,7 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost
+     * Operation adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost
      *
      * Mark orders as shipped
      *
@@ -468,14 +468,14 @@ class FulfillmentApi
      * @return void
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments)
+    public function adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments)
     {
-        list($response) = $this->fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo($distribution_center_code, $shipments);
+        list($response) = $this->adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo($distribution_center_code, $shipments);
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo
+     * Operation adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo
      *
      * Mark orders as shipped
      *
@@ -484,18 +484,18 @@ class FulfillmentApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo($distribution_center_code, $shipments)
+    public function adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo($distribution_center_code, $shipments)
     {
         // verify the required parameter 'distribution_center_code' is set
         if ($distribution_center_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost');
+            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost');
         }
         // verify the required parameter 'shipments' is set
         if ($shipments === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shipments when calling fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost');
+            throw new \InvalidArgumentException('Missing the required parameter $shipments when calling adminV2FulfillmentDistributionCentersDistributionCenterCodeShipmentsPost');
         }
         // parse inputs
-        $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/shipments";
+        $resourcePath = "/admin/v2/fulfillment/distribution_centers/{distribution_center_code}/shipments";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -547,7 +547,7 @@ class FulfillmentApi
                 $httpBody,
                 $headerParams,
                 null,
-                '/fulfillment/distribution_centers/{distribution_center_code}/shipments'
+                '/admin/v2/fulfillment/distribution_centers/{distribution_center_code}/shipments'
             );
 
             return array(null, $statusCode, $httpHeader);
@@ -580,31 +580,31 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersGet
+     * Operation adminV2FulfillmentDistributionCentersGet
      *
      * Retrieve distribution centers
      *
      * @return \ultracart\admin\v2\models\DistributionCentersResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersGet()
+    public function adminV2FulfillmentDistributionCentersGet()
     {
-        list($response) = $this->fulfillmentDistributionCentersGetWithHttpInfo();
+        list($response) = $this->adminV2FulfillmentDistributionCentersGetWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersGetWithHttpInfo
+     * Operation adminV2FulfillmentDistributionCentersGetWithHttpInfo
      *
      * Retrieve distribution centers
      *
      * @return Array of \ultracart\admin\v2\models\DistributionCentersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersGetWithHttpInfo()
+    public function adminV2FulfillmentDistributionCentersGetWithHttpInfo()
     {
         // parse inputs
-        $resourcePath = "/fulfillment/distribution_centers";
+        $resourcePath = "/admin/v2/fulfillment/distribution_centers";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -643,7 +643,7 @@ class FulfillmentApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\DistributionCentersResponse',
-                '/fulfillment/distribution_centers'
+                '/admin/v2/fulfillment/distribution_centers'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\DistributionCentersResponse', $httpHeader), $statusCode, $httpHeader);

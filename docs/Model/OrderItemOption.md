@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additional_dimension_application** | **string** | How the additional dimensions are applied to the item. | [optional] 
-**cost_change** | **float** | The amount that this option changes the cost | [optional] 
+**cost_change** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
 **file_attachment** | [**\ultracart\admin\v2\models\OrderItemOptionFileAttachment**](OrderItemOptionFileAttachment.md) |  | [optional] 
 **height** | [**\ultracart\admin\v2\models\Distance**](Distance.md) |  | [optional] 
 **hidden** | **bool** | True if this option is hidden from display on the order | [optional] 

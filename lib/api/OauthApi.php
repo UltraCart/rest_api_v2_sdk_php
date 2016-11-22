@@ -73,7 +73,7 @@ class OauthApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest/admin/v2');
+            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest');
         }
 
         $this->apiClient = $apiClient;
@@ -103,7 +103,7 @@ class OauthApi
     }
 
     /**
-     * Operation oauthRevokePost
+     * Operation adminV2OauthRevokePost
      *
      * Revoke this OAuth application.
      *
@@ -112,14 +112,14 @@ class OauthApi
      * @return \ultracart\admin\v2\models\OauthRevokeSuccessResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function oauthRevokePost($client_id, $token)
+    public function adminV2OauthRevokePost($client_id, $token)
     {
-        list($response) = $this->oauthRevokePostWithHttpInfo($client_id, $token);
+        list($response) = $this->adminV2OauthRevokePostWithHttpInfo($client_id, $token);
         return $response;
     }
 
     /**
-     * Operation oauthRevokePostWithHttpInfo
+     * Operation adminV2OauthRevokePostWithHttpInfo
      *
      * Revoke this OAuth application.
      *
@@ -128,18 +128,18 @@ class OauthApi
      * @return Array of \ultracart\admin\v2\models\OauthRevokeSuccessResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function oauthRevokePostWithHttpInfo($client_id, $token)
+    public function adminV2OauthRevokePostWithHttpInfo($client_id, $token)
     {
         // verify the required parameter 'client_id' is set
         if ($client_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling oauthRevokePost');
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling adminV2OauthRevokePost');
         }
         // verify the required parameter 'token' is set
         if ($token === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $token when calling oauthRevokePost');
+            throw new \InvalidArgumentException('Missing the required parameter $token when calling adminV2OauthRevokePost');
         }
         // parse inputs
-        $resourcePath = "/oauth/revoke";
+        $resourcePath = "/admin/v2/oauth/revoke";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -168,6 +168,11 @@ class OauthApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-browser-key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
             $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
@@ -186,7 +191,7 @@ class OauthApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\OauthRevokeSuccessResponse',
-                '/oauth/revoke'
+                '/admin/v2/oauth/revoke'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OauthRevokeSuccessResponse', $httpHeader), $statusCode, $httpHeader);
@@ -211,7 +216,7 @@ class OauthApi
     }
 
     /**
-     * Operation oauthTokenPost
+     * Operation adminV2OauthTokenPost
      *
      * Exchange authorization code for access token.
      *
@@ -223,14 +228,14 @@ class OauthApi
      * @return \ultracart\admin\v2\models\OauthTokenResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function oauthTokenPost($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function adminV2OauthTokenPost($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
-        list($response) = $this->oauthTokenPostWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
+        list($response) = $this->adminV2OauthTokenPostWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
         return $response;
     }
 
     /**
-     * Operation oauthTokenPostWithHttpInfo
+     * Operation adminV2OauthTokenPostWithHttpInfo
      *
      * Exchange authorization code for access token.
      *
@@ -242,18 +247,18 @@ class OauthApi
      * @return Array of \ultracart\admin\v2\models\OauthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function oauthTokenPostWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function adminV2OauthTokenPostWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
         // verify the required parameter 'client_id' is set
         if ($client_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling oauthTokenPost');
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling adminV2OauthTokenPost');
         }
         // verify the required parameter 'grant_type' is set
         if ($grant_type === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $grant_type when calling oauthTokenPost');
+            throw new \InvalidArgumentException('Missing the required parameter $grant_type when calling adminV2OauthTokenPost');
         }
         // parse inputs
-        $resourcePath = "/oauth/token";
+        $resourcePath = "/admin/v2/oauth/token";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -294,6 +299,11 @@ class OauthApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-browser-key'] = $apiKey;
+        }
         // this endpoint requires OAuth (access token)
         if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
             $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
@@ -312,7 +322,7 @@ class OauthApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\OauthTokenResponse',
-                '/oauth/token'
+                '/admin/v2/oauth/token'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\OauthTokenResponse', $httpHeader), $statusCode, $httpHeader);

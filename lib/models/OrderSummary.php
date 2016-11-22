@@ -66,20 +66,20 @@ class OrderSummary implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = array(
-        'other_refunded' => 'float',
-        'shipping_handling_refunded' => 'float',
-        'shipping_handling_total' => 'float',
-        'shipping_handling_total_discount' => 'float',
-        'subtotal' => 'float',
-        'subtotal_discount' => 'float',
-        'subtotal_discount_refunded' => 'float',
-        'subtotal_refunded' => 'float',
-        'tax' => 'float',
-        'tax_refunded' => 'float',
-        'taxable_subtotal' => 'float',
-        'taxable_subtotal_discount' => 'float',
-        'total' => 'float',
-        'total_refunded' => 'float'
+        'other_refunded' => '\ultracart\admin\v2\models\Currency',
+        'shipping_handling_refunded' => '\ultracart\admin\v2\models\Currency',
+        'shipping_handling_total' => '\ultracart\admin\v2\models\Currency',
+        'shipping_handling_total_discount' => '\ultracart\admin\v2\models\Currency',
+        'subtotal' => '\ultracart\admin\v2\models\Currency',
+        'subtotal_discount' => '\ultracart\admin\v2\models\Currency',
+        'subtotal_discount_refunded' => '\ultracart\admin\v2\models\Currency',
+        'subtotal_refunded' => '\ultracart\admin\v2\models\Currency',
+        'tax' => '\ultracart\admin\v2\models\Currency',
+        'tax_refunded' => '\ultracart\admin\v2\models\Currency',
+        'taxable_subtotal' => '\ultracart\admin\v2\models\Currency',
+        'taxable_subtotal_discount' => '\ultracart\admin\v2\models\Currency',
+        'total' => '\ultracart\admin\v2\models\Currency',
+        'total_refunded' => '\ultracart\admin\v2\models\Currency'
     );
 
     public static function swaggerTypes()
@@ -222,7 +222,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets other_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getOtherRefunded()
     {
@@ -231,7 +231,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets other_refunded
-     * @param float $other_refunded Other refunded
+     * @param \ultracart\admin\v2\models\Currency $other_refunded
      * @return $this
      */
     public function setOtherRefunded($other_refunded)
@@ -243,7 +243,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets shipping_handling_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getShippingHandlingRefunded()
     {
@@ -252,7 +252,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets shipping_handling_refunded
-     * @param float $shipping_handling_refunded Shipping/handling refunded
+     * @param \ultracart\admin\v2\models\Currency $shipping_handling_refunded
      * @return $this
      */
     public function setShippingHandlingRefunded($shipping_handling_refunded)
@@ -264,7 +264,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets shipping_handling_total
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getShippingHandlingTotal()
     {
@@ -273,7 +273,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets shipping_handling_total
-     * @param float $shipping_handling_total Shipping/handling total
+     * @param \ultracart\admin\v2\models\Currency $shipping_handling_total
      * @return $this
      */
     public function setShippingHandlingTotal($shipping_handling_total)
@@ -285,7 +285,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets shipping_handling_total_discount
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getShippingHandlingTotalDiscount()
     {
@@ -294,7 +294,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets shipping_handling_total_discount
-     * @param float $shipping_handling_total_discount Shipping/handling total discount
+     * @param \ultracart\admin\v2\models\Currency $shipping_handling_total_discount
      * @return $this
      */
     public function setShippingHandlingTotalDiscount($shipping_handling_total_discount)
@@ -306,7 +306,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets subtotal
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getSubtotal()
     {
@@ -315,7 +315,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets subtotal
-     * @param float $subtotal Subtotal
+     * @param \ultracart\admin\v2\models\Currency $subtotal
      * @return $this
      */
     public function setSubtotal($subtotal)
@@ -327,7 +327,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets subtotal_discount
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getSubtotalDiscount()
     {
@@ -336,7 +336,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets subtotal_discount
-     * @param float $subtotal_discount Subtotal discount
+     * @param \ultracart\admin\v2\models\Currency $subtotal_discount
      * @return $this
      */
     public function setSubtotalDiscount($subtotal_discount)
@@ -348,7 +348,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets subtotal_discount_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getSubtotalDiscountRefunded()
     {
@@ -357,7 +357,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets subtotal_discount_refunded
-     * @param float $subtotal_discount_refunded Subtotal discount refunded
+     * @param \ultracart\admin\v2\models\Currency $subtotal_discount_refunded
      * @return $this
      */
     public function setSubtotalDiscountRefunded($subtotal_discount_refunded)
@@ -369,7 +369,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets subtotal_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getSubtotalRefunded()
     {
@@ -378,7 +378,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets subtotal_refunded
-     * @param float $subtotal_refunded Subtotal refunded
+     * @param \ultracart\admin\v2\models\Currency $subtotal_refunded
      * @return $this
      */
     public function setSubtotalRefunded($subtotal_refunded)
@@ -390,7 +390,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets tax
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTax()
     {
@@ -399,7 +399,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets tax
-     * @param float $tax Tax
+     * @param \ultracart\admin\v2\models\Currency $tax
      * @return $this
      */
     public function setTax($tax)
@@ -411,7 +411,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets tax_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTaxRefunded()
     {
@@ -420,7 +420,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets tax_refunded
-     * @param float $tax_refunded Tax refunded
+     * @param \ultracart\admin\v2\models\Currency $tax_refunded
      * @return $this
      */
     public function setTaxRefunded($tax_refunded)
@@ -432,7 +432,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets taxable_subtotal
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTaxableSubtotal()
     {
@@ -441,7 +441,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets taxable_subtotal
-     * @param float $taxable_subtotal Taxable subtotal
+     * @param \ultracart\admin\v2\models\Currency $taxable_subtotal
      * @return $this
      */
     public function setTaxableSubtotal($taxable_subtotal)
@@ -453,7 +453,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets taxable_subtotal_discount
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTaxableSubtotalDiscount()
     {
@@ -462,7 +462,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets taxable_subtotal_discount
-     * @param float $taxable_subtotal_discount Taxable subtotal discount
+     * @param \ultracart\admin\v2\models\Currency $taxable_subtotal_discount
      * @return $this
      */
     public function setTaxableSubtotalDiscount($taxable_subtotal_discount)
@@ -474,7 +474,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets total
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTotal()
     {
@@ -483,7 +483,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets total
-     * @param float $total Total
+     * @param \ultracart\admin\v2\models\Currency $total
      * @return $this
      */
     public function setTotal($total)
@@ -495,7 +495,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Gets total_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTotalRefunded()
     {
@@ -504,7 +504,7 @@ class OrderSummary implements ArrayAccess
 
     /**
      * Sets total_refunded
-     * @param float $total_refunded Total refunded
+     * @param \ultracart\admin\v2\models\Currency $total_refunded
      * @return $this
      */
     public function setTotalRefunded($total_refunded)

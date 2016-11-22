@@ -72,11 +72,11 @@ class OrderItem implements ArrayAccess
         'channel_partner_item_id' => 'string',
         'cogs' => 'float',
         'component_unit_value' => 'float',
-        'cost' => 'float',
+        'cost' => '\ultracart\admin\v2\models\Currency',
         'country_code_of_origin' => 'string',
         'customs_description' => 'string',
         'description' => 'string',
-        'discount' => 'float',
+        'discount' => '\ultracart\admin\v2\models\Currency',
         'discount_quantity' => 'float',
         'discount_shipping_weight' => '\ultracart\admin\v2\models\Weight',
         'distribution_center_code' => 'string',
@@ -107,11 +107,11 @@ class OrderItem implements ArrayAccess
         'shipped_dts' => 'string',
         'special_product_type' => 'string',
         'tax_free' => 'bool',
-        'taxable_cost' => 'float',
-        'total_cost_with_discount' => 'float',
-        'total_refunded' => 'float',
+        'taxable_cost' => '\ultracart\admin\v2\models\Currency',
+        'total_cost_with_discount' => '\ultracart\admin\v2\models\Currency',
+        'total_refunded' => '\ultracart\admin\v2\models\Currency',
         'transmitted_to_distribution_center_dts' => 'string',
-        'unit_cost_with_discount' => 'float',
+        'unit_cost_with_discount' => '\ultracart\admin\v2\models\Currency',
         'upsell' => 'bool',
         'weight' => '\ultracart\admin\v2\models\Weight',
         'width' => '\ultracart\admin\v2\models\Distance'
@@ -568,7 +568,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Gets cost
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getCost()
     {
@@ -577,7 +577,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Sets cost
-     * @param float $cost Cost
+     * @param \ultracart\admin\v2\models\Currency $cost
      * @return $this
      */
     public function setCost($cost)
@@ -658,7 +658,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Gets discount
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getDiscount()
     {
@@ -667,7 +667,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Sets discount
-     * @param float $discount Discount
+     * @param \ultracart\admin\v2\models\Currency $discount
      * @return $this
      */
     public function setDiscount($discount)
@@ -1318,7 +1318,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Gets taxable_cost
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTaxableCost()
     {
@@ -1327,7 +1327,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Sets taxable_cost
-     * @param float $taxable_cost The taxable cost of the item.  Typically the same as the cost
+     * @param \ultracart\admin\v2\models\Currency $taxable_cost
      * @return $this
      */
     public function setTaxableCost($taxable_cost)
@@ -1339,7 +1339,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Gets total_cost_with_discount
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTotalCostWithDiscount()
     {
@@ -1348,7 +1348,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Sets total_cost_with_discount
-     * @param float $total_cost_with_discount Total cost with discount
+     * @param \ultracart\admin\v2\models\Currency $total_cost_with_discount
      * @return $this
      */
     public function setTotalCostWithDiscount($total_cost_with_discount)
@@ -1360,7 +1360,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Gets total_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getTotalRefunded()
     {
@@ -1369,7 +1369,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Sets total_refunded
-     * @param float $total_refunded Total refunded on this item
+     * @param \ultracart\admin\v2\models\Currency $total_refunded
      * @return $this
      */
     public function setTotalRefunded($total_refunded)
@@ -1402,7 +1402,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Gets unit_cost_with_discount
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getUnitCostWithDiscount()
     {
@@ -1411,7 +1411,7 @@ class OrderItem implements ArrayAccess
 
     /**
      * Sets unit_cost_with_discount
-     * @param float $unit_cost_with_discount Unit cost with discount
+     * @param \ultracart\admin\v2\models\Currency $unit_cost_with_discount
      * @return $this
      */
     public function setUnitCostWithDiscount($unit_cost_with_discount)

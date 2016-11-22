@@ -77,7 +77,7 @@ class OrderPayment implements ArrayAccess
         'payment_status' => 'string',
         'purchase_order' => '\ultracart\admin\v2\models\OrderPaymentPurchaseOrder',
         'rotating_transaction_gateway_code' => 'string',
-        'surcharge' => 'float',
+        'surcharge' => '\ultracart\admin\v2\models\Currency',
         'surcharge_accounting_code' => 'string',
         'surcharge_transaction_fee' => 'float',
         'surcharge_transaction_percentage' => 'float',
@@ -560,7 +560,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Gets surcharge
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getSurcharge()
     {
@@ -569,7 +569,7 @@ class OrderPayment implements ArrayAccess
 
     /**
      * Sets surcharge
-     * @param float $surcharge Surcharge amount calculated from surcahrge_transaction_fee and surcharge_transaction_percentage
+     * @param \ultracart\admin\v2\models\Currency $surcharge
      * @return $this
      */
     public function setSurcharge($surcharge)

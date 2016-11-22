@@ -67,7 +67,7 @@ class OrderItemOption implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'additional_dimension_application' => 'string',
-        'cost_change' => 'float',
+        'cost_change' => '\ultracart\admin\v2\models\Currency',
         'file_attachment' => '\ultracart\admin\v2\models\OrderItemOptionFileAttachment',
         'height' => '\ultracart\admin\v2\models\Distance',
         'hidden' => 'bool',
@@ -271,7 +271,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Gets cost_change
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getCostChange()
     {
@@ -280,7 +280,7 @@ class OrderItemOption implements ArrayAccess
 
     /**
      * Sets cost_change
-     * @param float $cost_change The amount that this option changes the cost
+     * @param \ultracart\admin\v2\models\Currency $cost_change
      * @return $this
      */
     public function setCostChange($cost_change)

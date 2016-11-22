@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **payment_status** | **string** | Payment status | [optional] 
 **purchase_order** | [**\ultracart\admin\v2\models\OrderPaymentPurchaseOrder**](OrderPaymentPurchaseOrder.md) |  | [optional] 
 **rotating_transaction_gateway_code** | **string** | Rotating transaction gateway code used to process this order | [optional] 
-**surcharge** | **float** | Surcharge amount calculated from surcahrge_transaction_fee and surcharge_transaction_percentage | [optional] 
+**surcharge** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
 **surcharge_accounting_code** | **string** | Surcharge accounting code | [optional] 
 **surcharge_transaction_fee** | **float** | Surcharge transaction fee | [optional] 
 **surcharge_transaction_percentage** | **float** | Surcharge transaction percentage | [optional] 

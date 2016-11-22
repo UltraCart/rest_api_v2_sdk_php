@@ -67,14 +67,14 @@ class OrderGift implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'gift' => 'bool',
-        'gift_charge' => 'float',
+        'gift_charge' => '\ultracart\admin\v2\models\Currency',
         'gift_charge_accounting_code' => 'string',
-        'gift_charge_refunded' => 'float',
+        'gift_charge_refunded' => '\ultracart\admin\v2\models\Currency',
         'gift_email' => 'string',
         'gift_message' => 'string',
         'gift_wrap_accounting_code' => 'string',
-        'gift_wrap_cost' => 'float',
-        'gift_wrap_refunded' => 'float',
+        'gift_wrap_cost' => '\ultracart\admin\v2\models\Currency',
+        'gift_wrap_refunded' => '\ultracart\admin\v2\models\Currency',
         'gift_wrap_title' => 'string'
     );
 
@@ -244,7 +244,7 @@ class OrderGift implements ArrayAccess
 
     /**
      * Gets gift_charge
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getGiftCharge()
     {
@@ -253,7 +253,7 @@ class OrderGift implements ArrayAccess
 
     /**
      * Sets gift_charge
-     * @param float $gift_charge Charge associated with making this order a gift
+     * @param \ultracart\admin\v2\models\Currency $gift_charge
      * @return $this
      */
     public function setGiftCharge($gift_charge)
@@ -286,7 +286,7 @@ class OrderGift implements ArrayAccess
 
     /**
      * Gets gift_charge_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getGiftChargeRefunded()
     {
@@ -295,7 +295,7 @@ class OrderGift implements ArrayAccess
 
     /**
      * Sets gift_charge_refunded
-     * @param float $gift_charge_refunded Amount refunded of the gift charge
+     * @param \ultracart\admin\v2\models\Currency $gift_charge_refunded
      * @return $this
      */
     public function setGiftChargeRefunded($gift_charge_refunded)
@@ -376,7 +376,7 @@ class OrderGift implements ArrayAccess
 
     /**
      * Gets gift_wrap_cost
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getGiftWrapCost()
     {
@@ -385,7 +385,7 @@ class OrderGift implements ArrayAccess
 
     /**
      * Sets gift_wrap_cost
-     * @param float $gift_wrap_cost Cost of the gift wrap the customer selected
+     * @param \ultracart\admin\v2\models\Currency $gift_wrap_cost
      * @return $this
      */
     public function setGiftWrapCost($gift_wrap_cost)
@@ -397,7 +397,7 @@ class OrderGift implements ArrayAccess
 
     /**
      * Gets gift_wrap_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getGiftWrapRefunded()
     {
@@ -406,7 +406,7 @@ class OrderGift implements ArrayAccess
 
     /**
      * Sets gift_wrap_refunded
-     * @param float $gift_wrap_refunded Amount refunded of the gift wrap
+     * @param \ultracart\admin\v2\models\Currency $gift_wrap_refunded
      * @return $this
      */
     public function setGiftWrapRefunded($gift_wrap_refunded)

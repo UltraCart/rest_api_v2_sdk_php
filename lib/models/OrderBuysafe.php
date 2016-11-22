@@ -67,9 +67,9 @@ class OrderBuysafe implements ArrayAccess
       */
     protected static $swaggerTypes = array(
         'buysafe_bond_available' => 'bool',
-        'buysafe_bond_cost' => 'float',
+        'buysafe_bond_cost' => '\ultracart\admin\v2\models\Currency',
         'buysafe_bond_free' => 'bool',
-        'buysafe_bond_refunded' => 'float',
+        'buysafe_bond_refunded' => '\ultracart\admin\v2\models\Currency',
         'buysafe_bond_wanted' => 'bool',
         'buysafe_shopping_cart_id' => 'string'
     );
@@ -203,7 +203,7 @@ class OrderBuysafe implements ArrayAccess
 
     /**
      * Gets buysafe_bond_cost
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getBuysafeBondCost()
     {
@@ -212,7 +212,7 @@ class OrderBuysafe implements ArrayAccess
 
     /**
      * Sets buysafe_bond_cost
-     * @param float $buysafe_bond_cost Cost of the buySAFE bond
+     * @param \ultracart\admin\v2\models\Currency $buysafe_bond_cost
      * @return $this
      */
     public function setBuysafeBondCost($buysafe_bond_cost)
@@ -245,7 +245,7 @@ class OrderBuysafe implements ArrayAccess
 
     /**
      * Gets buysafe_bond_refunded
-     * @return float
+     * @return \ultracart\admin\v2\models\Currency
      */
     public function getBuysafeBondRefunded()
     {
@@ -254,7 +254,7 @@ class OrderBuysafe implements ArrayAccess
 
     /**
      * Sets buysafe_bond_refunded
-     * @param float $buysafe_bond_refunded Amount of the buySAFE bond that was refunded
+     * @param \ultracart\admin\v2\models\Currency $buysafe_bond_refunded
      * @return $this
      */
     public function setBuysafeBondRefunded($buysafe_bond_refunded)

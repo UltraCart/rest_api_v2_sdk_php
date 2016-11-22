@@ -73,7 +73,7 @@ class WebhookApi
     {
         if ($apiClient == null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest/admin/v2');
+            $apiClient->getConfig()->setHost('https://secure.ultracart.com/rest');
         }
 
         $this->apiClient = $apiClient;
@@ -103,7 +103,7 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksGet
+     * Operation adminV2WebhookWebhooksGet
      *
      * Retrieve webhooks
      *
@@ -114,14 +114,14 @@ class WebhookApi
      * @return \ultracart\admin\v2\models\WebhooksResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksGet($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
+    public function adminV2WebhookWebhooksGet($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
     {
-        list($response) = $this->webhookWebhooksGetWithHttpInfo($_limit, $_offset, $_sort, $_placeholders);
+        list($response) = $this->adminV2WebhookWebhooksGetWithHttpInfo($_limit, $_offset, $_sort, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksGetWithHttpInfo
+     * Operation adminV2WebhookWebhooksGetWithHttpInfo
      *
      * Retrieve webhooks
      *
@@ -132,10 +132,10 @@ class WebhookApi
      * @return Array of \ultracart\admin\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksGetWithHttpInfo($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
+    public function adminV2WebhookWebhooksGetWithHttpInfo($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
     {
         // parse inputs
-        $resourcePath = "/webhook/webhooks";
+        $resourcePath = "/admin/v2/webhook/webhooks";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -190,7 +190,7 @@ class WebhookApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\WebhooksResponse',
-                '/webhook/webhooks'
+                '/admin/v2/webhook/webhooks'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhooksResponse', $httpHeader), $statusCode, $httpHeader);
@@ -227,7 +227,7 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksPost
+     * Operation adminV2WebhookWebhooksPost
      *
      * Add a webhook
      *
@@ -236,14 +236,14 @@ class WebhookApi
      * @return \ultracart\admin\v2\models\WebhookResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksPost($webhook, $_placeholders = null)
+    public function adminV2WebhookWebhooksPost($webhook, $_placeholders = null)
     {
-        list($response) = $this->webhookWebhooksPostWithHttpInfo($webhook, $_placeholders);
+        list($response) = $this->adminV2WebhookWebhooksPostWithHttpInfo($webhook, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksPostWithHttpInfo
+     * Operation adminV2WebhookWebhooksPostWithHttpInfo
      *
      * Add a webhook
      *
@@ -252,14 +252,14 @@ class WebhookApi
      * @return Array of \ultracart\admin\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksPostWithHttpInfo($webhook, $_placeholders = null)
+    public function adminV2WebhookWebhooksPostWithHttpInfo($webhook, $_placeholders = null)
     {
         // verify the required parameter 'webhook' is set
         if ($webhook === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook when calling webhookWebhooksPost');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook when calling adminV2WebhookWebhooksPost');
         }
         // parse inputs
-        $resourcePath = "/webhook/webhooks";
+        $resourcePath = "/admin/v2/webhook/webhooks";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -307,7 +307,7 @@ class WebhookApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\WebhookResponse',
-                '/webhook/webhooks'
+                '/admin/v2/webhook/webhooks'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhookResponse', $httpHeader), $statusCode, $httpHeader);
@@ -344,7 +344,7 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidDelete
+     * Operation adminV2WebhookWebhooksWebhookOidDelete
      *
      * Delete a webhook
      *
@@ -352,14 +352,14 @@ class WebhookApi
      * @return void
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidDelete($webhook_oid)
+    public function adminV2WebhookWebhooksWebhookOidDelete($webhook_oid)
     {
-        list($response) = $this->webhookWebhooksWebhookOidDeleteWithHttpInfo($webhook_oid);
+        list($response) = $this->adminV2WebhookWebhooksWebhookOidDeleteWithHttpInfo($webhook_oid);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidDeleteWithHttpInfo
+     * Operation adminV2WebhookWebhooksWebhookOidDeleteWithHttpInfo
      *
      * Delete a webhook
      *
@@ -367,14 +367,14 @@ class WebhookApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidDeleteWithHttpInfo($webhook_oid)
+    public function adminV2WebhookWebhooksWebhookOidDeleteWithHttpInfo($webhook_oid)
     {
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidDelete');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling adminV2WebhookWebhooksWebhookOidDelete');
         }
         // parse inputs
-        $resourcePath = "/webhook/webhooks/{webhookOid}";
+        $resourcePath = "/admin/v2/webhook/webhooks/{webhookOid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -421,7 +421,7 @@ class WebhookApi
                 $httpBody,
                 $headerParams,
                 null,
-                '/webhook/webhooks/{webhookOid}'
+                '/admin/v2/webhook/webhooks/{webhookOid}'
             );
 
             return array(null, $statusCode, $httpHeader);
@@ -454,7 +454,7 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidLogsGet
+     * Operation adminV2WebhookWebhooksWebhookOidLogsGet
      *
      * Retrieve the log summaries
      *
@@ -465,14 +465,14 @@ class WebhookApi
      * @return \ultracart\admin\v2\models\WebhookLogSummariesResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit = null, $_offset = null, $_since = null)
+    public function adminV2WebhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit = null, $_offset = null, $_since = null)
     {
-        list($response) = $this->webhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid, $_limit, $_offset, $_since);
+        list($response) = $this->adminV2WebhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid, $_limit, $_offset, $_since);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidLogsGetWithHttpInfo
+     * Operation adminV2WebhookWebhooksWebhookOidLogsGetWithHttpInfo
      *
      * Retrieve the log summaries
      *
@@ -483,14 +483,14 @@ class WebhookApi
      * @return Array of \ultracart\admin\v2\models\WebhookLogSummariesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid, $_limit = null, $_offset = null, $_since = null)
+    public function adminV2WebhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid, $_limit = null, $_offset = null, $_since = null)
     {
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidLogsGet');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling adminV2WebhookWebhooksWebhookOidLogsGet');
         }
         // parse inputs
-        $resourcePath = "/webhook/webhooks/{webhookOid}/logs";
+        $resourcePath = "/admin/v2/webhook/webhooks/{webhookOid}/logs";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -549,7 +549,7 @@ class WebhookApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\WebhookLogSummariesResponse',
-                '/webhook/webhooks/{webhookOid}/logs'
+                '/admin/v2/webhook/webhooks/{webhookOid}/logs'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhookLogSummariesResponse', $httpHeader), $statusCode, $httpHeader);
@@ -586,7 +586,7 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidLogsRequestIdGet
+     * Operation adminV2WebhookWebhooksWebhookOidLogsRequestIdGet
      *
      * Retrieve an individual log
      *
@@ -595,14 +595,14 @@ class WebhookApi
      * @return \ultracart\admin\v2\models\WebhookLogResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id)
+    public function adminV2WebhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id)
     {
-        list($response) = $this->webhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo($webhook_oid, $request_id);
+        list($response) = $this->adminV2WebhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo($webhook_oid, $request_id);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo
+     * Operation adminV2WebhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo
      *
      * Retrieve an individual log
      *
@@ -611,18 +611,18 @@ class WebhookApi
      * @return Array of \ultracart\admin\v2\models\WebhookLogResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo($webhook_oid, $request_id)
+    public function adminV2WebhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo($webhook_oid, $request_id)
     {
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidLogsRequestIdGet');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling adminV2WebhookWebhooksWebhookOidLogsRequestIdGet');
         }
         // verify the required parameter 'request_id' is set
         if ($request_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $request_id when calling webhookWebhooksWebhookOidLogsRequestIdGet');
+            throw new \InvalidArgumentException('Missing the required parameter $request_id when calling adminV2WebhookWebhooksWebhookOidLogsRequestIdGet');
         }
         // parse inputs
-        $resourcePath = "/webhook/webhooks/{webhookOid}/logs/{requestId}";
+        $resourcePath = "/admin/v2/webhook/webhooks/{webhookOid}/logs/{requestId}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -677,7 +677,7 @@ class WebhookApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\WebhookLogResponse',
-                '/webhook/webhooks/{webhookOid}/logs/{requestId}'
+                '/admin/v2/webhook/webhooks/{webhookOid}/logs/{requestId}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhookLogResponse', $httpHeader), $statusCode, $httpHeader);
@@ -714,7 +714,7 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidPut
+     * Operation adminV2WebhookWebhooksWebhookOidPut
      *
      * Update a webhook
      *
@@ -724,14 +724,14 @@ class WebhookApi
      * @return \ultracart\admin\v2\models\WebhookResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders = null)
+    public function adminV2WebhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders = null)
     {
-        list($response) = $this->webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid, $_placeholders);
+        list($response) = $this->adminV2WebhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidPutWithHttpInfo
+     * Operation adminV2WebhookWebhooksWebhookOidPutWithHttpInfo
      *
      * Update a webhook
      *
@@ -741,18 +741,18 @@ class WebhookApi
      * @return Array of \ultracart\admin\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
+    public function adminV2WebhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
     {
         // verify the required parameter 'webhook' is set
         if ($webhook === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook when calling webhookWebhooksWebhookOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook when calling adminV2WebhookWebhooksWebhookOidPut');
         }
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling adminV2WebhookWebhooksWebhookOidPut');
         }
         // parse inputs
-        $resourcePath = "/webhook/webhooks/{webhookOid}";
+        $resourcePath = "/admin/v2/webhook/webhooks/{webhookOid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -808,7 +808,7 @@ class WebhookApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\WebhookResponse',
-                '/webhook/webhooks/{webhookOid}'
+                '/admin/v2/webhook/webhooks/{webhookOid}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhookResponse', $httpHeader), $statusCode, $httpHeader);
@@ -845,7 +845,7 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidReflowEventNamePost
+     * Operation adminV2WebhookWebhooksWebhookOidReflowEventNamePost
      *
      * Resend events to the webhook endpoint.
      *
@@ -854,14 +854,14 @@ class WebhookApi
      * @return \ultracart\admin\v2\models\WebhookSampleRequestResponse
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name)
+    public function adminV2WebhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name)
     {
-        list($response) = $this->webhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo($webhook_oid, $event_name);
+        list($response) = $this->adminV2WebhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo($webhook_oid, $event_name);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo
+     * Operation adminV2WebhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo
      *
      * Resend events to the webhook endpoint.
      *
@@ -870,18 +870,18 @@ class WebhookApi
      * @return Array of \ultracart\admin\v2\models\WebhookSampleRequestResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\admin\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo($webhook_oid, $event_name)
+    public function adminV2WebhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo($webhook_oid, $event_name)
     {
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidReflowEventNamePost');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling adminV2WebhookWebhooksWebhookOidReflowEventNamePost');
         }
         // verify the required parameter 'event_name' is set
         if ($event_name === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $event_name when calling webhookWebhooksWebhookOidReflowEventNamePost');
+            throw new \InvalidArgumentException('Missing the required parameter $event_name when calling adminV2WebhookWebhooksWebhookOidReflowEventNamePost');
         }
         // parse inputs
-        $resourcePath = "/webhook/webhooks/{webhookOid}/reflow/{eventName}";
+        $resourcePath = "/admin/v2/webhook/webhooks/{webhookOid}/reflow/{eventName}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -936,7 +936,7 @@ class WebhookApi
                 $httpBody,
                 $headerParams,
                 '\ultracart\admin\v2\models\WebhookSampleRequestResponse',
-                '/webhook/webhooks/{webhookOid}/reflow/{eventName}'
+                '/admin/v2/webhook/webhooks/{webhookOid}/reflow/{eventName}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\admin\v2\models\WebhookSampleRequestResponse', $httpHeader), $statusCode, $httpHeader);

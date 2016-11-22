@@ -3,20 +3,20 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**other_refunded** | **float** | Other refunded | [optional] 
-**shipping_handling_refunded** | **float** | Shipping/handling refunded | [optional] 
-**shipping_handling_total** | **float** | Shipping/handling total | [optional] 
-**shipping_handling_total_discount** | **float** | Shipping/handling total discount | [optional] 
-**subtotal** | **float** | Subtotal | [optional] 
-**subtotal_discount** | **float** | Subtotal discount | [optional] 
-**subtotal_discount_refunded** | **float** | Subtotal discount refunded | [optional] 
-**subtotal_refunded** | **float** | Subtotal refunded | [optional] 
-**tax** | **float** | Tax | [optional] 
-**tax_refunded** | **float** | Tax refunded | [optional] 
-**taxable_subtotal** | **float** | Taxable subtotal | [optional] 
-**taxable_subtotal_discount** | **float** | Taxable subtotal discount | [optional] 
-**total** | **float** | Total | [optional] 
-**total_refunded** | **float** | Total refunded | [optional] 
+**other_refunded** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**shipping_handling_refunded** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**shipping_handling_total** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**shipping_handling_total_discount** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**subtotal** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**subtotal_discount** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**subtotal_discount_refunded** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**subtotal_refunded** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**tax** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**tax_refunded** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**taxable_subtotal** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**taxable_subtotal_discount** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**total** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
+**total_refunded** | [**\ultracart\admin\v2\models\Currency**](Currency.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
