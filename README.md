@@ -58,6 +58,9 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+ // Note: To create an OAuth token or Simple API Key, login to secure.ultracart.com
+ // and navigate to Home -> Configuration -> Back Office -> Authorized Applications
+ // 
 // Configure OAuth2 access token for authorization: ultraCartOauth
 ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
