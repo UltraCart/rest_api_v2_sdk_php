@@ -4,9 +4,12 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+<<<<<<< HEAD
 [**autoOrderAutoOrdersAutoOrderOidGet**](ItemApi.md#autoOrderAutoOrdersAutoOrderOidGet) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
 [**autoOrderAutoOrdersAutoOrderOidPut**](ItemApi.md#autoOrderAutoOrdersAutoOrderOidPut) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**autoOrderAutoOrdersGet**](ItemApi.md#autoOrderAutoOrdersGet) | **GET** /auto_order/auto_orders | Retrieve auto orders
+=======
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 [**itemItemsGet**](ItemApi.md#itemItemsGet) | **GET** /item/items | Retrieve items
 [**itemItemsMerchantItemOidDelete**](ItemApi.md#itemItemsMerchantItemOidDelete) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 [**itemItemsMerchantItemOidGet**](ItemApi.md#itemItemsMerchantItemOidGet) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
@@ -15,6 +18,7 @@ Method | HTTP request | Description
 [**itemTempMultimediaPost**](ItemApi.md#itemTempMultimediaPost) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
+<<<<<<< HEAD
 # **autoOrderAutoOrdersAutoOrderOidGet**
 > \ultracart\v2\models\AutoOrderResponse autoOrderAutoOrdersAutoOrderOidGet($auto_order_oid, $_expand)
 
@@ -219,6 +223,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+=======
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 # **itemItemsGet**
 > \ultracart\v2\models\ItemsResponse itemItemsGet($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
 

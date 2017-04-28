@@ -5,7 +5,11 @@
  * PHP version 5
  *
  * @category Class
+<<<<<<< HEAD
  * @package  \ultracart\admin\v2\swagger
+=======
+ * @package  ultracart\v2
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +43,11 @@
  * Please update the test case below to test the model.
  */
 
+<<<<<<< HEAD
 namespace \ultracart\admin\v2\swagger;
+=======
+namespace ultracart\v2;
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 
 /**
  * ItemShippingTest Class Doc Comment
@@ -47,7 +55,11 @@ namespace \ultracart\admin\v2\swagger;
  * @category    Class */
 // * @description ItemShipping
 /**
+<<<<<<< HEAD
  * @package     \ultracart\admin\v2\swagger
+=======
+ * @package     ultracart\v2
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -136,9 +148,15 @@ class ItemShippingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
      * Test attribute "country_of_origin"
      */
     public function testPropertyCountryOfOrigin()
+=======
+     * Test attribute "country_code_of_origin"
+     */
+    public function testPropertyCountryCodeOfOrigin()
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
     {
 
     }
@@ -320,6 +338,17 @@ class ItemShippingTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Test attribute "perishable_class_name"
+     */
+    public function testPropertyPerishableClassName()
+    {
+
+    }
+
+    /**
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      * Test attribute "perishable_class_oid"
      */
     public function testPropertyPerishableClassOid()

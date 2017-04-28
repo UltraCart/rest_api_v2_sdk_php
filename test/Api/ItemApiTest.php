@@ -4,7 +4,11 @@
  * PHP version 5
  *
  * @category Class
+<<<<<<< HEAD
  * @package  \ultracart\admin\v2\swagger
+=======
+ * @package  ultracart\v2
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -38,18 +42,31 @@
  * Please update the test case below to test the endpoint.
  */
 
+<<<<<<< HEAD
 namespace \ultracart\admin\v2\swagger;
 
 use \\ultracart\admin\v2\swagger\Configuration;
 use \\ultracart\admin\v2\swagger\ApiClient;
 use \\ultracart\admin\v2\swagger\ApiException;
 use \\ultracart\admin\v2\swagger\ObjectSerializer;
+=======
+namespace ultracart\v2;
+
+use \ultracart\v2\Configuration;
+use \ultracart\v2\ApiClient;
+use \ultracart\v2\ApiException;
+use \ultracart\v2\ObjectSerializer;
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 
 /**
  * ItemApiTest Class Doc Comment
  *
  * @category Class
+<<<<<<< HEAD
  * @package  \ultracart\admin\v2\swagger
+=======
+ * @package  ultracart\v2
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen

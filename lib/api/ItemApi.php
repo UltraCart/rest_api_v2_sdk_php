@@ -103,6 +103,7 @@ class ItemApi
     }
 
     /**
+<<<<<<< HEAD
      * Operation autoOrderAutoOrdersAutoOrderOidGet
      *
      * Retrieve an auto order
@@ -586,6 +587,8 @@ class ItemApi
     }
 
     /**
+=======
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      * Operation itemItemsGet
      *
      * Retrieve items

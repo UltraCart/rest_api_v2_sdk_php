@@ -5,16 +5,31 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**checkoutBrowserKeyPut**](CheckoutApi.md#checkoutBrowserKeyPut) | **PUT** /checkout/browser_key | Setup Browser Application
+<<<<<<< HEAD
 [**checkoutCartCartIdGet**](CheckoutApi.md#checkoutCartCartIdGet) | **GET** /checkout/cart/{cart_id} | Get a cart
 [**checkoutCartFinalizeOrderPost**](CheckoutApi.md#checkoutCartFinalizeOrderPost) | **POST** /checkout/cart/finalizeOrder | Finalize Order
 [**checkoutCartGet**](CheckoutApi.md#checkoutCartGet) | **GET** /checkout/cart | Create a new cart
+=======
+[**checkoutCartCartIdGet**](CheckoutApi.md#checkoutCartCartIdGet) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
+[**checkoutCartFinalizeOrderPost**](CheckoutApi.md#checkoutCartFinalizeOrderPost) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+[**checkoutCartGet**](CheckoutApi.md#checkoutCartGet) | **GET** /checkout/cart | Get cart
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 [**checkoutCartHandoffPost**](CheckoutApi.md#checkoutCartHandoffPost) | **POST** /checkout/cart/handoff | Handoff cart
 [**checkoutCartProfileLoginPost**](CheckoutApi.md#checkoutCartProfileLoginPost) | **POST** /checkout/cart/profile/login | Profile login
 [**checkoutCartProfileLogoutPost**](CheckoutApi.md#checkoutCartProfileLogoutPost) | **POST** /checkout/cart/profile/logout | Profile logout
 [**checkoutCartProfileRegisterPost**](CheckoutApi.md#checkoutCartProfileRegisterPost) | **POST** /checkout/cart/profile/register | Profile registration
+<<<<<<< HEAD
 [**checkoutCartPut**](CheckoutApi.md#checkoutCartPut) | **PUT** /checkout/cart | Update cart (by cookie)
 [**checkoutCartValidatePost**](CheckoutApi.md#checkoutCartValidatePost) | **POST** /checkout/cart/validate | Validate
 [**checkoutReturnReturnCodeGet**](CheckoutApi.md#checkoutReturnReturnCodeGet) | **GET** /checkout/return/{return_code} | Get a cart by return code
+=======
+[**checkoutCartPut**](CheckoutApi.md#checkoutCartPut) | **PUT** /checkout/cart | Update cart
+[**checkoutCartValidatePost**](CheckoutApi.md#checkoutCartValidatePost) | **POST** /checkout/cart/validate | Validate
+[**checkoutCityStatePost**](CheckoutApi.md#checkoutCityStatePost) | **POST** /checkout/city_state | City/State for Zip
+[**checkoutRelatedItemsItemIdPost**](CheckoutApi.md#checkoutRelatedItemsItemIdPost) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
+[**checkoutRelatedItemsPost**](CheckoutApi.md#checkoutRelatedItemsPost) | **POST** /checkout/related_items | Related items
+[**checkoutReturnReturnCodeGet**](CheckoutApi.md#checkoutReturnReturnCodeGet) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 
 
 # **checkoutBrowserKeyPut**
@@ -72,7 +87,11 @@ Name | Type | Description  | Notes
 # **checkoutCartCartIdGet**
 > \ultracart\v2\models\CartResponse checkoutCartCartIdGet($cart_id, $_expand)
 
+<<<<<<< HEAD
 Get a cart
+=======
+Get cart (by cart id)
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 
 Get a cart specified by the cart_id parameter.
 
@@ -182,9 +201,15 @@ Name | Type | Description  | Notes
 # **checkoutCartGet**
 > \ultracart\v2\models\CartResponse checkoutCartGet($_expand)
 
+<<<<<<< HEAD
 Create a new cart
 
 Create a new shopping cart session.  If the cookie is set on the browser making the request then it will return their active cart.
+=======
+Get cart
+
+If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart.
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 
 ### Example
 ```php
@@ -470,9 +495,15 @@ Name | Type | Description  | Notes
 # **checkoutCartPut**
 > \ultracart\v2\models\CartResponse checkoutCartPut($cart, $_expand)
 
+<<<<<<< HEAD
 Update cart (by cookie)
 
 Update the cart by cookie
+=======
+Update cart
+
+Update the cart.
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 
 ### Example
 ```php
@@ -583,10 +614,191 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+<<<<<<< HEAD
 # **checkoutReturnReturnCodeGet**
 > \ultracart\v2\models\CartResponse checkoutReturnReturnCodeGet($return_code, $_expand)
 
 Get a cart by return code
+=======
+# **checkoutCityStatePost**
+> \ultracart\v2\models\ItemsResponse checkoutCityStatePost($cart)
+
+City/State for Zip
+
+Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+
+try {
+    $result = $api_instance->checkoutCityStatePost($cart);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutApi->checkoutCityStatePost: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+
+### Return type
+
+[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **checkoutRelatedItemsItemIdPost**
+> \ultracart\v2\models\ItemsResponse checkoutRelatedItemsItemIdPost($item_id, $cart, $_expand)
+
+Related items (specific item)
+
+Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$item_id = "item_id_example"; // string | Item ID to retrieve related items for
+$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
+
+try {
+    $result = $api_instance->checkoutRelatedItemsItemIdPost($item_id, $cart, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutApi->checkoutRelatedItemsItemIdPost: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **item_id** | **string**| Item ID to retrieve related items for |
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+ **_expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **checkoutRelatedItemsPost**
+> \ultracart\v2\models\ItemsResponse checkoutRelatedItemsPost($cart, $_expand)
+
+Related items
+
+Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
+
+try {
+    $result = $api_instance->checkoutRelatedItemsPost($cart, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutApi->checkoutRelatedItemsPost: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+ **_expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **checkoutReturnReturnCodeGet**
+> \ultracart\v2\models\CartResponse checkoutReturnReturnCodeGet($return_code, $_expand)
+
+Get cart (by return code)
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 
 Get a cart specified by the return code parameter.
 

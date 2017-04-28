@@ -13,7 +13,11 @@ Name | Type | Description | Notes
 **creation_dts** | **string** | Date/time that the order was created | [optional] 
 **currency_code** | **string** | Currency code that the customer used if different than the merchant&#39;s base currency code | [optional] 
 **current_stage** | **string** | Current stage that the order is in. | [optional] 
+<<<<<<< HEAD
 **customer_profile** | [**\ultracart\v2\models\CustomerProfile**](CustomerProfile.md) |  | [optional] 
+=======
+**customer_profile** | [**\ultracart\v2\models\Customer**](Customer.md) |  | [optional] 
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 **digital_order** | [**\ultracart\v2\models\OrderDigitalOrder**](OrderDigitalOrder.md) |  | [optional] 
 **edi** | [**\ultracart\v2\models\OrderEdi**](OrderEdi.md) |  | [optional] 
 **exchange_rate** | **float** | Exchange rate at the time the order was placed if currency code is different than the base currency | [optional] 

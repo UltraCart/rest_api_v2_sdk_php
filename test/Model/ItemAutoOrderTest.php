@@ -5,7 +5,11 @@
  * PHP version 5
  *
  * @category Class
+<<<<<<< HEAD
  * @package  \ultracart\admin\v2\swagger
+=======
+ * @package  ultracart\v2
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
  * @author   http://github.com/swagger-api/swagger-codegen
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -39,7 +43,11 @@
  * Please update the test case below to test the model.
  */
 
+<<<<<<< HEAD
 namespace \ultracart\admin\v2\swagger;
+=======
+namespace ultracart\v2;
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
 
 /**
  * ItemAutoOrderTest Class Doc Comment
@@ -47,7 +55,11 @@ namespace \ultracart\admin\v2\swagger;
  * @category    Class */
 // * @description ItemAutoOrder
 /**
+<<<<<<< HEAD
  * @package     \ultracart\admin\v2\swagger
+=======
+ * @package     ultracart\v2
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
  * @author      http://github.com/swagger-api/swagger-codegen
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -112,6 +124,17 @@ class ItemAutoOrderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Test attribute "auto_order_cancel_item_id"
+     */
+    public function testPropertyAutoOrderCancelItemId()
+    {
+
+    }
+
+    /**
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      * Test attribute "auto_order_cancel_item_oid"
      */
     public function testPropertyAutoOrderCancelItemOid()
@@ -160,6 +183,7 @@ class ItemAutoOrderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
      * Test attribute "auto_order_upsell_delay"
      */
     public function testPropertyAutoOrderUpsellDelay()
@@ -176,6 +200,8 @@ class ItemAutoOrderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+=======
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      * Test attribute "auto_order_upsell_no_easy_cancel"
      */
     public function testPropertyAutoOrderUpsellNoEasyCancel()
@@ -192,6 +218,7 @@ class ItemAutoOrderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+<<<<<<< HEAD
      * Test attribute "auto_order_upsell_repeat_count"
      */
     public function testPropertyAutoOrderUpsellRepeatCount()
@@ -208,6 +235,8 @@ class ItemAutoOrderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+=======
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      * Test attribute "auto_orderable"
      */
     public function testPropertyAutoOrderable()

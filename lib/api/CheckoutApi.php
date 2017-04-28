@@ -216,7 +216,11 @@ class CheckoutApi
     /**
      * Operation checkoutCartCartIdGet
      *
+<<<<<<< HEAD
      * Get a cart
+=======
+     * Get cart (by cart id)
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      *
      * @param string $cart_id Cart ID to retrieve (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -232,7 +236,11 @@ class CheckoutApi
     /**
      * Operation checkoutCartCartIdGetWithHttpInfo
      *
+<<<<<<< HEAD
      * Get a cart
+=======
+     * Get cart (by cart id)
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      *
      * @param string $cart_id Cart ID to retrieve (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -452,7 +460,11 @@ class CheckoutApi
     /**
      * Operation checkoutCartGet
      *
+<<<<<<< HEAD
      * Create a new cart
+=======
+     * Get cart
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      *
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return \ultracart\v2\models\CartResponse
@@ -467,7 +479,11 @@ class CheckoutApi
     /**
      * Operation checkoutCartGetWithHttpInfo
      *
+<<<<<<< HEAD
      * Create a new cart
+=======
+     * Get cart
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      *
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return Array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
@@ -1051,7 +1067,11 @@ class CheckoutApi
     /**
      * Operation checkoutCartPut
      *
+<<<<<<< HEAD
      * Update cart (by cookie)
+=======
+     * Update cart
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      *
      * @param \ultracart\v2\models\Cart $cart Cart (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1067,7 +1087,11 @@ class CheckoutApi
     /**
      * Operation checkoutCartPutWithHttpInfo
      *
+<<<<<<< HEAD
      * Update cart (by cookie)
+=======
+     * Update cart
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      *
      * @param \ultracart\v2\models\Cart $cart Cart (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1293,9 +1317,389 @@ class CheckoutApi
     }
 
     /**
+<<<<<<< HEAD
      * Operation checkoutReturnReturnCodeGet
      *
      * Get a cart by return code
+=======
+     * Operation checkoutCityStatePost
+     *
+     * City/State for Zip
+     *
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
+     * @return \ultracart\v2\models\ItemsResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function checkoutCityStatePost($cart)
+    {
+        list($response) = $this->checkoutCityStatePostWithHttpInfo($cart);
+        return $response;
+    }
+
+    /**
+     * Operation checkoutCityStatePostWithHttpInfo
+     *
+     * City/State for Zip
+     *
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
+     * @return Array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function checkoutCityStatePostWithHttpInfo($cart)
+    {
+        // verify the required parameter 'cart' is set
+        if ($cart === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cart when calling checkoutCityStatePost');
+        }
+        // parse inputs
+        $resourcePath = "/checkout/city_state";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($cart)) {
+            $_tempBody = $cart;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\ItemsResponse',
+                '/checkout/city_state'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ItemsResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ItemsResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation checkoutRelatedItemsItemIdPost
+     *
+     * Related items (specific item)
+     *
+     * @param string $item_id Item ID to retrieve related items for (required)
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
+     * @param string $_expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
+     * @return \ultracart\v2\models\ItemsResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function checkoutRelatedItemsItemIdPost($item_id, $cart, $_expand = null)
+    {
+        list($response) = $this->checkoutRelatedItemsItemIdPostWithHttpInfo($item_id, $cart, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation checkoutRelatedItemsItemIdPostWithHttpInfo
+     *
+     * Related items (specific item)
+     *
+     * @param string $item_id Item ID to retrieve related items for (required)
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
+     * @param string $_expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
+     * @return Array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function checkoutRelatedItemsItemIdPostWithHttpInfo($item_id, $cart, $_expand = null)
+    {
+        // verify the required parameter 'item_id' is set
+        if ($item_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item_id when calling checkoutRelatedItemsItemIdPost');
+        }
+        // verify the required parameter 'cart' is set
+        if ($cart === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cart when calling checkoutRelatedItemsItemIdPost');
+        }
+        // parse inputs
+        $resourcePath = "/checkout/relatedItems/{item_id}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // path params
+        if ($item_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "item_id" . "}",
+                $this->apiClient->getSerializer()->toPathValue($item_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($cart)) {
+            $_tempBody = $cart;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\ItemsResponse',
+                '/checkout/relatedItems/{item_id}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ItemsResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ItemsResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation checkoutRelatedItemsPost
+     *
+     * Related items
+     *
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
+     * @param string $_expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
+     * @return \ultracart\v2\models\ItemsResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function checkoutRelatedItemsPost($cart, $_expand = null)
+    {
+        list($response) = $this->checkoutRelatedItemsPostWithHttpInfo($cart, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation checkoutRelatedItemsPostWithHttpInfo
+     *
+     * Related items
+     *
+     * @param \ultracart\v2\models\Cart $cart Cart (required)
+     * @param string $_expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
+     * @return Array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function checkoutRelatedItemsPostWithHttpInfo($cart, $_expand = null)
+    {
+        // verify the required parameter 'cart' is set
+        if ($cart === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $cart when calling checkoutRelatedItemsPost');
+        }
+        // parse inputs
+        $resourcePath = "/checkout/related_items";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($cart)) {
+            $_tempBody = $cart;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\ItemsResponse',
+                '/checkout/related_items'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ItemsResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ItemsResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation checkoutReturnReturnCodeGet
+     *
+     * Get cart (by return code)
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      *
      * @param string $return_code Return code to lookup cart ID by (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -1311,7 +1715,11 @@ class CheckoutApi
     /**
      * Operation checkoutReturnReturnCodeGetWithHttpInfo
      *
+<<<<<<< HEAD
      * Get a cart by return code
+=======
+     * Get cart (by return code)
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      *
      * @param string $return_code Return code to lookup cart ID by (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)

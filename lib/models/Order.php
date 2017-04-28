@@ -76,7 +76,11 @@ class Order implements ArrayAccess
         'creation_dts' => 'string',
         'currency_code' => 'string',
         'current_stage' => 'string',
+<<<<<<< HEAD
         'customer_profile' => '\ultracart\v2\models\CustomerProfile',
+=======
+        'customer_profile' => '\ultracart\v2\models\Customer',
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
         'digital_order' => '\ultracart\v2\models\OrderDigitalOrder',
         'edi' => '\ultracart\v2\models\OrderEdi',
         'exchange_rate' => 'float',
@@ -580,7 +584,11 @@ class Order implements ArrayAccess
 
     /**
      * Gets customer_profile
+<<<<<<< HEAD
      * @return \ultracart\v2\models\CustomerProfile
+=======
+     * @return \ultracart\v2\models\Customer
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      */
     public function getCustomerProfile()
     {
@@ -589,7 +597,11 @@ class Order implements ArrayAccess
 
     /**
      * Sets customer_profile
+<<<<<<< HEAD
      * @param \ultracart\v2\models\CustomerProfile $customer_profile
+=======
+     * @param \ultracart\v2\models\Customer $customer_profile
+>>>>>>> a975836eb01884ac9a888561078a58cf3ff2659c
      * @return $this
      */
     public function setCustomerProfile($customer_profile)
