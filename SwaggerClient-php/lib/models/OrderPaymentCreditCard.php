@@ -155,6 +155,7 @@ class OrderPaymentCreditCard implements ArrayAccess
     const CARD_TYPE_JCB = 'JCB';
     const CARD_TYPE_MASTER_CARD = 'MasterCard';
     const CARD_TYPE_VISA = 'VISA';
+    const CARD_TYPE_VISA = 'Visa';
     
 
     
@@ -170,6 +171,7 @@ class OrderPaymentCreditCard implements ArrayAccess
             self::CARD_TYPE_DISCOVER,
             self::CARD_TYPE_JCB,
             self::CARD_TYPE_MASTER_CARD,
+            self::CARD_TYPE_VISA,
             self::CARD_TYPE_VISA,
         ];
     }
@@ -207,7 +209,7 @@ class OrderPaymentCreditCard implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("AMEX", "Diners Club", "Discover", "JCB", "MasterCard", "VISA");
+        $allowed_values = array("AMEX", "Diners Club", "Discover", "JCB", "MasterCard", "VISA", "Visa");
         if (!in_array($this->container['card_type'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'card_type', must be one of #{allowed_values}.";
         }
@@ -223,7 +225,7 @@ class OrderPaymentCreditCard implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("AMEX", "Diners Club", "Discover", "JCB", "MasterCard", "VISA");
+        $allowed_values = array("AMEX", "Diners Club", "Discover", "JCB", "MasterCard", "VISA", "Visa");
         if (!in_array($this->container['card_type'], $allowed_values)) {
             return false;
         }
@@ -436,9 +438,9 @@ class OrderPaymentCreditCard implements ArrayAccess
      */
     public function setCardType($card_type)
     {
-        $allowed_values = array('AMEX', 'Diners Club', 'Discover', 'JCB', 'MasterCard', 'VISA');
+        $allowed_values = array('AMEX', 'Diners Club', 'Discover', 'JCB', 'MasterCard', 'VISA', 'Visa');
         if (!in_array($card_type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'card_type', must be one of 'AMEX', 'Diners Club', 'Discover', 'JCB', 'MasterCard', 'VISA'");
+            throw new \InvalidArgumentException("Invalid value for 'card_type', must be one of 'AMEX', 'Diners Club', 'Discover', 'JCB', 'MasterCard', 'VISA', 'Visa'");
         }
         $this->container['card_type'] = $card_type;
 

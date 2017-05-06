@@ -739,12 +739,13 @@ class OrderApi
      *
      * @param \ultracart\v2\models\Order $order Order to update (required)
      * @param string $order_id The order id to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return \ultracart\v2\models\OrderResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function orderOrdersOrderIdPut($order, $order_id)
+    public function orderOrdersOrderIdPut($order, $order_id, $_expand = null)
     {
-        list($response) = $this->orderOrdersOrderIdPutWithHttpInfo($order, $order_id);
+        list($response) = $this->orderOrdersOrderIdPutWithHttpInfo($order, $order_id, $_expand);
         return $response;
     }
 
@@ -755,10 +756,11 @@ class OrderApi
      *
      * @param \ultracart\v2\models\Order $order Order to update (required)
      * @param string $order_id The order id to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return Array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function orderOrdersOrderIdPutWithHttpInfo($order, $order_id)
+    public function orderOrdersOrderIdPutWithHttpInfo($order, $order_id, $_expand = null)
     {
         // verify the required parameter 'order' is set
         if ($order === null) {
@@ -780,6 +782,10 @@ class OrderApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
         // path params
         if ($order_id !== null) {
             $resourcePath = str_replace(

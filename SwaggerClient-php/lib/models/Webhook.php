@@ -173,7 +173,7 @@ class Webhook implements ArrayAccess
         return self::$getters;
     }
 
-    const API_VERSION__01 = '2016-10-01';
+    const API_VERSION__01 = '2017-03-01';
     const AUTHENTICATION_TYPE_NONE = 'none';
     const AUTHENTICATION_TYPE_BASIC = 'basic';
     
@@ -241,7 +241,7 @@ class Webhook implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("2016-10-01");
+        $allowed_values = array("2017-03-01");
         if (!in_array($this->container['api_version'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'api_version', must be one of #{allowed_values}.";
         }
@@ -262,7 +262,7 @@ class Webhook implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("2016-10-01");
+        $allowed_values = array("2017-03-01");
         if (!in_array($this->container['api_version'], $allowed_values)) {
             return false;
         }
@@ -311,9 +311,9 @@ class Webhook implements ArrayAccess
      */
     public function setApiVersion($api_version)
     {
-        $allowed_values = array('2016-10-01');
+        $allowed_values = array('2017-03-01');
         if (!in_array($api_version, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'api_version', must be one of '2016-10-01'");
+            throw new \InvalidArgumentException("Invalid value for 'api_version', must be one of '2017-03-01'");
         }
         $this->container['api_version'] = $api_version;
 

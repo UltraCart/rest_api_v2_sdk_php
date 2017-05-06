@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerApi
+ * ChargebackApi
  * PHP version 5
  *
  * @category Class
@@ -46,7 +46,7 @@ use \ultracart\v2\ApiException;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomerApi Class Doc Comment
+ * ChargebackApi Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -54,7 +54,7 @@ use \ultracart\v2\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache Licene v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerApi
+class ChargebackApi
 {
 
     /**
@@ -94,7 +94,7 @@ class CustomerApi
      *
      * @param \ultracart\v2\ApiClient $apiClient set the API client
      *
-     * @return CustomerApi
+     * @return ChargebackApi
      */
     public function setApiClient(\ultracart\v2\ApiClient $apiClient)
     {
@@ -103,37 +103,37 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidDelete
+     * Operation chargebackChargebacksChargebackDisputeOidDelete
      *
-     * Delete a customer
+     * Delete a chargeback
      *
-     * @param int $customer_profile_oid The customer_profile_oid to delete. (required)
-     * @return \ultracart\v2\models\CustomerResponse
+     * @param int $chargeback_dispute_oid The chargeback_dispute_oid to delete. (required)
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidDelete($customer_profile_oid)
+    public function chargebackChargebacksChargebackDisputeOidDelete($chargeback_dispute_oid)
     {
-        list($response) = $this->customerCustomersCustomerProfileOidDeleteWithHttpInfo($customer_profile_oid);
+        list($response) = $this->chargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo($chargeback_dispute_oid);
         return $response;
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidDeleteWithHttpInfo
+     * Operation chargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo
      *
-     * Delete a customer
+     * Delete a chargeback
      *
-     * @param int $customer_profile_oid The customer_profile_oid to delete. (required)
-     * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @param int $chargeback_dispute_oid The chargeback_dispute_oid to delete. (required)
+     * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidDeleteWithHttpInfo($customer_profile_oid)
+    public function chargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo($chargeback_dispute_oid)
     {
-        // verify the required parameter 'customer_profile_oid' is set
-        if ($customer_profile_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling customerCustomersCustomerProfileOidDelete');
+        // verify the required parameter 'chargeback_dispute_oid' is set
+        if ($chargeback_dispute_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling chargebackChargebacksChargebackDisputeOidDelete');
         }
         // parse inputs
-        $resourcePath = "/customer/customers/{customer_profile_oid}";
+        $resourcePath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -145,10 +145,10 @@ class CustomerApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // path params
-        if ($customer_profile_oid !== null) {
+        if ($chargeback_dispute_oid !== null) {
             $resourcePath = str_replace(
-                "{" . "customer_profile_oid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($customer_profile_oid),
+                "{" . "chargeback_dispute_oid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($chargeback_dispute_oid),
                 $resourcePath
             );
         }
@@ -179,15 +179,15 @@ class CustomerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\CustomerResponse',
-                '/customer/customers/{customer_profile_oid}'
+                '\ultracart\v2\models\ChargebackDisputeResponse',
+                '/chargeback/chargebacks/{chargeback_dispute_oid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CustomerResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ChargebackDisputeResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CustomerResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ChargebackDisputeResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -217,39 +217,39 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidGet
+     * Operation chargebackChargebacksChargebackDisputeOidGet
      *
-     * Retrieve a customer
+     * Retrieve a chargeback
      *
-     * @param int $customer_profile_oid The customer oid to retrieve. (required)
+     * @param int $chargeback_dispute_oid The chargeback dispute oid to retrieve. (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\v2\models\CustomerResponse
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidGet($customer_profile_oid, $_expand = null)
+    public function chargebackChargebacksChargebackDisputeOidGet($chargeback_dispute_oid, $_expand = null)
     {
-        list($response) = $this->customerCustomersCustomerProfileOidGetWithHttpInfo($customer_profile_oid, $_expand);
+        list($response) = $this->chargebackChargebacksChargebackDisputeOidGetWithHttpInfo($chargeback_dispute_oid, $_expand);
         return $response;
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidGetWithHttpInfo
+     * Operation chargebackChargebacksChargebackDisputeOidGetWithHttpInfo
      *
-     * Retrieve a customer
+     * Retrieve a chargeback
      *
-     * @param int $customer_profile_oid The customer oid to retrieve. (required)
+     * @param int $chargeback_dispute_oid The chargeback dispute oid to retrieve. (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidGetWithHttpInfo($customer_profile_oid, $_expand = null)
+    public function chargebackChargebacksChargebackDisputeOidGetWithHttpInfo($chargeback_dispute_oid, $_expand = null)
     {
-        // verify the required parameter 'customer_profile_oid' is set
-        if ($customer_profile_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling customerCustomersCustomerProfileOidGet');
+        // verify the required parameter 'chargeback_dispute_oid' is set
+        if ($chargeback_dispute_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling chargebackChargebacksChargebackDisputeOidGet');
         }
         // parse inputs
-        $resourcePath = "/customer/customers/{customer_profile_oid}";
+        $resourcePath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -265,10 +265,10 @@ class CustomerApi
             $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
         }
         // path params
-        if ($customer_profile_oid !== null) {
+        if ($chargeback_dispute_oid !== null) {
             $resourcePath = str_replace(
-                "{" . "customer_profile_oid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($customer_profile_oid),
+                "{" . "chargeback_dispute_oid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($chargeback_dispute_oid),
                 $resourcePath
             );
         }
@@ -299,15 +299,15 @@ class CustomerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\CustomerResponse',
-                '/customer/customers/{customer_profile_oid}'
+                '\ultracart\v2\models\ChargebackDisputeResponse',
+                '/chargeback/chargebacks/{chargeback_dispute_oid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CustomerResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ChargebackDisputeResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CustomerResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ChargebackDisputeResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -337,43 +337,43 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidPut
+     * Operation chargebackChargebacksChargebackDisputeOidPut
      *
-     * Update a customer
+     * Update a chargeback
      *
-     * @param \ultracart\v2\models\Customer $customer Customer to update (required)
-     * @param int $customer_profile_oid The customer_profile_oid to update. (required)
-     * @return \ultracart\v2\models\CustomerResponse
+     * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid)
+    public function chargebackChargebacksChargebackDisputeOidPut($chargeback, $chargeback_dispute_oid)
     {
-        list($response) = $this->customerCustomersCustomerProfileOidPutWithHttpInfo($customer, $customer_profile_oid);
+        list($response) = $this->chargebackChargebacksChargebackDisputeOidPutWithHttpInfo($chargeback, $chargeback_dispute_oid);
         return $response;
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidPutWithHttpInfo
+     * Operation chargebackChargebacksChargebackDisputeOidPutWithHttpInfo
      *
-     * Update a customer
+     * Update a chargeback
      *
-     * @param \ultracart\v2\models\Customer $customer Customer to update (required)
-     * @param int $customer_profile_oid The customer_profile_oid to update. (required)
-     * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
+     * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidPutWithHttpInfo($customer, $customer_profile_oid)
+    public function chargebackChargebacksChargebackDisputeOidPutWithHttpInfo($chargeback, $chargeback_dispute_oid)
     {
-        // verify the required parameter 'customer' is set
-        if ($customer === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer when calling customerCustomersCustomerProfileOidPut');
+        // verify the required parameter 'chargeback' is set
+        if ($chargeback === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback when calling chargebackChargebacksChargebackDisputeOidPut');
         }
-        // verify the required parameter 'customer_profile_oid' is set
-        if ($customer_profile_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling customerCustomersCustomerProfileOidPut');
+        // verify the required parameter 'chargeback_dispute_oid' is set
+        if ($chargeback_dispute_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling chargebackChargebacksChargebackDisputeOidPut');
         }
         // parse inputs
-        $resourcePath = "/customer/customers/{customer_profile_oid}";
+        $resourcePath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -385,10 +385,10 @@ class CustomerApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // path params
-        if ($customer_profile_oid !== null) {
+        if ($chargeback_dispute_oid !== null) {
             $resourcePath = str_replace(
-                "{" . "customer_profile_oid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($customer_profile_oid),
+                "{" . "chargeback_dispute_oid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($chargeback_dispute_oid),
                 $resourcePath
             );
         }
@@ -397,8 +397,8 @@ class CustomerApi
 
         // body params
         $_tempBody = null;
-        if (isset($customer)) {
-            $_tempBody = $customer;
+        if (isset($chargeback)) {
+            $_tempBody = $chargeback;
         }
 
         // for model (json/xml)
@@ -424,15 +424,15 @@ class CustomerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\CustomerResponse',
-                '/customer/customers/{customer_profile_oid}'
+                '\ultracart\v2\models\ChargebackDisputeResponse',
+                '/chargeback/chargebacks/{chargeback_dispute_oid}'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CustomerResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ChargebackDisputeResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CustomerResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ChargebackDisputeResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -462,95 +462,55 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersGet
+     * Operation chargebackChargebacksGet
      *
-     * Retrieve customers
+     * Retrieve chargebacks
      *
-     * @param string $email Email (optional)
-     * @param string $qb_class Quickbooks class (optional)
-     * @param string $quickbooks_code Quickbooks code (optional)
-     * @param string $last_modified_dts_start Last modified date start (optional)
-     * @param string $last_modified_dts_end Last modified date end (optional)
-     * @param string $signup_dts_start Signup date start (optional)
-     * @param string $signup_dts_end Signup date end (optional)
-     * @param string $billing_first_name Billing first name (optional)
-     * @param string $billing_last_name Billing last name (optional)
-     * @param string $billing_company Billing company (optional)
-     * @param string $billing_city Billing city (optional)
-     * @param string $billing_state Billing state (optional)
-     * @param string $billing_postal_code Billing postal code (optional)
-     * @param string $billing_country_code Billing country code (optional)
-     * @param string $billing_day_phone Billing day phone (optional)
-     * @param string $billing_evening_phone Billing evening phone (optional)
-     * @param string $shipping_first_name Shipping first name (optional)
-     * @param string $shipping_last_name Shipping last name (optional)
-     * @param string $shipping_company Shipping company (optional)
-     * @param string $shipping_city Shipping city (optional)
-     * @param string $shipping_state Shipping state (optional)
-     * @param string $shipping_postal_code Shipping postal code (optional)
-     * @param string $shipping_country_code Shipping country code (optional)
-     * @param string $shipping_day_phone Shipping day phone (optional)
-     * @param string $shipping_evening_phone Shipping evening phone (optional)
-     * @param int $pricing_tier_oid Pricing tier oid (optional)
-     * @param string $pricing_tier_name Pricing tier name (optional)
+     * @param string $order_id Order Id (optional)
+     * @param string $case_number Case number (optional)
+     * @param string $status Status (optional)
+     * @param string $expiration_dts_start Expiration dts start (optional)
+     * @param string $expiration_dts_end Expiration dts end (optional)
+     * @param string $chargeback_dts_start Chargeback dts start (optional)
+     * @param string $chargeback_dts_end Chargeback dts end (optional)
      * @param int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param string $_since Fetch customers that have been created/modified since this date/time. (optional)
-     * @param string $_sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param string $_since Fetch chargebacks that have been created/modified since this date/time. (optional)
+     * @param string $_sort The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\v2\models\CustomersResponse
+     * @return \ultracart\v2\models\ChargebackDisputesResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersGet($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function chargebackChargebacksGet($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->customerCustomersGetWithHttpInfo($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
+        list($response) = $this->chargebackChargebacksGetWithHttpInfo($order_id, $case_number, $status, $expiration_dts_start, $expiration_dts_end, $chargeback_dts_start, $chargeback_dts_end, $_limit, $_offset, $_since, $_sort, $_expand);
         return $response;
     }
 
     /**
-     * Operation customerCustomersGetWithHttpInfo
+     * Operation chargebackChargebacksGetWithHttpInfo
      *
-     * Retrieve customers
+     * Retrieve chargebacks
      *
-     * @param string $email Email (optional)
-     * @param string $qb_class Quickbooks class (optional)
-     * @param string $quickbooks_code Quickbooks code (optional)
-     * @param string $last_modified_dts_start Last modified date start (optional)
-     * @param string $last_modified_dts_end Last modified date end (optional)
-     * @param string $signup_dts_start Signup date start (optional)
-     * @param string $signup_dts_end Signup date end (optional)
-     * @param string $billing_first_name Billing first name (optional)
-     * @param string $billing_last_name Billing last name (optional)
-     * @param string $billing_company Billing company (optional)
-     * @param string $billing_city Billing city (optional)
-     * @param string $billing_state Billing state (optional)
-     * @param string $billing_postal_code Billing postal code (optional)
-     * @param string $billing_country_code Billing country code (optional)
-     * @param string $billing_day_phone Billing day phone (optional)
-     * @param string $billing_evening_phone Billing evening phone (optional)
-     * @param string $shipping_first_name Shipping first name (optional)
-     * @param string $shipping_last_name Shipping last name (optional)
-     * @param string $shipping_company Shipping company (optional)
-     * @param string $shipping_city Shipping city (optional)
-     * @param string $shipping_state Shipping state (optional)
-     * @param string $shipping_postal_code Shipping postal code (optional)
-     * @param string $shipping_country_code Shipping country code (optional)
-     * @param string $shipping_day_phone Shipping day phone (optional)
-     * @param string $shipping_evening_phone Shipping evening phone (optional)
-     * @param int $pricing_tier_oid Pricing tier oid (optional)
-     * @param string $pricing_tier_name Pricing tier name (optional)
+     * @param string $order_id Order Id (optional)
+     * @param string $case_number Case number (optional)
+     * @param string $status Status (optional)
+     * @param string $expiration_dts_start Expiration dts start (optional)
+     * @param string $expiration_dts_end Expiration dts end (optional)
+     * @param string $chargeback_dts_start Chargeback dts start (optional)
+     * @param string $chargeback_dts_end Chargeback dts end (optional)
      * @param int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param string $_since Fetch customers that have been created/modified since this date/time. (optional)
-     * @param string $_sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param string $_since Fetch chargebacks that have been created/modified since this date/time. (optional)
+     * @param string $_sort The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\v2\models\CustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \ultracart\v2\models\ChargebackDisputesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersGetWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function chargebackChargebacksGetWithHttpInfo($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
         // parse inputs
-        $resourcePath = "/customer/customers";
+        $resourcePath = "/chargeback/chargebacks";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -562,112 +522,32 @@ class CustomerApi
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
 
         // query params
-        if ($email !== null) {
-            $queryParams['email'] = $this->apiClient->getSerializer()->toQueryValue($email);
+        if ($order_id !== null) {
+            $queryParams['order_id'] = $this->apiClient->getSerializer()->toQueryValue($order_id);
         }
         // query params
-        if ($qb_class !== null) {
-            $queryParams['qb_class'] = $this->apiClient->getSerializer()->toQueryValue($qb_class);
+        if ($case_number !== null) {
+            $queryParams['case_number'] = $this->apiClient->getSerializer()->toQueryValue($case_number);
         }
         // query params
-        if ($quickbooks_code !== null) {
-            $queryParams['quickbooks_code'] = $this->apiClient->getSerializer()->toQueryValue($quickbooks_code);
+        if ($status !== null) {
+            $queryParams['status'] = $this->apiClient->getSerializer()->toQueryValue($status);
         }
         // query params
-        if ($last_modified_dts_start !== null) {
-            $queryParams['last_modified_dts_start'] = $this->apiClient->getSerializer()->toQueryValue($last_modified_dts_start);
+        if ($expiration_dts_start !== null) {
+            $queryParams['expiration_dts_start'] = $this->apiClient->getSerializer()->toQueryValue($expiration_dts_start);
         }
         // query params
-        if ($last_modified_dts_end !== null) {
-            $queryParams['last_modified_dts_end'] = $this->apiClient->getSerializer()->toQueryValue($last_modified_dts_end);
+        if ($expiration_dts_end !== null) {
+            $queryParams['expiration_dts_end'] = $this->apiClient->getSerializer()->toQueryValue($expiration_dts_end);
         }
         // query params
-        if ($signup_dts_start !== null) {
-            $queryParams['signup_dts_start'] = $this->apiClient->getSerializer()->toQueryValue($signup_dts_start);
+        if ($chargeback_dts_start !== null) {
+            $queryParams['chargeback_dts_start'] = $this->apiClient->getSerializer()->toQueryValue($chargeback_dts_start);
         }
         // query params
-        if ($signup_dts_end !== null) {
-            $queryParams['signup_dts_end'] = $this->apiClient->getSerializer()->toQueryValue($signup_dts_end);
-        }
-        // query params
-        if ($billing_first_name !== null) {
-            $queryParams['billing_first_name'] = $this->apiClient->getSerializer()->toQueryValue($billing_first_name);
-        }
-        // query params
-        if ($billing_last_name !== null) {
-            $queryParams['billing_last_name'] = $this->apiClient->getSerializer()->toQueryValue($billing_last_name);
-        }
-        // query params
-        if ($billing_company !== null) {
-            $queryParams['billing_company'] = $this->apiClient->getSerializer()->toQueryValue($billing_company);
-        }
-        // query params
-        if ($billing_city !== null) {
-            $queryParams['billing_city'] = $this->apiClient->getSerializer()->toQueryValue($billing_city);
-        }
-        // query params
-        if ($billing_state !== null) {
-            $queryParams['billing_state'] = $this->apiClient->getSerializer()->toQueryValue($billing_state);
-        }
-        // query params
-        if ($billing_postal_code !== null) {
-            $queryParams['billing_postal_code'] = $this->apiClient->getSerializer()->toQueryValue($billing_postal_code);
-        }
-        // query params
-        if ($billing_country_code !== null) {
-            $queryParams['billing_country_code'] = $this->apiClient->getSerializer()->toQueryValue($billing_country_code);
-        }
-        // query params
-        if ($billing_day_phone !== null) {
-            $queryParams['billing_day_phone'] = $this->apiClient->getSerializer()->toQueryValue($billing_day_phone);
-        }
-        // query params
-        if ($billing_evening_phone !== null) {
-            $queryParams['billing_evening_phone'] = $this->apiClient->getSerializer()->toQueryValue($billing_evening_phone);
-        }
-        // query params
-        if ($shipping_first_name !== null) {
-            $queryParams['shipping_first_name'] = $this->apiClient->getSerializer()->toQueryValue($shipping_first_name);
-        }
-        // query params
-        if ($shipping_last_name !== null) {
-            $queryParams['shipping_last_name'] = $this->apiClient->getSerializer()->toQueryValue($shipping_last_name);
-        }
-        // query params
-        if ($shipping_company !== null) {
-            $queryParams['shipping_company'] = $this->apiClient->getSerializer()->toQueryValue($shipping_company);
-        }
-        // query params
-        if ($shipping_city !== null) {
-            $queryParams['shipping_city'] = $this->apiClient->getSerializer()->toQueryValue($shipping_city);
-        }
-        // query params
-        if ($shipping_state !== null) {
-            $queryParams['shipping_state'] = $this->apiClient->getSerializer()->toQueryValue($shipping_state);
-        }
-        // query params
-        if ($shipping_postal_code !== null) {
-            $queryParams['shipping_postal_code'] = $this->apiClient->getSerializer()->toQueryValue($shipping_postal_code);
-        }
-        // query params
-        if ($shipping_country_code !== null) {
-            $queryParams['shipping_country_code'] = $this->apiClient->getSerializer()->toQueryValue($shipping_country_code);
-        }
-        // query params
-        if ($shipping_day_phone !== null) {
-            $queryParams['shipping_day_phone'] = $this->apiClient->getSerializer()->toQueryValue($shipping_day_phone);
-        }
-        // query params
-        if ($shipping_evening_phone !== null) {
-            $queryParams['shipping_evening_phone'] = $this->apiClient->getSerializer()->toQueryValue($shipping_evening_phone);
-        }
-        // query params
-        if ($pricing_tier_oid !== null) {
-            $queryParams['pricing_tier_oid'] = $this->apiClient->getSerializer()->toQueryValue($pricing_tier_oid);
-        }
-        // query params
-        if ($pricing_tier_name !== null) {
-            $queryParams['pricing_tier_name'] = $this->apiClient->getSerializer()->toQueryValue($pricing_tier_name);
+        if ($chargeback_dts_end !== null) {
+            $queryParams['chargeback_dts_end'] = $this->apiClient->getSerializer()->toQueryValue($chargeback_dts_end);
         }
         // query params
         if ($_limit !== null) {
@@ -716,15 +596,15 @@ class CustomerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\CustomersResponse',
-                '/customer/customers'
+                '\ultracart\v2\models\ChargebackDisputesResponse',
+                '/chargeback/chargebacks'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CustomersResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ChargebackDisputesResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CustomersResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ChargebackDisputesResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -754,37 +634,37 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersPost
+     * Operation chargebackChargebacksPost
      *
-     * Insert a customer
+     * Insert a chargeback
      *
-     * @param \ultracart\v2\models\Customer $customer Customer to insert (required)
-     * @return \ultracart\v2\models\CustomerResponse
+     * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersPost($customer)
+    public function chargebackChargebacksPost($chargeback)
     {
-        list($response) = $this->customerCustomersPostWithHttpInfo($customer);
+        list($response) = $this->chargebackChargebacksPostWithHttpInfo($chargeback);
         return $response;
     }
 
     /**
-     * Operation customerCustomersPostWithHttpInfo
+     * Operation chargebackChargebacksPostWithHttpInfo
      *
-     * Insert a customer
+     * Insert a chargeback
      *
-     * @param \ultracart\v2\models\Customer $customer Customer to insert (required)
-     * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersPostWithHttpInfo($customer)
+    public function chargebackChargebacksPostWithHttpInfo($chargeback)
     {
-        // verify the required parameter 'customer' is set
-        if ($customer === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer when calling customerCustomersPost');
+        // verify the required parameter 'chargeback' is set
+        if ($chargeback === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback when calling chargebackChargebacksPost');
         }
         // parse inputs
-        $resourcePath = "/customer/customers";
+        $resourcePath = "/chargeback/chargebacks";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -800,8 +680,8 @@ class CustomerApi
 
         // body params
         $_tempBody = null;
-        if (isset($customer)) {
-            $_tempBody = $customer;
+        if (isset($chargeback)) {
+            $_tempBody = $chargeback;
         }
 
         // for model (json/xml)
@@ -827,15 +707,15 @@ class CustomerApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\CustomerResponse',
-                '/customer/customers'
+                '\ultracart\v2\models\ChargebackDisputeResponse',
+                '/chargeback/chargebacks'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CustomerResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ChargebackDisputeResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CustomerResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ChargebackDisputeResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

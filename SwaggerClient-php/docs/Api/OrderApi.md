@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderOrdersOrderIdPut**
-> \ultracart\v2\models\OrderResponse orderOrdersOrderIdPut($order, $order_id)
+> \ultracart\v2\models\OrderResponse orderOrdersOrderIdPut($order, $order_id, $_expand)
 
 Update an order
 
@@ -304,9 +304,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\Api\OrderApi();
 $order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to update
 $order_id = "order_id_example"; // string | The order id to update.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->orderOrdersOrderIdPut($order, $order_id);
+    $result = $api_instance->orderOrdersOrderIdPut($order, $order_id, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->orderOrdersOrderIdPut: ', $e->getMessage(), PHP_EOL;
@@ -320,6 +321,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**\ultracart\v2\models\Order**](../Model/\ultracart\v2\models\Order.md)| Order to update |
  **order_id** | **string**| The order id to update. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
