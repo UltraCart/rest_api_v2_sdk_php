@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **customerCustomersCustomerProfileOidPut**
-> \ultracart\v2\models\CustomerResponse customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid)
+> \ultracart\v2\models\CustomerResponse customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid, $_expand)
 
 Update a customer
 
@@ -139,9 +139,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\Api\CustomerApi();
 $customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to update
 $customer_profile_oid = 56; // int | The customer_profile_oid to update.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid);
+    $result = $api_instance->customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->customerCustomersCustomerProfileOidPut: ', $e->getMessage(), PHP_EOL;
@@ -155,6 +156,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**\ultracart\v2\models\Customer**](../Model/\ultracart\v2\models\Customer.md)| Customer to update |
  **customer_profile_oid** | **int**| The customer_profile_oid to update. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
@@ -286,7 +288,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **customerCustomersPost**
-> \ultracart\v2\models\CustomerResponse customerCustomersPost($customer)
+> \ultracart\v2\models\CustomerResponse customerCustomersPost($customer, $_expand)
 
 Insert a customer
 
@@ -306,9 +308,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 
 $api_instance = new ultracart\v2\Api\CustomerApi();
 $customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to insert
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->customerCustomersPost($customer);
+    $result = $api_instance->customerCustomersPost($customer, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->customerCustomersPost: ', $e->getMessage(), PHP_EOL;
@@ -321,6 +324,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**\ultracart\v2\models\Customer**](../Model/\ultracart\v2\models\Customer.md)| Customer to insert |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 

@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **chargebackChargebacksChargebackDisputeOidPut**
-> \ultracart\v2\models\ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidPut($chargeback, $chargeback_dispute_oid)
+> \ultracart\v2\models\ChargebackDisputeResponse chargebackChargebacksChargebackDisputeOidPut($chargeback, $chargeback_dispute_oid, $_expand)
 
 Update a chargeback
 
@@ -139,9 +139,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\Api\ChargebackApi();
 $chargeback = new \ultracart\v2\models\ChargebackDispute(); // \ultracart\v2\models\ChargebackDispute | Chargeback to update
 $chargeback_dispute_oid = 56; // int | The chargeback_dispute_oid to update.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->chargebackChargebacksChargebackDisputeOidPut($chargeback, $chargeback_dispute_oid);
+    $result = $api_instance->chargebackChargebacksChargebackDisputeOidPut($chargeback, $chargeback_dispute_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChargebackApi->chargebackChargebacksChargebackDisputeOidPut: ', $e->getMessage(), PHP_EOL;
@@ -155,6 +156,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**\ultracart\v2\models\ChargebackDispute**](../Model/\ultracart\v2\models\ChargebackDispute.md)| Chargeback to update |
  **chargeback_dispute_oid** | **int**| The chargeback_dispute_oid to update. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
@@ -246,7 +248,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **chargebackChargebacksPost**
-> \ultracart\v2\models\ChargebackDisputeResponse chargebackChargebacksPost($chargeback)
+> \ultracart\v2\models\ChargebackDisputeResponse chargebackChargebacksPost($chargeback, $_expand)
 
 Insert a chargeback
 
@@ -266,9 +268,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 
 $api_instance = new ultracart\v2\Api\ChargebackApi();
 $chargeback = new \ultracart\v2\models\ChargebackDispute(); // \ultracart\v2\models\ChargebackDispute | Chargeback to insert
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->chargebackChargebacksPost($chargeback);
+    $result = $api_instance->chargebackChargebacksPost($chargeback, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChargebackApi->chargebackChargebacksPost: ', $e->getMessage(), PHP_EOL;
@@ -281,6 +284,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **chargeback** | [**\ultracart\v2\models\ChargebackDispute**](../Model/\ultracart\v2\models\ChargebackDispute.md)| Chargeback to insert |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 

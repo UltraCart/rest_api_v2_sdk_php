@@ -343,12 +343,13 @@ class ChargebackApi
      *
      * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
      * @param int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksChargebackDisputeOidPut($chargeback, $chargeback_dispute_oid)
+    public function chargebackChargebacksChargebackDisputeOidPut($chargeback, $chargeback_dispute_oid, $_expand = null)
     {
-        list($response) = $this->chargebackChargebacksChargebackDisputeOidPutWithHttpInfo($chargeback, $chargeback_dispute_oid);
+        list($response) = $this->chargebackChargebacksChargebackDisputeOidPutWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand);
         return $response;
     }
 
@@ -359,10 +360,11 @@ class ChargebackApi
      *
      * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
      * @param int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksChargebackDisputeOidPutWithHttpInfo($chargeback, $chargeback_dispute_oid)
+    public function chargebackChargebacksChargebackDisputeOidPutWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand = null)
     {
         // verify the required parameter 'chargeback' is set
         if ($chargeback === null) {
@@ -384,6 +386,10 @@ class ChargebackApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
         // path params
         if ($chargeback_dispute_oid !== null) {
             $resourcePath = str_replace(
@@ -639,12 +645,13 @@ class ChargebackApi
      * Insert a chargeback
      *
      * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksPost($chargeback)
+    public function chargebackChargebacksPost($chargeback, $_expand = null)
     {
-        list($response) = $this->chargebackChargebacksPostWithHttpInfo($chargeback);
+        list($response) = $this->chargebackChargebacksPostWithHttpInfo($chargeback, $_expand);
         return $response;
     }
 
@@ -654,10 +661,11 @@ class ChargebackApi
      * Insert a chargeback
      *
      * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksPostWithHttpInfo($chargeback)
+    public function chargebackChargebacksPostWithHttpInfo($chargeback, $_expand = null)
     {
         // verify the required parameter 'chargeback' is set
         if ($chargeback === null) {
@@ -675,6 +683,10 @@ class ChargebackApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 

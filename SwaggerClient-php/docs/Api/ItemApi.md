@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **itemItemsMerchantItemOidPut**
-> \ultracart\v2\models\ItemResponse itemItemsMerchantItemOidPut($item, $merchant_item_oid)
+> \ultracart\v2\models\ItemResponse itemItemsMerchantItemOidPut($item, $merchant_item_oid, $_expand, $_placeholders)
 
 Update an item
 
@@ -207,9 +207,11 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\Api\ItemApi();
 $item = new \ultracart\v2\models\Item(); // \ultracart\v2\models\Item | Item to update
 $merchant_item_oid = 56; // int | The item oid to update.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->itemItemsMerchantItemOidPut($item, $merchant_item_oid);
+    $result = $api_instance->itemItemsMerchantItemOidPut($item, $merchant_item_oid, $_expand, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->itemItemsMerchantItemOidPut: ', $e->getMessage(), PHP_EOL;
@@ -223,6 +225,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item** | [**\ultracart\v2\models\Item**](../Model/\ultracart\v2\models\Item.md)| Item to update |
  **merchant_item_oid** | **int**| The item oid to update. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 
@@ -240,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **itemItemsPost**
-> \ultracart\v2\models\ItemResponse itemItemsPost($item)
+> \ultracart\v2\models\ItemResponse itemItemsPost($item, $_expand, $_placeholders)
 
 Create an item
 
@@ -260,9 +264,11 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 
 $api_instance = new ultracart\v2\Api\ItemApi();
 $item = new \ultracart\v2\models\Item(); // \ultracart\v2\models\Item | Item to create
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->itemItemsPost($item);
+    $result = $api_instance->itemItemsPost($item, $_expand, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->itemItemsPost: ', $e->getMessage(), PHP_EOL;
@@ -275,6 +281,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item** | [**\ultracart\v2\models\Item**](../Model/\ultracart\v2\models\Item.md)| Item to create |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 

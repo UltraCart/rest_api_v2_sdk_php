@@ -343,12 +343,13 @@ class CustomerApi
      *
      * @param \ultracart\v2\models\Customer $customer Customer to update (required)
      * @param int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return \ultracart\v2\models\CustomerResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid)
+    public function customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid, $_expand = null)
     {
-        list($response) = $this->customerCustomersCustomerProfileOidPutWithHttpInfo($customer, $customer_profile_oid);
+        list($response) = $this->customerCustomersCustomerProfileOidPutWithHttpInfo($customer, $customer_profile_oid, $_expand);
         return $response;
     }
 
@@ -359,10 +360,11 @@ class CustomerApi
      *
      * @param \ultracart\v2\models\Customer $customer Customer to update (required)
      * @param int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidPutWithHttpInfo($customer, $customer_profile_oid)
+    public function customerCustomersCustomerProfileOidPutWithHttpInfo($customer, $customer_profile_oid, $_expand = null)
     {
         // verify the required parameter 'customer' is set
         if ($customer === null) {
@@ -384,6 +386,10 @@ class CustomerApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
         // path params
         if ($customer_profile_oid !== null) {
             $resourcePath = str_replace(
@@ -759,12 +765,13 @@ class CustomerApi
      * Insert a customer
      *
      * @param \ultracart\v2\models\Customer $customer Customer to insert (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return \ultracart\v2\models\CustomerResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersPost($customer)
+    public function customerCustomersPost($customer, $_expand = null)
     {
-        list($response) = $this->customerCustomersPostWithHttpInfo($customer);
+        list($response) = $this->customerCustomersPostWithHttpInfo($customer, $_expand);
         return $response;
     }
 
@@ -774,10 +781,11 @@ class CustomerApi
      * Insert a customer
      *
      * @param \ultracart\v2\models\Customer $customer Customer to insert (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersPostWithHttpInfo($customer)
+    public function customerCustomersPostWithHttpInfo($customer, $_expand = null)
     {
         // verify the required parameter 'customer' is set
         if ($customer === null) {
@@ -795,6 +803,10 @@ class CustomerApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 

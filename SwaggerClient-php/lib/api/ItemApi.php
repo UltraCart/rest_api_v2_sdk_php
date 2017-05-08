@@ -493,12 +493,14 @@ class ItemApi
      *
      * @param \ultracart\v2\models\Item $item Item to update (required)
      * @param int $merchant_item_oid The item oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return \ultracart\v2\models\ItemResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsMerchantItemOidPut($item, $merchant_item_oid)
+    public function itemItemsMerchantItemOidPut($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->itemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid);
+        list($response) = $this->itemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid, $_expand, $_placeholders);
         return $response;
     }
 
@@ -509,10 +511,12 @@ class ItemApi
      *
      * @param \ultracart\v2\models\Item $item Item to update (required)
      * @param int $merchant_item_oid The item oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return Array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid)
+    public function itemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
         // verify the required parameter 'item' is set
         if ($item === null) {
@@ -534,6 +538,14 @@ class ItemApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
+        }
         // path params
         if ($merchant_item_oid !== null) {
             $resourcePath = str_replace(
@@ -617,12 +629,14 @@ class ItemApi
      * Create an item
      *
      * @param \ultracart\v2\models\Item $item Item to create (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return \ultracart\v2\models\ItemResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsPost($item)
+    public function itemItemsPost($item, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->itemItemsPostWithHttpInfo($item);
+        list($response) = $this->itemItemsPostWithHttpInfo($item, $_expand, $_placeholders);
         return $response;
     }
 
@@ -632,10 +646,12 @@ class ItemApi
      * Create an item
      *
      * @param \ultracart\v2\models\Item $item Item to create (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return Array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsPostWithHttpInfo($item)
+    public function itemItemsPostWithHttpInfo($item, $_expand = null, $_placeholders = null)
     {
         // verify the required parameter 'item' is set
         if ($item === null) {
@@ -653,6 +669,14 @@ class ItemApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
