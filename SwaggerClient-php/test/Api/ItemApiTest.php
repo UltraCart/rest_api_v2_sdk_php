@@ -90,39 +90,6 @@ class ItemApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for autoOrderAutoOrdersAutoOrderOidGet
-     *
-     * Retrieve an auto order.
-     *
-     */
-    public function testAutoOrderAutoOrdersAutoOrderOidGet()
-    {
-
-    }
-
-    /**
-     * Test case for autoOrderAutoOrdersAutoOrderOidPut
-     *
-     * Update an auto order.
-     *
-     */
-    public function testAutoOrderAutoOrdersAutoOrderOidPut()
-    {
-
-    }
-
-    /**
-     * Test case for autoOrderAutoOrdersGet
-     *
-     * Retrieve auto orders.
-     *
-     */
-    public function testAutoOrderAutoOrdersGet()
-    {
-
-    }
-
-    /**
      * Test case for itemItemsGet
      *
      * Retrieve items.
