@@ -72,6 +72,7 @@ class AutoOrderItem implements ArrayAccess
         'arbitrary_schedule_days' => 'int',
         'arbitrary_unit_cost' => 'float',
         'arbitrary_unit_cost_remaining_orders' => 'int',
+        'auto_order_item_oid' => 'int',
         'frequency' => 'string',
         'last_order_dts' => 'string',
         'life_time_value' => 'float',
@@ -82,6 +83,8 @@ class AutoOrderItem implements ArrayAccess
         'options' => '\ultracart\v2\models\AutoOrderItemOption[]',
         'original_item_id' => 'string',
         'original_quantity' => 'float',
+        'paypal_payer_id' => 'string',
+        'paypal_recurring_payment_profile_id' => 'string',
         'preshipment_notice_sent' => 'bool',
         'rebill_value' => 'float',
         'remaining_repeat_count' => 'int'
@@ -103,6 +106,7 @@ class AutoOrderItem implements ArrayAccess
         'arbitrary_schedule_days' => 'arbitrary_schedule_days',
         'arbitrary_unit_cost' => 'arbitrary_unit_cost',
         'arbitrary_unit_cost_remaining_orders' => 'arbitrary_unit_cost_remaining_orders',
+        'auto_order_item_oid' => 'auto_order_item_oid',
         'frequency' => 'frequency',
         'last_order_dts' => 'last_order_dts',
         'life_time_value' => 'life_time_value',
@@ -113,6 +117,8 @@ class AutoOrderItem implements ArrayAccess
         'options' => 'options',
         'original_item_id' => 'original_item_id',
         'original_quantity' => 'original_quantity',
+        'paypal_payer_id' => 'paypal_payer_id',
+        'paypal_recurring_payment_profile_id' => 'paypal_recurring_payment_profile_id',
         'preshipment_notice_sent' => 'preshipment_notice_sent',
         'rebill_value' => 'rebill_value',
         'remaining_repeat_count' => 'remaining_repeat_count'
@@ -134,6 +140,7 @@ class AutoOrderItem implements ArrayAccess
         'arbitrary_schedule_days' => 'setArbitraryScheduleDays',
         'arbitrary_unit_cost' => 'setArbitraryUnitCost',
         'arbitrary_unit_cost_remaining_orders' => 'setArbitraryUnitCostRemainingOrders',
+        'auto_order_item_oid' => 'setAutoOrderItemOid',
         'frequency' => 'setFrequency',
         'last_order_dts' => 'setLastOrderDts',
         'life_time_value' => 'setLifeTimeValue',
@@ -144,6 +151,8 @@ class AutoOrderItem implements ArrayAccess
         'options' => 'setOptions',
         'original_item_id' => 'setOriginalItemId',
         'original_quantity' => 'setOriginalQuantity',
+        'paypal_payer_id' => 'setPaypalPayerId',
+        'paypal_recurring_payment_profile_id' => 'setPaypalRecurringPaymentProfileId',
         'preshipment_notice_sent' => 'setPreshipmentNoticeSent',
         'rebill_value' => 'setRebillValue',
         'remaining_repeat_count' => 'setRemainingRepeatCount'
@@ -165,6 +174,7 @@ class AutoOrderItem implements ArrayAccess
         'arbitrary_schedule_days' => 'getArbitraryScheduleDays',
         'arbitrary_unit_cost' => 'getArbitraryUnitCost',
         'arbitrary_unit_cost_remaining_orders' => 'getArbitraryUnitCostRemainingOrders',
+        'auto_order_item_oid' => 'getAutoOrderItemOid',
         'frequency' => 'getFrequency',
         'last_order_dts' => 'getLastOrderDts',
         'life_time_value' => 'getLifeTimeValue',
@@ -175,6 +185,8 @@ class AutoOrderItem implements ArrayAccess
         'options' => 'getOptions',
         'original_item_id' => 'getOriginalItemId',
         'original_quantity' => 'getOriginalQuantity',
+        'paypal_payer_id' => 'getPaypalPayerId',
+        'paypal_recurring_payment_profile_id' => 'getPaypalRecurringPaymentProfileId',
         'preshipment_notice_sent' => 'getPreshipmentNoticeSent',
         'rebill_value' => 'getRebillValue',
         'remaining_repeat_count' => 'getRemainingRepeatCount'
@@ -243,6 +255,7 @@ class AutoOrderItem implements ArrayAccess
         $this->container['arbitrary_schedule_days'] = isset($data['arbitrary_schedule_days']) ? $data['arbitrary_schedule_days'] : null;
         $this->container['arbitrary_unit_cost'] = isset($data['arbitrary_unit_cost']) ? $data['arbitrary_unit_cost'] : null;
         $this->container['arbitrary_unit_cost_remaining_orders'] = isset($data['arbitrary_unit_cost_remaining_orders']) ? $data['arbitrary_unit_cost_remaining_orders'] : null;
+        $this->container['auto_order_item_oid'] = isset($data['auto_order_item_oid']) ? $data['auto_order_item_oid'] : null;
         $this->container['frequency'] = isset($data['frequency']) ? $data['frequency'] : null;
         $this->container['last_order_dts'] = isset($data['last_order_dts']) ? $data['last_order_dts'] : null;
         $this->container['life_time_value'] = isset($data['life_time_value']) ? $data['life_time_value'] : null;
@@ -253,6 +266,8 @@ class AutoOrderItem implements ArrayAccess
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['original_item_id'] = isset($data['original_item_id']) ? $data['original_item_id'] : null;
         $this->container['original_quantity'] = isset($data['original_quantity']) ? $data['original_quantity'] : null;
+        $this->container['paypal_payer_id'] = isset($data['paypal_payer_id']) ? $data['paypal_payer_id'] : null;
+        $this->container['paypal_recurring_payment_profile_id'] = isset($data['paypal_recurring_payment_profile_id']) ? $data['paypal_recurring_payment_profile_id'] : null;
         $this->container['preshipment_notice_sent'] = isset($data['preshipment_notice_sent']) ? $data['preshipment_notice_sent'] : null;
         $this->container['rebill_value'] = isset($data['rebill_value']) ? $data['rebill_value'] : null;
         $this->container['remaining_repeat_count'] = isset($data['remaining_repeat_count']) ? $data['remaining_repeat_count'] : null;
@@ -412,6 +427,27 @@ class AutoOrderItem implements ArrayAccess
     public function setArbitraryUnitCostRemainingOrders($arbitrary_unit_cost_remaining_orders)
     {
         $this->container['arbitrary_unit_cost_remaining_orders'] = $arbitrary_unit_cost_remaining_orders;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_item_oid
+     * @return int
+     */
+    public function getAutoOrderItemOid()
+    {
+        return $this->container['auto_order_item_oid'];
+    }
+
+    /**
+     * Sets auto_order_item_oid
+     * @param int $auto_order_item_oid Primary key of AutoOrderItem
+     * @return $this
+     */
+    public function setAutoOrderItemOid($auto_order_item_oid)
+    {
+        $this->container['auto_order_item_oid'] = $auto_order_item_oid;
 
         return $this;
     }
@@ -626,6 +662,48 @@ class AutoOrderItem implements ArrayAccess
     public function setOriginalQuantity($original_quantity)
     {
         $this->container['original_quantity'] = $original_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets paypal_payer_id
+     * @return string
+     */
+    public function getPaypalPayerId()
+    {
+        return $this->container['paypal_payer_id'];
+    }
+
+    /**
+     * Sets paypal_payer_id
+     * @param string $paypal_payer_id The PayPal Payer ID tied to this item
+     * @return $this
+     */
+    public function setPaypalPayerId($paypal_payer_id)
+    {
+        $this->container['paypal_payer_id'] = $paypal_payer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets paypal_recurring_payment_profile_id
+     * @return string
+     */
+    public function getPaypalRecurringPaymentProfileId()
+    {
+        return $this->container['paypal_recurring_payment_profile_id'];
+    }
+
+    /**
+     * Sets paypal_recurring_payment_profile_id
+     * @param string $paypal_recurring_payment_profile_id The PayPal Profile ID tied to this item
+     * @return $this
+     */
+    public function setPaypalRecurringPaymentProfileId($paypal_recurring_payment_profile_id)
+    {
+        $this->container['paypal_recurring_payment_profile_id'] = $paypal_recurring_payment_profile_id;
 
         return $this;
     }

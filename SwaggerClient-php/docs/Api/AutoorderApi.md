@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **autoOrderAutoOrdersAutoOrderOidPut**
-> \ultracart\v2\models\AutoOrderResponse autoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid)
+> \ultracart\v2\models\AutoOrderResponse autoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid, $_expand)
 
 Update an auto order
 
@@ -85,9 +85,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\Api\AutoorderApi();
 $auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto order to update
 $auto_order_oid = 56; // int | The auto order oid to update.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->autoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid);
+    $result = $api_instance->autoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoorderApi->autoOrderAutoOrdersAutoOrderOidPut: ', $e->getMessage(), PHP_EOL;
@@ -101,6 +102,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/\ultracart\v2\models\AutoOrder.md)| Auto order to update |
  **auto_order_oid** | **int**| The auto order oid to update. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 

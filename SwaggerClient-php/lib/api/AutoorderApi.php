@@ -229,12 +229,13 @@ class AutoorderApi
      *
      * @param \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
      * @param int $auto_order_oid The auto order oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return \ultracart\v2\models\AutoOrderResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function autoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid)
+    public function autoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid, $_expand = null)
     {
-        list($response) = $this->autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid);
+        list($response) = $this->autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid, $_expand);
         return $response;
     }
 
@@ -245,10 +246,11 @@ class AutoorderApi
      *
      * @param \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
      * @param int $auto_order_oid The auto order oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @return Array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid)
+    public function autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid, $_expand = null)
     {
         // verify the required parameter 'auto_order' is set
         if ($auto_order === null) {
@@ -270,6 +272,10 @@ class AutoorderApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
         // path params
         if ($auto_order_oid !== null) {
             $resourcePath = str_replace(
