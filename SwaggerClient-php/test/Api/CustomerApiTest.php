@@ -90,56 +90,56 @@ class CustomerApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for customerCustomersCustomerProfileOidDelete
+     * Test case for deleteCustomer
      *
      * Delete a customer.
      *
      */
-    public function testCustomerCustomersCustomerProfileOidDelete()
+    public function testDeleteCustomer()
     {
 
     }
 
     /**
-     * Test case for customerCustomersCustomerProfileOidGet
+     * Test case for getCustomer
      *
      * Retrieve a customer.
      *
      */
-    public function testCustomerCustomersCustomerProfileOidGet()
+    public function testGetCustomer()
     {
 
     }
 
     /**
-     * Test case for customerCustomersCustomerProfileOidPut
-     *
-     * Update a customer.
-     *
-     */
-    public function testCustomerCustomersCustomerProfileOidPut()
-    {
-
-    }
-
-    /**
-     * Test case for customerCustomersGet
+     * Test case for getCustomers
      *
      * Retrieve customers.
      *
      */
-    public function testCustomerCustomersGet()
+    public function testGetCustomers()
     {
 
     }
 
     /**
-     * Test case for customerCustomersPost
+     * Test case for insertCustomer
      *
      * Insert a customer.
      *
      */
-    public function testCustomerCustomersPost()
+    public function testInsertCustomer()
+    {
+
+    }
+
+    /**
+     * Test case for updateCustomer
+     *
+     * Update a customer.
+     *
+     */
+    public function testUpdateCustomer()
     {
 
     }

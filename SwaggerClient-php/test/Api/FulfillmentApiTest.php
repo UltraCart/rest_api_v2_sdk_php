@@ -90,56 +90,56 @@ class FulfillmentApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut
+     * Test case for acknowledgeOrders
      *
      * Acknowledge receipt of orders..
      *
      */
-    public function testFulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut()
+    public function testAcknowledgeOrders()
     {
 
     }
 
     /**
-     * Test case for fulfillmentDistributionCentersDistributionCenterCodeInventoryPost
-     *
-     * Update inventory.
-     *
-     */
-    public function testFulfillmentDistributionCentersDistributionCenterCodeInventoryPost()
-    {
-
-    }
-
-    /**
-     * Test case for fulfillmentDistributionCentersDistributionCenterCodeOrdersGet
+     * Test case for getDistributionCenterOrders
      *
      * Retrieve orders queued up for this distribution center..
      *
      */
-    public function testFulfillmentDistributionCentersDistributionCenterCodeOrdersGet()
+    public function testGetDistributionCenterOrders()
     {
 
     }
 
     /**
-     * Test case for fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost
-     *
-     * Mark orders as shipped.
-     *
-     */
-    public function testFulfillmentDistributionCentersDistributionCenterCodeShipmentsPost()
-    {
-
-    }
-
-    /**
-     * Test case for fulfillmentDistributionCentersGet
+     * Test case for getDistributionCenters
      *
      * Retrieve distribution centers.
      *
      */
-    public function testFulfillmentDistributionCentersGet()
+    public function testGetDistributionCenters()
+    {
+
+    }
+
+    /**
+     * Test case for shipOrders
+     *
+     * Mark orders as shipped.
+     *
+     */
+    public function testShipOrders()
+    {
+
+    }
+
+    /**
+     * Test case for updateInventory
+     *
+     * Update inventory.
+     *
+     */
+    public function testUpdateInventory()
     {
 
     }

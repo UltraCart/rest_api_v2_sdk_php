@@ -90,67 +90,67 @@ class ItemApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for itemItemsGet
-     *
-     * Retrieve items.
-     *
-     */
-    public function testItemItemsGet()
-    {
-
-    }
-
-    /**
-     * Test case for itemItemsMerchantItemOidDelete
+     * Test case for deleteItem
      *
      * Delete an item.
      *
      */
-    public function testItemItemsMerchantItemOidDelete()
+    public function testDeleteItem()
     {
 
     }
 
     /**
-     * Test case for itemItemsMerchantItemOidGet
+     * Test case for getItem
      *
      * Retrieve an item.
      *
      */
-    public function testItemItemsMerchantItemOidGet()
+    public function testGetItem()
     {
 
     }
 
     /**
-     * Test case for itemItemsMerchantItemOidPut
+     * Test case for getItems
      *
-     * Update an item.
+     * Retrieve items.
      *
      */
-    public function testItemItemsMerchantItemOidPut()
+    public function testGetItems()
     {
 
     }
 
     /**
-     * Test case for itemItemsPost
+     * Test case for insertItem
      *
      * Create an item.
      *
      */
-    public function testItemItemsPost()
+    public function testInsertItem()
     {
 
     }
 
     /**
-     * Test case for itemTempMultimediaPost
+     * Test case for updateItem
+     *
+     * Update an item.
+     *
+     */
+    public function testUpdateItem()
+    {
+
+    }
+
+    /**
+     * Test case for uploadTemporaryMultimedia
      *
      * Upload an image to the temporary multimedia..
      *
      */
-    public function testItemTempMultimediaPost()
+    public function testUploadTemporaryMultimedia()
     {
 
     }

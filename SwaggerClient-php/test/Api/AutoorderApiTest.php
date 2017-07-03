@@ -90,34 +90,34 @@ class AutoorderApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for autoOrderAutoOrdersAutoOrderOidGet
+     * Test case for getAutoOrder
      *
      * Retrieve an auto order.
      *
      */
-    public function testAutoOrderAutoOrdersAutoOrderOidGet()
+    public function testGetAutoOrder()
     {
 
     }
 
     /**
-     * Test case for autoOrderAutoOrdersAutoOrderOidPut
-     *
-     * Update an auto order.
-     *
-     */
-    public function testAutoOrderAutoOrdersAutoOrderOidPut()
-    {
-
-    }
-
-    /**
-     * Test case for autoOrderAutoOrdersGet
+     * Test case for getAutoOrders
      *
      * Retrieve auto orders.
      *
      */
-    public function testAutoOrderAutoOrdersGet()
+    public function testGetAutoOrders()
+    {
+
+    }
+
+    /**
+     * Test case for updateAutoOrder
+     *
+     * Update an auto order.
+     *
+     */
+    public function testUpdateAutoOrder()
     {
 
     }

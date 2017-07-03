@@ -90,78 +90,78 @@ class WebhookApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for webhookWebhooksGet
-     *
-     * Retrieve webhooks.
-     *
-     */
-    public function testWebhookWebhooksGet()
-    {
-
-    }
-
-    /**
-     * Test case for webhookWebhooksPost
-     *
-     * Add a webhook.
-     *
-     */
-    public function testWebhookWebhooksPost()
-    {
-
-    }
-
-    /**
-     * Test case for webhookWebhooksWebhookOidDelete
+     * Test case for deleteWebhook
      *
      * Delete a webhook.
      *
      */
-    public function testWebhookWebhooksWebhookOidDelete()
+    public function testDeleteWebhook()
     {
 
     }
 
     /**
-     * Test case for webhookWebhooksWebhookOidLogsGet
-     *
-     * Retrieve the log summaries.
-     *
-     */
-    public function testWebhookWebhooksWebhookOidLogsGet()
-    {
-
-    }
-
-    /**
-     * Test case for webhookWebhooksWebhookOidLogsRequestIdGet
+     * Test case for getWebhookLog
      *
      * Retrieve an individual log.
      *
      */
-    public function testWebhookWebhooksWebhookOidLogsRequestIdGet()
+    public function testGetWebhookLog()
     {
 
     }
 
     /**
-     * Test case for webhookWebhooksWebhookOidPut
+     * Test case for getWebhookLogSummaries
      *
-     * Update a webhook.
+     * Retrieve the log summaries.
      *
      */
-    public function testWebhookWebhooksWebhookOidPut()
+    public function testGetWebhookLogSummaries()
     {
 
     }
 
     /**
-     * Test case for webhookWebhooksWebhookOidReflowEventNamePost
+     * Test case for getWebhooks
+     *
+     * Retrieve webhooks.
+     *
+     */
+    public function testGetWebhooks()
+    {
+
+    }
+
+    /**
+     * Test case for insertWebhook
+     *
+     * Add a webhook.
+     *
+     */
+    public function testInsertWebhook()
+    {
+
+    }
+
+    /**
+     * Test case for resendEvent
      *
      * Resend events to the webhook endpoint..
      *
      */
-    public function testWebhookWebhooksWebhookOidReflowEventNamePost()
+    public function testResendEvent()
+    {
+
+    }
+
+    /**
+     * Test case for updateWebhook
+     *
+     * Update a webhook.
+     *
+     */
+    public function testUpdateWebhook()
     {
 
     }

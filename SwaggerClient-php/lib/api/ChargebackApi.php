@@ -103,7 +103,7 @@ class ChargebackApi
     }
 
     /**
-     * Operation chargebackChargebacksChargebackDisputeOidDelete
+     * Operation deleteChargeback
      *
      * Delete a chargeback
      *
@@ -111,14 +111,14 @@ class ChargebackApi
      * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksChargebackDisputeOidDelete($chargeback_dispute_oid)
+    public function deleteChargeback($chargeback_dispute_oid)
     {
-        list($response) = $this->chargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo($chargeback_dispute_oid);
+        list($response) = $this->deleteChargebackWithHttpInfo($chargeback_dispute_oid);
         return $response;
     }
 
     /**
-     * Operation chargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo
+     * Operation deleteChargebackWithHttpInfo
      *
      * Delete a chargeback
      *
@@ -126,11 +126,11 @@ class ChargebackApi
      * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksChargebackDisputeOidDeleteWithHttpInfo($chargeback_dispute_oid)
+    public function deleteChargebackWithHttpInfo($chargeback_dispute_oid)
     {
         // verify the required parameter 'chargeback_dispute_oid' is set
         if ($chargeback_dispute_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling chargebackChargebacksChargebackDisputeOidDelete');
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling deleteChargeback');
         }
         // parse inputs
         $resourcePath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
@@ -217,7 +217,7 @@ class ChargebackApi
     }
 
     /**
-     * Operation chargebackChargebacksChargebackDisputeOidGet
+     * Operation getChargebackDispute
      *
      * Retrieve a chargeback
      *
@@ -226,14 +226,14 @@ class ChargebackApi
      * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksChargebackDisputeOidGet($chargeback_dispute_oid, $_expand = null)
+    public function getChargebackDispute($chargeback_dispute_oid, $_expand = null)
     {
-        list($response) = $this->chargebackChargebacksChargebackDisputeOidGetWithHttpInfo($chargeback_dispute_oid, $_expand);
+        list($response) = $this->getChargebackDisputeWithHttpInfo($chargeback_dispute_oid, $_expand);
         return $response;
     }
 
     /**
-     * Operation chargebackChargebacksChargebackDisputeOidGetWithHttpInfo
+     * Operation getChargebackDisputeWithHttpInfo
      *
      * Retrieve a chargeback
      *
@@ -242,11 +242,11 @@ class ChargebackApi
      * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksChargebackDisputeOidGetWithHttpInfo($chargeback_dispute_oid, $_expand = null)
+    public function getChargebackDisputeWithHttpInfo($chargeback_dispute_oid, $_expand = null)
     {
         // verify the required parameter 'chargeback_dispute_oid' is set
         if ($chargeback_dispute_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling chargebackChargebacksChargebackDisputeOidGet');
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling getChargebackDispute');
         }
         // parse inputs
         $resourcePath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
@@ -337,138 +337,7 @@ class ChargebackApi
     }
 
     /**
-     * Operation chargebackChargebacksChargebackDisputeOidPut
-     *
-     * Update a chargeback
-     *
-     * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
-     * @param int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
-     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\v2\models\ChargebackDisputeResponse
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function chargebackChargebacksChargebackDisputeOidPut($chargeback, $chargeback_dispute_oid, $_expand = null)
-    {
-        list($response) = $this->chargebackChargebacksChargebackDisputeOidPutWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand);
-        return $response;
-    }
-
-    /**
-     * Operation chargebackChargebacksChargebackDisputeOidPutWithHttpInfo
-     *
-     * Update a chargeback
-     *
-     * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
-     * @param int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
-     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function chargebackChargebacksChargebackDisputeOidPutWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand = null)
-    {
-        // verify the required parameter 'chargeback' is set
-        if ($chargeback === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $chargeback when calling chargebackChargebacksChargebackDisputeOidPut');
-        }
-        // verify the required parameter 'chargeback_dispute_oid' is set
-        if ($chargeback_dispute_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling chargebackChargebacksChargebackDisputeOidPut');
-        }
-        // parse inputs
-        $resourcePath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
-
-        // query params
-        if ($_expand !== null) {
-            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
-        }
-        // path params
-        if ($chargeback_dispute_oid !== null) {
-            $resourcePath = str_replace(
-                "{" . "chargeback_dispute_oid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($chargeback_dispute_oid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($chargeback)) {
-            $_tempBody = $chargeback;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\ultracart\v2\models\ChargebackDisputeResponse',
-                '/chargeback/chargebacks/{chargeback_dispute_oid}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ChargebackDisputeResponse', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ChargebackDisputeResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation chargebackChargebacksGet
+     * Operation getChargebackDisputes
      *
      * Retrieve chargebacks
      *
@@ -487,14 +356,14 @@ class ChargebackApi
      * @return \ultracart\v2\models\ChargebackDisputesResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksGet($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function getChargebackDisputes($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->chargebackChargebacksGetWithHttpInfo($order_id, $case_number, $status, $expiration_dts_start, $expiration_dts_end, $chargeback_dts_start, $chargeback_dts_end, $_limit, $_offset, $_since, $_sort, $_expand);
+        list($response) = $this->getChargebackDisputesWithHttpInfo($order_id, $case_number, $status, $expiration_dts_start, $expiration_dts_end, $chargeback_dts_start, $chargeback_dts_end, $_limit, $_offset, $_since, $_sort, $_expand);
         return $response;
     }
 
     /**
-     * Operation chargebackChargebacksGetWithHttpInfo
+     * Operation getChargebackDisputesWithHttpInfo
      *
      * Retrieve chargebacks
      *
@@ -513,7 +382,7 @@ class ChargebackApi
      * @return Array of \ultracart\v2\models\ChargebackDisputesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksGetWithHttpInfo($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function getChargebackDisputesWithHttpInfo($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
         // parse inputs
         $resourcePath = "/chargeback/chargebacks";
@@ -640,7 +509,7 @@ class ChargebackApi
     }
 
     /**
-     * Operation chargebackChargebacksPost
+     * Operation insertChargeback
      *
      * Insert a chargeback
      *
@@ -649,14 +518,14 @@ class ChargebackApi
      * @return \ultracart\v2\models\ChargebackDisputeResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksPost($chargeback, $_expand = null)
+    public function insertChargeback($chargeback, $_expand = null)
     {
-        list($response) = $this->chargebackChargebacksPostWithHttpInfo($chargeback, $_expand);
+        list($response) = $this->insertChargebackWithHttpInfo($chargeback, $_expand);
         return $response;
     }
 
     /**
-     * Operation chargebackChargebacksPostWithHttpInfo
+     * Operation insertChargebackWithHttpInfo
      *
      * Insert a chargeback
      *
@@ -665,11 +534,11 @@ class ChargebackApi
      * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function chargebackChargebacksPostWithHttpInfo($chargeback, $_expand = null)
+    public function insertChargebackWithHttpInfo($chargeback, $_expand = null)
     {
         // verify the required parameter 'chargeback' is set
         if ($chargeback === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $chargeback when calling chargebackChargebacksPost');
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback when calling insertChargeback');
         }
         // parse inputs
         $resourcePath = "/chargeback/chargebacks";
@@ -721,6 +590,137 @@ class ChargebackApi
                 $headerParams,
                 '\ultracart\v2\models\ChargebackDisputeResponse',
                 '/chargeback/chargebacks'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ChargebackDisputeResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ChargebackDisputeResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateChargeback
+     *
+     * Update a chargeback
+     *
+     * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function updateChargeback($chargeback, $chargeback_dispute_oid, $_expand = null)
+    {
+        list($response) = $this->updateChargebackWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation updateChargebackWithHttpInfo
+     *
+     * Update a chargeback
+     *
+     * @param \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return Array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function updateChargebackWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand = null)
+    {
+        // verify the required parameter 'chargeback' is set
+        if ($chargeback === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback when calling updateChargeback');
+        }
+        // verify the required parameter 'chargeback_dispute_oid' is set
+        if ($chargeback_dispute_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $chargeback_dispute_oid when calling updateChargeback');
+        }
+        // parse inputs
+        $resourcePath = "/chargeback/chargebacks/{chargeback_dispute_oid}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // path params
+        if ($chargeback_dispute_oid !== null) {
+            $resourcePath = str_replace(
+                "{" . "chargeback_dispute_oid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($chargeback_dispute_oid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($chargeback)) {
+            $_tempBody = $chargeback;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\ChargebackDisputeResponse',
+                '/chargeback/chargebacks/{chargeback_dispute_oid}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ChargebackDisputeResponse', $httpHeader), $statusCode, $httpHeader);

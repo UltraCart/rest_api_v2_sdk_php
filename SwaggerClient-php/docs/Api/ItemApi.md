@@ -4,16 +4,123 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**itemItemsGet**](ItemApi.md#itemItemsGet) | **GET** /item/items | Retrieve items
-[**itemItemsMerchantItemOidDelete**](ItemApi.md#itemItemsMerchantItemOidDelete) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
-[**itemItemsMerchantItemOidGet**](ItemApi.md#itemItemsMerchantItemOidGet) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
-[**itemItemsMerchantItemOidPut**](ItemApi.md#itemItemsMerchantItemOidPut) | **PUT** /item/items/{merchant_item_oid} | Update an item
-[**itemItemsPost**](ItemApi.md#itemItemsPost) | **POST** /item/items | Create an item
-[**itemTempMultimediaPost**](ItemApi.md#itemTempMultimediaPost) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
+[**deleteItem**](ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**getItem**](ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
+[**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
+[**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
+[**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**uploadTemporaryMultimedia**](ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
-# **itemItemsGet**
-> \ultracart\v2\models\ItemsResponse itemItemsGet($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
+# **deleteItem**
+> deleteItem($merchant_item_oid)
+
+Delete an item
+
+Delete an item on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\ItemApi();
+$merchant_item_oid = 56; // int | The item oid to delete.
+
+try {
+    $api_instance->deleteItem($merchant_item_oid);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->deleteItem: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid to delete. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getItem**
+> \ultracart\v2\models\ItemResponse getItem($merchant_item_oid, $_expand, $_placeholders)
+
+Retrieve an item
+
+Retrieves a single item using the specified item oid.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\ItemApi();
+$merchant_item_oid = 56; // int | The item oid to retrieve.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+
+try {
+    $result = $api_instance->getItem($merchant_item_oid, $_expand, $_placeholders);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getItem: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid to retrieve. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\ItemResponse**](../Model/ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getItems**
+> \ultracart\v2\models\ItemsResponse getItems($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
 
 Retrieve items
 
@@ -42,10 +149,10 @@ $_expand = "_expand_example"; // string | The object expansion to perform on the
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->itemItemsGet($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+    $result = $api_instance->getItems($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ItemApi->itemItemsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->getItems: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -78,63 +185,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **itemItemsMerchantItemOidDelete**
-> itemItemsMerchantItemOidDelete($merchant_item_oid)
+# **insertItem**
+> \ultracart\v2\models\ItemResponse insertItem($item, $_expand, $_placeholders)
 
-Delete an item
+Create an item
 
-Delete an item on the UltraCart account.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\Api\ItemApi();
-$merchant_item_oid = 56; // int | The item oid to delete.
-
-try {
-    $api_instance->itemItemsMerchantItemOidDelete($merchant_item_oid);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemApi->itemItemsMerchantItemOidDelete: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **merchant_item_oid** | **int**| The item oid to delete. |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **itemItemsMerchantItemOidGet**
-> \ultracart\v2\models\ItemResponse itemItemsMerchantItemOidGet($merchant_item_oid, $_expand, $_placeholders)
-
-Retrieve an item
-
-Retrieves a single item using the specified item oid.
+Create a new item on the UltraCart account.
 
 ### Example
 ```php
@@ -149,15 +205,15 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\v2\Api\ItemApi();
-$merchant_item_oid = 56; // int | The item oid to retrieve.
+$item = new \ultracart\v2\models\Item(); // \ultracart\v2\models\Item | Item to create
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->itemItemsMerchantItemOidGet($merchant_item_oid, $_expand, $_placeholders);
+    $result = $api_instance->insertItem($item, $_expand, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ItemApi->itemItemsMerchantItemOidGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->insertItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -166,7 +222,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **merchant_item_oid** | **int**| The item oid to retrieve. |
+ **item** | [**\ultracart\v2\models\Item**](../Model/\ultracart\v2\models\Item.md)| Item to create |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
@@ -180,13 +236,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **itemItemsMerchantItemOidPut**
-> \ultracart\v2\models\ItemResponse itemItemsMerchantItemOidPut($item, $merchant_item_oid, $_expand, $_placeholders)
+# **updateItem**
+> \ultracart\v2\models\ItemResponse updateItem($item, $merchant_item_oid, $_expand, $_placeholders)
 
 Update an item
 
@@ -211,10 +267,10 @@ $_expand = "_expand_example"; // string | The object expansion to perform on the
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $api_instance->itemItemsMerchantItemOidPut($item, $merchant_item_oid, $_expand, $_placeholders);
+    $result = $api_instance->updateItem($item, $merchant_item_oid, $_expand, $_placeholders);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ItemApi->itemItemsMerchantItemOidPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->updateItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -243,64 +299,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **itemItemsPost**
-> \ultracart\v2\models\ItemResponse itemItemsPost($item, $_expand, $_placeholders)
-
-Create an item
-
-Create a new item on the UltraCart account.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\Api\ItemApi();
-$item = new \ultracart\v2\models\Item(); // \ultracart\v2\models\Item | Item to create
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
-$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
-
-try {
-    $result = $api_instance->itemItemsPost($item, $_expand, $_placeholders);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ItemApi->itemItemsPost: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **item** | [**\ultracart\v2\models\Item**](../Model/\ultracart\v2\models\Item.md)| Item to create |
- **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
- **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\ItemResponse**](../Model/ItemResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **itemTempMultimediaPost**
-> \ultracart\v2\models\TempMultimediaResponse itemTempMultimediaPost($file)
+# **uploadTemporaryMultimedia**
+> \ultracart\v2\models\TempMultimediaResponse uploadTemporaryMultimedia($file)
 
 Upload an image to the temporary multimedia.
 
@@ -322,10 +322,10 @@ $api_instance = new ultracart\v2\Api\ItemApi();
 $file = "/path/to/file.txt"; // \SplFileObject | File to upload
 
 try {
-    $result = $api_instance->itemTempMultimediaPost($file);
+    $result = $api_instance->uploadTemporaryMultimedia($file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ItemApi->itemTempMultimediaPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->uploadTemporaryMultimedia: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

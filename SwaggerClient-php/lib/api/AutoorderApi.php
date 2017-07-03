@@ -103,7 +103,7 @@ class AutoorderApi
     }
 
     /**
-     * Operation autoOrderAutoOrdersAutoOrderOidGet
+     * Operation getAutoOrder
      *
      * Retrieve an auto order
      *
@@ -112,14 +112,14 @@ class AutoorderApi
      * @return \ultracart\v2\models\AutoOrderResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function autoOrderAutoOrdersAutoOrderOidGet($auto_order_oid, $_expand = null)
+    public function getAutoOrder($auto_order_oid, $_expand = null)
     {
-        list($response) = $this->autoOrderAutoOrdersAutoOrderOidGetWithHttpInfo($auto_order_oid, $_expand);
+        list($response) = $this->getAutoOrderWithHttpInfo($auto_order_oid, $_expand);
         return $response;
     }
 
     /**
-     * Operation autoOrderAutoOrdersAutoOrderOidGetWithHttpInfo
+     * Operation getAutoOrderWithHttpInfo
      *
      * Retrieve an auto order
      *
@@ -128,11 +128,11 @@ class AutoorderApi
      * @return Array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function autoOrderAutoOrdersAutoOrderOidGetWithHttpInfo($auto_order_oid, $_expand = null)
+    public function getAutoOrderWithHttpInfo($auto_order_oid, $_expand = null)
     {
         // verify the required parameter 'auto_order_oid' is set
         if ($auto_order_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $auto_order_oid when calling autoOrderAutoOrdersAutoOrderOidGet');
+            throw new \InvalidArgumentException('Missing the required parameter $auto_order_oid when calling getAutoOrder');
         }
         // parse inputs
         $resourcePath = "/auto_order/auto_orders/{auto_order_oid}";
@@ -223,138 +223,7 @@ class AutoorderApi
     }
 
     /**
-     * Operation autoOrderAutoOrdersAutoOrderOidPut
-     *
-     * Update an auto order
-     *
-     * @param \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
-     * @param int $auto_order_oid The auto order oid to update. (required)
-     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\v2\models\AutoOrderResponse
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function autoOrderAutoOrdersAutoOrderOidPut($auto_order, $auto_order_oid, $_expand = null)
-    {
-        list($response) = $this->autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid, $_expand);
-        return $response;
-    }
-
-    /**
-     * Operation autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo
-     *
-     * Update an auto order
-     *
-     * @param \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
-     * @param int $auto_order_oid The auto order oid to update. (required)
-     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function autoOrderAutoOrdersAutoOrderOidPutWithHttpInfo($auto_order, $auto_order_oid, $_expand = null)
-    {
-        // verify the required parameter 'auto_order' is set
-        if ($auto_order === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $auto_order when calling autoOrderAutoOrdersAutoOrderOidPut');
-        }
-        // verify the required parameter 'auto_order_oid' is set
-        if ($auto_order_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $auto_order_oid when calling autoOrderAutoOrdersAutoOrderOidPut');
-        }
-        // parse inputs
-        $resourcePath = "/auto_order/auto_orders/{auto_order_oid}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
-
-        // query params
-        if ($_expand !== null) {
-            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
-        }
-        // path params
-        if ($auto_order_oid !== null) {
-            $resourcePath = str_replace(
-                "{" . "auto_order_oid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($auto_order_oid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($auto_order)) {
-            $_tempBody = $auto_order;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\ultracart\v2\models\AutoOrderResponse',
-                '/auto_order/auto_orders/{auto_order_oid}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\AutoOrderResponse', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\AutoOrderResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation autoOrderAutoOrdersGet
+     * Operation getAutoOrders
      *
      * Retrieve auto orders
      *
@@ -384,14 +253,14 @@ class AutoorderApi
      * @return \ultracart\v2\models\AutoOrdersResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function autoOrderAutoOrdersGet($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function getAutoOrders($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->autoOrderAutoOrdersGetWithHttpInfo($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
+        list($response) = $this->getAutoOrdersWithHttpInfo($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
         return $response;
     }
 
     /**
-     * Operation autoOrderAutoOrdersGetWithHttpInfo
+     * Operation getAutoOrdersWithHttpInfo
      *
      * Retrieve auto orders
      *
@@ -421,7 +290,7 @@ class AutoorderApi
      * @return Array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function autoOrderAutoOrdersGetWithHttpInfo($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function getAutoOrdersWithHttpInfo($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
         // parse inputs
         $resourcePath = "/auto_order/auto_orders";
@@ -563,6 +432,137 @@ class AutoorderApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\AutoOrdersResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAutoOrder
+     *
+     * Update an auto order
+     *
+     * @param \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param int $auto_order_oid The auto order oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return \ultracart\v2\models\AutoOrderResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function updateAutoOrder($auto_order, $auto_order_oid, $_expand = null)
+    {
+        list($response) = $this->updateAutoOrderWithHttpInfo($auto_order, $auto_order_oid, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation updateAutoOrderWithHttpInfo
+     *
+     * Update an auto order
+     *
+     * @param \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param int $auto_order_oid The auto order oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return Array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function updateAutoOrderWithHttpInfo($auto_order, $auto_order_oid, $_expand = null)
+    {
+        // verify the required parameter 'auto_order' is set
+        if ($auto_order === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $auto_order when calling updateAutoOrder');
+        }
+        // verify the required parameter 'auto_order_oid' is set
+        if ($auto_order_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $auto_order_oid when calling updateAutoOrder');
+        }
+        // parse inputs
+        $resourcePath = "/auto_order/auto_orders/{auto_order_oid}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // path params
+        if ($auto_order_oid !== null) {
+            $resourcePath = str_replace(
+                "{" . "auto_order_oid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($auto_order_oid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($auto_order)) {
+            $_tempBody = $auto_order;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\AutoOrderResponse',
+                '/auto_order/auto_orders/{auto_order_oid}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\AutoOrderResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\AutoOrderResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

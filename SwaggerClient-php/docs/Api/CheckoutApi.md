@@ -4,28 +4,84 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checkoutBrowserKeyPut**](CheckoutApi.md#checkoutBrowserKeyPut) | **PUT** /checkout/browser_key | Setup Browser Application
-[**checkoutCartCartIdGet**](CheckoutApi.md#checkoutCartCartIdGet) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
-[**checkoutCartFinalizeOrderPost**](CheckoutApi.md#checkoutCartFinalizeOrderPost) | **POST** /checkout/cart/finalizeOrder | Finalize Order
-[**checkoutCartGet**](CheckoutApi.md#checkoutCartGet) | **GET** /checkout/cart | Get cart
-[**checkoutCartHandoffPost**](CheckoutApi.md#checkoutCartHandoffPost) | **POST** /checkout/cart/handoff | Handoff cart
-[**checkoutCartProfileLoginPost**](CheckoutApi.md#checkoutCartProfileLoginPost) | **POST** /checkout/cart/profile/login | Profile login
-[**checkoutCartProfileLogoutPost**](CheckoutApi.md#checkoutCartProfileLogoutPost) | **POST** /checkout/cart/profile/logout | Profile logout
-[**checkoutCartProfileRegisterPost**](CheckoutApi.md#checkoutCartProfileRegisterPost) | **POST** /checkout/cart/profile/register | Profile registration
-[**checkoutCartPut**](CheckoutApi.md#checkoutCartPut) | **PUT** /checkout/cart | Update cart
-[**checkoutCartValidatePost**](CheckoutApi.md#checkoutCartValidatePost) | **POST** /checkout/cart/validate | Validate
-[**checkoutCityStatePost**](CheckoutApi.md#checkoutCityStatePost) | **POST** /checkout/city_state | City/State for Zip
-[**checkoutRelatedItemsItemIdPost**](CheckoutApi.md#checkoutRelatedItemsItemIdPost) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
-[**checkoutRelatedItemsPost**](CheckoutApi.md#checkoutRelatedItemsPost) | **POST** /checkout/related_items | Related items
-[**checkoutReturnReturnCodeGet**](CheckoutApi.md#checkoutReturnReturnCodeGet) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**cityState**](CheckoutApi.md#cityState) | **POST** /checkout/city_state | City/State for Zip
+[**finalizeOrder**](CheckoutApi.md#finalizeOrder) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+[**getCart**](CheckoutApi.md#getCart) | **GET** /checkout/cart | Get cart
+[**getCartByCartId**](CheckoutApi.md#getCartByCartId) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
+[**getCartByReturnCode**](CheckoutApi.md#getCartByReturnCode) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+[**handoffCart**](CheckoutApi.md#handoffCart) | **POST** /checkout/cart/handoff | Handoff cart
+[**login**](CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
+[**logout**](CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
+[**register**](CheckoutApi.md#register) | **POST** /checkout/cart/profile/register | Profile registration
+[**relatedItemsForCart**](CheckoutApi.md#relatedItemsForCart) | **POST** /checkout/related_items | Related items
+[**relatedItemsForItem**](CheckoutApi.md#relatedItemsForItem) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
+[**setupBrowserKey**](CheckoutApi.md#setupBrowserKey) | **PUT** /checkout/browser_key | Setup Browser Application
+[**updateCart**](CheckoutApi.md#updateCart) | **PUT** /checkout/cart | Update cart
+[**validateCart**](CheckoutApi.md#validateCart) | **POST** /checkout/cart/validate | Validate
 
 
-# **checkoutBrowserKeyPut**
-> \ultracart\v2\models\CheckoutSetupBrowserKeyResponse checkoutBrowserKeyPut($browser_key_request)
+# **cityState**
+> \ultracart\v2\models\ItemsResponse cityState($cart)
 
-Setup Browser Application
+City/State for Zip
 
-Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use.
+Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+
+try {
+    $result = $api_instance->cityState($cart);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutApi->cityState: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+
+### Return type
+
+[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **finalizeOrder**
+> \ultracart\v2\models\CartFinalizeOrderResponse finalizeOrder($finalize_request)
+
+Finalize Order
+
+Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call.
 
 ### Example
 ```php
@@ -40,13 +96,13 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\v2\Api\CheckoutApi();
-$browser_key_request = new \ultracart\v2\models\CheckoutSetupBrowserKeyRequest(); // \ultracart\v2\models\CheckoutSetupBrowserKeyRequest | Setup browser key request
+$finalize_request = new \ultracart\v2\models\CartFinalizeOrderRequest(); // \ultracart\v2\models\CartFinalizeOrderRequest | Finalize request
 
 try {
-    $result = $api_instance->checkoutBrowserKeyPut($browser_key_request);
+    $result = $api_instance->finalizeOrder($finalize_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutBrowserKeyPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->finalizeOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -55,11 +111,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **browser_key_request** | [**\ultracart\v2\models\CheckoutSetupBrowserKeyRequest**](../Model/\ultracart\v2\models\CheckoutSetupBrowserKeyRequest.md)| Setup browser key request |
+ **finalize_request** | [**\ultracart\v2\models\CartFinalizeOrderRequest**](../Model/\ultracart\v2\models\CartFinalizeOrderRequest.md)| Finalize request |
 
 ### Return type
 
-[**\ultracart\v2\models\CheckoutSetupBrowserKeyResponse**](../Model/CheckoutSetupBrowserKeyResponse.md)
+[**\ultracart\v2\models\CartFinalizeOrderResponse**](../Model/CartFinalizeOrderResponse.md)
 
 ### Authorization
 
@@ -72,8 +128,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutCartCartIdGet**
-> \ultracart\v2\models\CartResponse checkoutCartCartIdGet($cart_id, $_expand)
+# **getCart**
+> \ultracart\v2\models\CartResponse getCart($_expand)
+
+Get cart
+
+If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $api_instance->getCart($_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutApi->getCart: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCartByCartId**
+> \ultracart\v2\models\CartResponse getCartByCartId($cart_id, $_expand)
 
 Get cart (by cart id)
 
@@ -100,10 +212,10 @@ $cart_id = "cart_id_example"; // string | Cart ID to retrieve
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->checkoutCartCartIdGet($cart_id, $_expand);
+    $result = $api_instance->getCartByCartId($cart_id, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartCartIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->getCartByCartId: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -130,64 +242,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutCartFinalizeOrderPost**
-> \ultracart\v2\models\CartFinalizeOrderResponse checkoutCartFinalizeOrderPost($finalize_request)
+# **getCartByReturnCode**
+> \ultracart\v2\models\CartResponse getCartByReturnCode($return_code, $_expand)
 
-Finalize Order
+Get cart (by return code)
 
-Finalize the cart into an order.  This method can not be called with browser key authentication.  It is ONLY meant for server side code to call.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\Api\CheckoutApi();
-$finalize_request = new \ultracart\v2\models\CartFinalizeOrderRequest(); // \ultracart\v2\models\CartFinalizeOrderRequest | Finalize request
-
-try {
-    $result = $api_instance->checkoutCartFinalizeOrderPost($finalize_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartFinalizeOrderPost: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **finalize_request** | [**\ultracart\v2\models\CartFinalizeOrderRequest**](../Model/\ultracart\v2\models\CartFinalizeOrderRequest.md)| Finalize request |
-
-### Return type
-
-[**\ultracart\v2\models\CartFinalizeOrderResponse**](../Model/CartFinalizeOrderResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **checkoutCartGet**
-> \ultracart\v2\models\CartResponse checkoutCartGet($_expand)
-
-Get cart
-
-If the cookie is set on the browser making the request then it will return their active cart.  Otherwise it will create a new cart.
+Get a cart specified by the return code parameter.
 
 ### Example
 ```php
@@ -206,13 +266,14 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\v2\Api\CheckoutApi();
+$return_code = "return_code_example"; // string | Return code to lookup cart ID by
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->checkoutCartGet($_expand);
+    $result = $api_instance->getCartByReturnCode($return_code, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->getCartByReturnCode: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -221,6 +282,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **return_code** | **string**| Return code to lookup cart ID by |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -238,8 +300,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutCartHandoffPost**
-> \ultracart\v2\models\CheckoutHandoffResponse checkoutCartHandoffPost($handoff_request, $_expand)
+# **handoffCart**
+> \ultracart\v2\models\CheckoutHandoffResponse handoffCart($handoff_request, $_expand)
 
 Handoff cart
 
@@ -266,10 +328,10 @@ $handoff_request = new \ultracart\v2\models\CheckoutHandoffRequest(); // \ultrac
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->checkoutCartHandoffPost($handoff_request, $_expand);
+    $result = $api_instance->handoffCart($handoff_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartHandoffPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->handoffCart: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -296,8 +358,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutCartProfileLoginPost**
-> \ultracart\v2\models\CartProfileLoginResponse checkoutCartProfileLoginPost($login_request, $_expand)
+# **login**
+> \ultracart\v2\models\CartProfileLoginResponse login($login_request, $_expand)
 
 Profile login
 
@@ -324,10 +386,10 @@ $login_request = new \ultracart\v2\models\CartProfileLoginRequest(); // \ultraca
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->checkoutCartProfileLoginPost($login_request, $_expand);
+    $result = $api_instance->login($login_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartProfileLoginPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->login: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -354,8 +416,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutCartProfileLogoutPost**
-> \ultracart\v2\models\CartResponse checkoutCartProfileLogoutPost($cart, $_expand)
+# **logout**
+> \ultracart\v2\models\CartResponse logout($cart, $_expand)
 
 Profile logout
 
@@ -382,10 +444,10 @@ $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->checkoutCartProfileLogoutPost($cart, $_expand);
+    $result = $api_instance->logout($cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartProfileLogoutPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->logout: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -412,8 +474,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutCartProfileRegisterPost**
-> \ultracart\v2\models\CartProfileRegisterResponse checkoutCartProfileRegisterPost($register_request, $_expand)
+# **register**
+> \ultracart\v2\models\CartProfileRegisterResponse register($register_request, $_expand)
 
 Profile registration
 
@@ -440,10 +502,10 @@ $register_request = new \ultracart\v2\models\CartProfileRegisterRequest(); // \u
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->checkoutCartProfileRegisterPost($register_request, $_expand);
+    $result = $api_instance->register($register_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartProfileRegisterPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->register: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -470,128 +532,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutCartPut**
-> \ultracart\v2\models\CartResponse checkoutCartPut($cart, $_expand)
+# **relatedItemsForCart**
+> \ultracart\v2\models\ItemsResponse relatedItemsForCart($cart, $_expand)
 
-Update cart
+Related items
 
-Update the cart.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\Api\CheckoutApi();
-$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
-
-try {
-    $result = $api_instance->checkoutCartPut($cart, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartPut: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
- **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **checkoutCartValidatePost**
-> \ultracart\v2\models\CartValidationResponse checkoutCartValidatePost($validation_request, $_expand)
-
-Validate
-
-Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\Api\CheckoutApi();
-$validation_request = new \ultracart\v2\models\CartValidationRequest(); // \ultracart\v2\models\CartValidationRequest | Validation request
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
-
-try {
-    $result = $api_instance->checkoutCartValidatePost($validation_request, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCartValidatePost: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **validation_request** | [**\ultracart\v2\models\CartValidationRequest**](../Model/\ultracart\v2\models\CartValidationRequest.md)| Validation request |
- **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\CartValidationResponse**](../Model/CartValidationResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **checkoutCityStatePost**
-> \ultracart\v2\models\ItemsResponse checkoutCityStatePost($cart)
-
-City/State for Zip
-
-Look up the city and state for the shipping zip code.  Useful for building an auto complete for parts of the shipping address
+Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers.
 
 ### Example
 ```php
@@ -611,12 +557,13 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 
 $api_instance = new ultracart\v2\Api\CheckoutApi();
 $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
 
 try {
-    $result = $api_instance->checkoutCityStatePost($cart);
+    $result = $api_instance->relatedItemsForCart($cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutCityStatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->relatedItemsForCart: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -626,6 +573,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+ **_expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional]
 
 ### Return type
 
@@ -642,8 +590,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutRelatedItemsItemIdPost**
-> \ultracart\v2\models\ItemsResponse checkoutRelatedItemsItemIdPost($item_id, $cart, $_expand)
+# **relatedItemsForItem**
+> \ultracart\v2\models\ItemsResponse relatedItemsForItem($item_id, $cart, $_expand)
 
 Related items (specific item)
 
@@ -671,10 +619,10 @@ $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
 
 try {
-    $result = $api_instance->checkoutRelatedItemsItemIdPost($item_id, $cart, $_expand);
+    $result = $api_instance->relatedItemsForItem($item_id, $cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutRelatedItemsItemIdPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->relatedItemsForItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -702,12 +650,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutRelatedItemsPost**
-> \ultracart\v2\models\ItemsResponse checkoutRelatedItemsPost($cart, $_expand)
+# **setupBrowserKey**
+> \ultracart\v2\models\CheckoutSetupBrowserKeyResponse setupBrowserKey($browser_key_request)
 
-Related items
+Setup Browser Application
 
-Retrieve all the related items for the cart contents.  Expansion is limited to content, content.assignments, content.attributes, content.multimedia, content.multimedia.thumbnails, options, pricing, and pricing.tiers.
+Setup a browser key authenticated application with checkout permissions.  This REST call must be made with an authentication scheme that is not browser key.  The new application will be linked to the application that makes this call.  If this application is disabled / deleted, then so will the application setup by this call.  The purpose of this call is to allow an OAuth applicaiton, such as the Wordpress plugin, to setup the proper browser based authentication for the REST checkout API to use.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CheckoutApi();
+$browser_key_request = new \ultracart\v2\models\CheckoutSetupBrowserKeyRequest(); // \ultracart\v2\models\CheckoutSetupBrowserKeyRequest | Setup browser key request
+
+try {
+    $result = $api_instance->setupBrowserKey($browser_key_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutApi->setupBrowserKey: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **browser_key_request** | [**\ultracart\v2\models\CheckoutSetupBrowserKeyRequest**](../Model/\ultracart\v2\models\CheckoutSetupBrowserKeyRequest.md)| Setup browser key request |
+
+### Return type
+
+[**\ultracart\v2\models\CheckoutSetupBrowserKeyResponse**](../Model/CheckoutSetupBrowserKeyResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateCart**
+> \ultracart\v2\models\CartResponse updateCart($cart, $_expand)
+
+Update cart
+
+Update the cart.
 
 ### Example
 ```php
@@ -727,13 +727,13 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 
 $api_instance = new ultracart\v2\Api\CheckoutApi();
 $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->checkoutRelatedItemsPost($cart, $_expand);
+    $result = $api_instance->updateCart($cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutRelatedItemsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->updateCart: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -743,11 +743,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
- **_expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional]
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -760,12 +760,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **checkoutReturnReturnCodeGet**
-> \ultracart\v2\models\CartResponse checkoutReturnReturnCodeGet($return_code, $_expand)
+# **validateCart**
+> \ultracart\v2\models\CartValidationResponse validateCart($validation_request, $_expand)
 
-Get cart (by return code)
+Validate
 
-Get a cart specified by the return code parameter.
+Validate the cart for errors.  Specific checks can be passed and multiple validations can occur throughout your checkout flow.
 
 ### Example
 ```php
@@ -784,14 +784,14 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\v2\Api\CheckoutApi();
-$return_code = "return_code_example"; // string | Return code to lookup cart ID by
+$validation_request = new \ultracart\v2\models\CartValidationRequest(); // \ultracart\v2\models\CartValidationRequest | Validation request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->checkoutReturnReturnCodeGet($return_code, $_expand);
+    $result = $api_instance->validateCart($validation_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CheckoutApi->checkoutReturnReturnCodeGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CheckoutApi->validateCart: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -800,12 +800,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **return_code** | **string**| Return code to lookup cart ID by |
+ **validation_request** | [**\ultracart\v2\models\CartValidationRequest**](../Model/\ultracart\v2\models\CartValidationRequest.md)| Validation request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracart\v2\models\CartValidationResponse**](../Model/CartValidationResponse.md)
 
 ### Authorization
 

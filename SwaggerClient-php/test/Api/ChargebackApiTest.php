@@ -90,56 +90,56 @@ class ChargebackApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for chargebackChargebacksChargebackDisputeOidDelete
+     * Test case for deleteChargeback
      *
      * Delete a chargeback.
      *
      */
-    public function testChargebackChargebacksChargebackDisputeOidDelete()
+    public function testDeleteChargeback()
     {
 
     }
 
     /**
-     * Test case for chargebackChargebacksChargebackDisputeOidGet
+     * Test case for getChargebackDispute
      *
      * Retrieve a chargeback.
      *
      */
-    public function testChargebackChargebacksChargebackDisputeOidGet()
+    public function testGetChargebackDispute()
     {
 
     }
 
     /**
-     * Test case for chargebackChargebacksChargebackDisputeOidPut
-     *
-     * Update a chargeback.
-     *
-     */
-    public function testChargebackChargebacksChargebackDisputeOidPut()
-    {
-
-    }
-
-    /**
-     * Test case for chargebackChargebacksGet
+     * Test case for getChargebackDisputes
      *
      * Retrieve chargebacks.
      *
      */
-    public function testChargebackChargebacksGet()
+    public function testGetChargebackDisputes()
     {
 
     }
 
     /**
-     * Test case for chargebackChargebacksPost
+     * Test case for insertChargeback
      *
      * Insert a chargeback.
      *
      */
-    public function testChargebackChargebacksPost()
+    public function testInsertChargeback()
+    {
+
+    }
+
+    /**
+     * Test case for updateChargeback
+     *
+     * Update a chargeback.
+     *
+     */
+    public function testUpdateChargeback()
     {
 
     }

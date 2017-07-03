@@ -103,7 +103,7 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut
+     * Operation acknowledgeOrders
      *
      * Acknowledge receipt of orders.
      *
@@ -112,14 +112,14 @@ class FulfillmentApi
      * @return void
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut($distribution_center_code, $order_ids)
+    public function acknowledgeOrders($distribution_center_code, $order_ids)
     {
-        list($response) = $this->fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo($distribution_center_code, $order_ids);
+        list($response) = $this->acknowledgeOrdersWithHttpInfo($distribution_center_code, $order_ids);
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo
+     * Operation acknowledgeOrdersWithHttpInfo
      *
      * Acknowledge receipt of orders.
      *
@@ -128,15 +128,15 @@ class FulfillmentApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPutWithHttpInfo($distribution_center_code, $order_ids)
+    public function acknowledgeOrdersWithHttpInfo($distribution_center_code, $order_ids)
     {
         // verify the required parameter 'distribution_center_code' is set
         if ($distribution_center_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut');
+            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling acknowledgeOrders');
         }
         // verify the required parameter 'order_ids' is set
         if ($order_ids === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $order_ids when calling fulfillmentDistributionCentersDistributionCenterCodeAcknowledgementsPut');
+            throw new \InvalidArgumentException('Missing the required parameter $order_ids when calling acknowledgeOrders');
         }
         // parse inputs
         $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/acknowledgements";
@@ -224,128 +224,7 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeInventoryPost
-     *
-     * Update inventory
-     *
-     * @param string $distribution_center_code Distribution center code (required)
-     * @param \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
-     * @return void
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function fulfillmentDistributionCentersDistributionCenterCodeInventoryPost($distribution_center_code, $inventories)
-    {
-        list($response) = $this->fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo($distribution_center_code, $inventories);
-        return $response;
-    }
-
-    /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo
-     *
-     * Update inventory
-     *
-     * @param string $distribution_center_code Distribution center code (required)
-     * @param \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function fulfillmentDistributionCentersDistributionCenterCodeInventoryPostWithHttpInfo($distribution_center_code, $inventories)
-    {
-        // verify the required parameter 'distribution_center_code' is set
-        if ($distribution_center_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling fulfillmentDistributionCentersDistributionCenterCodeInventoryPost');
-        }
-        // verify the required parameter 'inventories' is set
-        if ($inventories === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $inventories when calling fulfillmentDistributionCentersDistributionCenterCodeInventoryPost');
-        }
-        // parse inputs
-        $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // path params
-        if ($distribution_center_code !== null) {
-            $resourcePath = str_replace(
-                "{" . "distribution_center_code" . "}",
-                $this->apiClient->getSerializer()->toPathValue($distribution_center_code),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($inventories)) {
-            $_tempBody = $inventories;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                null,
-                '/fulfillment/distribution_centers/{distribution_center_code}/inventory'
-            );
-
-            return array(null, $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeOrdersGet
+     * Operation getDistributionCenterOrders
      *
      * Retrieve orders queued up for this distribution center.
      *
@@ -353,14 +232,14 @@ class FulfillmentApi
      * @return \ultracart\v2\models\OrdersResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeOrdersGet($distribution_center_code)
+    public function getDistributionCenterOrders($distribution_center_code)
     {
-        list($response) = $this->fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo($distribution_center_code);
+        list($response) = $this->getDistributionCenterOrdersWithHttpInfo($distribution_center_code);
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo
+     * Operation getDistributionCenterOrdersWithHttpInfo
      *
      * Retrieve orders queued up for this distribution center.
      *
@@ -368,11 +247,11 @@ class FulfillmentApi
      * @return Array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeOrdersGetWithHttpInfo($distribution_center_code)
+    public function getDistributionCenterOrdersWithHttpInfo($distribution_center_code)
     {
         // verify the required parameter 'distribution_center_code' is set
         if ($distribution_center_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling fulfillmentDistributionCentersDistributionCenterCodeOrdersGet');
+            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling getDistributionCenterOrders');
         }
         // parse inputs
         $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/orders";
@@ -459,7 +338,107 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost
+     * Operation getDistributionCenters
+     *
+     * Retrieve distribution centers
+     *
+     * @return \ultracart\v2\models\DistributionCentersResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function getDistributionCenters()
+    {
+        list($response) = $this->getDistributionCentersWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getDistributionCentersWithHttpInfo
+     *
+     * Retrieve distribution centers
+     *
+     * @return Array of \ultracart\v2\models\DistributionCentersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function getDistributionCentersWithHttpInfo()
+    {
+        // parse inputs
+        $resourcePath = "/fulfillment/distribution_centers";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\DistributionCentersResponse',
+                '/fulfillment/distribution_centers'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\DistributionCentersResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\DistributionCentersResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation shipOrders
      *
      * Mark orders as shipped
      *
@@ -468,14 +447,14 @@ class FulfillmentApi
      * @return void
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost($distribution_center_code, $shipments)
+    public function shipOrders($distribution_center_code, $shipments)
     {
-        list($response) = $this->fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo($distribution_center_code, $shipments);
+        list($response) = $this->shipOrdersWithHttpInfo($distribution_center_code, $shipments);
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo
+     * Operation shipOrdersWithHttpInfo
      *
      * Mark orders as shipped
      *
@@ -484,15 +463,15 @@ class FulfillmentApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersDistributionCenterCodeShipmentsPostWithHttpInfo($distribution_center_code, $shipments)
+    public function shipOrdersWithHttpInfo($distribution_center_code, $shipments)
     {
         // verify the required parameter 'distribution_center_code' is set
         if ($distribution_center_code === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost');
+            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling shipOrders');
         }
         // verify the required parameter 'shipments' is set
         if ($shipments === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $shipments when calling fulfillmentDistributionCentersDistributionCenterCodeShipmentsPost');
+            throw new \InvalidArgumentException('Missing the required parameter $shipments when calling shipOrders');
         }
         // parse inputs
         $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/shipments";
@@ -580,31 +559,43 @@ class FulfillmentApi
     }
 
     /**
-     * Operation fulfillmentDistributionCentersGet
+     * Operation updateInventory
      *
-     * Retrieve distribution centers
+     * Update inventory
      *
-     * @return \ultracart\v2\models\DistributionCentersResponse
+     * @param string $distribution_center_code Distribution center code (required)
+     * @param \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @return void
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersGet()
+    public function updateInventory($distribution_center_code, $inventories)
     {
-        list($response) = $this->fulfillmentDistributionCentersGetWithHttpInfo();
+        list($response) = $this->updateInventoryWithHttpInfo($distribution_center_code, $inventories);
         return $response;
     }
 
     /**
-     * Operation fulfillmentDistributionCentersGetWithHttpInfo
+     * Operation updateInventoryWithHttpInfo
      *
-     * Retrieve distribution centers
+     * Update inventory
      *
-     * @return Array of \ultracart\v2\models\DistributionCentersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @param string $distribution_center_code Distribution center code (required)
+     * @param \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function fulfillmentDistributionCentersGetWithHttpInfo()
+    public function updateInventoryWithHttpInfo($distribution_center_code, $inventories)
     {
+        // verify the required parameter 'distribution_center_code' is set
+        if ($distribution_center_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $distribution_center_code when calling updateInventory');
+        }
+        // verify the required parameter 'inventories' is set
+        if ($inventories === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $inventories when calling updateInventory');
+        }
         // parse inputs
-        $resourcePath = "/fulfillment/distribution_centers";
+        $resourcePath = "/fulfillment/distribution_centers/{distribution_center_code}/inventory";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -615,10 +606,23 @@ class FulfillmentApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
 
+        // path params
+        if ($distribution_center_code !== null) {
+            $resourcePath = str_replace(
+                "{" . "distribution_center_code" . "}",
+                $this->apiClient->getSerializer()->toPathValue($distribution_center_code),
+                $resourcePath
+            );
+        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($inventories)) {
+            $_tempBody = $inventories;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -638,21 +642,17 @@ class FulfillmentApi
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath,
-                'GET',
+                'POST',
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\DistributionCentersResponse',
-                '/fulfillment/distribution_centers'
+                null,
+                '/fulfillment/distribution_centers/{distribution_center_code}/inventory'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\DistributionCentersResponse', $httpHeader), $statusCode, $httpHeader);
+            return array(null, $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\DistributionCentersResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
                 case 400:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);

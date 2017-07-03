@@ -103,7 +103,7 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidDelete
+     * Operation deleteCustomer
      *
      * Delete a customer
      *
@@ -111,14 +111,14 @@ class CustomerApi
      * @return \ultracart\v2\models\CustomerResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidDelete($customer_profile_oid)
+    public function deleteCustomer($customer_profile_oid)
     {
-        list($response) = $this->customerCustomersCustomerProfileOidDeleteWithHttpInfo($customer_profile_oid);
+        list($response) = $this->deleteCustomerWithHttpInfo($customer_profile_oid);
         return $response;
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidDeleteWithHttpInfo
+     * Operation deleteCustomerWithHttpInfo
      *
      * Delete a customer
      *
@@ -126,11 +126,11 @@ class CustomerApi
      * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidDeleteWithHttpInfo($customer_profile_oid)
+    public function deleteCustomerWithHttpInfo($customer_profile_oid)
     {
         // verify the required parameter 'customer_profile_oid' is set
         if ($customer_profile_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling customerCustomersCustomerProfileOidDelete');
+            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling deleteCustomer');
         }
         // parse inputs
         $resourcePath = "/customer/customers/{customer_profile_oid}";
@@ -217,7 +217,7 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidGet
+     * Operation getCustomer
      *
      * Retrieve a customer
      *
@@ -226,14 +226,14 @@ class CustomerApi
      * @return \ultracart\v2\models\CustomerResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidGet($customer_profile_oid, $_expand = null)
+    public function getCustomer($customer_profile_oid, $_expand = null)
     {
-        list($response) = $this->customerCustomersCustomerProfileOidGetWithHttpInfo($customer_profile_oid, $_expand);
+        list($response) = $this->getCustomerWithHttpInfo($customer_profile_oid, $_expand);
         return $response;
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidGetWithHttpInfo
+     * Operation getCustomerWithHttpInfo
      *
      * Retrieve a customer
      *
@@ -242,11 +242,11 @@ class CustomerApi
      * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersCustomerProfileOidGetWithHttpInfo($customer_profile_oid, $_expand = null)
+    public function getCustomerWithHttpInfo($customer_profile_oid, $_expand = null)
     {
         // verify the required parameter 'customer_profile_oid' is set
         if ($customer_profile_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling customerCustomersCustomerProfileOidGet');
+            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling getCustomer');
         }
         // parse inputs
         $resourcePath = "/customer/customers/{customer_profile_oid}";
@@ -337,138 +337,7 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersCustomerProfileOidPut
-     *
-     * Update a customer
-     *
-     * @param \ultracart\v2\models\Customer $customer Customer to update (required)
-     * @param int $customer_profile_oid The customer_profile_oid to update. (required)
-     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return \ultracart\v2\models\CustomerResponse
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid, $_expand = null)
-    {
-        list($response) = $this->customerCustomersCustomerProfileOidPutWithHttpInfo($customer, $customer_profile_oid, $_expand);
-        return $response;
-    }
-
-    /**
-     * Operation customerCustomersCustomerProfileOidPutWithHttpInfo
-     *
-     * Update a customer
-     *
-     * @param \ultracart\v2\models\Customer $customer Customer to update (required)
-     * @param int $customer_profile_oid The customer_profile_oid to update. (required)
-     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function customerCustomersCustomerProfileOidPutWithHttpInfo($customer, $customer_profile_oid, $_expand = null)
-    {
-        // verify the required parameter 'customer' is set
-        if ($customer === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer when calling customerCustomersCustomerProfileOidPut');
-        }
-        // verify the required parameter 'customer_profile_oid' is set
-        if ($customer_profile_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling customerCustomersCustomerProfileOidPut');
-        }
-        // parse inputs
-        $resourcePath = "/customer/customers/{customer_profile_oid}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
-
-        // query params
-        if ($_expand !== null) {
-            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
-        }
-        // path params
-        if ($customer_profile_oid !== null) {
-            $resourcePath = str_replace(
-                "{" . "customer_profile_oid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($customer_profile_oid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($customer)) {
-            $_tempBody = $customer;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'PUT',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\ultracart\v2\models\CustomerResponse',
-                '/customer/customers/{customer_profile_oid}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CustomerResponse', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CustomerResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation customerCustomersGet
+     * Operation getCustomers
      *
      * Retrieve customers
      *
@@ -507,14 +376,14 @@ class CustomerApi
      * @return \ultracart\v2\models\CustomersResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersGet($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function getCustomers($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->customerCustomersGetWithHttpInfo($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
+        list($response) = $this->getCustomersWithHttpInfo($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
         return $response;
     }
 
     /**
-     * Operation customerCustomersGetWithHttpInfo
+     * Operation getCustomersWithHttpInfo
      *
      * Retrieve customers
      *
@@ -553,7 +422,7 @@ class CustomerApi
      * @return Array of \ultracart\v2\models\CustomersResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersGetWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
+    public function getCustomersWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null)
     {
         // parse inputs
         $resourcePath = "/customer/customers";
@@ -760,7 +629,7 @@ class CustomerApi
     }
 
     /**
-     * Operation customerCustomersPost
+     * Operation insertCustomer
      *
      * Insert a customer
      *
@@ -769,14 +638,14 @@ class CustomerApi
      * @return \ultracart\v2\models\CustomerResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersPost($customer, $_expand = null)
+    public function insertCustomer($customer, $_expand = null)
     {
-        list($response) = $this->customerCustomersPostWithHttpInfo($customer, $_expand);
+        list($response) = $this->insertCustomerWithHttpInfo($customer, $_expand);
         return $response;
     }
 
     /**
-     * Operation customerCustomersPostWithHttpInfo
+     * Operation insertCustomerWithHttpInfo
      *
      * Insert a customer
      *
@@ -785,11 +654,11 @@ class CustomerApi
      * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function customerCustomersPostWithHttpInfo($customer, $_expand = null)
+    public function insertCustomerWithHttpInfo($customer, $_expand = null)
     {
         // verify the required parameter 'customer' is set
         if ($customer === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $customer when calling customerCustomersPost');
+            throw new \InvalidArgumentException('Missing the required parameter $customer when calling insertCustomer');
         }
         // parse inputs
         $resourcePath = "/customer/customers";
@@ -841,6 +710,137 @@ class CustomerApi
                 $headerParams,
                 '\ultracart\v2\models\CustomerResponse',
                 '/customer/customers'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CustomerResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CustomerResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateCustomer
+     *
+     * Update a customer
+     *
+     * @param \ultracart\v2\models\Customer $customer Customer to update (required)
+     * @param int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return \ultracart\v2\models\CustomerResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function updateCustomer($customer, $customer_profile_oid, $_expand = null)
+    {
+        list($response) = $this->updateCustomerWithHttpInfo($customer, $customer_profile_oid, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation updateCustomerWithHttpInfo
+     *
+     * Update a customer
+     *
+     * @param \ultracart\v2\models\Customer $customer Customer to update (required)
+     * @param int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @return Array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function updateCustomerWithHttpInfo($customer, $customer_profile_oid, $_expand = null)
+    {
+        // verify the required parameter 'customer' is set
+        if ($customer === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer when calling updateCustomer');
+        }
+        // verify the required parameter 'customer_profile_oid' is set
+        if ($customer_profile_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $customer_profile_oid when calling updateCustomer');
+        }
+        // parse inputs
+        $resourcePath = "/customer/customers/{customer_profile_oid}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // path params
+        if ($customer_profile_oid !== null) {
+            $resourcePath = str_replace(
+                "{" . "customer_profile_oid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($customer_profile_oid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($customer)) {
+            $_tempBody = $customer;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'PUT',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\CustomerResponse',
+                '/customer/customers/{customer_profile_oid}'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CustomerResponse', $httpHeader), $statusCode, $httpHeader);

@@ -103,7 +103,243 @@ class ItemApi
     }
 
     /**
-     * Operation itemItemsGet
+     * Operation deleteItem
+     *
+     * Delete an item
+     *
+     * @param int $merchant_item_oid The item oid to delete. (required)
+     * @return void
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function deleteItem($merchant_item_oid)
+    {
+        list($response) = $this->deleteItemWithHttpInfo($merchant_item_oid);
+        return $response;
+    }
+
+    /**
+     * Operation deleteItemWithHttpInfo
+     *
+     * Delete an item
+     *
+     * @param int $merchant_item_oid The item oid to delete. (required)
+     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function deleteItemWithHttpInfo($merchant_item_oid)
+    {
+        // verify the required parameter 'merchant_item_oid' is set
+        if ($merchant_item_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling deleteItem');
+        }
+        // parse inputs
+        $resourcePath = "/item/items/{merchant_item_oid}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // path params
+        if ($merchant_item_oid !== null) {
+            $resourcePath = str_replace(
+                "{" . "merchant_item_oid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($merchant_item_oid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'DELETE',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                null,
+                '/item/items/{merchant_item_oid}'
+            );
+
+            return array(null, $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getItem
+     *
+     * Retrieve an item
+     *
+     * @param int $merchant_item_oid The item oid to retrieve. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return \ultracart\v2\models\ItemResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function getItem($merchant_item_oid, $_expand = null, $_placeholders = null)
+    {
+        list($response) = $this->getItemWithHttpInfo($merchant_item_oid, $_expand, $_placeholders);
+        return $response;
+    }
+
+    /**
+     * Operation getItemWithHttpInfo
+     *
+     * Retrieve an item
+     *
+     * @param int $merchant_item_oid The item oid to retrieve. (required)
+     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return Array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function getItemWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
+    {
+        // verify the required parameter 'merchant_item_oid' is set
+        if ($merchant_item_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling getItem');
+        }
+        // parse inputs
+        $resourcePath = "/item/items/{merchant_item_oid}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
+        }
+        // path params
+        if ($merchant_item_oid !== null) {
+            $resourcePath = str_replace(
+                "{" . "merchant_item_oid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($merchant_item_oid),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\ItemResponse',
+                '/item/items/{merchant_item_oid}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ItemResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ItemResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getItems
      *
      * Retrieve items
      *
@@ -118,14 +354,14 @@ class ItemApi
      * @return \ultracart\v2\models\ItemsResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsGet($parent_category_id = null, $parent_category_path = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function getItems($parent_category_id = null, $parent_category_path = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->itemItemsGetWithHttpInfo($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+        list($response) = $this->getItemsWithHttpInfo($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation itemItemsGetWithHttpInfo
+     * Operation getItemsWithHttpInfo
      *
      * Retrieve items
      *
@@ -140,7 +376,7 @@ class ItemApi
      * @return Array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsGetWithHttpInfo($parent_category_id = null, $parent_category_path = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function getItemsWithHttpInfo($parent_category_id = null, $parent_category_path = null, $_limit = null, $_offset = null, $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
         // parse inputs
         $resourcePath = "/item/items";
@@ -251,151 +487,41 @@ class ItemApi
     }
 
     /**
-     * Operation itemItemsMerchantItemOidDelete
+     * Operation insertItem
      *
-     * Delete an item
+     * Create an item
      *
-     * @param int $merchant_item_oid The item oid to delete. (required)
-     * @return void
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function itemItemsMerchantItemOidDelete($merchant_item_oid)
-    {
-        list($response) = $this->itemItemsMerchantItemOidDeleteWithHttpInfo($merchant_item_oid);
-        return $response;
-    }
-
-    /**
-     * Operation itemItemsMerchantItemOidDeleteWithHttpInfo
-     *
-     * Delete an item
-     *
-     * @param int $merchant_item_oid The item oid to delete. (required)
-     * @return Array of null, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function itemItemsMerchantItemOidDeleteWithHttpInfo($merchant_item_oid)
-    {
-        // verify the required parameter 'merchant_item_oid' is set
-        if ($merchant_item_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling itemItemsMerchantItemOidDelete');
-        }
-        // parse inputs
-        $resourcePath = "/item/items/{merchant_item_oid}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // path params
-        if ($merchant_item_oid !== null) {
-            $resourcePath = str_replace(
-                "{" . "merchant_item_oid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($merchant_item_oid),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'DELETE',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                null,
-                '/item/items/{merchant_item_oid}'
-            );
-
-            return array(null, $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation itemItemsMerchantItemOidGet
-     *
-     * Retrieve an item
-     *
-     * @param int $merchant_item_oid The item oid to retrieve. (required)
+     * @param \ultracart\v2\models\Item $item Item to create (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return \ultracart\v2\models\ItemResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsMerchantItemOidGet($merchant_item_oid, $_expand = null, $_placeholders = null)
+    public function insertItem($item, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->itemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid, $_expand, $_placeholders);
+        list($response) = $this->insertItemWithHttpInfo($item, $_expand, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation itemItemsMerchantItemOidGetWithHttpInfo
+     * Operation insertItemWithHttpInfo
      *
-     * Retrieve an item
+     * Create an item
      *
-     * @param int $merchant_item_oid The item oid to retrieve. (required)
+     * @param \ultracart\v2\models\Item $item Item to create (required)
      * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @return Array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsMerchantItemOidGetWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
+    public function insertItemWithHttpInfo($item, $_expand = null, $_placeholders = null)
     {
-        // verify the required parameter 'merchant_item_oid' is set
-        if ($merchant_item_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling itemItemsMerchantItemOidGet');
+        // verify the required parameter 'item' is set
+        if ($item === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $item when calling insertItem');
         }
         // parse inputs
-        $resourcePath = "/item/items/{merchant_item_oid}";
+        $resourcePath = "/item/items";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -404,7 +530,7 @@ class ItemApi
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
         }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
 
         // query params
         if ($_expand !== null) {
@@ -414,18 +540,15 @@ class ItemApi
         if ($_placeholders !== null) {
             $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
         }
-        // path params
-        if ($merchant_item_oid !== null) {
-            $resourcePath = str_replace(
-                "{" . "merchant_item_oid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($merchant_item_oid),
-                $resourcePath
-            );
-        }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
-        
+        // body params
+        $_tempBody = null;
+        if (isset($item)) {
+            $_tempBody = $item;
+        }
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
@@ -445,12 +568,12 @@ class ItemApi
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
                 $resourcePath,
-                'GET',
+                'POST',
                 $queryParams,
                 $httpBody,
                 $headerParams,
                 '\ultracart\v2\models\ItemResponse',
-                '/item/items/{merchant_item_oid}'
+                '/item/items'
             );
 
             return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ItemResponse', $httpHeader), $statusCode, $httpHeader);
@@ -487,7 +610,7 @@ class ItemApi
     }
 
     /**
-     * Operation itemItemsMerchantItemOidPut
+     * Operation updateItem
      *
      * Update an item
      *
@@ -498,14 +621,14 @@ class ItemApi
      * @return \ultracart\v2\models\ItemResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsMerchantItemOidPut($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
+    public function updateItem($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->itemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid, $_expand, $_placeholders);
+        list($response) = $this->updateItemWithHttpInfo($item, $merchant_item_oid, $_expand, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation itemItemsMerchantItemOidPutWithHttpInfo
+     * Operation updateItemWithHttpInfo
      *
      * Update an item
      *
@@ -516,15 +639,15 @@ class ItemApi
      * @return Array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemItemsMerchantItemOidPutWithHttpInfo($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
+    public function updateItemWithHttpInfo($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
         // verify the required parameter 'item' is set
         if ($item === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item when calling itemItemsMerchantItemOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $item when calling updateItem');
         }
         // verify the required parameter 'merchant_item_oid' is set
         if ($merchant_item_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling itemItemsMerchantItemOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $merchant_item_oid when calling updateItem');
         }
         // parse inputs
         $resourcePath = "/item/items/{merchant_item_oid}";
@@ -624,130 +747,7 @@ class ItemApi
     }
 
     /**
-     * Operation itemItemsPost
-     *
-     * Create an item
-     *
-     * @param \ultracart\v2\models\Item $item Item to create (required)
-     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return \ultracart\v2\models\ItemResponse
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function itemItemsPost($item, $_expand = null, $_placeholders = null)
-    {
-        list($response) = $this->itemItemsPostWithHttpInfo($item, $_expand, $_placeholders);
-        return $response;
-    }
-
-    /**
-     * Operation itemItemsPostWithHttpInfo
-     *
-     * Create an item
-     *
-     * @param \ultracart\v2\models\Item $item Item to create (required)
-     * @param string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return Array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function itemItemsPostWithHttpInfo($item, $_expand = null, $_placeholders = null)
-    {
-        // verify the required parameter 'item' is set
-        if ($item === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $item when calling itemItemsPost');
-        }
-        // parse inputs
-        $resourcePath = "/item/items";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
-
-        // query params
-        if ($_expand !== null) {
-            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
-        }
-        // query params
-        if ($_placeholders !== null) {
-            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($item)) {
-            $_tempBody = $item;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\ultracart\v2\models\ItemResponse',
-                '/item/items'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ItemResponse', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ItemResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation itemTempMultimediaPost
+     * Operation uploadTemporaryMultimedia
      *
      * Upload an image to the temporary multimedia.
      *
@@ -755,14 +755,14 @@ class ItemApi
      * @return \ultracart\v2\models\TempMultimediaResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemTempMultimediaPost($file)
+    public function uploadTemporaryMultimedia($file)
     {
-        list($response) = $this->itemTempMultimediaPostWithHttpInfo($file);
+        list($response) = $this->uploadTemporaryMultimediaWithHttpInfo($file);
         return $response;
     }
 
     /**
-     * Operation itemTempMultimediaPostWithHttpInfo
+     * Operation uploadTemporaryMultimediaWithHttpInfo
      *
      * Upload an image to the temporary multimedia.
      *
@@ -770,11 +770,11 @@ class ItemApi
      * @return Array of \ultracart\v2\models\TempMultimediaResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function itemTempMultimediaPostWithHttpInfo($file)
+    public function uploadTemporaryMultimediaWithHttpInfo($file)
     {
         // verify the required parameter 'file' is set
         if ($file === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $file when calling itemTempMultimediaPost');
+            throw new \InvalidArgumentException('Missing the required parameter $file when calling uploadTemporaryMultimedia');
         }
         // parse inputs
         $resourcePath = "/item/temp_multimedia";

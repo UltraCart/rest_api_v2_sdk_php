@@ -103,248 +103,7 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksGet
-     *
-     * Retrieve webhooks
-     *
-     * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
-     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param string $_sort The sort order of the webhooks.  See documentation for examples (optional)
-     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return \ultracart\v2\models\WebhooksResponse
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function webhookWebhooksGet($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
-    {
-        list($response) = $this->webhookWebhooksGetWithHttpInfo($_limit, $_offset, $_sort, $_placeholders);
-        return $response;
-    }
-
-    /**
-     * Operation webhookWebhooksGetWithHttpInfo
-     *
-     * Retrieve webhooks
-     *
-     * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
-     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param string $_sort The sort order of the webhooks.  See documentation for examples (optional)
-     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return Array of \ultracart\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function webhookWebhooksGetWithHttpInfo($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
-    {
-        // parse inputs
-        $resourcePath = "/webhook/webhooks";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
-
-        // query params
-        if ($_limit !== null) {
-            $queryParams['_limit'] = $this->apiClient->getSerializer()->toQueryValue($_limit);
-        }
-        // query params
-        if ($_offset !== null) {
-            $queryParams['_offset'] = $this->apiClient->getSerializer()->toQueryValue($_offset);
-        }
-        // query params
-        if ($_sort !== null) {
-            $queryParams['_sort'] = $this->apiClient->getSerializer()->toQueryValue($_sort);
-        }
-        // query params
-        if ($_placeholders !== null) {
-            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'GET',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\ultracart\v2\models\WebhooksResponse',
-                '/webhook/webhooks'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\WebhooksResponse', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhooksResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation webhookWebhooksPost
-     *
-     * Add a webhook
-     *
-     * @param \ultracart\v2\models\Webhook $webhook Webhook to create (required)
-     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return \ultracart\v2\models\WebhookResponse
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function webhookWebhooksPost($webhook, $_placeholders = null)
-    {
-        list($response) = $this->webhookWebhooksPostWithHttpInfo($webhook, $_placeholders);
-        return $response;
-    }
-
-    /**
-     * Operation webhookWebhooksPostWithHttpInfo
-     *
-     * Add a webhook
-     *
-     * @param \ultracart\v2\models\Webhook $webhook Webhook to create (required)
-     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
-     * @return Array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function webhookWebhooksPostWithHttpInfo($webhook, $_placeholders = null)
-    {
-        // verify the required parameter 'webhook' is set
-        if ($webhook === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook when calling webhookWebhooksPost');
-        }
-        // parse inputs
-        $resourcePath = "/webhook/webhooks";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
-
-        // query params
-        if ($_placeholders !== null) {
-            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // body params
-        $_tempBody = null;
-        if (isset($webhook)) {
-            $_tempBody = $webhook;
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\ultracart\v2\models\WebhookResponse',
-                '/webhook/webhooks'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\WebhookResponse', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhookResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation webhookWebhooksWebhookOidDelete
+     * Operation deleteWebhook
      *
      * Delete a webhook
      *
@@ -352,14 +111,14 @@ class WebhookApi
      * @return void
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidDelete($webhook_oid)
+    public function deleteWebhook($webhook_oid)
     {
-        list($response) = $this->webhookWebhooksWebhookOidDeleteWithHttpInfo($webhook_oid);
+        list($response) = $this->deleteWebhookWithHttpInfo($webhook_oid);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidDeleteWithHttpInfo
+     * Operation deleteWebhookWithHttpInfo
      *
      * Delete a webhook
      *
@@ -367,11 +126,11 @@ class WebhookApi
      * @return Array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidDeleteWithHttpInfo($webhook_oid)
+    public function deleteWebhookWithHttpInfo($webhook_oid)
     {
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidDelete');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling deleteWebhook');
         }
         // parse inputs
         $resourcePath = "/webhook/webhooks/{webhookOid}";
@@ -454,7 +213,135 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidLogsGet
+     * Operation getWebhookLog
+     *
+     * Retrieve an individual log
+     *
+     * @param int $webhook_oid The webhook oid that owns the log. (required)
+     * @param string $request_id The request id associated with the log to view. (required)
+     * @return \ultracart\v2\models\WebhookLogResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function getWebhookLog($webhook_oid, $request_id)
+    {
+        list($response) = $this->getWebhookLogWithHttpInfo($webhook_oid, $request_id);
+        return $response;
+    }
+
+    /**
+     * Operation getWebhookLogWithHttpInfo
+     *
+     * Retrieve an individual log
+     *
+     * @param int $webhook_oid The webhook oid that owns the log. (required)
+     * @param string $request_id The request id associated with the log to view. (required)
+     * @return Array of \ultracart\v2\models\WebhookLogResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function getWebhookLogWithHttpInfo($webhook_oid, $request_id)
+    {
+        // verify the required parameter 'webhook_oid' is set
+        if ($webhook_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling getWebhookLog');
+        }
+        // verify the required parameter 'request_id' is set
+        if ($request_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $request_id when calling getWebhookLog');
+        }
+        // parse inputs
+        $resourcePath = "/webhook/webhooks/{webhookOid}/logs/{requestId}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // path params
+        if ($webhook_oid !== null) {
+            $resourcePath = str_replace(
+                "{" . "webhookOid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($webhook_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($request_id !== null) {
+            $resourcePath = str_replace(
+                "{" . "requestId" . "}",
+                $this->apiClient->getSerializer()->toPathValue($request_id),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'GET',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\WebhookLogResponse',
+                '/webhook/webhooks/{webhookOid}/logs/{requestId}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\WebhookLogResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhookLogResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWebhookLogSummaries
      *
      * Retrieve the log summaries
      *
@@ -465,14 +352,14 @@ class WebhookApi
      * @return \ultracart\v2\models\WebhookLogSummariesResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsGet($webhook_oid, $_limit = null, $_offset = null, $_since = null)
+    public function getWebhookLogSummaries($webhook_oid, $_limit = null, $_offset = null, $_since = null)
     {
-        list($response) = $this->webhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid, $_limit, $_offset, $_since);
+        list($response) = $this->getWebhookLogSummariesWithHttpInfo($webhook_oid, $_limit, $_offset, $_since);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidLogsGetWithHttpInfo
+     * Operation getWebhookLogSummariesWithHttpInfo
      *
      * Retrieve the log summaries
      *
@@ -483,11 +370,11 @@ class WebhookApi
      * @return Array of \ultracart\v2\models\WebhookLogSummariesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsGetWithHttpInfo($webhook_oid, $_limit = null, $_offset = null, $_since = null)
+    public function getWebhookLogSummariesWithHttpInfo($webhook_oid, $_limit = null, $_offset = null, $_since = null)
     {
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidLogsGet');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling getWebhookLogSummaries');
         }
         // parse inputs
         $resourcePath = "/webhook/webhooks/{webhookOid}/logs";
@@ -586,43 +473,39 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidLogsRequestIdGet
+     * Operation getWebhooks
      *
-     * Retrieve an individual log
+     * Retrieve webhooks
      *
-     * @param int $webhook_oid The webhook oid that owns the log. (required)
-     * @param string $request_id The request id associated with the log to view. (required)
-     * @return \ultracart\v2\models\WebhookLogResponse
+     * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param string $_sort The sort order of the webhooks.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return \ultracart\v2\models\WebhooksResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsRequestIdGet($webhook_oid, $request_id)
+    public function getWebhooks($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
     {
-        list($response) = $this->webhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo($webhook_oid, $request_id);
+        list($response) = $this->getWebhooksWithHttpInfo($_limit, $_offset, $_sort, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo
+     * Operation getWebhooksWithHttpInfo
      *
-     * Retrieve an individual log
+     * Retrieve webhooks
      *
-     * @param int $webhook_oid The webhook oid that owns the log. (required)
-     * @param string $request_id The request id associated with the log to view. (required)
-     * @return Array of \ultracart\v2\models\WebhookLogResponse, HTTP status code, HTTP response headers (array of strings)
+     * @param int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param string $_sort The sort order of the webhooks.  See documentation for examples (optional)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return Array of \ultracart\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidLogsRequestIdGetWithHttpInfo($webhook_oid, $request_id)
+    public function getWebhooksWithHttpInfo($_limit = null, $_offset = null, $_sort = null, $_placeholders = null)
     {
-        // verify the required parameter 'webhook_oid' is set
-        if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidLogsRequestIdGet');
-        }
-        // verify the required parameter 'request_id' is set
-        if ($request_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $request_id when calling webhookWebhooksWebhookOidLogsRequestIdGet');
-        }
         // parse inputs
-        $resourcePath = "/webhook/webhooks/{webhookOid}/logs/{requestId}";
+        $resourcePath = "/webhook/webhooks";
         $httpBody = '';
         $queryParams = array();
         $headerParams = array();
@@ -633,21 +516,21 @@ class WebhookApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
 
-        // path params
-        if ($webhook_oid !== null) {
-            $resourcePath = str_replace(
-                "{" . "webhookOid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($webhook_oid),
-                $resourcePath
-            );
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = $this->apiClient->getSerializer()->toQueryValue($_limit);
         }
-        // path params
-        if ($request_id !== null) {
-            $resourcePath = str_replace(
-                "{" . "requestId" . "}",
-                $this->apiClient->getSerializer()->toPathValue($request_id),
-                $resourcePath
-            );
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = $this->apiClient->getSerializer()->toQueryValue($_offset);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = $this->apiClient->getSerializer()->toQueryValue($_sort);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
         }
         // default format to json
         $resourcePath = str_replace("{format}", "json", $resourcePath);
@@ -676,15 +559,15 @@ class WebhookApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\WebhookLogResponse',
-                '/webhook/webhooks/{webhookOid}/logs/{requestId}'
+                '\ultracart\v2\models\WebhooksResponse',
+                '/webhook/webhooks'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\WebhookLogResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\WebhooksResponse', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhookLogResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhooksResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:
@@ -714,7 +597,252 @@ class WebhookApi
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidPut
+     * Operation insertWebhook
+     *
+     * Add a webhook
+     *
+     * @param \ultracart\v2\models\Webhook $webhook Webhook to create (required)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return \ultracart\v2\models\WebhookResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function insertWebhook($webhook, $_placeholders = null)
+    {
+        list($response) = $this->insertWebhookWithHttpInfo($webhook, $_placeholders);
+        return $response;
+    }
+
+    /**
+     * Operation insertWebhookWithHttpInfo
+     *
+     * Add a webhook
+     *
+     * @param \ultracart\v2\models\Webhook $webhook Webhook to create (required)
+     * @param bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @return Array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function insertWebhookWithHttpInfo($webhook, $_placeholders = null)
+    {
+        // verify the required parameter 'webhook' is set
+        if ($webhook === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $webhook when calling insertWebhook');
+        }
+        // parse inputs
+        $resourcePath = "/webhook/webhooks";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
+
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = $this->apiClient->getSerializer()->toQueryValue($_placeholders);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($webhook)) {
+            $_tempBody = $webhook;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\WebhookResponse',
+                '/webhook/webhooks'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\WebhookResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhookResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation resendEvent
+     *
+     * Resend events to the webhook endpoint.
+     *
+     * @param int $webhook_oid The webhook oid that is receiving the reflowed events. (required)
+     * @param string $event_name The event to reflow. (required)
+     * @return \ultracart\v2\models\WebhookSampleRequestResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function resendEvent($webhook_oid, $event_name)
+    {
+        list($response) = $this->resendEventWithHttpInfo($webhook_oid, $event_name);
+        return $response;
+    }
+
+    /**
+     * Operation resendEventWithHttpInfo
+     *
+     * Resend events to the webhook endpoint.
+     *
+     * @param int $webhook_oid The webhook oid that is receiving the reflowed events. (required)
+     * @param string $event_name The event to reflow. (required)
+     * @return Array of \ultracart\v2\models\WebhookSampleRequestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function resendEventWithHttpInfo($webhook_oid, $event_name)
+    {
+        // verify the required parameter 'webhook_oid' is set
+        if ($webhook_oid === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling resendEvent');
+        }
+        // verify the required parameter 'event_name' is set
+        if ($event_name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $event_name when calling resendEvent');
+        }
+        // parse inputs
+        $resourcePath = "/webhook/webhooks/{webhookOid}/reflow/{eventName}";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
+
+        // path params
+        if ($webhook_oid !== null) {
+            $resourcePath = str_replace(
+                "{" . "webhookOid" . "}",
+                $this->apiClient->getSerializer()->toPathValue($webhook_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($event_name !== null) {
+            $resourcePath = str_replace(
+                "{" . "eventName" . "}",
+                $this->apiClient->getSerializer()->toPathValue($event_name),
+                $resourcePath
+            );
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\WebhookSampleRequestResponse',
+                '/webhook/webhooks/{webhookOid}/reflow/{eventName}'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\WebhookSampleRequestResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhookSampleRequestResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateWebhook
      *
      * Update a webhook
      *
@@ -724,14 +852,14 @@ class WebhookApi
      * @return \ultracart\v2\models\WebhookResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidPut($webhook, $webhook_oid, $_placeholders = null)
+    public function updateWebhook($webhook, $webhook_oid, $_placeholders = null)
     {
-        list($response) = $this->webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid, $_placeholders);
+        list($response) = $this->updateWebhookWithHttpInfo($webhook, $webhook_oid, $_placeholders);
         return $response;
     }
 
     /**
-     * Operation webhookWebhooksWebhookOidPutWithHttpInfo
+     * Operation updateWebhookWithHttpInfo
      *
      * Update a webhook
      *
@@ -741,15 +869,15 @@ class WebhookApi
      * @return Array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function webhookWebhooksWebhookOidPutWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
+    public function updateWebhookWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
     {
         // verify the required parameter 'webhook' is set
         if ($webhook === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook when calling webhookWebhooksWebhookOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook when calling updateWebhook');
         }
         // verify the required parameter 'webhook_oid' is set
         if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidPut');
+            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling updateWebhook');
         }
         // parse inputs
         $resourcePath = "/webhook/webhooks/{webhookOid}";
@@ -816,134 +944,6 @@ class WebhookApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhookResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation webhookWebhooksWebhookOidReflowEventNamePost
-     *
-     * Resend events to the webhook endpoint.
-     *
-     * @param int $webhook_oid The webhook oid that is receiving the reflowed events. (required)
-     * @param string $event_name The event to reflow. (required)
-     * @return \ultracart\v2\models\WebhookSampleRequestResponse
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function webhookWebhooksWebhookOidReflowEventNamePost($webhook_oid, $event_name)
-    {
-        list($response) = $this->webhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo($webhook_oid, $event_name);
-        return $response;
-    }
-
-    /**
-     * Operation webhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo
-     *
-     * Resend events to the webhook endpoint.
-     *
-     * @param int $webhook_oid The webhook oid that is receiving the reflowed events. (required)
-     * @param string $event_name The event to reflow. (required)
-     * @return Array of \ultracart\v2\models\WebhookSampleRequestResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function webhookWebhooksWebhookOidReflowEventNamePostWithHttpInfo($webhook_oid, $event_name)
-    {
-        // verify the required parameter 'webhook_oid' is set
-        if ($webhook_oid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $webhook_oid when calling webhookWebhooksWebhookOidReflowEventNamePost');
-        }
-        // verify the required parameter 'event_name' is set
-        if ($event_name === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $event_name when calling webhookWebhooksWebhookOidReflowEventNamePost');
-        }
-        // parse inputs
-        $resourcePath = "/webhook/webhooks/{webhookOid}/reflow/{eventName}";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json; charset=UTF-8'));
-
-        // path params
-        if ($webhook_oid !== null) {
-            $resourcePath = str_replace(
-                "{" . "webhookOid" . "}",
-                $this->apiClient->getSerializer()->toPathValue($webhook_oid),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($event_name !== null) {
-            $resourcePath = str_replace(
-                "{" . "eventName" . "}",
-                $this->apiClient->getSerializer()->toPathValue($event_name),
-                $resourcePath
-            );
-        }
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\ultracart\v2\models\WebhookSampleRequestResponse',
-                '/webhook/webhooks/{webhookOid}/reflow/{eventName}'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\WebhookSampleRequestResponse', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\WebhookSampleRequestResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

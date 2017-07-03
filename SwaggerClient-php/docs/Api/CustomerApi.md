@@ -4,15 +4,15 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**customerCustomersCustomerProfileOidDelete**](CustomerApi.md#customerCustomersCustomerProfileOidDelete) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
-[**customerCustomersCustomerProfileOidGet**](CustomerApi.md#customerCustomersCustomerProfileOidGet) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
-[**customerCustomersCustomerProfileOidPut**](CustomerApi.md#customerCustomersCustomerProfileOidPut) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
-[**customerCustomersGet**](CustomerApi.md#customerCustomersGet) | **GET** /customer/customers | Retrieve customers
-[**customerCustomersPost**](CustomerApi.md#customerCustomersPost) | **POST** /customer/customers | Insert a customer
+[**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
+[**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
+[**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
+[**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
+[**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 
 
-# **customerCustomersCustomerProfileOidDelete**
-> \ultracart\v2\models\CustomerResponse customerCustomersCustomerProfileOidDelete($customer_profile_oid)
+# **deleteCustomer**
+> \ultracart\v2\models\CustomerResponse deleteCustomer($customer_profile_oid)
 
 Delete a customer
 
@@ -34,10 +34,10 @@ $api_instance = new ultracart\v2\Api\CustomerApi();
 $customer_profile_oid = 56; // int | The customer_profile_oid to delete.
 
 try {
-    $result = $api_instance->customerCustomersCustomerProfileOidDelete($customer_profile_oid);
+    $result = $api_instance->deleteCustomer($customer_profile_oid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerCustomersCustomerProfileOidDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->deleteCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -63,8 +63,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **customerCustomersCustomerProfileOidGet**
-> \ultracart\v2\models\CustomerResponse customerCustomersCustomerProfileOidGet($customer_profile_oid, $_expand)
+# **getCustomer**
+> \ultracart\v2\models\CustomerResponse getCustomer($customer_profile_oid, $_expand)
 
 Retrieve a customer
 
@@ -87,10 +87,10 @@ $customer_profile_oid = 56; // int | The customer oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->customerCustomersCustomerProfileOidGet($customer_profile_oid, $_expand);
+    $result = $api_instance->getCustomer($customer_profile_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerCustomersCustomerProfileOidGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->getCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -117,64 +117,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **customerCustomersCustomerProfileOidPut**
-> \ultracart\v2\models\CustomerResponse customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid, $_expand)
-
-Update a customer
-
-Update a customer on the UltraCart account.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\Api\CustomerApi();
-$customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to update
-$customer_profile_oid = 56; // int | The customer_profile_oid to update.
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
-
-try {
-    $result = $api_instance->customerCustomersCustomerProfileOidPut($customer, $customer_profile_oid, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerCustomersCustomerProfileOidPut: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customer** | [**\ultracart\v2\models\Customer**](../Model/\ultracart\v2\models\Customer.md)| Customer to update |
- **customer_profile_oid** | **int**| The customer_profile_oid to update. |
- **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json; charset=UTF-8
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **customerCustomersGet**
-> \ultracart\v2\models\CustomersResponse customerCustomersGet($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand)
+# **getCustomers**
+> \ultracart\v2\models\CustomersResponse getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand)
 
 Retrieve customers
 
@@ -227,10 +171,10 @@ $_sort = "_sort_example"; // string | The sort order of the customers.  See Sort
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->customerCustomersGet($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
+    $result = $api_instance->getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerCustomersGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->getCustomers: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -287,8 +231,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **customerCustomersPost**
-> \ultracart\v2\models\CustomerResponse customerCustomersPost($customer, $_expand)
+# **insertCustomer**
+> \ultracart\v2\models\CustomerResponse insertCustomer($customer, $_expand)
 
 Insert a customer
 
@@ -311,10 +255,10 @@ $customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Custome
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->customerCustomersPost($customer, $_expand);
+    $result = $api_instance->insertCustomer($customer, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->customerCustomersPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->insertCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -324,6 +268,62 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer** | [**\ultracart\v2\models\Customer**](../Model/\ultracart\v2\models\Customer.md)| Customer to insert |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateCustomer**
+> \ultracart\v2\models\CustomerResponse updateCustomer($customer, $customer_profile_oid, $_expand)
+
+Update a customer
+
+Update a customer on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CustomerApi();
+$customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to update
+$customer_profile_oid = 56; // int | The customer_profile_oid to update.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $api_instance->updateCustomer($customer, $customer_profile_oid, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->updateCustomer: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer** | [**\ultracart\v2\models\Customer**](../Model/\ultracart\v2\models\Customer.md)| Customer to update |
+ **customer_profile_oid** | **int**| The customer_profile_oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

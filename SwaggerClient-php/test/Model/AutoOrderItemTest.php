@@ -144,6 +144,14 @@ class AutoOrderItemTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "auto_order_item_oid"
+     */
+    public function testPropertyAutoOrderItemOid()
+    {
+
+    }
+
+    /**
      * Test attribute "frequency"
      */
     public function testPropertyFrequency()
@@ -219,6 +227,22 @@ class AutoOrderItemTest extends \PHPUnit_Framework_TestCase
      * Test attribute "original_quantity"
      */
     public function testPropertyOriginalQuantity()
+    {
+
+    }
+
+    /**
+     * Test attribute "paypal_payer_id"
+     */
+    public function testPropertyPaypalPayerId()
+    {
+
+    }
+
+    /**
+     * Test attribute "paypal_recurring_payment_profile_id"
+     */
+    public function testPropertyPaypalRecurringPaymentProfileId()
     {
 
     }

@@ -103,120 +103,7 @@ class OauthApi
     }
 
     /**
-     * Operation oauthRevokePost
-     *
-     * Revoke this OAuth application.
-     *
-     * @param string $client_id The OAuth application client_id. (required)
-     * @param string $token The OAuth access token that is to be revoked.. (required)
-     * @return \ultracart\v2\models\OauthRevokeSuccessResponse
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function oauthRevokePost($client_id, $token)
-    {
-        list($response) = $this->oauthRevokePostWithHttpInfo($client_id, $token);
-        return $response;
-    }
-
-    /**
-     * Operation oauthRevokePostWithHttpInfo
-     *
-     * Revoke this OAuth application.
-     *
-     * @param string $client_id The OAuth application client_id. (required)
-     * @param string $token The OAuth access token that is to be revoked.. (required)
-     * @return Array of \ultracart\v2\models\OauthRevokeSuccessResponse, HTTP status code, HTTP response headers (array of strings)
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     */
-    public function oauthRevokePostWithHttpInfo($client_id, $token)
-    {
-        // verify the required parameter 'client_id' is set
-        if ($client_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling oauthRevokePost');
-        }
-        // verify the required parameter 'token' is set
-        if ($token === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $token when calling oauthRevokePost');
-        }
-        // parse inputs
-        $resourcePath = "/oauth/revoke";
-        $httpBody = '';
-        $queryParams = array();
-        $headerParams = array();
-        $formParams = array();
-        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
-        if (!is_null($_header_accept)) {
-            $headerParams['Accept'] = $_header_accept;
-        }
-        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/x-www-form-urlencoded'));
-
-        // default format to json
-        $resourcePath = str_replace("{format}", "json", $resourcePath);
-
-        // form params
-        if ($client_id !== null) {
-            $formParams['client_id'] = $this->apiClient->getSerializer()->toFormValue($client_id);
-        }
-        // form params
-        if ($token !== null) {
-            $formParams['token'] = $this->apiClient->getSerializer()->toFormValue($token);
-        }
-        
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-        } elseif (count($formParams) > 0) {
-            $httpBody = $formParams; // for HTTP post (form)
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-browser-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-browser-key'] = $apiKey;
-        }
-        // this endpoint requires OAuth (access token)
-        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
-            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if (strlen($apiKey) !== 0) {
-            $headerParams['x-ultracart-simple-key'] = $apiKey;
-        }
-        // make the API Call
-        try {
-            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
-                $resourcePath,
-                'POST',
-                $queryParams,
-                $httpBody,
-                $headerParams,
-                '\ultracart\v2\models\OauthRevokeSuccessResponse',
-                '/oauth/revoke'
-            );
-
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\OauthRevokeSuccessResponse', $httpHeader), $statusCode, $httpHeader);
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\OauthRevokeSuccessResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
-                    $e->setResponseObject($data);
-                    break;
-            }
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation oauthTokenPost
+     * Operation oauthAccessToken
      *
      * Exchange authorization code for access token.
      *
@@ -228,14 +115,14 @@ class OauthApi
      * @return \ultracart\v2\models\OauthTokenResponse
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function oauthTokenPost($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthAccessToken($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
-        list($response) = $this->oauthTokenPostWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
+        list($response) = $this->oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
         return $response;
     }
 
     /**
-     * Operation oauthTokenPostWithHttpInfo
+     * Operation oauthAccessTokenWithHttpInfo
      *
      * Exchange authorization code for access token.
      *
@@ -247,15 +134,15 @@ class OauthApi
      * @return Array of \ultracart\v2\models\OauthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
-    public function oauthTokenPostWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
+    public function oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
         // verify the required parameter 'client_id' is set
         if ($client_id === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling oauthTokenPost');
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling oauthAccessToken');
         }
         // verify the required parameter 'grant_type' is set
         if ($grant_type === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $grant_type when calling oauthTokenPost');
+            throw new \InvalidArgumentException('Missing the required parameter $grant_type when calling oauthAccessToken');
         }
         // parse inputs
         $resourcePath = "/oauth/token";
@@ -330,6 +217,119 @@ class OauthApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\OauthTokenResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation oauthRevoke
+     *
+     * Revoke this OAuth application.
+     *
+     * @param string $client_id The OAuth application client_id. (required)
+     * @param string $token The OAuth access token that is to be revoked.. (required)
+     * @return \ultracart\v2\models\OauthRevokeSuccessResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function oauthRevoke($client_id, $token)
+    {
+        list($response) = $this->oauthRevokeWithHttpInfo($client_id, $token);
+        return $response;
+    }
+
+    /**
+     * Operation oauthRevokeWithHttpInfo
+     *
+     * Revoke this OAuth application.
+     *
+     * @param string $client_id The OAuth application client_id. (required)
+     * @param string $token The OAuth access token that is to be revoked.. (required)
+     * @return Array of \ultracart\v2\models\OauthRevokeSuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function oauthRevokeWithHttpInfo($client_id, $token)
+    {
+        // verify the required parameter 'client_id' is set
+        if ($client_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $client_id when calling oauthRevoke');
+        }
+        // verify the required parameter 'token' is set
+        if ($token === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $token when calling oauthRevoke');
+        }
+        // parse inputs
+        $resourcePath = "/oauth/revoke";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/x-www-form-urlencoded'));
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // form params
+        if ($client_id !== null) {
+            $formParams['client_id'] = $this->apiClient->getSerializer()->toFormValue($client_id);
+        }
+        // form params
+        if ($token !== null) {
+            $formParams['token'] = $this->apiClient->getSerializer()->toFormValue($token);
+        }
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\OauthRevokeSuccessResponse',
+                '/oauth/revoke'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\OauthRevokeSuccessResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\OauthRevokeSuccessResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

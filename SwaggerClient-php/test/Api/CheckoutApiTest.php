@@ -90,155 +90,155 @@ class CheckoutApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for checkoutBrowserKeyPut
-     *
-     * Setup Browser Application.
-     *
-     */
-    public function testCheckoutBrowserKeyPut()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartCartIdGet
-     *
-     * Get cart (by cart id).
-     *
-     */
-    public function testCheckoutCartCartIdGet()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartFinalizeOrderPost
-     *
-     * Finalize Order.
-     *
-     */
-    public function testCheckoutCartFinalizeOrderPost()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartGet
-     *
-     * Get cart.
-     *
-     */
-    public function testCheckoutCartGet()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartHandoffPost
-     *
-     * Handoff cart.
-     *
-     */
-    public function testCheckoutCartHandoffPost()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartProfileLoginPost
-     *
-     * Profile login.
-     *
-     */
-    public function testCheckoutCartProfileLoginPost()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartProfileLogoutPost
-     *
-     * Profile logout.
-     *
-     */
-    public function testCheckoutCartProfileLogoutPost()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartProfileRegisterPost
-     *
-     * Profile registration.
-     *
-     */
-    public function testCheckoutCartProfileRegisterPost()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartPut
-     *
-     * Update cart.
-     *
-     */
-    public function testCheckoutCartPut()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCartValidatePost
-     *
-     * Validate.
-     *
-     */
-    public function testCheckoutCartValidatePost()
-    {
-
-    }
-
-    /**
-     * Test case for checkoutCityStatePost
+     * Test case for cityState
      *
      * City/State for Zip.
      *
      */
-    public function testCheckoutCityStatePost()
+    public function testCityState()
     {
 
     }
 
     /**
-     * Test case for checkoutRelatedItemsItemIdPost
+     * Test case for finalizeOrder
      *
-     * Related items (specific item).
+     * Finalize Order.
      *
      */
-    public function testCheckoutRelatedItemsItemIdPost()
+    public function testFinalizeOrder()
     {
 
     }
 
     /**
-     * Test case for checkoutRelatedItemsPost
+     * Test case for getCart
      *
-     * Related items.
+     * Get cart.
      *
      */
-    public function testCheckoutRelatedItemsPost()
+    public function testGetCart()
     {
 
     }
 
     /**
-     * Test case for checkoutReturnReturnCodeGet
+     * Test case for getCartByCartId
+     *
+     * Get cart (by cart id).
+     *
+     */
+    public function testGetCartByCartId()
+    {
+
+    }
+
+    /**
+     * Test case for getCartByReturnCode
      *
      * Get cart (by return code).
      *
      */
-    public function testCheckoutReturnReturnCodeGet()
+    public function testGetCartByReturnCode()
+    {
+
+    }
+
+    /**
+     * Test case for handoffCart
+     *
+     * Handoff cart.
+     *
+     */
+    public function testHandoffCart()
+    {
+
+    }
+
+    /**
+     * Test case for login
+     *
+     * Profile login.
+     *
+     */
+    public function testLogin()
+    {
+
+    }
+
+    /**
+     * Test case for logout
+     *
+     * Profile logout.
+     *
+     */
+    public function testLogout()
+    {
+
+    }
+
+    /**
+     * Test case for register
+     *
+     * Profile registration.
+     *
+     */
+    public function testRegister()
+    {
+
+    }
+
+    /**
+     * Test case for relatedItemsForCart
+     *
+     * Related items.
+     *
+     */
+    public function testRelatedItemsForCart()
+    {
+
+    }
+
+    /**
+     * Test case for relatedItemsForItem
+     *
+     * Related items (specific item).
+     *
+     */
+    public function testRelatedItemsForItem()
+    {
+
+    }
+
+    /**
+     * Test case for setupBrowserKey
+     *
+     * Setup Browser Application.
+     *
+     */
+    public function testSetupBrowserKey()
+    {
+
+    }
+
+    /**
+     * Test case for updateCart
+     *
+     * Update cart.
+     *
+     */
+    public function testUpdateCart()
+    {
+
+    }
+
+    /**
+     * Test case for validateCart
+     *
+     * Validate.
+     *
+     */
+    public function testValidateCart()
     {
 
     }

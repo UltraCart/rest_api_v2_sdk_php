@@ -90,78 +90,78 @@ class OrderApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for orderOrdersGet
-     *
-     * Retrieve orders.
-     *
-     */
-    public function testOrderOrdersGet()
-    {
-
-    }
-
-    /**
-     * Test case for orderOrdersOrderIdCancelPost
+     * Test case for cancelOrder
      *
      * Cancel an order.
      *
      */
-    public function testOrderOrdersOrderIdCancelPost()
+    public function testCancelOrder()
     {
 
     }
 
     /**
-     * Test case for orderOrdersOrderIdDelete
+     * Test case for deleteOrder
      *
      * Delete an order.
      *
      */
-    public function testOrderOrdersOrderIdDelete()
+    public function testDeleteOrder()
     {
 
     }
 
     /**
-     * Test case for orderOrdersOrderIdGet
+     * Test case for getOrder
      *
      * Retrieve an order.
      *
      */
-    public function testOrderOrdersOrderIdGet()
+    public function testGetOrder()
     {
 
     }
 
     /**
-     * Test case for orderOrdersOrderIdPut
+     * Test case for getOrders
      *
-     * Update an order.
+     * Retrieve orders.
      *
      */
-    public function testOrderOrdersOrderIdPut()
+    public function testGetOrders()
     {
 
     }
 
     /**
-     * Test case for orderOrdersOrderIdResendReceiptPost
+     * Test case for resendReceipt
      *
      * Resend receipt.
      *
      */
-    public function testOrderOrdersOrderIdResendReceiptPost()
+    public function testResendReceipt()
     {
 
     }
 
     /**
-     * Test case for orderOrdersOrderIdResendShipmentConfirmationPost
+     * Test case for resendShipmentConfirmation
      *
      * Resend shipment confirmation.
      *
      */
-    public function testOrderOrdersOrderIdResendShipmentConfirmationPost()
+    public function testResendShipmentConfirmation()
+    {
+
+    }
+
+    /**
+     * Test case for updateOrder
+     *
+     * Update an order.
+     *
+     */
+    public function testUpdateOrder()
     {
 
     }

@@ -90,23 +90,23 @@ class OauthApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for oauthRevokePost
+     * Test case for oauthAccessToken
      *
-     * Revoke this OAuth application..
+     * Exchange authorization code for access token..
      *
      */
-    public function testOauthRevokePost()
+    public function testOauthAccessToken()
     {
 
     }
 
     /**
-     * Test case for oauthTokenPost
+     * Test case for oauthRevoke
      *
-     * Exchange authorization code for access token..
+     * Revoke this OAuth application..
      *
      */
-    public function testOauthTokenPost()
+    public function testOauthRevoke()
     {
 
     }
