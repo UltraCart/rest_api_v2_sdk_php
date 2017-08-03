@@ -70,7 +70,8 @@ class CartPayment implements ArrayAccess
         'check' => '\ultracart\v2\models\CartPaymentCheck',
         'credit_card' => '\ultracart\v2\models\CartPaymentCreditCard',
         'payment_method' => 'string',
-        'purchase_order' => '\ultracart\v2\models\CartPaymentPurchaseOrder'
+        'purchase_order' => '\ultracart\v2\models\CartPaymentPurchaseOrder',
+        'rtg_code' => 'string'
     );
 
     public static function swaggerTypes()
@@ -87,7 +88,8 @@ class CartPayment implements ArrayAccess
         'check' => 'check',
         'credit_card' => 'credit_card',
         'payment_method' => 'payment_method',
-        'purchase_order' => 'purchase_order'
+        'purchase_order' => 'purchase_order',
+        'rtg_code' => 'rtg_code'
     );
 
     public static function attributeMap()
@@ -104,7 +106,8 @@ class CartPayment implements ArrayAccess
         'check' => 'setCheck',
         'credit_card' => 'setCreditCard',
         'payment_method' => 'setPaymentMethod',
-        'purchase_order' => 'setPurchaseOrder'
+        'purchase_order' => 'setPurchaseOrder',
+        'rtg_code' => 'setRtgCode'
     );
 
     public static function setters()
@@ -121,7 +124,8 @@ class CartPayment implements ArrayAccess
         'check' => 'getCheck',
         'credit_card' => 'getCreditCard',
         'payment_method' => 'getPaymentMethod',
-        'purchase_order' => 'getPurchaseOrder'
+        'purchase_order' => 'getPurchaseOrder',
+        'rtg_code' => 'getRtgCode'
     );
 
     public static function getters()
@@ -150,6 +154,7 @@ class CartPayment implements ArrayAccess
         $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['purchase_order'] = isset($data['purchase_order']) ? $data['purchase_order'] : null;
+        $this->container['rtg_code'] = isset($data['rtg_code']) ? $data['rtg_code'] : null;
     }
 
     /**
@@ -276,6 +281,27 @@ class CartPayment implements ArrayAccess
     public function setPurchaseOrder($purchase_order)
     {
         $this->container['purchase_order'] = $purchase_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets rtg_code
+     * @return string
+     */
+    public function getRtgCode()
+    {
+        return $this->container['rtg_code'];
+    }
+
+    /**
+     * Sets rtg_code
+     * @param string $rtg_code Rotating transaction gateway code
+     * @return $this
+     */
+    public function setRtgCode($rtg_code)
+    {
+        $this->container['rtg_code'] = $rtg_code;
 
         return $this;
     }

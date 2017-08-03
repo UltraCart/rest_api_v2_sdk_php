@@ -121,22 +121,8 @@ class OrderPaymentTransactionDetail implements ArrayAccess
         return self::$getters;
     }
 
-    const TYPE_ = '';
-    const TYPE_AUTH_TICKET = 'AuthTicket';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_,
-            self::TYPE_AUTH_TICKET,
-        ];
-    }
     
 
     /**
@@ -164,11 +150,6 @@ class OrderPaymentTransactionDetail implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("", "AuthTicket");
-        if (!in_array($this->container['type'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'type', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -180,10 +161,6 @@ class OrderPaymentTransactionDetail implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("", "AuthTicket");
-        if (!in_array($this->container['type'], $allowed_values)) {
-            return false;
-        }
         return true;
     }
 
@@ -225,10 +202,6 @@ class OrderPaymentTransactionDetail implements ArrayAccess
      */
     public function setType($type)
     {
-        $allowed_values = array('', 'AuthTicket');
-        if (!in_array($type, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'type', must be one of '', 'AuthTicket'");
-        }
         $this->container['type'] = $type;
 
         return $this;

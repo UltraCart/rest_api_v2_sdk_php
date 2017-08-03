@@ -164,10 +164,6 @@ class Distance implements ArrayAccess
             $invalid_properties[] = "invalid value for 'uom', must be one of #{allowed_values}.";
         }
 
-        if (!is_null($this->container['uom']) && (strlen($this->container['uom']) > 2)) {
-            $invalid_properties[] = "invalid value for 'uom', the character length must be smaller than or equal to 2.";
-        }
-
         return $invalid_properties;
     }
 
@@ -181,9 +177,6 @@ class Distance implements ArrayAccess
     {
         $allowed_values = array("IN", "CM");
         if (!in_array($this->container['uom'], $allowed_values)) {
-            return false;
-        }
-        if (strlen($this->container['uom']) > 2) {
             return false;
         }
         return true;
@@ -209,9 +202,6 @@ class Distance implements ArrayAccess
         $allowed_values = array('IN', 'CM');
         if (!in_array($uom, $allowed_values)) {
             throw new \InvalidArgumentException("Invalid value for 'uom', must be one of 'IN', 'CM'");
-        }
-        if (strlen($uom) > 2) {
-            throw new \InvalidArgumentException('invalid length for $uom when calling Distance., must be smaller than or equal to 2.');
         }
         $this->container['uom'] = $uom;
 

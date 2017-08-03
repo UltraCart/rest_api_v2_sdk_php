@@ -246,6 +246,7 @@ class Order implements ArrayAccess
     const CURRENT_STAGE_QUOTE_REQUEST = 'Quote Request';
     const CURRENT_STAGE_QUOTE_SENT = 'Quote Sent';
     const CURRENT_STAGE_LEAST_COST_ROUTING = 'Least Cost Routing';
+    const CURRENT_STAGE_UNKNOWN = 'Unknown';
     
 
     
@@ -265,6 +266,7 @@ class Order implements ArrayAccess
             self::CURRENT_STAGE_QUOTE_REQUEST,
             self::CURRENT_STAGE_QUOTE_SENT,
             self::CURRENT_STAGE_LEAST_COST_ROUTING,
+            self::CURRENT_STAGE_UNKNOWN,
         ];
     }
     
@@ -327,7 +329,7 @@ class Order implements ArrayAccess
             $invalid_properties[] = "invalid value for 'currency_code', the character length must be smaller than or equal to 3.";
         }
 
-        $allowed_values = array("Accounts Receivable", "Pending Clearance", "Fraud Review", "Rejected", "Shipping Department", "Completed Order", "Quote Request", "Quote Sent", "Least Cost Routing");
+        $allowed_values = array("Accounts Receivable", "Pending Clearance", "Fraud Review", "Rejected", "Shipping Department", "Completed Order", "Quote Request", "Quote Sent", "Least Cost Routing", "Unknown");
         if (!in_array($this->container['current_stage'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'current_stage', must be one of #{allowed_values}.";
         }
@@ -350,7 +352,7 @@ class Order implements ArrayAccess
         if (strlen($this->container['currency_code']) > 3) {
             return false;
         }
-        $allowed_values = array("Accounts Receivable", "Pending Clearance", "Fraud Review", "Rejected", "Shipping Department", "Completed Order", "Quote Request", "Quote Sent", "Least Cost Routing");
+        $allowed_values = array("Accounts Receivable", "Pending Clearance", "Fraud Review", "Rejected", "Shipping Department", "Completed Order", "Quote Request", "Quote Sent", "Least Cost Routing", "Unknown");
         if (!in_array($this->container['current_stage'], $allowed_values)) {
             return false;
         }
@@ -569,9 +571,9 @@ class Order implements ArrayAccess
      */
     public function setCurrentStage($current_stage)
     {
-        $allowed_values = array('Accounts Receivable', 'Pending Clearance', 'Fraud Review', 'Rejected', 'Shipping Department', 'Completed Order', 'Quote Request', 'Quote Sent', 'Least Cost Routing');
+        $allowed_values = array('Accounts Receivable', 'Pending Clearance', 'Fraud Review', 'Rejected', 'Shipping Department', 'Completed Order', 'Quote Request', 'Quote Sent', 'Least Cost Routing', 'Unknown');
         if (!in_array($current_stage, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'current_stage', must be one of 'Accounts Receivable', 'Pending Clearance', 'Fraud Review', 'Rejected', 'Shipping Department', 'Completed Order', 'Quote Request', 'Quote Sent', 'Least Cost Routing'");
+            throw new \InvalidArgumentException("Invalid value for 'current_stage', must be one of 'Accounts Receivable', 'Pending Clearance', 'Fraud Review', 'Rejected', 'Shipping Department', 'Completed Order', 'Quote Request', 'Quote Sent', 'Least Cost Routing', 'Unknown'");
         }
         $this->container['current_stage'] = $current_stage;
 

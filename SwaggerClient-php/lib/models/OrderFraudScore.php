@@ -193,10 +193,6 @@ class OrderFraudScore implements ArrayAccess
     const BIN_MATCH_NO = 'No';
     const BIN_MATCH_NOT_FOUND = 'NotFound';
     const BIN_MATCH_YES = 'Yes';
-    const CUSTOMER_PHONE_IN_BILLING_LOCATION_ = '';
-    const CUSTOMER_PHONE_IN_BILLING_LOCATION_NO = 'No';
-    const CUSTOMER_PHONE_IN_BILLING_LOCATION_NOT_FOUND = 'NotFound';
-    const CUSTOMER_PHONE_IN_BILLING_LOCATION_YES = 'Yes';
     
 
     
@@ -211,20 +207,6 @@ class OrderFraudScore implements ArrayAccess
             self::BIN_MATCH_NO,
             self::BIN_MATCH_NOT_FOUND,
             self::BIN_MATCH_YES,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     * @return string[]
-     */
-    public function getCustomerPhoneInBillingLocationAllowableValues()
-    {
-        return [
-            self::CUSTOMER_PHONE_IN_BILLING_LOCATION_,
-            self::CUSTOMER_PHONE_IN_BILLING_LOCATION_NO,
-            self::CUSTOMER_PHONE_IN_BILLING_LOCATION_NOT_FOUND,
-            self::CUSTOMER_PHONE_IN_BILLING_LOCATION_YES,
         ];
     }
     
@@ -276,11 +258,6 @@ class OrderFraudScore implements ArrayAccess
             $invalid_properties[] = "invalid value for 'bin_match', must be one of #{allowed_values}.";
         }
 
-        $allowed_values = array("", "No", "NotFound", "Yes");
-        if (!in_array($this->container['customer_phone_in_billing_location'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'customer_phone_in_billing_location', must be one of #{allowed_values}.";
-        }
-
         return $invalid_properties;
     }
 
@@ -294,10 +271,6 @@ class OrderFraudScore implements ArrayAccess
     {
         $allowed_values = array("NA", "No", "NotFound", "Yes");
         if (!in_array($this->container['bin_match'], $allowed_values)) {
-            return false;
-        }
-        $allowed_values = array("", "No", "NotFound", "Yes");
-        if (!in_array($this->container['customer_phone_in_billing_location'], $allowed_values)) {
             return false;
         }
         return true;
@@ -429,10 +402,6 @@ class OrderFraudScore implements ArrayAccess
      */
     public function setCustomerPhoneInBillingLocation($customer_phone_in_billing_location)
     {
-        $allowed_values = array('', 'No', 'NotFound', 'Yes');
-        if (!in_array($customer_phone_in_billing_location, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'customer_phone_in_billing_location', must be one of '', 'No', 'NotFound', 'Yes'");
-        }
         $this->container['customer_phone_in_billing_location'] = $customer_phone_in_billing_location;
 
         return $this;
