@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **card_type** | **string** | Card type | [optional] 
 **customer_profile_credit_card_id** | **int** | ID of the stored credit card to use | [optional] 
 **customer_profile_oid** | **int** | Customer profile object identifier | [optional] 
+**last_used_dts** | **string** | Last used date | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

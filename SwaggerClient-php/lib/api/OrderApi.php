@@ -733,6 +733,141 @@ class OrderApi
     }
 
     /**
+     * Operation getOrdersByQuery
+     *
+     * Retrieve orders
+     *
+     * @param \ultracart\v2\models\OrderQuery $order_query Order query (required)
+     * @param int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param string $_expand The object expansion to perform on the result. (optional)
+     * @return \ultracart\v2\models\OrdersResponse
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function getOrdersByQuery($order_query, $_limit = null, $_offset = null, $_sort = null, $_expand = null)
+    {
+        list($response) = $this->getOrdersByQueryWithHttpInfo($order_query, $_limit, $_offset, $_sort, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation getOrdersByQueryWithHttpInfo
+     *
+     * Retrieve orders
+     *
+     * @param \ultracart\v2\models\OrderQuery $order_query Order query (required)
+     * @param int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param string $_expand The object expansion to perform on the result. (optional)
+     * @return Array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     */
+    public function getOrdersByQueryWithHttpInfo($order_query, $_limit = null, $_offset = null, $_sort = null, $_expand = null)
+    {
+        // verify the required parameter 'order_query' is set
+        if ($order_query === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $order_query when calling getOrdersByQuery');
+        }
+        // parse inputs
+        $resourcePath = "/order/orders/query";
+        $httpBody = '';
+        $queryParams = array();
+        $headerParams = array();
+        $formParams = array();
+        $_header_accept = $this->apiClient->selectHeaderAccept(array('application/json'));
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(array('application/json'));
+
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = $this->apiClient->getSerializer()->toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = $this->apiClient->getSerializer()->toQueryValue($_offset);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = $this->apiClient->getSerializer()->toQueryValue($_sort);
+        }
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = $this->apiClient->getSerializer()->toQueryValue($_expand);
+        }
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // body params
+        $_tempBody = null;
+        if (isset($order_query)) {
+            $_tempBody = $order_query;
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires OAuth (access token)
+        if (strlen($this->apiClient->getConfig()->getAccessToken()) !== 0) {
+            $headerParams['Authorization'] = 'Bearer ' . $this->apiClient->getConfig()->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['x-ultracart-simple-key'] = $apiKey;
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\ultracart\v2\models\OrdersResponse',
+                '/order/orders/query'
+            );
+
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\OrdersResponse', $httpHeader), $statusCode, $httpHeader);
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\OrdersResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ErrorResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation resendReceipt
      *
      * Resend receipt

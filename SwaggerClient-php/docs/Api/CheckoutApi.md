@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **cityState**
-> \ultracart\v2\models\ItemsResponse cityState($cart)
+> \ultracart\v2\models\CityStateZip cityState($cart)
 
 City/State for Zip
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+[**\ultracart\v2\models\CityStateZip**](../Model/CityStateZip.md)
 
 ### Authorization
 

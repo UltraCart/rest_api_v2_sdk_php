@@ -108,7 +108,7 @@ class CheckoutApi
      * City/State for Zip
      *
      * @param \ultracart\v2\models\Cart $cart Cart (required)
-     * @return \ultracart\v2\models\ItemsResponse
+     * @return \ultracart\v2\models\CityStateZip
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function cityState($cart)
@@ -123,7 +123,7 @@ class CheckoutApi
      * City/State for Zip
      *
      * @param \ultracart\v2\models\Cart $cart Cart (required)
-     * @return Array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return Array of \ultracart\v2\models\CityStateZip, HTTP status code, HTTP response headers (array of strings)
      * @throws \ultracart\v2\ApiException on non-2xx response
      */
     public function cityStateWithHttpInfo($cart)
@@ -181,15 +181,15 @@ class CheckoutApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\ultracart\v2\models\ItemsResponse',
+                '\ultracart\v2\models\CityStateZip',
                 '/checkout/city_state'
             );
 
-            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\ItemsResponse', $httpHeader), $statusCode, $httpHeader);
+            return array($this->apiClient->getSerializer()->deserialize($response, '\ultracart\v2\models\CityStateZip', $httpHeader), $statusCode, $httpHeader);
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\ItemsResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\ultracart\v2\models\CityStateZip', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 400:

@@ -256,10 +256,6 @@ class CustomerBilling implements ArrayAccess
             $invalid_properties[] = "invalid value for 'last_name', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['last_used_dts']) && (strlen($this->container['last_used_dts']) > 25)) {
-            $invalid_properties[] = "invalid value for 'last_used_dts', the character length must be smaller than or equal to 25.";
-        }
-
         if (!is_null($this->container['postal_code']) && (strlen($this->container['postal_code']) > 20)) {
             $invalid_properties[] = "invalid value for 'postal_code', the character length must be smaller than or equal to 20.";
         }
@@ -312,9 +308,6 @@ class CustomerBilling implements ArrayAccess
             return false;
         }
         if (strlen($this->container['last_name']) > 30) {
-            return false;
-        }
-        if (strlen($this->container['last_used_dts']) > 25) {
             return false;
         }
         if (strlen($this->container['postal_code']) > 20) {
@@ -628,9 +621,6 @@ class CustomerBilling implements ArrayAccess
      */
     public function setLastUsedDts($last_used_dts)
     {
-        if (strlen($last_used_dts) > 25) {
-            throw new \InvalidArgumentException('invalid length for $last_used_dts when calling CustomerBilling., must be smaller than or equal to 25.');
-        }
         $this->container['last_used_dts'] = $last_used_dts;
 
         return $this;

@@ -371,10 +371,6 @@ class Customer implements ArrayAccess
             $invalid_properties[] = "invalid value for 'last_modified_by', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['last_modified_dts']) && (strlen($this->container['last_modified_dts']) > 25)) {
-            $invalid_properties[] = "invalid value for 'last_modified_dts', the character length must be smaller than or equal to 25.";
-        }
-
         if (!is_null($this->container['password']) && (strlen($this->container['password']) > 30)) {
             $invalid_properties[] = "invalid value for 'password', the character length must be smaller than or equal to 30.";
         }
@@ -420,9 +416,6 @@ class Customer implements ArrayAccess
             return false;
         }
         if (strlen($this->container['last_modified_by']) > 100) {
-            return false;
-        }
-        if (strlen($this->container['last_modified_dts']) > 25) {
             return false;
         }
         if (strlen($this->container['password']) > 30) {
@@ -895,9 +888,6 @@ class Customer implements ArrayAccess
      */
     public function setLastModifiedDts($last_modified_dts)
     {
-        if (strlen($last_modified_dts) > 25) {
-            throw new \InvalidArgumentException('invalid length for $last_modified_dts when calling Customer., must be smaller than or equal to 25.');
-        }
         $this->container['last_modified_dts'] = $last_modified_dts;
 
         return $this;

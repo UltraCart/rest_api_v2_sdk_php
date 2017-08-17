@@ -72,7 +72,8 @@ class CustomerCard implements ArrayAccess
         'card_number_token' => 'string',
         'card_type' => 'string',
         'customer_profile_credit_card_id' => 'int',
-        'customer_profile_oid' => 'int'
+        'customer_profile_oid' => 'int',
+        'last_used_dts' => 'string'
     );
 
     public static function swaggerTypes()
@@ -91,7 +92,8 @@ class CustomerCard implements ArrayAccess
         'card_number_token' => 'card_number_token',
         'card_type' => 'card_type',
         'customer_profile_credit_card_id' => 'customer_profile_credit_card_id',
-        'customer_profile_oid' => 'customer_profile_oid'
+        'customer_profile_oid' => 'customer_profile_oid',
+        'last_used_dts' => 'last_used_dts'
     );
 
     public static function attributeMap()
@@ -110,7 +112,8 @@ class CustomerCard implements ArrayAccess
         'card_number_token' => 'setCardNumberToken',
         'card_type' => 'setCardType',
         'customer_profile_credit_card_id' => 'setCustomerProfileCreditCardId',
-        'customer_profile_oid' => 'setCustomerProfileOid'
+        'customer_profile_oid' => 'setCustomerProfileOid',
+        'last_used_dts' => 'setLastUsedDts'
     );
 
     public static function setters()
@@ -129,7 +132,8 @@ class CustomerCard implements ArrayAccess
         'card_number_token' => 'getCardNumberToken',
         'card_type' => 'getCardType',
         'customer_profile_credit_card_id' => 'getCustomerProfileCreditCardId',
-        'customer_profile_oid' => 'getCustomerProfileOid'
+        'customer_profile_oid' => 'getCustomerProfileOid',
+        'last_used_dts' => 'getLastUsedDts'
     );
 
     public static function getters()
@@ -160,6 +164,7 @@ class CustomerCard implements ArrayAccess
         $this->container['card_type'] = isset($data['card_type']) ? $data['card_type'] : null;
         $this->container['customer_profile_credit_card_id'] = isset($data['customer_profile_credit_card_id']) ? $data['customer_profile_credit_card_id'] : null;
         $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
+        $this->container['last_used_dts'] = isset($data['last_used_dts']) ? $data['last_used_dts'] : null;
     }
 
     /**
@@ -328,6 +333,27 @@ class CustomerCard implements ArrayAccess
     public function setCustomerProfileOid($customer_profile_oid)
     {
         $this->container['customer_profile_oid'] = $customer_profile_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_used_dts
+     * @return string
+     */
+    public function getLastUsedDts()
+    {
+        return $this->container['last_used_dts'];
+    }
+
+    /**
+     * Sets last_used_dts
+     * @param string $last_used_dts Last used date
+     * @return $this
+     */
+    public function setLastUsedDts($last_used_dts)
+    {
+        $this->container['last_used_dts'] = $last_used_dts;
 
         return $this;
     }
