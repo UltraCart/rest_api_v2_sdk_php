@@ -73,6 +73,7 @@ class WebhookEventSubscription implements ArrayAccess
         'event_name' => 'string',
         'expansion' => 'string',
         'subscribed' => 'bool',
+        'supports_reflow' => 'bool',
         'webhook_event_oid' => 'int'
     );
 
@@ -93,6 +94,7 @@ class WebhookEventSubscription implements ArrayAccess
         'event_name' => 'event_name',
         'expansion' => 'expansion',
         'subscribed' => 'subscribed',
+        'supports_reflow' => 'supports_reflow',
         'webhook_event_oid' => 'webhook_event_oid'
     );
 
@@ -113,6 +115,7 @@ class WebhookEventSubscription implements ArrayAccess
         'event_name' => 'setEventName',
         'expansion' => 'setExpansion',
         'subscribed' => 'setSubscribed',
+        'supports_reflow' => 'setSupportsReflow',
         'webhook_event_oid' => 'setWebhookEventOid'
     );
 
@@ -133,6 +136,7 @@ class WebhookEventSubscription implements ArrayAccess
         'event_name' => 'getEventName',
         'expansion' => 'getExpansion',
         'subscribed' => 'getSubscribed',
+        'supports_reflow' => 'getSupportsReflow',
         'webhook_event_oid' => 'getWebhookEventOid'
     );
 
@@ -164,6 +168,7 @@ class WebhookEventSubscription implements ArrayAccess
         $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
         $this->container['expansion'] = isset($data['expansion']) ? $data['expansion'] : null;
         $this->container['subscribed'] = isset($data['subscribed']) ? $data['subscribed'] : null;
+        $this->container['supports_reflow'] = isset($data['supports_reflow']) ? $data['supports_reflow'] : null;
         $this->container['webhook_event_oid'] = isset($data['webhook_event_oid']) ? $data['webhook_event_oid'] : null;
     }
 
@@ -333,6 +338,27 @@ class WebhookEventSubscription implements ArrayAccess
     public function setSubscribed($subscribed)
     {
         $this->container['subscribed'] = $subscribed;
+
+        return $this;
+    }
+
+    /**
+     * Gets supports_reflow
+     * @return bool
+     */
+    public function getSupportsReflow()
+    {
+        return $this->container['supports_reflow'];
+    }
+
+    /**
+     * Sets supports_reflow
+     * @param bool $supports_reflow True if the event can be triggered to reflow existing records
+     * @return $this
+     */
+    public function setSupportsReflow($supports_reflow)
+    {
+        $this->container['supports_reflow'] = $supports_reflow;
 
         return $this;
     }

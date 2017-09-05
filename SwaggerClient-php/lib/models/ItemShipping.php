@@ -71,6 +71,7 @@ class ItemShipping implements ArrayAccess
         'case_inner_packs' => 'int',
         'case_units' => 'int',
         'cases' => '\ultracart\v2\models\ItemShippingCase[]',
+        'collect_serial_numbers' => 'bool',
         'country_code_of_origin' => 'string',
         'customs_description' => 'string',
         'customs_value' => 'float',
@@ -130,6 +131,7 @@ class ItemShipping implements ArrayAccess
         'case_inner_packs' => 'case_inner_packs',
         'case_units' => 'case_units',
         'cases' => 'cases',
+        'collect_serial_numbers' => 'collect_serial_numbers',
         'country_code_of_origin' => 'country_code_of_origin',
         'customs_description' => 'customs_description',
         'customs_value' => 'customs_value',
@@ -189,6 +191,7 @@ class ItemShipping implements ArrayAccess
         'case_inner_packs' => 'setCaseInnerPacks',
         'case_units' => 'setCaseUnits',
         'cases' => 'setCases',
+        'collect_serial_numbers' => 'setCollectSerialNumbers',
         'country_code_of_origin' => 'setCountryCodeOfOrigin',
         'customs_description' => 'setCustomsDescription',
         'customs_value' => 'setCustomsValue',
@@ -248,6 +251,7 @@ class ItemShipping implements ArrayAccess
         'case_inner_packs' => 'getCaseInnerPacks',
         'case_units' => 'getCaseUnits',
         'cases' => 'getCases',
+        'collect_serial_numbers' => 'getCollectSerialNumbers',
         'country_code_of_origin' => 'getCountryCodeOfOrigin',
         'customs_description' => 'getCustomsDescription',
         'customs_value' => 'getCustomsValue',
@@ -318,6 +322,7 @@ class ItemShipping implements ArrayAccess
         $this->container['case_inner_packs'] = isset($data['case_inner_packs']) ? $data['case_inner_packs'] : null;
         $this->container['case_units'] = isset($data['case_units']) ? $data['case_units'] : null;
         $this->container['cases'] = isset($data['cases']) ? $data['cases'] : null;
+        $this->container['collect_serial_numbers'] = isset($data['collect_serial_numbers']) ? $data['collect_serial_numbers'] : null;
         $this->container['country_code_of_origin'] = isset($data['country_code_of_origin']) ? $data['country_code_of_origin'] : null;
         $this->container['customs_description'] = isset($data['customs_description']) ? $data['customs_description'] : null;
         $this->container['customs_value'] = isset($data['customs_value']) ? $data['customs_value'] : null;
@@ -493,6 +498,27 @@ class ItemShipping implements ArrayAccess
     public function setCases($cases)
     {
         $this->container['cases'] = $cases;
+
+        return $this;
+    }
+
+    /**
+     * Gets collect_serial_numbers
+     * @return bool
+     */
+    public function getCollectSerialNumbers()
+    {
+        return $this->container['collect_serial_numbers'];
+    }
+
+    /**
+     * Sets collect_serial_numbers
+     * @param bool $collect_serial_numbers This item is on pre-order
+     * @return $this
+     */
+    public function setCollectSerialNumbers($collect_serial_numbers)
+    {
+        $this->container['collect_serial_numbers'] = $collect_serial_numbers;
 
         return $this;
     }

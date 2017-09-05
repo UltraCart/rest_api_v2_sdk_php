@@ -70,6 +70,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
         'barcode_uc' => 'string',
         'barcode_ui' => 'string',
         'barcode_uk' => 'string',
+        'buyer_catalog_number' => 'string',
         'buyer_dpci' => 'string',
         'buyer_item_number' => 'string',
         'channel_partner_code' => 'string',
@@ -99,6 +100,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
         'barcode_uc' => 'barcode_uc',
         'barcode_ui' => 'barcode_ui',
         'barcode_uk' => 'barcode_uk',
+        'buyer_catalog_number' => 'buyer_catalog_number',
         'buyer_dpci' => 'buyer_dpci',
         'buyer_item_number' => 'buyer_item_number',
         'channel_partner_code' => 'channel_partner_code',
@@ -128,6 +130,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
         'barcode_uc' => 'setBarcodeUc',
         'barcode_ui' => 'setBarcodeUi',
         'barcode_uk' => 'setBarcodeUk',
+        'buyer_catalog_number' => 'setBuyerCatalogNumber',
         'buyer_dpci' => 'setBuyerDpci',
         'buyer_item_number' => 'setBuyerItemNumber',
         'channel_partner_code' => 'setChannelPartnerCode',
@@ -157,6 +160,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
         'barcode_uc' => 'getBarcodeUc',
         'barcode_ui' => 'getBarcodeUi',
         'barcode_uk' => 'getBarcodeUk',
+        'buyer_catalog_number' => 'getBuyerCatalogNumber',
         'buyer_dpci' => 'getBuyerDpci',
         'buyer_item_number' => 'getBuyerItemNumber',
         'channel_partner_code' => 'getChannelPartnerCode',
@@ -197,6 +201,7 @@ class ItemChannelPartnerMapping implements ArrayAccess
         $this->container['barcode_uc'] = isset($data['barcode_uc']) ? $data['barcode_uc'] : null;
         $this->container['barcode_ui'] = isset($data['barcode_ui']) ? $data['barcode_ui'] : null;
         $this->container['barcode_uk'] = isset($data['barcode_uk']) ? $data['barcode_uk'] : null;
+        $this->container['buyer_catalog_number'] = isset($data['buyer_catalog_number']) ? $data['buyer_catalog_number'] : null;
         $this->container['buyer_dpci'] = isset($data['buyer_dpci']) ? $data['buyer_dpci'] : null;
         $this->container['buyer_item_number'] = isset($data['buyer_item_number']) ? $data['buyer_item_number'] : null;
         $this->container['channel_partner_code'] = isset($data['channel_partner_code']) ? $data['channel_partner_code'] : null;
@@ -336,6 +341,27 @@ class ItemChannelPartnerMapping implements ArrayAccess
     public function setBarcodeUk($barcode_uk)
     {
         $this->container['barcode_uk'] = $barcode_uk;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_catalog_number
+     * @return string
+     */
+    public function getBuyerCatalogNumber()
+    {
+        return $this->container['buyer_catalog_number'];
+    }
+
+    /**
+     * Sets buyer_catalog_number
+     * @param string $buyer_catalog_number Buyer catalog number (EDI only)
+     * @return $this
+     */
+    public function setBuyerCatalogNumber($buyer_catalog_number)
+    {
+        $this->container['buyer_catalog_number'] = $buyer_catalog_number;
 
         return $this;
     }

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **case_inner_packs** | **int** | Case inner packs | [optional] 
 **case_units** | **int** | Case units | [optional] 
 **cases** | [**\ultracart\v2\models\ItemShippingCase[]**](ItemShippingCase.md) | Cases | [optional] 
+**collect_serial_numbers** | **bool** | This item is on pre-order | [optional] 
 **country_code_of_origin** | **string** | Country code of origin for customs forms.  (ISO-3166 two letter code) | [optional] 
 **customs_description** | **string** | Customs description | [optional] 
 **customs_value** | **float** | Customs value | [optional] 

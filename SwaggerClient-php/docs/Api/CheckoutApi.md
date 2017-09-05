@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 Handoff cart
 
-Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal or finalization of the order (including upsell processing).
+Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal, transfer to Affirm or finalization of the order (including upsell processing).
 
 ### Example
 ```php

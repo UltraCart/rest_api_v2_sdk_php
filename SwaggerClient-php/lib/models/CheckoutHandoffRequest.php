@@ -141,6 +141,7 @@ class CheckoutHandoffRequest implements ArrayAccess
     const OPERATION_PAY_PAL = 'payPal';
     const OPERATION_PAY_PAL_CREDIT = 'payPalCredit';
     const OPERATION_VIEW = 'view';
+    const OPERATION_AFFIRM = 'affirm';
     
 
     
@@ -155,6 +156,7 @@ class CheckoutHandoffRequest implements ArrayAccess
             self::OPERATION_PAY_PAL,
             self::OPERATION_PAY_PAL_CREDIT,
             self::OPERATION_VIEW,
+            self::OPERATION_AFFIRM,
         ];
     }
     
@@ -188,7 +190,7 @@ class CheckoutHandoffRequest implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = array();
-        $allowed_values = array("checkout", "payPal", "payPalCredit", "view");
+        $allowed_values = array("checkout", "payPal", "payPalCredit", "view", "affirm");
         if (!in_array($this->container['operation'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'operation', must be one of #{allowed_values}.";
         }
@@ -204,7 +206,7 @@ class CheckoutHandoffRequest implements ArrayAccess
      */
     public function valid()
     {
-        $allowed_values = array("checkout", "payPal", "payPalCredit", "view");
+        $allowed_values = array("checkout", "payPal", "payPalCredit", "view", "affirm");
         if (!in_array($this->container['operation'], $allowed_values)) {
             return false;
         }
@@ -291,9 +293,9 @@ class CheckoutHandoffRequest implements ArrayAccess
      */
     public function setOperation($operation)
     {
-        $allowed_values = array('checkout', 'payPal', 'payPalCredit', 'view');
+        $allowed_values = array('checkout', 'payPal', 'payPalCredit', 'view', 'affirm');
         if (!in_array($operation, $allowed_values)) {
-            throw new \InvalidArgumentException("Invalid value for 'operation', must be one of 'checkout', 'payPal', 'payPalCredit', 'view'");
+            throw new \InvalidArgumentException("Invalid value for 'operation', must be one of 'checkout', 'payPal', 'payPalCredit', 'view', 'affirm'");
         }
         $this->container['operation'] = $operation;
 

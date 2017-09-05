@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **event_name** | **string** | Event name | [optional] 
 **expansion** | **string** | The expand string for the notification object.  See the individual resource _expand documentation for valid values. | [optional] 
 **subscribed** | **bool** | True if this is event is subscribed to | [optional] 
+**supports_reflow** | **bool** | True if the event can be triggered to reflow existing records | [optional] 
 **webhook_event_oid** | **int** | The webhook event object identifier | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
