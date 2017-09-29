@@ -30,7 +30,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ChargebackApi();
+$api_instance = new ultracart\v2\Api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 $chargeback_dispute_oid = 56; // int | The chargeback_dispute_oid to delete.
 
 try {
@@ -82,7 +82,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ChargebackApi();
+$api_instance = new ultracart\v2\Api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 $chargeback_dispute_oid = 56; // int | The chargeback dispute oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -136,7 +136,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ChargebackApi();
+$api_instance = new ultracart\v2\Api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | Order Id
 $case_number = "case_number_example"; // string | Case number
 $status = "status_example"; // string | Status
@@ -210,7 +210,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ChargebackApi();
+$api_instance = new ultracart\v2\Api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 $chargeback = new \ultracart\v2\models\ChargebackDispute(); // \ultracart\v2\models\ChargebackDispute | Chargeback to insert
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -227,7 +227,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **chargeback** | [**\ultracart\v2\models\ChargebackDispute**](../Model/\ultracart\v2\models\ChargebackDispute.md)| Chargeback to insert |
+ **chargeback** | [**\ultracart\v2\models\ChargebackDispute**](../Model/ChargebackDispute.md)| Chargeback to insert |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -264,7 +264,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ChargebackApi();
+$api_instance = new ultracart\v2\Api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 $chargeback = new \ultracart\v2\models\ChargebackDispute(); // \ultracart\v2\models\ChargebackDispute | Chargeback to update
 $chargeback_dispute_oid = 56; // int | The chargeback_dispute_oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
@@ -282,7 +282,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **chargeback** | [**\ultracart\v2\models\ChargebackDispute**](../Model/\ultracart\v2\models\ChargebackDispute.md)| Chargeback to update |
+ **chargeback** | [**\ultracart\v2\models\ChargebackDispute**](../Model/ChargebackDispute.md)| Chargeback to update |
  **chargeback_dispute_oid** | **int**| The chargeback_dispute_oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 

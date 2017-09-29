@@ -30,9 +30,9 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
-$order_ids = array(new string[]()); // string[] | Orders to acknowledge receipt of (limit 100)
+$order_ids = array(new \ultracart\v2\models\string[]()); // string[] | Orders to acknowledge receipt of (limit 100)
 
 try {
     $api_instance->acknowledgeOrders($distribution_center_code, $order_ids);
@@ -83,7 +83,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
 
 try {
@@ -135,7 +135,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getDistributionCenters();
@@ -183,9 +183,9 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
-$shipments = array(new FulfillmentShipment()); // \ultracart\v2\models\FulfillmentShipment[] | Orders to mark shipped
+$shipments = array(new \ultracart\v2\models\FulfillmentShipment()); // \ultracart\v2\models\FulfillmentShipment[] | Orders to mark shipped
 
 try {
     $api_instance->shipOrders($distribution_center_code, $shipments);
@@ -236,9 +236,9 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\FulfillmentApi();
+$api_instance = new ultracart\v2\Api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
-$inventories = array(new FulfillmentInventory()); // \ultracart\v2\models\FulfillmentInventory[] | Inventory updates (limit 500)
+$inventories = array(new \ultracart\v2\models\FulfillmentInventory()); // \ultracart\v2\models\FulfillmentInventory[] | Inventory updates (limit 500)
 
 try {
     $api_instance->updateInventory($distribution_center_code, $inventories);

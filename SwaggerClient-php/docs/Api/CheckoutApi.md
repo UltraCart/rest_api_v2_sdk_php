@@ -43,7 +43,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 
 try {
@@ -59,7 +59,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
 
 ### Return type
 
@@ -95,7 +95,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $finalize_request = new \ultracart\v2\models\CartFinalizeOrderRequest(); // \ultracart\v2\models\CartFinalizeOrderRequest | Finalize request
 
 try {
@@ -111,7 +111,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **finalize_request** | [**\ultracart\v2\models\CartFinalizeOrderRequest**](../Model/\ultracart\v2\models\CartFinalizeOrderRequest.md)| Finalize request |
+ **finalize_request** | [**\ultracart\v2\models\CartFinalizeOrderRequest**](../Model/CartFinalizeOrderRequest.md)| Finalize request |
 
 ### Return type
 
@@ -151,7 +151,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -207,7 +207,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $cart_id = "cart_id_example"; // string | Cart ID to retrieve
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -265,7 +265,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $return_code = "return_code_example"; // string | Return code to lookup cart ID by
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -323,7 +323,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $handoff_request = new \ultracart\v2\models\CheckoutHandoffRequest(); // \ultracart\v2\models\CheckoutHandoffRequest | Handoff request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -340,7 +340,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **handoff_request** | [**\ultracart\v2\models\CheckoutHandoffRequest**](../Model/\ultracart\v2\models\CheckoutHandoffRequest.md)| Handoff request |
+ **handoff_request** | [**\ultracart\v2\models\CheckoutHandoffRequest**](../Model/CheckoutHandoffRequest.md)| Handoff request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -381,7 +381,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $login_request = new \ultracart\v2\models\CartProfileLoginRequest(); // \ultracart\v2\models\CartProfileLoginRequest | Login request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -398,7 +398,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **login_request** | [**\ultracart\v2\models\CartProfileLoginRequest**](../Model/\ultracart\v2\models\CartProfileLoginRequest.md)| Login request |
+ **login_request** | [**\ultracart\v2\models\CartProfileLoginRequest**](../Model/CartProfileLoginRequest.md)| Login request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -439,7 +439,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -456,7 +456,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -497,7 +497,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $register_request = new \ultracart\v2\models\CartProfileRegisterRequest(); // \ultracart\v2\models\CartProfileRegisterRequest | Register request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -514,7 +514,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **register_request** | [**\ultracart\v2\models\CartProfileRegisterRequest**](../Model/\ultracart\v2\models\CartProfileRegisterRequest.md)| Register request |
+ **register_request** | [**\ultracart\v2\models\CartProfileRegisterRequest**](../Model/CartProfileRegisterRequest.md)| Register request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -555,7 +555,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
 
@@ -572,7 +572,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional]
 
 ### Return type
@@ -613,7 +613,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $item_id = "item_id_example"; // string | Item ID to retrieve related items for
 $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
@@ -632,7 +632,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item_id** | **string**| Item ID to retrieve related items for |
- **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional]
 
 ### Return type
@@ -669,7 +669,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $browser_key_request = new \ultracart\v2\models\CheckoutSetupBrowserKeyRequest(); // \ultracart\v2\models\CheckoutSetupBrowserKeyRequest | Setup browser key request
 
 try {
@@ -685,7 +685,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **browser_key_request** | [**\ultracart\v2\models\CheckoutSetupBrowserKeyRequest**](../Model/\ultracart\v2\models\CheckoutSetupBrowserKeyRequest.md)| Setup browser key request |
+ **browser_key_request** | [**\ultracart\v2\models\CheckoutSetupBrowserKeyRequest**](../Model/CheckoutSetupBrowserKeyRequest.md)| Setup browser key request |
 
 ### Return type
 
@@ -725,7 +725,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -742,7 +742,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/\ultracart\v2\models\Cart.md)| Cart |
+ **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -783,7 +783,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CheckoutApi();
+$api_instance = new ultracart\v2\Api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
 $validation_request = new \ultracart\v2\models\CartValidationRequest(); // \ultracart\v2\models\CartValidationRequest | Validation request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -800,7 +800,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **validation_request** | [**\ultracart\v2\models\CartValidationRequest**](../Model/\ultracart\v2\models\CartValidationRequest.md)| Validation request |
+ **validation_request** | [**\ultracart\v2\models\CartValidationRequest**](../Model/CartValidationRequest.md)| Validation request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

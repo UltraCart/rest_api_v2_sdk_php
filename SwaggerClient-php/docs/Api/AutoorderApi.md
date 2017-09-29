@@ -1,16 +1,16 @@
-# ultracart\v2\AutoorderApi
+# ultracart\v2\AutoOrderApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAutoOrder**](AutoorderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**getAutoOrders**](AutoorderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
-[**updateAutoOrder**](AutoorderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+[**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+[**getAutoOrders**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
 
 # **getAutoOrder**
-> \ultracart\v2\models\AutoOrderResponse getAutoOrder($auto_order_oid, $_expand)
+> \ultracart\v2\ultracart\v2\models\AutoOrderResponse getAutoOrder($auto_order_oid, $_expand)
 
 Retrieve an auto order
 
@@ -28,7 +28,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AutoorderApi();
+$api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
 $auto_order_oid = 56; // int | The auto order oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -36,7 +36,7 @@ try {
     $result = $api_instance->getAutoOrder($auto_order_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AutoorderApi->getAutoOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AutoOrderApi->getAutoOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+[**\ultracart\v2\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAutoOrders**
-> \ultracart\v2\models\AutoOrdersResponse getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand)
+> \ultracart\v2\ultracart\v2\models\AutoOrdersResponse getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand)
 
 Retrieve auto orders
 
@@ -82,7 +82,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AutoorderApi();
+$api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
 $auto_order_code = "auto_order_code_example"; // string | Auto order code
 $original_order_id = "original_order_id_example"; // string | Original order id
 $first_name = "first_name_example"; // string | First name
@@ -111,7 +111,7 @@ try {
     $result = $api_instance->getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AutoorderApi->getAutoOrders: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AutoOrderApi->getAutoOrders: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
+[**\ultracart\v2\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAutoOrder**
-> \ultracart\v2\models\AutoOrderResponse updateAutoOrder($auto_order, $auto_order_oid, $_expand)
+> \ultracart\v2\ultracart\v2\models\AutoOrderResponse updateAutoOrder($auto_order, $auto_order_oid, $_expand)
 
 Update an auto order
 
@@ -178,8 +178,8 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AutoorderApi();
-$auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto order to update
+$api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$auto_order = new \ultracart\v2\ultracart\v2\models\AutoOrder(); // \ultracart\v2\ultracart\v2\models\AutoOrder | Auto order to update
 $auto_order_oid = 56; // int | The auto order oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -187,7 +187,7 @@ try {
     $result = $api_instance->updateAutoOrder($auto_order, $auto_order_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AutoorderApi->updateAutoOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AutoOrderApi->updateAutoOrder: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -196,13 +196,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/\ultracart\v2\models\AutoOrder.md)| Auto order to update |
+ **auto_order** | [**\ultracart\v2\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to update |
  **auto_order_oid** | **int**| The auto order oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+[**\ultracart\v2\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
 
 ### Authorization
 

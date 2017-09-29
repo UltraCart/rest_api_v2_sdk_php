@@ -30,7 +30,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi();
+$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer_profile_oid = 56; // int | The customer_profile_oid to delete.
 
 try {
@@ -82,7 +82,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi();
+$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer_profile_oid = 56; // int | The customer oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -136,7 +136,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi();
+$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $email = "email_example"; // string | Email
 $qb_class = "qb_class_example"; // string | Quickbooks class
 $quickbooks_code = "quickbooks_code_example"; // string | Quickbooks code
@@ -250,7 +250,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi();
+$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to insert
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -267,7 +267,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer** | [**\ultracart\v2\models\Customer**](../Model/\ultracart\v2\models\Customer.md)| Customer to insert |
+ **customer** | [**\ultracart\v2\models\Customer**](../Model/Customer.md)| Customer to insert |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
@@ -304,7 +304,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi();
+$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to update
 $customer_profile_oid = 56; // int | The customer_profile_oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
@@ -322,7 +322,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer** | [**\ultracart\v2\models\Customer**](../Model/\ultracart\v2\models\Customer.md)| Customer to update |
+ **customer** | [**\ultracart\v2\models\Customer**](../Model/Customer.md)| Customer to update |
  **customer_profile_oid** | **int**| The customer_profile_oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 

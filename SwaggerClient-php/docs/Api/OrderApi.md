@@ -33,7 +33,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to cancel.
 
 try {
@@ -85,7 +85,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to delete.
 
 try {
@@ -136,7 +136,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -190,7 +190,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | Order Id
 $payment_method = "payment_method_example"; // string | Payment Method
 $company = "company_example"; // string | Company
@@ -302,7 +302,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_query = new \ultracart\v2\models\OrderQuery(); // \ultracart\v2\models\OrderQuery | Order query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
@@ -322,7 +322,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_query** | [**\ultracart\v2\models\OrderQuery**](../Model/\ultracart\v2\models\OrderQuery.md)| Order query |
+ **order_query** | [**\ultracart\v2\models\OrderQuery**](../Model/OrderQuery.md)| Order query |
  **_limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_sort** | **string**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
@@ -362,7 +362,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to resend the receipt for.
 
 try {
@@ -414,7 +414,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to resend the shipment notification for.
 
 try {
@@ -466,7 +466,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi();
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to update
 $order_id = "order_id_example"; // string | The order id to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
@@ -484,7 +484,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order** | [**\ultracart\v2\models\Order**](../Model/\ultracart\v2\models\Order.md)| Order to update |
+ **order** | [**\ultracart\v2\models\Order**](../Model/Order.md)| Order to update |
  **order_id** | **string**| The order id to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
