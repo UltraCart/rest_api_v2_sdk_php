@@ -64,7 +64,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\Auto_orderApi();
+$api_instance = new ultracart\v2\Api\AutoOrderApi();
 $auto_order_oid = 56; // int | The auto order oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -72,7 +72,7 @@ try {
     $result = $api_instance->getAutoOrder($auto_order_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling Auto_orderApi->getAutoOrder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AutoOrderApi->getAutoOrder: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -84,9 +84,9 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Auto_orderApi* | [**getAutoOrder**](docs/Api/Auto_orderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-*Auto_orderApi* | [**getAutoOrders**](docs/Api/Auto_orderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
-*Auto_orderApi* | [**updateAutoOrder**](docs/Api/Auto_orderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
+*AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
+*AutoOrderApi* | [**getAutoOrders**](docs/Api/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+*AutoOrderApi* | [**updateAutoOrder**](docs/Api/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *ChargebackApi* | [**deleteChargeback**](docs/Api/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/Api/ChargebackApi.md#getchargebackdispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
 *ChargebackApi* | [**getChargebackDisputes**](docs/Api/ChargebackApi.md#getchargebackdisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks

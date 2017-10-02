@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **getAutoOrder**
-> \ultracart\v2\ultracart\v2\models\AutoOrderResponse getAutoOrder($auto_order_oid, $_expand)
+> \ultracart\v2\models\AutoOrderResponse getAutoOrder($auto_order_oid, $_expand)
 
 Retrieve an auto order
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAutoOrders**
-> \ultracart\v2\ultracart\v2\models\AutoOrdersResponse getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand)
+> \ultracart\v2\models\AutoOrdersResponse getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand)
 
 Retrieve auto orders
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
+[**\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAutoOrder**
-> \ultracart\v2\ultracart\v2\models\AutoOrderResponse updateAutoOrder($auto_order, $auto_order_oid, $_expand)
+> \ultracart\v2\models\AutoOrderResponse updateAutoOrder($auto_order, $auto_order_oid, $_expand)
 
 Update an auto order
 
@@ -179,7 +179,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
-$auto_order = new \ultracart\v2\ultracart\v2\models\AutoOrder(); // \ultracart\v2\ultracart\v2\models\AutoOrder | Auto order to update
+$auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto order to update
 $auto_order_oid = 56; // int | The auto order oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -196,13 +196,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_order** | [**\ultracart\v2\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to update |
+ **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to update |
  **auto_order_oid** | **int**| The auto order oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
 
 ### Authorization
 
