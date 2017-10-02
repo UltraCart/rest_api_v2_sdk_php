@@ -28,7 +28,7 @@
         "friendsofphp/php-cs-fixer": "~1.12"
     },
     "autoload": {
-        "psr-4": { "ultracart\\v2\\" : "SwaggerClient-php/lib/" }
+        "psr-4": { "ultracart\\v2\\" : "lib/" }
     },
     "autoload-dev": {
         "psr-4": { "ultracart\\v2\\" : "test/" }
