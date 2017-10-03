@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 **perishable_class** | **string** | Perishable class of the item | [optional] 
 **pricing_tier_name** | **string** | Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned | [optional] 
 **quantity** | **float** | Quantity | [optional] 
-**quantity_refunded** | **float** | Quantity refunded on this item | [optional] 
+**quantity_refunded** | **float** | Quantity refunded on this item (read only except refund operation) | [optional] 
 **quickbooks_class** | **string** | QuickBooks class | [optional] 
 **ship_separately** | **bool** | True if this item ships in a separate box | [optional] 
 **shipped_by_user** | **string** | Shipped by user | [optional] 

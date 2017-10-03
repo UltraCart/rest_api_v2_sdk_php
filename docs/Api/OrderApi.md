@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders
+[**refundOrder**](OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
 [**resendReceipt**](OrderApi.md#resendReceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 [**resendShipmentConfirmation**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 [**updateOrder**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
@@ -339,6 +340,72 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **refundOrder**
+> \ultracart\v2\models\OrderResponse refundOrder($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand)
+
+Refund an order
+
+Perform a refund operation on an order and then update the order if successful
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to refund
+$order_id = "order_id_example"; // string | The order id to refund.
+$reject_after_refund = true; // bool | Reject order after refund
+$skip_customer_notification = true; // bool | Skip customer email notification
+$auto_order_cancel = true; // bool | Cancel associated auto orders
+$manual_refund = true; // bool | Consider a manual refund done externally
+$reverse_affiliate_transactions = true; // bool | Reverse affiliate transactions
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $api_instance->refundOrder($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->refundOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order** | [**\ultracart\v2\models\Order**](../Model/Order.md)| Order to refund |
+ **order_id** | **string**| The order id to refund. |
+ **reject_after_refund** | **bool**| Reject order after refund | [optional]
+ **skip_customer_notification** | **bool**| Skip customer email notification | [optional]
+ **auto_order_cancel** | **bool**| Cancel associated auto orders | [optional]
+ **manual_refund** | **bool**| Consider a manual refund done externally | [optional]
+ **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional]
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
+[**getCustomersByQuery**](CustomerApi.md#getCustomersByQuery) | **GET** /customer/customers/query | Retrieve customers by query
 [**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 
@@ -210,6 +211,68 @@ Name | Type | Description  | Notes
  **shipping_evening_phone** | **string**| Shipping evening phone | [optional]
  **pricing_tier_oid** | **int**| Pricing tier oid | [optional]
  **pricing_tier_name** | **string**| Pricing tier name | [optional]
+ **_limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
+ **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **_since** | **string**| Fetch customers that have been created/modified since this date/time. | [optional]
+ **_sort** | **string**| The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\CustomersResponse**](../Model/CustomersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCustomersByQuery**
+> \ultracart\v2\models\CustomersResponse getCustomersByQuery($customer_query, $_limit, $_offset, $_since, $_sort, $_expand)
+
+Retrieve customers by query
+
+Retrieves customers from the account.  If no parameters are specified, all customers will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$customer_query = new \ultracart\v2\models\CustomerQuery(); // \ultracart\v2\models\CustomerQuery | Customer query
+$_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
+$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
+$_since = "_since_example"; // string | Fetch customers that have been created/modified since this date/time.
+$_sort = "_sort_example"; // string | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $api_instance->getCustomersByQuery($customer_query, $_limit, $_offset, $_since, $_sort, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getCustomersByQuery: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_query** | [**\ultracart\v2\models\CustomerQuery**](../Model/CustomerQuery.md)| Customer query |
  **_limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_since** | **string**| Fetch customers that have been created/modified since this date/time. | [optional]

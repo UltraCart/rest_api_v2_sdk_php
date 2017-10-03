@@ -54,28 +54,52 @@ composer install
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```php
+<?php /* docs.ultracart.com sample */ ?>
+
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+// for testing and development only
+set_time_limit(3000);
+ini_set('max_execution_time', 3000);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+<?php
+// initialization code
+require_once './vendor/autoload.php';
+$simple_key = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100';
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', $simple_key);
 
-$api_instance = new ultracart\v2\Api\AutoOrderApi();
-$auto_order_oid = 56; // int | The auto order oid to retrieve.
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+$client = new GuzzleHttp\Client(['verify' => true, 'debug' => false]);
+$config = ultracart\v2\Configuration::getDefaultConfiguration();
+$headerSelector = new \ultracart\v2\HeaderSelector(/* leave null for version tied to this sdk version */);
+
+$auto_order_api = new ultracart\v2\Api\AutoorderApi($client, $config, $headerSelector);
+?>
+
+<html>
+<body>
+<?php
 
 try {
-    $result = $api_instance->getAutoOrder($auto_order_oid, $_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AutoOrderApi->getAutoOrder: ', $e->getMessage(), PHP_EOL;
+    $auto_order_oid = 2078718;  // this is found either by looping through auto orders, or from the back end.
+    $auto_order_response = $auto_order_api->getAutoOrder($auto_order_oid, "items");
+    $auto_order = $auto_order_response->getAutoOrder();
+    $auto_order->getItems()[0]->setArbitraryQuantity(4);
+    $auto_order_response = $auto_order_api->updateAutoOrder($auto_order, $auto_order_oid);
+
+} catch (\ultracart\v2\ApiException $e) {
+    error_log($e->getResponseBody());
 }
 
 ?>
+<pre>
+<?php echo print_r($auto_order); ?>
+<?php echo print_r($auto_order_response); ?>
+</pre>
+<?php echo 'Finished.'; ?>
+</body>
+</html>
 ```
 
 ## Documentation for API Endpoints
@@ -109,6 +133,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**deleteCustomer**](docs/Api/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/Api/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomers**](docs/Api/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
+*CustomerApi* | [**getCustomersByQuery**](docs/Api/CustomerApi.md#getcustomersbyquery) | **GET** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *FulfillmentApi* | [**acknowledgeOrders**](docs/Api/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
@@ -130,6 +155,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
+*OrderApi* | [**refundOrder**](docs/Api/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
 *OrderApi* | [**resendReceipt**](docs/Api/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
@@ -218,6 +244,7 @@ Class | Method | HTTP request | Description
  - [CustomerBilling](docs/Model/CustomerBilling.md)
  - [CustomerCard](docs/Model/CustomerCard.md)
  - [CustomerPricingTier](docs/Model/CustomerPricingTier.md)
+ - [CustomerQuery](docs/Model/CustomerQuery.md)
  - [CustomerResponse](docs/Model/CustomerResponse.md)
  - [CustomerShipping](docs/Model/CustomerShipping.md)
  - [CustomersResponse](docs/Model/CustomersResponse.md)

@@ -1383,7 +1383,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets quantity_refunded
      *
-     * @param float $quantity_refunded Quantity refunded on this item
+     * @param float $quantity_refunded Quantity refunded on this item (read only except refund operation)
      *
      * @return $this
      */
