@@ -1880,18 +1880,18 @@ class OrderApi
      *
      * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\OrderResponse
      */
-    public function refundOrder($order, $order_id, $reject_after_refund = null, $skip_customer_notification = null, $auto_order_cancel = null, $manual_refund = null, $reverse_affiliate_transactions = null, $_expand = null)
+    public function refundOrder($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
         list($response) = $this->refundOrderWithHttpInfo($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
         return $response;
@@ -1904,18 +1904,18 @@ class OrderApi
      *
      * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function refundOrderWithHttpInfo($order, $order_id, $reject_after_refund = null, $skip_customer_notification = null, $auto_order_cancel = null, $manual_refund = null, $reverse_affiliate_transactions = null, $_expand = null)
+    public function refundOrderWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
@@ -2025,17 +2025,17 @@ class OrderApi
      *
      * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsync($order, $order_id, $reject_after_refund = null, $skip_customer_notification = null, $auto_order_cancel = null, $manual_refund = null, $reverse_affiliate_transactions = null, $_expand = null)
+    public function refundOrderAsync($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
         return $this->refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand)
             ->then(
@@ -2052,17 +2052,17 @@ class OrderApi
      *
      * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund = null, $skip_customer_notification = null, $auto_order_cancel = null, $manual_refund = null, $reverse_affiliate_transactions = null, $_expand = null)
+    public function refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
@@ -2109,17 +2109,17 @@ class OrderApi
      *
      * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function refundOrderRequest($order, $order_id, $reject_after_refund = null, $skip_customer_notification = null, $auto_order_cancel = null, $manual_refund = null, $reverse_affiliate_transactions = null, $_expand = null)
+    protected function refundOrderRequest($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
         // verify the required parameter 'order' is set
         if ($order === null) {

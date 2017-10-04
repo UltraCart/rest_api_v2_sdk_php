@@ -366,10 +366,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to refund
 $order_id = "order_id_example"; // string | The order id to refund.
-$reject_after_refund = true; // bool | Reject order after refund
-$skip_customer_notification = true; // bool | Skip customer email notification
-$auto_order_cancel = true; // bool | Cancel associated auto orders
-$manual_refund = true; // bool | Consider a manual refund done externally
+$reject_after_refund = false; // bool | Reject order after refund
+$skip_customer_notification = false; // bool | Skip customer email notification
+$auto_order_cancel = false; // bool | Cancel associated auto orders
+$manual_refund = false; // bool | Consider a manual refund done externally
 $reverse_affiliate_transactions = true; // bool | Reverse affiliate transactions
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -388,11 +388,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order** | [**\ultracart\v2\models\Order**](../Model/Order.md)| Order to refund |
  **order_id** | **string**| The order id to refund. |
- **reject_after_refund** | **bool**| Reject order after refund | [optional]
- **skip_customer_notification** | **bool**| Skip customer email notification | [optional]
- **auto_order_cancel** | **bool**| Cancel associated auto orders | [optional]
- **manual_refund** | **bool**| Consider a manual refund done externally | [optional]
- **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional]
+ **reject_after_refund** | **bool**| Reject order after refund | [optional] [default to false]
+ **skip_customer_notification** | **bool**| Skip customer email notification | [optional] [default to false]
+ **auto_order_cancel** | **bool**| Cancel associated auto orders | [optional] [default to false]
+ **manual_refund** | **bool**| Consider a manual refund done externally | [optional] [default to false]
+ **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] [default to true]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
