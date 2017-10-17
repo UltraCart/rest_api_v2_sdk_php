@@ -108,6 +108,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AffiliateApi* | [**getClicksByQuery**](docs/Api/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
 *AutoOrderApi* | [**getAutoOrders**](docs/Api/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**updateAutoOrder**](docs/Api/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
@@ -170,6 +171,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AffiliateClickQuery](docs/Model/AffiliateClickQuery.md)
  - [ApiUserApplicationProfile](docs/Model/ApiUserApplicationProfile.md)
  - [AutoOrder](docs/Model/AutoOrder.md)
  - [AutoOrderItem](docs/Model/AutoOrderItem.md)
