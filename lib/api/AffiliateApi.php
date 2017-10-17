@@ -92,7 +92,7 @@ class AffiliateApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrdersResponse
+     * @return \ultracart\v2\models\AffiliateClicksResponse
      */
     public function getClicksByQuery($click_query, $_limit = '10000', $_offset = '0', $_expand = null)
     {
@@ -112,11 +112,11 @@ class AffiliateApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AffiliateClicksResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClicksByQueryWithHttpInfo($click_query, $_limit = '10000', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\AffiliateClicksResponse';
         $request = $this->getClicksByQueryRequest($click_query, $_limit, $_offset, $_expand);
 
         try {
@@ -167,7 +167,7 @@ class AffiliateApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\OrdersResponse',
+                        '\ultracart\v2\models\AffiliateClicksResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -255,7 +255,7 @@ class AffiliateApi
      */
     public function getClicksByQueryAsyncWithHttpInfo($click_query, $_limit = '10000', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\AffiliateClicksResponse';
         $request = $this->getClicksByQueryRequest($click_query, $_limit, $_offset, $_expand);
 
         return $this->client

@@ -171,7 +171,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AffiliateClick](docs/Model/AffiliateClick.md)
  - [AffiliateClickQuery](docs/Model/AffiliateClickQuery.md)
+ - [AffiliateClicksResponse](docs/Model/AffiliateClicksResponse.md)
+ - [AffiliateLink](docs/Model/AffiliateLink.md)
  - [ApiUserApplicationProfile](docs/Model/ApiUserApplicationProfile.md)
  - [AutoOrder](docs/Model/AutoOrder.md)
  - [AutoOrderItem](docs/Model/AutoOrderItem.md)
@@ -401,6 +404,8 @@ Class | Method | HTTP request | Description
 - **Flow**: accessCode
 - **Authorization URL**: https://secure.ultracart.com/rest/v2/oauth/authorize
 - **Scopes**: 
+ - **affiliate_read**: Allows you to read affiliate information.
+ - **affiliate_write**: Allows you to write affiliate information.
  - **auto_order_read**: Allows you to read auto order information.
  - **auto_order_write**: Allows you to write auto order information.
  - **chargeback_read**: Allows you to read chargeback information.

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getClicksByQuery**
-> \ultracart\v2\models\OrdersResponse getClicksByQuery($click_query, $_limit, $_offset, $_expand)
+> \ultracart\v2\models\AffiliateClicksResponse getClicksByQuery($click_query, $_limit, $_offset, $_expand)
 
 Retrieve clicks
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\AffiliateClicksResponse**](../Model/AffiliateClicksResponse.md)
 
 ### Authorization
 
