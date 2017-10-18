@@ -57,6 +57,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'auto_order_code' => 'string',
+        'auto_order_oid' => 'int',
         'original_order_id' => 'string',
         'status' => 'string'
     ];
@@ -68,6 +69,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'auto_order_code' => null,
+        'auto_order_oid' => 'int32',
         'original_order_id' => null,
         'status' => null
     ];
@@ -100,6 +102,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'auto_order_code' => 'auto_order_code',
+        'auto_order_oid' => 'auto_order_oid',
         'original_order_id' => 'original_order_id',
         'status' => 'status'
     ];
@@ -111,6 +114,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'auto_order_code' => 'setAutoOrderCode',
+        'auto_order_oid' => 'setAutoOrderOid',
         'original_order_id' => 'setOriginalOrderId',
         'status' => 'setStatus'
     ];
@@ -122,6 +126,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'auto_order_code' => 'getAutoOrderCode',
+        'auto_order_oid' => 'getAutoOrderOid',
         'original_order_id' => 'getOriginalOrderId',
         'status' => 'getStatus'
     ];
@@ -204,6 +209,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['auto_order_code'] = isset($data['auto_order_code']) ? $data['auto_order_code'] : null;
+        $this->container['auto_order_oid'] = isset($data['auto_order_oid']) ? $data['auto_order_oid'] : null;
         $this->container['original_order_id'] = isset($data['original_order_id']) ? $data['original_order_id'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
@@ -258,13 +264,37 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
     /**
      * Sets auto_order_code
      *
-     * @param string $auto_order_code Unique identifier assigned to the auto order
+     * @param string $auto_order_code Unique code assigned to the auto order
      *
      * @return $this
      */
     public function setAutoOrderCode($auto_order_code)
     {
         $this->container['auto_order_code'] = $auto_order_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_oid
+     *
+     * @return int
+     */
+    public function getAutoOrderOid()
+    {
+        return $this->container['auto_order_oid'];
+    }
+
+    /**
+     * Sets auto_order_oid
+     *
+     * @param int $auto_order_oid Unique identifier assigned to the auto order
+     *
+     * @return $this
+     */
+    public function setAutoOrderOid($auto_order_oid)
+    {
+        $this->container['auto_order_oid'] = $auto_order_oid;
 
         return $this;
     }
