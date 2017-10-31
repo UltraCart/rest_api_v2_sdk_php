@@ -420,7 +420,7 @@ class AffiliateApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\AffiliateClicksResponse
+     * @return \ultracart\v2\models\AffiliateLedgersResponse
      */
     public function getLedgersByQuery($ledger_query, $_limit = '100', $_offset = '0', $_expand = null)
     {
@@ -440,11 +440,11 @@ class AffiliateApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\AffiliateClicksResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AffiliateLedgersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLedgersByQueryWithHttpInfo($ledger_query, $_limit = '100', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\AffiliateClicksResponse';
+        $returnType = '\ultracart\v2\models\AffiliateLedgersResponse';
         $request = $this->getLedgersByQueryRequest($ledger_query, $_limit, $_offset, $_expand);
 
         try {
@@ -495,7 +495,7 @@ class AffiliateApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\AffiliateClicksResponse',
+                        '\ultracart\v2\models\AffiliateLedgersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -583,7 +583,7 @@ class AffiliateApi
      */
     public function getLedgersByQueryAsyncWithHttpInfo($ledger_query, $_limit = '100', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\AffiliateClicksResponse';
+        $returnType = '\ultracart\v2\models\AffiliateLedgersResponse';
         $request = $this->getLedgersByQueryRequest($ledger_query, $_limit, $_offset, $_expand);
 
         return $this->client

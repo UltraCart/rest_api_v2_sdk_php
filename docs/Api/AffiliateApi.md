@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLedgersByQuery**
-> \ultracart\v2\models\AffiliateClicksResponse getLedgersByQuery($ledger_query, $_limit, $_offset, $_expand)
+> \ultracart\v2\models\AffiliateLedgersResponse getLedgersByQuery($ledger_query, $_limit, $_offset, $_expand)
 
 Retrieve ledger entries
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\AffiliateClicksResponse**](../Model/AffiliateClicksResponse.md)
+[**\ultracart\v2\models\AffiliateLedgersResponse**](../Model/AffiliateLedgersResponse.md)
 
 ### Authorization
 
