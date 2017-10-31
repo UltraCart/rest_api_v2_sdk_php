@@ -688,7 +688,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess
     /**
      * Sets url
      *
-     * @param string $url URL to download file
+     * @param string $url URL to download file (on new multimedia record this can be a URL for UltraCart to fetch)
      *
      * @return $this
      */

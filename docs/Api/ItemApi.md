@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+[**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
 [**uploadTemporaryMultimedia**](ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
@@ -344,6 +345,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ItemResponse**](../Model/ItemResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateItems**
+> \ultracart\v2\models\ItemsResponse updateItems($items, $_expand, $_placeholders, $_async)
+
+Update multiple items
+
+Update multiple item on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$items = array(new \ultracart\v2\models\Item()); // \ultracart\v2\models\Item[] | Items to update (maximum 20)
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+$_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
+$_async = true; // bool | True if the operation should be run async.  No result returned
+
+try {
+    $result = $api_instance->updateItems($items, $_expand, $_placeholders, $_async);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->updateItems: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **items** | [**\ultracart\v2\models\Item[]**](../Model/Item.md)| Items to update (maximum 20) |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+ **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+ **_async** | **bool**| True if the operation should be run async.  No result returned | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
 
 ### Authorization
 

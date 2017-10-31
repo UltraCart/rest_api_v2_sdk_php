@@ -109,6 +109,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AffiliateApi* | [**getClicksByQuery**](docs/Api/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
+*AffiliateApi* | [**getLedgersByQuery**](docs/Api/AffiliateApi.md#getledgersbyquery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
 *AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
@@ -150,6 +151,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getItems**](docs/Api/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**insertItem**](docs/Api/ItemApi.md#insertitem) | **POST** /item/items | Create an item
 *ItemApi* | [**updateItem**](docs/Api/ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
+*ItemApi* | [**updateItems**](docs/Api/ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/Api/ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/Api/OauthApi.md#oauthaccesstoken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/Api/OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
@@ -176,6 +178,7 @@ Class | Method | HTTP request | Description
  - [AffiliateClick](docs/Model/AffiliateClick.md)
  - [AffiliateClickQuery](docs/Model/AffiliateClickQuery.md)
  - [AffiliateClicksResponse](docs/Model/AffiliateClicksResponse.md)
+ - [AffiliateLedgerQuery](docs/Model/AffiliateLedgerQuery.md)
  - [AffiliateLink](docs/Model/AffiliateLink.md)
  - [ApiUserApplicationProfile](docs/Model/ApiUserApplicationProfile.md)
  - [AutoOrder](docs/Model/AutoOrder.md)
