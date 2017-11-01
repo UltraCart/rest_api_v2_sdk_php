@@ -1630,7 +1630,7 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\CustomerResponse
+     * @return \ultracart\v2\models\CustomerEditorValues
      */
     public function getEditorValues()
     {
@@ -1646,11 +1646,11 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomerEditorValues, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEditorValuesWithHttpInfo()
     {
-        $returnType = '\ultracart\v2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerEditorValues';
         $request = $this->getEditorValuesRequest();
 
         try {
@@ -1701,7 +1701,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\CustomerResponse',
+                        '\ultracart\v2\models\CustomerEditorValues',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1781,7 +1781,7 @@ class CustomerApi
      */
     public function getEditorValuesAsyncWithHttpInfo()
     {
-        $returnType = '\ultracart\v2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerEditorValues';
         $request = $this->getEditorValuesRequest();
 
         return $this->client

@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEditorValues**
-> \ultracart\v2\models\CustomerResponse getEditorValues()
+> \ultracart\v2\models\CustomerEditorValues getEditorValues()
 
 Retrieve values needed for a customer profile editor
 
@@ -330,7 +330,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+[**\ultracart\v2\models\CustomerEditorValues**](../Model/CustomerEditorValues.md)
 
 ### Authorization
 
