@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **creation_date_begin** | **string** | Date/time that the order was created | [optional] 
 **creation_date_end** | **string** | Date/time that the order was created | [optional] 
 **current_stage** | **string** | Current stage that the order is in. | [optional] 
+**customer_profile_oid** | **int** | The customer profile to find associated orders for | [optional] 
 **email** | **string** | Email | [optional] 
 **first_name** | **string** | First name | [optional] 
 **item_id** | **string** | Item ID | [optional] 

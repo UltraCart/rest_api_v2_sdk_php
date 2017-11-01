@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
 [**getCustomersByQuery**](CustomerApi.md#getCustomersByQuery) | **GET** /customer/customers/query | Retrieve customers by query
+[**getEditorValues**](CustomerApi.md#getEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 
@@ -282,6 +283,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\CustomersResponse**](../Model/CustomersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getEditorValues**
+> \ultracart\v2\models\CustomerResponse getEditorValues()
+
+Retrieve values needed for a customer profile editor
+
+Retrieve values needed for a customer profile editor.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+try {
+    $result = $api_instance->getEditorValues();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getEditorValues: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 

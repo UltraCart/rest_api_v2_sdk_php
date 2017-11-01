@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateItems**
-> \ultracart\v2\models\ItemsResponse updateItems($items, $_expand, $_placeholders, $_async)
+> \ultracart\v2\models\ItemsResponse updateItems($items_request, $_expand, $_placeholders, $_async)
 
 Update multiple items
 
@@ -377,13 +377,13 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
-$items = array(new \ultracart\v2\models\Item()); // \ultracart\v2\models\Item[] | Items to update (maximum 20)
+$items_request = new \ultracart\v2\models\ItemsRequest(); // \ultracart\v2\models\ItemsRequest | Items to update (synchronous maximum 20 / asynchronous maximum 100)
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 $_async = true; // bool | True if the operation should be run async.  No result returned
 
 try {
-    $result = $api_instance->updateItems($items, $_expand, $_placeholders, $_async);
+    $result = $api_instance->updateItems($items_request, $_expand, $_placeholders, $_async);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->updateItems: ', $e->getMessage(), PHP_EOL;
@@ -395,7 +395,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **items** | [**\ultracart\v2\models\Item[]**](../Model/Item.md)| Items to update (maximum 20) |
+ **items_request** | [**\ultracart\v2\models\ItemsRequest**](../Model/ItemsRequest.md)| Items to update (synchronous maximum 20 / asynchronous maximum 100) |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
  **_async** | **bool**| True if the operation should be run async.  No result returned | [optional]

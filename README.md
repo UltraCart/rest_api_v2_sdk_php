@@ -138,6 +138,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomer**](docs/Api/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomers**](docs/Api/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
 *CustomerApi* | [**getCustomersByQuery**](docs/Api/CustomerApi.md#getcustomersbyquery) | **GET** /customer/customers/query | Retrieve customers by query
+*CustomerApi* | [**getEditorValues**](docs/Api/CustomerApi.md#geteditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *FulfillmentApi* | [**acknowledgeOrders**](docs/Api/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
@@ -336,6 +337,7 @@ Class | Method | HTTP request | Description
  - [ItemVariation](docs/Model/ItemVariation.md)
  - [ItemVariationOption](docs/Model/ItemVariationOption.md)
  - [ItemWishlistMember](docs/Model/ItemWishlistMember.md)
+ - [ItemsRequest](docs/Model/ItemsRequest.md)
  - [ItemsResponse](docs/Model/ItemsResponse.md)
  - [OauthRevokeSuccessResponse](docs/Model/OauthRevokeSuccessResponse.md)
  - [OauthTokenResponse](docs/Model/OauthTokenResponse.md)

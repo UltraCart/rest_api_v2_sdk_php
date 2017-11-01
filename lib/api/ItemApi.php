@@ -2018,7 +2018,7 @@ class ItemApi
      *
      * Update multiple items
      *
-     * @param  \ultracart\v2\models\Item[] $items Items to update (maximum 20) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2027,9 +2027,9 @@ class ItemApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\ItemsResponse
      */
-    public function updateItems($items, $_expand = null, $_placeholders = null, $_async = null)
+    public function updateItems($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        list($response) = $this->updateItemsWithHttpInfo($items, $_expand, $_placeholders, $_async);
+        list($response) = $this->updateItemsWithHttpInfo($items_request, $_expand, $_placeholders, $_async);
         return $response;
     }
 
@@ -2038,7 +2038,7 @@ class ItemApi
      *
      * Update multiple items
      *
-     * @param  \ultracart\v2\models\Item[] $items Items to update (maximum 20) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2047,10 +2047,10 @@ class ItemApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateItemsWithHttpInfo($items, $_expand = null, $_placeholders = null, $_async = null)
+    public function updateItemsWithHttpInfo($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
         $returnType = '\ultracart\v2\models\ItemsResponse';
-        $request = $this->updateItemsRequest($items, $_expand, $_placeholders, $_async);
+        $request = $this->updateItemsRequest($items_request, $_expand, $_placeholders, $_async);
 
         try {
 
@@ -2155,7 +2155,7 @@ class ItemApi
      *
      * Update multiple items
      *
-     * @param  \ultracart\v2\models\Item[] $items Items to update (maximum 20) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2163,9 +2163,9 @@ class ItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateItemsAsync($items, $_expand = null, $_placeholders = null, $_async = null)
+    public function updateItemsAsync($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        return $this->updateItemsAsyncWithHttpInfo($items, $_expand, $_placeholders, $_async)
+        return $this->updateItemsAsyncWithHttpInfo($items_request, $_expand, $_placeholders, $_async)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2178,7 +2178,7 @@ class ItemApi
      *
      * Update multiple items
      *
-     * @param  \ultracart\v2\models\Item[] $items Items to update (maximum 20) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2186,10 +2186,10 @@ class ItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateItemsAsyncWithHttpInfo($items, $_expand = null, $_placeholders = null, $_async = null)
+    public function updateItemsAsyncWithHttpInfo($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
         $returnType = '\ultracart\v2\models\ItemsResponse';
-        $request = $this->updateItemsRequest($items, $_expand, $_placeholders, $_async);
+        $request = $this->updateItemsRequest($items_request, $_expand, $_placeholders, $_async);
 
         return $this->client
             ->sendAsync($request)
@@ -2231,7 +2231,7 @@ class ItemApi
     /**
      * Create request for operation 'updateItems'
      *
-     * @param  \ultracart\v2\models\Item[] $items Items to update (maximum 20) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2239,12 +2239,12 @@ class ItemApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateItemsRequest($items, $_expand = null, $_placeholders = null, $_async = null)
+    protected function updateItemsRequest($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        // verify the required parameter 'items' is set
-        if ($items === null) {
+        // verify the required parameter 'items_request' is set
+        if ($items_request === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $items when calling updateItems'
+                'Missing the required parameter $items_request when calling updateItems'
             );
         }
 
@@ -2271,8 +2271,8 @@ class ItemApi
 
         // body params
         $_tempBody = null;
-        if (isset($items)) {
-            $_tempBody = $items;
+        if (isset($items_request)) {
+            $_tempBody = $items_request;
         }
 
         if ($multipart) {

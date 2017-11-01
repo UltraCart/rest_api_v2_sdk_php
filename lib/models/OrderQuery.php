@@ -65,6 +65,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'string',
         'creation_date_end' => 'string',
         'current_stage' => 'string',
+        'customer_profile_oid' => 'int',
         'email' => 'string',
         'first_name' => 'string',
         'item_id' => 'string',
@@ -100,6 +101,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'dateTime',
         'creation_date_end' => 'dateTime',
         'current_stage' => null,
+        'customer_profile_oid' => 'int32',
         'email' => null,
         'first_name' => null,
         'item_id' => null,
@@ -156,6 +158,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'creation_date_begin',
         'creation_date_end' => 'creation_date_end',
         'current_stage' => 'current_stage',
+        'customer_profile_oid' => 'customer_profile_oid',
         'email' => 'email',
         'first_name' => 'first_name',
         'item_id' => 'item_id',
@@ -191,6 +194,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'setCreationDateBegin',
         'creation_date_end' => 'setCreationDateEnd',
         'current_stage' => 'setCurrentStage',
+        'customer_profile_oid' => 'setCustomerProfileOid',
         'email' => 'setEmail',
         'first_name' => 'setFirstName',
         'item_id' => 'setItemId',
@@ -226,6 +230,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'getCreationDateBegin',
         'creation_date_end' => 'getCreationDateEnd',
         'current_stage' => 'getCurrentStage',
+        'customer_profile_oid' => 'getCustomerProfileOid',
         'email' => 'getEmail',
         'first_name' => 'getFirstName',
         'item_id' => 'getItemId',
@@ -387,6 +392,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
         $this->container['creation_date_begin'] = isset($data['creation_date_begin']) ? $data['creation_date_begin'] : null;
         $this->container['creation_date_end'] = isset($data['creation_date_end']) ? $data['creation_date_end'] : null;
         $this->container['current_stage'] = isset($data['current_stage']) ? $data['current_stage'] : null;
+        $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
@@ -777,6 +783,30 @@ class OrderQuery implements ModelInterface, ArrayAccess
             );
         }
         $this->container['current_stage'] = $current_stage;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_profile_oid
+     *
+     * @return int
+     */
+    public function getCustomerProfileOid()
+    {
+        return $this->container['customer_profile_oid'];
+    }
+
+    /**
+     * Sets customer_profile_oid
+     *
+     * @param int $customer_profile_oid The customer profile to find associated orders for
+     *
+     * @return $this
+     */
+    public function setCustomerProfileOid($customer_profile_oid)
+    {
+        $this->container['customer_profile_oid'] = $customer_profile_oid;
 
         return $this;
     }
