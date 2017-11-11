@@ -248,8 +248,8 @@ class ItemContent implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['extended_description']) && (strlen($this->container['extended_description']) > 2000)) {
-            $invalidProperties[] = "invalid value for 'extended_description', the character length must be smaller than or equal to 2000.";
+        if (!is_null($this->container['extended_description']) && (strlen($this->container['extended_description']) > 2500)) {
+            $invalidProperties[] = "invalid value for 'extended_description', the character length must be smaller than or equal to 2500.";
         }
 
         return $invalidProperties;
@@ -264,7 +264,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['extended_description']) > 2000) {
+        if (strlen($this->container['extended_description']) > 2500) {
             return false;
         }
         return true;
@@ -380,14 +380,14 @@ class ItemContent implements ModelInterface, ArrayAccess
     /**
      * Sets extended_description
      *
-     * @param string $extended_description Extended description (max 2000 characters)
+     * @param string $extended_description Extended description (max 2500 characters)
      *
      * @return $this
      */
     public function setExtendedDescription($extended_description)
     {
-        if (!is_null($extended_description) && (strlen($extended_description) > 2000)) {
-            throw new \InvalidArgumentException('invalid length for $extended_description when calling ItemContent., must be smaller than or equal to 2000.');
+        if (!is_null($extended_description) && (strlen($extended_description) > 2500)) {
+            throw new \InvalidArgumentException('invalid length for $extended_description when calling ItemContent., must be smaller than or equal to 2500.');
         }
 
         $this->container['extended_description'] = $extended_description;
