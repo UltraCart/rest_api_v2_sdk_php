@@ -58,6 +58,7 @@ class CouponCodesResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'coupon_codes' => 'string[]',
         'error' => '\ultracart\v2\models\Error',
+        'expiration_dts' => 'string',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool'
     ];
@@ -70,6 +71,7 @@ class CouponCodesResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'coupon_codes' => null,
         'error' => null,
+        'expiration_dts' => 'dateTime',
         'metadata' => null,
         'success' => null
     ];
@@ -103,6 +105,7 @@ class CouponCodesResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'coupon_codes' => 'coupon_codes',
         'error' => 'error',
+        'expiration_dts' => 'expiration_dts',
         'metadata' => 'metadata',
         'success' => 'success'
     ];
@@ -115,6 +118,7 @@ class CouponCodesResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'coupon_codes' => 'setCouponCodes',
         'error' => 'setError',
+        'expiration_dts' => 'setExpirationDts',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess'
     ];
@@ -127,6 +131,7 @@ class CouponCodesResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'coupon_codes' => 'getCouponCodes',
         'error' => 'getError',
+        'expiration_dts' => 'getExpirationDts',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess'
     ];
@@ -193,6 +198,7 @@ class CouponCodesResponse implements ModelInterface, ArrayAccess
     {
         $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
@@ -266,6 +272,30 @@ class CouponCodesResponse implements ModelInterface, ArrayAccess
     public function setError($error)
     {
         $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration_dts
+     *
+     * @return string
+     */
+    public function getExpirationDts()
+    {
+        return $this->container['expiration_dts'];
+    }
+
+    /**
+     * Sets expiration_dts
+     *
+     * @param string $expiration_dts Expiration date
+     *
+     * @return $this
+     */
+    public function setExpirationDts($expiration_dts)
+    {
+        $this->container['expiration_dts'] = $expiration_dts;
 
         return $this;
     }
