@@ -136,7 +136,9 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**generateCouponCodes**](docs/Api/CouponApi.md#generatecouponcodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
+*CouponApi* | [**generateOneTimeCodesByMerchantCode**](docs/Api/CouponApi.md#generateonetimecodesbymerchantcode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes for a coupon
 *CouponApi* | [**getCoupon**](docs/Api/CouponApi.md#getcoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
+*CouponApi* | [**getCouponByMerchantCode**](docs/Api/CouponApi.md#getcouponbymerchantcode) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 *CouponApi* | [**getCoupons**](docs/Api/CouponApi.md#getcoupons) | **GET** /coupon/coupons | Retrieve coupons
 *CouponApi* | [**getCouponsByQuery**](docs/Api/CouponApi.md#getcouponsbyquery) | **GET** /coupon/coupons/query | Retrieve coupons by query
 *CouponApi* | [**getEditorValues**](docs/Api/CouponApi.md#geteditorvalues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor

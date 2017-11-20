@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteCoupon**](CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 [**generateCouponCodes**](CouponApi.md#generateCouponCodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
+[**generateOneTimeCodesByMerchantCode**](CouponApi.md#generateOneTimeCodesByMerchantCode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes for a coupon
 [**getCoupon**](CouponApi.md#getCoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
+[**getCouponByMerchantCode**](CouponApi.md#getCouponByMerchantCode) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 [**getCoupons**](CouponApi.md#getCoupons) | **GET** /coupon/coupons | Retrieve coupons
 [**getCouponsByQuery**](CouponApi.md#getCouponsByQuery) | **GET** /coupon/coupons/query | Retrieve coupons by query
 [**getEditorValues**](CouponApi.md#getEditorValues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
@@ -120,6 +122,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **generateOneTimeCodesByMerchantCode**
+> \ultracart\v2\models\CouponCodesResponse generateOneTimeCodesByMerchantCode($merchant_code, $coupon_codes_request)
+
+Generates one time codes for a coupon
+
+Generate one time codes for a coupon
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$merchant_code = "merchant_code_example"; // string | The merchant code to generate one time codes.
+$coupon_codes_request = new \ultracart\v2\models\CouponCodesRequest(); // \ultracart\v2\models\CouponCodesRequest | Coupon code generation parameters
+
+try {
+    $result = $api_instance->generateOneTimeCodesByMerchantCode($merchant_code, $coupon_codes_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CouponApi->generateOneTimeCodesByMerchantCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_code** | **string**| The merchant code to generate one time codes. |
+ **coupon_codes_request** | [**\ultracart\v2\models\CouponCodesRequest**](../Model/CouponCodesRequest.md)| Coupon code generation parameters |
+
+### Return type
+
+[**\ultracart\v2\models\CouponCodesResponse**](../Model/CouponCodesResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getCoupon**
 > \ultracart\v2\models\CouponResponse getCoupon($coupon_oid, $_expand)
 
@@ -157,6 +213,60 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coupon_oid** | **int**| The coupon oid to retrieve. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\CouponResponse**](../Model/CouponResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCouponByMerchantCode**
+> \ultracart\v2\models\CouponResponse getCouponByMerchantCode($merchant_code, $_expand)
+
+Retrieve a coupon by merchant code
+
+Retrieves a single coupon using the specified merchant code.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$merchant_code = "merchant_code_example"; // string | The coupon merchant code to retrieve.
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $api_instance->getCouponByMerchantCode($merchant_code, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CouponApi->getCouponByMerchantCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_code** | **string**| The coupon merchant code to retrieve. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
