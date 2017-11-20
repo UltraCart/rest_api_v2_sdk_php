@@ -37,7 +37,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/SwaggerClient-php/vendor/autoload.php');
+    require_once('/path/to/vendor/whatever_you_named_your_ultracart_sdk_directory/autoload.php');
 ```
 
 ## Tests
@@ -134,6 +134,14 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/Api/CheckoutApi.md#setupbrowserkey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/Api/CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
+*CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
+*CouponApi* | [**generateCouponCodes**](docs/Api/CouponApi.md#generatecouponcodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
+*CouponApi* | [**getCoupon**](docs/Api/CouponApi.md#getcoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
+*CouponApi* | [**getCoupons**](docs/Api/CouponApi.md#getcoupons) | **GET** /coupon/coupons | Retrieve coupons
+*CouponApi* | [**getCouponsByQuery**](docs/Api/CouponApi.md#getcouponsbyquery) | **GET** /coupon/coupons/query | Retrieve coupons by query
+*CouponApi* | [**getEditorValues**](docs/Api/CouponApi.md#geteditorvalues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
+*CouponApi* | [**insertCoupon**](docs/Api/CouponApi.md#insertcoupon) | **POST** /coupon/coupons | Insert a coupon
+*CouponApi* | [**updateCoupon**](docs/Api/CouponApi.md#updatecoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
 *CustomerApi* | [**deleteCustomer**](docs/Api/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/Api/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomers**](docs/Api/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
@@ -252,6 +260,55 @@ Class | Method | HTTP request | Description
  - [CheckoutSetupBrowserKeyRequest](docs/Model/CheckoutSetupBrowserKeyRequest.md)
  - [CheckoutSetupBrowserKeyResponse](docs/Model/CheckoutSetupBrowserKeyResponse.md)
  - [CityStateZip](docs/Model/CityStateZip.md)
+ - [Coupon](docs/Model/Coupon.md)
+ - [CouponAmountOffItems](docs/Model/CouponAmountOffItems.md)
+ - [CouponAmountOffShipping](docs/Model/CouponAmountOffShipping.md)
+ - [CouponAmountOffShippingWithItemsPurchase](docs/Model/CouponAmountOffShippingWithItemsPurchase.md)
+ - [CouponAmountOffSubtotal](docs/Model/CouponAmountOffSubtotal.md)
+ - [CouponAmountOffSubtotalAndShipping](docs/Model/CouponAmountOffSubtotalAndShipping.md)
+ - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/Model/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
+ - [CouponAmountOffSubtotalWithBlockPurchase](docs/Model/CouponAmountOffSubtotalWithBlockPurchase.md)
+ - [CouponAmountOffSubtotalWithItemsPurchase](docs/Model/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponCodesRequest](docs/Model/CouponCodesRequest.md)
+ - [CouponCodesResponse](docs/Model/CouponCodesResponse.md)
+ - [CouponDiscountItemWithItemPurchase](docs/Model/CouponDiscountItemWithItemPurchase.md)
+ - [CouponDiscountItems](docs/Model/CouponDiscountItems.md)
+ - [CouponEditorValues](docs/Model/CouponEditorValues.md)
+ - [CouponFreeItemAndShippingWithSubtotal](docs/Model/CouponFreeItemAndShippingWithSubtotal.md)
+ - [CouponFreeItemWithItemPurchase](docs/Model/CouponFreeItemWithItemPurchase.md)
+ - [CouponFreeItemWithSubtotal](docs/Model/CouponFreeItemWithSubtotal.md)
+ - [CouponFreeItemsWithItemPurchase](docs/Model/CouponFreeItemsWithItemPurchase.md)
+ - [CouponFreeItemsWithMixMatchPurchase](docs/Model/CouponFreeItemsWithMixMatchPurchase.md)
+ - [CouponFreeShipping](docs/Model/CouponFreeShipping.md)
+ - [CouponFreeShippingSpecificItems](docs/Model/CouponFreeShippingSpecificItems.md)
+ - [CouponFreeShippingWithItemsPurchase](docs/Model/CouponFreeShippingWithItemsPurchase.md)
+ - [CouponFreeShippingWithSubtotal](docs/Model/CouponFreeShippingWithSubtotal.md)
+ - [CouponMultipleAmountsOffItems](docs/Model/CouponMultipleAmountsOffItems.md)
+ - [CouponNoDiscount](docs/Model/CouponNoDiscount.md)
+ - [CouponPercentOffItemWithItemsQuantityPurchase](docs/Model/CouponPercentOffItemWithItemsQuantityPurchase.md)
+ - [CouponPercentOffItems](docs/Model/CouponPercentOffItems.md)
+ - [CouponPercentOffItemsAndFreeShipping](docs/Model/CouponPercentOffItemsAndFreeShipping.md)
+ - [CouponPercentOffItemsWithItemsPurchase](docs/Model/CouponPercentOffItemsWithItemsPurchase.md)
+ - [CouponPercentOffRetailPriceItems](docs/Model/CouponPercentOffRetailPriceItems.md)
+ - [CouponPercentOffShipping](docs/Model/CouponPercentOffShipping.md)
+ - [CouponPercentOffSubtotal](docs/Model/CouponPercentOffSubtotal.md)
+ - [CouponPercentOffSubtotalAndFreeShipping](docs/Model/CouponPercentOffSubtotalAndFreeShipping.md)
+ - [CouponPercentOffSubtotalLimit](docs/Model/CouponPercentOffSubtotalLimit.md)
+ - [CouponPercentOffSubtotalWithItemsPurchase](docs/Model/CouponPercentOffSubtotalWithItemsPurchase.md)
+ - [CouponPercentOffSubtotalWithSubtotal](docs/Model/CouponPercentOffSubtotalWithSubtotal.md)
+ - [CouponQuery](docs/Model/CouponQuery.md)
+ - [CouponResponse](docs/Model/CouponResponse.md)
+ - [CouponTierAmount](docs/Model/CouponTierAmount.md)
+ - [CouponTierItemDiscount](docs/Model/CouponTierItemDiscount.md)
+ - [CouponTierPercent](docs/Model/CouponTierPercent.md)
+ - [CouponTierQuantityAmount](docs/Model/CouponTierQuantityAmount.md)
+ - [CouponTierQuantityPercent](docs/Model/CouponTierQuantityPercent.md)
+ - [CouponTieredAmountOffItem](docs/Model/CouponTieredAmountOffItem.md)
+ - [CouponTieredAmountOffSubtotal](docs/Model/CouponTieredAmountOffSubtotal.md)
+ - [CouponTieredPercentOffItems](docs/Model/CouponTieredPercentOffItems.md)
+ - [CouponTieredPercentOffShipping](docs/Model/CouponTieredPercentOffShipping.md)
+ - [CouponTieredPercentOffSubtotal](docs/Model/CouponTieredPercentOffSubtotal.md)
+ - [CouponsResponse](docs/Model/CouponsResponse.md)
  - [Currency](docs/Model/Currency.md)
  - [Customer](docs/Model/Customer.md)
  - [CustomerAffiliate](docs/Model/CustomerAffiliate.md)
@@ -423,6 +480,8 @@ Class | Method | HTTP request | Description
  - **chargeback_write**: Allows you to write chargeback information.
  - **checkout_read**: Allows you to read checkout information.
  - **checkout_write**: Allows you to write checkout information.
+ - **coupon_read**: Allows you to read coupon information.
+ - **coupon_write**: Allows you to write coupon information.
  - **customer_read**: Allows you to read customer information.
  - **customer_write**: Allows you to write customer information.
  - **fulfillment_read**: Allows you to read fulfillment information.

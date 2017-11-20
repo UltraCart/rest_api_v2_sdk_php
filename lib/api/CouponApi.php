@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderApi
+ * CouponApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use ultracart\v2\HeaderSelector;
 use ultracart\v2\ObjectSerializer;
 
 /**
- * OrderApi Class Doc Comment
+ * CouponApi Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderApi
+class CouponApi
 {
     /**
      * @var ClientInterface
@@ -81,37 +81,37 @@ class OrderApi
     }
 
     /**
-     * Operation cancelOrder
+     * Operation deleteCoupon
      *
-     * Cancel an order
+     * Delete a coupon
      *
-     * @param  string $order_id The order id to cancel. (required)
+     * @param  int $coupon_oid The coupon_oid to delete. (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\BaseResponse
+     * @return \ultracart\v2\models\CouponResponse
      */
-    public function cancelOrder($order_id)
+    public function deleteCoupon($coupon_oid)
     {
-        list($response) = $this->cancelOrderWithHttpInfo($order_id);
+        list($response) = $this->deleteCouponWithHttpInfo($coupon_oid);
         return $response;
     }
 
     /**
-     * Operation cancelOrderWithHttpInfo
+     * Operation deleteCouponWithHttpInfo
      *
-     * Cancel an order
+     * Delete a coupon
      *
-     * @param  string $order_id The order id to cancel. (required)
+     * @param  int $coupon_oid The coupon_oid to delete. (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrderWithHttpInfo($order_id)
+    public function deleteCouponWithHttpInfo($coupon_oid)
     {
-        $returnType = '\ultracart\v2\models\BaseResponse';
-        $request = $this->cancelOrderRequest($order_id);
+        $returnType = '\ultracart\v2\models\CouponResponse';
+        $request = $this->deleteCouponRequest($coupon_oid);
 
         try {
 
@@ -161,7 +161,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\BaseResponse',
+                        '\ultracart\v2\models\CouponResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -212,18 +212,18 @@ class OrderApi
     }
 
     /**
-     * Operation cancelOrderAsync
+     * Operation deleteCouponAsync
      *
-     * Cancel an order
+     * Delete a coupon
      *
-     * @param  string $order_id The order id to cancel. (required)
+     * @param  int $coupon_oid The coupon_oid to delete. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsync($order_id)
+    public function deleteCouponAsync($coupon_oid)
     {
-        return $this->cancelOrderAsyncWithHttpInfo($order_id)
+        return $this->deleteCouponAsyncWithHttpInfo($coupon_oid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -232,19 +232,19 @@ class OrderApi
     }
 
     /**
-     * Operation cancelOrderAsyncWithHttpInfo
+     * Operation deleteCouponAsyncWithHttpInfo
      *
-     * Cancel an order
+     * Delete a coupon
      *
-     * @param  string $order_id The order id to cancel. (required)
+     * @param  int $coupon_oid The coupon_oid to delete. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsyncWithHttpInfo($order_id)
+    public function deleteCouponAsyncWithHttpInfo($coupon_oid)
     {
-        $returnType = '\ultracart\v2\models\BaseResponse';
-        $request = $this->cancelOrderRequest($order_id);
+        $returnType = '\ultracart\v2\models\CouponResponse';
+        $request = $this->deleteCouponRequest($coupon_oid);
 
         return $this->client
             ->sendAsync($request)
@@ -284,23 +284,23 @@ class OrderApi
     }
 
     /**
-     * Create request for operation 'cancelOrder'
+     * Create request for operation 'deleteCoupon'
      *
-     * @param  string $order_id The order id to cancel. (required)
+     * @param  int $coupon_oid The coupon_oid to delete. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelOrderRequest($order_id)
+    protected function deleteCouponRequest($coupon_oid)
     {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
+        // verify the required parameter 'coupon_oid' is set
+        if ($coupon_oid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling cancelOrder'
+                'Missing the required parameter $coupon_oid when calling deleteCoupon'
             );
         }
 
-        $resourcePath = '/order/orders/{order_id}/cancel';
+        $resourcePath = '/coupon/coupons/{coupon_oid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -309,279 +309,10 @@ class OrderApi
 
 
         // path params
-        if ($order_id !== null) {
+        if ($coupon_oid !== null) {
             $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if ($apiKey !== null) {
-            $headers['x-ultracart-simple-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deleteOrder
-     *
-     * Delete an order
-     *
-     * @param  string $order_id The order id to delete. (required)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteOrder($order_id)
-    {
-        $this->deleteOrderWithHttpInfo($order_id);
-    }
-
-    /**
-     * Operation deleteOrderWithHttpInfo
-     *
-     * Delete an order
-     *
-     * @param  string $order_id The order id to delete. (required)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteOrderWithHttpInfo($order_id)
-    {
-        $returnType = '';
-        $request = $this->deleteOrderRequest($order_id);
-
-        try {
-
-            try {
-                $response = $this->client->send($request);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteOrderAsync
-     *
-     * Delete an order
-     *
-     * @param  string $order_id The order id to delete. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteOrderAsync($order_id)
-    {
-        return $this->deleteOrderAsyncWithHttpInfo($order_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteOrderAsyncWithHttpInfo
-     *
-     * Delete an order
-     *
-     * @param  string $order_id The order id to delete. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteOrderAsyncWithHttpInfo($order_id)
-    {
-        $returnType = '';
-        $request = $this->deleteOrderRequest($order_id);
-
-        return $this->client
-            ->sendAsync($request)
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteOrder'
-     *
-     * @param  string $order_id The order id to delete. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function deleteOrderRequest($order_id)
-    {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling deleteOrder'
-            );
-        }
-
-        $resourcePath = '/order/orders/{order_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
+                '{' . 'coupon_oid' . '}',
+                ObjectSerializer::toPathValue($coupon_oid),
                 $resourcePath
             );
         }
@@ -656,39 +387,39 @@ class OrderApi
     }
 
     /**
-     * Operation getOrder
+     * Operation generateCouponCodes
      *
-     * Retrieve an order
+     * Generates one time codes for a coupon
      *
-     * @param  string $order_id The order id to retrieve. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  int $coupon_oid The coupon oid to generate codes. (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrderResponse
+     * @return \ultracart\v2\models\CouponCodesResponse
      */
-    public function getOrder($order_id, $_expand = null)
+    public function generateCouponCodes($coupon_oid, $coupon_codes_request)
     {
-        list($response) = $this->getOrderWithHttpInfo($order_id, $_expand);
+        list($response) = $this->generateCouponCodesWithHttpInfo($coupon_oid, $coupon_codes_request);
         return $response;
     }
 
     /**
-     * Operation getOrderWithHttpInfo
+     * Operation generateCouponCodesWithHttpInfo
      *
-     * Retrieve an order
+     * Generates one time codes for a coupon
      *
-     * @param  string $order_id The order id to retrieve. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  int $coupon_oid The coupon oid to generate codes. (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponCodesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrderWithHttpInfo($order_id, $_expand = null)
+    public function generateCouponCodesWithHttpInfo($coupon_oid, $coupon_codes_request)
     {
-        $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->getOrderRequest($order_id, $_expand);
+        $returnType = '\ultracart\v2\models\CouponCodesResponse';
+        $request = $this->generateCouponCodesRequest($coupon_oid, $coupon_codes_request);
 
         try {
 
@@ -738,7 +469,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\OrderResponse',
+                        '\ultracart\v2\models\CouponCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -789,19 +520,19 @@ class OrderApi
     }
 
     /**
-     * Operation getOrderAsync
+     * Operation generateCouponCodesAsync
      *
-     * Retrieve an order
+     * Generates one time codes for a coupon
      *
-     * @param  string $order_id The order id to retrieve. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  int $coupon_oid The coupon oid to generate codes. (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderAsync($order_id, $_expand = null)
+    public function generateCouponCodesAsync($coupon_oid, $coupon_codes_request)
     {
-        return $this->getOrderAsyncWithHttpInfo($order_id, $_expand)
+        return $this->generateCouponCodesAsyncWithHttpInfo($coupon_oid, $coupon_codes_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -810,20 +541,20 @@ class OrderApi
     }
 
     /**
-     * Operation getOrderAsyncWithHttpInfo
+     * Operation generateCouponCodesAsyncWithHttpInfo
      *
-     * Retrieve an order
+     * Generates one time codes for a coupon
      *
-     * @param  string $order_id The order id to retrieve. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  int $coupon_oid The coupon oid to generate codes. (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderAsyncWithHttpInfo($order_id, $_expand = null)
+    public function generateCouponCodesAsyncWithHttpInfo($coupon_oid, $coupon_codes_request)
     {
-        $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->getOrderRequest($order_id, $_expand);
+        $returnType = '\ultracart\v2\models\CouponCodesResponse';
+        $request = $this->generateCouponCodesRequest($coupon_oid, $coupon_codes_request);
 
         return $this->client
             ->sendAsync($request)
@@ -863,957 +594,50 @@ class OrderApi
     }
 
     /**
-     * Create request for operation 'getOrder'
+     * Create request for operation 'generateCouponCodes'
      *
-     * @param  string $order_id The order id to retrieve. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  int $coupon_oid The coupon oid to generate codes. (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOrderRequest($order_id, $_expand = null)
+    protected function generateCouponCodesRequest($coupon_oid, $coupon_codes_request)
     {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
+        // verify the required parameter 'coupon_oid' is set
+        if ($coupon_oid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling getOrder'
+                'Missing the required parameter $coupon_oid when calling generateCouponCodes'
+            );
+        }
+        // verify the required parameter 'coupon_codes_request' is set
+        if ($coupon_codes_request === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $coupon_codes_request when calling generateCouponCodes'
             );
         }
 
-        $resourcePath = '/order/orders/{order_id}';
+        $resourcePath = '/coupon/coupons/{coupon_oid}/generate_codes';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($_expand !== null) {
-            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
-        }
 
         // path params
-        if ($order_id !== null) {
+        if ($coupon_oid !== null) {
             $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
+                '{' . 'coupon_oid' . '}',
+                ObjectSerializer::toPathValue($coupon_oid),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if ($apiKey !== null) {
-            $headers['x-ultracart-simple-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getOrders
-     *
-     * Retrieve orders
-     *
-     * @param  string $order_id Order Id (optional)
-     * @param  string $payment_method Payment Method (optional)
-     * @param  string $company Company (optional)
-     * @param  string $first_name First Name (optional)
-     * @param  string $last_name Last Name (optional)
-     * @param  string $city City (optional)
-     * @param  string $state_region State/Region (optional)
-     * @param  string $postal_code Postal Code (optional)
-     * @param  string $country_code Country Code (ISO-3166 two letter) (optional)
-     * @param  string $phone Phone (optional)
-     * @param  string $email Email (optional)
-     * @param  string $cc_email CC Email (optional)
-     * @param  float $total Total (optional)
-     * @param  string $screen_branding_theme_code Screen Branding Theme Code (optional)
-     * @param  string $storefront_host_name StoreFront Host Name (optional)
-     * @param  string $creation_date_begin Creation Date Begin (optional)
-     * @param  string $creation_date_end Creation Date End (optional)
-     * @param  string $payment_date_begin Payment Date Begin (optional)
-     * @param  string $payment_date_end Payment Date End (optional)
-     * @param  string $shipment_date_begin Shipment Date Begin (optional)
-     * @param  string $shipment_date_end Shipment Date End (optional)
-     * @param  string $rma RMA (optional)
-     * @param  string $purchase_order_number Purchase Order Number (optional)
-     * @param  string $item_id Item Id (optional)
-     * @param  string $current_stage Current Stage (optional)
-     * @param  string $channel_partner_code Channel Partner Code (optional)
-     * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
-     * @param  int $customer_profile_oid null (optional)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrdersResponse
-     */
-    public function getOrders($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        list($response) = $this->getOrdersWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand);
-        return $response;
-    }
-
-    /**
-     * Operation getOrdersWithHttpInfo
-     *
-     * Retrieve orders
-     *
-     * @param  string $order_id Order Id (optional)
-     * @param  string $payment_method Payment Method (optional)
-     * @param  string $company Company (optional)
-     * @param  string $first_name First Name (optional)
-     * @param  string $last_name Last Name (optional)
-     * @param  string $city City (optional)
-     * @param  string $state_region State/Region (optional)
-     * @param  string $postal_code Postal Code (optional)
-     * @param  string $country_code Country Code (ISO-3166 two letter) (optional)
-     * @param  string $phone Phone (optional)
-     * @param  string $email Email (optional)
-     * @param  string $cc_email CC Email (optional)
-     * @param  float $total Total (optional)
-     * @param  string $screen_branding_theme_code Screen Branding Theme Code (optional)
-     * @param  string $storefront_host_name StoreFront Host Name (optional)
-     * @param  string $creation_date_begin Creation Date Begin (optional)
-     * @param  string $creation_date_end Creation Date End (optional)
-     * @param  string $payment_date_begin Payment Date Begin (optional)
-     * @param  string $payment_date_end Payment Date End (optional)
-     * @param  string $shipment_date_begin Shipment Date Begin (optional)
-     * @param  string $shipment_date_end Shipment Date End (optional)
-     * @param  string $rma RMA (optional)
-     * @param  string $purchase_order_number Purchase Order Number (optional)
-     * @param  string $item_id Item Id (optional)
-     * @param  string $current_stage Current Stage (optional)
-     * @param  string $channel_partner_code Channel Partner Code (optional)
-     * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
-     * @param  int $customer_profile_oid null (optional)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getOrdersWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
-        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand);
-
-        try {
-
-            try {
-                $response = $this->client->send($request);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\OrdersResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getOrdersAsync
-     *
-     * Retrieve orders
-     *
-     * @param  string $order_id Order Id (optional)
-     * @param  string $payment_method Payment Method (optional)
-     * @param  string $company Company (optional)
-     * @param  string $first_name First Name (optional)
-     * @param  string $last_name Last Name (optional)
-     * @param  string $city City (optional)
-     * @param  string $state_region State/Region (optional)
-     * @param  string $postal_code Postal Code (optional)
-     * @param  string $country_code Country Code (ISO-3166 two letter) (optional)
-     * @param  string $phone Phone (optional)
-     * @param  string $email Email (optional)
-     * @param  string $cc_email CC Email (optional)
-     * @param  float $total Total (optional)
-     * @param  string $screen_branding_theme_code Screen Branding Theme Code (optional)
-     * @param  string $storefront_host_name StoreFront Host Name (optional)
-     * @param  string $creation_date_begin Creation Date Begin (optional)
-     * @param  string $creation_date_end Creation Date End (optional)
-     * @param  string $payment_date_begin Payment Date Begin (optional)
-     * @param  string $payment_date_end Payment Date End (optional)
-     * @param  string $shipment_date_begin Shipment Date Begin (optional)
-     * @param  string $shipment_date_end Shipment Date End (optional)
-     * @param  string $rma RMA (optional)
-     * @param  string $purchase_order_number Purchase Order Number (optional)
-     * @param  string $item_id Item Id (optional)
-     * @param  string $current_stage Current Stage (optional)
-     * @param  string $channel_partner_code Channel Partner Code (optional)
-     * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
-     * @param  int $customer_profile_oid null (optional)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getOrdersAsync($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        return $this->getOrdersAsyncWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getOrdersAsyncWithHttpInfo
-     *
-     * Retrieve orders
-     *
-     * @param  string $order_id Order Id (optional)
-     * @param  string $payment_method Payment Method (optional)
-     * @param  string $company Company (optional)
-     * @param  string $first_name First Name (optional)
-     * @param  string $last_name Last Name (optional)
-     * @param  string $city City (optional)
-     * @param  string $state_region State/Region (optional)
-     * @param  string $postal_code Postal Code (optional)
-     * @param  string $country_code Country Code (ISO-3166 two letter) (optional)
-     * @param  string $phone Phone (optional)
-     * @param  string $email Email (optional)
-     * @param  string $cc_email CC Email (optional)
-     * @param  float $total Total (optional)
-     * @param  string $screen_branding_theme_code Screen Branding Theme Code (optional)
-     * @param  string $storefront_host_name StoreFront Host Name (optional)
-     * @param  string $creation_date_begin Creation Date Begin (optional)
-     * @param  string $creation_date_end Creation Date End (optional)
-     * @param  string $payment_date_begin Payment Date Begin (optional)
-     * @param  string $payment_date_end Payment Date End (optional)
-     * @param  string $shipment_date_begin Shipment Date Begin (optional)
-     * @param  string $shipment_date_end Shipment Date End (optional)
-     * @param  string $rma RMA (optional)
-     * @param  string $purchase_order_number Purchase Order Number (optional)
-     * @param  string $item_id Item Id (optional)
-     * @param  string $current_stage Current Stage (optional)
-     * @param  string $channel_partner_code Channel Partner Code (optional)
-     * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
-     * @param  int $customer_profile_oid null (optional)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getOrdersAsyncWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
-        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand);
-
-        return $this->client
-            ->sendAsync($request)
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getOrders'
-     *
-     * @param  string $order_id Order Id (optional)
-     * @param  string $payment_method Payment Method (optional)
-     * @param  string $company Company (optional)
-     * @param  string $first_name First Name (optional)
-     * @param  string $last_name Last Name (optional)
-     * @param  string $city City (optional)
-     * @param  string $state_region State/Region (optional)
-     * @param  string $postal_code Postal Code (optional)
-     * @param  string $country_code Country Code (ISO-3166 two letter) (optional)
-     * @param  string $phone Phone (optional)
-     * @param  string $email Email (optional)
-     * @param  string $cc_email CC Email (optional)
-     * @param  float $total Total (optional)
-     * @param  string $screen_branding_theme_code Screen Branding Theme Code (optional)
-     * @param  string $storefront_host_name StoreFront Host Name (optional)
-     * @param  string $creation_date_begin Creation Date Begin (optional)
-     * @param  string $creation_date_end Creation Date End (optional)
-     * @param  string $payment_date_begin Payment Date Begin (optional)
-     * @param  string $payment_date_end Payment Date End (optional)
-     * @param  string $shipment_date_begin Shipment Date Begin (optional)
-     * @param  string $shipment_date_end Shipment Date End (optional)
-     * @param  string $rma RMA (optional)
-     * @param  string $purchase_order_number Purchase Order Number (optional)
-     * @param  string $item_id Item Id (optional)
-     * @param  string $current_stage Current Stage (optional)
-     * @param  string $channel_partner_code Channel Partner Code (optional)
-     * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
-     * @param  int $customer_profile_oid null (optional)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getOrdersRequest($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-
-        $resourcePath = '/order/orders';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($order_id !== null) {
-            $queryParams['order_id'] = ObjectSerializer::toQueryValue($order_id);
-        }
-        // query params
-        if ($payment_method !== null) {
-            $queryParams['payment_method'] = ObjectSerializer::toQueryValue($payment_method);
-        }
-        // query params
-        if ($company !== null) {
-            $queryParams['company'] = ObjectSerializer::toQueryValue($company);
-        }
-        // query params
-        if ($first_name !== null) {
-            $queryParams['first_name'] = ObjectSerializer::toQueryValue($first_name);
-        }
-        // query params
-        if ($last_name !== null) {
-            $queryParams['last_name'] = ObjectSerializer::toQueryValue($last_name);
-        }
-        // query params
-        if ($city !== null) {
-            $queryParams['city'] = ObjectSerializer::toQueryValue($city);
-        }
-        // query params
-        if ($state_region !== null) {
-            $queryParams['state_region'] = ObjectSerializer::toQueryValue($state_region);
-        }
-        // query params
-        if ($postal_code !== null) {
-            $queryParams['postal_code'] = ObjectSerializer::toQueryValue($postal_code);
-        }
-        // query params
-        if ($country_code !== null) {
-            $queryParams['country_code'] = ObjectSerializer::toQueryValue($country_code);
-        }
-        // query params
-        if ($phone !== null) {
-            $queryParams['phone'] = ObjectSerializer::toQueryValue($phone);
-        }
-        // query params
-        if ($email !== null) {
-            $queryParams['email'] = ObjectSerializer::toQueryValue($email);
-        }
-        // query params
-        if ($cc_email !== null) {
-            $queryParams['cc_email'] = ObjectSerializer::toQueryValue($cc_email);
-        }
-        // query params
-        if ($total !== null) {
-            $queryParams['total'] = ObjectSerializer::toQueryValue($total);
-        }
-        // query params
-        if ($screen_branding_theme_code !== null) {
-            $queryParams['screen_branding_theme_code'] = ObjectSerializer::toQueryValue($screen_branding_theme_code);
-        }
-        // query params
-        if ($storefront_host_name !== null) {
-            $queryParams['storefront_host_name'] = ObjectSerializer::toQueryValue($storefront_host_name);
-        }
-        // query params
-        if ($creation_date_begin !== null) {
-            $queryParams['creation_date_begin'] = ObjectSerializer::toQueryValue($creation_date_begin);
-        }
-        // query params
-        if ($creation_date_end !== null) {
-            $queryParams['creation_date_end'] = ObjectSerializer::toQueryValue($creation_date_end);
-        }
-        // query params
-        if ($payment_date_begin !== null) {
-            $queryParams['payment_date_begin'] = ObjectSerializer::toQueryValue($payment_date_begin);
-        }
-        // query params
-        if ($payment_date_end !== null) {
-            $queryParams['payment_date_end'] = ObjectSerializer::toQueryValue($payment_date_end);
-        }
-        // query params
-        if ($shipment_date_begin !== null) {
-            $queryParams['shipment_date_begin'] = ObjectSerializer::toQueryValue($shipment_date_begin);
-        }
-        // query params
-        if ($shipment_date_end !== null) {
-            $queryParams['shipment_date_end'] = ObjectSerializer::toQueryValue($shipment_date_end);
-        }
-        // query params
-        if ($rma !== null) {
-            $queryParams['rma'] = ObjectSerializer::toQueryValue($rma);
-        }
-        // query params
-        if ($purchase_order_number !== null) {
-            $queryParams['purchase_order_number'] = ObjectSerializer::toQueryValue($purchase_order_number);
-        }
-        // query params
-        if ($item_id !== null) {
-            $queryParams['item_id'] = ObjectSerializer::toQueryValue($item_id);
-        }
-        // query params
-        if ($current_stage !== null) {
-            $queryParams['current_stage'] = ObjectSerializer::toQueryValue($current_stage);
-        }
-        // query params
-        if ($channel_partner_code !== null) {
-            $queryParams['channel_partner_code'] = ObjectSerializer::toQueryValue($channel_partner_code);
-        }
-        // query params
-        if ($channel_partner_order_id !== null) {
-            $queryParams['channel_partner_order_id'] = ObjectSerializer::toQueryValue($channel_partner_order_id);
-        }
-        // query params
-        if ($customer_profile_oid !== null) {
-            $queryParams['customer_profile_oid'] = ObjectSerializer::toQueryValue($customer_profile_oid);
-        }
-        // query params
-        if ($_limit !== null) {
-            $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
-        }
-        // query params
-        if ($_offset !== null) {
-            $queryParams['_offset'] = ObjectSerializer::toQueryValue($_offset);
-        }
-        // query params
-        if ($_sort !== null) {
-            $queryParams['_sort'] = ObjectSerializer::toQueryValue($_sort);
-        }
-        // query params
-        if ($_expand !== null) {
-            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
-        }
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if ($apiKey !== null) {
-            $headers['x-ultracart-simple-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getOrdersByQuery
-     *
-     * Retrieve orders
-     *
-     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrdersResponse
-     */
-    public function getOrdersByQuery($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        list($response) = $this->getOrdersByQueryWithHttpInfo($order_query, $_limit, $_offset, $_sort, $_expand);
-        return $response;
-    }
-
-    /**
-     * Operation getOrdersByQueryWithHttpInfo
-     *
-     * Retrieve orders
-     *
-     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getOrdersByQueryWithHttpInfo($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
-        $request = $this->getOrdersByQueryRequest($order_query, $_limit, $_offset, $_sort, $_expand);
-
-        try {
-
-            try {
-                $response = $this->client->send($request);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\OrdersResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getOrdersByQueryAsync
-     *
-     * Retrieve orders
-     *
-     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getOrdersByQueryAsync($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        return $this->getOrdersByQueryAsyncWithHttpInfo($order_query, $_limit, $_offset, $_sort, $_expand)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getOrdersByQueryAsyncWithHttpInfo
-     *
-     * Retrieve orders
-     *
-     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getOrdersByQueryAsyncWithHttpInfo($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
-        $request = $this->getOrdersByQueryRequest($order_query, $_limit, $_offset, $_sort, $_expand);
-
-        return $this->client
-            ->sendAsync($request)
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getOrdersByQuery'
-     *
-     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result. (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getOrdersByQueryRequest($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
-    {
-        // verify the required parameter 'order_query' is set
-        if ($order_query === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_query when calling getOrdersByQuery'
-            );
-        }
-
-        $resourcePath = '/order/orders/query';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($_limit !== null) {
-            $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
-        }
-        // query params
-        if ($_offset !== null) {
-            $queryParams['_offset'] = ObjectSerializer::toQueryValue($_offset);
-        }
-        // query params
-        if ($_sort !== null) {
-            $queryParams['_sort'] = ObjectSerializer::toQueryValue($_sort);
-        }
-        // query params
-        if ($_expand !== null) {
-            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
-        }
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($order_query)) {
-            $_tempBody = $order_query;
+        if (isset($coupon_codes_request)) {
+            $_tempBody = $coupon_codes_request;
         }
 
         if ($multipart) {
@@ -1883,51 +707,39 @@ class OrderApi
     }
 
     /**
-     * Operation refundOrder
+     * Operation getCoupon
      *
-     * Refund an order
+     * Retrieve a coupon
      *
-     * @param  \ultracart\v2\models\Order $order Order to refund (required)
-     * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  int $coupon_oid The coupon oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrderResponse
+     * @return \ultracart\v2\models\CouponResponse
      */
-    public function refundOrder($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
+    public function getCoupon($coupon_oid, $_expand = null)
     {
-        list($response) = $this->refundOrderWithHttpInfo($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
+        list($response) = $this->getCouponWithHttpInfo($coupon_oid, $_expand);
         return $response;
     }
 
     /**
-     * Operation refundOrderWithHttpInfo
+     * Operation getCouponWithHttpInfo
      *
-     * Refund an order
+     * Retrieve a coupon
      *
-     * @param  \ultracart\v2\models\Order $order Order to refund (required)
-     * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  int $coupon_oid The coupon oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function refundOrderWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
+    public function getCouponWithHttpInfo($coupon_oid, $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
+        $returnType = '\ultracart\v2\models\CouponResponse';
+        $request = $this->getCouponRequest($coupon_oid, $_expand);
 
         try {
 
@@ -1977,7 +789,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\OrderResponse',
+                        '\ultracart\v2\models\CouponResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2028,25 +840,19 @@ class OrderApi
     }
 
     /**
-     * Operation refundOrderAsync
+     * Operation getCouponAsync
      *
-     * Refund an order
+     * Retrieve a coupon
      *
-     * @param  \ultracart\v2\models\Order $order Order to refund (required)
-     * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  int $coupon_oid The coupon oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsync($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
+    public function getCouponAsync($coupon_oid, $_expand = null)
     {
-        return $this->refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand)
+        return $this->getCouponAsyncWithHttpInfo($coupon_oid, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2055,26 +861,20 @@ class OrderApi
     }
 
     /**
-     * Operation refundOrderAsyncWithHttpInfo
+     * Operation getCouponAsyncWithHttpInfo
      *
-     * Refund an order
+     * Retrieve a coupon
      *
-     * @param  \ultracart\v2\models\Order $order Order to refund (required)
-     * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  int $coupon_oid The coupon oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
+    public function getCouponAsyncWithHttpInfo($coupon_oid, $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
+        $returnType = '\ultracart\v2\models\CouponResponse';
+        $request = $this->getCouponRequest($coupon_oid, $_expand);
 
         return $this->client
             ->sendAsync($request)
@@ -2114,36 +914,24 @@ class OrderApi
     }
 
     /**
-     * Create request for operation 'refundOrder'
+     * Create request for operation 'getCoupon'
      *
-     * @param  \ultracart\v2\models\Order $order Order to refund (required)
-     * @param  string $order_id The order id to refund. (required)
-     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
-     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
-     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
-     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
-     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  int $coupon_oid The coupon oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function refundOrderRequest($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
+    protected function getCouponRequest($coupon_oid, $_expand = null)
     {
-        // verify the required parameter 'order' is set
-        if ($order === null) {
+        // verify the required parameter 'coupon_oid' is set
+        if ($coupon_oid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order when calling refundOrder'
-            );
-        }
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling refundOrder'
+                'Missing the required parameter $coupon_oid when calling getCoupon'
             );
         }
 
-        $resourcePath = '/order/orders/{order_id}/refund';
+        $resourcePath = '/coupon/coupons/{coupon_oid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2151,43 +939,1358 @@ class OrderApi
         $multipart = false;
 
         // query params
-        if ($reject_after_refund !== null) {
-            $queryParams['reject_after_refund'] = ObjectSerializer::toQueryValue($reject_after_refund);
-        }
-        // query params
-        if ($skip_customer_notification !== null) {
-            $queryParams['skip_customer_notification'] = ObjectSerializer::toQueryValue($skip_customer_notification);
-        }
-        // query params
-        if ($auto_order_cancel !== null) {
-            $queryParams['auto_order_cancel'] = ObjectSerializer::toQueryValue($auto_order_cancel);
-        }
-        // query params
-        if ($manual_refund !== null) {
-            $queryParams['manual_refund'] = ObjectSerializer::toQueryValue($manual_refund);
-        }
-        // query params
-        if ($reverse_affiliate_transactions !== null) {
-            $queryParams['reverse_affiliate_transactions'] = ObjectSerializer::toQueryValue($reverse_affiliate_transactions);
-        }
-        // query params
         if ($_expand !== null) {
             $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
         }
 
         // path params
-        if ($order_id !== null) {
+        if ($coupon_oid !== null) {
             $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
+                '{' . 'coupon_oid' . '}',
+                ObjectSerializer::toPathValue($coupon_oid),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-        if (isset($order)) {
-            $_tempBody = $order;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCoupons
+     *
+     * Retrieve coupons
+     *
+     * @param  string $merchant_code Merchant code (optional)
+     * @param  string $description Description (optional)
+     * @param  string $coupon_type Coupon type (optional)
+     * @param  string $start_date_begin Start date begin (optional)
+     * @param  string $start_date_end Start date end (optional)
+     * @param  string $expiration_date_begin Expiration date begin (optional)
+     * @param  string $expiration_date_end Expiration date end (optional)
+     * @param  int $affiliate_oid Affiliate oid (optional)
+     * @param  bool $exclude_expired Exclude expired (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CouponsResponse
+     */
+    public function getCoupons($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        list($response) = $this->getCouponsWithHttpInfo($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation getCouponsWithHttpInfo
+     *
+     * Retrieve coupons
+     *
+     * @param  string $merchant_code Merchant code (optional)
+     * @param  string $description Description (optional)
+     * @param  string $coupon_type Coupon type (optional)
+     * @param  string $start_date_begin Start date begin (optional)
+     * @param  string $start_date_end Start date end (optional)
+     * @param  string $expiration_date_begin Expiration date begin (optional)
+     * @param  string $expiration_date_end Expiration date end (optional)
+     * @param  int $affiliate_oid Affiliate oid (optional)
+     * @param  bool $exclude_expired Exclude expired (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCouponsWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\CouponsResponse';
+        $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CouponsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCouponsAsync
+     *
+     * Retrieve coupons
+     *
+     * @param  string $merchant_code Merchant code (optional)
+     * @param  string $description Description (optional)
+     * @param  string $coupon_type Coupon type (optional)
+     * @param  string $start_date_begin Start date begin (optional)
+     * @param  string $start_date_end Start date end (optional)
+     * @param  string $expiration_date_begin Expiration date begin (optional)
+     * @param  string $expiration_date_end Expiration date end (optional)
+     * @param  int $affiliate_oid Affiliate oid (optional)
+     * @param  bool $exclude_expired Exclude expired (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCouponsAsync($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        return $this->getCouponsAsyncWithHttpInfo($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCouponsAsyncWithHttpInfo
+     *
+     * Retrieve coupons
+     *
+     * @param  string $merchant_code Merchant code (optional)
+     * @param  string $description Description (optional)
+     * @param  string $coupon_type Coupon type (optional)
+     * @param  string $start_date_begin Start date begin (optional)
+     * @param  string $start_date_end Start date end (optional)
+     * @param  string $expiration_date_begin Expiration date begin (optional)
+     * @param  string $expiration_date_end Expiration date end (optional)
+     * @param  int $affiliate_oid Affiliate oid (optional)
+     * @param  bool $exclude_expired Exclude expired (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCouponsAsyncWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\CouponsResponse';
+        $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCoupons'
+     *
+     * @param  string $merchant_code Merchant code (optional)
+     * @param  string $description Description (optional)
+     * @param  string $coupon_type Coupon type (optional)
+     * @param  string $start_date_begin Start date begin (optional)
+     * @param  string $start_date_end Start date end (optional)
+     * @param  string $expiration_date_begin Expiration date begin (optional)
+     * @param  string $expiration_date_end Expiration date end (optional)
+     * @param  int $affiliate_oid Affiliate oid (optional)
+     * @param  bool $exclude_expired Exclude expired (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCouponsRequest($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+
+        $resourcePath = '/coupon/coupons';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($merchant_code !== null) {
+            $queryParams['merchant_code'] = ObjectSerializer::toQueryValue($merchant_code);
+        }
+        // query params
+        if ($description !== null) {
+            $queryParams['description'] = ObjectSerializer::toQueryValue($description);
+        }
+        // query params
+        if ($coupon_type !== null) {
+            $queryParams['coupon_type'] = ObjectSerializer::toQueryValue($coupon_type);
+        }
+        // query params
+        if ($start_date_begin !== null) {
+            $queryParams['start_date_begin'] = ObjectSerializer::toQueryValue($start_date_begin);
+        }
+        // query params
+        if ($start_date_end !== null) {
+            $queryParams['start_date_end'] = ObjectSerializer::toQueryValue($start_date_end);
+        }
+        // query params
+        if ($expiration_date_begin !== null) {
+            $queryParams['expiration_date_begin'] = ObjectSerializer::toQueryValue($expiration_date_begin);
+        }
+        // query params
+        if ($expiration_date_end !== null) {
+            $queryParams['expiration_date_end'] = ObjectSerializer::toQueryValue($expiration_date_end);
+        }
+        // query params
+        if ($affiliate_oid !== null) {
+            $queryParams['affiliate_oid'] = ObjectSerializer::toQueryValue($affiliate_oid);
+        }
+        // query params
+        if ($exclude_expired !== null) {
+            $queryParams['exclude_expired'] = ObjectSerializer::toQueryValue($exclude_expired);
+        }
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = ObjectSerializer::toQueryValue($_offset);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = ObjectSerializer::toQueryValue($_sort);
+        }
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCouponsByQuery
+     *
+     * Retrieve coupons by query
+     *
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CouponsResponse
+     */
+    public function getCouponsByQuery($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        list($response) = $this->getCouponsByQueryWithHttpInfo($coupon_query, $_limit, $_offset, $_sort, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation getCouponsByQueryWithHttpInfo
+     *
+     * Retrieve coupons by query
+     *
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCouponsByQueryWithHttpInfo($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\CouponsResponse';
+        $request = $this->getCouponsByQueryRequest($coupon_query, $_limit, $_offset, $_sort, $_expand);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CouponsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCouponsByQueryAsync
+     *
+     * Retrieve coupons by query
+     *
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCouponsByQueryAsync($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        return $this->getCouponsByQueryAsyncWithHttpInfo($coupon_query, $_limit, $_offset, $_sort, $_expand)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCouponsByQueryAsyncWithHttpInfo
+     *
+     * Retrieve coupons by query
+     *
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCouponsByQueryAsyncWithHttpInfo($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\CouponsResponse';
+        $request = $this->getCouponsByQueryRequest($coupon_query, $_limit, $_offset, $_sort, $_expand);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCouponsByQuery'
+     *
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCouponsByQueryRequest($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        // verify the required parameter 'coupon_query' is set
+        if ($coupon_query === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $coupon_query when calling getCouponsByQuery'
+            );
+        }
+
+        $resourcePath = '/coupon/coupons/query';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = ObjectSerializer::toQueryValue($_offset);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = ObjectSerializer::toQueryValue($_sort);
+        }
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($coupon_query)) {
+            $_tempBody = $coupon_query;
+        }
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getEditorValues
+     *
+     * Retrieve values needed for a coupon editor
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CouponEditorValues
+     */
+    public function getEditorValues()
+    {
+        list($response) = $this->getEditorValuesWithHttpInfo();
+        return $response;
+    }
+
+    /**
+     * Operation getEditorValuesWithHttpInfo
+     *
+     * Retrieve values needed for a coupon editor
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponEditorValues, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEditorValuesWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\CouponEditorValues';
+        $request = $this->getEditorValuesRequest();
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CouponEditorValues',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEditorValuesAsync
+     *
+     * Retrieve values needed for a coupon editor
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEditorValuesAsync()
+    {
+        return $this->getEditorValuesAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEditorValuesAsyncWithHttpInfo
+     *
+     * Retrieve values needed for a coupon editor
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEditorValuesAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\CouponEditorValues';
+        $request = $this->getEditorValuesRequest();
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEditorValues'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getEditorValuesRequest()
+    {
+
+        $resourcePath = '/coupon/editor_values';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation insertCoupon
+     *
+     * Insert a coupon
+     *
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CouponResponse
+     */
+    public function insertCoupon($coupon, $_expand = null)
+    {
+        list($response) = $this->insertCouponWithHttpInfo($coupon, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation insertCouponWithHttpInfo
+     *
+     * Insert a coupon
+     *
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertCouponWithHttpInfo($coupon, $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\CouponResponse';
+        $request = $this->insertCouponRequest($coupon, $_expand);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CouponResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation insertCouponAsync
+     *
+     * Insert a coupon
+     *
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertCouponAsync($coupon, $_expand = null)
+    {
+        return $this->insertCouponAsyncWithHttpInfo($coupon, $_expand)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertCouponAsyncWithHttpInfo
+     *
+     * Insert a coupon
+     *
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertCouponAsyncWithHttpInfo($coupon, $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\CouponResponse';
+        $request = $this->insertCouponRequest($coupon, $_expand);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertCoupon'
+     *
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function insertCouponRequest($coupon, $_expand = null)
+    {
+        // verify the required parameter 'coupon' is set
+        if ($coupon === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $coupon when calling insertCoupon'
+            );
+        }
+
+        $resourcePath = '/coupon/coupons';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($coupon)) {
+            $_tempBody = $coupon;
         }
 
         if ($multipart) {
@@ -2249,312 +2352,6 @@ class OrderApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation resendReceipt
-     *
-     * Resend receipt
-     *
-     * @param  string $order_id The order id to resend the receipt for. (required)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\BaseResponse
-     */
-    public function resendReceipt($order_id)
-    {
-        list($response) = $this->resendReceiptWithHttpInfo($order_id);
-        return $response;
-    }
-
-    /**
-     * Operation resendReceiptWithHttpInfo
-     *
-     * Resend receipt
-     *
-     * @param  string $order_id The order id to resend the receipt for. (required)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function resendReceiptWithHttpInfo($order_id)
-    {
-        $returnType = '\ultracart\v2\models\BaseResponse';
-        $request = $this->resendReceiptRequest($order_id);
-
-        try {
-
-            try {
-                $response = $this->client->send($request);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\BaseResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation resendReceiptAsync
-     *
-     * Resend receipt
-     *
-     * @param  string $order_id The order id to resend the receipt for. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function resendReceiptAsync($order_id)
-    {
-        return $this->resendReceiptAsyncWithHttpInfo($order_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation resendReceiptAsyncWithHttpInfo
-     *
-     * Resend receipt
-     *
-     * @param  string $order_id The order id to resend the receipt for. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function resendReceiptAsyncWithHttpInfo($order_id)
-    {
-        $returnType = '\ultracart\v2\models\BaseResponse';
-        $request = $this->resendReceiptRequest($order_id);
-
-        return $this->client
-            ->sendAsync($request)
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'resendReceipt'
-     *
-     * @param  string $order_id The order id to resend the receipt for. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function resendReceiptRequest($order_id)
-    {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling resendReceipt'
-            );
-        }
-
-        $resourcePath = '/order/orders/{order_id}/resend_receipt';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if ($apiKey !== null) {
-            $headers['x-ultracart-simple-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
@@ -2563,37 +2360,41 @@ class OrderApi
     }
 
     /**
-     * Operation resendShipmentConfirmation
+     * Operation updateCoupon
      *
-     * Resend shipment confirmation
+     * Update a coupon
      *
-     * @param  string $order_id The order id to resend the shipment notification for. (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
+     * @param  int $coupon_oid The coupon_oid to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\BaseResponse
+     * @return \ultracart\v2\models\CouponResponse
      */
-    public function resendShipmentConfirmation($order_id)
+    public function updateCoupon($coupon, $coupon_oid, $_expand = null)
     {
-        list($response) = $this->resendShipmentConfirmationWithHttpInfo($order_id);
+        list($response) = $this->updateCouponWithHttpInfo($coupon, $coupon_oid, $_expand);
         return $response;
     }
 
     /**
-     * Operation resendShipmentConfirmationWithHttpInfo
+     * Operation updateCouponWithHttpInfo
      *
-     * Resend shipment confirmation
+     * Update a coupon
      *
-     * @param  string $order_id The order id to resend the shipment notification for. (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
+     * @param  int $coupon_oid The coupon_oid to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resendShipmentConfirmationWithHttpInfo($order_id)
+    public function updateCouponWithHttpInfo($coupon, $coupon_oid, $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\BaseResponse';
-        $request = $this->resendShipmentConfirmationRequest($order_id);
+        $returnType = '\ultracart\v2\models\CouponResponse';
+        $request = $this->updateCouponRequest($coupon, $coupon_oid, $_expand);
 
         try {
 
@@ -2643,7 +2444,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\BaseResponse',
+                        '\ultracart\v2\models\CouponResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2694,18 +2495,20 @@ class OrderApi
     }
 
     /**
-     * Operation resendShipmentConfirmationAsync
+     * Operation updateCouponAsync
      *
-     * Resend shipment confirmation
+     * Update a coupon
      *
-     * @param  string $order_id The order id to resend the shipment notification for. (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
+     * @param  int $coupon_oid The coupon_oid to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resendShipmentConfirmationAsync($order_id)
+    public function updateCouponAsync($coupon, $coupon_oid, $_expand = null)
     {
-        return $this->resendShipmentConfirmationAsyncWithHttpInfo($order_id)
+        return $this->updateCouponAsyncWithHttpInfo($coupon, $coupon_oid, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2714,19 +2517,21 @@ class OrderApi
     }
 
     /**
-     * Operation resendShipmentConfirmationAsyncWithHttpInfo
+     * Operation updateCouponAsyncWithHttpInfo
      *
-     * Resend shipment confirmation
+     * Update a coupon
      *
-     * @param  string $order_id The order id to resend the shipment notification for. (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
+     * @param  int $coupon_oid The coupon_oid to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resendShipmentConfirmationAsyncWithHttpInfo($order_id)
+    public function updateCouponAsyncWithHttpInfo($coupon, $coupon_oid, $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\BaseResponse';
-        $request = $this->resendShipmentConfirmationRequest($order_id);
+        $returnType = '\ultracart\v2\models\CouponResponse';
+        $request = $this->updateCouponRequest($coupon, $coupon_oid, $_expand);
 
         return $this->client
             ->sendAsync($request)
@@ -2766,345 +2571,31 @@ class OrderApi
     }
 
     /**
-     * Create request for operation 'resendShipmentConfirmation'
+     * Create request for operation 'updateCoupon'
      *
-     * @param  string $order_id The order id to resend the shipment notification for. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function resendShipmentConfirmationRequest($order_id)
-    {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling resendShipmentConfirmation'
-            );
-        }
-
-        $resourcePath = '/order/orders/{order_id}/resend_shipment_confirmation';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($order_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
-
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
-        if ($apiKey !== null) {
-            $headers['x-ultracart-simple-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateOrder
-     *
-     * Update an order
-     *
-     * @param  \ultracart\v2\models\Order $order Order to update (required)
-     * @param  string $order_id The order id to update. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrderResponse
-     */
-    public function updateOrder($order, $order_id, $_expand = null)
-    {
-        list($response) = $this->updateOrderWithHttpInfo($order, $order_id, $_expand);
-        return $response;
-    }
-
-    /**
-     * Operation updateOrderWithHttpInfo
-     *
-     * Update an order
-     *
-     * @param  \ultracart\v2\models\Order $order Order to update (required)
-     * @param  string $order_id The order id to update. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     *
-     * @throws \ultracart\v2\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateOrderWithHttpInfo($order, $order_id, $_expand = null)
-    {
-        $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->updateOrderRequest($order, $order_id, $_expand);
-
-        try {
-
-            try {
-                $response = $this->client->send($request);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\OrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 410:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateOrderAsync
-     *
-     * Update an order
-     *
-     * @param  \ultracart\v2\models\Order $order Order to update (required)
-     * @param  string $order_id The order id to update. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateOrderAsync($order, $order_id, $_expand = null)
-    {
-        return $this->updateOrderAsyncWithHttpInfo($order, $order_id, $_expand)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateOrderAsyncWithHttpInfo
-     *
-     * Update an order
-     *
-     * @param  \ultracart\v2\models\Order $order Order to update (required)
-     * @param  string $order_id The order id to update. (required)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateOrderAsyncWithHttpInfo($order, $order_id, $_expand = null)
-    {
-        $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->updateOrderRequest($order, $order_id, $_expand);
-
-        return $this->client
-            ->sendAsync($request)
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateOrder'
-     *
-     * @param  \ultracart\v2\models\Order $order Order to update (required)
-     * @param  string $order_id The order id to update. (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
+     * @param  int $coupon_oid The coupon_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateOrderRequest($order, $order_id, $_expand = null)
+    protected function updateCouponRequest($coupon, $coupon_oid, $_expand = null)
     {
-        // verify the required parameter 'order' is set
-        if ($order === null) {
+        // verify the required parameter 'coupon' is set
+        if ($coupon === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order when calling updateOrder'
+                'Missing the required parameter $coupon when calling updateCoupon'
             );
         }
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null) {
+        // verify the required parameter 'coupon_oid' is set
+        if ($coupon_oid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling updateOrder'
+                'Missing the required parameter $coupon_oid when calling updateCoupon'
             );
         }
 
-        $resourcePath = '/order/orders/{order_id}';
+        $resourcePath = '/coupon/coupons/{coupon_oid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3117,18 +2608,18 @@ class OrderApi
         }
 
         // path params
-        if ($order_id !== null) {
+        if ($coupon_oid !== null) {
             $resourcePath = str_replace(
-                '{' . 'order_id' . '}',
-                ObjectSerializer::toPathValue($order_id),
+                '{' . 'coupon_oid' . '}',
+                ObjectSerializer::toPathValue($coupon_oid),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-        if (isset($order)) {
-            $_tempBody = $order;
+        if (isset($coupon)) {
+            $_tempBody = $coupon;
         }
 
         if ($multipart) {
