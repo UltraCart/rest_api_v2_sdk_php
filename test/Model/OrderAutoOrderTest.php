@@ -84,6 +84,13 @@ class OrderAutoOrderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "auto_order_oid"
+     */
+    public function testPropertyAutoOrderOid()
+    {
+    }
+
+    /**
      * Test attribute "original_order_id"
      */
     public function testPropertyOriginalOrderId()

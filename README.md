@@ -136,7 +136,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**generateCouponCodes**](docs/Api/CouponApi.md#generatecouponcodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
-*CouponApi* | [**generateOneTimeCodesByMerchantCode**](docs/Api/CouponApi.md#generateonetimecodesbymerchantcode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes for a coupon
+*CouponApi* | [**generateOneTimeCodesByMerchantCode**](docs/Api/CouponApi.md#generateonetimecodesbymerchantcode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes by merchant code
 *CouponApi* | [**getCoupon**](docs/Api/CouponApi.md#getcoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
 *CouponApi* | [**getCouponByMerchantCode**](docs/Api/CouponApi.md#getcouponbymerchantcode) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 *CouponApi* | [**getCoupons**](docs/Api/CouponApi.md#getcoupons) | **GET** /coupon/coupons | Retrieve coupons
@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
 *OauthApi* | [**oauthRevoke**](docs/Api/OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
 *OrderApi* | [**cancelOrder**](docs/Api/OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
+*OrderApi* | [**format**](docs/Api/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
@@ -262,6 +263,7 @@ Class | Method | HTTP request | Description
  - [CheckoutSetupBrowserKeyRequest](docs/Model/CheckoutSetupBrowserKeyRequest.md)
  - [CheckoutSetupBrowserKeyResponse](docs/Model/CheckoutSetupBrowserKeyResponse.md)
  - [CityStateZip](docs/Model/CityStateZip.md)
+ - [Country](docs/Model/Country.md)
  - [Coupon](docs/Model/Coupon.md)
  - [CouponAmountOffItems](docs/Model/CouponAmountOffItems.md)
  - [CouponAmountOffShipping](docs/Model/CouponAmountOffShipping.md)
@@ -317,6 +319,7 @@ Class | Method | HTTP request | Description
  - [CustomerBilling](docs/Model/CustomerBilling.md)
  - [CustomerCard](docs/Model/CustomerCard.md)
  - [CustomerEditorValues](docs/Model/CustomerEditorValues.md)
+ - [CustomerEmail](docs/Model/CustomerEmail.md)
  - [CustomerPricingTier](docs/Model/CustomerPricingTier.md)
  - [CustomerQuery](docs/Model/CustomerQuery.md)
  - [CustomerResponse](docs/Model/CustomerResponse.md)
@@ -414,6 +417,8 @@ Class | Method | HTTP request | Description
  - [OrderDigitalItem](docs/Model/OrderDigitalItem.md)
  - [OrderDigitalOrder](docs/Model/OrderDigitalOrder.md)
  - [OrderEdi](docs/Model/OrderEdi.md)
+ - [OrderFormat](docs/Model/OrderFormat.md)
+ - [OrderFormatResponse](docs/Model/OrderFormatResponse.md)
  - [OrderFraudScore](docs/Model/OrderFraudScore.md)
  - [OrderGift](docs/Model/OrderGift.md)
  - [OrderGiftCertificate](docs/Model/OrderGiftCertificate.md)

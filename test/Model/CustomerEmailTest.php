@@ -1,6 +1,6 @@
 <?php
 /**
- * CartProfileLoginRequestTest
+ * CustomerEmailTest
  *
  * PHP version 5
  *
@@ -29,16 +29,16 @@
 namespace ultracart\v2;
 
 /**
- * CartProfileLoginRequestTest Class Doc Comment
+ * CustomerEmailTest Class Doc Comment
  *
  * @category    Class */
-// * @description CartProfileLoginRequest
+// * @description CustomerEmail
 /**
  * @package     ultracart\v2
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CartProfileLoginRequestTest extends \PHPUnit_Framework_TestCase
+class CustomerEmailTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,30 +70,51 @@ class CartProfileLoginRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CartProfileLoginRequest"
+     * Test "CustomerEmail"
      */
-    public function testCartProfileLoginRequest()
+    public function testCustomerEmail()
     {
     }
 
     /**
-     * Test attribute "cart"
+     * Test attribute "customer_profile_email_oid"
      */
-    public function testPropertyCart()
+    public function testPropertyCustomerProfileEmailOid()
     {
     }
 
     /**
-     * Test attribute "customer_profile_oid"
+     * Test attribute "email"
      */
-    public function testPropertyCustomerProfileOid()
+    public function testPropertyEmail()
     {
     }
 
     /**
-     * Test attribute "password"
+     * Test attribute "label"
      */
-    public function testPropertyPassword()
+    public function testPropertyLabel()
+    {
+    }
+
+    /**
+     * Test attribute "receipt_notification"
+     */
+    public function testPropertyReceiptNotification()
+    {
+    }
+
+    /**
+     * Test attribute "refund_notification"
+     */
+    public function testPropertyRefundNotification()
+    {
+    }
+
+    /**
+     * Test attribute "shipment_notification"
+     */
+    public function testPropertyShipmentNotification()
     {
     }
 }

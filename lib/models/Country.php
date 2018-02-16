@@ -1,6 +1,6 @@
 <?php
 /**
- * CartProfileLoginRequest
+ * Country
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartProfileLoginRequest Class Doc Comment
+ * Country Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CartProfileLoginRequest implements ModelInterface, ArrayAccess
+class Country implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CartProfileLoginRequest';
+    protected static $swaggerModelName = 'Country';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,9 +56,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cart' => '\ultracart\v2\models\Cart',
-        'customer_profile_oid' => 'int',
-        'password' => 'string'
+        'iso_2_code' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -67,9 +66,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cart' => null,
-        'customer_profile_oid' => 'int32',
-        'password' => null
+        'iso_2_code' => null,
+        'name' => null
     ];
 
     /**
@@ -99,9 +97,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cart' => 'cart',
-        'customer_profile_oid' => 'customer_profile_oid',
-        'password' => 'password'
+        'iso_2_code' => 'iso_2_code',
+        'name' => 'name'
     ];
 
     /**
@@ -110,9 +107,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cart' => 'setCart',
-        'customer_profile_oid' => 'setCustomerProfileOid',
-        'password' => 'setPassword'
+        'iso_2_code' => 'setIso2Code',
+        'name' => 'setName'
     ];
 
     /**
@@ -121,9 +117,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cart' => 'getCart',
-        'customer_profile_oid' => 'getCustomerProfileOid',
-        'password' => 'getPassword'
+        'iso_2_code' => 'getIso2Code',
+        'name' => 'getName'
     ];
 
     /**
@@ -186,9 +181,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cart'] = isset($data['cart']) ? $data['cart'] : null;
-        $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
-        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['iso_2_code'] = isset($data['iso_2_code']) ? $data['iso_2_code'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -199,6 +193,14 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['iso_2_code']) && (strlen($this->container['iso_2_code']) > 2)) {
+            $invalidProperties[] = "invalid value for 'iso_2_code', the character length must be smaller than or equal to 2.";
+        }
+
+        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 50)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
+        }
 
         return $invalidProperties;
     }
@@ -212,78 +214,68 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if (strlen($this->container['iso_2_code']) > 2) {
+            return false;
+        }
+        if (strlen($this->container['name']) > 50) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets cart
-     *
-     * @return \ultracart\v2\models\Cart
-     */
-    public function getCart()
-    {
-        return $this->container['cart'];
-    }
-
-    /**
-     * Sets cart
-     *
-     * @param \ultracart\v2\models\Cart $cart cart
-     *
-     * @return $this
-     */
-    public function setCart($cart)
-    {
-        $this->container['cart'] = $cart;
-
-        return $this;
-    }
-
-    /**
-     * Gets customer_profile_oid
-     *
-     * @return int
-     */
-    public function getCustomerProfileOid()
-    {
-        return $this->container['customer_profile_oid'];
-    }
-
-    /**
-     * Sets customer_profile_oid
-     *
-     * @param int $customer_profile_oid Unique identifier for customer profile.  Can not be used with browser key authentication type.
-     *
-     * @return $this
-     */
-    public function setCustomerProfileOid($customer_profile_oid)
-    {
-        $this->container['customer_profile_oid'] = $customer_profile_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets password
+     * Gets iso_2_code
      *
      * @return string
      */
-    public function getPassword()
+    public function getIso2Code()
     {
-        return $this->container['password'];
+        return $this->container['iso_2_code'];
     }
 
     /**
-     * Sets password
+     * Sets iso_2_code
      *
-     * @param string $password Password for the profile
+     * @param string $iso_2_code iso_2_code
      *
      * @return $this
      */
-    public function setPassword($password)
+    public function setIso2Code($iso_2_code)
     {
-        $this->container['password'] = $password;
+        if (!is_null($iso_2_code) && (strlen($iso_2_code) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $iso_2_code when calling Country., must be smaller than or equal to 2.');
+        }
+
+        $this->container['iso_2_code'] = $iso_2_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        if (!is_null($name) && (strlen($name) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling Country., must be smaller than or equal to 50.');
+        }
+
+        $this->container['name'] = $name;
 
         return $this;
     }

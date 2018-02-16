@@ -91,6 +91,13 @@ class CouponCodesResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "expiration_dts"
+     */
+    public function testPropertyExpirationDts()
+    {
+    }
+
+    /**
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()

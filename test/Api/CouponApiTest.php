@@ -91,12 +91,32 @@ class CouponApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for generateOneTimeCodesByMerchantCode
+     *
+     * Generates one time codes by merchant code.
+     *
+     */
+    public function testGenerateOneTimeCodesByMerchantCode()
+    {
+    }
+
+    /**
      * Test case for getCoupon
      *
      * Retrieve a coupon.
      *
      */
     public function testGetCoupon()
+    {
+    }
+
+    /**
+     * Test case for getCouponByMerchantCode
+     *
+     * Retrieve a coupon by merchant code.
+     *
+     */
+    public function testGetCouponByMerchantCode()
     {
     }
 

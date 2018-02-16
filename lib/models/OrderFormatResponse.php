@@ -1,6 +1,6 @@
 <?php
 /**
- * CartProfileLoginRequest
+ * OrderFormatResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartProfileLoginRequest Class Doc Comment
+ * OrderFormatResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CartProfileLoginRequest implements ModelInterface, ArrayAccess
+class OrderFormatResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CartProfileLoginRequest';
+    protected static $swaggerModelName = 'OrderFormatResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,9 +56,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cart' => '\ultracart\v2\models\Cart',
-        'customer_profile_oid' => 'int',
-        'password' => 'string'
+        'css_links' => 'string[]',
+        'formatted_result' => 'string'
     ];
 
     /**
@@ -67,9 +66,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'cart' => null,
-        'customer_profile_oid' => 'int32',
-        'password' => null
+        'css_links' => null,
+        'formatted_result' => null
     ];
 
     /**
@@ -99,9 +97,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'cart' => 'cart',
-        'customer_profile_oid' => 'customer_profile_oid',
-        'password' => 'password'
+        'css_links' => 'css_links',
+        'formatted_result' => 'formatted_result'
     ];
 
     /**
@@ -110,9 +107,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'cart' => 'setCart',
-        'customer_profile_oid' => 'setCustomerProfileOid',
-        'password' => 'setPassword'
+        'css_links' => 'setCssLinks',
+        'formatted_result' => 'setFormattedResult'
     ];
 
     /**
@@ -121,9 +117,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'cart' => 'getCart',
-        'customer_profile_oid' => 'getCustomerProfileOid',
-        'password' => 'getPassword'
+        'css_links' => 'getCssLinks',
+        'formatted_result' => 'getFormattedResult'
     ];
 
     /**
@@ -186,9 +181,8 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['cart'] = isset($data['cart']) ? $data['cart'] : null;
-        $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
-        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['css_links'] = isset($data['css_links']) ? $data['css_links'] : null;
+        $this->container['formatted_result'] = isset($data['formatted_result']) ? $data['formatted_result'] : null;
     }
 
     /**
@@ -217,73 +211,49 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets cart
+     * Gets css_links
      *
-     * @return \ultracart\v2\models\Cart
+     * @return string[]
      */
-    public function getCart()
+    public function getCssLinks()
     {
-        return $this->container['cart'];
+        return $this->container['css_links'];
     }
 
     /**
-     * Sets cart
+     * Sets css_links
      *
-     * @param \ultracart\v2\models\Cart $cart cart
+     * @param string[] $css_links The URLs to any stylesheets that need to be included to properly view the markup.
      *
      * @return $this
      */
-    public function setCart($cart)
+    public function setCssLinks($css_links)
     {
-        $this->container['cart'] = $cart;
+        $this->container['css_links'] = $css_links;
 
         return $this;
     }
 
     /**
-     * Gets customer_profile_oid
-     *
-     * @return int
-     */
-    public function getCustomerProfileOid()
-    {
-        return $this->container['customer_profile_oid'];
-    }
-
-    /**
-     * Sets customer_profile_oid
-     *
-     * @param int $customer_profile_oid Unique identifier for customer profile.  Can not be used with browser key authentication type.
-     *
-     * @return $this
-     */
-    public function setCustomerProfileOid($customer_profile_oid)
-    {
-        $this->container['customer_profile_oid'] = $customer_profile_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets password
+     * Gets formatted_result
      *
      * @return string
      */
-    public function getPassword()
+    public function getFormattedResult()
     {
-        return $this->container['password'];
+        return $this->container['formatted_result'];
     }
 
     /**
-     * Sets password
+     * Sets formatted_result
      *
-     * @param string $password Password for the profile
+     * @param string $formatted_result The formatted result of the order.  This will be HTML or text depending upon the requested format.
      *
      * @return $this
      */
-    public function setPassword($password)
+    public function setFormattedResult($formatted_result)
     {
-        $this->container['password'] = $password;
+        $this->container['formatted_result'] = $formatted_result;
 
         return $this;
     }

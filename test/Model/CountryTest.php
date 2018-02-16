@@ -1,6 +1,6 @@
 <?php
 /**
- * CartProfileLoginRequestTest
+ * CountryTest
  *
  * PHP version 5
  *
@@ -29,16 +29,16 @@
 namespace ultracart\v2;
 
 /**
- * CartProfileLoginRequestTest Class Doc Comment
+ * CountryTest Class Doc Comment
  *
  * @category    Class */
-// * @description CartProfileLoginRequest
+// * @description Country
 /**
  * @package     ultracart\v2
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class CartProfileLoginRequestTest extends \PHPUnit_Framework_TestCase
+class CountryTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,30 +70,23 @@ class CartProfileLoginRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "CartProfileLoginRequest"
+     * Test "Country"
      */
-    public function testCartProfileLoginRequest()
+    public function testCountry()
     {
     }
 
     /**
-     * Test attribute "cart"
+     * Test attribute "iso_2_code"
      */
-    public function testPropertyCart()
+    public function testPropertyIso2Code()
     {
     }
 
     /**
-     * Test attribute "customer_profile_oid"
+     * Test attribute "name"
      */
-    public function testPropertyCustomerProfileOid()
-    {
-    }
-
-    /**
-     * Test attribute "password"
-     */
-    public function testPropertyPassword()
+    public function testPropertyName()
     {
     }
 }

@@ -709,7 +709,7 @@ class CouponApi
     /**
      * Operation generateOneTimeCodesByMerchantCode
      *
-     * Generates one time codes for a coupon
+     * Generates one time codes by merchant code
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
      * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
@@ -727,7 +727,7 @@ class CouponApi
     /**
      * Operation generateOneTimeCodesByMerchantCodeWithHttpInfo
      *
-     * Generates one time codes for a coupon
+     * Generates one time codes by merchant code
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
      * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
@@ -842,7 +842,7 @@ class CouponApi
     /**
      * Operation generateOneTimeCodesByMerchantCodeAsync
      *
-     * Generates one time codes for a coupon
+     * Generates one time codes by merchant code
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
      * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
@@ -863,7 +863,7 @@ class CouponApi
     /**
      * Operation generateOneTimeCodesByMerchantCodeAsyncWithHttpInfo
      *
-     * Generates one time codes for a coupon
+     * Generates one time codes by merchant code
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
      * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)

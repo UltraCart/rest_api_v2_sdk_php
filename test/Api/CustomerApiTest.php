@@ -101,6 +101,26 @@ class CustomerApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getCustomersByQuery
+     *
+     * Retrieve customers by query.
+     *
+     */
+    public function testGetCustomersByQuery()
+    {
+    }
+
+    /**
+     * Test case for getEditorValues
+     *
+     * Retrieve values needed for a customer profile editor.
+     *
+     */
+    public function testGetEditorValues()
+    {
+    }
+
+    /**
      * Test case for insertCustomer
      *
      * Insert a customer.

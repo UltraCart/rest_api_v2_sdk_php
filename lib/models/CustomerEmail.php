@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerEditorValues
+ * CustomerEmail
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomerEditorValues Class Doc Comment
+ * CustomerEmail Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerEditorValues implements ModelInterface, ArrayAccess
+class CustomerEmail implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomerEditorValues';
+    protected static $swaggerModelName = 'CustomerEmail';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,14 +56,12 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'affiliates' => '\ultracart\v2\models\CustomerAffiliate[]',
-        'card_exp_months' => 'string[]',
-        'card_exp_years' => 'string[]',
-        'card_types' => 'string[]',
-        'countries' => '\ultracart\v2\models\Country[]',
-        'qb_classes' => 'string[]',
-        'sales_rep_codes' => 'string[]',
-        'terms' => 'string[]'
+        'customer_profile_email_oid' => 'int',
+        'email' => 'string',
+        'label' => 'string',
+        'receipt_notification' => 'bool',
+        'refund_notification' => 'bool',
+        'shipment_notification' => 'bool'
     ];
 
     /**
@@ -72,14 +70,12 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'affiliates' => null,
-        'card_exp_months' => null,
-        'card_exp_years' => null,
-        'card_types' => null,
-        'countries' => null,
-        'qb_classes' => null,
-        'sales_rep_codes' => null,
-        'terms' => null
+        'customer_profile_email_oid' => 'int32',
+        'email' => null,
+        'label' => null,
+        'receipt_notification' => null,
+        'refund_notification' => null,
+        'shipment_notification' => null
     ];
 
     /**
@@ -109,14 +105,12 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'affiliates' => 'affiliates',
-        'card_exp_months' => 'card_exp_months',
-        'card_exp_years' => 'card_exp_years',
-        'card_types' => 'card_types',
-        'countries' => 'countries',
-        'qb_classes' => 'qb_classes',
-        'sales_rep_codes' => 'sales_rep_codes',
-        'terms' => 'terms'
+        'customer_profile_email_oid' => 'customer_profile_email_oid',
+        'email' => 'email',
+        'label' => 'label',
+        'receipt_notification' => 'receipt_notification',
+        'refund_notification' => 'refund_notification',
+        'shipment_notification' => 'shipment_notification'
     ];
 
     /**
@@ -125,14 +119,12 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'affiliates' => 'setAffiliates',
-        'card_exp_months' => 'setCardExpMonths',
-        'card_exp_years' => 'setCardExpYears',
-        'card_types' => 'setCardTypes',
-        'countries' => 'setCountries',
-        'qb_classes' => 'setQbClasses',
-        'sales_rep_codes' => 'setSalesRepCodes',
-        'terms' => 'setTerms'
+        'customer_profile_email_oid' => 'setCustomerProfileEmailOid',
+        'email' => 'setEmail',
+        'label' => 'setLabel',
+        'receipt_notification' => 'setReceiptNotification',
+        'refund_notification' => 'setRefundNotification',
+        'shipment_notification' => 'setShipmentNotification'
     ];
 
     /**
@@ -141,14 +133,12 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'affiliates' => 'getAffiliates',
-        'card_exp_months' => 'getCardExpMonths',
-        'card_exp_years' => 'getCardExpYears',
-        'card_types' => 'getCardTypes',
-        'countries' => 'getCountries',
-        'qb_classes' => 'getQbClasses',
-        'sales_rep_codes' => 'getSalesRepCodes',
-        'terms' => 'getTerms'
+        'customer_profile_email_oid' => 'getCustomerProfileEmailOid',
+        'email' => 'getEmail',
+        'label' => 'getLabel',
+        'receipt_notification' => 'getReceiptNotification',
+        'refund_notification' => 'getRefundNotification',
+        'shipment_notification' => 'getShipmentNotification'
     ];
 
     /**
@@ -211,14 +201,12 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['affiliates'] = isset($data['affiliates']) ? $data['affiliates'] : null;
-        $this->container['card_exp_months'] = isset($data['card_exp_months']) ? $data['card_exp_months'] : null;
-        $this->container['card_exp_years'] = isset($data['card_exp_years']) ? $data['card_exp_years'] : null;
-        $this->container['card_types'] = isset($data['card_types']) ? $data['card_types'] : null;
-        $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
-        $this->container['qb_classes'] = isset($data['qb_classes']) ? $data['qb_classes'] : null;
-        $this->container['sales_rep_codes'] = isset($data['sales_rep_codes']) ? $data['sales_rep_codes'] : null;
-        $this->container['terms'] = isset($data['terms']) ? $data['terms'] : null;
+        $this->container['customer_profile_email_oid'] = isset($data['customer_profile_email_oid']) ? $data['customer_profile_email_oid'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['receipt_notification'] = isset($data['receipt_notification']) ? $data['receipt_notification'] : null;
+        $this->container['refund_notification'] = isset($data['refund_notification']) ? $data['refund_notification'] : null;
+        $this->container['shipment_notification'] = isset($data['shipment_notification']) ? $data['shipment_notification'] : null;
     }
 
     /**
@@ -229,6 +217,14 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['email']) && (strlen($this->container['email']) > 100)) {
+            $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['label']) && (strlen($this->container['label']) > 100)) {
+            $invalidProperties[] = "invalid value for 'label', the character length must be smaller than or equal to 100.";
+        }
 
         return $invalidProperties;
     }
@@ -242,198 +238,164 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if (strlen($this->container['email']) > 100) {
+            return false;
+        }
+        if (strlen($this->container['label']) > 100) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets affiliates
+     * Gets customer_profile_email_oid
      *
-     * @return \ultracart\v2\models\CustomerAffiliate[]
+     * @return int
      */
-    public function getAffiliates()
+    public function getCustomerProfileEmailOid()
     {
-        return $this->container['affiliates'];
+        return $this->container['customer_profile_email_oid'];
     }
 
     /**
-     * Sets affiliates
+     * Sets customer_profile_email_oid
      *
-     * @param \ultracart\v2\models\CustomerAffiliate[] $affiliates affiliates
+     * @param int $customer_profile_email_oid ID of the email
      *
      * @return $this
      */
-    public function setAffiliates($affiliates)
+    public function setCustomerProfileEmailOid($customer_profile_email_oid)
     {
-        $this->container['affiliates'] = $affiliates;
+        $this->container['customer_profile_email_oid'] = $customer_profile_email_oid;
 
         return $this;
     }
 
     /**
-     * Gets card_exp_months
+     * Gets email
      *
-     * @return string[]
+     * @return string
      */
-    public function getCardExpMonths()
+    public function getEmail()
     {
-        return $this->container['card_exp_months'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets card_exp_months
+     * Sets email
      *
-     * @param string[] $card_exp_months card_exp_months
+     * @param string $email Email
      *
      * @return $this
      */
-    public function setCardExpMonths($card_exp_months)
+    public function setEmail($email)
     {
-        $this->container['card_exp_months'] = $card_exp_months;
+        if (!is_null($email) && (strlen($email) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $email when calling CustomerEmail., must be smaller than or equal to 100.');
+        }
+
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets card_exp_years
+     * Gets label
      *
-     * @return string[]
+     * @return string
      */
-    public function getCardExpYears()
+    public function getLabel()
     {
-        return $this->container['card_exp_years'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets card_exp_years
+     * Sets label
      *
-     * @param string[] $card_exp_years card_exp_years
+     * @param string $label Label
      *
      * @return $this
      */
-    public function setCardExpYears($card_exp_years)
+    public function setLabel($label)
     {
-        $this->container['card_exp_years'] = $card_exp_years;
+        if (!is_null($label) && (strlen($label) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $label when calling CustomerEmail., must be smaller than or equal to 100.');
+        }
+
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets card_types
+     * Gets receipt_notification
      *
-     * @return string[]
+     * @return bool
      */
-    public function getCardTypes()
+    public function getReceiptNotification()
     {
-        return $this->container['card_types'];
+        return $this->container['receipt_notification'];
     }
 
     /**
-     * Sets card_types
+     * Sets receipt_notification
      *
-     * @param string[] $card_types card_types
+     * @param bool $receipt_notification CC this email on receipt notifications
      *
      * @return $this
      */
-    public function setCardTypes($card_types)
+    public function setReceiptNotification($receipt_notification)
     {
-        $this->container['card_types'] = $card_types;
+        $this->container['receipt_notification'] = $receipt_notification;
 
         return $this;
     }
 
     /**
-     * Gets countries
+     * Gets refund_notification
      *
-     * @return \ultracart\v2\models\Country[]
+     * @return bool
      */
-    public function getCountries()
+    public function getRefundNotification()
     {
-        return $this->container['countries'];
+        return $this->container['refund_notification'];
     }
 
     /**
-     * Sets countries
+     * Sets refund_notification
      *
-     * @param \ultracart\v2\models\Country[] $countries countries
+     * @param bool $refund_notification CC this email on refund notifications
      *
      * @return $this
      */
-    public function setCountries($countries)
+    public function setRefundNotification($refund_notification)
     {
-        $this->container['countries'] = $countries;
+        $this->container['refund_notification'] = $refund_notification;
 
         return $this;
     }
 
     /**
-     * Gets qb_classes
+     * Gets shipment_notification
      *
-     * @return string[]
+     * @return bool
      */
-    public function getQbClasses()
+    public function getShipmentNotification()
     {
-        return $this->container['qb_classes'];
+        return $this->container['shipment_notification'];
     }
 
     /**
-     * Sets qb_classes
+     * Sets shipment_notification
      *
-     * @param string[] $qb_classes qb_classes
+     * @param bool $shipment_notification CC this email on shipment notifications
      *
      * @return $this
      */
-    public function setQbClasses($qb_classes)
+    public function setShipmentNotification($shipment_notification)
     {
-        $this->container['qb_classes'] = $qb_classes;
-
-        return $this;
-    }
-
-    /**
-     * Gets sales_rep_codes
-     *
-     * @return string[]
-     */
-    public function getSalesRepCodes()
-    {
-        return $this->container['sales_rep_codes'];
-    }
-
-    /**
-     * Sets sales_rep_codes
-     *
-     * @param string[] $sales_rep_codes sales_rep_codes
-     *
-     * @return $this
-     */
-    public function setSalesRepCodes($sales_rep_codes)
-    {
-        $this->container['sales_rep_codes'] = $sales_rep_codes;
-
-        return $this;
-    }
-
-    /**
-     * Gets terms
-     *
-     * @return string[]
-     */
-    public function getTerms()
-    {
-        return $this->container['terms'];
-    }
-
-    /**
-     * Sets terms
-     *
-     * @param string[] $terms terms
-     *
-     * @return $this
-     */
-    public function setTerms($terms)
-    {
-        $this->container['terms'] = $terms;
+        $this->container['shipment_notification'] = $shipment_notification;
 
         return $this;
     }

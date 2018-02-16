@@ -131,6 +131,16 @@ class ItemApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for updateItems
+     *
+     * Update multiple items.
+     *
+     */
+    public function testUpdateItems()
+    {
+    }
+
+    /**
      * Test case for uploadTemporaryMultimedia
      *
      * Upload an image to the temporary multimedia..
