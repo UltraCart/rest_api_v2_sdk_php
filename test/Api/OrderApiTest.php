@@ -91,6 +91,16 @@ class OrderApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for format
+     *
+     * Format order.
+     *
+     */
+    public function testFormat()
+    {
+    }
+
+    /**
      * Test case for getOrder
      *
      * Retrieve an order.
@@ -117,6 +127,16 @@ class OrderApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testGetOrdersByQuery()
+    {
+    }
+
+    /**
+     * Test case for refundOrder
+     *
+     * Refund an order.
+     *
+     */
+    public function testRefundOrder()
     {
     }
 

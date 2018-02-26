@@ -68,6 +68,7 @@ class Customer implements ModelInterface, ArrayAccess
         'billing' => '\ultracart\v2\models\CustomerBilling[]',
         'business_notes' => 'string',
         'cards' => '\ultracart\v2\models\CustomerCard[]',
+        'cc_emails' => '\ultracart\v2\models\CustomerEmail[]',
         'customer_profile_oid' => 'int',
         'dhl_account_number' => 'string',
         'email' => 'string',
@@ -120,6 +121,7 @@ class Customer implements ModelInterface, ArrayAccess
         'billing' => null,
         'business_notes' => null,
         'cards' => null,
+        'cc_emails' => null,
         'customer_profile_oid' => 'int32',
         'dhl_account_number' => null,
         'email' => null,
@@ -193,6 +195,7 @@ class Customer implements ModelInterface, ArrayAccess
         'billing' => 'billing',
         'business_notes' => 'business_notes',
         'cards' => 'cards',
+        'cc_emails' => 'cc_emails',
         'customer_profile_oid' => 'customer_profile_oid',
         'dhl_account_number' => 'dhl_account_number',
         'email' => 'email',
@@ -245,6 +248,7 @@ class Customer implements ModelInterface, ArrayAccess
         'billing' => 'setBilling',
         'business_notes' => 'setBusinessNotes',
         'cards' => 'setCards',
+        'cc_emails' => 'setCcEmails',
         'customer_profile_oid' => 'setCustomerProfileOid',
         'dhl_account_number' => 'setDhlAccountNumber',
         'email' => 'setEmail',
@@ -297,6 +301,7 @@ class Customer implements ModelInterface, ArrayAccess
         'billing' => 'getBilling',
         'business_notes' => 'getBusinessNotes',
         'cards' => 'getCards',
+        'cc_emails' => 'getCcEmails',
         'customer_profile_oid' => 'getCustomerProfileOid',
         'dhl_account_number' => 'getDhlAccountNumber',
         'email' => 'getEmail',
@@ -403,6 +408,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['billing'] = isset($data['billing']) ? $data['billing'] : null;
         $this->container['business_notes'] = isset($data['business_notes']) ? $data['business_notes'] : null;
         $this->container['cards'] = isset($data['cards']) ? $data['cards'] : null;
+        $this->container['cc_emails'] = isset($data['cc_emails']) ? $data['cc_emails'] : null;
         $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['dhl_account_number'] = isset($data['dhl_account_number']) ? $data['dhl_account_number'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
@@ -820,6 +826,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setCards($cards)
     {
         $this->container['cards'] = $cards;
+
+        return $this;
+    }
+
+    /**
+     * Gets cc_emails
+     *
+     * @return \ultracart\v2\models\CustomerEmail[]
+     */
+    public function getCcEmails()
+    {
+        return $this->container['cc_emails'];
+    }
+
+    /**
+     * Sets cc_emails
+     *
+     * @param \ultracart\v2\models\CustomerEmail[] $cc_emails Additional emails to CC notification
+     *
+     * @return $this
+     */
+    public function setCcEmails($cc_emails)
+    {
+        $this->container['cc_emails'] = $cc_emails;
 
         return $this;
     }

@@ -1206,7 +1206,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
     /**
      * Sets signup_dts_start
      *
-     * @param string $signup_dts_start Signup date star
+     * @param string $signup_dts_start Signup date start
      *
      * @return $this
      */

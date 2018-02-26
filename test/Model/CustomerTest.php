@@ -161,6 +161,13 @@ class CustomerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "cc_emails"
+     */
+    public function testPropertyCcEmails()
+    {
+    }
+
+    /**
      * Test attribute "customer_profile_oid"
      */
     public function testPropertyCustomerProfileOid()

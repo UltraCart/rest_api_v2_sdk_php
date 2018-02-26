@@ -79,4 +79,14 @@ class AffiliateApiTest extends \PHPUnit_Framework_TestCase
     public function testGetClicksByQuery()
     {
     }
+
+    /**
+     * Test case for getLedgersByQuery
+     *
+     * Retrieve ledger entries.
+     *
+     */
+    public function testGetLedgersByQuery()
+    {
+    }
 }

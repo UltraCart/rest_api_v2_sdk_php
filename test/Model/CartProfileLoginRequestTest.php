@@ -84,6 +84,13 @@ class CartProfileLoginRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "customer_profile_oid"
+     */
+    public function testPropertyCustomerProfileOid()
+    {
+    }
+
+    /**
      * Test attribute "password"
      */
     public function testPropertyPassword()

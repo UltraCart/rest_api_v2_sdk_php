@@ -57,6 +57,7 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'cart' => '\ultracart\v2\models\Cart',
+        'customer_profile_oid' => 'int',
         'password' => 'string'
     ];
 
@@ -67,6 +68,7 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'cart' => null,
+        'customer_profile_oid' => 'int32',
         'password' => null
     ];
 
@@ -98,6 +100,7 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'cart' => 'cart',
+        'customer_profile_oid' => 'customer_profile_oid',
         'password' => 'password'
     ];
 
@@ -108,6 +111,7 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'cart' => 'setCart',
+        'customer_profile_oid' => 'setCustomerProfileOid',
         'password' => 'setPassword'
     ];
 
@@ -118,6 +122,7 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'cart' => 'getCart',
+        'customer_profile_oid' => 'getCustomerProfileOid',
         'password' => 'getPassword'
     ];
 
@@ -182,6 +187,7 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['cart'] = isset($data['cart']) ? $data['cart'] : null;
+        $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
     }
 
@@ -230,6 +236,30 @@ class CartProfileLoginRequest implements ModelInterface, ArrayAccess
     public function setCart($cart)
     {
         $this->container['cart'] = $cart;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_profile_oid
+     *
+     * @return int
+     */
+    public function getCustomerProfileOid()
+    {
+        return $this->container['customer_profile_oid'];
+    }
+
+    /**
+     * Sets customer_profile_oid
+     *
+     * @param int $customer_profile_oid Unique identifier for customer profile.  Can not be used with browser key authentication type.
+     *
+     * @return $this
+     */
+    public function setCustomerProfileOid($customer_profile_oid)
+    {
+        $this->container['customer_profile_oid'] = $customer_profile_oid;
 
         return $this;
     }

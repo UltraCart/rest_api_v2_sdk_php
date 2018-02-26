@@ -81,6 +81,26 @@ class AutoOrderApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getAutoOrderByCode
+     *
+     * Retrieve an auto order.
+     *
+     */
+    public function testGetAutoOrderByCode()
+    {
+    }
+
+    /**
+     * Test case for getAutoOrderByReferenceOrderId
+     *
+     * Retrieve an auto order.
+     *
+     */
+    public function testGetAutoOrderByReferenceOrderId()
+    {
+    }
+
+    /**
      * Test case for getAutoOrders
      *
      * Retrieve auto orders.

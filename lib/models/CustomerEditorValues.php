@@ -60,7 +60,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_months' => 'string[]',
         'card_exp_years' => 'string[]',
         'card_types' => 'string[]',
-        'countries' => 'string[]',
+        'countries' => '\ultracart\v2\models\Country[]',
         'qb_classes' => 'string[]',
         'sales_rep_codes' => 'string[]',
         'terms' => 'string[]'
@@ -345,7 +345,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     /**
      * Gets countries
      *
-     * @return string[]
+     * @return \ultracart\v2\models\Country[]
      */
     public function getCountries()
     {
@@ -355,7 +355,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     /**
      * Sets countries
      *
-     * @param string[] $countries countries
+     * @param \ultracart\v2\models\Country[] $countries countries
      *
      * @return $this
      */

@@ -656,6 +656,326 @@ class OrderApi
     }
 
     /**
+     * Operation format
+     *
+     * Format order
+     *
+     * @param  string $order_id The order id to format (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\OrderFormatResponse
+     */
+    public function format($order_id, $format_options)
+    {
+        list($response) = $this->formatWithHttpInfo($order_id, $format_options);
+        return $response;
+    }
+
+    /**
+     * Operation formatWithHttpInfo
+     *
+     * Format order
+     *
+     * @param  string $order_id The order id to format (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderFormatResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function formatWithHttpInfo($order_id, $format_options)
+    {
+        $returnType = '\ultracart\v2\models\OrderFormatResponse';
+        $request = $this->formatRequest($order_id, $format_options);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\OrderFormatResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation formatAsync
+     *
+     * Format order
+     *
+     * @param  string $order_id The order id to format (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function formatAsync($order_id, $format_options)
+    {
+        return $this->formatAsyncWithHttpInfo($order_id, $format_options)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation formatAsyncWithHttpInfo
+     *
+     * Format order
+     *
+     * @param  string $order_id The order id to format (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function formatAsyncWithHttpInfo($order_id, $format_options)
+    {
+        $returnType = '\ultracart\v2\models\OrderFormatResponse';
+        $request = $this->formatRequest($order_id, $format_options);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'format'
+     *
+     * @param  string $order_id The order id to format (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function formatRequest($order_id, $format_options)
+    {
+        // verify the required parameter 'order_id' is set
+        if ($order_id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $order_id when calling format'
+            );
+        }
+        // verify the required parameter 'format_options' is set
+        if ($format_options === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $format_options when calling format'
+            );
+        }
+
+        $resourcePath = '/order/orders/{order_id}/format';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'order_id' . '}',
+                ObjectSerializer::toPathValue($order_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($format_options)) {
+            $_tempBody = $format_options;
+        }
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getOrder
      *
      * Retrieve an order
@@ -1002,6 +1322,7 @@ class OrderApi
      * @param  string $current_stage Current Stage (optional)
      * @param  string $channel_partner_code Channel Partner Code (optional)
      * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
+     * @param  int $customer_profile_oid null (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1011,9 +1332,9 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\OrdersResponse
      */
-    public function getOrders($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getOrders($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        list($response) = $this->getOrdersWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand);
+        list($response) = $this->getOrdersWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand);
         return $response;
     }
 
@@ -1049,6 +1370,7 @@ class OrderApi
      * @param  string $current_stage Current Stage (optional)
      * @param  string $channel_partner_code Channel Partner Code (optional)
      * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
+     * @param  int $customer_profile_oid null (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1058,10 +1380,10 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrdersWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getOrdersWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrdersResponse';
-        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand);
+        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand);
 
         try {
 
@@ -1193,6 +1515,7 @@ class OrderApi
      * @param  string $current_stage Current Stage (optional)
      * @param  string $channel_partner_code Channel Partner Code (optional)
      * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
+     * @param  int $customer_profile_oid null (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1201,9 +1524,9 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsync($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getOrdersAsync($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        return $this->getOrdersAsyncWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand)
+        return $this->getOrdersAsyncWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1243,6 +1566,7 @@ class OrderApi
      * @param  string $current_stage Current Stage (optional)
      * @param  string $channel_partner_code Channel Partner Code (optional)
      * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
+     * @param  int $customer_profile_oid null (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1251,10 +1575,10 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsyncWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getOrdersAsyncWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrdersResponse';
-        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand);
+        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand);
 
         return $this->client
             ->sendAsync($request)
@@ -1323,6 +1647,7 @@ class OrderApi
      * @param  string $current_stage Current Stage (optional)
      * @param  string $channel_partner_code Channel Partner Code (optional)
      * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
+     * @param  int $customer_profile_oid null (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -1331,7 +1656,7 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOrdersRequest($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    protected function getOrdersRequest($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
 
         $resourcePath = '/order/orders';
@@ -1448,6 +1773,10 @@ class OrderApi
         // query params
         if ($channel_partner_order_id !== null) {
             $queryParams['channel_partner_order_id'] = ObjectSerializer::toQueryValue($channel_partner_order_id);
+        }
+        // query params
+        if ($customer_profile_oid !== null) {
+            $queryParams['customer_profile_oid'] = ObjectSerializer::toQueryValue($customer_profile_oid);
         }
         // query params
         if ($_limit !== null) {

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
+[**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 [**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
 [**getOrders**](OrderApi.md#getOrders) | **GET** /order/orders | Retrieve orders
 [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders
@@ -118,6 +119,60 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **format**
+> \ultracart\v2\models\OrderFormatResponse format($order_id, $format_options)
+
+Format order
+
+Format the order for display at text or html
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$order_id = "order_id_example"; // string | The order id to format
+$format_options = new \ultracart\v2\models\OrderFormat(); // \ultracart\v2\models\OrderFormat | Format options
+
+try {
+    $result = $api_instance->format($order_id, $format_options);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->format: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to format |
+ **format_options** | [**\ultracart\v2\models\OrderFormat**](../Model/OrderFormat.md)| Format options |
+
+### Return type
+
+[**\ultracart\v2\models\OrderFormatResponse**](../Model/OrderFormatResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getOrder**
 > \ultracart\v2\models\OrderResponse getOrder($order_id, $_expand)
 
@@ -173,7 +228,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrders**
-> \ultracart\v2\models\OrdersResponse getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand)
+> \ultracart\v2\models\OrdersResponse getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve orders
 
@@ -219,13 +274,14 @@ $item_id = "item_id_example"; // string | Item Id
 $current_stage = "current_stage_example"; // string | Current Stage
 $channel_partner_code = "channel_partner_code_example"; // string | Channel Partner Code
 $channel_partner_order_id = "channel_partner_order_id_example"; // string | Channel Partner Order ID
+$customer_profile_oid = 56; // int | null
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_sort = "_sort_example"; // string | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.
 
 try {
-    $result = $api_instance->getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $_limit, $_offset, $_sort, $_expand);
+    $result = $api_instance->getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $_limit, $_offset, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->getOrders: ', $e->getMessage(), PHP_EOL;
@@ -264,6 +320,7 @@ Name | Type | Description  | Notes
  **current_stage** | **string**| Current Stage | [optional]
  **channel_partner_code** | **string**| Channel Partner Code | [optional]
  **channel_partner_order_id** | **string**| Channel Partner Order ID | [optional]
+ **customer_profile_oid** | **int**| null | [optional]
  **_limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_sort** | **string**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]

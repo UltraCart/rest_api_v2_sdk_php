@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **billing** | [**\ultracart\v2\models\CustomerBilling[]**](CustomerBilling.md) | Billing addresses for this customer | [optional] 
 **business_notes** | **string** | Business notes (internally visible only) | [optional] 
 **cards** | [**\ultracart\v2\models\CustomerCard[]**](CustomerCard.md) | Credit Cards for this customer | [optional] 
+**cc_emails** | [**\ultracart\v2\models\CustomerEmail[]**](CustomerEmail.md) | Additional emails to CC notification | [optional] 
 **customer_profile_oid** | **int** | Customer profile object identifier | [optional] 
 **dhl_account_number** | **string** | DHL account number | [optional] 
 **email** | **string** | Email address of this customer profile | [optional] 
