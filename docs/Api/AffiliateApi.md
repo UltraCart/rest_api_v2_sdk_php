@@ -27,7 +27,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AffiliateApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\AffiliateApi(new \Http\Adapter\Guzzle6\Client());
 $click_query = new \ultracart\v2\models\AffiliateClickQuery(); // \ultracart\v2\models\AffiliateClickQuery | Click query
 $_limit = 10000; // int | The maximum number of records to return on this one API call. (Maximum 10000)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
@@ -85,7 +85,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AffiliateApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\AffiliateApi(new \Http\Adapter\Guzzle6\Client());
 $ledger_query = new \ultracart\v2\models\AffiliateLedgerQuery(); // \ultracart\v2\models\AffiliateLedgerQuery | Ledger query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.

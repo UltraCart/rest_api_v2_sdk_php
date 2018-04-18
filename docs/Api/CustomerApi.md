@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
 [**getCustomersByQuery**](CustomerApi.md#getCustomersByQuery) | **GET** /customer/customers/query | Retrieve customers by query
+[**getCustomersForDataTables**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**getEditorValues**](CustomerApi.md#getEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
@@ -32,7 +33,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer_profile_oid = 56; // int | The customer_profile_oid to delete.
 
 try {
@@ -84,7 +85,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer_profile_oid = 56; // int | The customer oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -138,7 +139,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $email = "email_example"; // string | Email
 $qb_class = "qb_class_example"; // string | Quickbooks class
 $quickbooks_code = "quickbooks_code_example"; // string | Quickbooks code
@@ -252,7 +253,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer_query = new \ultracart\v2\models\CustomerQuery(); // \ultracart\v2\models\CustomerQuery | Customer query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
@@ -295,6 +296,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getCustomersForDataTables**
+> \ultracart\v2\models\DataTablesServerSideResponse getCustomersForDataTables($_expand)
+
+Retrieve customers for DataTables plugin
+
+Retrieves customers from the account.  If no searches are specified, all customers will be returned.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $api_instance->getCustomersForDataTables($_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getCustomersForDataTables: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\DataTablesServerSideResponse**](../Model/DataTablesServerSideResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getEditorValues**
 > \ultracart\v2\models\CustomerEditorValues getEditorValues()
 
@@ -314,7 +367,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getEditorValues();
@@ -362,7 +415,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to insert
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -416,7 +469,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
 $customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to update
 $customer_profile_oid = 56; // int | The customer_profile_oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples

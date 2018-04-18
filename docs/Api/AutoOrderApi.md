@@ -30,7 +30,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
 $auto_order_oid = 56; // int | The auto order oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -84,7 +84,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
 $auto_order_code = "auto_order_code_example"; // string | The auto order oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -138,7 +138,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
 $reference_order_id = "reference_order_id_example"; // string | The auto order oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -192,7 +192,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
 $auto_order_code = "auto_order_code_example"; // string | Auto order code
 $original_order_id = "original_order_id_example"; // string | Original order id
 $first_name = "first_name_example"; // string | First name
@@ -288,7 +288,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
 $auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto order to update
 $auto_order_oid = 56; // int | The auto order oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples

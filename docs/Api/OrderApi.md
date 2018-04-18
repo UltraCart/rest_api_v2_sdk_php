@@ -35,7 +35,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to cancel.
 
 try {
@@ -87,7 +87,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to delete.
 
 try {
@@ -138,7 +138,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to format
 $format_options = new \ultracart\v2\models\OrderFormat(); // \ultracart\v2\models\OrderFormat | Format options
 
@@ -192,7 +192,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -246,7 +246,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | Order Id
 $payment_method = "payment_method_example"; // string | Payment Method
 $company = "company_example"; // string | Company
@@ -360,7 +360,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_query = new \ultracart\v2\models\OrderQuery(); // \ultracart\v2\models\OrderQuery | Order query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
@@ -420,7 +420,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to refund
 $order_id = "order_id_example"; // string | The order id to refund.
 $reject_after_refund = false; // bool | Reject order after refund
@@ -486,7 +486,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to resend the receipt for.
 
 try {
@@ -538,7 +538,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order_id = "order_id_example"; // string | The order id to resend the shipment notification for.
 
 try {
@@ -590,7 +590,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 $order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to update
 $order_id = "order_id_example"; // string | The order id to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples

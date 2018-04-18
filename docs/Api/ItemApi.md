@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getItem**](ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**getItemByMerchantItemId**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
+[**getPricingTiers**](ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
@@ -33,7 +34,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
 $merchant_item_oid = 56; // int | The item oid to delete.
 
 try {
@@ -84,7 +85,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
 $merchant_item_oid = 56; // int | The item oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
@@ -140,7 +141,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
 $merchant_item_id = "merchant_item_id_example"; // string | The item id to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
@@ -196,7 +197,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
 $parent_category_id = 56; // int | The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 = root
 $parent_category_path = "parent_category_path_example"; // string | The parent category path to retrieve items for.  Unspecified means all items on the account.  / = root
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 2000)
@@ -243,6 +244,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getPricingTiers**
+> \ultracart\v2\models\PricingTiersResponse getPricingTiers($_expand)
+
+Retrieve pricing tiers
+
+Retrieves the pricing tiers
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $api_instance->getPricingTiers($_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getPricingTiers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\PricingTiersResponse**](../Model/PricingTiersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **insertItem**
 > \ultracart\v2\models\ItemResponse insertItem($item, $_expand, $_placeholders)
 
@@ -262,7 +315,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
 $item = new \ultracart\v2\models\Item(); // \ultracart\v2\models\Item | Item to create
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
@@ -318,7 +371,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
 $item = new \ultracart\v2\models\Item(); // \ultracart\v2\models\Item | Item to update
 $merchant_item_oid = 56; // int | The item oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
@@ -376,7 +429,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
 $items_request = new \ultracart\v2\models\ItemsRequest(); // \ultracart\v2\models\ItemsRequest | Items to update (synchronous maximum 20 / asynchronous maximum 100)
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
@@ -434,7 +487,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\ItemApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ItemApi(new \Http\Adapter\Guzzle6\Client());
 $file = "/path/to/file.txt"; // \SplFileObject | File to upload
 
 try {

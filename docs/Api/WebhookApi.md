@@ -32,7 +32,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
 $webhook_oid = 56; // int | The webhook oid to delete.
 
 try {
@@ -83,7 +83,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
 $webhook_oid = 56; // int | The webhook oid that owns the log.
 $request_id = "request_id_example"; // string | The request id associated with the log to view.
 
@@ -137,7 +137,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
 $webhook_oid = 56; // int | The webhook oid to retrieve log summaries for.
 $_limit = 100; // int | The maximum number of records to return on this one API call.
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
@@ -195,7 +195,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
 $_limit = 100; // int | The maximum number of records to return on this one API call.
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_sort = "_sort_example"; // string | The sort order of the webhooks.  See documentation for examples
@@ -253,7 +253,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
 $webhook = new \ultracart\v2\models\Webhook(); // \ultracart\v2\models\Webhook | Webhook to create
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
@@ -307,7 +307,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
 $webhook_oid = 56; // int | The webhook oid that is receiving the reflowed events.
 $event_name = "event_name_example"; // string | The event to reflow.
 
@@ -361,7 +361,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\WebhookApi(new \Http\Adapter\Guzzle6\Client());
 $webhook = new \ultracart\v2\models\Webhook(); // \ultracart\v2\models\Webhook | Webhook to update
 $webhook_oid = 56; // int | The webhook oid to update.
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.

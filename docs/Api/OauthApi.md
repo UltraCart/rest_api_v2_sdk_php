@@ -31,7 +31,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OauthApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
 $client_id = "client_id_example"; // string | The OAuth application client_id.
 $grant_type = "grant_type_example"; // string | Type of grant
 $code = "code_example"; // string | Authorization code received back from the browser redirect
@@ -95,7 +95,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\OauthApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
 $client_id = "client_id_example"; // string | The OAuth application client_id.
 $token = "token_example"; // string | The OAuth access token that is to be revoked..
 

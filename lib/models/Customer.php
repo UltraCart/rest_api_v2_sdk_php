@@ -13,7 +13,7 @@
 /**
  * UltraCart Rest API V2
  *
- * This is the next generation UltraCart REST API...
+ * UltraCart REST API Version 2
  *
  * OpenAPI spec version: 2.0.0
  * Contact: support@ultracart.com
@@ -84,10 +84,14 @@ class Customer implements ModelInterface, ArrayAccess
         'no_coupons' => 'bool',
         'no_free_shipping' => 'bool',
         'no_realtime_charge' => 'bool',
+        'orders' => '\ultracart\v2\models\Order[]',
+        'orders_summary' => '\ultracart\v2\models\CustomerOrdersSummary',
         'password' => 'string',
         'pricing_tiers' => '\ultracart\v2\models\CustomerPricingTier[]',
         'qb_class' => 'string',
         'qb_code' => 'string',
+        'quotes' => '\ultracart\v2\models\Order[]',
+        'quotes_summary' => '\ultracart\v2\models\CustomerQuotesSummary',
         'referral_source' => 'string',
         'sales_rep_code' => 'string',
         'send_signup_notification' => 'bool',
@@ -137,10 +141,14 @@ class Customer implements ModelInterface, ArrayAccess
         'no_coupons' => null,
         'no_free_shipping' => null,
         'no_realtime_charge' => null,
+        'orders' => null,
+        'orders_summary' => null,
         'password' => null,
         'pricing_tiers' => null,
         'qb_class' => null,
         'qb_code' => null,
+        'quotes' => null,
+        'quotes_summary' => null,
         'referral_source' => null,
         'sales_rep_code' => null,
         'send_signup_notification' => null,
@@ -211,10 +219,14 @@ class Customer implements ModelInterface, ArrayAccess
         'no_coupons' => 'no_coupons',
         'no_free_shipping' => 'no_free_shipping',
         'no_realtime_charge' => 'no_realtime_charge',
+        'orders' => 'orders',
+        'orders_summary' => 'orders_summary',
         'password' => 'password',
         'pricing_tiers' => 'pricing_tiers',
         'qb_class' => 'qb_class',
         'qb_code' => 'qb_code',
+        'quotes' => 'quotes',
+        'quotes_summary' => 'quotes_summary',
         'referral_source' => 'referral_source',
         'sales_rep_code' => 'sales_rep_code',
         'send_signup_notification' => 'send_signup_notification',
@@ -264,10 +276,14 @@ class Customer implements ModelInterface, ArrayAccess
         'no_coupons' => 'setNoCoupons',
         'no_free_shipping' => 'setNoFreeShipping',
         'no_realtime_charge' => 'setNoRealtimeCharge',
+        'orders' => 'setOrders',
+        'orders_summary' => 'setOrdersSummary',
         'password' => 'setPassword',
         'pricing_tiers' => 'setPricingTiers',
         'qb_class' => 'setQbClass',
         'qb_code' => 'setQbCode',
+        'quotes' => 'setQuotes',
+        'quotes_summary' => 'setQuotesSummary',
         'referral_source' => 'setReferralSource',
         'sales_rep_code' => 'setSalesRepCode',
         'send_signup_notification' => 'setSendSignupNotification',
@@ -317,10 +333,14 @@ class Customer implements ModelInterface, ArrayAccess
         'no_coupons' => 'getNoCoupons',
         'no_free_shipping' => 'getNoFreeShipping',
         'no_realtime_charge' => 'getNoRealtimeCharge',
+        'orders' => 'getOrders',
+        'orders_summary' => 'getOrdersSummary',
         'password' => 'getPassword',
         'pricing_tiers' => 'getPricingTiers',
         'qb_class' => 'getQbClass',
         'qb_code' => 'getQbCode',
+        'quotes' => 'getQuotes',
+        'quotes_summary' => 'getQuotesSummary',
         'referral_source' => 'getReferralSource',
         'sales_rep_code' => 'getSalesRepCode',
         'send_signup_notification' => 'getSendSignupNotification',
@@ -424,10 +444,14 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['no_coupons'] = isset($data['no_coupons']) ? $data['no_coupons'] : null;
         $this->container['no_free_shipping'] = isset($data['no_free_shipping']) ? $data['no_free_shipping'] : null;
         $this->container['no_realtime_charge'] = isset($data['no_realtime_charge']) ? $data['no_realtime_charge'] : null;
+        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
+        $this->container['orders_summary'] = isset($data['orders_summary']) ? $data['orders_summary'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['pricing_tiers'] = isset($data['pricing_tiers']) ? $data['pricing_tiers'] : null;
         $this->container['qb_class'] = isset($data['qb_class']) ? $data['qb_class'] : null;
         $this->container['qb_code'] = isset($data['qb_code']) ? $data['qb_code'] : null;
+        $this->container['quotes'] = isset($data['quotes']) ? $data['quotes'] : null;
+        $this->container['quotes_summary'] = isset($data['quotes_summary']) ? $data['quotes_summary'] : null;
         $this->container['referral_source'] = isset($data['referral_source']) ? $data['referral_source'] : null;
         $this->container['sales_rep_code'] = isset($data['sales_rep_code']) ? $data['sales_rep_code'] : null;
         $this->container['send_signup_notification'] = isset($data['send_signup_notification']) ? $data['send_signup_notification'] : null;
@@ -1227,6 +1251,54 @@ class Customer implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets orders
+     *
+     * @return \ultracart\v2\models\Order[]
+     */
+    public function getOrders()
+    {
+        return $this->container['orders'];
+    }
+
+    /**
+     * Sets orders
+     *
+     * @param \ultracart\v2\models\Order[] $orders Orders associated with this customer profile
+     *
+     * @return $this
+     */
+    public function setOrders($orders)
+    {
+        $this->container['orders'] = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Gets orders_summary
+     *
+     * @return \ultracart\v2\models\CustomerOrdersSummary
+     */
+    public function getOrdersSummary()
+    {
+        return $this->container['orders_summary'];
+    }
+
+    /**
+     * Sets orders_summary
+     *
+     * @param \ultracart\v2\models\CustomerOrdersSummary $orders_summary orders_summary
+     *
+     * @return $this
+     */
+    public function setOrdersSummary($orders_summary)
+    {
+        $this->container['orders_summary'] = $orders_summary;
+
+        return $this;
+    }
+
+    /**
      * Gets password
      *
      * @return string
@@ -1322,6 +1394,54 @@ class Customer implements ModelInterface, ArrayAccess
     public function setQbCode($qb_code)
     {
         $this->container['qb_code'] = $qb_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets quotes
+     *
+     * @return \ultracart\v2\models\Order[]
+     */
+    public function getQuotes()
+    {
+        return $this->container['quotes'];
+    }
+
+    /**
+     * Sets quotes
+     *
+     * @param \ultracart\v2\models\Order[] $quotes Quotes associated with this customer profile
+     *
+     * @return $this
+     */
+    public function setQuotes($quotes)
+    {
+        $this->container['quotes'] = $quotes;
+
+        return $this;
+    }
+
+    /**
+     * Gets quotes_summary
+     *
+     * @return \ultracart\v2\models\CustomerQuotesSummary
+     */
+    public function getQuotesSummary()
+    {
+        return $this->container['quotes_summary'];
+    }
+
+    /**
+     * Sets quotes_summary
+     *
+     * @param \ultracart\v2\models\CustomerQuotesSummary $quotes_summary quotes_summary
+     *
+     * @return $this
+     */
+    public function setQuotesSummary($quotes_summary)
+    {
+        $this->container['quotes_summary'] = $quotes_summary;
 
         return $this;
     }

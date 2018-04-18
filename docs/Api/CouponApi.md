@@ -35,7 +35,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $coupon_oid = 56; // int | The coupon_oid to delete.
 
 try {
@@ -87,7 +87,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $coupon_oid = 56; // int | The coupon oid to generate codes.
 $coupon_codes_request = new \ultracart\v2\models\CouponCodesRequest(); // \ultracart\v2\models\CouponCodesRequest | Coupon code generation parameters
 
@@ -141,7 +141,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $merchant_code = "merchant_code_example"; // string | The merchant code to generate one time codes.
 $coupon_codes_request = new \ultracart\v2\models\CouponCodesRequest(); // \ultracart\v2\models\CouponCodesRequest | Coupon code generation parameters
 
@@ -195,7 +195,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $coupon_oid = 56; // int | The coupon oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -249,7 +249,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $merchant_code = "merchant_code_example"; // string | The coupon merchant code to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -303,7 +303,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $merchant_code = "merchant_code_example"; // string | Merchant code
 $description = "description_example"; // string | Description
 $coupon_type = "coupon_type_example"; // string | Coupon type
@@ -379,7 +379,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $coupon_query = new \ultracart\v2\models\CouponQuery(); // \ultracart\v2\models\CouponQuery | Coupon query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
@@ -439,7 +439,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 try {
     $result = $api_instance->getEditorValues();
@@ -487,7 +487,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $coupon = new \ultracart\v2\models\Coupon(); // \ultracart\v2\models\Coupon | Coupon to insert
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -541,7 +541,7 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\Api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 $coupon = new \ultracart\v2\models\Coupon(); // \ultracart\v2\models\Coupon | Coupon to update
 $coupon_oid = 56; // int | The coupon_oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
