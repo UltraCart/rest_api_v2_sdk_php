@@ -56,7 +56,10 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'fulfillment_fee' => 'float',
         'order_id' => 'string',
+        'package_cost' => 'float',
+        'shipping_cost' => 'float',
         'tracking_numbers' => 'string[]'
     ];
 
@@ -66,7 +69,10 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'fulfillment_fee' => null,
         'order_id' => null,
+        'package_cost' => null,
+        'shipping_cost' => null,
         'tracking_numbers' => null
     ];
 
@@ -97,7 +103,10 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'fulfillment_fee' => 'fulfillment_fee',
         'order_id' => 'order_id',
+        'package_cost' => 'package_cost',
+        'shipping_cost' => 'shipping_cost',
         'tracking_numbers' => 'tracking_numbers'
     ];
 
@@ -107,7 +116,10 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'fulfillment_fee' => 'setFulfillmentFee',
         'order_id' => 'setOrderId',
+        'package_cost' => 'setPackageCost',
+        'shipping_cost' => 'setShippingCost',
         'tracking_numbers' => 'setTrackingNumbers'
     ];
 
@@ -117,7 +129,10 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'fulfillment_fee' => 'getFulfillmentFee',
         'order_id' => 'getOrderId',
+        'package_cost' => 'getPackageCost',
+        'shipping_cost' => 'getShippingCost',
         'tracking_numbers' => 'getTrackingNumbers'
     ];
 
@@ -181,7 +196,10 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['fulfillment_fee'] = isset($data['fulfillment_fee']) ? $data['fulfillment_fee'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['package_cost'] = isset($data['package_cost']) ? $data['package_cost'] : null;
+        $this->container['shipping_cost'] = isset($data['shipping_cost']) ? $data['shipping_cost'] : null;
         $this->container['tracking_numbers'] = isset($data['tracking_numbers']) ? $data['tracking_numbers'] : null;
     }
 
@@ -211,6 +229,30 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets fulfillment_fee
+     *
+     * @return float
+     */
+    public function getFulfillmentFee()
+    {
+        return $this->container['fulfillment_fee'];
+    }
+
+    /**
+     * Sets fulfillment_fee
+     *
+     * @param float $fulfillment_fee Fees charged by the fulfillment company other than the shipping cost to process the order.
+     *
+     * @return $this
+     */
+    public function setFulfillmentFee($fulfillment_fee)
+    {
+        $this->container['fulfillment_fee'] = $fulfillment_fee;
+
+        return $this;
+    }
+
+    /**
      * Gets order_id
      *
      * @return string
@@ -230,6 +272,54 @@ class FulfillmentShipment implements ModelInterface, ArrayAccess
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets package_cost
+     *
+     * @return float
+     */
+    public function getPackageCost()
+    {
+        return $this->container['package_cost'];
+    }
+
+    /**
+     * Sets package_cost
+     *
+     * @param float $package_cost The cost of the packaging used to sent this shipment
+     *
+     * @return $this
+     */
+    public function setPackageCost($package_cost)
+    {
+        $this->container['package_cost'] = $package_cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_cost
+     *
+     * @return float
+     */
+    public function getShippingCost()
+    {
+        return $this->container['shipping_cost'];
+    }
+
+    /**
+     * Sets shipping_cost
+     *
+     * @param float $shipping_cost The actual total cost of shipping this order
+     *
+     * @return $this
+     */
+    public function setShippingCost($shipping_cost)
+    {
+        $this->container['shipping_cost'] = $shipping_cost;
 
         return $this;
     }
