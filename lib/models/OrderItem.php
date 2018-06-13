@@ -89,6 +89,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'packed_by_user' => 'string',
         'perishable_class' => 'string',
         'pricing_tier_name' => 'string',
+        'properties' => '\ultracart\v2\models\OrderItemProperty[]',
         'quantity' => 'float',
         'quantity_refunded' => 'float',
         'quickbooks_class' => 'string',
@@ -146,6 +147,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'packed_by_user' => null,
         'perishable_class' => null,
         'pricing_tier_name' => null,
+        'properties' => null,
         'quantity' => null,
         'quantity_refunded' => null,
         'quickbooks_class' => null,
@@ -224,6 +226,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'packed_by_user' => 'packed_by_user',
         'perishable_class' => 'perishable_class',
         'pricing_tier_name' => 'pricing_tier_name',
+        'properties' => 'properties',
         'quantity' => 'quantity',
         'quantity_refunded' => 'quantity_refunded',
         'quickbooks_class' => 'quickbooks_class',
@@ -281,6 +284,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'packed_by_user' => 'setPackedByUser',
         'perishable_class' => 'setPerishableClass',
         'pricing_tier_name' => 'setPricingTierName',
+        'properties' => 'setProperties',
         'quantity' => 'setQuantity',
         'quantity_refunded' => 'setQuantityRefunded',
         'quickbooks_class' => 'setQuickbooksClass',
@@ -338,6 +342,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'packed_by_user' => 'getPackedByUser',
         'perishable_class' => 'getPerishableClass',
         'pricing_tier_name' => 'getPricingTierName',
+        'properties' => 'getProperties',
         'quantity' => 'getQuantity',
         'quantity_refunded' => 'getQuantityRefunded',
         'quickbooks_class' => 'getQuickbooksClass',
@@ -449,6 +454,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         $this->container['packed_by_user'] = isset($data['packed_by_user']) ? $data['packed_by_user'] : null;
         $this->container['perishable_class'] = isset($data['perishable_class']) ? $data['perishable_class'] : null;
         $this->container['pricing_tier_name'] = isset($data['pricing_tier_name']) ? $data['pricing_tier_name'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['quantity_refunded'] = isset($data['quantity_refunded']) ? $data['quantity_refunded'] : null;
         $this->container['quickbooks_class'] = isset($data['quickbooks_class']) ? $data['quickbooks_class'] : null;
@@ -1342,6 +1348,30 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function setPricingTierName($pricing_tier_name)
     {
         $this->container['pricing_tier_name'] = $pricing_tier_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\OrderItemProperty[]
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\OrderItemProperty[] $properties Properties
+     *
+     * @return $this
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

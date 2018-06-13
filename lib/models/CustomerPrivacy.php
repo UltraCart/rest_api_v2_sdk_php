@@ -1,6 +1,6 @@
 <?php
 /**
- * CartSettingsShippingCalendar
+ * CustomerPrivacy
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartSettingsShippingCalendar Class Doc Comment
+ * CustomerPrivacy Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
+class CustomerPrivacy implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CartSettingsShippingCalendar';
+    protected static $swaggerModelName = 'CustomerPrivacy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'blackouts' => 'string[]',
-        'days_of_week' => 'bool[]',
-        'earliest' => 'string',
-        'require' => 'bool',
-        'show' => 'bool'
+        'last_update_dts' => 'string',
+        'marketing' => 'bool',
+        'preference' => 'bool',
+        'statistics' => 'bool'
     ];
 
     /**
@@ -69,11 +68,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'blackouts' => null,
-        'days_of_week' => null,
-        'earliest' => null,
-        'require' => null,
-        'show' => null
+        'last_update_dts' => 'dateTime',
+        'marketing' => null,
+        'preference' => null,
+        'statistics' => null
     ];
 
     /**
@@ -103,11 +101,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'blackouts' => 'blackouts',
-        'days_of_week' => 'days_of_week',
-        'earliest' => 'earliest',
-        'require' => 'require',
-        'show' => 'show'
+        'last_update_dts' => 'last_update_dts',
+        'marketing' => 'marketing',
+        'preference' => 'preference',
+        'statistics' => 'statistics'
     ];
 
     /**
@@ -116,11 +113,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'blackouts' => 'setBlackouts',
-        'days_of_week' => 'setDaysOfWeek',
-        'earliest' => 'setEarliest',
-        'require' => 'setRequire',
-        'show' => 'setShow'
+        'last_update_dts' => 'setLastUpdateDts',
+        'marketing' => 'setMarketing',
+        'preference' => 'setPreference',
+        'statistics' => 'setStatistics'
     ];
 
     /**
@@ -129,11 +125,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'blackouts' => 'getBlackouts',
-        'days_of_week' => 'getDaysOfWeek',
-        'earliest' => 'getEarliest',
-        'require' => 'getRequire',
-        'show' => 'getShow'
+        'last_update_dts' => 'getLastUpdateDts',
+        'marketing' => 'getMarketing',
+        'preference' => 'getPreference',
+        'statistics' => 'getStatistics'
     ];
 
     /**
@@ -196,11 +191,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['blackouts'] = isset($data['blackouts']) ? $data['blackouts'] : null;
-        $this->container['days_of_week'] = isset($data['days_of_week']) ? $data['days_of_week'] : null;
-        $this->container['earliest'] = isset($data['earliest']) ? $data['earliest'] : null;
-        $this->container['require'] = isset($data['require']) ? $data['require'] : null;
-        $this->container['show'] = isset($data['show']) ? $data['show'] : null;
+        $this->container['last_update_dts'] = isset($data['last_update_dts']) ? $data['last_update_dts'] : null;
+        $this->container['marketing'] = isset($data['marketing']) ? $data['marketing'] : null;
+        $this->container['preference'] = isset($data['preference']) ? $data['preference'] : null;
+        $this->container['statistics'] = isset($data['statistics']) ? $data['statistics'] : null;
     }
 
     /**
@@ -229,121 +223,97 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets blackouts
-     *
-     * @return string[]
-     */
-    public function getBlackouts()
-    {
-        return $this->container['blackouts'];
-    }
-
-    /**
-     * Sets blackouts
-     *
-     * @param string[] $blackouts Specified dates that are blacked out on the calendar in ISO8601 format
-     *
-     * @return $this
-     */
-    public function setBlackouts($blackouts)
-    {
-        $this->container['blackouts'] = $blackouts;
-
-        return $this;
-    }
-
-    /**
-     * Gets days_of_week
-     *
-     * @return bool[]
-     */
-    public function getDaysOfWeek()
-    {
-        return $this->container['days_of_week'];
-    }
-
-    /**
-     * Sets days_of_week
-     *
-     * @param bool[] $days_of_week Days of week that should be enabled on the calendar (0 - Sunday through 6 - Saturday)
-     *
-     * @return $this
-     */
-    public function setDaysOfWeek($days_of_week)
-    {
-        $this->container['days_of_week'] = $days_of_week;
-
-        return $this;
-    }
-
-    /**
-     * Gets earliest
+     * Gets last_update_dts
      *
      * @return string
      */
-    public function getEarliest()
+    public function getLastUpdateDts()
     {
-        return $this->container['earliest'];
+        return $this->container['last_update_dts'];
     }
 
     /**
-     * Sets earliest
+     * Sets last_update_dts
      *
-     * @param string $earliest The earliest date that can be selected on the calendar
+     * @param string $last_update_dts Last update date
      *
      * @return $this
      */
-    public function setEarliest($earliest)
+    public function setLastUpdateDts($last_update_dts)
     {
-        $this->container['earliest'] = $earliest;
+        $this->container['last_update_dts'] = $last_update_dts;
 
         return $this;
     }
 
     /**
-     * Gets require
+     * Gets marketing
      *
      * @return bool
      */
-    public function getRequire()
+    public function getMarketing()
     {
-        return $this->container['require'];
+        return $this->container['marketing'];
     }
 
     /**
-     * Sets require
+     * Sets marketing
      *
-     * @param bool $require True if the customer is required to select a date
+     * @param bool $marketing The customer has opted in to marketing
      *
      * @return $this
      */
-    public function setRequire($require)
+    public function setMarketing($marketing)
     {
-        $this->container['require'] = $require;
+        $this->container['marketing'] = $marketing;
 
         return $this;
     }
 
     /**
-     * Gets show
+     * Gets preference
      *
      * @return bool
      */
-    public function getShow()
+    public function getPreference()
     {
-        return $this->container['show'];
+        return $this->container['preference'];
     }
 
     /**
-     * Sets show
+     * Sets preference
      *
-     * @param bool $show True if this calendar should be shown to the customer
+     * @param bool $preference The customer has opted in to preference tracking
      *
      * @return $this
      */
-    public function setShow($show)
+    public function setPreference($preference)
     {
-        $this->container['show'] = $show;
+        $this->container['preference'] = $preference;
+
+        return $this;
+    }
+
+    /**
+     * Gets statistics
+     *
+     * @return bool
+     */
+    public function getStatistics()
+    {
+        return $this->container['statistics'];
+    }
+
+    /**
+     * Sets statistics
+     *
+     * @param bool $statistics The customer has opted in to statistics collection
+     *
+     * @return $this
+     */
+    public function setStatistics($statistics)
+    {
+        $this->container['statistics'] = $statistics;
 
         return $this;
     }

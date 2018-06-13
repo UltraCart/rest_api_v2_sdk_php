@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
 
 Update an order
 
-Update a new order on the UltraCart account.
+Update a new order on the UltraCart account.  This is probably NOT the method you want.  It is rare to update a completed order.  This will not trigger charges, emails, or any other automation.
 
 ### Example
 ```php

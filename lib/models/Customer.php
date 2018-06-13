@@ -88,6 +88,7 @@ class Customer implements ModelInterface, ArrayAccess
         'orders_summary' => '\ultracart\v2\models\CustomerOrdersSummary',
         'password' => 'string',
         'pricing_tiers' => '\ultracart\v2\models\CustomerPricingTier[]',
+        'privacy' => '\ultracart\v2\models\CustomerPrivacy',
         'qb_class' => 'string',
         'qb_code' => 'string',
         'quotes' => '\ultracart\v2\models\Order[]',
@@ -145,6 +146,7 @@ class Customer implements ModelInterface, ArrayAccess
         'orders_summary' => null,
         'password' => null,
         'pricing_tiers' => null,
+        'privacy' => null,
         'qb_class' => null,
         'qb_code' => null,
         'quotes' => null,
@@ -223,6 +225,7 @@ class Customer implements ModelInterface, ArrayAccess
         'orders_summary' => 'orders_summary',
         'password' => 'password',
         'pricing_tiers' => 'pricing_tiers',
+        'privacy' => 'privacy',
         'qb_class' => 'qb_class',
         'qb_code' => 'qb_code',
         'quotes' => 'quotes',
@@ -280,6 +283,7 @@ class Customer implements ModelInterface, ArrayAccess
         'orders_summary' => 'setOrdersSummary',
         'password' => 'setPassword',
         'pricing_tiers' => 'setPricingTiers',
+        'privacy' => 'setPrivacy',
         'qb_class' => 'setQbClass',
         'qb_code' => 'setQbCode',
         'quotes' => 'setQuotes',
@@ -337,6 +341,7 @@ class Customer implements ModelInterface, ArrayAccess
         'orders_summary' => 'getOrdersSummary',
         'password' => 'getPassword',
         'pricing_tiers' => 'getPricingTiers',
+        'privacy' => 'getPrivacy',
         'qb_class' => 'getQbClass',
         'qb_code' => 'getQbCode',
         'quotes' => 'getQuotes',
@@ -448,6 +453,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['orders_summary'] = isset($data['orders_summary']) ? $data['orders_summary'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['pricing_tiers'] = isset($data['pricing_tiers']) ? $data['pricing_tiers'] : null;
+        $this->container['privacy'] = isset($data['privacy']) ? $data['privacy'] : null;
         $this->container['qb_class'] = isset($data['qb_class']) ? $data['qb_class'] : null;
         $this->container['qb_code'] = isset($data['qb_code']) ? $data['qb_code'] : null;
         $this->container['quotes'] = isset($data['quotes']) ? $data['quotes'] : null;
@@ -1346,6 +1352,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setPricingTiers($pricing_tiers)
     {
         $this->container['pricing_tiers'] = $pricing_tiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets privacy
+     *
+     * @return \ultracart\v2\models\CustomerPrivacy
+     */
+    public function getPrivacy()
+    {
+        return $this->container['privacy'];
+    }
+
+    /**
+     * Sets privacy
+     *
+     * @param \ultracart\v2\models\CustomerPrivacy $privacy privacy
+     *
+     * @return $this
+     */
+    public function setPrivacy($privacy)
+    {
+        $this->container['privacy'] = $privacy;
 
         return $this;
     }

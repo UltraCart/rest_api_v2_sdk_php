@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **packed_by_user** | **string** | Packed by user | [optional] 
 **perishable_class** | **string** | Perishable class of the item | [optional] 
 **pricing_tier_name** | **string** | Pricing tier that granted the particular price for this item if the customer profile had pricing tiers assigned | [optional] 
+**properties** | [**\ultracart\v2\models\OrderItemProperty[]**](OrderItemProperty.md) | Properties | [optional] 
 **quantity** | **float** | Quantity | [optional] 
 **quantity_refunded** | **float** | Quantity refunded on this item (read only except refund operation) | [optional] 
 **quickbooks_class** | **string** | QuickBooks class | [optional] 

@@ -243,7 +243,6 @@ class OrderPayment implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_CASH = 'Cash';
     const PAYMENT_METHOD_CHECK = 'Check';
     const PAYMENT_METHOD_COD = 'COD';
-    const PAYMENT_METHOD_COINBASE = 'Coinbase';
     const PAYMENT_METHOD_CREDIT_CARD = 'Credit Card';
     const PAYMENT_METHOD_E_BAY = 'eBay';
     const PAYMENT_METHOD_E_CHECK = 'eCheck';
@@ -279,7 +278,6 @@ class OrderPayment implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_CASH,
             self::PAYMENT_METHOD_CHECK,
             self::PAYMENT_METHOD_COD,
-            self::PAYMENT_METHOD_COINBASE,
             self::PAYMENT_METHOD_CREDIT_CARD,
             self::PAYMENT_METHOD_E_BAY,
             self::PAYMENT_METHOD_E_CHECK,

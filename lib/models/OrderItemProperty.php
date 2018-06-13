@@ -1,6 +1,6 @@
 <?php
 /**
- * CartSettingsShippingCalendar
+ * OrderItemProperty
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartSettingsShippingCalendar Class Doc Comment
+ * OrderItemProperty Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
+class OrderItemProperty implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CartSettingsShippingCalendar';
+    protected static $swaggerModelName = 'OrderItemProperty';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'blackouts' => 'string[]',
-        'days_of_week' => 'bool[]',
-        'earliest' => 'string',
-        'require' => 'bool',
-        'show' => 'bool'
+        'display' => 'bool',
+        'expiration_dts' => 'string',
+        'name' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -69,11 +68,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'blackouts' => null,
-        'days_of_week' => null,
-        'earliest' => null,
-        'require' => null,
-        'show' => null
+        'display' => null,
+        'expiration_dts' => 'dateTime',
+        'name' => null,
+        'value' => null
     ];
 
     /**
@@ -103,11 +101,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'blackouts' => 'blackouts',
-        'days_of_week' => 'days_of_week',
-        'earliest' => 'earliest',
-        'require' => 'require',
-        'show' => 'show'
+        'display' => 'display',
+        'expiration_dts' => 'expiration_dts',
+        'name' => 'name',
+        'value' => 'value'
     ];
 
     /**
@@ -116,11 +113,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'blackouts' => 'setBlackouts',
-        'days_of_week' => 'setDaysOfWeek',
-        'earliest' => 'setEarliest',
-        'require' => 'setRequire',
-        'show' => 'setShow'
+        'display' => 'setDisplay',
+        'expiration_dts' => 'setExpirationDts',
+        'name' => 'setName',
+        'value' => 'setValue'
     ];
 
     /**
@@ -129,11 +125,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'blackouts' => 'getBlackouts',
-        'days_of_week' => 'getDaysOfWeek',
-        'earliest' => 'getEarliest',
-        'require' => 'getRequire',
-        'show' => 'getShow'
+        'display' => 'getDisplay',
+        'expiration_dts' => 'getExpirationDts',
+        'name' => 'getName',
+        'value' => 'getValue'
     ];
 
     /**
@@ -196,11 +191,10 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['blackouts'] = isset($data['blackouts']) ? $data['blackouts'] : null;
-        $this->container['days_of_week'] = isset($data['days_of_week']) ? $data['days_of_week'] : null;
-        $this->container['earliest'] = isset($data['earliest']) ? $data['earliest'] : null;
-        $this->container['require'] = isset($data['require']) ? $data['require'] : null;
-        $this->container['show'] = isset($data['show']) ? $data['show'] : null;
+        $this->container['display'] = isset($data['display']) ? $data['display'] : null;
+        $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -211,6 +205,14 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['value']) && (strlen($this->container['value']) > 3800)) {
+            $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 3800.";
+        }
 
         return $invalidProperties;
     }
@@ -224,126 +226,116 @@ class CartSettingsShippingCalendar implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if (strlen($this->container['name']) > 100) {
+            return false;
+        }
+        if (strlen($this->container['value']) > 3800) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets blackouts
+     * Gets display
      *
-     * @return string[]
+     * @return bool
      */
-    public function getBlackouts()
+    public function getDisplay()
     {
-        return $this->container['blackouts'];
+        return $this->container['display'];
     }
 
     /**
-     * Sets blackouts
+     * Sets display
      *
-     * @param string[] $blackouts Specified dates that are blacked out on the calendar in ISO8601 format
+     * @param bool $display True if this property is displayed to the customer
      *
      * @return $this
      */
-    public function setBlackouts($blackouts)
+    public function setDisplay($display)
     {
-        $this->container['blackouts'] = $blackouts;
+        $this->container['display'] = $display;
 
         return $this;
     }
 
     /**
-     * Gets days_of_week
-     *
-     * @return bool[]
-     */
-    public function getDaysOfWeek()
-    {
-        return $this->container['days_of_week'];
-    }
-
-    /**
-     * Sets days_of_week
-     *
-     * @param bool[] $days_of_week Days of week that should be enabled on the calendar (0 - Sunday through 6 - Saturday)
-     *
-     * @return $this
-     */
-    public function setDaysOfWeek($days_of_week)
-    {
-        $this->container['days_of_week'] = $days_of_week;
-
-        return $this;
-    }
-
-    /**
-     * Gets earliest
+     * Gets expiration_dts
      *
      * @return string
      */
-    public function getEarliest()
+    public function getExpirationDts()
     {
-        return $this->container['earliest'];
+        return $this->container['expiration_dts'];
     }
 
     /**
-     * Sets earliest
+     * Sets expiration_dts
      *
-     * @param string $earliest The earliest date that can be selected on the calendar
+     * @param string $expiration_dts The date/time that the property expires and is deleted
      *
      * @return $this
      */
-    public function setEarliest($earliest)
+    public function setExpirationDts($expiration_dts)
     {
-        $this->container['earliest'] = $earliest;
+        $this->container['expiration_dts'] = $expiration_dts;
 
         return $this;
     }
 
     /**
-     * Gets require
+     * Gets name
      *
-     * @return bool
+     * @return string
      */
-    public function getRequire()
+    public function getName()
     {
-        return $this->container['require'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets require
+     * Sets name
      *
-     * @param bool $require True if the customer is required to select a date
+     * @param string $name Name
      *
      * @return $this
      */
-    public function setRequire($require)
+    public function setName($name)
     {
-        $this->container['require'] = $require;
+        if (!is_null($name) && (strlen($name) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling OrderItemProperty., must be smaller than or equal to 100.');
+        }
+
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets show
+     * Gets value
      *
-     * @return bool
+     * @return string
      */
-    public function getShow()
+    public function getValue()
     {
-        return $this->container['show'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets show
+     * Sets value
      *
-     * @param bool $show True if this calendar should be shown to the customer
+     * @param string $value Value
      *
      * @return $this
      */
-    public function setShow($show)
+    public function setValue($value)
     {
-        $this->container['show'] = $show;
+        if (!is_null($value) && (strlen($value) > 3800)) {
+            throw new \InvalidArgumentException('invalid length for $value when calling OrderItemProperty., must be smaller than or equal to 3800.');
+        }
+
+        $this->container['value'] = $value;
 
         return $this;
     }

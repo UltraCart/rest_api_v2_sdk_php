@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **orders_summary** | [**\ultracart\v2\models\CustomerOrdersSummary**](CustomerOrdersSummary.md) |  | [optional] 
 **password** | **string** | Password (may only be set, never read) | [optional] 
 **pricing_tiers** | [**\ultracart\v2\models\CustomerPricingTier[]**](CustomerPricingTier.md) | Pricing tiers for this customer | [optional] 
+**privacy** | [**\ultracart\v2\models\CustomerPrivacy**](CustomerPrivacy.md) |  | [optional] 
 **qb_class** | **string** | QuickBooks class to import this customer as | [optional] 
 **qb_code** | **string** | QuickBooks name to import this customer as | [optional] 
 **quotes** | [**\ultracart\v2\models\Order[]**](Order.md) | Quotes associated with this customer profile | [optional] 
