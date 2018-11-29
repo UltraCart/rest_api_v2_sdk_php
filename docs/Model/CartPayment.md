@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**affirm** | [**\ultracart\v2\models\CartPaymentAffirm**](CartPaymentAffirm.md) |  | [optional] 
 **amazon** | [**\ultracart\v2\models\CartPaymentAmazon**](CartPaymentAmazon.md) |  | [optional] 
 **check** | [**\ultracart\v2\models\CartPaymentCheck**](CartPaymentCheck.md) |  | [optional] 
 **credit_card** | [**\ultracart\v2\models\CartPaymentCreditCard**](CartPaymentCreditCard.md) |  | [optional] 

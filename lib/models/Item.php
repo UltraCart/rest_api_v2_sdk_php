@@ -85,6 +85,7 @@ class Item implements ModelInterface, ArrayAccess
         'merchant_item_oid' => 'int',
         'options' => '\ultracart\v2\models\ItemOption[]',
         'parent_category_id' => 'int',
+        'parent_category_path' => 'string',
         'payment_processing' => '\ultracart\v2\models\ItemPaymentProcessing',
         'physical' => '\ultracart\v2\models\ItemPhysical',
         'pricing' => '\ultracart\v2\models\ItemPricing',
@@ -138,6 +139,7 @@ class Item implements ModelInterface, ArrayAccess
         'merchant_item_oid' => 'int32',
         'options' => null,
         'parent_category_id' => 'int32',
+        'parent_category_path' => null,
         'payment_processing' => null,
         'physical' => null,
         'pricing' => null,
@@ -212,6 +214,7 @@ class Item implements ModelInterface, ArrayAccess
         'merchant_item_oid' => 'merchant_item_oid',
         'options' => 'options',
         'parent_category_id' => 'parent_category_id',
+        'parent_category_path' => 'parent_category_path',
         'payment_processing' => 'payment_processing',
         'physical' => 'physical',
         'pricing' => 'pricing',
@@ -265,6 +268,7 @@ class Item implements ModelInterface, ArrayAccess
         'merchant_item_oid' => 'setMerchantItemOid',
         'options' => 'setOptions',
         'parent_category_id' => 'setParentCategoryId',
+        'parent_category_path' => 'setParentCategoryPath',
         'payment_processing' => 'setPaymentProcessing',
         'physical' => 'setPhysical',
         'pricing' => 'setPricing',
@@ -318,6 +322,7 @@ class Item implements ModelInterface, ArrayAccess
         'merchant_item_oid' => 'getMerchantItemOid',
         'options' => 'getOptions',
         'parent_category_id' => 'getParentCategoryId',
+        'parent_category_path' => 'getParentCategoryPath',
         'payment_processing' => 'getPaymentProcessing',
         'physical' => 'getPhysical',
         'pricing' => 'getPricing',
@@ -425,6 +430,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['merchant_item_oid'] = isset($data['merchant_item_oid']) ? $data['merchant_item_oid'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['parent_category_id'] = isset($data['parent_category_id']) ? $data['parent_category_id'] : null;
+        $this->container['parent_category_path'] = isset($data['parent_category_path']) ? $data['parent_category_path'] : null;
         $this->container['payment_processing'] = isset($data['payment_processing']) ? $data['payment_processing'] : null;
         $this->container['physical'] = isset($data['physical']) ? $data['physical'] : null;
         $this->container['pricing'] = isset($data['pricing']) ? $data['pricing'] : null;
@@ -1193,6 +1199,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setParentCategoryId($parent_category_id)
     {
         $this->container['parent_category_id'] = $parent_category_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_category_path
+     *
+     * @return string
+     */
+    public function getParentCategoryPath()
+    {
+        return $this->container['parent_category_path'];
+    }
+
+    /**
+     * Sets parent_category_path
+     *
+     * @param string $parent_category_path Parent category path.  / indicates the root folder.
+     *
+     * @return $this
+     */
+    public function setParentCategoryPath($parent_category_path)
+    {
+        $this->container['parent_category_path'] = $parent_category_path;
 
         return $this;
     }

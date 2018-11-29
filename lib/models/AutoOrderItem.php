@@ -64,6 +64,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost_remaining_orders' => 'int',
         'auto_order_item_oid' => 'int',
         'frequency' => 'string',
+        'future_schedules' => '\ultracart\v2\models\AutoOrderItemFutureSchedule[]',
         'last_order_dts' => 'string',
         'life_time_value' => 'float',
         'next_preshipment_notice_dts' => 'string',
@@ -94,6 +95,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost_remaining_orders' => 'int32',
         'auto_order_item_oid' => 'int32',
         'frequency' => null,
+        'future_schedules' => null,
         'last_order_dts' => 'dateTime',
         'life_time_value' => null,
         'next_preshipment_notice_dts' => 'dateTime',
@@ -145,6 +147,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost_remaining_orders' => 'arbitrary_unit_cost_remaining_orders',
         'auto_order_item_oid' => 'auto_order_item_oid',
         'frequency' => 'frequency',
+        'future_schedules' => 'future_schedules',
         'last_order_dts' => 'last_order_dts',
         'life_time_value' => 'life_time_value',
         'next_preshipment_notice_dts' => 'next_preshipment_notice_dts',
@@ -175,6 +178,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost_remaining_orders' => 'setArbitraryUnitCostRemainingOrders',
         'auto_order_item_oid' => 'setAutoOrderItemOid',
         'frequency' => 'setFrequency',
+        'future_schedules' => 'setFutureSchedules',
         'last_order_dts' => 'setLastOrderDts',
         'life_time_value' => 'setLifeTimeValue',
         'next_preshipment_notice_dts' => 'setNextPreshipmentNoticeDts',
@@ -205,6 +209,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost_remaining_orders' => 'getArbitraryUnitCostRemainingOrders',
         'auto_order_item_oid' => 'getAutoOrderItemOid',
         'frequency' => 'getFrequency',
+        'future_schedules' => 'getFutureSchedules',
         'last_order_dts' => 'getLastOrderDts',
         'life_time_value' => 'getLifeTimeValue',
         'next_preshipment_notice_dts' => 'getNextPreshipmentNoticeDts',
@@ -326,6 +331,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         $this->container['arbitrary_unit_cost_remaining_orders'] = isset($data['arbitrary_unit_cost_remaining_orders']) ? $data['arbitrary_unit_cost_remaining_orders'] : null;
         $this->container['auto_order_item_oid'] = isset($data['auto_order_item_oid']) ? $data['auto_order_item_oid'] : null;
         $this->container['frequency'] = isset($data['frequency']) ? $data['frequency'] : null;
+        $this->container['future_schedules'] = isset($data['future_schedules']) ? $data['future_schedules'] : null;
         $this->container['last_order_dts'] = isset($data['last_order_dts']) ? $data['last_order_dts'] : null;
         $this->container['life_time_value'] = isset($data['life_time_value']) ? $data['life_time_value'] : null;
         $this->container['next_preshipment_notice_dts'] = isset($data['next_preshipment_notice_dts']) ? $data['next_preshipment_notice_dts'] : null;
@@ -576,6 +582,30 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
             );
         }
         $this->container['frequency'] = $frequency;
+
+        return $this;
+    }
+
+    /**
+     * Gets future_schedules
+     *
+     * @return \ultracart\v2\models\AutoOrderItemFutureSchedule[]
+     */
+    public function getFutureSchedules()
+    {
+        return $this->container['future_schedules'];
+    }
+
+    /**
+     * Sets future_schedules
+     *
+     * @param \ultracart\v2\models\AutoOrderItemFutureSchedule[] $future_schedules The future rebill schedule for this item up to the next ten rebills
+     *
+     * @return $this
+     */
+    public function setFutureSchedules($future_schedules)
+    {
+        $this->container['future_schedules'] = $future_schedules;
 
         return $this;
     }

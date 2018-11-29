@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **merchant_id** | **string** | UltraCart merchant ID owning this order | [optional] 
 **order_id** | **string** | Order ID | [optional] 
 **payment** | [**\ultracart\v2\models\OrderPayment**](OrderPayment.md) |  | [optional] 
+**properties** | [**\ultracart\v2\models\OrderProperty[]**](OrderProperty.md) | Properties | [optional] 
 **quote** | [**\ultracart\v2\models\OrderQuote**](OrderQuote.md) |  | [optional] 
 **refund_dts** | **string** | If the order was refunded, the date/time that the last refund occurred | [optional] 
 **reject_dts** | **string** | If the order was rejected, the date/time that the rejection occurred | [optional] 

@@ -99,6 +99,7 @@ class Customer implements ModelInterface, ArrayAccess
         'shipping' => '\ultracart\v2\models\CustomerShipping[]',
         'signup_dts' => 'string',
         'suppress_buysafe' => 'bool',
+        'tax_codes' => '\ultracart\v2\models\CustomerTaxCodes',
         'tax_exempt' => 'bool',
         'tax_id' => 'string',
         'terms' => 'string',
@@ -157,6 +158,7 @@ class Customer implements ModelInterface, ArrayAccess
         'shipping' => null,
         'signup_dts' => null,
         'suppress_buysafe' => null,
+        'tax_codes' => null,
         'tax_exempt' => null,
         'tax_id' => null,
         'terms' => null,
@@ -236,6 +238,7 @@ class Customer implements ModelInterface, ArrayAccess
         'shipping' => 'shipping',
         'signup_dts' => 'signup_dts',
         'suppress_buysafe' => 'suppress_buysafe',
+        'tax_codes' => 'tax_codes',
         'tax_exempt' => 'tax_exempt',
         'tax_id' => 'tax_id',
         'terms' => 'terms',
@@ -294,6 +297,7 @@ class Customer implements ModelInterface, ArrayAccess
         'shipping' => 'setShipping',
         'signup_dts' => 'setSignupDts',
         'suppress_buysafe' => 'setSuppressBuysafe',
+        'tax_codes' => 'setTaxCodes',
         'tax_exempt' => 'setTaxExempt',
         'tax_id' => 'setTaxId',
         'terms' => 'setTerms',
@@ -352,6 +356,7 @@ class Customer implements ModelInterface, ArrayAccess
         'shipping' => 'getShipping',
         'signup_dts' => 'getSignupDts',
         'suppress_buysafe' => 'getSuppressBuysafe',
+        'tax_codes' => 'getTaxCodes',
         'tax_exempt' => 'getTaxExempt',
         'tax_id' => 'getTaxId',
         'terms' => 'getTerms',
@@ -464,6 +469,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['signup_dts'] = isset($data['signup_dts']) ? $data['signup_dts'] : null;
         $this->container['suppress_buysafe'] = isset($data['suppress_buysafe']) ? $data['suppress_buysafe'] : null;
+        $this->container['tax_codes'] = isset($data['tax_codes']) ? $data['tax_codes'] : null;
         $this->container['tax_exempt'] = isset($data['tax_exempt']) ? $data['tax_exempt'] : null;
         $this->container['tax_id'] = isset($data['tax_id']) ? $data['tax_id'] : null;
         $this->container['terms'] = isset($data['terms']) ? $data['terms'] : null;
@@ -1624,6 +1630,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setSuppressBuysafe($suppress_buysafe)
     {
         $this->container['suppress_buysafe'] = $suppress_buysafe;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_codes
+     *
+     * @return \ultracart\v2\models\CustomerTaxCodes
+     */
+    public function getTaxCodes()
+    {
+        return $this->container['tax_codes'];
+    }
+
+    /**
+     * Sets tax_codes
+     *
+     * @param \ultracart\v2\models\CustomerTaxCodes $tax_codes tax_codes
+     *
+     * @return $this
+     */
+    public function setTaxCodes($tax_codes)
+    {
+        $this->container['tax_codes'] = $tax_codes;
 
         return $this;
     }

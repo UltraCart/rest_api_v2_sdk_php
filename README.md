@@ -122,9 +122,12 @@ Class | Method | HTTP request | Description
 *ChargebackApi* | [**updateChargeback**](docs/Api/ChargebackApi.md#updatechargeback) | **PUT** /chargeback/chargebacks/{chargeback_dispute_oid} | Update a chargeback
 *CheckoutApi* | [**cityState**](docs/Api/CheckoutApi.md#citystate) | **POST** /checkout/city_state | City/State for Zip
 *CheckoutApi* | [**finalizeOrder**](docs/Api/CheckoutApi.md#finalizeorder) | **POST** /checkout/cart/finalizeOrder | Finalize Order
+*CheckoutApi* | [**getAffirmCheckout**](docs/Api/CheckoutApi.md#getaffirmcheckout) | **GET** /checkout/cart/{cart_id}/affirmCheckout | Get affirm checkout (by cart id)
+*CheckoutApi* | [**getAllowedCountries**](docs/Api/CheckoutApi.md#getallowedcountries) | **POST** /checkout/allowedCountries | Allowed countries
 *CheckoutApi* | [**getCart**](docs/Api/CheckoutApi.md#getcart) | **GET** /checkout/cart | Get cart
 *CheckoutApi* | [**getCartByCartId**](docs/Api/CheckoutApi.md#getcartbycartid) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
 *CheckoutApi* | [**getCartByReturnCode**](docs/Api/CheckoutApi.md#getcartbyreturncode) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+*CheckoutApi* | [**getStateProvincesForCountry**](docs/Api/CheckoutApi.md#getstateprovincesforcountry) | **POST** /checkout/stateProvincesForCountry/{country_code} | Get state/province list for a country code
 *CheckoutApi* | [**handoffCart**](docs/Api/CheckoutApi.md#handoffcart) | **POST** /checkout/cart/handoff | Handoff cart
 *CheckoutApi* | [**login**](docs/Api/CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
 *CheckoutApi* | [**logout**](docs/Api/CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
@@ -178,6 +181,31 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**resendReceipt**](docs/Api/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
+*TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
+*TaxApi* | [**deleteTaxProviderSelfCountry**](docs/Api/TaxApi.md#deletetaxproviderselfcountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
+*TaxApi* | [**deleteTaxProviderSelfCounty**](docs/Api/TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
+*TaxApi* | [**deleteTaxProviderSelfPostalCode**](docs/Api/TaxApi.md#deletetaxproviderselfpostalcode) | **DELETE** /tax/providers/self/postalCode/{postal_code} | Deletes a Self tax provider postalCode
+*TaxApi* | [**deleteTaxProviderSelfState**](docs/Api/TaxApi.md#deletetaxproviderselfstate) | **DELETE** /tax/providers/self/state/{stateCode} | Deletes a Self tax provider state
+*TaxApi* | [**getTaxProviderAvalara**](docs/Api/TaxApi.md#gettaxprovideravalara) | **GET** /tax/providers/avalara | Retrieve the Avalara tax provider
+*TaxApi* | [**getTaxProviderAvalaraCompanies**](docs/Api/TaxApi.md#gettaxprovideravalaracompanies) | **POST** /tax/providers/avalara/companies | Returns Avalara Tax companies configured by the merchant
+*TaxApi* | [**getTaxProviderAvalaraTest**](docs/Api/TaxApi.md#gettaxprovideravalaratest) | **GET** /tax/providers/avalara/test | Attempts to connect to Avalara and returns back the response
+*TaxApi* | [**getTaxProviderSelf**](docs/Api/TaxApi.md#gettaxproviderself) | **GET** /tax/providers/self | Retrieve the Self tax provider
+*TaxApi* | [**getTaxProviderSelfCountries**](docs/Api/TaxApi.md#gettaxproviderselfcountries) | **GET** /tax/providers/self/countries | Retrieve the Self tax provider countries
+*TaxApi* | [**getTaxProviderSelfRegionsByCountryCode**](docs/Api/TaxApi.md#gettaxproviderselfregionsbycountrycode) | **GET** /tax/providers/self/regions/{countryCode} | Retrieve the Self tax provider regions for a given country code
+*TaxApi* | [**getTaxProviderTaxJar**](docs/Api/TaxApi.md#gettaxprovidertaxjar) | **GET** /tax/providers/taxjar | Retrieve the TaxJar tax provider
+*TaxApi* | [**getTaxProviderTaxJarTest**](docs/Api/TaxApi.md#gettaxprovidertaxjartest) | **GET** /tax/providers/taxjar/test | Attempts to connect to TaxJar and returns back the response
+*TaxApi* | [**getTaxProviderUltraCart**](docs/Api/TaxApi.md#gettaxproviderultracart) | **GET** /tax/providers/ultracart | Retrieve the UltraCart tax provider
+*TaxApi* | [**getTaxProviders**](docs/Api/TaxApi.md#gettaxproviders) | **GET** /tax/providers | Retrieve tax methods
+*TaxApi* | [**setActiveTaxProvider**](docs/Api/TaxApi.md#setactivetaxprovider) | **POST** /tax/providers/setActive/{providerName} | Toggle a tax provider to active
+*TaxApi* | [**updateTaxProviderAvalara**](docs/Api/TaxApi.md#updatetaxprovideravalara) | **POST** /tax/providers/avalara | Update the Avalara tax provider
+*TaxApi* | [**updateTaxProviderSelf**](docs/Api/TaxApi.md#updatetaxproviderself) | **POST** /tax/providers/self | Update the Self tax provider
+*TaxApi* | [**updateTaxProviderSelfCity**](docs/Api/TaxApi.md#updatetaxproviderselfcity) | **POST** /tax/providers/self/city/{city} | Updates a Self tax provider city
+*TaxApi* | [**updateTaxProviderSelfCountry**](docs/Api/TaxApi.md#updatetaxproviderselfcountry) | **POST** /tax/providers/self/country/{countryCode} | Updates a Self tax provider country
+*TaxApi* | [**updateTaxProviderSelfCounty**](docs/Api/TaxApi.md#updatetaxproviderselfcounty) | **POST** /tax/providers/self/county/{county} | Updates a Self tax provider county
+*TaxApi* | [**updateTaxProviderSelfPostalCode**](docs/Api/TaxApi.md#updatetaxproviderselfpostalcode) | **POST** /tax/providers/self/postalCode/{postal_code} | Updates a Self tax provider postalCode
+*TaxApi* | [**updateTaxProviderSelfState**](docs/Api/TaxApi.md#updatetaxproviderselfstate) | **POST** /tax/providers/self/state/{stateCode} | Updates a Self tax provider state
+*TaxApi* | [**updateTaxProviderTaxJar**](docs/Api/TaxApi.md#updatetaxprovidertaxjar) | **POST** /tax/providers/taxjar | Update the TaxJar tax provider
+*TaxApi* | [**updateTaxProviderUltraCart**](docs/Api/TaxApi.md#updatetaxproviderultracart) | **POST** /tax/providers/ultracart | Update the UltraCart tax provider
 *WebhookApi* | [**deleteWebhook**](docs/Api/WebhookApi.md#deletewebhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
 *WebhookApi* | [**getWebhookLog**](docs/Api/WebhookApi.md#getwebhooklog) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 *WebhookApi* | [**getWebhookLogSummaries**](docs/Api/WebhookApi.md#getwebhooklogsummaries) | **GET** /webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
@@ -199,12 +227,15 @@ Class | Method | HTTP request | Description
  - [ApiUserApplicationProfile](docs/Model/ApiUserApplicationProfile.md)
  - [AutoOrder](docs/Model/AutoOrder.md)
  - [AutoOrderItem](docs/Model/AutoOrderItem.md)
+ - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
  - [AutoOrderResponse](docs/Model/AutoOrderResponse.md)
  - [AutoOrdersResponse](docs/Model/AutoOrdersResponse.md)
+ - [AvalaraConfig](docs/Model/AvalaraConfig.md)
  - [BaseResponse](docs/Model/BaseResponse.md)
  - [Cart](docs/Model/Cart.md)
  - [CartAffiliate](docs/Model/CartAffiliate.md)
+ - [CartAffirmCheckoutResponse](docs/Model/CartAffirmCheckoutResponse.md)
  - [CartBilling](docs/Model/CartBilling.md)
  - [CartBuysafe](docs/Model/CartBuysafe.md)
  - [CartCheckout](docs/Model/CartCheckout.md)
@@ -228,6 +259,7 @@ Class | Method | HTTP request | Description
  - [CartKitComponentOption](docs/Model/CartKitComponentOption.md)
  - [CartMarketing](docs/Model/CartMarketing.md)
  - [CartPayment](docs/Model/CartPayment.md)
+ - [CartPaymentAffirm](docs/Model/CartPaymentAffirm.md)
  - [CartPaymentAmazon](docs/Model/CartPaymentAmazon.md)
  - [CartPaymentCheck](docs/Model/CartPaymentCheck.md)
  - [CartPaymentCreditCard](docs/Model/CartPaymentCreditCard.md)
@@ -260,10 +292,12 @@ Class | Method | HTTP request | Description
  - [ChargebackDispute](docs/Model/ChargebackDispute.md)
  - [ChargebackDisputeResponse](docs/Model/ChargebackDisputeResponse.md)
  - [ChargebackDisputesResponse](docs/Model/ChargebackDisputesResponse.md)
+ - [CheckoutAllowedCountriesResponse](docs/Model/CheckoutAllowedCountriesResponse.md)
  - [CheckoutHandoffRequest](docs/Model/CheckoutHandoffRequest.md)
  - [CheckoutHandoffResponse](docs/Model/CheckoutHandoffResponse.md)
  - [CheckoutSetupBrowserKeyRequest](docs/Model/CheckoutSetupBrowserKeyRequest.md)
  - [CheckoutSetupBrowserKeyResponse](docs/Model/CheckoutSetupBrowserKeyResponse.md)
+ - [CheckoutStateProvinceResponse](docs/Model/CheckoutStateProvinceResponse.md)
  - [CityStateZip](docs/Model/CityStateZip.md)
  - [Country](docs/Model/Country.md)
  - [Coupon](docs/Model/Coupon.md)
@@ -329,6 +363,7 @@ Class | Method | HTTP request | Description
  - [CustomerQuotesSummary](docs/Model/CustomerQuotesSummary.md)
  - [CustomerResponse](docs/Model/CustomerResponse.md)
  - [CustomerShipping](docs/Model/CustomerShipping.md)
+ - [CustomerTaxCodes](docs/Model/CustomerTaxCodes.md)
  - [CustomersResponse](docs/Model/CustomersResponse.md)
  - [DataTablesServerSideResponse](docs/Model/DataTablesServerSideResponse.md)
  - [Distance](docs/Model/Distance.md)
@@ -445,6 +480,7 @@ Class | Method | HTTP request | Description
  - [OrderPaymentPurchaseOrder](docs/Model/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/Model/OrderPaymentTransaction.md)
  - [OrderPaymentTransactionDetail](docs/Model/OrderPaymentTransactionDetail.md)
+ - [OrderProperty](docs/Model/OrderProperty.md)
  - [OrderQuery](docs/Model/OrderQuery.md)
  - [OrderQuote](docs/Model/OrderQuote.md)
  - [OrderResponse](docs/Model/OrderResponse.md)
@@ -458,6 +494,27 @@ Class | Method | HTTP request | Description
  - [PricingTiersResponse](docs/Model/PricingTiersResponse.md)
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
+ - [StateProvince](docs/Model/StateProvince.md)
+ - [TaxCity](docs/Model/TaxCity.md)
+ - [TaxCountry](docs/Model/TaxCountry.md)
+ - [TaxCountryCode](docs/Model/TaxCountryCode.md)
+ - [TaxCounty](docs/Model/TaxCounty.md)
+ - [TaxJarConfig](docs/Model/TaxJarConfig.md)
+ - [TaxPostalCode](docs/Model/TaxPostalCode.md)
+ - [TaxProviderActivateResult](docs/Model/TaxProviderActivateResult.md)
+ - [TaxProviderAvalara](docs/Model/TaxProviderAvalara.md)
+ - [TaxProviderAvalaraCompaniesResult](docs/Model/TaxProviderAvalaraCompaniesResult.md)
+ - [TaxProviderAvalaraCompany](docs/Model/TaxProviderAvalaraCompany.md)
+ - [TaxProviderSelf](docs/Model/TaxProviderSelf.md)
+ - [TaxProviderSelfCountriesResponse](docs/Model/TaxProviderSelfCountriesResponse.md)
+ - [TaxProviderSelfRegionsResponse](docs/Model/TaxProviderSelfRegionsResponse.md)
+ - [TaxProviderTaxJar](docs/Model/TaxProviderTaxJar.md)
+ - [TaxProviderTestResult](docs/Model/TaxProviderTestResult.md)
+ - [TaxProviderUltraCart](docs/Model/TaxProviderUltraCart.md)
+ - [TaxProviderUltraCartState](docs/Model/TaxProviderUltraCartState.md)
+ - [TaxProvidersResponse](docs/Model/TaxProvidersResponse.md)
+ - [TaxState](docs/Model/TaxState.md)
+ - [TaxStateCode](docs/Model/TaxStateCode.md)
  - [TempMultimedia](docs/Model/TempMultimedia.md)
  - [TempMultimediaResponse](docs/Model/TempMultimediaResponse.md)
  - [Webhook](docs/Model/Webhook.md)
@@ -507,6 +564,8 @@ Class | Method | HTTP request | Description
  - **order_write**: Allows you to write order information.
  - **item_read**: Allows you to read item information.
  - **item_write**: Allows you to write item information.
+ - **tax_read**: Allows you to read tax configuration information.
+ - **tax_write**: Allows you to write tax configuration information.
  - **webhook_read**: Allows you to read webhook information.
  - **webhook_write**: Allows you to write webhook information.
  - **ultrabooks_read**: 1 of 2 required to use UltraBooks

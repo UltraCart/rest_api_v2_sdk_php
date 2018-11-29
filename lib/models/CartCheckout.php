@@ -65,6 +65,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field6' => 'string',
         'custom_field7' => 'string',
         'ip_address' => 'string',
+        'return_code' => 'string',
         'screen_branding_theme_code' => 'string'
     ];
 
@@ -83,6 +84,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field6' => null,
         'custom_field7' => null,
         'ip_address' => null,
+        'return_code' => null,
         'screen_branding_theme_code' => null
     ];
 
@@ -122,6 +124,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field6' => 'custom_field6',
         'custom_field7' => 'custom_field7',
         'ip_address' => 'ip_address',
+        'return_code' => 'return_code',
         'screen_branding_theme_code' => 'screen_branding_theme_code'
     ];
 
@@ -140,6 +143,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field6' => 'setCustomField6',
         'custom_field7' => 'setCustomField7',
         'ip_address' => 'setIpAddress',
+        'return_code' => 'setReturnCode',
         'screen_branding_theme_code' => 'setScreenBrandingThemeCode'
     ];
 
@@ -158,6 +162,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field6' => 'getCustomField6',
         'custom_field7' => 'getCustomField7',
         'ip_address' => 'getIpAddress',
+        'return_code' => 'getReturnCode',
         'screen_branding_theme_code' => 'getScreenBrandingThemeCode'
     ];
 
@@ -230,6 +235,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         $this->container['custom_field6'] = isset($data['custom_field6']) ? $data['custom_field6'] : null;
         $this->container['custom_field7'] = isset($data['custom_field7']) ? $data['custom_field7'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
+        $this->container['return_code'] = isset($data['return_code']) ? $data['return_code'] : null;
         $this->container['screen_branding_theme_code'] = isset($data['screen_branding_theme_code']) ? $data['screen_branding_theme_code'] : null;
     }
 
@@ -565,6 +571,30 @@ class CartCheckout implements ModelInterface, ArrayAccess
     public function setIpAddress($ip_address)
     {
         $this->container['ip_address'] = $ip_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_code
+     *
+     * @return string
+     */
+    public function getReturnCode()
+    {
+        return $this->container['return_code'];
+    }
+
+    /**
+     * Sets return_code
+     *
+     * @param string $return_code Return code assigned for send return email operation
+     *
+     * @return $this
+     */
+    public function setReturnCode($return_code)
+    {
+        $this->container['return_code'] = $return_code;
 
         return $this;
     }

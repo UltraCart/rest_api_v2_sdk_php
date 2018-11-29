@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **shipping** | [**\ultracart\v2\models\CustomerShipping[]**](CustomerShipping.md) | Shipping addresses for this customer | [optional] 
 **signup_dts** | **string** | Signup date | [optional] 
 **suppress_buysafe** | **bool** | Suppress buySAFE | [optional] 
+**tax_codes** | [**\ultracart\v2\models\CustomerTaxCodes**](CustomerTaxCodes.md) |  | [optional] 
 **tax_exempt** | **bool** | True if the customer is tax exempt | [optional] 
 **tax_id** | **string** | Tax ID | [optional] 
 **terms** | **string** | Terms for this customer | [optional] 

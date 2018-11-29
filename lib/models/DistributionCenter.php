@@ -69,6 +69,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'ftp_password' => 'string',
         'hold_before_shipment_minutes' => 'int',
         'hold_before_transmission' => 'bool',
+        'hold_auto_order_before_shipment_minutes' => 'int',
         'latitude' => 'float',
         'longitude' => 'float',
         'name' => 'string',
@@ -110,6 +111,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'ftp_password' => null,
         'hold_before_shipment_minutes' => 'int32',
         'hold_before_transmission' => null,
+        'hold_auto_order_before_shipment_minutes' => 'int32',
         'latitude' => null,
         'longitude' => null,
         'name' => null,
@@ -172,6 +174,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'ftp_password' => 'ftp_password',
         'hold_before_shipment_minutes' => 'hold_before_shipment_minutes',
         'hold_before_transmission' => 'hold_before_transmission',
+        'hold_auto_order_before_shipment_minutes' => 'holdAutoOrderBeforeShipmentMinutes',
         'latitude' => 'latitude',
         'longitude' => 'longitude',
         'name' => 'name',
@@ -213,6 +216,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'ftp_password' => 'setFtpPassword',
         'hold_before_shipment_minutes' => 'setHoldBeforeShipmentMinutes',
         'hold_before_transmission' => 'setHoldBeforeTransmission',
+        'hold_auto_order_before_shipment_minutes' => 'setHoldAutoOrderBeforeShipmentMinutes',
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude',
         'name' => 'setName',
@@ -254,6 +258,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'ftp_password' => 'getFtpPassword',
         'hold_before_shipment_minutes' => 'getHoldBeforeShipmentMinutes',
         'hold_before_transmission' => 'getHoldBeforeTransmission',
+        'hold_auto_order_before_shipment_minutes' => 'getHoldAutoOrderBeforeShipmentMinutes',
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude',
         'name' => 'getName',
@@ -349,6 +354,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         $this->container['ftp_password'] = isset($data['ftp_password']) ? $data['ftp_password'] : null;
         $this->container['hold_before_shipment_minutes'] = isset($data['hold_before_shipment_minutes']) ? $data['hold_before_shipment_minutes'] : null;
         $this->container['hold_before_transmission'] = isset($data['hold_before_transmission']) ? $data['hold_before_transmission'] : null;
+        $this->container['hold_auto_order_before_shipment_minutes'] = isset($data['hold_auto_order_before_shipment_minutes']) ? $data['hold_auto_order_before_shipment_minutes'] : null;
         $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -704,6 +710,30 @@ class DistributionCenter implements ModelInterface, ArrayAccess
     public function setHoldBeforeTransmission($hold_before_transmission)
     {
         $this->container['hold_before_transmission'] = $hold_before_transmission;
+
+        return $this;
+    }
+
+    /**
+     * Gets hold_auto_order_before_shipment_minutes
+     *
+     * @return int
+     */
+    public function getHoldAutoOrderBeforeShipmentMinutes()
+    {
+        return $this->container['hold_auto_order_before_shipment_minutes'];
+    }
+
+    /**
+     * Sets hold_auto_order_before_shipment_minutes
+     *
+     * @param int $hold_auto_order_before_shipment_minutes hold_auto_order_before_shipment_minutes
+     *
+     * @return $this
+     */
+    public function setHoldAutoOrderBeforeShipmentMinutes($hold_auto_order_before_shipment_minutes)
+    {
+        $this->container['hold_auto_order_before_shipment_minutes'] = $hold_auto_order_before_shipment_minutes;
 
         return $this;
     }

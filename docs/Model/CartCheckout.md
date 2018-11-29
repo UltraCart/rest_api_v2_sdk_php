@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **custom_field6** | **string** | Custom field 6 | [optional] 
 **custom_field7** | **string** | Custom field 7 | [optional] 
 **ip_address** | **string** | IP Address | [optional] 
+**return_code** | **string** | Return code assigned for send return email operation | [optional] 
 **screen_branding_theme_code** | **string** | Screen branding theme code | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

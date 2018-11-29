@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **ftp_password** | **string** | Password associated with the virtual FTP | [optional] 
 **hold_before_shipment_minutes** | **int** | The number of minutes to hold a shipment | [optional] 
 **hold_before_transmission** | **bool** | True if the shipment should be held before transmission and require a manual release | [optional] 
+**hold_auto_order_before_shipment_minutes** | **int** |  | [optional] 
 **latitude** | **float** | Latitude where the distribution center is located | [optional] 
 **longitude** | **float** | Longitude where the distribution center is located | [optional] 
 **name** | **string** | Name of this distribution center | [optional] 

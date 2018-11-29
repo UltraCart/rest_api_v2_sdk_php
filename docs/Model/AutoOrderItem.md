@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **arbitrary_unit_cost_remaining_orders** | **int** | The number of rebills to give the arbitrary unit cost on before reverting to normal pricing. | [optional] 
 **auto_order_item_oid** | **int** | Primary key of AutoOrderItem | [optional] 
 **frequency** | **string** | Frequency of the rebill if not a fixed schedule | [optional] 
+**future_schedules** | [**\ultracart\v2\models\AutoOrderItemFutureSchedule[]**](AutoOrderItemFutureSchedule.md) | The future rebill schedule for this item up to the next ten rebills | [optional] 
 **last_order_dts** | **string** | Date/time of the last order of this item | [optional] 
 **life_time_value** | **float** | The life time value of this item including the original purchase | [optional] 
 **next_preshipment_notice_dts** | **string** | The date/time of when the next pre-shipment notice should be sent | [optional] 

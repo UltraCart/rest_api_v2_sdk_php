@@ -56,10 +56,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\ultracart\v2\models\Error',
-        'items' => '\ultracart\v2\models\Item[]',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool'
+        'items' => '\ultracart\v2\models\Item[]'
     ];
 
     /**
@@ -68,10 +65,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error' => null,
-        'items' => null,
-        'metadata' => null,
-        'success' => null
+        'items' => null
     ];
 
     /**
@@ -101,10 +95,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'items' => 'items',
-        'metadata' => 'metadata',
-        'success' => 'success'
+        'items' => 'items'
     ];
 
     /**
@@ -113,10 +104,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'items' => 'setItems',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess'
+        'items' => 'setItems'
     ];
 
     /**
@@ -125,10 +113,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'items' => 'getItems',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess'
+        'items' => 'getItems'
     ];
 
     /**
@@ -191,10 +176,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -223,30 +205,6 @@ class ItemsRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
-     *
-     * @return \ultracart\v2\models\Error
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param \ultracart\v2\models\Error $error error
-     *
-     * @return $this
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
      * Gets items
      *
      * @return \ultracart\v2\models\Item[]
@@ -266,54 +224,6 @@ class ItemsRequest implements ModelInterface, ArrayAccess
     public function setItems($items)
     {
         $this->container['items'] = $items;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success Indicates if API call was successful
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
 
         return $this;
     }

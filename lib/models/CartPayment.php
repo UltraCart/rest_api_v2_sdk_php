@@ -56,6 +56,7 @@ class CartPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'affirm' => '\ultracart\v2\models\CartPaymentAffirm',
         'amazon' => '\ultracart\v2\models\CartPaymentAmazon',
         'check' => '\ultracart\v2\models\CartPaymentCheck',
         'credit_card' => '\ultracart\v2\models\CartPaymentCreditCard',
@@ -70,6 +71,7 @@ class CartPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'affirm' => null,
         'amazon' => null,
         'check' => null,
         'credit_card' => null,
@@ -105,6 +107,7 @@ class CartPayment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'affirm' => 'affirm',
         'amazon' => 'amazon',
         'check' => 'check',
         'credit_card' => 'credit_card',
@@ -119,6 +122,7 @@ class CartPayment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'affirm' => 'setAffirm',
         'amazon' => 'setAmazon',
         'check' => 'setCheck',
         'credit_card' => 'setCreditCard',
@@ -133,6 +137,7 @@ class CartPayment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'affirm' => 'getAffirm',
         'amazon' => 'getAmazon',
         'check' => 'getCheck',
         'credit_card' => 'getCreditCard',
@@ -201,6 +206,7 @@ class CartPayment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['affirm'] = isset($data['affirm']) ? $data['affirm'] : null;
         $this->container['amazon'] = isset($data['amazon']) ? $data['amazon'] : null;
         $this->container['check'] = isset($data['check']) ? $data['check'] : null;
         $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
@@ -233,6 +239,30 @@ class CartPayment implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets affirm
+     *
+     * @return \ultracart\v2\models\CartPaymentAffirm
+     */
+    public function getAffirm()
+    {
+        return $this->container['affirm'];
+    }
+
+    /**
+     * Sets affirm
+     *
+     * @param \ultracart\v2\models\CartPaymentAffirm $affirm affirm
+     *
+     * @return $this
+     */
+    public function setAffirm($affirm)
+    {
+        $this->container['affirm'] = $affirm;
+
+        return $this;
+    }
 
     /**
      * Gets amazon
