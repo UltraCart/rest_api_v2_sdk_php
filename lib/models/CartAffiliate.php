@@ -194,7 +194,7 @@ class CartAffiliate implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['affiliate_sub_id']) && (strlen($this->container['affiliate_sub_id']) > 50)) {
+        if (!is_null($this->container['affiliate_sub_id']) && (mb_strlen($this->container['affiliate_sub_id']) > 50)) {
             $invalidProperties[] = "invalid value for 'affiliate_sub_id', the character length must be smaller than or equal to 50.";
         }
 
@@ -210,7 +210,7 @@ class CartAffiliate implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['affiliate_sub_id']) > 50) {
+        if (mb_strlen($this->container['affiliate_sub_id']) > 50) {
             return false;
         }
         return true;
@@ -260,7 +260,7 @@ class CartAffiliate implements ModelInterface, ArrayAccess
      */
     public function setAffiliateSubId($affiliate_sub_id)
     {
-        if (!is_null($affiliate_sub_id) && (strlen($affiliate_sub_id) > 50)) {
+        if (!is_null($affiliate_sub_id) && (mb_strlen($affiliate_sub_id) > 50)) {
             throw new \InvalidArgumentException('invalid length for $affiliate_sub_id when calling CartAffiliate., must be smaller than or equal to 50.');
         }
 

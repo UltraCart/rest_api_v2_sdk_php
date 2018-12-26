@@ -206,7 +206,7 @@ class ItemVariationOption implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['value']) && (strlen($this->container['value']) > 50)) {
+        if (!is_null($this->container['value']) && (mb_strlen($this->container['value']) > 50)) {
             $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 50.";
         }
 
@@ -222,7 +222,7 @@ class ItemVariationOption implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['value']) > 50) {
+        if (mb_strlen($this->container['value']) > 50) {
             return false;
         }
         return true;
@@ -320,7 +320,7 @@ class ItemVariationOption implements ModelInterface, ArrayAccess
      */
     public function setValue($value)
     {
-        if (!is_null($value) && (strlen($value) > 50)) {
+        if (!is_null($value) && (mb_strlen($value) > 50)) {
             throw new \InvalidArgumentException('invalid length for $value when calling ItemVariationOption., must be smaller than or equal to 50.');
         }
 

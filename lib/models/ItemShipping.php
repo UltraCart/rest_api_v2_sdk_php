@@ -470,7 +470,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['country_code_of_origin']) && (strlen($this->container['country_code_of_origin']) > 2)) {
+        if (!is_null($this->container['country_code_of_origin']) && (mb_strlen($this->container['country_code_of_origin']) > 2)) {
             $invalidProperties[] = "invalid value for 'country_code_of_origin', the character length must be smaller than or equal to 2.";
         }
 
@@ -486,7 +486,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['country_code_of_origin']) > 2) {
+        if (mb_strlen($this->container['country_code_of_origin']) > 2) {
             return false;
         }
         return true;
@@ -656,7 +656,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
      */
     public function setCountryCodeOfOrigin($country_code_of_origin)
     {
-        if (!is_null($country_code_of_origin) && (strlen($country_code_of_origin) > 2)) {
+        if (!is_null($country_code_of_origin) && (mb_strlen($country_code_of_origin) > 2)) {
             throw new \InvalidArgumentException('invalid length for $country_code_of_origin when calling ItemShipping., must be smaller than or equal to 2.');
         }
 

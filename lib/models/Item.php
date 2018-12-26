@@ -458,15 +458,15 @@ class Item implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 512)) {
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 512)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 512.";
         }
 
-        if (!is_null($this->container['merchant_id']) && (strlen($this->container['merchant_id']) > 5)) {
+        if (!is_null($this->container['merchant_id']) && (mb_strlen($this->container['merchant_id']) > 5)) {
             $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 5.";
         }
 
-        if (!is_null($this->container['merchant_item_id']) && (strlen($this->container['merchant_item_id']) > 20)) {
+        if (!is_null($this->container['merchant_item_id']) && (mb_strlen($this->container['merchant_item_id']) > 20)) {
             $invalidProperties[] = "invalid value for 'merchant_item_id', the character length must be smaller than or equal to 20.";
         }
 
@@ -482,13 +482,13 @@ class Item implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['description']) > 512) {
+        if (mb_strlen($this->container['description']) > 512) {
             return false;
         }
-        if (strlen($this->container['merchant_id']) > 5) {
+        if (mb_strlen($this->container['merchant_id']) > 5) {
             return false;
         }
-        if (strlen($this->container['merchant_item_id']) > 20) {
+        if (mb_strlen($this->container['merchant_item_id']) > 20) {
             return false;
         }
         return true;
@@ -730,7 +730,7 @@ class Item implements ModelInterface, ArrayAccess
      */
     public function setDescription($description)
     {
-        if (!is_null($description) && (strlen($description) > 512)) {
+        if (!is_null($description) && (mb_strlen($description) > 512)) {
             throw new \InvalidArgumentException('invalid length for $description when calling Item., must be smaller than or equal to 512.');
         }
 
@@ -1094,7 +1094,7 @@ class Item implements ModelInterface, ArrayAccess
      */
     public function setMerchantId($merchant_id)
     {
-        if (!is_null($merchant_id) && (strlen($merchant_id) > 5)) {
+        if (!is_null($merchant_id) && (mb_strlen($merchant_id) > 5)) {
             throw new \InvalidArgumentException('invalid length for $merchant_id when calling Item., must be smaller than or equal to 5.');
         }
 
@@ -1122,7 +1122,7 @@ class Item implements ModelInterface, ArrayAccess
      */
     public function setMerchantItemId($merchant_item_id)
     {
-        if (!is_null($merchant_item_id) && (strlen($merchant_item_id) > 20)) {
+        if (!is_null($merchant_item_id) && (mb_strlen($merchant_item_id) > 20)) {
             throw new \InvalidArgumentException('invalid length for $merchant_item_id when calling Item., must be smaller than or equal to 20.');
         }
 

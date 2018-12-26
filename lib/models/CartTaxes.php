@@ -200,7 +200,7 @@ class CartTaxes implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['county']) && (strlen($this->container['county']) > 32)) {
+        if (!is_null($this->container['county']) && (mb_strlen($this->container['county']) > 32)) {
             $invalidProperties[] = "invalid value for 'county', the character length must be smaller than or equal to 32.";
         }
 
@@ -216,7 +216,7 @@ class CartTaxes implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['county']) > 32) {
+        if (mb_strlen($this->container['county']) > 32) {
             return false;
         }
         return true;
@@ -242,7 +242,7 @@ class CartTaxes implements ModelInterface, ArrayAccess
      */
     public function setCounty($county)
     {
-        if (!is_null($county) && (strlen($county) > 32)) {
+        if (!is_null($county) && (mb_strlen($county) > 32)) {
             throw new \InvalidArgumentException('invalid length for $county when calling CartTaxes., must be smaller than or equal to 32.');
         }
 

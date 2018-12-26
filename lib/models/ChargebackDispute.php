@@ -320,59 +320,59 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['account_number']) && (strlen($this->container['account_number']) > 50)) {
+        if (!is_null($this->container['account_number']) && (mb_strlen($this->container['account_number']) > 50)) {
             $invalidProperties[] = "invalid value for 'account_number', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['auth_code']) && (strlen($this->container['auth_code']) > 20)) {
+        if (!is_null($this->container['auth_code']) && (mb_strlen($this->container['auth_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'auth_code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['case_number']) && (strlen($this->container['case_number']) > 50)) {
+        if (!is_null($this->container['case_number']) && (mb_strlen($this->container['case_number']) > 50)) {
             $invalidProperties[] = "invalid value for 'case_number', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['currency']) && (strlen($this->container['currency']) > 10)) {
+        if (!is_null($this->container['currency']) && (mb_strlen($this->container['currency']) > 10)) {
             $invalidProperties[] = "invalid value for 'currency', the character length must be smaller than or equal to 10.";
         }
 
-        if (!is_null($this->container['encryption_key']) && (strlen($this->container['encryption_key']) > 100)) {
+        if (!is_null($this->container['encryption_key']) && (mb_strlen($this->container['encryption_key']) > 100)) {
             $invalidProperties[] = "invalid value for 'encryption_key', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['fax_failure_reason']) && (strlen($this->container['fax_failure_reason']) > 250)) {
+        if (!is_null($this->container['fax_failure_reason']) && (mb_strlen($this->container['fax_failure_reason']) > 250)) {
             $invalidProperties[] = "invalid value for 'fax_failure_reason', the character length must be smaller than or equal to 250.";
         }
 
-        if (!is_null($this->container['fax_number']) && (strlen($this->container['fax_number']) > 20)) {
+        if (!is_null($this->container['fax_number']) && (mb_strlen($this->container['fax_number']) > 20)) {
             $invalidProperties[] = "invalid value for 'fax_number', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['icsid']) && (strlen($this->container['icsid']) > 50)) {
+        if (!is_null($this->container['icsid']) && (mb_strlen($this->container['icsid']) > 50)) {
             $invalidProperties[] = "invalid value for 'icsid', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['order_id']) && (strlen($this->container['order_id']) > 30)) {
+        if (!is_null($this->container['order_id']) && (mb_strlen($this->container['order_id']) > 30)) {
             $invalidProperties[] = "invalid value for 'order_id', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['partial_card_number']) && (strlen($this->container['partial_card_number']) > 20)) {
+        if (!is_null($this->container['partial_card_number']) && (mb_strlen($this->container['partial_card_number']) > 20)) {
             $invalidProperties[] = "invalid value for 'partial_card_number', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['pdf_file_oid']) && (strlen($this->container['pdf_file_oid']) > 32)) {
+        if (!is_null($this->container['pdf_file_oid']) && (mb_strlen($this->container['pdf_file_oid']) > 32)) {
             $invalidProperties[] = "invalid value for 'pdf_file_oid', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['reason_code']) && (strlen($this->container['reason_code']) > 70)) {
+        if (!is_null($this->container['reason_code']) && (mb_strlen($this->container['reason_code']) > 70)) {
             $invalidProperties[] = "invalid value for 'reason_code', the character length must be smaller than or equal to 70.";
         }
 
-        if (!is_null($this->container['status']) && (strlen($this->container['status']) > 20)) {
+        if (!is_null($this->container['status']) && (mb_strlen($this->container['status']) > 20)) {
             $invalidProperties[] = "invalid value for 'status', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['website_url']) && (strlen($this->container['website_url']) > 250)) {
+        if (!is_null($this->container['website_url']) && (mb_strlen($this->container['website_url']) > 250)) {
             $invalidProperties[] = "invalid value for 'website_url', the character length must be smaller than or equal to 250.";
         }
 
@@ -388,46 +388,46 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['account_number']) > 50) {
+        if (mb_strlen($this->container['account_number']) > 50) {
             return false;
         }
-        if (strlen($this->container['auth_code']) > 20) {
+        if (mb_strlen($this->container['auth_code']) > 20) {
             return false;
         }
-        if (strlen($this->container['case_number']) > 50) {
+        if (mb_strlen($this->container['case_number']) > 50) {
             return false;
         }
-        if (strlen($this->container['currency']) > 10) {
+        if (mb_strlen($this->container['currency']) > 10) {
             return false;
         }
-        if (strlen($this->container['encryption_key']) > 100) {
+        if (mb_strlen($this->container['encryption_key']) > 100) {
             return false;
         }
-        if (strlen($this->container['fax_failure_reason']) > 250) {
+        if (mb_strlen($this->container['fax_failure_reason']) > 250) {
             return false;
         }
-        if (strlen($this->container['fax_number']) > 20) {
+        if (mb_strlen($this->container['fax_number']) > 20) {
             return false;
         }
-        if (strlen($this->container['icsid']) > 50) {
+        if (mb_strlen($this->container['icsid']) > 50) {
             return false;
         }
-        if (strlen($this->container['order_id']) > 30) {
+        if (mb_strlen($this->container['order_id']) > 30) {
             return false;
         }
-        if (strlen($this->container['partial_card_number']) > 20) {
+        if (mb_strlen($this->container['partial_card_number']) > 20) {
             return false;
         }
-        if (strlen($this->container['pdf_file_oid']) > 32) {
+        if (mb_strlen($this->container['pdf_file_oid']) > 32) {
             return false;
         }
-        if (strlen($this->container['reason_code']) > 70) {
+        if (mb_strlen($this->container['reason_code']) > 70) {
             return false;
         }
-        if (strlen($this->container['status']) > 20) {
+        if (mb_strlen($this->container['status']) > 20) {
             return false;
         }
-        if (strlen($this->container['website_url']) > 250) {
+        if (mb_strlen($this->container['website_url']) > 250) {
             return false;
         }
         return true;
@@ -453,7 +453,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setAccountNumber($account_number)
     {
-        if (!is_null($account_number) && (strlen($account_number) > 50)) {
+        if (!is_null($account_number) && (mb_strlen($account_number) > 50)) {
             throw new \InvalidArgumentException('invalid length for $account_number when calling ChargebackDispute., must be smaller than or equal to 50.');
         }
 
@@ -529,7 +529,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setAuthCode($auth_code)
     {
-        if (!is_null($auth_code) && (strlen($auth_code) > 20)) {
+        if (!is_null($auth_code) && (mb_strlen($auth_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $auth_code when calling ChargebackDispute., must be smaller than or equal to 20.');
         }
 
@@ -557,7 +557,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setCaseNumber($case_number)
     {
-        if (!is_null($case_number) && (strlen($case_number) > 50)) {
+        if (!is_null($case_number) && (mb_strlen($case_number) > 50)) {
             throw new \InvalidArgumentException('invalid length for $case_number when calling ChargebackDispute., must be smaller than or equal to 50.');
         }
 
@@ -633,7 +633,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setCurrency($currency)
     {
-        if (!is_null($currency) && (strlen($currency) > 10)) {
+        if (!is_null($currency) && (mb_strlen($currency) > 10)) {
             throw new \InvalidArgumentException('invalid length for $currency when calling ChargebackDispute., must be smaller than or equal to 10.');
         }
 
@@ -685,7 +685,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setEncryptionKey($encryption_key)
     {
-        if (!is_null($encryption_key) && (strlen($encryption_key) > 100)) {
+        if (!is_null($encryption_key) && (mb_strlen($encryption_key) > 100)) {
             throw new \InvalidArgumentException('invalid length for $encryption_key when calling ChargebackDispute., must be smaller than or equal to 100.');
         }
 
@@ -737,7 +737,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setFaxFailureReason($fax_failure_reason)
     {
-        if (!is_null($fax_failure_reason) && (strlen($fax_failure_reason) > 250)) {
+        if (!is_null($fax_failure_reason) && (mb_strlen($fax_failure_reason) > 250)) {
             throw new \InvalidArgumentException('invalid length for $fax_failure_reason when calling ChargebackDispute., must be smaller than or equal to 250.');
         }
 
@@ -765,7 +765,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setFaxNumber($fax_number)
     {
-        if (!is_null($fax_number) && (strlen($fax_number) > 20)) {
+        if (!is_null($fax_number) && (mb_strlen($fax_number) > 20)) {
             throw new \InvalidArgumentException('invalid length for $fax_number when calling ChargebackDispute., must be smaller than or equal to 20.');
         }
 
@@ -817,7 +817,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setIcsid($icsid)
     {
-        if (!is_null($icsid) && (strlen($icsid) > 50)) {
+        if (!is_null($icsid) && (mb_strlen($icsid) > 50)) {
             throw new \InvalidArgumentException('invalid length for $icsid when calling ChargebackDispute., must be smaller than or equal to 50.');
         }
 
@@ -893,7 +893,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setOrderId($order_id)
     {
-        if (!is_null($order_id) && (strlen($order_id) > 30)) {
+        if (!is_null($order_id) && (mb_strlen($order_id) > 30)) {
             throw new \InvalidArgumentException('invalid length for $order_id when calling ChargebackDispute., must be smaller than or equal to 30.');
         }
 
@@ -921,7 +921,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setPartialCardNumber($partial_card_number)
     {
-        if (!is_null($partial_card_number) && (strlen($partial_card_number) > 20)) {
+        if (!is_null($partial_card_number) && (mb_strlen($partial_card_number) > 20)) {
             throw new \InvalidArgumentException('invalid length for $partial_card_number when calling ChargebackDispute., must be smaller than or equal to 20.');
         }
 
@@ -949,7 +949,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setPdfFileOid($pdf_file_oid)
     {
-        if (!is_null($pdf_file_oid) && (strlen($pdf_file_oid) > 32)) {
+        if (!is_null($pdf_file_oid) && (mb_strlen($pdf_file_oid) > 32)) {
             throw new \InvalidArgumentException('invalid length for $pdf_file_oid when calling ChargebackDispute., must be smaller than or equal to 32.');
         }
 
@@ -977,7 +977,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setReasonCode($reason_code)
     {
-        if (!is_null($reason_code) && (strlen($reason_code) > 70)) {
+        if (!is_null($reason_code) && (mb_strlen($reason_code) > 70)) {
             throw new \InvalidArgumentException('invalid length for $reason_code when calling ChargebackDispute., must be smaller than or equal to 70.');
         }
 
@@ -1005,7 +1005,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setStatus($status)
     {
-        if (!is_null($status) && (strlen($status) > 20)) {
+        if (!is_null($status) && (mb_strlen($status) > 20)) {
             throw new \InvalidArgumentException('invalid length for $status when calling ChargebackDispute., must be smaller than or equal to 20.');
         }
 
@@ -1033,7 +1033,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
      */
     public function setWebsiteUrl($website_url)
     {
-        if (!is_null($website_url) && (strlen($website_url) > 250)) {
+        if (!is_null($website_url) && (mb_strlen($website_url) > 250)) {
             throw new \InvalidArgumentException('invalid length for $website_url when calling ChargebackDispute., must be smaller than or equal to 250.');
         }
 

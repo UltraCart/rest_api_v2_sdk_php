@@ -194,11 +194,11 @@ class ItemAccounting implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['accounting_code']) && (strlen($this->container['accounting_code']) > 50)) {
+        if (!is_null($this->container['accounting_code']) && (mb_strlen($this->container['accounting_code']) > 50)) {
             $invalidProperties[] = "invalid value for 'accounting_code', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['qb_class']) && (strlen($this->container['qb_class']) > 31)) {
+        if (!is_null($this->container['qb_class']) && (mb_strlen($this->container['qb_class']) > 31)) {
             $invalidProperties[] = "invalid value for 'qb_class', the character length must be smaller than or equal to 31.";
         }
 
@@ -214,10 +214,10 @@ class ItemAccounting implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['accounting_code']) > 50) {
+        if (mb_strlen($this->container['accounting_code']) > 50) {
             return false;
         }
-        if (strlen($this->container['qb_class']) > 31) {
+        if (mb_strlen($this->container['qb_class']) > 31) {
             return false;
         }
         return true;
@@ -243,7 +243,7 @@ class ItemAccounting implements ModelInterface, ArrayAccess
      */
     public function setAccountingCode($accounting_code)
     {
-        if (!is_null($accounting_code) && (strlen($accounting_code) > 50)) {
+        if (!is_null($accounting_code) && (mb_strlen($accounting_code) > 50)) {
             throw new \InvalidArgumentException('invalid length for $accounting_code when calling ItemAccounting., must be smaller than or equal to 50.');
         }
 
@@ -271,7 +271,7 @@ class ItemAccounting implements ModelInterface, ArrayAccess
      */
     public function setQbClass($qb_class)
     {
-        if (!is_null($qb_class) && (strlen($qb_class) > 31)) {
+        if (!is_null($qb_class) && (mb_strlen($qb_class) > 31)) {
             throw new \InvalidArgumentException('invalid length for $qb_class when calling ItemAccounting., must be smaller than or equal to 31.');
         }
 

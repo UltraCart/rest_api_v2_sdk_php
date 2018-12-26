@@ -1,6 +1,6 @@
 <?php
 /**
- * CouponAmountOffSubtotalWithBlockPurchase
+ * AccountsReceivableRetryConfig
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CouponAmountOffSubtotalWithBlockPurchase Class Doc Comment
+ * AccountsReceivableRetryConfig Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayAccess
+class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CouponAmountOffSubtotalWithBlockPurchase';
+    protected static $swaggerModelName = 'AccountsReceivableRetryConfig';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,12 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'currency_code' => 'string',
-        'discount_amount' => 'float',
-        'required_purchase_item' => 'string',
-        'required_purchase_quantity' => 'int'
+        'active' => 'bool',
+        'merchant_id' => 'string',
+        'notify_rejections' => 'bool',
+        'notify_successes' => 'bool',
+        'process_linked_accounts' => 'bool',
+        'reject_at_end' => 'bool'
     ];
 
     /**
@@ -68,10 +70,12 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'currency_code' => null,
-        'discount_amount' => null,
-        'required_purchase_item' => null,
-        'required_purchase_quantity' => 'int32'
+        'active' => null,
+        'merchant_id' => null,
+        'notify_rejections' => null,
+        'notify_successes' => null,
+        'process_linked_accounts' => null,
+        'reject_at_end' => null
     ];
 
     /**
@@ -101,10 +105,12 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_code' => 'currency_code',
-        'discount_amount' => 'discount_amount',
-        'required_purchase_item' => 'required_purchase_item',
-        'required_purchase_quantity' => 'required_purchase_quantity'
+        'active' => 'active',
+        'merchant_id' => 'merchant_id',
+        'notify_rejections' => 'notify_rejections',
+        'notify_successes' => 'notify_successes',
+        'process_linked_accounts' => 'process_linked_accounts',
+        'reject_at_end' => 'reject_at_end'
     ];
 
     /**
@@ -113,10 +119,12 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'currency_code' => 'setCurrencyCode',
-        'discount_amount' => 'setDiscountAmount',
-        'required_purchase_item' => 'setRequiredPurchaseItem',
-        'required_purchase_quantity' => 'setRequiredPurchaseQuantity'
+        'active' => 'setActive',
+        'merchant_id' => 'setMerchantId',
+        'notify_rejections' => 'setNotifyRejections',
+        'notify_successes' => 'setNotifySuccesses',
+        'process_linked_accounts' => 'setProcessLinkedAccounts',
+        'reject_at_end' => 'setRejectAtEnd'
     ];
 
     /**
@@ -125,10 +133,12 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'currency_code' => 'getCurrencyCode',
-        'discount_amount' => 'getDiscountAmount',
-        'required_purchase_item' => 'getRequiredPurchaseItem',
-        'required_purchase_quantity' => 'getRequiredPurchaseQuantity'
+        'active' => 'getActive',
+        'merchant_id' => 'getMerchantId',
+        'notify_rejections' => 'getNotifyRejections',
+        'notify_successes' => 'getNotifySuccesses',
+        'process_linked_accounts' => 'getProcessLinkedAccounts',
+        'reject_at_end' => 'getRejectAtEnd'
     ];
 
     /**
@@ -191,10 +201,12 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
-        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
-        $this->container['required_purchase_item'] = isset($data['required_purchase_item']) ? $data['required_purchase_item'] : null;
-        $this->container['required_purchase_quantity'] = isset($data['required_purchase_quantity']) ? $data['required_purchase_quantity'] : null;
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['notify_rejections'] = isset($data['notify_rejections']) ? $data['notify_rejections'] : null;
+        $this->container['notify_successes'] = isset($data['notify_successes']) ? $data['notify_successes'] : null;
+        $this->container['process_linked_accounts'] = isset($data['process_linked_accounts']) ? $data['process_linked_accounts'] : null;
+        $this->container['reject_at_end'] = isset($data['reject_at_end']) ? $data['reject_at_end'] : null;
     }
 
     /**
@@ -205,10 +217,6 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['currency_code']) && (mb_strlen($this->container['currency_code']) > 3)) {
-            $invalidProperties[] = "invalid value for 'currency_code', the character length must be smaller than or equal to 3.";
-        }
 
         return $invalidProperties;
     }
@@ -222,109 +230,150 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
     public function valid()
     {
 
-        if (mb_strlen($this->container['currency_code']) > 3) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets currency_code
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool $active True if the retry should run daily.  False puts the retry service into an inactive state for this merchant.
+     *
+     * @return $this
+     */
+    public function setActive($active)
+    {
+        $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
      *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getMerchantId()
     {
-        return $this->container['currency_code'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets currency_code
+     * Sets merchant_id
      *
-     * @param string $currency_code The ISO-4217 three letter currency code the customer is viewing prices in
+     * @param string $merchant_id UltraCart merchant ID
      *
      * @return $this
      */
-    public function setCurrencyCode($currency_code)
+    public function setMerchantId($merchant_id)
     {
-        if (!is_null($currency_code) && (mb_strlen($currency_code) > 3)) {
-            throw new \InvalidArgumentException('invalid length for $currency_code when calling CouponAmountOffSubtotalWithBlockPurchase., must be smaller than or equal to 3.');
-        }
-
-        $this->container['currency_code'] = $currency_code;
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }
 
     /**
-     * Gets discount_amount
+     * Gets notify_rejections
      *
-     * @return float
+     * @return bool
      */
-    public function getDiscountAmount()
+    public function getNotifyRejections()
     {
-        return $this->container['discount_amount'];
+        return $this->container['notify_rejections'];
     }
 
     /**
-     * Sets discount_amount
+     * Sets notify_rejections
      *
-     * @param float $discount_amount The amount of subtotal discount
+     * @param bool $notify_rejections If true, email addresses are notified of rejections.
      *
      * @return $this
      */
-    public function setDiscountAmount($discount_amount)
+    public function setNotifyRejections($notify_rejections)
     {
-        $this->container['discount_amount'] = $discount_amount;
+        $this->container['notify_rejections'] = $notify_rejections;
 
         return $this;
     }
 
     /**
-     * Gets required_purchase_item
+     * Gets notify_successes
      *
-     * @return string
+     * @return bool
      */
-    public function getRequiredPurchaseItem()
+    public function getNotifySuccesses()
     {
-        return $this->container['required_purchase_item'];
+        return $this->container['notify_successes'];
     }
 
     /**
-     * Sets required_purchase_item
+     * Sets notify_successes
      *
-     * @param string $required_purchase_item Required item that must be purchased for coupon to be valid
+     * @param bool $notify_successes If true, email addresses are notified of successful charges.
      *
      * @return $this
      */
-    public function setRequiredPurchaseItem($required_purchase_item)
+    public function setNotifySuccesses($notify_successes)
     {
-        $this->container['required_purchase_item'] = $required_purchase_item;
+        $this->container['notify_successes'] = $notify_successes;
 
         return $this;
     }
 
     /**
-     * Gets required_purchase_quantity
+     * Gets process_linked_accounts
      *
-     * @return int
+     * @return bool
      */
-    public function getRequiredPurchaseQuantity()
+    public function getProcessLinkedAccounts()
     {
-        return $this->container['required_purchase_quantity'];
+        return $this->container['process_linked_accounts'];
     }
 
     /**
-     * Sets required_purchase_quantity
+     * Sets process_linked_accounts
      *
-     * @param int $required_purchase_quantity Discount amount is multiplied by the number of blocks.  A block is this many quantity of the required item.
+     * @param bool $process_linked_accounts If true, all linked accounts are also processed using the same rules.
      *
      * @return $this
      */
-    public function setRequiredPurchaseQuantity($required_purchase_quantity)
+    public function setProcessLinkedAccounts($process_linked_accounts)
     {
-        $this->container['required_purchase_quantity'] = $required_purchase_quantity;
+        $this->container['process_linked_accounts'] = $process_linked_accounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets reject_at_end
+     *
+     * @return bool
+     */
+    public function getRejectAtEnd()
+    {
+        return $this->container['reject_at_end'];
+    }
+
+    /**
+     * Sets reject_at_end
+     *
+     * @param bool $reject_at_end If true, the order is rejected the day after the last configured activity day
+     *
+     * @return $this
+     */
+    public function setRejectAtEnd($reject_at_end)
+    {
+        $this->container['reject_at_end'] = $reject_at_end;
 
         return $this;
     }

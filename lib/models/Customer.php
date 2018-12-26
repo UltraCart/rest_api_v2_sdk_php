@@ -488,43 +488,43 @@ class Customer implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['business_notes']) && (strlen($this->container['business_notes']) > 2000)) {
+        if (!is_null($this->container['business_notes']) && (mb_strlen($this->container['business_notes']) > 2000)) {
             $invalidProperties[] = "invalid value for 'business_notes', the character length must be smaller than or equal to 2000.";
         }
 
-        if (!is_null($this->container['dhl_account_number']) && (strlen($this->container['dhl_account_number']) > 20)) {
+        if (!is_null($this->container['dhl_account_number']) && (mb_strlen($this->container['dhl_account_number']) > 20)) {
             $invalidProperties[] = "invalid value for 'dhl_account_number', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['fedex_account_number']) && (strlen($this->container['fedex_account_number']) > 20)) {
+        if (!is_null($this->container['fedex_account_number']) && (mb_strlen($this->container['fedex_account_number']) > 20)) {
             $invalidProperties[] = "invalid value for 'fedex_account_number', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['last_modified_by']) && (strlen($this->container['last_modified_by']) > 100)) {
+        if (!is_null($this->container['last_modified_by']) && (mb_strlen($this->container['last_modified_by']) > 100)) {
             $invalidProperties[] = "invalid value for 'last_modified_by', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['password']) && (strlen($this->container['password']) > 30)) {
+        if (!is_null($this->container['password']) && (mb_strlen($this->container['password']) > 30)) {
             $invalidProperties[] = "invalid value for 'password', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['referral_source']) && (strlen($this->container['referral_source']) > 50)) {
+        if (!is_null($this->container['referral_source']) && (mb_strlen($this->container['referral_source']) > 50)) {
             $invalidProperties[] = "invalid value for 'referral_source', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['sales_rep_code']) && (strlen($this->container['sales_rep_code']) > 10)) {
+        if (!is_null($this->container['sales_rep_code']) && (mb_strlen($this->container['sales_rep_code']) > 10)) {
             $invalidProperties[] = "invalid value for 'sales_rep_code', the character length must be smaller than or equal to 10.";
         }
 
-        if (!is_null($this->container['tax_id']) && (strlen($this->container['tax_id']) > 15)) {
+        if (!is_null($this->container['tax_id']) && (mb_strlen($this->container['tax_id']) > 15)) {
             $invalidProperties[] = "invalid value for 'tax_id', the character length must be smaller than or equal to 15.";
         }
 
-        if (!is_null($this->container['ups_account_number']) && (strlen($this->container['ups_account_number']) > 20)) {
+        if (!is_null($this->container['ups_account_number']) && (mb_strlen($this->container['ups_account_number']) > 20)) {
             $invalidProperties[] = "invalid value for 'ups_account_number', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['website_url']) && (strlen($this->container['website_url']) > 100)) {
+        if (!is_null($this->container['website_url']) && (mb_strlen($this->container['website_url']) > 100)) {
             $invalidProperties[] = "invalid value for 'website_url', the character length must be smaller than or equal to 100.";
         }
 
@@ -540,34 +540,34 @@ class Customer implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['business_notes']) > 2000) {
+        if (mb_strlen($this->container['business_notes']) > 2000) {
             return false;
         }
-        if (strlen($this->container['dhl_account_number']) > 20) {
+        if (mb_strlen($this->container['dhl_account_number']) > 20) {
             return false;
         }
-        if (strlen($this->container['fedex_account_number']) > 20) {
+        if (mb_strlen($this->container['fedex_account_number']) > 20) {
             return false;
         }
-        if (strlen($this->container['last_modified_by']) > 100) {
+        if (mb_strlen($this->container['last_modified_by']) > 100) {
             return false;
         }
-        if (strlen($this->container['password']) > 30) {
+        if (mb_strlen($this->container['password']) > 30) {
             return false;
         }
-        if (strlen($this->container['referral_source']) > 50) {
+        if (mb_strlen($this->container['referral_source']) > 50) {
             return false;
         }
-        if (strlen($this->container['sales_rep_code']) > 10) {
+        if (mb_strlen($this->container['sales_rep_code']) > 10) {
             return false;
         }
-        if (strlen($this->container['tax_id']) > 15) {
+        if (mb_strlen($this->container['tax_id']) > 15) {
             return false;
         }
-        if (strlen($this->container['ups_account_number']) > 20) {
+        if (mb_strlen($this->container['ups_account_number']) > 20) {
             return false;
         }
-        if (strlen($this->container['website_url']) > 100) {
+        if (mb_strlen($this->container['website_url']) > 100) {
             return false;
         }
         return true;
@@ -833,7 +833,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setBusinessNotes($business_notes)
     {
-        if (!is_null($business_notes) && (strlen($business_notes) > 2000)) {
+        if (!is_null($business_notes) && (mb_strlen($business_notes) > 2000)) {
             throw new \InvalidArgumentException('invalid length for $business_notes when calling Customer., must be smaller than or equal to 2000.');
         }
 
@@ -933,7 +933,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setDhlAccountNumber($dhl_account_number)
     {
-        if (!is_null($dhl_account_number) && (strlen($dhl_account_number) > 20)) {
+        if (!is_null($dhl_account_number) && (mb_strlen($dhl_account_number) > 20)) {
             throw new \InvalidArgumentException('invalid length for $dhl_account_number when calling Customer., must be smaller than or equal to 20.');
         }
 
@@ -1009,7 +1009,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setFedexAccountNumber($fedex_account_number)
     {
-        if (!is_null($fedex_account_number) && (strlen($fedex_account_number) > 20)) {
+        if (!is_null($fedex_account_number) && (mb_strlen($fedex_account_number) > 20)) {
             throw new \InvalidArgumentException('invalid length for $fedex_account_number when calling Customer., must be smaller than or equal to 20.');
         }
 
@@ -1085,7 +1085,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setLastModifiedBy($last_modified_by)
     {
-        if (!is_null($last_modified_by) && (strlen($last_modified_by) > 100)) {
+        if (!is_null($last_modified_by) && (mb_strlen($last_modified_by) > 100)) {
             throw new \InvalidArgumentException('invalid length for $last_modified_by when calling Customer., must be smaller than or equal to 100.');
         }
 
@@ -1329,7 +1329,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setPassword($password)
     {
-        if (!is_null($password) && (strlen($password) > 30)) {
+        if (!is_null($password) && (mb_strlen($password) > 30)) {
             throw new \InvalidArgumentException('invalid length for $password when calling Customer., must be smaller than or equal to 30.');
         }
 
@@ -1501,7 +1501,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setReferralSource($referral_source)
     {
-        if (!is_null($referral_source) && (strlen($referral_source) > 50)) {
+        if (!is_null($referral_source) && (mb_strlen($referral_source) > 50)) {
             throw new \InvalidArgumentException('invalid length for $referral_source when calling Customer., must be smaller than or equal to 50.');
         }
 
@@ -1529,7 +1529,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setSalesRepCode($sales_rep_code)
     {
-        if (!is_null($sales_rep_code) && (strlen($sales_rep_code) > 10)) {
+        if (!is_null($sales_rep_code) && (mb_strlen($sales_rep_code) > 10)) {
             throw new \InvalidArgumentException('invalid length for $sales_rep_code when calling Customer., must be smaller than or equal to 10.');
         }
 
@@ -1701,7 +1701,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setTaxId($tax_id)
     {
-        if (!is_null($tax_id) && (strlen($tax_id) > 15)) {
+        if (!is_null($tax_id) && (mb_strlen($tax_id) > 15)) {
             throw new \InvalidArgumentException('invalid length for $tax_id when calling Customer., must be smaller than or equal to 15.');
         }
 
@@ -1801,7 +1801,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setUpsAccountNumber($ups_account_number)
     {
-        if (!is_null($ups_account_number) && (strlen($ups_account_number) > 20)) {
+        if (!is_null($ups_account_number) && (mb_strlen($ups_account_number) > 20)) {
             throw new \InvalidArgumentException('invalid length for $ups_account_number when calling Customer., must be smaller than or equal to 20.');
         }
 
@@ -1829,7 +1829,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function setWebsiteUrl($website_url)
     {
-        if (!is_null($website_url) && (strlen($website_url) > 100)) {
+        if (!is_null($website_url) && (mb_strlen($website_url) > 100)) {
             throw new \InvalidArgumentException('invalid length for $website_url when calling Customer., must be smaller than or equal to 100.');
         }
 

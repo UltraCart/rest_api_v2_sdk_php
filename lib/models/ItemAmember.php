@@ -194,7 +194,7 @@ class ItemAmember implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['amember_product_id']) && (strlen($this->container['amember_product_id']) > 10)) {
+        if (!is_null($this->container['amember_product_id']) && (mb_strlen($this->container['amember_product_id']) > 10)) {
             $invalidProperties[] = "invalid value for 'amember_product_id', the character length must be smaller than or equal to 10.";
         }
 
@@ -210,7 +210,7 @@ class ItemAmember implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['amember_product_id']) > 10) {
+        if (mb_strlen($this->container['amember_product_id']) > 10) {
             return false;
         }
         return true;
@@ -260,7 +260,7 @@ class ItemAmember implements ModelInterface, ArrayAccess
      */
     public function setAmemberProductId($amember_product_id)
     {
-        if (!is_null($amember_product_id) && (strlen($amember_product_id) > 10)) {
+        if (!is_null($amember_product_id) && (mb_strlen($amember_product_id) > 10)) {
             throw new \InvalidArgumentException('invalid length for $amember_product_id when calling ItemAmember., must be smaller than or equal to 10.');
         }
 

@@ -58,6 +58,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'active' => 'bool',
         'api_key' => 'string',
+        'estimate_only' => 'bool',
         'use_distribution_center_from' => 'bool'
     ];
 
@@ -69,6 +70,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'active' => null,
         'api_key' => null,
+        'estimate_only' => null,
         'use_distribution_center_from' => null
     ];
 
@@ -101,6 +103,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'active' => 'active',
         'api_key' => 'api_key',
+        'estimate_only' => 'estimate_only',
         'use_distribution_center_from' => 'use_distribution_center_from'
     ];
 
@@ -112,6 +115,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     protected static $setters = [
         'active' => 'setActive',
         'api_key' => 'setApiKey',
+        'estimate_only' => 'setEstimateOnly',
         'use_distribution_center_from' => 'setUseDistributionCenterFrom'
     ];
 
@@ -123,6 +127,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     protected static $getters = [
         'active' => 'getActive',
         'api_key' => 'getApiKey',
+        'estimate_only' => 'getEstimateOnly',
         'use_distribution_center_from' => 'getUseDistributionCenterFrom'
     ];
 
@@ -188,6 +193,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;
+        $this->container['estimate_only'] = isset($data['estimate_only']) ? $data['estimate_only'] : null;
         $this->container['use_distribution_center_from'] = isset($data['use_distribution_center_from']) ? $data['use_distribution_center_from'] : null;
     }
 
@@ -260,6 +266,30 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     public function setApiKey($api_key)
     {
         $this->container['api_key'] = $api_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimate_only
+     *
+     * @return bool
+     */
+    public function getEstimateOnly()
+    {
+        return $this->container['estimate_only'];
+    }
+
+    /**
+     * Sets estimate_only
+     *
+     * @param bool $estimate_only True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar
+     *
+     * @return $this
+     */
+    public function setEstimateOnly($estimate_only)
+    {
+        $this->container['estimate_only'] = $estimate_only;
 
         return $this;
     }

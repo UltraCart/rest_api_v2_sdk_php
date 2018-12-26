@@ -422,19 +422,19 @@ class OrderQuery implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['cc_email']) && (strlen($this->container['cc_email']) > 100)) {
+        if (!is_null($this->container['cc_email']) && (mb_strlen($this->container['cc_email']) > 100)) {
             $invalidProperties[] = "invalid value for 'cc_email', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['city']) && (strlen($this->container['city']) > 32)) {
+        if (!is_null($this->container['city']) && (mb_strlen($this->container['city']) > 32)) {
             $invalidProperties[] = "invalid value for 'city', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['company']) && (strlen($this->container['company']) > 50)) {
+        if (!is_null($this->container['company']) && (mb_strlen($this->container['company']) > 50)) {
             $invalidProperties[] = "invalid value for 'company', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['country_code']) && (strlen($this->container['country_code']) > 2)) {
+        if (!is_null($this->container['country_code']) && (mb_strlen($this->container['country_code']) > 2)) {
             $invalidProperties[] = "invalid value for 'country_code', the character length must be smaller than or equal to 2.";
         }
 
@@ -446,15 +446,15 @@ class OrderQuery implements ModelInterface, ArrayAccess
             );
         }
 
-        if (!is_null($this->container['email']) && (strlen($this->container['email']) > 100)) {
+        if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 100)) {
             $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['first_name']) && (strlen($this->container['first_name']) > 30)) {
+        if (!is_null($this->container['first_name']) && (mb_strlen($this->container['first_name']) > 30)) {
             $invalidProperties[] = "invalid value for 'first_name', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['last_name']) && (strlen($this->container['last_name']) > 30)) {
+        if (!is_null($this->container['last_name']) && (mb_strlen($this->container['last_name']) > 30)) {
             $invalidProperties[] = "invalid value for 'last_name', the character length must be smaller than or equal to 30.";
         }
 
@@ -466,23 +466,23 @@ class OrderQuery implements ModelInterface, ArrayAccess
             );
         }
 
-        if (!is_null($this->container['phone']) && (strlen($this->container['phone']) > 25)) {
+        if (!is_null($this->container['phone']) && (mb_strlen($this->container['phone']) > 25)) {
             $invalidProperties[] = "invalid value for 'phone', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['postal_code']) && (strlen($this->container['postal_code']) > 20)) {
+        if (!is_null($this->container['postal_code']) && (mb_strlen($this->container['postal_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'postal_code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['rma']) && (strlen($this->container['rma']) > 30)) {
+        if (!is_null($this->container['rma']) && (mb_strlen($this->container['rma']) > 30)) {
             $invalidProperties[] = "invalid value for 'rma', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['screen_branding_theme_code']) && (strlen($this->container['screen_branding_theme_code']) > 10)) {
+        if (!is_null($this->container['screen_branding_theme_code']) && (mb_strlen($this->container['screen_branding_theme_code']) > 10)) {
             $invalidProperties[] = "invalid value for 'screen_branding_theme_code', the character length must be smaller than or equal to 10.";
         }
 
-        if (!is_null($this->container['state_region']) && (strlen($this->container['state_region']) > 32)) {
+        if (!is_null($this->container['state_region']) && (mb_strlen($this->container['state_region']) > 32)) {
             $invalidProperties[] = "invalid value for 'state_region', the character length must be smaller than or equal to 32.";
         }
 
@@ -498,48 +498,48 @@ class OrderQuery implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['cc_email']) > 100) {
+        if (mb_strlen($this->container['cc_email']) > 100) {
             return false;
         }
-        if (strlen($this->container['city']) > 32) {
+        if (mb_strlen($this->container['city']) > 32) {
             return false;
         }
-        if (strlen($this->container['company']) > 50) {
+        if (mb_strlen($this->container['company']) > 50) {
             return false;
         }
-        if (strlen($this->container['country_code']) > 2) {
+        if (mb_strlen($this->container['country_code']) > 2) {
             return false;
         }
         $allowedValues = $this->getCurrentStageAllowableValues();
         if (!in_array($this->container['current_stage'], $allowedValues)) {
             return false;
         }
-        if (strlen($this->container['email']) > 100) {
+        if (mb_strlen($this->container['email']) > 100) {
             return false;
         }
-        if (strlen($this->container['first_name']) > 30) {
+        if (mb_strlen($this->container['first_name']) > 30) {
             return false;
         }
-        if (strlen($this->container['last_name']) > 30) {
+        if (mb_strlen($this->container['last_name']) > 30) {
             return false;
         }
         $allowedValues = $this->getPaymentMethodAllowableValues();
         if (!in_array($this->container['payment_method'], $allowedValues)) {
             return false;
         }
-        if (strlen($this->container['phone']) > 25) {
+        if (mb_strlen($this->container['phone']) > 25) {
             return false;
         }
-        if (strlen($this->container['postal_code']) > 20) {
+        if (mb_strlen($this->container['postal_code']) > 20) {
             return false;
         }
-        if (strlen($this->container['rma']) > 30) {
+        if (mb_strlen($this->container['rma']) > 30) {
             return false;
         }
-        if (strlen($this->container['screen_branding_theme_code']) > 10) {
+        if (mb_strlen($this->container['screen_branding_theme_code']) > 10) {
             return false;
         }
-        if (strlen($this->container['state_region']) > 32) {
+        if (mb_strlen($this->container['state_region']) > 32) {
             return false;
         }
         return true;
@@ -565,7 +565,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setCcEmail($cc_email)
     {
-        if (!is_null($cc_email) && (strlen($cc_email) > 100)) {
+        if (!is_null($cc_email) && (mb_strlen($cc_email) > 100)) {
             throw new \InvalidArgumentException('invalid length for $cc_email when calling OrderQuery., must be smaller than or equal to 100.');
         }
 
@@ -641,7 +641,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setCity($city)
     {
-        if (!is_null($city) && (strlen($city) > 32)) {
+        if (!is_null($city) && (mb_strlen($city) > 32)) {
             throw new \InvalidArgumentException('invalid length for $city when calling OrderQuery., must be smaller than or equal to 32.');
         }
 
@@ -669,7 +669,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setCompany($company)
     {
-        if (!is_null($company) && (strlen($company) > 50)) {
+        if (!is_null($company) && (mb_strlen($company) > 50)) {
             throw new \InvalidArgumentException('invalid length for $company when calling OrderQuery., must be smaller than or equal to 50.');
         }
 
@@ -697,7 +697,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setCountryCode($country_code)
     {
-        if (!is_null($country_code) && (strlen($country_code) > 2)) {
+        if (!is_null($country_code) && (mb_strlen($country_code) > 2)) {
             throw new \InvalidArgumentException('invalid length for $country_code when calling OrderQuery., must be smaller than or equal to 2.');
         }
 
@@ -830,7 +830,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setEmail($email)
     {
-        if (!is_null($email) && (strlen($email) > 100)) {
+        if (!is_null($email) && (mb_strlen($email) > 100)) {
             throw new \InvalidArgumentException('invalid length for $email when calling OrderQuery., must be smaller than or equal to 100.');
         }
 
@@ -858,7 +858,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setFirstName($first_name)
     {
-        if (!is_null($first_name) && (strlen($first_name) > 30)) {
+        if (!is_null($first_name) && (mb_strlen($first_name) > 30)) {
             throw new \InvalidArgumentException('invalid length for $first_name when calling OrderQuery., must be smaller than or equal to 30.');
         }
 
@@ -910,7 +910,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setLastName($last_name)
     {
-        if (!is_null($last_name) && (strlen($last_name) > 30)) {
+        if (!is_null($last_name) && (mb_strlen($last_name) > 30)) {
             throw new \InvalidArgumentException('invalid length for $last_name when calling OrderQuery., must be smaller than or equal to 30.');
         }
 
@@ -1043,7 +1043,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setPhone($phone)
     {
-        if (!is_null($phone) && (strlen($phone) > 25)) {
+        if (!is_null($phone) && (mb_strlen($phone) > 25)) {
             throw new \InvalidArgumentException('invalid length for $phone when calling OrderQuery., must be smaller than or equal to 25.');
         }
 
@@ -1071,7 +1071,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setPostalCode($postal_code)
     {
-        if (!is_null($postal_code) && (strlen($postal_code) > 20)) {
+        if (!is_null($postal_code) && (mb_strlen($postal_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $postal_code when calling OrderQuery., must be smaller than or equal to 20.');
         }
 
@@ -1123,7 +1123,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setRma($rma)
     {
-        if (!is_null($rma) && (strlen($rma) > 30)) {
+        if (!is_null($rma) && (mb_strlen($rma) > 30)) {
             throw new \InvalidArgumentException('invalid length for $rma when calling OrderQuery., must be smaller than or equal to 30.');
         }
 
@@ -1151,7 +1151,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setScreenBrandingThemeCode($screen_branding_theme_code)
     {
-        if (!is_null($screen_branding_theme_code) && (strlen($screen_branding_theme_code) > 10)) {
+        if (!is_null($screen_branding_theme_code) && (mb_strlen($screen_branding_theme_code) > 10)) {
             throw new \InvalidArgumentException('invalid length for $screen_branding_theme_code when calling OrderQuery., must be smaller than or equal to 10.');
         }
 
@@ -1227,7 +1227,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
      */
     public function setStateRegion($state_region)
     {
-        if (!is_null($state_region) && (strlen($state_region) > 32)) {
+        if (!is_null($state_region) && (mb_strlen($state_region) > 32)) {
             throw new \InvalidArgumentException('invalid length for $state_region when calling OrderQuery., must be smaller than or equal to 32.');
         }
 

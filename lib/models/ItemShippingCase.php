@@ -206,7 +206,7 @@ class ItemShippingCase implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['case_label']) && (strlen($this->container['case_label']) > 20)) {
+        if (!is_null($this->container['case_label']) && (mb_strlen($this->container['case_label']) > 20)) {
             $invalidProperties[] = "invalid value for 'case_label', the character length must be smaller than or equal to 20.";
         }
 
@@ -222,7 +222,7 @@ class ItemShippingCase implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['case_label']) > 20) {
+        if (mb_strlen($this->container['case_label']) > 20) {
             return false;
         }
         return true;
@@ -248,7 +248,7 @@ class ItemShippingCase implements ModelInterface, ArrayAccess
      */
     public function setCaseLabel($case_label)
     {
-        if (!is_null($case_label) && (strlen($case_label) > 20)) {
+        if (!is_null($case_label) && (mb_strlen($case_label) > 20)) {
             throw new \InvalidArgumentException('invalid length for $case_label when calling ItemShippingCase., must be smaller than or equal to 20.');
         }
 

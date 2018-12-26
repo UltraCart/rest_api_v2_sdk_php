@@ -291,11 +291,11 @@ class ItemOption implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['label']) && (strlen($this->container['label']) > 50)) {
+        if (!is_null($this->container['label']) && (mb_strlen($this->container['label']) > 50)) {
             $invalidProperties[] = "invalid value for 'label', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 50)) {
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 50)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
         }
 
@@ -319,10 +319,10 @@ class ItemOption implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['label']) > 50) {
+        if (mb_strlen($this->container['label']) > 50) {
             return false;
         }
-        if (strlen($this->container['name']) > 50) {
+        if (mb_strlen($this->container['name']) > 50) {
             return false;
         }
         $allowedValues = $this->getTypeAllowableValues();
@@ -448,7 +448,7 @@ class ItemOption implements ModelInterface, ArrayAccess
      */
     public function setLabel($label)
     {
-        if (!is_null($label) && (strlen($label) > 50)) {
+        if (!is_null($label) && (mb_strlen($label) > 50)) {
             throw new \InvalidArgumentException('invalid length for $label when calling ItemOption., must be smaller than or equal to 50.');
         }
 
@@ -500,7 +500,7 @@ class ItemOption implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-        if (!is_null($name) && (strlen($name) > 50)) {
+        if (!is_null($name) && (mb_strlen($name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $name when calling ItemOption., must be smaller than or equal to 50.');
         }
 

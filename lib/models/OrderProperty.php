@@ -206,11 +206,11 @@ class OrderProperty implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 100)) {
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['value']) && (strlen($this->container['value']) > 3800)) {
+        if (!is_null($this->container['value']) && (mb_strlen($this->container['value']) > 3800)) {
             $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 3800.";
         }
 
@@ -226,10 +226,10 @@ class OrderProperty implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['name']) > 100) {
+        if (mb_strlen($this->container['name']) > 100) {
             return false;
         }
-        if (strlen($this->container['value']) > 3800) {
+        if (mb_strlen($this->container['value']) > 3800) {
             return false;
         }
         return true;
@@ -303,7 +303,7 @@ class OrderProperty implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-        if (!is_null($name) && (strlen($name) > 100)) {
+        if (!is_null($name) && (mb_strlen($name) > 100)) {
             throw new \InvalidArgumentException('invalid length for $name when calling OrderProperty., must be smaller than or equal to 100.');
         }
 
@@ -331,7 +331,7 @@ class OrderProperty implements ModelInterface, ArrayAccess
      */
     public function setValue($value)
     {
-        if (!is_null($value) && (strlen($value) > 3800)) {
+        if (!is_null($value) && (mb_strlen($value) > 3800)) {
             throw new \InvalidArgumentException('invalid length for $value when calling OrderProperty., must be smaller than or equal to 3800.');
         }
 

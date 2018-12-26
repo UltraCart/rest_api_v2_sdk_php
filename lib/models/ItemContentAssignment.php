@@ -212,7 +212,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['url_part']) && (strlen($this->container['url_part']) > 150)) {
+        if (!is_null($this->container['url_part']) && (mb_strlen($this->container['url_part']) > 150)) {
             $invalidProperties[] = "invalid value for 'url_part', the character length must be smaller than or equal to 150.";
         }
 
@@ -228,7 +228,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['url_part']) > 150) {
+        if (mb_strlen($this->container['url_part']) > 150) {
             return false;
         }
         return true;
@@ -350,7 +350,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
      */
     public function setUrlPart($url_part)
     {
-        if (!is_null($url_part) && (strlen($url_part) > 150)) {
+        if (!is_null($url_part) && (mb_strlen($url_part) > 150)) {
             throw new \InvalidArgumentException('invalid length for $url_part when calling ItemContentAssignment., must be smaller than or equal to 150.');
         }
 

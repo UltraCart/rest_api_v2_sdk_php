@@ -284,11 +284,11 @@ class ItemPricing implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['arbitrary_cost_velocity_code']) && (strlen($this->container['arbitrary_cost_velocity_code']) > 10000)) {
+        if (!is_null($this->container['arbitrary_cost_velocity_code']) && (mb_strlen($this->container['arbitrary_cost_velocity_code']) > 10000)) {
             $invalidProperties[] = "invalid value for 'arbitrary_cost_velocity_code', the character length must be smaller than or equal to 10000.";
         }
 
-        if (!is_null($this->container['currency_code']) && (strlen($this->container['currency_code']) > 3)) {
+        if (!is_null($this->container['currency_code']) && (mb_strlen($this->container['currency_code']) > 3)) {
             $invalidProperties[] = "invalid value for 'currency_code', the character length must be smaller than or equal to 3.";
         }
 
@@ -304,10 +304,10 @@ class ItemPricing implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['arbitrary_cost_velocity_code']) > 10000) {
+        if (mb_strlen($this->container['arbitrary_cost_velocity_code']) > 10000) {
             return false;
         }
-        if (strlen($this->container['currency_code']) > 3) {
+        if (mb_strlen($this->container['currency_code']) > 3) {
             return false;
         }
         return true;
@@ -357,7 +357,7 @@ class ItemPricing implements ModelInterface, ArrayAccess
      */
     public function setArbitraryCostVelocityCode($arbitrary_cost_velocity_code)
     {
-        if (!is_null($arbitrary_cost_velocity_code) && (strlen($arbitrary_cost_velocity_code) > 10000)) {
+        if (!is_null($arbitrary_cost_velocity_code) && (mb_strlen($arbitrary_cost_velocity_code) > 10000)) {
             throw new \InvalidArgumentException('invalid length for $arbitrary_cost_velocity_code when calling ItemPricing., must be smaller than or equal to 10000.');
         }
 
@@ -481,7 +481,7 @@ class ItemPricing implements ModelInterface, ArrayAccess
      */
     public function setCurrencyCode($currency_code)
     {
-        if (!is_null($currency_code) && (strlen($currency_code) > 3)) {
+        if (!is_null($currency_code) && (mb_strlen($currency_code) > 3)) {
             throw new \InvalidArgumentException('invalid length for $currency_code when calling ItemPricing., must be smaller than or equal to 3.');
         }
 

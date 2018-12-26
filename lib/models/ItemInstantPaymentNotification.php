@@ -200,11 +200,11 @@ class ItemInstantPaymentNotification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['successful_response_text']) && (strlen($this->container['successful_response_text']) > 1024)) {
+        if (!is_null($this->container['successful_response_text']) && (mb_strlen($this->container['successful_response_text']) > 1024)) {
             $invalidProperties[] = "invalid value for 'successful_response_text', the character length must be smaller than or equal to 1024.";
         }
 
-        if (!is_null($this->container['url']) && (strlen($this->container['url']) > 1024)) {
+        if (!is_null($this->container['url']) && (mb_strlen($this->container['url']) > 1024)) {
             $invalidProperties[] = "invalid value for 'url', the character length must be smaller than or equal to 1024.";
         }
 
@@ -220,10 +220,10 @@ class ItemInstantPaymentNotification implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['successful_response_text']) > 1024) {
+        if (mb_strlen($this->container['successful_response_text']) > 1024) {
             return false;
         }
-        if (strlen($this->container['url']) > 1024) {
+        if (mb_strlen($this->container['url']) > 1024) {
             return false;
         }
         return true;
@@ -273,7 +273,7 @@ class ItemInstantPaymentNotification implements ModelInterface, ArrayAccess
      */
     public function setSuccessfulResponseText($successful_response_text)
     {
-        if (!is_null($successful_response_text) && (strlen($successful_response_text) > 1024)) {
+        if (!is_null($successful_response_text) && (mb_strlen($successful_response_text) > 1024)) {
             throw new \InvalidArgumentException('invalid length for $successful_response_text when calling ItemInstantPaymentNotification., must be smaller than or equal to 1024.');
         }
 
@@ -301,7 +301,7 @@ class ItemInstantPaymentNotification implements ModelInterface, ArrayAccess
      */
     public function setUrl($url)
     {
-        if (!is_null($url) && (strlen($url) > 1024)) {
+        if (!is_null($url) && (mb_strlen($url) > 1024)) {
             throw new \InvalidArgumentException('invalid length for $url when calling ItemInstantPaymentNotification., must be smaller than or equal to 1024.');
         }
 

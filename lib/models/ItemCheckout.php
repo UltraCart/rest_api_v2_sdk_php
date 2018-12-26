@@ -200,7 +200,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['terms']) && (strlen($this->container['terms']) > 10000)) {
+        if (!is_null($this->container['terms']) && (mb_strlen($this->container['terms']) > 10000)) {
             $invalidProperties[] = "invalid value for 'terms', the character length must be smaller than or equal to 10000.";
         }
 
@@ -216,7 +216,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['terms']) > 10000) {
+        if (mb_strlen($this->container['terms']) > 10000) {
             return false;
         }
         return true;
@@ -266,7 +266,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
      */
     public function setTerms($terms)
     {
-        if (!is_null($terms) && (strlen($terms) > 10000)) {
+        if (!is_null($terms) && (mb_strlen($terms) > 10000)) {
             throw new \InvalidArgumentException('invalid length for $terms when calling ItemCheckout., must be smaller than or equal to 10000.');
         }
 

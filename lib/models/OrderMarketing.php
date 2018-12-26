@@ -200,11 +200,11 @@ class OrderMarketing implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['advertising_source']) && (strlen($this->container['advertising_source']) > 50)) {
+        if (!is_null($this->container['advertising_source']) && (mb_strlen($this->container['advertising_source']) > 50)) {
             $invalidProperties[] = "invalid value for 'advertising_source', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['referral_code']) && (strlen($this->container['referral_code']) > 30)) {
+        if (!is_null($this->container['referral_code']) && (mb_strlen($this->container['referral_code']) > 30)) {
             $invalidProperties[] = "invalid value for 'referral_code', the character length must be smaller than or equal to 30.";
         }
 
@@ -220,10 +220,10 @@ class OrderMarketing implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['advertising_source']) > 50) {
+        if (mb_strlen($this->container['advertising_source']) > 50) {
             return false;
         }
-        if (strlen($this->container['referral_code']) > 30) {
+        if (mb_strlen($this->container['referral_code']) > 30) {
             return false;
         }
         return true;
@@ -249,7 +249,7 @@ class OrderMarketing implements ModelInterface, ArrayAccess
      */
     public function setAdvertisingSource($advertising_source)
     {
-        if (!is_null($advertising_source) && (strlen($advertising_source) > 50)) {
+        if (!is_null($advertising_source) && (mb_strlen($advertising_source) > 50)) {
             throw new \InvalidArgumentException('invalid length for $advertising_source when calling OrderMarketing., must be smaller than or equal to 50.');
         }
 
@@ -301,7 +301,7 @@ class OrderMarketing implements ModelInterface, ArrayAccess
      */
     public function setReferralCode($referral_code)
     {
-        if (!is_null($referral_code) && (strlen($referral_code) > 30)) {
+        if (!is_null($referral_code) && (mb_strlen($referral_code) > 30)) {
             throw new \InvalidArgumentException('invalid length for $referral_code when calling OrderMarketing., must be smaller than or equal to 30.');
         }
 

@@ -344,79 +344,79 @@ class CustomerQuery implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['billing_city']) && (strlen($this->container['billing_city']) > 32)) {
+        if (!is_null($this->container['billing_city']) && (mb_strlen($this->container['billing_city']) > 32)) {
             $invalidProperties[] = "invalid value for 'billing_city', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['billing_company']) && (strlen($this->container['billing_company']) > 50)) {
+        if (!is_null($this->container['billing_company']) && (mb_strlen($this->container['billing_company']) > 50)) {
             $invalidProperties[] = "invalid value for 'billing_company', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['billing_country_code']) && (strlen($this->container['billing_country_code']) > 2)) {
+        if (!is_null($this->container['billing_country_code']) && (mb_strlen($this->container['billing_country_code']) > 2)) {
             $invalidProperties[] = "invalid value for 'billing_country_code', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['billing_day_phone']) && (strlen($this->container['billing_day_phone']) > 25)) {
+        if (!is_null($this->container['billing_day_phone']) && (mb_strlen($this->container['billing_day_phone']) > 25)) {
             $invalidProperties[] = "invalid value for 'billing_day_phone', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['billing_evening_phone']) && (strlen($this->container['billing_evening_phone']) > 25)) {
+        if (!is_null($this->container['billing_evening_phone']) && (mb_strlen($this->container['billing_evening_phone']) > 25)) {
             $invalidProperties[] = "invalid value for 'billing_evening_phone', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['billing_first_name']) && (strlen($this->container['billing_first_name']) > 30)) {
+        if (!is_null($this->container['billing_first_name']) && (mb_strlen($this->container['billing_first_name']) > 30)) {
             $invalidProperties[] = "invalid value for 'billing_first_name', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['billing_last_name']) && (strlen($this->container['billing_last_name']) > 30)) {
+        if (!is_null($this->container['billing_last_name']) && (mb_strlen($this->container['billing_last_name']) > 30)) {
             $invalidProperties[] = "invalid value for 'billing_last_name', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['billing_postal_code']) && (strlen($this->container['billing_postal_code']) > 20)) {
+        if (!is_null($this->container['billing_postal_code']) && (mb_strlen($this->container['billing_postal_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'billing_postal_code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['billing_state']) && (strlen($this->container['billing_state']) > 32)) {
+        if (!is_null($this->container['billing_state']) && (mb_strlen($this->container['billing_state']) > 32)) {
             $invalidProperties[] = "invalid value for 'billing_state', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['pricing_tier_name']) && (strlen($this->container['pricing_tier_name']) > 50)) {
+        if (!is_null($this->container['pricing_tier_name']) && (mb_strlen($this->container['pricing_tier_name']) > 50)) {
             $invalidProperties[] = "invalid value for 'pricing_tier_name', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['shipping_city']) && (strlen($this->container['shipping_city']) > 32)) {
+        if (!is_null($this->container['shipping_city']) && (mb_strlen($this->container['shipping_city']) > 32)) {
             $invalidProperties[] = "invalid value for 'shipping_city', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['shipping_company']) && (strlen($this->container['shipping_company']) > 50)) {
+        if (!is_null($this->container['shipping_company']) && (mb_strlen($this->container['shipping_company']) > 50)) {
             $invalidProperties[] = "invalid value for 'shipping_company', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['shipping_country_code']) && (strlen($this->container['shipping_country_code']) > 2)) {
+        if (!is_null($this->container['shipping_country_code']) && (mb_strlen($this->container['shipping_country_code']) > 2)) {
             $invalidProperties[] = "invalid value for 'shipping_country_code', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['shipping_day_phone']) && (strlen($this->container['shipping_day_phone']) > 25)) {
+        if (!is_null($this->container['shipping_day_phone']) && (mb_strlen($this->container['shipping_day_phone']) > 25)) {
             $invalidProperties[] = "invalid value for 'shipping_day_phone', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['shipping_evening_phone']) && (strlen($this->container['shipping_evening_phone']) > 25)) {
+        if (!is_null($this->container['shipping_evening_phone']) && (mb_strlen($this->container['shipping_evening_phone']) > 25)) {
             $invalidProperties[] = "invalid value for 'shipping_evening_phone', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['shipping_first_name']) && (strlen($this->container['shipping_first_name']) > 30)) {
+        if (!is_null($this->container['shipping_first_name']) && (mb_strlen($this->container['shipping_first_name']) > 30)) {
             $invalidProperties[] = "invalid value for 'shipping_first_name', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['shipping_last_name']) && (strlen($this->container['shipping_last_name']) > 30)) {
+        if (!is_null($this->container['shipping_last_name']) && (mb_strlen($this->container['shipping_last_name']) > 30)) {
             $invalidProperties[] = "invalid value for 'shipping_last_name', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['shipping_postal_code']) && (strlen($this->container['shipping_postal_code']) > 20)) {
+        if (!is_null($this->container['shipping_postal_code']) && (mb_strlen($this->container['shipping_postal_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'shipping_postal_code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['shipping_state']) && (strlen($this->container['shipping_state']) > 32)) {
+        if (!is_null($this->container['shipping_state']) && (mb_strlen($this->container['shipping_state']) > 32)) {
             $invalidProperties[] = "invalid value for 'shipping_state', the character length must be smaller than or equal to 32.";
         }
 
@@ -432,61 +432,61 @@ class CustomerQuery implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['billing_city']) > 32) {
+        if (mb_strlen($this->container['billing_city']) > 32) {
             return false;
         }
-        if (strlen($this->container['billing_company']) > 50) {
+        if (mb_strlen($this->container['billing_company']) > 50) {
             return false;
         }
-        if (strlen($this->container['billing_country_code']) > 2) {
+        if (mb_strlen($this->container['billing_country_code']) > 2) {
             return false;
         }
-        if (strlen($this->container['billing_day_phone']) > 25) {
+        if (mb_strlen($this->container['billing_day_phone']) > 25) {
             return false;
         }
-        if (strlen($this->container['billing_evening_phone']) > 25) {
+        if (mb_strlen($this->container['billing_evening_phone']) > 25) {
             return false;
         }
-        if (strlen($this->container['billing_first_name']) > 30) {
+        if (mb_strlen($this->container['billing_first_name']) > 30) {
             return false;
         }
-        if (strlen($this->container['billing_last_name']) > 30) {
+        if (mb_strlen($this->container['billing_last_name']) > 30) {
             return false;
         }
-        if (strlen($this->container['billing_postal_code']) > 20) {
+        if (mb_strlen($this->container['billing_postal_code']) > 20) {
             return false;
         }
-        if (strlen($this->container['billing_state']) > 32) {
+        if (mb_strlen($this->container['billing_state']) > 32) {
             return false;
         }
-        if (strlen($this->container['pricing_tier_name']) > 50) {
+        if (mb_strlen($this->container['pricing_tier_name']) > 50) {
             return false;
         }
-        if (strlen($this->container['shipping_city']) > 32) {
+        if (mb_strlen($this->container['shipping_city']) > 32) {
             return false;
         }
-        if (strlen($this->container['shipping_company']) > 50) {
+        if (mb_strlen($this->container['shipping_company']) > 50) {
             return false;
         }
-        if (strlen($this->container['shipping_country_code']) > 2) {
+        if (mb_strlen($this->container['shipping_country_code']) > 2) {
             return false;
         }
-        if (strlen($this->container['shipping_day_phone']) > 25) {
+        if (mb_strlen($this->container['shipping_day_phone']) > 25) {
             return false;
         }
-        if (strlen($this->container['shipping_evening_phone']) > 25) {
+        if (mb_strlen($this->container['shipping_evening_phone']) > 25) {
             return false;
         }
-        if (strlen($this->container['shipping_first_name']) > 30) {
+        if (mb_strlen($this->container['shipping_first_name']) > 30) {
             return false;
         }
-        if (strlen($this->container['shipping_last_name']) > 30) {
+        if (mb_strlen($this->container['shipping_last_name']) > 30) {
             return false;
         }
-        if (strlen($this->container['shipping_postal_code']) > 20) {
+        if (mb_strlen($this->container['shipping_postal_code']) > 20) {
             return false;
         }
-        if (strlen($this->container['shipping_state']) > 32) {
+        if (mb_strlen($this->container['shipping_state']) > 32) {
             return false;
         }
         return true;
@@ -512,7 +512,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingCity($billing_city)
     {
-        if (!is_null($billing_city) && (strlen($billing_city) > 32)) {
+        if (!is_null($billing_city) && (mb_strlen($billing_city) > 32)) {
             throw new \InvalidArgumentException('invalid length for $billing_city when calling CustomerQuery., must be smaller than or equal to 32.');
         }
 
@@ -540,7 +540,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingCompany($billing_company)
     {
-        if (!is_null($billing_company) && (strlen($billing_company) > 50)) {
+        if (!is_null($billing_company) && (mb_strlen($billing_company) > 50)) {
             throw new \InvalidArgumentException('invalid length for $billing_company when calling CustomerQuery., must be smaller than or equal to 50.');
         }
 
@@ -568,7 +568,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingCountryCode($billing_country_code)
     {
-        if (!is_null($billing_country_code) && (strlen($billing_country_code) > 2)) {
+        if (!is_null($billing_country_code) && (mb_strlen($billing_country_code) > 2)) {
             throw new \InvalidArgumentException('invalid length for $billing_country_code when calling CustomerQuery., must be smaller than or equal to 2.');
         }
 
@@ -596,7 +596,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingDayPhone($billing_day_phone)
     {
-        if (!is_null($billing_day_phone) && (strlen($billing_day_phone) > 25)) {
+        if (!is_null($billing_day_phone) && (mb_strlen($billing_day_phone) > 25)) {
             throw new \InvalidArgumentException('invalid length for $billing_day_phone when calling CustomerQuery., must be smaller than or equal to 25.');
         }
 
@@ -624,7 +624,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingEveningPhone($billing_evening_phone)
     {
-        if (!is_null($billing_evening_phone) && (strlen($billing_evening_phone) > 25)) {
+        if (!is_null($billing_evening_phone) && (mb_strlen($billing_evening_phone) > 25)) {
             throw new \InvalidArgumentException('invalid length for $billing_evening_phone when calling CustomerQuery., must be smaller than or equal to 25.');
         }
 
@@ -652,7 +652,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingFirstName($billing_first_name)
     {
-        if (!is_null($billing_first_name) && (strlen($billing_first_name) > 30)) {
+        if (!is_null($billing_first_name) && (mb_strlen($billing_first_name) > 30)) {
             throw new \InvalidArgumentException('invalid length for $billing_first_name when calling CustomerQuery., must be smaller than or equal to 30.');
         }
 
@@ -680,7 +680,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingLastName($billing_last_name)
     {
-        if (!is_null($billing_last_name) && (strlen($billing_last_name) > 30)) {
+        if (!is_null($billing_last_name) && (mb_strlen($billing_last_name) > 30)) {
             throw new \InvalidArgumentException('invalid length for $billing_last_name when calling CustomerQuery., must be smaller than or equal to 30.');
         }
 
@@ -708,7 +708,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingPostalCode($billing_postal_code)
     {
-        if (!is_null($billing_postal_code) && (strlen($billing_postal_code) > 20)) {
+        if (!is_null($billing_postal_code) && (mb_strlen($billing_postal_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $billing_postal_code when calling CustomerQuery., must be smaller than or equal to 20.');
         }
 
@@ -736,7 +736,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setBillingState($billing_state)
     {
-        if (!is_null($billing_state) && (strlen($billing_state) > 32)) {
+        if (!is_null($billing_state) && (mb_strlen($billing_state) > 32)) {
             throw new \InvalidArgumentException('invalid length for $billing_state when calling CustomerQuery., must be smaller than or equal to 32.');
         }
 
@@ -836,7 +836,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setPricingTierName($pricing_tier_name)
     {
-        if (!is_null($pricing_tier_name) && (strlen($pricing_tier_name) > 50)) {
+        if (!is_null($pricing_tier_name) && (mb_strlen($pricing_tier_name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $pricing_tier_name when calling CustomerQuery., must be smaller than or equal to 50.');
         }
 
@@ -936,7 +936,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingCity($shipping_city)
     {
-        if (!is_null($shipping_city) && (strlen($shipping_city) > 32)) {
+        if (!is_null($shipping_city) && (mb_strlen($shipping_city) > 32)) {
             throw new \InvalidArgumentException('invalid length for $shipping_city when calling CustomerQuery., must be smaller than or equal to 32.');
         }
 
@@ -964,7 +964,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingCompany($shipping_company)
     {
-        if (!is_null($shipping_company) && (strlen($shipping_company) > 50)) {
+        if (!is_null($shipping_company) && (mb_strlen($shipping_company) > 50)) {
             throw new \InvalidArgumentException('invalid length for $shipping_company when calling CustomerQuery., must be smaller than or equal to 50.');
         }
 
@@ -992,7 +992,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingCountryCode($shipping_country_code)
     {
-        if (!is_null($shipping_country_code) && (strlen($shipping_country_code) > 2)) {
+        if (!is_null($shipping_country_code) && (mb_strlen($shipping_country_code) > 2)) {
             throw new \InvalidArgumentException('invalid length for $shipping_country_code when calling CustomerQuery., must be smaller than or equal to 2.');
         }
 
@@ -1020,7 +1020,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingDayPhone($shipping_day_phone)
     {
-        if (!is_null($shipping_day_phone) && (strlen($shipping_day_phone) > 25)) {
+        if (!is_null($shipping_day_phone) && (mb_strlen($shipping_day_phone) > 25)) {
             throw new \InvalidArgumentException('invalid length for $shipping_day_phone when calling CustomerQuery., must be smaller than or equal to 25.');
         }
 
@@ -1048,7 +1048,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingEveningPhone($shipping_evening_phone)
     {
-        if (!is_null($shipping_evening_phone) && (strlen($shipping_evening_phone) > 25)) {
+        if (!is_null($shipping_evening_phone) && (mb_strlen($shipping_evening_phone) > 25)) {
             throw new \InvalidArgumentException('invalid length for $shipping_evening_phone when calling CustomerQuery., must be smaller than or equal to 25.');
         }
 
@@ -1076,7 +1076,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingFirstName($shipping_first_name)
     {
-        if (!is_null($shipping_first_name) && (strlen($shipping_first_name) > 30)) {
+        if (!is_null($shipping_first_name) && (mb_strlen($shipping_first_name) > 30)) {
             throw new \InvalidArgumentException('invalid length for $shipping_first_name when calling CustomerQuery., must be smaller than or equal to 30.');
         }
 
@@ -1104,7 +1104,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingLastName($shipping_last_name)
     {
-        if (!is_null($shipping_last_name) && (strlen($shipping_last_name) > 30)) {
+        if (!is_null($shipping_last_name) && (mb_strlen($shipping_last_name) > 30)) {
             throw new \InvalidArgumentException('invalid length for $shipping_last_name when calling CustomerQuery., must be smaller than or equal to 30.');
         }
 
@@ -1132,7 +1132,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingPostalCode($shipping_postal_code)
     {
-        if (!is_null($shipping_postal_code) && (strlen($shipping_postal_code) > 20)) {
+        if (!is_null($shipping_postal_code) && (mb_strlen($shipping_postal_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $shipping_postal_code when calling CustomerQuery., must be smaller than or equal to 20.');
         }
 
@@ -1160,7 +1160,7 @@ class CustomerQuery implements ModelInterface, ArrayAccess
      */
     public function setShippingState($shipping_state)
     {
-        if (!is_null($shipping_state) && (strlen($shipping_state) > 32)) {
+        if (!is_null($shipping_state) && (mb_strlen($shipping_state) > 32)) {
             throw new \InvalidArgumentException('invalid length for $shipping_state when calling CustomerQuery., must be smaller than or equal to 32.');
         }
 

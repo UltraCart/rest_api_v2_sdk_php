@@ -212,15 +212,15 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 200)) {
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 200)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 200.";
         }
 
-        if (!is_null($this->container['mime_type']) && (strlen($this->container['mime_type']) > 100)) {
+        if (!is_null($this->container['mime_type']) && (mb_strlen($this->container['mime_type']) > 100)) {
             $invalidProperties[] = "invalid value for 'mime_type', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['original_filename']) && (strlen($this->container['original_filename']) > 250)) {
+        if (!is_null($this->container['original_filename']) && (mb_strlen($this->container['original_filename']) > 250)) {
             $invalidProperties[] = "invalid value for 'original_filename', the character length must be smaller than or equal to 250.";
         }
 
@@ -236,13 +236,13 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['description']) > 200) {
+        if (mb_strlen($this->container['description']) > 200) {
             return false;
         }
-        if (strlen($this->container['mime_type']) > 100) {
+        if (mb_strlen($this->container['mime_type']) > 100) {
             return false;
         }
-        if (strlen($this->container['original_filename']) > 250) {
+        if (mb_strlen($this->container['original_filename']) > 250) {
             return false;
         }
         return true;
@@ -292,7 +292,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
      */
     public function setDescription($description)
     {
-        if (!is_null($description) && (strlen($description) > 200)) {
+        if (!is_null($description) && (mb_strlen($description) > 200)) {
             throw new \InvalidArgumentException('invalid length for $description when calling ItemDigitalItem., must be smaller than or equal to 200.');
         }
 
@@ -344,7 +344,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
      */
     public function setMimeType($mime_type)
     {
-        if (!is_null($mime_type) && (strlen($mime_type) > 100)) {
+        if (!is_null($mime_type) && (mb_strlen($mime_type) > 100)) {
             throw new \InvalidArgumentException('invalid length for $mime_type when calling ItemDigitalItem., must be smaller than or equal to 100.');
         }
 
@@ -372,7 +372,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
      */
     public function setOriginalFilename($original_filename)
     {
-        if (!is_null($original_filename) && (strlen($original_filename) > 250)) {
+        if (!is_null($original_filename) && (mb_strlen($original_filename) > 250)) {
             throw new \InvalidArgumentException('invalid length for $original_filename when calling ItemDigitalItem., must be smaller than or equal to 250.');
         }
 

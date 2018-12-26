@@ -272,7 +272,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['auto_order_cancel_item_id']) && (strlen($this->container['auto_order_cancel_item_id']) > 20)) {
+        if (!is_null($this->container['auto_order_cancel_item_id']) && (mb_strlen($this->container['auto_order_cancel_item_id']) > 20)) {
             $invalidProperties[] = "invalid value for 'auto_order_cancel_item_id', the character length must be smaller than or equal to 20.";
         }
 
@@ -288,7 +288,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['auto_order_cancel_item_id']) > 20) {
+        if (mb_strlen($this->container['auto_order_cancel_item_id']) > 20) {
             return false;
         }
         return true;
@@ -362,7 +362,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
      */
     public function setAutoOrderCancelItemId($auto_order_cancel_item_id)
     {
-        if (!is_null($auto_order_cancel_item_id) && (strlen($auto_order_cancel_item_id) > 20)) {
+        if (!is_null($auto_order_cancel_item_id) && (mb_strlen($auto_order_cancel_item_id) > 20)) {
             throw new \InvalidArgumentException('invalid length for $auto_order_cancel_item_id when calling ItemAutoOrder., must be smaller than or equal to 20.');
         }
 

@@ -194,7 +194,7 @@ class CustomerPricingTier implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 50)) {
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 50)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
         }
 
@@ -210,7 +210,7 @@ class CustomerPricingTier implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['name']) > 50) {
+        if (mb_strlen($this->container['name']) > 50) {
             return false;
         }
         return true;
@@ -236,7 +236,7 @@ class CustomerPricingTier implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-        if (!is_null($name) && (strlen($name) > 50)) {
+        if (!is_null($name) && (mb_strlen($name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $name when calling CustomerPricingTier., must be smaller than or equal to 50.');
         }
 

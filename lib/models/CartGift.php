@@ -218,15 +218,15 @@ class CartGift implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['gift_email']) && (strlen($this->container['gift_email']) > 100)) {
+        if (!is_null($this->container['gift_email']) && (mb_strlen($this->container['gift_email']) > 100)) {
             $invalidProperties[] = "invalid value for 'gift_email', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['gift_message']) && (strlen($this->container['gift_message']) > 10000)) {
+        if (!is_null($this->container['gift_message']) && (mb_strlen($this->container['gift_message']) > 10000)) {
             $invalidProperties[] = "invalid value for 'gift_message', the character length must be smaller than or equal to 10000.";
         }
 
-        if (!is_null($this->container['gift_wrap_title']) && (strlen($this->container['gift_wrap_title']) > 30)) {
+        if (!is_null($this->container['gift_wrap_title']) && (mb_strlen($this->container['gift_wrap_title']) > 30)) {
             $invalidProperties[] = "invalid value for 'gift_wrap_title', the character length must be smaller than or equal to 30.";
         }
 
@@ -242,13 +242,13 @@ class CartGift implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['gift_email']) > 100) {
+        if (mb_strlen($this->container['gift_email']) > 100) {
             return false;
         }
-        if (strlen($this->container['gift_message']) > 10000) {
+        if (mb_strlen($this->container['gift_message']) > 10000) {
             return false;
         }
-        if (strlen($this->container['gift_wrap_title']) > 30) {
+        if (mb_strlen($this->container['gift_wrap_title']) > 30) {
             return false;
         }
         return true;
@@ -322,7 +322,7 @@ class CartGift implements ModelInterface, ArrayAccess
      */
     public function setGiftEmail($gift_email)
     {
-        if (!is_null($gift_email) && (strlen($gift_email) > 100)) {
+        if (!is_null($gift_email) && (mb_strlen($gift_email) > 100)) {
             throw new \InvalidArgumentException('invalid length for $gift_email when calling CartGift., must be smaller than or equal to 100.');
         }
 
@@ -350,7 +350,7 @@ class CartGift implements ModelInterface, ArrayAccess
      */
     public function setGiftMessage($gift_message)
     {
-        if (!is_null($gift_message) && (strlen($gift_message) > 10000)) {
+        if (!is_null($gift_message) && (mb_strlen($gift_message) > 10000)) {
             throw new \InvalidArgumentException('invalid length for $gift_message when calling CartGift., must be smaller than or equal to 10000.');
         }
 
@@ -402,7 +402,7 @@ class CartGift implements ModelInterface, ArrayAccess
      */
     public function setGiftWrapTitle($gift_wrap_title)
     {
-        if (!is_null($gift_wrap_title) && (strlen($gift_wrap_title) > 30)) {
+        if (!is_null($gift_wrap_title) && (mb_strlen($gift_wrap_title) > 30)) {
             throw new \InvalidArgumentException('invalid length for $gift_wrap_title when calling CartGift., must be smaller than or equal to 30.');
         }
 

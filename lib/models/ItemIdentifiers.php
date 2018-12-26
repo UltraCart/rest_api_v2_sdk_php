@@ -206,19 +206,19 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['barcode']) && (strlen($this->container['barcode']) > 30)) {
+        if (!is_null($this->container['barcode']) && (mb_strlen($this->container['barcode']) > 30)) {
             $invalidProperties[] = "invalid value for 'barcode', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['manufacturer_name']) && (strlen($this->container['manufacturer_name']) > 50)) {
+        if (!is_null($this->container['manufacturer_name']) && (mb_strlen($this->container['manufacturer_name']) > 50)) {
             $invalidProperties[] = "invalid value for 'manufacturer_name', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['manufacturer_sku']) && (strlen($this->container['manufacturer_sku']) > 25)) {
+        if (!is_null($this->container['manufacturer_sku']) && (mb_strlen($this->container['manufacturer_sku']) > 25)) {
             $invalidProperties[] = "invalid value for 'manufacturer_sku', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['unspsc']) && (strlen($this->container['unspsc']) > 20)) {
+        if (!is_null($this->container['unspsc']) && (mb_strlen($this->container['unspsc']) > 20)) {
             $invalidProperties[] = "invalid value for 'unspsc', the character length must be smaller than or equal to 20.";
         }
 
@@ -234,16 +234,16 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['barcode']) > 30) {
+        if (mb_strlen($this->container['barcode']) > 30) {
             return false;
         }
-        if (strlen($this->container['manufacturer_name']) > 50) {
+        if (mb_strlen($this->container['manufacturer_name']) > 50) {
             return false;
         }
-        if (strlen($this->container['manufacturer_sku']) > 25) {
+        if (mb_strlen($this->container['manufacturer_sku']) > 25) {
             return false;
         }
-        if (strlen($this->container['unspsc']) > 20) {
+        if (mb_strlen($this->container['unspsc']) > 20) {
             return false;
         }
         return true;
@@ -269,7 +269,7 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess
      */
     public function setBarcode($barcode)
     {
-        if (!is_null($barcode) && (strlen($barcode) > 30)) {
+        if (!is_null($barcode) && (mb_strlen($barcode) > 30)) {
             throw new \InvalidArgumentException('invalid length for $barcode when calling ItemIdentifiers., must be smaller than or equal to 30.');
         }
 
@@ -297,7 +297,7 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess
      */
     public function setManufacturerName($manufacturer_name)
     {
-        if (!is_null($manufacturer_name) && (strlen($manufacturer_name) > 50)) {
+        if (!is_null($manufacturer_name) && (mb_strlen($manufacturer_name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $manufacturer_name when calling ItemIdentifiers., must be smaller than or equal to 50.');
         }
 
@@ -325,7 +325,7 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess
      */
     public function setManufacturerSku($manufacturer_sku)
     {
-        if (!is_null($manufacturer_sku) && (strlen($manufacturer_sku) > 25)) {
+        if (!is_null($manufacturer_sku) && (mb_strlen($manufacturer_sku) > 25)) {
             throw new \InvalidArgumentException('invalid length for $manufacturer_sku when calling ItemIdentifiers., must be smaller than or equal to 25.');
         }
 
@@ -353,7 +353,7 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess
      */
     public function setUnspsc($unspsc)
     {
-        if (!is_null($unspsc) && (strlen($unspsc) > 20)) {
+        if (!is_null($unspsc) && (mb_strlen($unspsc) > 20)) {
             throw new \InvalidArgumentException('invalid length for $unspsc when calling ItemIdentifiers., must be smaller than or equal to 20.');
         }
 

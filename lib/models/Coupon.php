@@ -464,23 +464,23 @@ class Coupon implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['coupon_type']) && (strlen($this->container['coupon_type']) > 65)) {
+        if (!is_null($this->container['coupon_type']) && (mb_strlen($this->container['coupon_type']) > 65)) {
             $invalidProperties[] = "invalid value for 'coupon_type', the character length must be smaller than or equal to 65.";
         }
 
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 50)) {
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 50)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['merchant_code']) && (strlen($this->container['merchant_code']) > 20)) {
+        if (!is_null($this->container['merchant_code']) && (mb_strlen($this->container['merchant_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'merchant_code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['quickbooks_code']) && (strlen($this->container['quickbooks_code']) > 20)) {
+        if (!is_null($this->container['quickbooks_code']) && (mb_strlen($this->container['quickbooks_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'quickbooks_code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['usable_by']) && (strlen($this->container['usable_by']) > 50)) {
+        if (!is_null($this->container['usable_by']) && (mb_strlen($this->container['usable_by']) > 50)) {
             $invalidProperties[] = "invalid value for 'usable_by', the character length must be smaller than or equal to 50.";
         }
 
@@ -496,19 +496,19 @@ class Coupon implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['coupon_type']) > 65) {
+        if (mb_strlen($this->container['coupon_type']) > 65) {
             return false;
         }
-        if (strlen($this->container['description']) > 50) {
+        if (mb_strlen($this->container['description']) > 50) {
             return false;
         }
-        if (strlen($this->container['merchant_code']) > 20) {
+        if (mb_strlen($this->container['merchant_code']) > 20) {
             return false;
         }
-        if (strlen($this->container['quickbooks_code']) > 20) {
+        if (mb_strlen($this->container['quickbooks_code']) > 20) {
             return false;
         }
-        if (strlen($this->container['usable_by']) > 50) {
+        if (mb_strlen($this->container['usable_by']) > 50) {
             return false;
         }
         return true;
@@ -798,7 +798,7 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     public function setCouponType($coupon_type)
     {
-        if (!is_null($coupon_type) && (strlen($coupon_type) > 65)) {
+        if (!is_null($coupon_type) && (mb_strlen($coupon_type) > 65)) {
             throw new \InvalidArgumentException('invalid length for $coupon_type when calling Coupon., must be smaller than or equal to 65.');
         }
 
@@ -826,7 +826,7 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     public function setDescription($description)
     {
-        if (!is_null($description) && (strlen($description) > 50)) {
+        if (!is_null($description) && (mb_strlen($description) > 50)) {
             throw new \InvalidArgumentException('invalid length for $description when calling Coupon., must be smaller than or equal to 50.');
         }
 
@@ -1142,7 +1142,7 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     public function setMerchantCode($merchant_code)
     {
-        if (!is_null($merchant_code) && (strlen($merchant_code) > 20)) {
+        if (!is_null($merchant_code) && (mb_strlen($merchant_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $merchant_code when calling Coupon., must be smaller than or equal to 20.');
         }
 
@@ -1482,7 +1482,7 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     public function setQuickbooksCode($quickbooks_code)
     {
-        if (!is_null($quickbooks_code) && (strlen($quickbooks_code) > 20)) {
+        if (!is_null($quickbooks_code) && (mb_strlen($quickbooks_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $quickbooks_code when calling Coupon., must be smaller than or equal to 20.');
         }
 
@@ -1654,7 +1654,7 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     public function setUsableBy($usable_by)
     {
-        if (!is_null($usable_by) && (strlen($usable_by) > 50)) {
+        if (!is_null($usable_by) && (mb_strlen($usable_by) > 50)) {
             throw new \InvalidArgumentException('invalid length for $usable_by when calling Coupon., must be smaller than or equal to 50.');
         }
 

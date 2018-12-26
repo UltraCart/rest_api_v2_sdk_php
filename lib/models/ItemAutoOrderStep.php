@@ -287,7 +287,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['recurring_merchant_item_id']) && (strlen($this->container['recurring_merchant_item_id']) > 20)) {
+        if (!is_null($this->container['recurring_merchant_item_id']) && (mb_strlen($this->container['recurring_merchant_item_id']) > 20)) {
             $invalidProperties[] = "invalid value for 'recurring_merchant_item_id', the character length must be smaller than or equal to 20.";
         }
 
@@ -311,7 +311,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['recurring_merchant_item_id']) > 20) {
+        if (mb_strlen($this->container['recurring_merchant_item_id']) > 20) {
             return false;
         }
         $allowedValues = $this->getTypeAllowableValues();
@@ -533,7 +533,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
      */
     public function setRecurringMerchantItemId($recurring_merchant_item_id)
     {
-        if (!is_null($recurring_merchant_item_id) && (strlen($recurring_merchant_item_id) > 20)) {
+        if (!is_null($recurring_merchant_item_id) && (mb_strlen($recurring_merchant_item_id) > 20)) {
             throw new \InvalidArgumentException('invalid length for $recurring_merchant_item_id when calling ItemAutoOrderStep., must be smaller than or equal to 20.');
         }
 

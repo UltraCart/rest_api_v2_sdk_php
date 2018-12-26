@@ -411,7 +411,7 @@ class Order implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['currency_code']) && (strlen($this->container['currency_code']) > 3)) {
+        if (!is_null($this->container['currency_code']) && (mb_strlen($this->container['currency_code']) > 3)) {
             $invalidProperties[] = "invalid value for 'currency_code', the character length must be smaller than or equal to 3.";
         }
 
@@ -423,7 +423,7 @@ class Order implements ModelInterface, ArrayAccess
             );
         }
 
-        if (!is_null($this->container['language_iso_code']) && (strlen($this->container['language_iso_code']) > 3)) {
+        if (!is_null($this->container['language_iso_code']) && (mb_strlen($this->container['language_iso_code']) > 3)) {
             $invalidProperties[] = "invalid value for 'language_iso_code', the character length must be smaller than or equal to 3.";
         }
 
@@ -439,14 +439,14 @@ class Order implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['currency_code']) > 3) {
+        if (mb_strlen($this->container['currency_code']) > 3) {
             return false;
         }
         $allowedValues = $this->getCurrentStageAllowableValues();
         if (!in_array($this->container['current_stage'], $allowedValues)) {
             return false;
         }
-        if (strlen($this->container['language_iso_code']) > 3) {
+        if (mb_strlen($this->container['language_iso_code']) > 3) {
             return false;
         }
         return true;
@@ -664,7 +664,7 @@ class Order implements ModelInterface, ArrayAccess
      */
     public function setCurrencyCode($currency_code)
     {
-        if (!is_null($currency_code) && (strlen($currency_code) > 3)) {
+        if (!is_null($currency_code) && (mb_strlen($currency_code) > 3)) {
             throw new \InvalidArgumentException('invalid length for $currency_code when calling Order., must be smaller than or equal to 3.');
         }
 
@@ -941,7 +941,7 @@ class Order implements ModelInterface, ArrayAccess
      */
     public function setLanguageIsoCode($language_iso_code)
     {
-        if (!is_null($language_iso_code) && (strlen($language_iso_code) > 3)) {
+        if (!is_null($language_iso_code) && (mb_strlen($language_iso_code) > 3)) {
             throw new \InvalidArgumentException('invalid length for $language_iso_code when calling Order., must be smaller than or equal to 3.');
         }
 

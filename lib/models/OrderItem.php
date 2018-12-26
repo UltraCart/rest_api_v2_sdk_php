@@ -482,27 +482,27 @@ class OrderItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['channel_partner_item_id']) && (strlen($this->container['channel_partner_item_id']) > 30)) {
+        if (!is_null($this->container['channel_partner_item_id']) && (mb_strlen($this->container['channel_partner_item_id']) > 30)) {
             $invalidProperties[] = "invalid value for 'channel_partner_item_id', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['country_code_of_origin']) && (strlen($this->container['country_code_of_origin']) > 2)) {
+        if (!is_null($this->container['country_code_of_origin']) && (mb_strlen($this->container['country_code_of_origin']) > 2)) {
             $invalidProperties[] = "invalid value for 'country_code_of_origin', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 2000)) {
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 2000)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 2000.";
         }
 
-        if (!is_null($this->container['merchant_item_id']) && (strlen($this->container['merchant_item_id']) > 20)) {
+        if (!is_null($this->container['merchant_item_id']) && (mb_strlen($this->container['merchant_item_id']) > 20)) {
             $invalidProperties[] = "invalid value for 'merchant_item_id', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['perishable_class']) && (strlen($this->container['perishable_class']) > 50)) {
+        if (!is_null($this->container['perishable_class']) && (mb_strlen($this->container['perishable_class']) > 50)) {
             $invalidProperties[] = "invalid value for 'perishable_class', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['quickbooks_class']) && (strlen($this->container['quickbooks_class']) > 31)) {
+        if (!is_null($this->container['quickbooks_class']) && (mb_strlen($this->container['quickbooks_class']) > 31)) {
             $invalidProperties[] = "invalid value for 'quickbooks_class', the character length must be smaller than or equal to 31.";
         }
 
@@ -518,22 +518,22 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['channel_partner_item_id']) > 30) {
+        if (mb_strlen($this->container['channel_partner_item_id']) > 30) {
             return false;
         }
-        if (strlen($this->container['country_code_of_origin']) > 2) {
+        if (mb_strlen($this->container['country_code_of_origin']) > 2) {
             return false;
         }
-        if (strlen($this->container['description']) > 2000) {
+        if (mb_strlen($this->container['description']) > 2000) {
             return false;
         }
-        if (strlen($this->container['merchant_item_id']) > 20) {
+        if (mb_strlen($this->container['merchant_item_id']) > 20) {
             return false;
         }
-        if (strlen($this->container['perishable_class']) > 50) {
+        if (mb_strlen($this->container['perishable_class']) > 50) {
             return false;
         }
-        if (strlen($this->container['quickbooks_class']) > 31) {
+        if (mb_strlen($this->container['quickbooks_class']) > 31) {
             return false;
         }
         return true;
@@ -631,7 +631,7 @@ class OrderItem implements ModelInterface, ArrayAccess
      */
     public function setChannelPartnerItemId($channel_partner_item_id)
     {
-        if (!is_null($channel_partner_item_id) && (strlen($channel_partner_item_id) > 30)) {
+        if (!is_null($channel_partner_item_id) && (mb_strlen($channel_partner_item_id) > 30)) {
             throw new \InvalidArgumentException('invalid length for $channel_partner_item_id when calling OrderItem., must be smaller than or equal to 30.');
         }
 
@@ -731,7 +731,7 @@ class OrderItem implements ModelInterface, ArrayAccess
      */
     public function setCountryCodeOfOrigin($country_code_of_origin)
     {
-        if (!is_null($country_code_of_origin) && (strlen($country_code_of_origin) > 2)) {
+        if (!is_null($country_code_of_origin) && (mb_strlen($country_code_of_origin) > 2)) {
             throw new \InvalidArgumentException('invalid length for $country_code_of_origin when calling OrderItem., must be smaller than or equal to 2.');
         }
 
@@ -783,7 +783,7 @@ class OrderItem implements ModelInterface, ArrayAccess
      */
     public function setDescription($description)
     {
-        if (!is_null($description) && (strlen($description) > 2000)) {
+        if (!is_null($description) && (mb_strlen($description) > 2000)) {
             throw new \InvalidArgumentException('invalid length for $description when calling OrderItem., must be smaller than or equal to 2000.');
         }
 
@@ -1171,7 +1171,7 @@ class OrderItem implements ModelInterface, ArrayAccess
      */
     public function setMerchantItemId($merchant_item_id)
     {
-        if (!is_null($merchant_item_id) && (strlen($merchant_item_id) > 20)) {
+        if (!is_null($merchant_item_id) && (mb_strlen($merchant_item_id) > 20)) {
             throw new \InvalidArgumentException('invalid length for $merchant_item_id when calling OrderItem., must be smaller than or equal to 20.');
         }
 
@@ -1319,7 +1319,7 @@ class OrderItem implements ModelInterface, ArrayAccess
      */
     public function setPerishableClass($perishable_class)
     {
-        if (!is_null($perishable_class) && (strlen($perishable_class) > 50)) {
+        if (!is_null($perishable_class) && (mb_strlen($perishable_class) > 50)) {
             throw new \InvalidArgumentException('invalid length for $perishable_class when calling OrderItem., must be smaller than or equal to 50.');
         }
 
@@ -1443,7 +1443,7 @@ class OrderItem implements ModelInterface, ArrayAccess
      */
     public function setQuickbooksClass($quickbooks_class)
     {
-        if (!is_null($quickbooks_class) && (strlen($quickbooks_class) > 31)) {
+        if (!is_null($quickbooks_class) && (mb_strlen($quickbooks_class) > 31)) {
             throw new \InvalidArgumentException('invalid length for $quickbooks_class when calling OrderItem., must be smaller than or equal to 31.');
         }
 

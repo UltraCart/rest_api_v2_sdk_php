@@ -61,6 +61,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'avalara_oid' => 'int',
         'company_id' => 'string',
         'enable_upc' => 'bool',
+        'estimate_only' => 'bool',
         'guest_customer_code' => 'string',
         'last_test_dts' => 'string',
         'license_key' => 'string',
@@ -80,6 +81,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'avalara_oid' => 'int32',
         'company_id' => null,
         'enable_upc' => null,
+        'estimate_only' => null,
         'guest_customer_code' => null,
         'last_test_dts' => 'dateTime',
         'license_key' => null,
@@ -120,6 +122,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'avalara_oid' => 'avalara_oid',
         'company_id' => 'company_id',
         'enable_upc' => 'enable_upc',
+        'estimate_only' => 'estimate_only',
         'guest_customer_code' => 'guest_customer_code',
         'last_test_dts' => 'last_test_dts',
         'license_key' => 'license_key',
@@ -139,6 +142,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'avalara_oid' => 'setAvalaraOid',
         'company_id' => 'setCompanyId',
         'enable_upc' => 'setEnableUpc',
+        'estimate_only' => 'setEstimateOnly',
         'guest_customer_code' => 'setGuestCustomerCode',
         'last_test_dts' => 'setLastTestDts',
         'license_key' => 'setLicenseKey',
@@ -158,6 +162,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'avalara_oid' => 'getAvalaraOid',
         'company_id' => 'getCompanyId',
         'enable_upc' => 'getEnableUpc',
+        'estimate_only' => 'getEstimateOnly',
         'guest_customer_code' => 'getGuestCustomerCode',
         'last_test_dts' => 'getLastTestDts',
         'license_key' => 'getLicenseKey',
@@ -231,6 +236,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         $this->container['avalara_oid'] = isset($data['avalara_oid']) ? $data['avalara_oid'] : null;
         $this->container['company_id'] = isset($data['company_id']) ? $data['company_id'] : null;
         $this->container['enable_upc'] = isset($data['enable_upc']) ? $data['enable_upc'] : null;
+        $this->container['estimate_only'] = isset($data['estimate_only']) ? $data['estimate_only'] : null;
         $this->container['guest_customer_code'] = isset($data['guest_customer_code']) ? $data['guest_customer_code'] : null;
         $this->container['last_test_dts'] = isset($data['last_test_dts']) ? $data['last_test_dts'] : null;
         $this->container['license_key'] = isset($data['license_key']) ? $data['license_key'] : null;
@@ -380,6 +386,30 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
     public function setEnableUpc($enable_upc)
     {
         $this->container['enable_upc'] = $enable_upc;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimate_only
+     *
+     * @return bool
+     */
+    public function getEstimateOnly()
+    {
+        return $this->container['estimate_only'];
+    }
+
+    /**
+     * Sets estimate_only
+     *
+     * @param bool $estimate_only True if this Avalara configuration is to estimate taxes only and not report placed orders to Avalara
+     *
+     * @return $this
+     */
+    public function setEstimateOnly($estimate_only)
+    {
+        $this->container['estimate_only'] = $estimate_only;
 
         return $this;
     }

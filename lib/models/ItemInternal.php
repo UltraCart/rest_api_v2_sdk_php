@@ -188,7 +188,7 @@ class ItemInternal implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['memo']) && (strlen($this->container['memo']) > 250)) {
+        if (!is_null($this->container['memo']) && (mb_strlen($this->container['memo']) > 250)) {
             $invalidProperties[] = "invalid value for 'memo', the character length must be smaller than or equal to 250.";
         }
 
@@ -204,7 +204,7 @@ class ItemInternal implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['memo']) > 250) {
+        if (mb_strlen($this->container['memo']) > 250) {
             return false;
         }
         return true;
@@ -230,7 +230,7 @@ class ItemInternal implements ModelInterface, ArrayAccess
      */
     public function setMemo($memo)
     {
-        if (!is_null($memo) && (strlen($memo) > 250)) {
+        if (!is_null($memo) && (mb_strlen($memo) > 250)) {
             throw new \InvalidArgumentException('invalid length for $memo when calling ItemInternal., must be smaller than or equal to 250.');
         }
 

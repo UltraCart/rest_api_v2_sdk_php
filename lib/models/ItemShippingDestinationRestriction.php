@@ -215,11 +215,11 @@ class ItemShippingDestinationRestriction implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['country_code']) && (strlen($this->container['country_code']) > 2)) {
+        if (!is_null($this->container['country_code']) && (mb_strlen($this->container['country_code']) > 2)) {
             $invalidProperties[] = "invalid value for 'country_code', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['state']) && (strlen($this->container['state']) > 32)) {
+        if (!is_null($this->container['state']) && (mb_strlen($this->container['state']) > 32)) {
             $invalidProperties[] = "invalid value for 'state', the character length must be smaller than or equal to 32.";
         }
 
@@ -243,10 +243,10 @@ class ItemShippingDestinationRestriction implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['country_code']) > 2) {
+        if (mb_strlen($this->container['country_code']) > 2) {
             return false;
         }
-        if (strlen($this->container['state']) > 32) {
+        if (mb_strlen($this->container['state']) > 32) {
             return false;
         }
         $allowedValues = $this->getValidityAllowableValues();
@@ -276,7 +276,7 @@ class ItemShippingDestinationRestriction implements ModelInterface, ArrayAccess
      */
     public function setCountryCode($country_code)
     {
-        if (!is_null($country_code) && (strlen($country_code) > 2)) {
+        if (!is_null($country_code) && (mb_strlen($country_code) > 2)) {
             throw new \InvalidArgumentException('invalid length for $country_code when calling ItemShippingDestinationRestriction., must be smaller than or equal to 2.');
         }
 
@@ -304,7 +304,7 @@ class ItemShippingDestinationRestriction implements ModelInterface, ArrayAccess
      */
     public function setState($state)
     {
-        if (!is_null($state) && (strlen($state) > 32)) {
+        if (!is_null($state) && (mb_strlen($state) > 32)) {
             throw new \InvalidArgumentException('invalid length for $state when calling ItemShippingDestinationRestriction., must be smaller than or equal to 32.');
         }
 

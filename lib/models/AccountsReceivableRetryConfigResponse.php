@@ -1,6 +1,6 @@
 <?php
 /**
- * CouponAmountOffSubtotalWithBlockPurchase
+ * AccountsReceivableRetryConfigResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CouponAmountOffSubtotalWithBlockPurchase Class Doc Comment
+ * AccountsReceivableRetryConfigResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayAccess
+class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CouponAmountOffSubtotalWithBlockPurchase';
+    protected static $swaggerModelName = 'AccountsReceivableRetryConfigResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,11 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'currency_code' => 'string',
-        'discount_amount' => 'float',
-        'required_purchase_item' => 'string',
-        'required_purchase_quantity' => 'int'
+        'config' => '\ultracart\v2\models\AccountsReceivableRetryConfig',
+        'error' => '\ultracart\v2\models\Error',
+        'has_linked_accounts' => 'bool',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool'
     ];
 
     /**
@@ -68,10 +69,11 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'currency_code' => null,
-        'discount_amount' => null,
-        'required_purchase_item' => null,
-        'required_purchase_quantity' => 'int32'
+        'config' => null,
+        'error' => null,
+        'has_linked_accounts' => null,
+        'metadata' => null,
+        'success' => null
     ];
 
     /**
@@ -101,10 +103,11 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_code' => 'currency_code',
-        'discount_amount' => 'discount_amount',
-        'required_purchase_item' => 'required_purchase_item',
-        'required_purchase_quantity' => 'required_purchase_quantity'
+        'config' => 'config',
+        'error' => 'error',
+        'has_linked_accounts' => 'has_linked_accounts',
+        'metadata' => 'metadata',
+        'success' => 'success'
     ];
 
     /**
@@ -113,10 +116,11 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'currency_code' => 'setCurrencyCode',
-        'discount_amount' => 'setDiscountAmount',
-        'required_purchase_item' => 'setRequiredPurchaseItem',
-        'required_purchase_quantity' => 'setRequiredPurchaseQuantity'
+        'config' => 'setConfig',
+        'error' => 'setError',
+        'has_linked_accounts' => 'setHasLinkedAccounts',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -125,10 +129,11 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'currency_code' => 'getCurrencyCode',
-        'discount_amount' => 'getDiscountAmount',
-        'required_purchase_item' => 'getRequiredPurchaseItem',
-        'required_purchase_quantity' => 'getRequiredPurchaseQuantity'
+        'config' => 'getConfig',
+        'error' => 'getError',
+        'has_linked_accounts' => 'getHasLinkedAccounts',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -191,10 +196,11 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
-        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
-        $this->container['required_purchase_item'] = isset($data['required_purchase_item']) ? $data['required_purchase_item'] : null;
-        $this->container['required_purchase_quantity'] = isset($data['required_purchase_quantity']) ? $data['required_purchase_quantity'] : null;
+        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['has_linked_accounts'] = isset($data['has_linked_accounts']) ? $data['has_linked_accounts'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -205,10 +211,6 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['currency_code']) && (mb_strlen($this->container['currency_code']) > 3)) {
-            $invalidProperties[] = "invalid value for 'currency_code', the character length must be smaller than or equal to 3.";
-        }
 
         return $invalidProperties;
     }
@@ -222,109 +224,126 @@ class CouponAmountOffSubtotalWithBlockPurchase implements ModelInterface, ArrayA
     public function valid()
     {
 
-        if (mb_strlen($this->container['currency_code']) > 3) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets currency_code
+     * Gets config
      *
-     * @return string
+     * @return \ultracart\v2\models\AccountsReceivableRetryConfig
      */
-    public function getCurrencyCode()
+    public function getConfig()
     {
-        return $this->container['currency_code'];
+        return $this->container['config'];
     }
 
     /**
-     * Sets currency_code
+     * Sets config
      *
-     * @param string $currency_code The ISO-4217 three letter currency code the customer is viewing prices in
+     * @param \ultracart\v2\models\AccountsReceivableRetryConfig $config config
      *
      * @return $this
      */
-    public function setCurrencyCode($currency_code)
+    public function setConfig($config)
     {
-        if (!is_null($currency_code) && (mb_strlen($currency_code) > 3)) {
-            throw new \InvalidArgumentException('invalid length for $currency_code when calling CouponAmountOffSubtotalWithBlockPurchase., must be smaller than or equal to 3.');
-        }
-
-        $this->container['currency_code'] = $currency_code;
+        $this->container['config'] = $config;
 
         return $this;
     }
 
     /**
-     * Gets discount_amount
+     * Gets error
      *
-     * @return float
+     * @return \ultracart\v2\models\Error
      */
-    public function getDiscountAmount()
+    public function getError()
     {
-        return $this->container['discount_amount'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets discount_amount
+     * Sets error
      *
-     * @param float $discount_amount The amount of subtotal discount
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setDiscountAmount($discount_amount)
+    public function setError($error)
     {
-        $this->container['discount_amount'] = $discount_amount;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets required_purchase_item
+     * Gets has_linked_accounts
      *
-     * @return string
+     * @return bool
      */
-    public function getRequiredPurchaseItem()
+    public function getHasLinkedAccounts()
     {
-        return $this->container['required_purchase_item'];
+        return $this->container['has_linked_accounts'];
     }
 
     /**
-     * Sets required_purchase_item
+     * Sets has_linked_accounts
      *
-     * @param string $required_purchase_item Required item that must be purchased for coupon to be valid
+     * @param bool $has_linked_accounts has_linked_accounts
      *
      * @return $this
      */
-    public function setRequiredPurchaseItem($required_purchase_item)
+    public function setHasLinkedAccounts($has_linked_accounts)
     {
-        $this->container['required_purchase_item'] = $required_purchase_item;
+        $this->container['has_linked_accounts'] = $has_linked_accounts;
 
         return $this;
     }
 
     /**
-     * Gets required_purchase_quantity
+     * Gets metadata
      *
-     * @return int
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getRequiredPurchaseQuantity()
+    public function getMetadata()
     {
-        return $this->container['required_purchase_quantity'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets required_purchase_quantity
+     * Sets metadata
      *
-     * @param int $required_purchase_quantity Discount amount is multiplied by the number of blocks.  A block is this many quantity of the required item.
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setRequiredPurchaseQuantity($required_purchase_quantity)
+    public function setMetadata($metadata)
     {
-        $this->container['required_purchase_quantity'] = $required_purchase_quantity;
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success Indicates if API call was successful
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
 
         return $this;
     }

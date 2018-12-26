@@ -206,7 +206,7 @@ class OrderEdi implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['edi_internal_vendor_number']) && (strlen($this->container['edi_internal_vendor_number']) > 50)) {
+        if (!is_null($this->container['edi_internal_vendor_number']) && (mb_strlen($this->container['edi_internal_vendor_number']) > 50)) {
             $invalidProperties[] = "invalid value for 'edi_internal_vendor_number', the character length must be smaller than or equal to 50.";
         }
 
@@ -222,7 +222,7 @@ class OrderEdi implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['edi_internal_vendor_number']) > 50) {
+        if (mb_strlen($this->container['edi_internal_vendor_number']) > 50) {
             return false;
         }
         return true;
@@ -296,7 +296,7 @@ class OrderEdi implements ModelInterface, ArrayAccess
      */
     public function setEdiInternalVendorNumber($edi_internal_vendor_number)
     {
-        if (!is_null($edi_internal_vendor_number) && (strlen($edi_internal_vendor_number) > 50)) {
+        if (!is_null($edi_internal_vendor_number) && (mb_strlen($edi_internal_vendor_number) > 50)) {
             throw new \InvalidArgumentException('invalid length for $edi_internal_vendor_number when calling OrderEdi., must be smaller than or equal to 50.');
         }
 

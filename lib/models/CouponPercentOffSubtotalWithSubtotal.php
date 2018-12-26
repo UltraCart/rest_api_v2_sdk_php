@@ -200,7 +200,7 @@ class CouponPercentOffSubtotalWithSubtotal implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['currency_code']) && (strlen($this->container['currency_code']) > 3)) {
+        if (!is_null($this->container['currency_code']) && (mb_strlen($this->container['currency_code']) > 3)) {
             $invalidProperties[] = "invalid value for 'currency_code', the character length must be smaller than or equal to 3.";
         }
 
@@ -216,7 +216,7 @@ class CouponPercentOffSubtotalWithSubtotal implements ModelInterface, ArrayAcces
     public function valid()
     {
 
-        if (strlen($this->container['currency_code']) > 3) {
+        if (mb_strlen($this->container['currency_code']) > 3) {
             return false;
         }
         return true;
@@ -242,7 +242,7 @@ class CouponPercentOffSubtotalWithSubtotal implements ModelInterface, ArrayAcces
      */
     public function setCurrencyCode($currency_code)
     {
-        if (!is_null($currency_code) && (strlen($currency_code) > 3)) {
+        if (!is_null($currency_code) && (mb_strlen($currency_code) > 3)) {
             throw new \InvalidArgumentException('invalid length for $currency_code when calling CouponPercentOffSubtotalWithSubtotal., must be smaller than or equal to 3.');
         }
 

@@ -206,11 +206,11 @@ class ItemContentAttribute implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 400)) {
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 400)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 400.";
         }
 
-        if (!is_null($this->container['value']) && (strlen($this->container['value']) > 100000)) {
+        if (!is_null($this->container['value']) && (mb_strlen($this->container['value']) > 100000)) {
             $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 100000.";
         }
 
@@ -226,10 +226,10 @@ class ItemContentAttribute implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['name']) > 400) {
+        if (mb_strlen($this->container['name']) > 400) {
             return false;
         }
-        if (strlen($this->container['value']) > 100000) {
+        if (mb_strlen($this->container['value']) > 100000) {
             return false;
         }
         return true;
@@ -255,7 +255,7 @@ class ItemContentAttribute implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-        if (!is_null($name) && (strlen($name) > 400)) {
+        if (!is_null($name) && (mb_strlen($name) > 400)) {
             throw new \InvalidArgumentException('invalid length for $name when calling ItemContentAttribute., must be smaller than or equal to 400.');
         }
 
@@ -331,7 +331,7 @@ class ItemContentAttribute implements ModelInterface, ArrayAccess
      */
     public function setValue($value)
     {
-        if (!is_null($value) && (strlen($value) > 100000)) {
+        if (!is_null($value) && (mb_strlen($value) > 100000)) {
             throw new \InvalidArgumentException('invalid length for $value when calling ItemContentAttribute., must be smaller than or equal to 100000.');
         }
 

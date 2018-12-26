@@ -260,11 +260,11 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['sku']) && (strlen($this->container['sku']) > 50)) {
+        if (!is_null($this->container['sku']) && (mb_strlen($this->container['sku']) > 50)) {
             $invalidProperties[] = "invalid value for 'sku', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['stock_picking_location']) && (strlen($this->container['stock_picking_location']) > 20)) {
+        if (!is_null($this->container['stock_picking_location']) && (mb_strlen($this->container['stock_picking_location']) > 20)) {
             $invalidProperties[] = "invalid value for 'stock_picking_location', the character length must be smaller than or equal to 20.";
         }
 
@@ -280,10 +280,10 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['sku']) > 50) {
+        if (mb_strlen($this->container['sku']) > 50) {
             return false;
         }
-        if (strlen($this->container['stock_picking_location']) > 20) {
+        if (mb_strlen($this->container['stock_picking_location']) > 20) {
             return false;
         }
         return true;
@@ -573,7 +573,7 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
      */
     public function setSku($sku)
     {
-        if (!is_null($sku) && (strlen($sku) > 50)) {
+        if (!is_null($sku) && (mb_strlen($sku) > 50)) {
             throw new \InvalidArgumentException('invalid length for $sku when calling ItemShippingDistributionCenter., must be smaller than or equal to 50.');
         }
 
@@ -601,7 +601,7 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
      */
     public function setStockPickingLocation($stock_picking_location)
     {
-        if (!is_null($stock_picking_location) && (strlen($stock_picking_location) > 20)) {
+        if (!is_null($stock_picking_location) && (mb_strlen($stock_picking_location) > 20)) {
             throw new \InvalidArgumentException('invalid length for $stock_picking_location when calling ItemShippingDistributionCenter., must be smaller than or equal to 20.');
         }
 

@@ -277,7 +277,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['selected_value']) && (strlen($this->container['selected_value']) > 1024)) {
+        if (!is_null($this->container['selected_value']) && (mb_strlen($this->container['selected_value']) > 1024)) {
             $invalidProperties[] = "invalid value for 'selected_value', the character length must be smaller than or equal to 1024.";
         }
 
@@ -301,7 +301,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['selected_value']) > 1024) {
+        if (mb_strlen($this->container['selected_value']) > 1024) {
             return false;
         }
         $allowedValues = $this->getTypeAllowableValues();
@@ -547,7 +547,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
      */
     public function setSelectedValue($selected_value)
     {
-        if (!is_null($selected_value) && (strlen($selected_value) > 1024)) {
+        if (!is_null($selected_value) && (mb_strlen($selected_value) > 1024)) {
             throw new \InvalidArgumentException('invalid length for $selected_value when calling CartItemOption., must be smaller than or equal to 1024.');
         }
 

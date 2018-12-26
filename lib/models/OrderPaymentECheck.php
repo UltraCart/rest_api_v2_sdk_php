@@ -272,15 +272,15 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['bank_aba_code']) && (strlen($this->container['bank_aba_code']) > 9)) {
+        if (!is_null($this->container['bank_aba_code']) && (mb_strlen($this->container['bank_aba_code']) > 9)) {
             $invalidProperties[] = "invalid value for 'bank_aba_code', the character length must be smaller than or equal to 9.";
         }
 
-        if (!is_null($this->container['bank_account_name']) && (strlen($this->container['bank_account_name']) > 50)) {
+        if (!is_null($this->container['bank_account_name']) && (mb_strlen($this->container['bank_account_name']) > 50)) {
             $invalidProperties[] = "invalid value for 'bank_account_name', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['bank_account_number']) && (strlen($this->container['bank_account_number']) > 50)) {
+        if (!is_null($this->container['bank_account_number']) && (mb_strlen($this->container['bank_account_number']) > 50)) {
             $invalidProperties[] = "invalid value for 'bank_account_number', the character length must be smaller than or equal to 50.";
         }
 
@@ -292,7 +292,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
             );
         }
 
-        if (!is_null($this->container['bank_name']) && (strlen($this->container['bank_name']) > 50)) {
+        if (!is_null($this->container['bank_name']) && (mb_strlen($this->container['bank_name']) > 50)) {
             $invalidProperties[] = "invalid value for 'bank_name', the character length must be smaller than or equal to 50.";
         }
 
@@ -304,19 +304,19 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
             );
         }
 
-        if (!is_null($this->container['customer_tax_id']) && (strlen($this->container['customer_tax_id']) > 9)) {
+        if (!is_null($this->container['customer_tax_id']) && (mb_strlen($this->container['customer_tax_id']) > 9)) {
             $invalidProperties[] = "invalid value for 'customer_tax_id', the character length must be smaller than or equal to 9.";
         }
 
-        if (!is_null($this->container['drivers_license_dob']) && (strlen($this->container['drivers_license_dob']) > 10)) {
+        if (!is_null($this->container['drivers_license_dob']) && (mb_strlen($this->container['drivers_license_dob']) > 10)) {
             $invalidProperties[] = "invalid value for 'drivers_license_dob', the character length must be smaller than or equal to 10.";
         }
 
-        if (!is_null($this->container['drivers_license_number']) && (strlen($this->container['drivers_license_number']) > 50)) {
+        if (!is_null($this->container['drivers_license_number']) && (mb_strlen($this->container['drivers_license_number']) > 50)) {
             $invalidProperties[] = "invalid value for 'drivers_license_number', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['drivers_license_state']) && (strlen($this->container['drivers_license_state']) > 2)) {
+        if (!is_null($this->container['drivers_license_state']) && (mb_strlen($this->container['drivers_license_state']) > 2)) {
             $invalidProperties[] = "invalid value for 'drivers_license_state', the character length must be smaller than or equal to 2.";
         }
 
@@ -332,36 +332,36 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['bank_aba_code']) > 9) {
+        if (mb_strlen($this->container['bank_aba_code']) > 9) {
             return false;
         }
-        if (strlen($this->container['bank_account_name']) > 50) {
+        if (mb_strlen($this->container['bank_account_name']) > 50) {
             return false;
         }
-        if (strlen($this->container['bank_account_number']) > 50) {
+        if (mb_strlen($this->container['bank_account_number']) > 50) {
             return false;
         }
         $allowedValues = $this->getBankAccountTypeAllowableValues();
         if (!in_array($this->container['bank_account_type'], $allowedValues)) {
             return false;
         }
-        if (strlen($this->container['bank_name']) > 50) {
+        if (mb_strlen($this->container['bank_name']) > 50) {
             return false;
         }
         $allowedValues = $this->getBankOwnerTypeAllowableValues();
         if (!in_array($this->container['bank_owner_type'], $allowedValues)) {
             return false;
         }
-        if (strlen($this->container['customer_tax_id']) > 9) {
+        if (mb_strlen($this->container['customer_tax_id']) > 9) {
             return false;
         }
-        if (strlen($this->container['drivers_license_dob']) > 10) {
+        if (mb_strlen($this->container['drivers_license_dob']) > 10) {
             return false;
         }
-        if (strlen($this->container['drivers_license_number']) > 50) {
+        if (mb_strlen($this->container['drivers_license_number']) > 50) {
             return false;
         }
-        if (strlen($this->container['drivers_license_state']) > 2) {
+        if (mb_strlen($this->container['drivers_license_state']) > 2) {
             return false;
         }
         return true;
@@ -387,7 +387,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
      */
     public function setBankAbaCode($bank_aba_code)
     {
-        if (!is_null($bank_aba_code) && (strlen($bank_aba_code) > 9)) {
+        if (!is_null($bank_aba_code) && (mb_strlen($bank_aba_code) > 9)) {
             throw new \InvalidArgumentException('invalid length for $bank_aba_code when calling OrderPaymentECheck., must be smaller than or equal to 9.');
         }
 
@@ -415,7 +415,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
      */
     public function setBankAccountName($bank_account_name)
     {
-        if (!is_null($bank_account_name) && (strlen($bank_account_name) > 50)) {
+        if (!is_null($bank_account_name) && (mb_strlen($bank_account_name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $bank_account_name when calling OrderPaymentECheck., must be smaller than or equal to 50.');
         }
 
@@ -443,7 +443,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
      */
     public function setBankAccountNumber($bank_account_number)
     {
-        if (!is_null($bank_account_number) && (strlen($bank_account_number) > 50)) {
+        if (!is_null($bank_account_number) && (mb_strlen($bank_account_number) > 50)) {
             throw new \InvalidArgumentException('invalid length for $bank_account_number when calling OrderPaymentECheck., must be smaller than or equal to 50.');
         }
 
@@ -504,7 +504,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
      */
     public function setBankName($bank_name)
     {
-        if (!is_null($bank_name) && (strlen($bank_name) > 50)) {
+        if (!is_null($bank_name) && (mb_strlen($bank_name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $bank_name when calling OrderPaymentECheck., must be smaller than or equal to 50.');
         }
 
@@ -565,7 +565,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
      */
     public function setCustomerTaxId($customer_tax_id)
     {
-        if (!is_null($customer_tax_id) && (strlen($customer_tax_id) > 9)) {
+        if (!is_null($customer_tax_id) && (mb_strlen($customer_tax_id) > 9)) {
             throw new \InvalidArgumentException('invalid length for $customer_tax_id when calling OrderPaymentECheck., must be smaller than or equal to 9.');
         }
 
@@ -593,7 +593,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
      */
     public function setDriversLicenseDob($drivers_license_dob)
     {
-        if (!is_null($drivers_license_dob) && (strlen($drivers_license_dob) > 10)) {
+        if (!is_null($drivers_license_dob) && (mb_strlen($drivers_license_dob) > 10)) {
             throw new \InvalidArgumentException('invalid length for $drivers_license_dob when calling OrderPaymentECheck., must be smaller than or equal to 10.');
         }
 
@@ -621,7 +621,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
      */
     public function setDriversLicenseNumber($drivers_license_number)
     {
-        if (!is_null($drivers_license_number) && (strlen($drivers_license_number) > 50)) {
+        if (!is_null($drivers_license_number) && (mb_strlen($drivers_license_number) > 50)) {
             throw new \InvalidArgumentException('invalid length for $drivers_license_number when calling OrderPaymentECheck., must be smaller than or equal to 50.');
         }
 
@@ -649,7 +649,7 @@ class OrderPaymentECheck implements ModelInterface, ArrayAccess
      */
     public function setDriversLicenseState($drivers_license_state)
     {
-        if (!is_null($drivers_license_state) && (strlen($drivers_license_state) > 2)) {
+        if (!is_null($drivers_license_state) && (mb_strlen($drivers_license_state) > 2)) {
             throw new \InvalidArgumentException('invalid length for $drivers_license_state when calling OrderPaymentECheck., must be smaller than or equal to 2.');
         }
 

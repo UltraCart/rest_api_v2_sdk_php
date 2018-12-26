@@ -218,11 +218,11 @@ class CustomerEmail implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['email']) && (strlen($this->container['email']) > 100)) {
+        if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 100)) {
             $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['label']) && (strlen($this->container['label']) > 100)) {
+        if (!is_null($this->container['label']) && (mb_strlen($this->container['label']) > 100)) {
             $invalidProperties[] = "invalid value for 'label', the character length must be smaller than or equal to 100.";
         }
 
@@ -238,10 +238,10 @@ class CustomerEmail implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['email']) > 100) {
+        if (mb_strlen($this->container['email']) > 100) {
             return false;
         }
-        if (strlen($this->container['label']) > 100) {
+        if (mb_strlen($this->container['label']) > 100) {
             return false;
         }
         return true;
@@ -291,7 +291,7 @@ class CustomerEmail implements ModelInterface, ArrayAccess
      */
     public function setEmail($email)
     {
-        if (!is_null($email) && (strlen($email) > 100)) {
+        if (!is_null($email) && (mb_strlen($email) > 100)) {
             throw new \InvalidArgumentException('invalid length for $email when calling CustomerEmail., must be smaller than or equal to 100.');
         }
 
@@ -319,7 +319,7 @@ class CustomerEmail implements ModelInterface, ArrayAccess
      */
     public function setLabel($label)
     {
-        if (!is_null($label) && (strlen($label) > 100)) {
+        if (!is_null($label) && (mb_strlen($label) > 100)) {
             throw new \InvalidArgumentException('invalid length for $label when calling CustomerEmail., must be smaller than or equal to 100.');
         }
 

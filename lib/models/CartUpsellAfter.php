@@ -200,7 +200,7 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['upsell_path_code']) && (strlen($this->container['upsell_path_code']) > 5)) {
+        if (!is_null($this->container['upsell_path_code']) && (mb_strlen($this->container['upsell_path_code']) > 5)) {
             $invalidProperties[] = "invalid value for 'upsell_path_code', the character length must be smaller than or equal to 5.";
         }
 
@@ -216,7 +216,7 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['upsell_path_code']) > 5) {
+        if (mb_strlen($this->container['upsell_path_code']) > 5) {
             return false;
         }
         return true;
@@ -290,7 +290,7 @@ class CartUpsellAfter implements ModelInterface, ArrayAccess
      */
     public function setUpsellPathCode($upsell_path_code)
     {
-        if (!is_null($upsell_path_code) && (strlen($upsell_path_code) > 5)) {
+        if (!is_null($upsell_path_code) && (mb_strlen($upsell_path_code) > 5)) {
             throw new \InvalidArgumentException('invalid length for $upsell_path_code when calling CartUpsellAfter., must be smaller than or equal to 5.');
         }
 

@@ -293,15 +293,15 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['code']) && (strlen($this->container['code']) > 20)) {
+        if (!is_null($this->container['code']) && (mb_strlen($this->container['code']) > 20)) {
             $invalidProperties[] = "invalid value for 'code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['description']) && (strlen($this->container['description']) > 50000)) {
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 50000)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 50000.";
         }
 
-        if (!is_null($this->container['file_name']) && (strlen($this->container['file_name']) > 75)) {
+        if (!is_null($this->container['file_name']) && (mb_strlen($this->container['file_name']) > 75)) {
             $invalidProperties[] = "invalid value for 'file_name', the character length must be smaller than or equal to 75.";
         }
 
@@ -325,13 +325,13 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['code']) > 20) {
+        if (mb_strlen($this->container['code']) > 20) {
             return false;
         }
-        if (strlen($this->container['description']) > 50000) {
+        if (mb_strlen($this->container['description']) > 50000) {
             return false;
         }
-        if (strlen($this->container['file_name']) > 75) {
+        if (mb_strlen($this->container['file_name']) > 75) {
             return false;
         }
         $allowedValues = $this->getTypeAllowableValues();
@@ -409,7 +409,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess
      */
     public function setCode($code)
     {
-        if (!is_null($code) && (strlen($code) > 20)) {
+        if (!is_null($code) && (mb_strlen($code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $code when calling ItemContentMultimedia., must be smaller than or equal to 20.');
         }
 
@@ -437,7 +437,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess
      */
     public function setDescription($description)
     {
-        if (!is_null($description) && (strlen($description) > 50000)) {
+        if (!is_null($description) && (mb_strlen($description) > 50000)) {
             throw new \InvalidArgumentException('invalid length for $description when calling ItemContentMultimedia., must be smaller than or equal to 50000.');
         }
 
@@ -489,7 +489,7 @@ class ItemContentMultimedia implements ModelInterface, ArrayAccess
      */
     public function setFileName($file_name)
     {
-        if (!is_null($file_name) && (strlen($file_name) > 75)) {
+        if (!is_null($file_name) && (mb_strlen($file_name) > 75)) {
             throw new \InvalidArgumentException('invalid length for $file_name when calling ItemContentMultimedia., must be smaller than or equal to 75.');
         }
 

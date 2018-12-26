@@ -254,35 +254,35 @@ class OrderCheckout implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['custom_field1']) && (strlen($this->container['custom_field1']) > 50)) {
+        if (!is_null($this->container['custom_field1']) && (mb_strlen($this->container['custom_field1']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field1', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_field2']) && (strlen($this->container['custom_field2']) > 50)) {
+        if (!is_null($this->container['custom_field2']) && (mb_strlen($this->container['custom_field2']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field2', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_field3']) && (strlen($this->container['custom_field3']) > 50)) {
+        if (!is_null($this->container['custom_field3']) && (mb_strlen($this->container['custom_field3']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field3', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_field4']) && (strlen($this->container['custom_field4']) > 50)) {
+        if (!is_null($this->container['custom_field4']) && (mb_strlen($this->container['custom_field4']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field4', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_field5']) && (strlen($this->container['custom_field5']) > 75)) {
+        if (!is_null($this->container['custom_field5']) && (mb_strlen($this->container['custom_field5']) > 75)) {
             $invalidProperties[] = "invalid value for 'custom_field5', the character length must be smaller than or equal to 75.";
         }
 
-        if (!is_null($this->container['custom_field6']) && (strlen($this->container['custom_field6']) > 50)) {
+        if (!is_null($this->container['custom_field6']) && (mb_strlen($this->container['custom_field6']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field6', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_field7']) && (strlen($this->container['custom_field7']) > 50)) {
+        if (!is_null($this->container['custom_field7']) && (mb_strlen($this->container['custom_field7']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field7', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['screen_branding_theme_code']) && (strlen($this->container['screen_branding_theme_code']) > 10)) {
+        if (!is_null($this->container['screen_branding_theme_code']) && (mb_strlen($this->container['screen_branding_theme_code']) > 10)) {
             $invalidProperties[] = "invalid value for 'screen_branding_theme_code', the character length must be smaller than or equal to 10.";
         }
 
@@ -298,28 +298,28 @@ class OrderCheckout implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['custom_field1']) > 50) {
+        if (mb_strlen($this->container['custom_field1']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_field2']) > 50) {
+        if (mb_strlen($this->container['custom_field2']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_field3']) > 50) {
+        if (mb_strlen($this->container['custom_field3']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_field4']) > 50) {
+        if (mb_strlen($this->container['custom_field4']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_field5']) > 75) {
+        if (mb_strlen($this->container['custom_field5']) > 75) {
             return false;
         }
-        if (strlen($this->container['custom_field6']) > 50) {
+        if (mb_strlen($this->container['custom_field6']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_field7']) > 50) {
+        if (mb_strlen($this->container['custom_field7']) > 50) {
             return false;
         }
-        if (strlen($this->container['screen_branding_theme_code']) > 10) {
+        if (mb_strlen($this->container['screen_branding_theme_code']) > 10) {
             return false;
         }
         return true;
@@ -369,7 +369,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function setCustomField1($custom_field1)
     {
-        if (!is_null($custom_field1) && (strlen($custom_field1) > 50)) {
+        if (!is_null($custom_field1) && (mb_strlen($custom_field1) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_field1 when calling OrderCheckout., must be smaller than or equal to 50.');
         }
 
@@ -397,7 +397,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function setCustomField2($custom_field2)
     {
-        if (!is_null($custom_field2) && (strlen($custom_field2) > 50)) {
+        if (!is_null($custom_field2) && (mb_strlen($custom_field2) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_field2 when calling OrderCheckout., must be smaller than or equal to 50.');
         }
 
@@ -425,7 +425,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function setCustomField3($custom_field3)
     {
-        if (!is_null($custom_field3) && (strlen($custom_field3) > 50)) {
+        if (!is_null($custom_field3) && (mb_strlen($custom_field3) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_field3 when calling OrderCheckout., must be smaller than or equal to 50.');
         }
 
@@ -453,7 +453,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function setCustomField4($custom_field4)
     {
-        if (!is_null($custom_field4) && (strlen($custom_field4) > 50)) {
+        if (!is_null($custom_field4) && (mb_strlen($custom_field4) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_field4 when calling OrderCheckout., must be smaller than or equal to 50.');
         }
 
@@ -481,7 +481,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function setCustomField5($custom_field5)
     {
-        if (!is_null($custom_field5) && (strlen($custom_field5) > 75)) {
+        if (!is_null($custom_field5) && (mb_strlen($custom_field5) > 75)) {
             throw new \InvalidArgumentException('invalid length for $custom_field5 when calling OrderCheckout., must be smaller than or equal to 75.');
         }
 
@@ -509,7 +509,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function setCustomField6($custom_field6)
     {
-        if (!is_null($custom_field6) && (strlen($custom_field6) > 50)) {
+        if (!is_null($custom_field6) && (mb_strlen($custom_field6) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_field6 when calling OrderCheckout., must be smaller than or equal to 50.');
         }
 
@@ -537,7 +537,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function setCustomField7($custom_field7)
     {
-        if (!is_null($custom_field7) && (strlen($custom_field7) > 50)) {
+        if (!is_null($custom_field7) && (mb_strlen($custom_field7) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_field7 when calling OrderCheckout., must be smaller than or equal to 50.');
         }
 
@@ -589,7 +589,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function setScreenBrandingThemeCode($screen_branding_theme_code)
     {
-        if (!is_null($screen_branding_theme_code) && (strlen($screen_branding_theme_code) > 10)) {
+        if (!is_null($screen_branding_theme_code) && (mb_strlen($screen_branding_theme_code) > 10)) {
             throw new \InvalidArgumentException('invalid length for $screen_branding_theme_code when calling OrderCheckout., must be smaller than or equal to 10.');
         }
 

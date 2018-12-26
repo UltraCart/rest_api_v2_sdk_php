@@ -260,7 +260,7 @@ class CartFinalizeOrderRequestOptions implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['credit_card_authorization_reference_number']) && (strlen($this->container['credit_card_authorization_reference_number']) > 60)) {
+        if (!is_null($this->container['credit_card_authorization_reference_number']) && (mb_strlen($this->container['credit_card_authorization_reference_number']) > 60)) {
             $invalidProperties[] = "invalid value for 'credit_card_authorization_reference_number', the character length must be smaller than or equal to 60.";
         }
 
@@ -276,7 +276,7 @@ class CartFinalizeOrderRequestOptions implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['credit_card_authorization_reference_number']) > 60) {
+        if (mb_strlen($this->container['credit_card_authorization_reference_number']) > 60) {
             return false;
         }
         return true;
@@ -470,7 +470,7 @@ class CartFinalizeOrderRequestOptions implements ModelInterface, ArrayAccess
      */
     public function setCreditCardAuthorizationReferenceNumber($credit_card_authorization_reference_number)
     {
-        if (!is_null($credit_card_authorization_reference_number) && (strlen($credit_card_authorization_reference_number) > 60)) {
+        if (!is_null($credit_card_authorization_reference_number) && (mb_strlen($credit_card_authorization_reference_number) > 60)) {
             throw new \InvalidArgumentException('invalid length for $credit_card_authorization_reference_number when calling CartFinalizeOrderRequestOptions., must be smaller than or equal to 60.');
         }
 

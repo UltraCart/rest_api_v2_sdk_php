@@ -212,23 +212,23 @@ class ItemTaxExemption implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['city']) && (strlen($this->container['city']) > 32)) {
+        if (!is_null($this->container['city']) && (mb_strlen($this->container['city']) > 32)) {
             $invalidProperties[] = "invalid value for 'city', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['country_code']) && (strlen($this->container['country_code']) > 2)) {
+        if (!is_null($this->container['country_code']) && (mb_strlen($this->container['country_code']) > 2)) {
             $invalidProperties[] = "invalid value for 'country_code', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['county']) && (strlen($this->container['county']) > 32)) {
+        if (!is_null($this->container['county']) && (mb_strlen($this->container['county']) > 32)) {
             $invalidProperties[] = "invalid value for 'county', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['postal_code']) && (strlen($this->container['postal_code']) > 20)) {
+        if (!is_null($this->container['postal_code']) && (mb_strlen($this->container['postal_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'postal_code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['state_code']) && (strlen($this->container['state_code']) > 32)) {
+        if (!is_null($this->container['state_code']) && (mb_strlen($this->container['state_code']) > 32)) {
             $invalidProperties[] = "invalid value for 'state_code', the character length must be smaller than or equal to 32.";
         }
 
@@ -244,19 +244,19 @@ class ItemTaxExemption implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['city']) > 32) {
+        if (mb_strlen($this->container['city']) > 32) {
             return false;
         }
-        if (strlen($this->container['country_code']) > 2) {
+        if (mb_strlen($this->container['country_code']) > 2) {
             return false;
         }
-        if (strlen($this->container['county']) > 32) {
+        if (mb_strlen($this->container['county']) > 32) {
             return false;
         }
-        if (strlen($this->container['postal_code']) > 20) {
+        if (mb_strlen($this->container['postal_code']) > 20) {
             return false;
         }
-        if (strlen($this->container['state_code']) > 32) {
+        if (mb_strlen($this->container['state_code']) > 32) {
             return false;
         }
         return true;
@@ -282,7 +282,7 @@ class ItemTaxExemption implements ModelInterface, ArrayAccess
      */
     public function setCity($city)
     {
-        if (!is_null($city) && (strlen($city) > 32)) {
+        if (!is_null($city) && (mb_strlen($city) > 32)) {
             throw new \InvalidArgumentException('invalid length for $city when calling ItemTaxExemption., must be smaller than or equal to 32.');
         }
 
@@ -310,7 +310,7 @@ class ItemTaxExemption implements ModelInterface, ArrayAccess
      */
     public function setCountryCode($country_code)
     {
-        if (!is_null($country_code) && (strlen($country_code) > 2)) {
+        if (!is_null($country_code) && (mb_strlen($country_code) > 2)) {
             throw new \InvalidArgumentException('invalid length for $country_code when calling ItemTaxExemption., must be smaller than or equal to 2.');
         }
 
@@ -338,7 +338,7 @@ class ItemTaxExemption implements ModelInterface, ArrayAccess
      */
     public function setCounty($county)
     {
-        if (!is_null($county) && (strlen($county) > 32)) {
+        if (!is_null($county) && (mb_strlen($county) > 32)) {
             throw new \InvalidArgumentException('invalid length for $county when calling ItemTaxExemption., must be smaller than or equal to 32.');
         }
 
@@ -366,7 +366,7 @@ class ItemTaxExemption implements ModelInterface, ArrayAccess
      */
     public function setPostalCode($postal_code)
     {
-        if (!is_null($postal_code) && (strlen($postal_code) > 20)) {
+        if (!is_null($postal_code) && (mb_strlen($postal_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $postal_code when calling ItemTaxExemption., must be smaller than or equal to 20.');
         }
 
@@ -394,7 +394,7 @@ class ItemTaxExemption implements ModelInterface, ArrayAccess
      */
     public function setStateCode($state_code)
     {
-        if (!is_null($state_code) && (strlen($state_code) > 32)) {
+        if (!is_null($state_code) && (mb_strlen($state_code) > 32)) {
             throw new \InvalidArgumentException('invalid length for $state_code when calling ItemTaxExemption., must be smaller than or equal to 32.');
         }
 

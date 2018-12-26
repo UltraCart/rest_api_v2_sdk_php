@@ -212,11 +212,11 @@ class ItemVariation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['default_text']) && (strlen($this->container['default_text']) > 50)) {
+        if (!is_null($this->container['default_text']) && (mb_strlen($this->container['default_text']) > 50)) {
             $invalidProperties[] = "invalid value for 'default_text', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 50)) {
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 50)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
         }
 
@@ -232,10 +232,10 @@ class ItemVariation implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['default_text']) > 50) {
+        if (mb_strlen($this->container['default_text']) > 50) {
             return false;
         }
-        if (strlen($this->container['name']) > 50) {
+        if (mb_strlen($this->container['name']) > 50) {
             return false;
         }
         return true;
@@ -261,7 +261,7 @@ class ItemVariation implements ModelInterface, ArrayAccess
      */
     public function setDefaultText($default_text)
     {
-        if (!is_null($default_text) && (strlen($default_text) > 50)) {
+        if (!is_null($default_text) && (mb_strlen($default_text) > 50)) {
             throw new \InvalidArgumentException('invalid length for $default_text when calling ItemVariation., must be smaller than or equal to 50.');
         }
 
@@ -313,7 +313,7 @@ class ItemVariation implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-        if (!is_null($name) && (strlen($name) > 50)) {
+        if (!is_null($name) && (mb_strlen($name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $name when calling ItemVariation., must be smaller than or equal to 50.');
         }
 

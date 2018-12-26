@@ -200,11 +200,11 @@ class OrderCoupon implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['base_coupon_code']) && (strlen($this->container['base_coupon_code']) > 20)) {
+        if (!is_null($this->container['base_coupon_code']) && (mb_strlen($this->container['base_coupon_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'base_coupon_code', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['coupon_code']) && (strlen($this->container['coupon_code']) > 20)) {
+        if (!is_null($this->container['coupon_code']) && (mb_strlen($this->container['coupon_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'coupon_code', the character length must be smaller than or equal to 20.";
         }
 
@@ -220,10 +220,10 @@ class OrderCoupon implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['base_coupon_code']) > 20) {
+        if (mb_strlen($this->container['base_coupon_code']) > 20) {
             return false;
         }
-        if (strlen($this->container['coupon_code']) > 20) {
+        if (mb_strlen($this->container['coupon_code']) > 20) {
             return false;
         }
         return true;
@@ -273,7 +273,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
      */
     public function setBaseCouponCode($base_coupon_code)
     {
-        if (!is_null($base_coupon_code) && (strlen($base_coupon_code) > 20)) {
+        if (!is_null($base_coupon_code) && (mb_strlen($base_coupon_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $base_coupon_code when calling OrderCoupon., must be smaller than or equal to 20.');
         }
 
@@ -301,7 +301,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
      */
     public function setCouponCode($coupon_code)
     {
-        if (!is_null($coupon_code) && (strlen($coupon_code) > 20)) {
+        if (!is_null($coupon_code) && (mb_strlen($coupon_code) > 20)) {
             throw new \InvalidArgumentException('invalid length for $coupon_code when calling OrderCoupon., must be smaller than or equal to 20.');
         }
 

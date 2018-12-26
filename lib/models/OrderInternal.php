@@ -212,7 +212,7 @@ class OrderInternal implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['sales_rep_code']) && (strlen($this->container['sales_rep_code']) > 10)) {
+        if (!is_null($this->container['sales_rep_code']) && (mb_strlen($this->container['sales_rep_code']) > 10)) {
             $invalidProperties[] = "invalid value for 'sales_rep_code', the character length must be smaller than or equal to 10.";
         }
 
@@ -228,7 +228,7 @@ class OrderInternal implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['sales_rep_code']) > 10) {
+        if (mb_strlen($this->container['sales_rep_code']) > 10) {
             return false;
         }
         return true;
@@ -350,7 +350,7 @@ class OrderInternal implements ModelInterface, ArrayAccess
      */
     public function setSalesRepCode($sales_rep_code)
     {
-        if (!is_null($sales_rep_code) && (strlen($sales_rep_code) > 10)) {
+        if (!is_null($sales_rep_code) && (mb_strlen($sales_rep_code) > 10)) {
             throw new \InvalidArgumentException('invalid length for $sales_rep_code when calling OrderInternal., must be smaller than or equal to 10.');
         }
 

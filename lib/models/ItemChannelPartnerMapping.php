@@ -290,15 +290,15 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['from_item_id']) && (strlen($this->container['from_item_id']) > 30)) {
+        if (!is_null($this->container['from_item_id']) && (mb_strlen($this->container['from_item_id']) > 30)) {
             $invalidProperties[] = "invalid value for 'from_item_id', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['from_sku']) && (strlen($this->container['from_sku']) > 50)) {
+        if (!is_null($this->container['from_sku']) && (mb_strlen($this->container['from_sku']) > 50)) {
             $invalidProperties[] = "invalid value for 'from_sku', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['sku']) && (strlen($this->container['sku']) > 50)) {
+        if (!is_null($this->container['sku']) && (mb_strlen($this->container['sku']) > 50)) {
             $invalidProperties[] = "invalid value for 'sku', the character length must be smaller than or equal to 50.";
         }
 
@@ -314,13 +314,13 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['from_item_id']) > 30) {
+        if (mb_strlen($this->container['from_item_id']) > 30) {
             return false;
         }
-        if (strlen($this->container['from_sku']) > 50) {
+        if (mb_strlen($this->container['from_sku']) > 50) {
             return false;
         }
-        if (strlen($this->container['sku']) > 50) {
+        if (mb_strlen($this->container['sku']) > 50) {
             return false;
         }
         return true;
@@ -562,7 +562,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
      */
     public function setFromItemId($from_item_id)
     {
-        if (!is_null($from_item_id) && (strlen($from_item_id) > 30)) {
+        if (!is_null($from_item_id) && (mb_strlen($from_item_id) > 30)) {
             throw new \InvalidArgumentException('invalid length for $from_item_id when calling ItemChannelPartnerMapping., must be smaller than or equal to 30.');
         }
 
@@ -590,7 +590,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
      */
     public function setFromSku($from_sku)
     {
-        if (!is_null($from_sku) && (strlen($from_sku) > 50)) {
+        if (!is_null($from_sku) && (mb_strlen($from_sku) > 50)) {
             throw new \InvalidArgumentException('invalid length for $from_sku when calling ItemChannelPartnerMapping., must be smaller than or equal to 50.');
         }
 
@@ -690,7 +690,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
      */
     public function setSku($sku)
     {
-        if (!is_null($sku) && (strlen($sku) > 50)) {
+        if (!is_null($sku) && (mb_strlen($sku) > 50)) {
             throw new \InvalidArgumentException('invalid length for $sku when calling ItemChannelPartnerMapping., must be smaller than or equal to 50.');
         }
 

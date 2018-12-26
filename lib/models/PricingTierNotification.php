@@ -200,11 +200,11 @@ class PricingTierNotification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['format']) && (strlen($this->container['format']) > 16)) {
+        if (!is_null($this->container['format']) && (mb_strlen($this->container['format']) > 16)) {
             $invalidProperties[] = "invalid value for 'format', the character length must be smaller than or equal to 16.";
         }
 
-        if (!is_null($this->container['subject']) && (strlen($this->container['subject']) > 100)) {
+        if (!is_null($this->container['subject']) && (mb_strlen($this->container['subject']) > 100)) {
             $invalidProperties[] = "invalid value for 'subject', the character length must be smaller than or equal to 100.";
         }
 
@@ -220,10 +220,10 @@ class PricingTierNotification implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['format']) > 16) {
+        if (mb_strlen($this->container['format']) > 16) {
             return false;
         }
-        if (strlen($this->container['subject']) > 100) {
+        if (mb_strlen($this->container['subject']) > 100) {
             return false;
         }
         return true;
@@ -249,7 +249,7 @@ class PricingTierNotification implements ModelInterface, ArrayAccess
      */
     public function setFormat($format)
     {
-        if (!is_null($format) && (strlen($format) > 16)) {
+        if (!is_null($format) && (mb_strlen($format) > 16)) {
             throw new \InvalidArgumentException('invalid length for $format when calling PricingTierNotification., must be smaller than or equal to 16.');
         }
 
@@ -277,7 +277,7 @@ class PricingTierNotification implements ModelInterface, ArrayAccess
      */
     public function setSubject($subject)
     {
-        if (!is_null($subject) && (strlen($subject) > 100)) {
+        if (!is_null($subject) && (mb_strlen($subject) > 100)) {
             throw new \InvalidArgumentException('invalid length for $subject when calling PricingTierNotification., must be smaller than or equal to 100.');
         }
 

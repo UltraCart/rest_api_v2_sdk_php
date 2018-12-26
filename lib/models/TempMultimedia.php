@@ -243,7 +243,7 @@ class TempMultimedia implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['filename']) && (strlen($this->container['filename']) > 75)) {
+        if (!is_null($this->container['filename']) && (mb_strlen($this->container['filename']) > 75)) {
             $invalidProperties[] = "invalid value for 'filename', the character length must be smaller than or equal to 75.";
         }
 
@@ -267,7 +267,7 @@ class TempMultimedia implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['filename']) > 75) {
+        if (mb_strlen($this->container['filename']) > 75) {
             return false;
         }
         $allowedValues = $this->getMultimediaTypeAllowableValues();
@@ -297,7 +297,7 @@ class TempMultimedia implements ModelInterface, ArrayAccess
      */
     public function setFilename($filename)
     {
-        if (!is_null($filename) && (strlen($filename) > 75)) {
+        if (!is_null($filename) && (mb_strlen($filename) > 75)) {
             throw new \InvalidArgumentException('invalid length for $filename when calling TempMultimedia., must be smaller than or equal to 75.');
         }
 

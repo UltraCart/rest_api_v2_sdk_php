@@ -273,11 +273,11 @@ class OrderItemOption implements ModelInterface, ArrayAccess
             );
         }
 
-        if (!is_null($this->container['label']) && (strlen($this->container['label']) > 50)) {
+        if (!is_null($this->container['label']) && (mb_strlen($this->container['label']) > 50)) {
             $invalidProperties[] = "invalid value for 'label', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['value']) && (strlen($this->container['value']) > 1024)) {
+        if (!is_null($this->container['value']) && (mb_strlen($this->container['value']) > 1024)) {
             $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 1024.";
         }
 
@@ -297,10 +297,10 @@ class OrderItemOption implements ModelInterface, ArrayAccess
         if (!in_array($this->container['additional_dimension_application'], $allowedValues)) {
             return false;
         }
-        if (strlen($this->container['label']) > 50) {
+        if (mb_strlen($this->container['label']) > 50) {
             return false;
         }
-        if (strlen($this->container['value']) > 1024) {
+        if (mb_strlen($this->container['value']) > 1024) {
             return false;
         }
         return true;
@@ -455,7 +455,7 @@ class OrderItemOption implements ModelInterface, ArrayAccess
      */
     public function setLabel($label)
     {
-        if (!is_null($label) && (strlen($label) > 50)) {
+        if (!is_null($label) && (mb_strlen($label) > 50)) {
             throw new \InvalidArgumentException('invalid length for $label when calling OrderItemOption., must be smaller than or equal to 50.');
         }
 
@@ -531,7 +531,7 @@ class OrderItemOption implements ModelInterface, ArrayAccess
      */
     public function setValue($value)
     {
-        if (!is_null($value) && (strlen($value) > 1024)) {
+        if (!is_null($value) && (mb_strlen($value) > 1024)) {
             throw new \InvalidArgumentException('invalid length for $value when calling OrderItemOption., must be smaller than or equal to 1024.');
         }
 

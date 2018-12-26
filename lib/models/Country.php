@@ -194,11 +194,11 @@ class Country implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['iso_2_code']) && (strlen($this->container['iso_2_code']) > 2)) {
+        if (!is_null($this->container['iso_2_code']) && (mb_strlen($this->container['iso_2_code']) > 2)) {
             $invalidProperties[] = "invalid value for 'iso_2_code', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['name']) && (strlen($this->container['name']) > 50)) {
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 50)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
         }
 
@@ -214,10 +214,10 @@ class Country implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['iso_2_code']) > 2) {
+        if (mb_strlen($this->container['iso_2_code']) > 2) {
             return false;
         }
-        if (strlen($this->container['name']) > 50) {
+        if (mb_strlen($this->container['name']) > 50) {
             return false;
         }
         return true;
@@ -243,7 +243,7 @@ class Country implements ModelInterface, ArrayAccess
      */
     public function setIso2Code($iso_2_code)
     {
-        if (!is_null($iso_2_code) && (strlen($iso_2_code) > 2)) {
+        if (!is_null($iso_2_code) && (mb_strlen($iso_2_code) > 2)) {
             throw new \InvalidArgumentException('invalid length for $iso_2_code when calling Country., must be smaller than or equal to 2.');
         }
 
@@ -271,7 +271,7 @@ class Country implements ModelInterface, ArrayAccess
      */
     public function setName($name)
     {
-        if (!is_null($name) && (strlen($name) > 50)) {
+        if (!is_null($name) && (mb_strlen($name) > 50)) {
             throw new \InvalidArgumentException('invalid length for $name when calling Country., must be smaller than or equal to 50.');
         }
 

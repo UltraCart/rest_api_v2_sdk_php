@@ -464,163 +464,163 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['adwords_grouping']) && (strlen($this->container['adwords_grouping']) > 50)) {
+        if (!is_null($this->container['adwords_grouping']) && (mb_strlen($this->container['adwords_grouping']) > 50)) {
             $invalidProperties[] = "invalid value for 'adwords_grouping', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['adwords_label1']) && (strlen($this->container['adwords_label1']) > 50)) {
+        if (!is_null($this->container['adwords_label1']) && (mb_strlen($this->container['adwords_label1']) > 50)) {
             $invalidProperties[] = "invalid value for 'adwords_label1', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['adwords_label2']) && (strlen($this->container['adwords_label2']) > 50)) {
+        if (!is_null($this->container['adwords_label2']) && (mb_strlen($this->container['adwords_label2']) > 50)) {
             $invalidProperties[] = "invalid value for 'adwords_label2', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['adwords_label3']) && (strlen($this->container['adwords_label3']) > 50)) {
+        if (!is_null($this->container['adwords_label3']) && (mb_strlen($this->container['adwords_label3']) > 50)) {
             $invalidProperties[] = "invalid value for 'adwords_label3', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['adwords_label4']) && (strlen($this->container['adwords_label4']) > 50)) {
+        if (!is_null($this->container['adwords_label4']) && (mb_strlen($this->container['adwords_label4']) > 50)) {
             $invalidProperties[] = "invalid value for 'adwords_label4', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['adwords_label5']) && (strlen($this->container['adwords_label5']) > 50)) {
+        if (!is_null($this->container['adwords_label5']) && (mb_strlen($this->container['adwords_label5']) > 50)) {
             $invalidProperties[] = "invalid value for 'adwords_label5', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['age_group']) && (strlen($this->container['age_group']) > 5)) {
+        if (!is_null($this->container['age_group']) && (mb_strlen($this->container['age_group']) > 5)) {
             $invalidProperties[] = "invalid value for 'age_group', the character length must be smaller than or equal to 5.";
         }
 
-        if (!is_null($this->container['book_author']) && (strlen($this->container['book_author']) > 50)) {
+        if (!is_null($this->container['book_author']) && (mb_strlen($this->container['book_author']) > 50)) {
             $invalidProperties[] = "invalid value for 'book_author', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['book_format']) && (strlen($this->container['book_format']) > 50)) {
+        if (!is_null($this->container['book_format']) && (mb_strlen($this->container['book_format']) > 50)) {
             $invalidProperties[] = "invalid value for 'book_format', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['book_isbn']) && (strlen($this->container['book_isbn']) > 20)) {
+        if (!is_null($this->container['book_isbn']) && (mb_strlen($this->container['book_isbn']) > 20)) {
             $invalidProperties[] = "invalid value for 'book_isbn', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['book_publisher']) && (strlen($this->container['book_publisher']) > 50)) {
+        if (!is_null($this->container['book_publisher']) && (mb_strlen($this->container['book_publisher']) > 50)) {
             $invalidProperties[] = "invalid value for 'book_publisher', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['category_description']) && (strlen($this->container['category_description']) > 1000)) {
+        if (!is_null($this->container['category_description']) && (mb_strlen($this->container['category_description']) > 1000)) {
             $invalidProperties[] = "invalid value for 'category_description', the character length must be smaller than or equal to 1000.";
         }
 
-        if (!is_null($this->container['color']) && (strlen($this->container['color']) > 20)) {
+        if (!is_null($this->container['color']) && (mb_strlen($this->container['color']) > 20)) {
             $invalidProperties[] = "invalid value for 'color', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['condition']) && (strlen($this->container['condition']) > 15)) {
+        if (!is_null($this->container['condition']) && (mb_strlen($this->container['condition']) > 15)) {
             $invalidProperties[] = "invalid value for 'condition', the character length must be smaller than or equal to 15.";
         }
 
-        if (!is_null($this->container['custom_label0']) && (strlen($this->container['custom_label0']) > 50)) {
+        if (!is_null($this->container['custom_label0']) && (mb_strlen($this->container['custom_label0']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_label0', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_label1']) && (strlen($this->container['custom_label1']) > 50)) {
+        if (!is_null($this->container['custom_label1']) && (mb_strlen($this->container['custom_label1']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_label1', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_label2']) && (strlen($this->container['custom_label2']) > 50)) {
+        if (!is_null($this->container['custom_label2']) && (mb_strlen($this->container['custom_label2']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_label2', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_label3']) && (strlen($this->container['custom_label3']) > 50)) {
+        if (!is_null($this->container['custom_label3']) && (mb_strlen($this->container['custom_label3']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_label3', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['custom_label4']) && (strlen($this->container['custom_label4']) > 50)) {
+        if (!is_null($this->container['custom_label4']) && (mb_strlen($this->container['custom_label4']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_label4', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['gender']) && (strlen($this->container['gender']) > 6)) {
+        if (!is_null($this->container['gender']) && (mb_strlen($this->container['gender']) > 6)) {
             $invalidProperties[] = "invalid value for 'gender', the character length must be smaller than or equal to 6.";
         }
 
-        if (!is_null($this->container['google_product_category']) && (strlen($this->container['google_product_category']) > 250)) {
+        if (!is_null($this->container['google_product_category']) && (mb_strlen($this->container['google_product_category']) > 250)) {
             $invalidProperties[] = "invalid value for 'google_product_category', the character length must be smaller than or equal to 250.";
         }
 
-        if (!is_null($this->container['music_artist']) && (strlen($this->container['music_artist']) > 50)) {
+        if (!is_null($this->container['music_artist']) && (mb_strlen($this->container['music_artist']) > 50)) {
             $invalidProperties[] = "invalid value for 'music_artist', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['music_format']) && (strlen($this->container['music_format']) > 5)) {
+        if (!is_null($this->container['music_format']) && (mb_strlen($this->container['music_format']) > 5)) {
             $invalidProperties[] = "invalid value for 'music_format', the character length must be smaller than or equal to 5.";
         }
 
-        if (!is_null($this->container['product_type']) && (strlen($this->container['product_type']) > 10)) {
+        if (!is_null($this->container['product_type']) && (mb_strlen($this->container['product_type']) > 10)) {
             $invalidProperties[] = "invalid value for 'product_type', the character length must be smaller than or equal to 10.";
         }
 
-        if (!is_null($this->container['promotion_id1']) && (strlen($this->container['promotion_id1']) > 30)) {
+        if (!is_null($this->container['promotion_id1']) && (mb_strlen($this->container['promotion_id1']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id1', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id10']) && (strlen($this->container['promotion_id10']) > 30)) {
+        if (!is_null($this->container['promotion_id10']) && (mb_strlen($this->container['promotion_id10']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id10', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id2']) && (strlen($this->container['promotion_id2']) > 30)) {
+        if (!is_null($this->container['promotion_id2']) && (mb_strlen($this->container['promotion_id2']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id2', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id3']) && (strlen($this->container['promotion_id3']) > 30)) {
+        if (!is_null($this->container['promotion_id3']) && (mb_strlen($this->container['promotion_id3']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id3', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id4']) && (strlen($this->container['promotion_id4']) > 30)) {
+        if (!is_null($this->container['promotion_id4']) && (mb_strlen($this->container['promotion_id4']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id4', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id5']) && (strlen($this->container['promotion_id5']) > 30)) {
+        if (!is_null($this->container['promotion_id5']) && (mb_strlen($this->container['promotion_id5']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id5', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id6']) && (strlen($this->container['promotion_id6']) > 30)) {
+        if (!is_null($this->container['promotion_id6']) && (mb_strlen($this->container['promotion_id6']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id6', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id7']) && (strlen($this->container['promotion_id7']) > 30)) {
+        if (!is_null($this->container['promotion_id7']) && (mb_strlen($this->container['promotion_id7']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id7', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id8']) && (strlen($this->container['promotion_id8']) > 30)) {
+        if (!is_null($this->container['promotion_id8']) && (mb_strlen($this->container['promotion_id8']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id8', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['promotion_id9']) && (strlen($this->container['promotion_id9']) > 30)) {
+        if (!is_null($this->container['promotion_id9']) && (mb_strlen($this->container['promotion_id9']) > 30)) {
             $invalidProperties[] = "invalid value for 'promotion_id9', the character length must be smaller than or equal to 30.";
         }
 
-        if (!is_null($this->container['search_lowest_url']) && (strlen($this->container['search_lowest_url']) > 250)) {
+        if (!is_null($this->container['search_lowest_url']) && (mb_strlen($this->container['search_lowest_url']) > 250)) {
             $invalidProperties[] = "invalid value for 'search_lowest_url', the character length must be smaller than or equal to 250.";
         }
 
-        if (!is_null($this->container['size']) && (strlen($this->container['size']) > 20)) {
+        if (!is_null($this->container['size']) && (mb_strlen($this->container['size']) > 20)) {
             $invalidProperties[] = "invalid value for 'size', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['video_director']) && (strlen($this->container['video_director']) > 50)) {
+        if (!is_null($this->container['video_director']) && (mb_strlen($this->container['video_director']) > 50)) {
             $invalidProperties[] = "invalid value for 'video_director', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['video_format']) && (strlen($this->container['video_format']) > 5)) {
+        if (!is_null($this->container['video_format']) && (mb_strlen($this->container['video_format']) > 5)) {
             $invalidProperties[] = "invalid value for 'video_format', the character length must be smaller than or equal to 5.";
         }
 
-        if (!is_null($this->container['video_rating']) && (strlen($this->container['video_rating']) > 5)) {
+        if (!is_null($this->container['video_rating']) && (mb_strlen($this->container['video_rating']) > 5)) {
             $invalidProperties[] = "invalid value for 'video_rating', the character length must be smaller than or equal to 5.";
         }
 
-        if (!is_null($this->container['video_starring']) && (strlen($this->container['video_starring']) > 150)) {
+        if (!is_null($this->container['video_starring']) && (mb_strlen($this->container['video_starring']) > 150)) {
             $invalidProperties[] = "invalid value for 'video_starring', the character length must be smaller than or equal to 150.";
         }
 
@@ -636,124 +636,124 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (strlen($this->container['adwords_grouping']) > 50) {
+        if (mb_strlen($this->container['adwords_grouping']) > 50) {
             return false;
         }
-        if (strlen($this->container['adwords_label1']) > 50) {
+        if (mb_strlen($this->container['adwords_label1']) > 50) {
             return false;
         }
-        if (strlen($this->container['adwords_label2']) > 50) {
+        if (mb_strlen($this->container['adwords_label2']) > 50) {
             return false;
         }
-        if (strlen($this->container['adwords_label3']) > 50) {
+        if (mb_strlen($this->container['adwords_label3']) > 50) {
             return false;
         }
-        if (strlen($this->container['adwords_label4']) > 50) {
+        if (mb_strlen($this->container['adwords_label4']) > 50) {
             return false;
         }
-        if (strlen($this->container['adwords_label5']) > 50) {
+        if (mb_strlen($this->container['adwords_label5']) > 50) {
             return false;
         }
-        if (strlen($this->container['age_group']) > 5) {
+        if (mb_strlen($this->container['age_group']) > 5) {
             return false;
         }
-        if (strlen($this->container['book_author']) > 50) {
+        if (mb_strlen($this->container['book_author']) > 50) {
             return false;
         }
-        if (strlen($this->container['book_format']) > 50) {
+        if (mb_strlen($this->container['book_format']) > 50) {
             return false;
         }
-        if (strlen($this->container['book_isbn']) > 20) {
+        if (mb_strlen($this->container['book_isbn']) > 20) {
             return false;
         }
-        if (strlen($this->container['book_publisher']) > 50) {
+        if (mb_strlen($this->container['book_publisher']) > 50) {
             return false;
         }
-        if (strlen($this->container['category_description']) > 1000) {
+        if (mb_strlen($this->container['category_description']) > 1000) {
             return false;
         }
-        if (strlen($this->container['color']) > 20) {
+        if (mb_strlen($this->container['color']) > 20) {
             return false;
         }
-        if (strlen($this->container['condition']) > 15) {
+        if (mb_strlen($this->container['condition']) > 15) {
             return false;
         }
-        if (strlen($this->container['custom_label0']) > 50) {
+        if (mb_strlen($this->container['custom_label0']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_label1']) > 50) {
+        if (mb_strlen($this->container['custom_label1']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_label2']) > 50) {
+        if (mb_strlen($this->container['custom_label2']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_label3']) > 50) {
+        if (mb_strlen($this->container['custom_label3']) > 50) {
             return false;
         }
-        if (strlen($this->container['custom_label4']) > 50) {
+        if (mb_strlen($this->container['custom_label4']) > 50) {
             return false;
         }
-        if (strlen($this->container['gender']) > 6) {
+        if (mb_strlen($this->container['gender']) > 6) {
             return false;
         }
-        if (strlen($this->container['google_product_category']) > 250) {
+        if (mb_strlen($this->container['google_product_category']) > 250) {
             return false;
         }
-        if (strlen($this->container['music_artist']) > 50) {
+        if (mb_strlen($this->container['music_artist']) > 50) {
             return false;
         }
-        if (strlen($this->container['music_format']) > 5) {
+        if (mb_strlen($this->container['music_format']) > 5) {
             return false;
         }
-        if (strlen($this->container['product_type']) > 10) {
+        if (mb_strlen($this->container['product_type']) > 10) {
             return false;
         }
-        if (strlen($this->container['promotion_id1']) > 30) {
+        if (mb_strlen($this->container['promotion_id1']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id10']) > 30) {
+        if (mb_strlen($this->container['promotion_id10']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id2']) > 30) {
+        if (mb_strlen($this->container['promotion_id2']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id3']) > 30) {
+        if (mb_strlen($this->container['promotion_id3']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id4']) > 30) {
+        if (mb_strlen($this->container['promotion_id4']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id5']) > 30) {
+        if (mb_strlen($this->container['promotion_id5']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id6']) > 30) {
+        if (mb_strlen($this->container['promotion_id6']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id7']) > 30) {
+        if (mb_strlen($this->container['promotion_id7']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id8']) > 30) {
+        if (mb_strlen($this->container['promotion_id8']) > 30) {
             return false;
         }
-        if (strlen($this->container['promotion_id9']) > 30) {
+        if (mb_strlen($this->container['promotion_id9']) > 30) {
             return false;
         }
-        if (strlen($this->container['search_lowest_url']) > 250) {
+        if (mb_strlen($this->container['search_lowest_url']) > 250) {
             return false;
         }
-        if (strlen($this->container['size']) > 20) {
+        if (mb_strlen($this->container['size']) > 20) {
             return false;
         }
-        if (strlen($this->container['video_director']) > 50) {
+        if (mb_strlen($this->container['video_director']) > 50) {
             return false;
         }
-        if (strlen($this->container['video_format']) > 5) {
+        if (mb_strlen($this->container['video_format']) > 5) {
             return false;
         }
-        if (strlen($this->container['video_rating']) > 5) {
+        if (mb_strlen($this->container['video_rating']) > 5) {
             return false;
         }
-        if (strlen($this->container['video_starring']) > 150) {
+        if (mb_strlen($this->container['video_starring']) > 150) {
             return false;
         }
         return true;
@@ -779,7 +779,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setAdwordsGrouping($adwords_grouping)
     {
-        if (!is_null($adwords_grouping) && (strlen($adwords_grouping) > 50)) {
+        if (!is_null($adwords_grouping) && (mb_strlen($adwords_grouping) > 50)) {
             throw new \InvalidArgumentException('invalid length for $adwords_grouping when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -807,7 +807,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setAdwordsLabel1($adwords_label1)
     {
-        if (!is_null($adwords_label1) && (strlen($adwords_label1) > 50)) {
+        if (!is_null($adwords_label1) && (mb_strlen($adwords_label1) > 50)) {
             throw new \InvalidArgumentException('invalid length for $adwords_label1 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -835,7 +835,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setAdwordsLabel2($adwords_label2)
     {
-        if (!is_null($adwords_label2) && (strlen($adwords_label2) > 50)) {
+        if (!is_null($adwords_label2) && (mb_strlen($adwords_label2) > 50)) {
             throw new \InvalidArgumentException('invalid length for $adwords_label2 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -863,7 +863,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setAdwordsLabel3($adwords_label3)
     {
-        if (!is_null($adwords_label3) && (strlen($adwords_label3) > 50)) {
+        if (!is_null($adwords_label3) && (mb_strlen($adwords_label3) > 50)) {
             throw new \InvalidArgumentException('invalid length for $adwords_label3 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -891,7 +891,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setAdwordsLabel4($adwords_label4)
     {
-        if (!is_null($adwords_label4) && (strlen($adwords_label4) > 50)) {
+        if (!is_null($adwords_label4) && (mb_strlen($adwords_label4) > 50)) {
             throw new \InvalidArgumentException('invalid length for $adwords_label4 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -919,7 +919,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setAdwordsLabel5($adwords_label5)
     {
-        if (!is_null($adwords_label5) && (strlen($adwords_label5) > 50)) {
+        if (!is_null($adwords_label5) && (mb_strlen($adwords_label5) > 50)) {
             throw new \InvalidArgumentException('invalid length for $adwords_label5 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -947,7 +947,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setAgeGroup($age_group)
     {
-        if (!is_null($age_group) && (strlen($age_group) > 5)) {
+        if (!is_null($age_group) && (mb_strlen($age_group) > 5)) {
             throw new \InvalidArgumentException('invalid length for $age_group when calling ItemGoogleProductSearch., must be smaller than or equal to 5.');
         }
 
@@ -999,7 +999,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setBookAuthor($book_author)
     {
-        if (!is_null($book_author) && (strlen($book_author) > 50)) {
+        if (!is_null($book_author) && (mb_strlen($book_author) > 50)) {
             throw new \InvalidArgumentException('invalid length for $book_author when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1027,7 +1027,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setBookFormat($book_format)
     {
-        if (!is_null($book_format) && (strlen($book_format) > 50)) {
+        if (!is_null($book_format) && (mb_strlen($book_format) > 50)) {
             throw new \InvalidArgumentException('invalid length for $book_format when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1055,7 +1055,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setBookIsbn($book_isbn)
     {
-        if (!is_null($book_isbn) && (strlen($book_isbn) > 20)) {
+        if (!is_null($book_isbn) && (mb_strlen($book_isbn) > 20)) {
             throw new \InvalidArgumentException('invalid length for $book_isbn when calling ItemGoogleProductSearch., must be smaller than or equal to 20.');
         }
 
@@ -1083,7 +1083,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setBookPublisher($book_publisher)
     {
-        if (!is_null($book_publisher) && (strlen($book_publisher) > 50)) {
+        if (!is_null($book_publisher) && (mb_strlen($book_publisher) > 50)) {
             throw new \InvalidArgumentException('invalid length for $book_publisher when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1111,7 +1111,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setCategoryDescription($category_description)
     {
-        if (!is_null($category_description) && (strlen($category_description) > 1000)) {
+        if (!is_null($category_description) && (mb_strlen($category_description) > 1000)) {
             throw new \InvalidArgumentException('invalid length for $category_description when calling ItemGoogleProductSearch., must be smaller than or equal to 1000.');
         }
 
@@ -1139,7 +1139,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setColor($color)
     {
-        if (!is_null($color) && (strlen($color) > 20)) {
+        if (!is_null($color) && (mb_strlen($color) > 20)) {
             throw new \InvalidArgumentException('invalid length for $color when calling ItemGoogleProductSearch., must be smaller than or equal to 20.');
         }
 
@@ -1167,7 +1167,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setCondition($condition)
     {
-        if (!is_null($condition) && (strlen($condition) > 15)) {
+        if (!is_null($condition) && (mb_strlen($condition) > 15)) {
             throw new \InvalidArgumentException('invalid length for $condition when calling ItemGoogleProductSearch., must be smaller than or equal to 15.');
         }
 
@@ -1195,7 +1195,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setCustomLabel0($custom_label0)
     {
-        if (!is_null($custom_label0) && (strlen($custom_label0) > 50)) {
+        if (!is_null($custom_label0) && (mb_strlen($custom_label0) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_label0 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1223,7 +1223,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setCustomLabel1($custom_label1)
     {
-        if (!is_null($custom_label1) && (strlen($custom_label1) > 50)) {
+        if (!is_null($custom_label1) && (mb_strlen($custom_label1) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_label1 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1251,7 +1251,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setCustomLabel2($custom_label2)
     {
-        if (!is_null($custom_label2) && (strlen($custom_label2) > 50)) {
+        if (!is_null($custom_label2) && (mb_strlen($custom_label2) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_label2 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1279,7 +1279,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setCustomLabel3($custom_label3)
     {
-        if (!is_null($custom_label3) && (strlen($custom_label3) > 50)) {
+        if (!is_null($custom_label3) && (mb_strlen($custom_label3) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_label3 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1307,7 +1307,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setCustomLabel4($custom_label4)
     {
-        if (!is_null($custom_label4) && (strlen($custom_label4) > 50)) {
+        if (!is_null($custom_label4) && (mb_strlen($custom_label4) > 50)) {
             throw new \InvalidArgumentException('invalid length for $custom_label4 when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1335,7 +1335,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setGender($gender)
     {
-        if (!is_null($gender) && (strlen($gender) > 6)) {
+        if (!is_null($gender) && (mb_strlen($gender) > 6)) {
             throw new \InvalidArgumentException('invalid length for $gender when calling ItemGoogleProductSearch., must be smaller than or equal to 6.');
         }
 
@@ -1363,7 +1363,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setGoogleProductCategory($google_product_category)
     {
-        if (!is_null($google_product_category) && (strlen($google_product_category) > 250)) {
+        if (!is_null($google_product_category) && (mb_strlen($google_product_category) > 250)) {
             throw new \InvalidArgumentException('invalid length for $google_product_category when calling ItemGoogleProductSearch., must be smaller than or equal to 250.');
         }
 
@@ -1391,7 +1391,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setMusicArtist($music_artist)
     {
-        if (!is_null($music_artist) && (strlen($music_artist) > 50)) {
+        if (!is_null($music_artist) && (mb_strlen($music_artist) > 50)) {
             throw new \InvalidArgumentException('invalid length for $music_artist when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1419,7 +1419,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setMusicFormat($music_format)
     {
-        if (!is_null($music_format) && (strlen($music_format) > 5)) {
+        if (!is_null($music_format) && (mb_strlen($music_format) > 5)) {
             throw new \InvalidArgumentException('invalid length for $music_format when calling ItemGoogleProductSearch., must be smaller than or equal to 5.');
         }
 
@@ -1495,7 +1495,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setProductType($product_type)
     {
-        if (!is_null($product_type) && (strlen($product_type) > 10)) {
+        if (!is_null($product_type) && (mb_strlen($product_type) > 10)) {
             throw new \InvalidArgumentException('invalid length for $product_type when calling ItemGoogleProductSearch., must be smaller than or equal to 10.');
         }
 
@@ -1523,7 +1523,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId1($promotion_id1)
     {
-        if (!is_null($promotion_id1) && (strlen($promotion_id1) > 30)) {
+        if (!is_null($promotion_id1) && (mb_strlen($promotion_id1) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id1 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1551,7 +1551,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId10($promotion_id10)
     {
-        if (!is_null($promotion_id10) && (strlen($promotion_id10) > 30)) {
+        if (!is_null($promotion_id10) && (mb_strlen($promotion_id10) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id10 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1579,7 +1579,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId2($promotion_id2)
     {
-        if (!is_null($promotion_id2) && (strlen($promotion_id2) > 30)) {
+        if (!is_null($promotion_id2) && (mb_strlen($promotion_id2) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id2 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1607,7 +1607,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId3($promotion_id3)
     {
-        if (!is_null($promotion_id3) && (strlen($promotion_id3) > 30)) {
+        if (!is_null($promotion_id3) && (mb_strlen($promotion_id3) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id3 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1635,7 +1635,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId4($promotion_id4)
     {
-        if (!is_null($promotion_id4) && (strlen($promotion_id4) > 30)) {
+        if (!is_null($promotion_id4) && (mb_strlen($promotion_id4) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id4 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1663,7 +1663,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId5($promotion_id5)
     {
-        if (!is_null($promotion_id5) && (strlen($promotion_id5) > 30)) {
+        if (!is_null($promotion_id5) && (mb_strlen($promotion_id5) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id5 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1691,7 +1691,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId6($promotion_id6)
     {
-        if (!is_null($promotion_id6) && (strlen($promotion_id6) > 30)) {
+        if (!is_null($promotion_id6) && (mb_strlen($promotion_id6) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id6 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1719,7 +1719,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId7($promotion_id7)
     {
-        if (!is_null($promotion_id7) && (strlen($promotion_id7) > 30)) {
+        if (!is_null($promotion_id7) && (mb_strlen($promotion_id7) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id7 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1747,7 +1747,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId8($promotion_id8)
     {
-        if (!is_null($promotion_id8) && (strlen($promotion_id8) > 30)) {
+        if (!is_null($promotion_id8) && (mb_strlen($promotion_id8) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id8 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1775,7 +1775,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setPromotionId9($promotion_id9)
     {
-        if (!is_null($promotion_id9) && (strlen($promotion_id9) > 30)) {
+        if (!is_null($promotion_id9) && (mb_strlen($promotion_id9) > 30)) {
             throw new \InvalidArgumentException('invalid length for $promotion_id9 when calling ItemGoogleProductSearch., must be smaller than or equal to 30.');
         }
 
@@ -1851,7 +1851,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setSearchLowestUrl($search_lowest_url)
     {
-        if (!is_null($search_lowest_url) && (strlen($search_lowest_url) > 250)) {
+        if (!is_null($search_lowest_url) && (mb_strlen($search_lowest_url) > 250)) {
             throw new \InvalidArgumentException('invalid length for $search_lowest_url when calling ItemGoogleProductSearch., must be smaller than or equal to 250.');
         }
 
@@ -1903,7 +1903,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setSize($size)
     {
-        if (!is_null($size) && (strlen($size) > 20)) {
+        if (!is_null($size) && (mb_strlen($size) > 20)) {
             throw new \InvalidArgumentException('invalid length for $size when calling ItemGoogleProductSearch., must be smaller than or equal to 20.');
         }
 
@@ -1931,7 +1931,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setVideoDirector($video_director)
     {
-        if (!is_null($video_director) && (strlen($video_director) > 50)) {
+        if (!is_null($video_director) && (mb_strlen($video_director) > 50)) {
             throw new \InvalidArgumentException('invalid length for $video_director when calling ItemGoogleProductSearch., must be smaller than or equal to 50.');
         }
 
@@ -1959,7 +1959,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setVideoFormat($video_format)
     {
-        if (!is_null($video_format) && (strlen($video_format) > 5)) {
+        if (!is_null($video_format) && (mb_strlen($video_format) > 5)) {
             throw new \InvalidArgumentException('invalid length for $video_format when calling ItemGoogleProductSearch., must be smaller than or equal to 5.');
         }
 
@@ -1987,7 +1987,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setVideoRating($video_rating)
     {
-        if (!is_null($video_rating) && (strlen($video_rating) > 5)) {
+        if (!is_null($video_rating) && (mb_strlen($video_rating) > 5)) {
             throw new \InvalidArgumentException('invalid length for $video_rating when calling ItemGoogleProductSearch., must be smaller than or equal to 5.');
         }
 
@@ -2039,7 +2039,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
      */
     public function setVideoStarring($video_starring)
     {
-        if (!is_null($video_starring) && (strlen($video_starring) > 150)) {
+        if (!is_null($video_starring) && (mb_strlen($video_starring) > 150)) {
             throw new \InvalidArgumentException('invalid length for $video_starring when calling ItemGoogleProductSearch., must be smaller than or equal to 150.');
         }
 
