@@ -62,6 +62,7 @@ class Customer implements ModelInterface, ArrayAccess
         'allow_purchase_order' => 'bool',
         'allow_quote_request' => 'bool',
         'allow_selection_of_address_type' => 'bool',
+        'attachments' => '\ultracart\v2\models\CustomerAttachment[]',
         'auto_approve_cod' => 'bool',
         'auto_approve_purchase_order' => 'bool',
         'automatic_merchant_notes' => 'string',
@@ -94,6 +95,7 @@ class Customer implements ModelInterface, ArrayAccess
         'quotes' => '\ultracart\v2\models\Order[]',
         'quotes_summary' => '\ultracart\v2\models\CustomerQuotesSummary',
         'referral_source' => 'string',
+        'reviewer' => '\ultracart\v2\models\CustomerReviewer',
         'sales_rep_code' => 'string',
         'send_signup_notification' => 'bool',
         'shipping' => '\ultracart\v2\models\CustomerShipping[]',
@@ -121,6 +123,7 @@ class Customer implements ModelInterface, ArrayAccess
         'allow_purchase_order' => null,
         'allow_quote_request' => null,
         'allow_selection_of_address_type' => null,
+        'attachments' => null,
         'auto_approve_cod' => null,
         'auto_approve_purchase_order' => null,
         'automatic_merchant_notes' => null,
@@ -153,6 +156,7 @@ class Customer implements ModelInterface, ArrayAccess
         'quotes' => null,
         'quotes_summary' => null,
         'referral_source' => null,
+        'reviewer' => null,
         'sales_rep_code' => null,
         'send_signup_notification' => null,
         'shipping' => null,
@@ -201,6 +205,7 @@ class Customer implements ModelInterface, ArrayAccess
         'allow_purchase_order' => 'allow_purchase_order',
         'allow_quote_request' => 'allow_quote_request',
         'allow_selection_of_address_type' => 'allow_selection_of_address_type',
+        'attachments' => 'attachments',
         'auto_approve_cod' => 'auto_approve_cod',
         'auto_approve_purchase_order' => 'auto_approve_purchase_order',
         'automatic_merchant_notes' => 'automatic_merchant_notes',
@@ -233,6 +238,7 @@ class Customer implements ModelInterface, ArrayAccess
         'quotes' => 'quotes',
         'quotes_summary' => 'quotes_summary',
         'referral_source' => 'referral_source',
+        'reviewer' => 'reviewer',
         'sales_rep_code' => 'sales_rep_code',
         'send_signup_notification' => 'send_signup_notification',
         'shipping' => 'shipping',
@@ -260,6 +266,7 @@ class Customer implements ModelInterface, ArrayAccess
         'allow_purchase_order' => 'setAllowPurchaseOrder',
         'allow_quote_request' => 'setAllowQuoteRequest',
         'allow_selection_of_address_type' => 'setAllowSelectionOfAddressType',
+        'attachments' => 'setAttachments',
         'auto_approve_cod' => 'setAutoApproveCod',
         'auto_approve_purchase_order' => 'setAutoApprovePurchaseOrder',
         'automatic_merchant_notes' => 'setAutomaticMerchantNotes',
@@ -292,6 +299,7 @@ class Customer implements ModelInterface, ArrayAccess
         'quotes' => 'setQuotes',
         'quotes_summary' => 'setQuotesSummary',
         'referral_source' => 'setReferralSource',
+        'reviewer' => 'setReviewer',
         'sales_rep_code' => 'setSalesRepCode',
         'send_signup_notification' => 'setSendSignupNotification',
         'shipping' => 'setShipping',
@@ -319,6 +327,7 @@ class Customer implements ModelInterface, ArrayAccess
         'allow_purchase_order' => 'getAllowPurchaseOrder',
         'allow_quote_request' => 'getAllowQuoteRequest',
         'allow_selection_of_address_type' => 'getAllowSelectionOfAddressType',
+        'attachments' => 'getAttachments',
         'auto_approve_cod' => 'getAutoApproveCod',
         'auto_approve_purchase_order' => 'getAutoApprovePurchaseOrder',
         'automatic_merchant_notes' => 'getAutomaticMerchantNotes',
@@ -351,6 +360,7 @@ class Customer implements ModelInterface, ArrayAccess
         'quotes' => 'getQuotes',
         'quotes_summary' => 'getQuotesSummary',
         'referral_source' => 'getReferralSource',
+        'reviewer' => 'getReviewer',
         'sales_rep_code' => 'getSalesRepCode',
         'send_signup_notification' => 'getSendSignupNotification',
         'shipping' => 'getShipping',
@@ -432,6 +442,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['allow_purchase_order'] = isset($data['allow_purchase_order']) ? $data['allow_purchase_order'] : null;
         $this->container['allow_quote_request'] = isset($data['allow_quote_request']) ? $data['allow_quote_request'] : null;
         $this->container['allow_selection_of_address_type'] = isset($data['allow_selection_of_address_type']) ? $data['allow_selection_of_address_type'] : null;
+        $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
         $this->container['auto_approve_cod'] = isset($data['auto_approve_cod']) ? $data['auto_approve_cod'] : null;
         $this->container['auto_approve_purchase_order'] = isset($data['auto_approve_purchase_order']) ? $data['auto_approve_purchase_order'] : null;
         $this->container['automatic_merchant_notes'] = isset($data['automatic_merchant_notes']) ? $data['automatic_merchant_notes'] : null;
@@ -464,6 +475,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['quotes'] = isset($data['quotes']) ? $data['quotes'] : null;
         $this->container['quotes_summary'] = isset($data['quotes_summary']) ? $data['quotes_summary'] : null;
         $this->container['referral_source'] = isset($data['referral_source']) ? $data['referral_source'] : null;
+        $this->container['reviewer'] = isset($data['reviewer']) ? $data['reviewer'] : null;
         $this->container['sales_rep_code'] = isset($data['sales_rep_code']) ? $data['sales_rep_code'] : null;
         $this->container['send_signup_notification'] = isset($data['send_signup_notification']) ? $data['send_signup_notification'] : null;
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
@@ -714,6 +726,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setAllowSelectionOfAddressType($allow_selection_of_address_type)
     {
         $this->container['allow_selection_of_address_type'] = $allow_selection_of_address_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets attachments
+     *
+     * @return \ultracart\v2\models\CustomerAttachment[]
+     */
+    public function getAttachments()
+    {
+        return $this->container['attachments'];
+    }
+
+    /**
+     * Sets attachments
+     *
+     * @param \ultracart\v2\models\CustomerAttachment[] $attachments Attachments
+     *
+     * @return $this
+     */
+    public function setAttachments($attachments)
+    {
+        $this->container['attachments'] = $attachments;
 
         return $this;
     }
@@ -1506,6 +1542,30 @@ class Customer implements ModelInterface, ArrayAccess
         }
 
         $this->container['referral_source'] = $referral_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets reviewer
+     *
+     * @return \ultracart\v2\models\CustomerReviewer
+     */
+    public function getReviewer()
+    {
+        return $this->container['reviewer'];
+    }
+
+    /**
+     * Sets reviewer
+     *
+     * @param \ultracart\v2\models\CustomerReviewer $reviewer reviewer
+     *
+     * @return $this
+     */
+    public function setReviewer($reviewer)
+    {
+        $this->container['reviewer'] = $reviewer;
 
         return $this;
     }

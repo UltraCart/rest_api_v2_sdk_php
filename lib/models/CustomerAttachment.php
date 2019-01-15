@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountsReceivableRetryConfigResponse
+ * CustomerAttachment
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * AccountsReceivableRetryConfigResponse Class Doc Comment
+ * CustomerAttachment Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAccess
+class CustomerAttachment implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccountsReceivableRetryConfigResponse';
+    protected static $swaggerModelName = 'CustomerAttachment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,11 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => '\ultracart\v2\models\AccountsReceivableRetryConfig',
-        'coupon_codes' => 'string[]',
-        'emails' => 'string[]',
-        'error' => '\ultracart\v2\models\Error',
-        'has_linked_accounts' => 'bool',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool'
+        'customer_profile_attachment_oid' => 'int',
+        'description' => 'string',
+        'file_name' => 'string',
+        'mime_type' => 'string',
+        'upload_dts' => 'string'
     ];
 
     /**
@@ -71,13 +69,11 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'config' => null,
-        'coupon_codes' => null,
-        'emails' => null,
-        'error' => null,
-        'has_linked_accounts' => null,
-        'metadata' => null,
-        'success' => null
+        'customer_profile_attachment_oid' => 'int32',
+        'description' => null,
+        'file_name' => null,
+        'mime_type' => null,
+        'upload_dts' => 'dateTime'
     ];
 
     /**
@@ -107,13 +103,11 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'config' => 'config',
-        'coupon_codes' => 'coupon_codes',
-        'emails' => 'emails',
-        'error' => 'error',
-        'has_linked_accounts' => 'has_linked_accounts',
-        'metadata' => 'metadata',
-        'success' => 'success'
+        'customer_profile_attachment_oid' => 'customer_profile_attachment_oid',
+        'description' => 'description',
+        'file_name' => 'file_name',
+        'mime_type' => 'mime_type',
+        'upload_dts' => 'upload_dts'
     ];
 
     /**
@@ -122,13 +116,11 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'config' => 'setConfig',
-        'coupon_codes' => 'setCouponCodes',
-        'emails' => 'setEmails',
-        'error' => 'setError',
-        'has_linked_accounts' => 'setHasLinkedAccounts',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess'
+        'customer_profile_attachment_oid' => 'setCustomerProfileAttachmentOid',
+        'description' => 'setDescription',
+        'file_name' => 'setFileName',
+        'mime_type' => 'setMimeType',
+        'upload_dts' => 'setUploadDts'
     ];
 
     /**
@@ -137,13 +129,11 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'config' => 'getConfig',
-        'coupon_codes' => 'getCouponCodes',
-        'emails' => 'getEmails',
-        'error' => 'getError',
-        'has_linked_accounts' => 'getHasLinkedAccounts',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess'
+        'customer_profile_attachment_oid' => 'getCustomerProfileAttachmentOid',
+        'description' => 'getDescription',
+        'file_name' => 'getFileName',
+        'mime_type' => 'getMimeType',
+        'upload_dts' => 'getUploadDts'
     ];
 
     /**
@@ -206,13 +196,11 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
-        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
-        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['has_linked_accounts'] = isset($data['has_linked_accounts']) ? $data['has_linked_accounts'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['customer_profile_attachment_oid'] = isset($data['customer_profile_attachment_oid']) ? $data['customer_profile_attachment_oid'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
+        $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
+        $this->container['upload_dts'] = isset($data['upload_dts']) ? $data['upload_dts'] : null;
     }
 
     /**
@@ -241,169 +229,121 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets config
+     * Gets customer_profile_attachment_oid
      *
-     * @return \ultracart\v2\models\AccountsReceivableRetryConfig
+     * @return int
      */
-    public function getConfig()
+    public function getCustomerProfileAttachmentOid()
     {
-        return $this->container['config'];
+        return $this->container['customer_profile_attachment_oid'];
     }
 
     /**
-     * Sets config
+     * Sets customer_profile_attachment_oid
      *
-     * @param \ultracart\v2\models\AccountsReceivableRetryConfig $config config
+     * @param int $customer_profile_attachment_oid Attachment identifier
      *
      * @return $this
      */
-    public function setConfig($config)
+    public function setCustomerProfileAttachmentOid($customer_profile_attachment_oid)
     {
-        $this->container['config'] = $config;
+        $this->container['customer_profile_attachment_oid'] = $customer_profile_attachment_oid;
 
         return $this;
     }
 
     /**
-     * Gets coupon_codes
+     * Gets description
      *
-     * @return string[]
+     * @return string
      */
-    public function getCouponCodes()
+    public function getDescription()
     {
-        return $this->container['coupon_codes'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets coupon_codes
+     * Sets description
      *
-     * @param string[] $coupon_codes coupon_codes
+     * @param string $description Description
      *
      * @return $this
      */
-    public function setCouponCodes($coupon_codes)
+    public function setDescription($description)
     {
-        $this->container['coupon_codes'] = $coupon_codes;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets emails
+     * Gets file_name
      *
-     * @return string[]
+     * @return string
      */
-    public function getEmails()
+    public function getFileName()
     {
-        return $this->container['emails'];
+        return $this->container['file_name'];
     }
 
     /**
-     * Sets emails
+     * Sets file_name
      *
-     * @param string[] $emails emails
+     * @param string $file_name File name
      *
      * @return $this
      */
-    public function setEmails($emails)
+    public function setFileName($file_name)
     {
-        $this->container['emails'] = $emails;
+        $this->container['file_name'] = $file_name;
 
         return $this;
     }
 
     /**
-     * Gets error
+     * Gets mime_type
      *
-     * @return \ultracart\v2\models\Error
+     * @return string
      */
-    public function getError()
+    public function getMimeType()
     {
-        return $this->container['error'];
+        return $this->container['mime_type'];
     }
 
     /**
-     * Sets error
+     * Sets mime_type
      *
-     * @param \ultracart\v2\models\Error $error error
+     * @param string $mime_type Mime typoe
      *
      * @return $this
      */
-    public function setError($error)
+    public function setMimeType($mime_type)
     {
-        $this->container['error'] = $error;
+        $this->container['mime_type'] = $mime_type;
 
         return $this;
     }
 
     /**
-     * Gets has_linked_accounts
+     * Gets upload_dts
      *
-     * @return bool
+     * @return string
      */
-    public function getHasLinkedAccounts()
+    public function getUploadDts()
     {
-        return $this->container['has_linked_accounts'];
+        return $this->container['upload_dts'];
     }
 
     /**
-     * Sets has_linked_accounts
+     * Sets upload_dts
      *
-     * @param bool $has_linked_accounts has_linked_accounts
+     * @param string $upload_dts Upload date/time
      *
      * @return $this
      */
-    public function setHasLinkedAccounts($has_linked_accounts)
+    public function setUploadDts($upload_dts)
     {
-        $this->container['has_linked_accounts'] = $has_linked_accounts;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success Indicates if API call was successful
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
+        $this->container['upload_dts'] = $upload_dts;
 
         return $this;
     }

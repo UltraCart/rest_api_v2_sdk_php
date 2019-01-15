@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountsReceivableRetryConfigResponse
+ * AccountsReceivableRetryStatAccount
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * AccountsReceivableRetryConfigResponse Class Doc Comment
+ * AccountsReceivableRetryStatAccount Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAccess
+class AccountsReceivableRetryStatAccount implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccountsReceivableRetryConfigResponse';
+    protected static $swaggerModelName = 'AccountsReceivableRetryStatAccount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => '\ultracart\v2\models\AccountsReceivableRetryConfig',
-        'coupon_codes' => 'string[]',
-        'emails' => 'string[]',
-        'error' => '\ultracart\v2\models\Error',
-        'has_linked_accounts' => 'bool',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool'
+        'days' => '\ultracart\v2\models\AccountsReceivableRetryStatMetrics[]',
+        'merchant_id' => 'string',
+        'overall' => '\ultracart\v2\models\AccountsReceivableRetryStatMetrics',
+        'revenue_for_period' => '\ultracart\v2\models\AccountsReceivableRetryStatRevenue[]'
     ];
 
     /**
@@ -71,13 +68,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'config' => null,
-        'coupon_codes' => null,
-        'emails' => null,
-        'error' => null,
-        'has_linked_accounts' => null,
-        'metadata' => null,
-        'success' => null
+        'days' => null,
+        'merchant_id' => null,
+        'overall' => null,
+        'revenue_for_period' => null
     ];
 
     /**
@@ -107,13 +101,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'config' => 'config',
-        'coupon_codes' => 'coupon_codes',
-        'emails' => 'emails',
-        'error' => 'error',
-        'has_linked_accounts' => 'has_linked_accounts',
-        'metadata' => 'metadata',
-        'success' => 'success'
+        'days' => 'days',
+        'merchant_id' => 'merchant_id',
+        'overall' => 'overall',
+        'revenue_for_period' => 'revenue_for_period'
     ];
 
     /**
@@ -122,13 +113,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'config' => 'setConfig',
-        'coupon_codes' => 'setCouponCodes',
-        'emails' => 'setEmails',
-        'error' => 'setError',
-        'has_linked_accounts' => 'setHasLinkedAccounts',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess'
+        'days' => 'setDays',
+        'merchant_id' => 'setMerchantId',
+        'overall' => 'setOverall',
+        'revenue_for_period' => 'setRevenueForPeriod'
     ];
 
     /**
@@ -137,13 +125,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'config' => 'getConfig',
-        'coupon_codes' => 'getCouponCodes',
-        'emails' => 'getEmails',
-        'error' => 'getError',
-        'has_linked_accounts' => 'getHasLinkedAccounts',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess'
+        'days' => 'getDays',
+        'merchant_id' => 'getMerchantId',
+        'overall' => 'getOverall',
+        'revenue_for_period' => 'getRevenueForPeriod'
     ];
 
     /**
@@ -206,13 +191,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
-        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
-        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['has_linked_accounts'] = isset($data['has_linked_accounts']) ? $data['has_linked_accounts'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['days'] = isset($data['days']) ? $data['days'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['overall'] = isset($data['overall']) ? $data['overall'] : null;
+        $this->container['revenue_for_period'] = isset($data['revenue_for_period']) ? $data['revenue_for_period'] : null;
     }
 
     /**
@@ -241,169 +223,97 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets config
+     * Gets days
      *
-     * @return \ultracart\v2\models\AccountsReceivableRetryConfig
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatMetrics[]
      */
-    public function getConfig()
+    public function getDays()
     {
-        return $this->container['config'];
+        return $this->container['days'];
     }
 
     /**
-     * Sets config
+     * Sets days
      *
-     * @param \ultracart\v2\models\AccountsReceivableRetryConfig $config config
+     * @param \ultracart\v2\models\AccountsReceivableRetryStatMetrics[] $days days
      *
      * @return $this
      */
-    public function setConfig($config)
+    public function setDays($days)
     {
-        $this->container['config'] = $config;
+        $this->container['days'] = $days;
 
         return $this;
     }
 
     /**
-     * Gets coupon_codes
+     * Gets merchant_id
      *
-     * @return string[]
+     * @return string
      */
-    public function getCouponCodes()
+    public function getMerchantId()
     {
-        return $this->container['coupon_codes'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets coupon_codes
+     * Sets merchant_id
      *
-     * @param string[] $coupon_codes coupon_codes
+     * @param string $merchant_id merchant_id
      *
      * @return $this
      */
-    public function setCouponCodes($coupon_codes)
+    public function setMerchantId($merchant_id)
     {
-        $this->container['coupon_codes'] = $coupon_codes;
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }
 
     /**
-     * Gets emails
+     * Gets overall
      *
-     * @return string[]
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatMetrics
      */
-    public function getEmails()
+    public function getOverall()
     {
-        return $this->container['emails'];
+        return $this->container['overall'];
     }
 
     /**
-     * Sets emails
+     * Sets overall
      *
-     * @param string[] $emails emails
+     * @param \ultracart\v2\models\AccountsReceivableRetryStatMetrics $overall overall
      *
      * @return $this
      */
-    public function setEmails($emails)
+    public function setOverall($overall)
     {
-        $this->container['emails'] = $emails;
+        $this->container['overall'] = $overall;
 
         return $this;
     }
 
     /**
-     * Gets error
+     * Gets revenue_for_period
      *
-     * @return \ultracart\v2\models\Error
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatRevenue[]
      */
-    public function getError()
+    public function getRevenueForPeriod()
     {
-        return $this->container['error'];
+        return $this->container['revenue_for_period'];
     }
 
     /**
-     * Sets error
+     * Sets revenue_for_period
      *
-     * @param \ultracart\v2\models\Error $error error
+     * @param \ultracart\v2\models\AccountsReceivableRetryStatRevenue[] $revenue_for_period revenue_for_period
      *
      * @return $this
      */
-    public function setError($error)
+    public function setRevenueForPeriod($revenue_for_period)
     {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets has_linked_accounts
-     *
-     * @return bool
-     */
-    public function getHasLinkedAccounts()
-    {
-        return $this->container['has_linked_accounts'];
-    }
-
-    /**
-     * Sets has_linked_accounts
-     *
-     * @param bool $has_linked_accounts has_linked_accounts
-     *
-     * @return $this
-     */
-    public function setHasLinkedAccounts($has_linked_accounts)
-    {
-        $this->container['has_linked_accounts'] = $has_linked_accounts;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success Indicates if API call was successful
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
+        $this->container['revenue_for_period'] = $revenue_for_period;
 
         return $this;
     }

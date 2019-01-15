@@ -57,7 +57,9 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'active' => 'bool',
+        'daily_activity_list' => '\ultracart\v2\models\AccountsReceivableRetryDayActivity[]',
         'merchant_id' => 'string',
+        'notify_emails' => 'string[]',
         'notify_rejections' => 'bool',
         'notify_successes' => 'bool',
         'process_linked_accounts' => 'bool',
@@ -71,7 +73,9 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'active' => null,
+        'daily_activity_list' => null,
         'merchant_id' => null,
+        'notify_emails' => null,
         'notify_rejections' => null,
         'notify_successes' => null,
         'process_linked_accounts' => null,
@@ -106,7 +110,9 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'active' => 'active',
+        'daily_activity_list' => 'daily_activity_list',
         'merchant_id' => 'merchant_id',
+        'notify_emails' => 'notify_emails',
         'notify_rejections' => 'notify_rejections',
         'notify_successes' => 'notify_successes',
         'process_linked_accounts' => 'process_linked_accounts',
@@ -120,7 +126,9 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'active' => 'setActive',
+        'daily_activity_list' => 'setDailyActivityList',
         'merchant_id' => 'setMerchantId',
+        'notify_emails' => 'setNotifyEmails',
         'notify_rejections' => 'setNotifyRejections',
         'notify_successes' => 'setNotifySuccesses',
         'process_linked_accounts' => 'setProcessLinkedAccounts',
@@ -134,7 +142,9 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'active' => 'getActive',
+        'daily_activity_list' => 'getDailyActivityList',
         'merchant_id' => 'getMerchantId',
+        'notify_emails' => 'getNotifyEmails',
         'notify_rejections' => 'getNotifyRejections',
         'notify_successes' => 'getNotifySuccesses',
         'process_linked_accounts' => 'getProcessLinkedAccounts',
@@ -202,7 +212,9 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['daily_activity_list'] = isset($data['daily_activity_list']) ? $data['daily_activity_list'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['notify_emails'] = isset($data['notify_emails']) ? $data['notify_emails'] : null;
         $this->container['notify_rejections'] = isset($data['notify_rejections']) ? $data['notify_rejections'] : null;
         $this->container['notify_successes'] = isset($data['notify_successes']) ? $data['notify_successes'] : null;
         $this->container['process_linked_accounts'] = isset($data['process_linked_accounts']) ? $data['process_linked_accounts'] : null;
@@ -259,6 +271,30 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets daily_activity_list
+     *
+     * @return \ultracart\v2\models\AccountsReceivableRetryDayActivity[]
+     */
+    public function getDailyActivityList()
+    {
+        return $this->container['daily_activity_list'];
+    }
+
+    /**
+     * Sets daily_activity_list
+     *
+     * @param \ultracart\v2\models\AccountsReceivableRetryDayActivity[] $daily_activity_list A list of days and what actions should take place on those days after an order reaches accounts receivable
+     *
+     * @return $this
+     */
+    public function setDailyActivityList($daily_activity_list)
+    {
+        $this->container['daily_activity_list'] = $daily_activity_list;
+
+        return $this;
+    }
+
+    /**
      * Gets merchant_id
      *
      * @return string
@@ -278,6 +314,30 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets notify_emails
+     *
+     * @return string[]
+     */
+    public function getNotifyEmails()
+    {
+        return $this->container['notify_emails'];
+    }
+
+    /**
+     * Sets notify_emails
+     *
+     * @param string[] $notify_emails A list of email addresses to receive summary notifications from the retry service.
+     *
+     * @return $this
+     */
+    public function setNotifyEmails($notify_emails)
+    {
+        $this->container['notify_emails'] = $notify_emails;
 
         return $this;
     }

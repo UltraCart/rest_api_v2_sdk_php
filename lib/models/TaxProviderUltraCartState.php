@@ -59,7 +59,10 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
         'enabled' => 'bool',
         'state_code' => 'string',
         'state_name' => 'string',
-        'tax_rate_formatted' => 'string'
+        'tax_gift_charge' => 'bool',
+        'tax_gift_wrap' => 'bool',
+        'tax_rate_formatted' => 'string',
+        'tax_shipping' => 'bool'
     ];
 
     /**
@@ -71,7 +74,10 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
         'enabled' => null,
         'state_code' => null,
         'state_name' => null,
-        'tax_rate_formatted' => null
+        'tax_gift_charge' => null,
+        'tax_gift_wrap' => null,
+        'tax_rate_formatted' => null,
+        'tax_shipping' => null
     ];
 
     /**
@@ -104,7 +110,10 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
         'enabled' => 'enabled',
         'state_code' => 'state_code',
         'state_name' => 'state_name',
-        'tax_rate_formatted' => 'tax_rate_formatted'
+        'tax_gift_charge' => 'tax_gift_charge',
+        'tax_gift_wrap' => 'tax_gift_wrap',
+        'tax_rate_formatted' => 'tax_rate_formatted',
+        'tax_shipping' => 'tax_shipping'
     ];
 
     /**
@@ -116,7 +125,10 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
         'enabled' => 'setEnabled',
         'state_code' => 'setStateCode',
         'state_name' => 'setStateName',
-        'tax_rate_formatted' => 'setTaxRateFormatted'
+        'tax_gift_charge' => 'setTaxGiftCharge',
+        'tax_gift_wrap' => 'setTaxGiftWrap',
+        'tax_rate_formatted' => 'setTaxRateFormatted',
+        'tax_shipping' => 'setTaxShipping'
     ];
 
     /**
@@ -128,7 +140,10 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
         'enabled' => 'getEnabled',
         'state_code' => 'getStateCode',
         'state_name' => 'getStateName',
-        'tax_rate_formatted' => 'getTaxRateFormatted'
+        'tax_gift_charge' => 'getTaxGiftCharge',
+        'tax_gift_wrap' => 'getTaxGiftWrap',
+        'tax_rate_formatted' => 'getTaxRateFormatted',
+        'tax_shipping' => 'getTaxShipping'
     ];
 
     /**
@@ -194,7 +209,10 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['state_code'] = isset($data['state_code']) ? $data['state_code'] : null;
         $this->container['state_name'] = isset($data['state_name']) ? $data['state_name'] : null;
+        $this->container['tax_gift_charge'] = isset($data['tax_gift_charge']) ? $data['tax_gift_charge'] : null;
+        $this->container['tax_gift_wrap'] = isset($data['tax_gift_wrap']) ? $data['tax_gift_wrap'] : null;
         $this->container['tax_rate_formatted'] = isset($data['tax_rate_formatted']) ? $data['tax_rate_formatted'] : null;
+        $this->container['tax_shipping'] = isset($data['tax_shipping']) ? $data['tax_shipping'] : null;
     }
 
     /**
@@ -295,6 +313,54 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tax_gift_charge
+     *
+     * @return bool
+     */
+    public function getTaxGiftCharge()
+    {
+        return $this->container['tax_gift_charge'];
+    }
+
+    /**
+     * Sets tax_gift_charge
+     *
+     * @param bool $tax_gift_charge True if gift charges should be taxed in this state.
+     *
+     * @return $this
+     */
+    public function setTaxGiftCharge($tax_gift_charge)
+    {
+        $this->container['tax_gift_charge'] = $tax_gift_charge;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_gift_wrap
+     *
+     * @return bool
+     */
+    public function getTaxGiftWrap()
+    {
+        return $this->container['tax_gift_wrap'];
+    }
+
+    /**
+     * Sets tax_gift_wrap
+     *
+     * @param bool $tax_gift_wrap True if gift wrap should be taxed in this state.
+     *
+     * @return $this
+     */
+    public function setTaxGiftWrap($tax_gift_wrap)
+    {
+        $this->container['tax_gift_wrap'] = $tax_gift_wrap;
+
+        return $this;
+    }
+
+    /**
      * Gets tax_rate_formatted
      *
      * @return string
@@ -314,6 +380,30 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
     public function setTaxRateFormatted($tax_rate_formatted)
     {
         $this->container['tax_rate_formatted'] = $tax_rate_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_shipping
+     *
+     * @return bool
+     */
+    public function getTaxShipping()
+    {
+        return $this->container['tax_shipping'];
+    }
+
+    /**
+     * Sets tax_shipping
+     *
+     * @param bool $tax_shipping True if shipping should be taxed in this state.
+     *
+     * @return $this
+     */
+    public function setTaxShipping($tax_shipping)
+    {
+        $this->container['tax_shipping'] = $tax_shipping;
 
         return $this;
     }

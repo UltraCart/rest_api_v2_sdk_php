@@ -70,6 +70,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_orderable' => 'bool',
         'cancel_other_auto_orders' => 'bool',
         'free_shipping_auto_order' => 'bool',
+        'refund_other_auto_orders' => 'bool',
         'steps' => '\ultracart\v2\models\ItemAutoOrderStep[]'
     ];
 
@@ -93,6 +94,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_orderable' => null,
         'cancel_other_auto_orders' => null,
         'free_shipping_auto_order' => null,
+        'refund_other_auto_orders' => null,
         'steps' => null
     ];
 
@@ -137,6 +139,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_orderable' => 'auto_orderable',
         'cancel_other_auto_orders' => 'cancel_other_auto_orders',
         'free_shipping_auto_order' => 'free_shipping_auto_order',
+        'refund_other_auto_orders' => 'refund_other_auto_orders',
         'steps' => 'steps'
     ];
 
@@ -160,6 +163,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_orderable' => 'setAutoOrderable',
         'cancel_other_auto_orders' => 'setCancelOtherAutoOrders',
         'free_shipping_auto_order' => 'setFreeShippingAutoOrder',
+        'refund_other_auto_orders' => 'setRefundOtherAutoOrders',
         'steps' => 'setSteps'
     ];
 
@@ -183,6 +187,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_orderable' => 'getAutoOrderable',
         'cancel_other_auto_orders' => 'getCancelOtherAutoOrders',
         'free_shipping_auto_order' => 'getFreeShippingAutoOrder',
+        'refund_other_auto_orders' => 'getRefundOtherAutoOrders',
         'steps' => 'getSteps'
     ];
 
@@ -260,6 +265,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         $this->container['auto_orderable'] = isset($data['auto_orderable']) ? $data['auto_orderable'] : null;
         $this->container['cancel_other_auto_orders'] = isset($data['cancel_other_auto_orders']) ? $data['cancel_other_auto_orders'] : null;
         $this->container['free_shipping_auto_order'] = isset($data['free_shipping_auto_order']) ? $data['free_shipping_auto_order'] : null;
+        $this->container['refund_other_auto_orders'] = isset($data['refund_other_auto_orders']) ? $data['refund_other_auto_orders'] : null;
         $this->container['steps'] = isset($data['steps']) ? $data['steps'] : null;
     }
 
@@ -631,6 +637,30 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
     public function setFreeShippingAutoOrder($free_shipping_auto_order)
     {
         $this->container['free_shipping_auto_order'] = $free_shipping_auto_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets refund_other_auto_orders
+     *
+     * @return bool
+     */
+    public function getRefundOtherAutoOrders()
+    {
+        return $this->container['refund_other_auto_orders'];
+    }
+
+    /**
+     * Sets refund_other_auto_orders
+     *
+     * @param bool $refund_other_auto_orders True if other auto orders for this customer should refunded if this item is refunded.
+     *
+     * @return $this
+     */
+    public function setRefundOtherAutoOrders($refund_other_auto_orders)
+    {
+        $this->container['refund_other_auto_orders'] = $refund_other_auto_orders;
 
         return $this;
     }

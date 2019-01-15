@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
 *AutoOrderApi* | [**getAutoOrders**](docs/Api/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+*AutoOrderApi* | [**getAutoOrdersByQuery**](docs/Api/AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
 *AutoOrderApi* | [**updateAutoOrder**](docs/Api/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *ChargebackApi* | [**deleteChargeback**](docs/Api/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/Api/ChargebackApi.md#getchargebackdispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
@@ -175,6 +176,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**format**](docs/Api/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 *OrderApi* | [**getAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#getaccountsreceivableretryconfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
+*OrderApi* | [**getAccountsReceivableRetryStats**](docs/Api/OrderApi.md#getaccountsreceivableretrystats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
@@ -221,6 +223,11 @@ Class | Method | HTTP request | Description
 
  - [AccountsReceivableRetryConfig](docs/Model/AccountsReceivableRetryConfig.md)
  - [AccountsReceivableRetryConfigResponse](docs/Model/AccountsReceivableRetryConfigResponse.md)
+ - [AccountsReceivableRetryDayActivity](docs/Model/AccountsReceivableRetryDayActivity.md)
+ - [AccountsReceivableRetryStatAccount](docs/Model/AccountsReceivableRetryStatAccount.md)
+ - [AccountsReceivableRetryStatMetrics](docs/Model/AccountsReceivableRetryStatMetrics.md)
+ - [AccountsReceivableRetryStatRevenue](docs/Model/AccountsReceivableRetryStatRevenue.md)
+ - [AccountsReceivableRetryStatsResponse](docs/Model/AccountsReceivableRetryStatsResponse.md)
  - [AffiliateClick](docs/Model/AffiliateClick.md)
  - [AffiliateClickQuery](docs/Model/AffiliateClickQuery.md)
  - [AffiliateClicksResponse](docs/Model/AffiliateClicksResponse.md)
@@ -233,6 +240,7 @@ Class | Method | HTTP request | Description
  - [AutoOrderItem](docs/Model/AutoOrderItem.md)
  - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
+ - [AutoOrderQuery](docs/Model/AutoOrderQuery.md)
  - [AutoOrderResponse](docs/Model/AutoOrderResponse.md)
  - [AutoOrdersResponse](docs/Model/AutoOrdersResponse.md)
  - [AvalaraConfig](docs/Model/AvalaraConfig.md)
@@ -356,6 +364,7 @@ Class | Method | HTTP request | Description
  - [Currency](docs/Model/Currency.md)
  - [Customer](docs/Model/Customer.md)
  - [CustomerAffiliate](docs/Model/CustomerAffiliate.md)
+ - [CustomerAttachment](docs/Model/CustomerAttachment.md)
  - [CustomerBilling](docs/Model/CustomerBilling.md)
  - [CustomerCard](docs/Model/CustomerCard.md)
  - [CustomerEditorValues](docs/Model/CustomerEditorValues.md)
@@ -366,6 +375,7 @@ Class | Method | HTTP request | Description
  - [CustomerQuery](docs/Model/CustomerQuery.md)
  - [CustomerQuotesSummary](docs/Model/CustomerQuotesSummary.md)
  - [CustomerResponse](docs/Model/CustomerResponse.md)
+ - [CustomerReviewer](docs/Model/CustomerReviewer.md)
  - [CustomerShipping](docs/Model/CustomerShipping.md)
  - [CustomerTaxCodes](docs/Model/CustomerTaxCodes.md)
  - [CustomersResponse](docs/Model/CustomersResponse.md)

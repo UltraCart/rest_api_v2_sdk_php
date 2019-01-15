@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountsReceivableRetryConfigResponse
+ * AccountsReceivableRetryStatsResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * AccountsReceivableRetryConfigResponse Class Doc Comment
+ * AccountsReceivableRetryStatsResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAccess
+class AccountsReceivableRetryStatsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccountsReceivableRetryConfigResponse';
+    protected static $swaggerModelName = 'AccountsReceivableRetryStatsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => '\ultracart\v2\models\AccountsReceivableRetryConfig',
-        'coupon_codes' => 'string[]',
-        'emails' => 'string[]',
         'error' => '\ultracart\v2\models\Error',
-        'has_linked_accounts' => 'bool',
+        'linked_accounts' => '\ultracart\v2\models\AccountsReceivableRetryStatAccount[]',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'overall' => '\ultracart\v2\models\AccountsReceivableRetryStatAccount',
         'success' => 'bool'
     ];
 
@@ -71,12 +69,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'config' => null,
-        'coupon_codes' => null,
-        'emails' => null,
         'error' => null,
-        'has_linked_accounts' => null,
+        'linked_accounts' => null,
         'metadata' => null,
+        'overall' => null,
         'success' => null
     ];
 
@@ -107,12 +103,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'config' => 'config',
-        'coupon_codes' => 'coupon_codes',
-        'emails' => 'emails',
         'error' => 'error',
-        'has_linked_accounts' => 'has_linked_accounts',
+        'linked_accounts' => 'linked_accounts',
         'metadata' => 'metadata',
+        'overall' => 'overall',
         'success' => 'success'
     ];
 
@@ -122,12 +116,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'config' => 'setConfig',
-        'coupon_codes' => 'setCouponCodes',
-        'emails' => 'setEmails',
         'error' => 'setError',
-        'has_linked_accounts' => 'setHasLinkedAccounts',
+        'linked_accounts' => 'setLinkedAccounts',
         'metadata' => 'setMetadata',
+        'overall' => 'setOverall',
         'success' => 'setSuccess'
     ];
 
@@ -137,12 +129,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'config' => 'getConfig',
-        'coupon_codes' => 'getCouponCodes',
-        'emails' => 'getEmails',
         'error' => 'getError',
-        'has_linked_accounts' => 'getHasLinkedAccounts',
+        'linked_accounts' => 'getLinkedAccounts',
         'metadata' => 'getMetadata',
+        'overall' => 'getOverall',
         'success' => 'getSuccess'
     ];
 
@@ -206,12 +196,10 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
-        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
-        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['has_linked_accounts'] = isset($data['has_linked_accounts']) ? $data['has_linked_accounts'] : null;
+        $this->container['linked_accounts'] = isset($data['linked_accounts']) ? $data['linked_accounts'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['overall'] = isset($data['overall']) ? $data['overall'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
@@ -241,78 +229,6 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets config
-     *
-     * @return \ultracart\v2\models\AccountsReceivableRetryConfig
-     */
-    public function getConfig()
-    {
-        return $this->container['config'];
-    }
-
-    /**
-     * Sets config
-     *
-     * @param \ultracart\v2\models\AccountsReceivableRetryConfig $config config
-     *
-     * @return $this
-     */
-    public function setConfig($config)
-    {
-        $this->container['config'] = $config;
-
-        return $this;
-    }
-
-    /**
-     * Gets coupon_codes
-     *
-     * @return string[]
-     */
-    public function getCouponCodes()
-    {
-        return $this->container['coupon_codes'];
-    }
-
-    /**
-     * Sets coupon_codes
-     *
-     * @param string[] $coupon_codes coupon_codes
-     *
-     * @return $this
-     */
-    public function setCouponCodes($coupon_codes)
-    {
-        $this->container['coupon_codes'] = $coupon_codes;
-
-        return $this;
-    }
-
-    /**
-     * Gets emails
-     *
-     * @return string[]
-     */
-    public function getEmails()
-    {
-        return $this->container['emails'];
-    }
-
-    /**
-     * Sets emails
-     *
-     * @param string[] $emails emails
-     *
-     * @return $this
-     */
-    public function setEmails($emails)
-    {
-        $this->container['emails'] = $emails;
-
-        return $this;
-    }
-
-    /**
      * Gets error
      *
      * @return \ultracart\v2\models\Error
@@ -337,25 +253,25 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     }
 
     /**
-     * Gets has_linked_accounts
+     * Gets linked_accounts
      *
-     * @return bool
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatAccount[]
      */
-    public function getHasLinkedAccounts()
+    public function getLinkedAccounts()
     {
-        return $this->container['has_linked_accounts'];
+        return $this->container['linked_accounts'];
     }
 
     /**
-     * Sets has_linked_accounts
+     * Sets linked_accounts
      *
-     * @param bool $has_linked_accounts has_linked_accounts
+     * @param \ultracart\v2\models\AccountsReceivableRetryStatAccount[] $linked_accounts linked_accounts
      *
      * @return $this
      */
-    public function setHasLinkedAccounts($has_linked_accounts)
+    public function setLinkedAccounts($linked_accounts)
     {
-        $this->container['has_linked_accounts'] = $has_linked_accounts;
+        $this->container['linked_accounts'] = $linked_accounts;
 
         return $this;
     }
@@ -380,6 +296,30 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets overall
+     *
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatAccount
+     */
+    public function getOverall()
+    {
+        return $this->container['overall'];
+    }
+
+    /**
+     * Sets overall
+     *
+     * @param \ultracart\v2\models\AccountsReceivableRetryStatAccount $overall overall
+     *
+     * @return $this
+     */
+    public function setOverall($overall)
+    {
+        $this->container['overall'] = $overall;
 
         return $this;
     }

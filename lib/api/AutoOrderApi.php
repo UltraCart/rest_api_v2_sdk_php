@@ -1520,6 +1520,343 @@ class AutoOrderApi
     }
 
     /**
+     * Operation getAutoOrdersByQuery
+     *
+     * Retrieve auto orders
+     *
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\AutoOrdersResponse
+     */
+    public function getAutoOrdersByQuery($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        list($response) = $this->getAutoOrdersByQueryWithHttpInfo($auto_order_query, $_limit, $_offset, $_sort, $_expand);
+        return $response;
+    }
+
+    /**
+     * Operation getAutoOrdersByQueryWithHttpInfo
+     *
+     * Retrieve auto orders
+     *
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoOrdersByQueryWithHttpInfo($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
+        $request = $this->getAutoOrdersByQueryRequest($auto_order_query, $_limit, $_offset, $_sort, $_expand);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\AutoOrdersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAutoOrdersByQueryAsync
+     *
+     * Retrieve auto orders
+     *
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAutoOrdersByQueryAsync($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        return $this->getAutoOrdersByQueryAsyncWithHttpInfo($auto_order_query, $_limit, $_offset, $_sort, $_expand)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAutoOrdersByQueryAsyncWithHttpInfo
+     *
+     * Retrieve auto orders
+     *
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAutoOrdersByQueryAsyncWithHttpInfo($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
+        $request = $this->getAutoOrdersByQueryRequest($auto_order_query, $_limit, $_offset, $_sort, $_expand);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAutoOrdersByQuery'
+     *
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAutoOrdersByQueryRequest($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    {
+        // verify the required parameter 'auto_order_query' is set
+        if ($auto_order_query === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $auto_order_query when calling getAutoOrdersByQuery'
+            );
+        }
+
+        $resourcePath = '/auto_order/auto_orders/query';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = ObjectSerializer::toQueryValue($_offset);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = ObjectSerializer::toQueryValue($_sort);
+        }
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($auto_order_query)) {
+            $_tempBody = $auto_order_query;
+        }
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateAutoOrder
      *
      * Update an auto order

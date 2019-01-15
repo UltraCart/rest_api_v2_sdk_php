@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountsReceivableRetryConfigResponse
+ * AccountsReceivableRetryStatRevenue
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * AccountsReceivableRetryConfigResponse Class Doc Comment
+ * AccountsReceivableRetryStatRevenue Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAccess
+class AccountsReceivableRetryStatRevenue implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccountsReceivableRetryConfigResponse';
+    protected static $swaggerModelName = 'AccountsReceivableRetryStatRevenue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => '\ultracart\v2\models\AccountsReceivableRetryConfig',
-        'coupon_codes' => 'string[]',
-        'emails' => 'string[]',
-        'error' => '\ultracart\v2\models\Error',
-        'has_linked_accounts' => 'bool',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool'
+        'label' => 'string',
+        'revenue' => 'float'
     ];
 
     /**
@@ -71,13 +66,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'config' => null,
-        'coupon_codes' => null,
-        'emails' => null,
-        'error' => null,
-        'has_linked_accounts' => null,
-        'metadata' => null,
-        'success' => null
+        'label' => null,
+        'revenue' => null
     ];
 
     /**
@@ -107,13 +97,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'config' => 'config',
-        'coupon_codes' => 'coupon_codes',
-        'emails' => 'emails',
-        'error' => 'error',
-        'has_linked_accounts' => 'has_linked_accounts',
-        'metadata' => 'metadata',
-        'success' => 'success'
+        'label' => 'label',
+        'revenue' => 'revenue'
     ];
 
     /**
@@ -122,13 +107,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'config' => 'setConfig',
-        'coupon_codes' => 'setCouponCodes',
-        'emails' => 'setEmails',
-        'error' => 'setError',
-        'has_linked_accounts' => 'setHasLinkedAccounts',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess'
+        'label' => 'setLabel',
+        'revenue' => 'setRevenue'
     ];
 
     /**
@@ -137,13 +117,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'config' => 'getConfig',
-        'coupon_codes' => 'getCouponCodes',
-        'emails' => 'getEmails',
-        'error' => 'getError',
-        'has_linked_accounts' => 'getHasLinkedAccounts',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess'
+        'label' => 'getLabel',
+        'revenue' => 'getRevenue'
     ];
 
     /**
@@ -206,13 +181,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
-        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
-        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['has_linked_accounts'] = isset($data['has_linked_accounts']) ? $data['has_linked_accounts'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['label'] = isset($data['label']) ? $data['label'] : null;
+        $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
     }
 
     /**
@@ -241,169 +211,49 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets config
+     * Gets label
      *
-     * @return \ultracart\v2\models\AccountsReceivableRetryConfig
+     * @return string
      */
-    public function getConfig()
+    public function getLabel()
     {
-        return $this->container['config'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets config
+     * Sets label
      *
-     * @param \ultracart\v2\models\AccountsReceivableRetryConfig $config config
+     * @param string $label label
      *
      * @return $this
      */
-    public function setConfig($config)
+    public function setLabel($label)
     {
-        $this->container['config'] = $config;
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets coupon_codes
+     * Gets revenue
      *
-     * @return string[]
+     * @return float
      */
-    public function getCouponCodes()
+    public function getRevenue()
     {
-        return $this->container['coupon_codes'];
+        return $this->container['revenue'];
     }
 
     /**
-     * Sets coupon_codes
+     * Sets revenue
      *
-     * @param string[] $coupon_codes coupon_codes
+     * @param float $revenue revenue
      *
      * @return $this
      */
-    public function setCouponCodes($coupon_codes)
+    public function setRevenue($revenue)
     {
-        $this->container['coupon_codes'] = $coupon_codes;
-
-        return $this;
-    }
-
-    /**
-     * Gets emails
-     *
-     * @return string[]
-     */
-    public function getEmails()
-    {
-        return $this->container['emails'];
-    }
-
-    /**
-     * Sets emails
-     *
-     * @param string[] $emails emails
-     *
-     * @return $this
-     */
-    public function setEmails($emails)
-    {
-        $this->container['emails'] = $emails;
-
-        return $this;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return \ultracart\v2\models\Error
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param \ultracart\v2\models\Error $error error
-     *
-     * @return $this
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets has_linked_accounts
-     *
-     * @return bool
-     */
-    public function getHasLinkedAccounts()
-    {
-        return $this->container['has_linked_accounts'];
-    }
-
-    /**
-     * Sets has_linked_accounts
-     *
-     * @param bool $has_linked_accounts has_linked_accounts
-     *
-     * @return $this
-     */
-    public function setHasLinkedAccounts($has_linked_accounts)
-    {
-        $this->container['has_linked_accounts'] = $has_linked_accounts;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success Indicates if API call was successful
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
+        $this->container['revenue'] = $revenue;
 
         return $this;
     }

@@ -69,7 +69,8 @@ class TaxState implements ModelInterface, ArrayAccess
         'tax_gift_wrap' => 'bool',
         'tax_rate' => 'float',
         'tax_rate_formatted' => 'string',
-        'tax_shipping' => 'bool'
+        'tax_shipping' => 'bool',
+        'use_ultracart_managed_rates' => 'bool'
     ];
 
     /**
@@ -91,7 +92,8 @@ class TaxState implements ModelInterface, ArrayAccess
         'tax_gift_wrap' => null,
         'tax_rate' => null,
         'tax_rate_formatted' => null,
-        'tax_shipping' => null
+        'tax_shipping' => null,
+        'use_ultracart_managed_rates' => null
     ];
 
     /**
@@ -134,7 +136,8 @@ class TaxState implements ModelInterface, ArrayAccess
         'tax_gift_wrap' => 'tax_gift_wrap',
         'tax_rate' => 'tax_rate',
         'tax_rate_formatted' => 'tax_rate_formatted',
-        'tax_shipping' => 'tax_shipping'
+        'tax_shipping' => 'tax_shipping',
+        'use_ultracart_managed_rates' => 'use_ultracart_managed_rates'
     ];
 
     /**
@@ -156,7 +159,8 @@ class TaxState implements ModelInterface, ArrayAccess
         'tax_gift_wrap' => 'setTaxGiftWrap',
         'tax_rate' => 'setTaxRate',
         'tax_rate_formatted' => 'setTaxRateFormatted',
-        'tax_shipping' => 'setTaxShipping'
+        'tax_shipping' => 'setTaxShipping',
+        'use_ultracart_managed_rates' => 'setUseUltracartManagedRates'
     ];
 
     /**
@@ -178,7 +182,8 @@ class TaxState implements ModelInterface, ArrayAccess
         'tax_gift_wrap' => 'getTaxGiftWrap',
         'tax_rate' => 'getTaxRate',
         'tax_rate_formatted' => 'getTaxRateFormatted',
-        'tax_shipping' => 'getTaxShipping'
+        'tax_shipping' => 'getTaxShipping',
+        'use_ultracart_managed_rates' => 'getUseUltracartManagedRates'
     ];
 
     /**
@@ -255,6 +260,7 @@ class TaxState implements ModelInterface, ArrayAccess
         $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
         $this->container['tax_rate_formatted'] = isset($data['tax_rate_formatted']) ? $data['tax_rate_formatted'] : null;
         $this->container['tax_shipping'] = isset($data['tax_shipping']) ? $data['tax_shipping'] : null;
+        $this->container['use_ultracart_managed_rates'] = isset($data['use_ultracart_managed_rates']) ? $data['use_ultracart_managed_rates'] : null;
     }
 
     /**
@@ -614,6 +620,30 @@ class TaxState implements ModelInterface, ArrayAccess
     public function setTaxShipping($tax_shipping)
     {
         $this->container['tax_shipping'] = $tax_shipping;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_ultracart_managed_rates
+     *
+     * @return bool
+     */
+    public function getUseUltracartManagedRates()
+    {
+        return $this->container['use_ultracart_managed_rates'];
+    }
+
+    /**
+     * Sets use_ultracart_managed_rates
+     *
+     * @param bool $use_ultracart_managed_rates If true, use UltraCart managed rates for this state
+     *
+     * @return $this
+     */
+    public function setUseUltracartManagedRates($use_ultracart_managed_rates)
+    {
+        $this->container['use_ultracart_managed_rates'] = $use_ultracart_managed_rates;
 
         return $this;
     }

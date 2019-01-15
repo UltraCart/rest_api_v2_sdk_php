@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **tax_rate** | **float** | Tax Rate | [optional] 
 **tax_rate_formatted** | **string** | Tax rate formatted | [optional] 
 **tax_shipping** | **bool** | True if taxation within this jurisdiction should charge tax on shipping | [optional] 
+**use_ultracart_managed_rates** | **bool** | If true, use UltraCart managed rates for this state | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

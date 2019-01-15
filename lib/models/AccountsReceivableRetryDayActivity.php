@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountsReceivableRetryConfigResponse
+ * AccountsReceivableRetryDayActivity
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * AccountsReceivableRetryConfigResponse Class Doc Comment
+ * AccountsReceivableRetryDayActivity Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAccess
+class AccountsReceivableRetryDayActivity implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccountsReceivableRetryConfigResponse';
+    protected static $swaggerModelName = 'AccountsReceivableRetryDayActivity';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,9 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => '\ultracart\v2\models\AccountsReceivableRetryConfig',
-        'coupon_codes' => 'string[]',
-        'emails' => 'string[]',
-        'error' => '\ultracart\v2\models\Error',
-        'has_linked_accounts' => 'bool',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool'
+        'charge' => 'bool',
+        'coupon_code' => 'string',
+        'day' => 'int'
     ];
 
     /**
@@ -71,13 +67,9 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'config' => null,
-        'coupon_codes' => null,
-        'emails' => null,
-        'error' => null,
-        'has_linked_accounts' => null,
-        'metadata' => null,
-        'success' => null
+        'charge' => null,
+        'coupon_code' => null,
+        'day' => 'int32'
     ];
 
     /**
@@ -107,13 +99,9 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'config' => 'config',
-        'coupon_codes' => 'coupon_codes',
-        'emails' => 'emails',
-        'error' => 'error',
-        'has_linked_accounts' => 'has_linked_accounts',
-        'metadata' => 'metadata',
-        'success' => 'success'
+        'charge' => 'charge',
+        'coupon_code' => 'coupon_code',
+        'day' => 'day'
     ];
 
     /**
@@ -122,13 +110,9 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'config' => 'setConfig',
-        'coupon_codes' => 'setCouponCodes',
-        'emails' => 'setEmails',
-        'error' => 'setError',
-        'has_linked_accounts' => 'setHasLinkedAccounts',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess'
+        'charge' => 'setCharge',
+        'coupon_code' => 'setCouponCode',
+        'day' => 'setDay'
     ];
 
     /**
@@ -137,13 +121,9 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'config' => 'getConfig',
-        'coupon_codes' => 'getCouponCodes',
-        'emails' => 'getEmails',
-        'error' => 'getError',
-        'has_linked_accounts' => 'getHasLinkedAccounts',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess'
+        'charge' => 'getCharge',
+        'coupon_code' => 'getCouponCode',
+        'day' => 'getDay'
     ];
 
     /**
@@ -206,13 +186,9 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
-        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
-        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['has_linked_accounts'] = isset($data['has_linked_accounts']) ? $data['has_linked_accounts'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['charge'] = isset($data['charge']) ? $data['charge'] : null;
+        $this->container['coupon_code'] = isset($data['coupon_code']) ? $data['coupon_code'] : null;
+        $this->container['day'] = isset($data['day']) ? $data['day'] : null;
     }
 
     /**
@@ -241,169 +217,73 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets config
-     *
-     * @return \ultracart\v2\models\AccountsReceivableRetryConfig
-     */
-    public function getConfig()
-    {
-        return $this->container['config'];
-    }
-
-    /**
-     * Sets config
-     *
-     * @param \ultracart\v2\models\AccountsReceivableRetryConfig $config config
-     *
-     * @return $this
-     */
-    public function setConfig($config)
-    {
-        $this->container['config'] = $config;
-
-        return $this;
-    }
-
-    /**
-     * Gets coupon_codes
-     *
-     * @return string[]
-     */
-    public function getCouponCodes()
-    {
-        return $this->container['coupon_codes'];
-    }
-
-    /**
-     * Sets coupon_codes
-     *
-     * @param string[] $coupon_codes coupon_codes
-     *
-     * @return $this
-     */
-    public function setCouponCodes($coupon_codes)
-    {
-        $this->container['coupon_codes'] = $coupon_codes;
-
-        return $this;
-    }
-
-    /**
-     * Gets emails
-     *
-     * @return string[]
-     */
-    public function getEmails()
-    {
-        return $this->container['emails'];
-    }
-
-    /**
-     * Sets emails
-     *
-     * @param string[] $emails emails
-     *
-     * @return $this
-     */
-    public function setEmails($emails)
-    {
-        $this->container['emails'] = $emails;
-
-        return $this;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return \ultracart\v2\models\Error
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param \ultracart\v2\models\Error $error error
-     *
-     * @return $this
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets has_linked_accounts
+     * Gets charge
      *
      * @return bool
      */
-    public function getHasLinkedAccounts()
+    public function getCharge()
     {
-        return $this->container['has_linked_accounts'];
+        return $this->container['charge'];
     }
 
     /**
-     * Sets has_linked_accounts
+     * Sets charge
      *
-     * @param bool $has_linked_accounts has_linked_accounts
+     * @param bool $charge True if a charge attempt should be made on this day.  False means the order should be rejected on this day.
      *
      * @return $this
      */
-    public function setHasLinkedAccounts($has_linked_accounts)
+    public function setCharge($charge)
     {
-        $this->container['has_linked_accounts'] = $has_linked_accounts;
+        $this->container['charge'] = $charge;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets coupon_code
      *
-     * @return \ultracart\v2\models\ResponseMetadata
+     * @return string
      */
-    public function getMetadata()
+    public function getCouponCode()
     {
-        return $this->container['metadata'];
+        return $this->container['coupon_code'];
     }
 
     /**
-     * Sets metadata
+     * Sets coupon_code
      *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     * @param string $coupon_code The coupon code that should be applied to this order.
      *
      * @return $this
      */
-    public function setMetadata($metadata)
+    public function setCouponCode($coupon_code)
     {
-        $this->container['metadata'] = $metadata;
+        $this->container['coupon_code'] = $coupon_code;
 
         return $this;
     }
 
     /**
-     * Gets success
+     * Gets day
      *
-     * @return bool
+     * @return int
      */
-    public function getSuccess()
+    public function getDay()
     {
-        return $this->container['success'];
+        return $this->container['day'];
     }
 
     /**
-     * Sets success
+     * Sets day
      *
-     * @param bool $success Indicates if API call was successful
+     * @param int $day The number of days since the order placed in Accounts Receivable
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setDay($day)
     {
-        $this->container['success'] = $success;
+        $this->container['day'] = $day;
 
         return $this;
     }
