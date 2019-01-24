@@ -61,6 +61,7 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'city' => 'string',
         'company' => 'string',
         'country_code' => 'string',
+        'customer_profile_oid' => 'int',
         'email' => 'string',
         'first_name' => 'string',
         'item_id' => 'string',
@@ -87,6 +88,7 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'city' => null,
         'company' => null,
         'country_code' => null,
+        'customer_profile_oid' => 'int32',
         'email' => null,
         'first_name' => null,
         'item_id' => null,
@@ -134,6 +136,7 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'city' => 'city',
         'company' => 'company',
         'country_code' => 'country_code',
+        'customer_profile_oid' => 'customer_profile_oid',
         'email' => 'email',
         'first_name' => 'first_name',
         'item_id' => 'item_id',
@@ -160,6 +163,7 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'city' => 'setCity',
         'company' => 'setCompany',
         'country_code' => 'setCountryCode',
+        'customer_profile_oid' => 'setCustomerProfileOid',
         'email' => 'setEmail',
         'first_name' => 'setFirstName',
         'item_id' => 'setItemId',
@@ -186,6 +190,7 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'city' => 'getCity',
         'company' => 'getCompany',
         'country_code' => 'getCountryCode',
+        'customer_profile_oid' => 'getCustomerProfileOid',
         'email' => 'getEmail',
         'first_name' => 'getFirstName',
         'item_id' => 'getItemId',
@@ -266,6 +271,7 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
+        $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
@@ -458,6 +464,30 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         }
 
         $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_profile_oid
+     *
+     * @return int
+     */
+    public function getCustomerProfileOid()
+    {
+        return $this->container['customer_profile_oid'];
+    }
+
+    /**
+     * Sets customer_profile_oid
+     *
+     * @param int $customer_profile_oid Customer profile object identifier
+     *
+     * @return $this
+     */
+    public function setCustomerProfileOid($customer_profile_oid)
+    {
+        $this->container['customer_profile_oid'] = $customer_profile_oid;
 
         return $this;
     }

@@ -791,7 +791,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets original_item_id
      *
-     * @param string $original_item_id The original item id purchased
+     * @param string $original_item_id The original item id purchased.  This item controls scheduling.  If you wish to modify a schedule, for example, from monthly to yearly, change this item from your monthly item to your yearly item, and then change the next_shipment_dts to your desired date.
      *
      * @return $this
      */
