@@ -57,13 +57,19 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'active' => 'bool',
+        'allow_process_linked_accounts' => 'bool',
+        'current_service_plan' => 'string',
         'daily_activity_list' => '\ultracart\v2\models\AccountsReceivableRetryDayActivity[]',
+        'managed_by_linked_account_merchant_id' => 'bool',
         'merchant_id' => 'string',
         'notify_emails' => 'string[]',
         'notify_rejections' => 'bool',
         'notify_successes' => 'bool',
         'process_linked_accounts' => 'bool',
-        'reject_at_end' => 'bool'
+        'processing_percentage' => 'string',
+        'reject_at_end' => 'bool',
+        'trial_mode' => 'bool',
+        'trial_mode_expiration_dts' => 'string'
     ];
 
     /**
@@ -73,13 +79,19 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'active' => null,
+        'allow_process_linked_accounts' => null,
+        'current_service_plan' => null,
         'daily_activity_list' => null,
+        'managed_by_linked_account_merchant_id' => null,
         'merchant_id' => null,
         'notify_emails' => null,
         'notify_rejections' => null,
         'notify_successes' => null,
         'process_linked_accounts' => null,
-        'reject_at_end' => null
+        'processing_percentage' => null,
+        'reject_at_end' => null,
+        'trial_mode' => null,
+        'trial_mode_expiration_dts' => 'dateTime'
     ];
 
     /**
@@ -110,13 +122,19 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'active' => 'active',
+        'allow_process_linked_accounts' => 'allow_process_linked_accounts',
+        'current_service_plan' => 'current_service_plan',
         'daily_activity_list' => 'daily_activity_list',
+        'managed_by_linked_account_merchant_id' => 'managed_by_linked_account_merchant_id',
         'merchant_id' => 'merchant_id',
         'notify_emails' => 'notify_emails',
         'notify_rejections' => 'notify_rejections',
         'notify_successes' => 'notify_successes',
         'process_linked_accounts' => 'process_linked_accounts',
-        'reject_at_end' => 'reject_at_end'
+        'processing_percentage' => 'processing_percentage',
+        'reject_at_end' => 'reject_at_end',
+        'trial_mode' => 'trial_mode',
+        'trial_mode_expiration_dts' => 'trial_mode_expiration_dts'
     ];
 
     /**
@@ -126,13 +144,19 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'active' => 'setActive',
+        'allow_process_linked_accounts' => 'setAllowProcessLinkedAccounts',
+        'current_service_plan' => 'setCurrentServicePlan',
         'daily_activity_list' => 'setDailyActivityList',
+        'managed_by_linked_account_merchant_id' => 'setManagedByLinkedAccountMerchantId',
         'merchant_id' => 'setMerchantId',
         'notify_emails' => 'setNotifyEmails',
         'notify_rejections' => 'setNotifyRejections',
         'notify_successes' => 'setNotifySuccesses',
         'process_linked_accounts' => 'setProcessLinkedAccounts',
-        'reject_at_end' => 'setRejectAtEnd'
+        'processing_percentage' => 'setProcessingPercentage',
+        'reject_at_end' => 'setRejectAtEnd',
+        'trial_mode' => 'setTrialMode',
+        'trial_mode_expiration_dts' => 'setTrialModeExpirationDts'
     ];
 
     /**
@@ -142,13 +166,19 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'active' => 'getActive',
+        'allow_process_linked_accounts' => 'getAllowProcessLinkedAccounts',
+        'current_service_plan' => 'getCurrentServicePlan',
         'daily_activity_list' => 'getDailyActivityList',
+        'managed_by_linked_account_merchant_id' => 'getManagedByLinkedAccountMerchantId',
         'merchant_id' => 'getMerchantId',
         'notify_emails' => 'getNotifyEmails',
         'notify_rejections' => 'getNotifyRejections',
         'notify_successes' => 'getNotifySuccesses',
         'process_linked_accounts' => 'getProcessLinkedAccounts',
-        'reject_at_end' => 'getRejectAtEnd'
+        'processing_percentage' => 'getProcessingPercentage',
+        'reject_at_end' => 'getRejectAtEnd',
+        'trial_mode' => 'getTrialMode',
+        'trial_mode_expiration_dts' => 'getTrialModeExpirationDts'
     ];
 
     /**
@@ -212,13 +242,19 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['allow_process_linked_accounts'] = isset($data['allow_process_linked_accounts']) ? $data['allow_process_linked_accounts'] : null;
+        $this->container['current_service_plan'] = isset($data['current_service_plan']) ? $data['current_service_plan'] : null;
         $this->container['daily_activity_list'] = isset($data['daily_activity_list']) ? $data['daily_activity_list'] : null;
+        $this->container['managed_by_linked_account_merchant_id'] = isset($data['managed_by_linked_account_merchant_id']) ? $data['managed_by_linked_account_merchant_id'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['notify_emails'] = isset($data['notify_emails']) ? $data['notify_emails'] : null;
         $this->container['notify_rejections'] = isset($data['notify_rejections']) ? $data['notify_rejections'] : null;
         $this->container['notify_successes'] = isset($data['notify_successes']) ? $data['notify_successes'] : null;
         $this->container['process_linked_accounts'] = isset($data['process_linked_accounts']) ? $data['process_linked_accounts'] : null;
+        $this->container['processing_percentage'] = isset($data['processing_percentage']) ? $data['processing_percentage'] : null;
         $this->container['reject_at_end'] = isset($data['reject_at_end']) ? $data['reject_at_end'] : null;
+        $this->container['trial_mode'] = isset($data['trial_mode']) ? $data['trial_mode'] : null;
+        $this->container['trial_mode_expiration_dts'] = isset($data['trial_mode_expiration_dts']) ? $data['trial_mode_expiration_dts'] : null;
     }
 
     /**
@@ -271,6 +307,54 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets allow_process_linked_accounts
+     *
+     * @return bool
+     */
+    public function getAllowProcessLinkedAccounts()
+    {
+        return $this->container['allow_process_linked_accounts'];
+    }
+
+    /**
+     * Sets allow_process_linked_accounts
+     *
+     * @param bool $allow_process_linked_accounts True if this account has linked accounts that it can process.
+     *
+     * @return $this
+     */
+    public function setAllowProcessLinkedAccounts($allow_process_linked_accounts)
+    {
+        $this->container['allow_process_linked_accounts'] = $allow_process_linked_accounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_service_plan
+     *
+     * @return string
+     */
+    public function getCurrentServicePlan()
+    {
+        return $this->container['current_service_plan'];
+    }
+
+    /**
+     * Sets current_service_plan
+     *
+     * @param string $current_service_plan The current service plan that the account is on.
+     *
+     * @return $this
+     */
+    public function setCurrentServicePlan($current_service_plan)
+    {
+        $this->container['current_service_plan'] = $current_service_plan;
+
+        return $this;
+    }
+
+    /**
      * Gets daily_activity_list
      *
      * @return \ultracart\v2\models\AccountsReceivableRetryDayActivity[]
@@ -290,6 +374,30 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     public function setDailyActivityList($daily_activity_list)
     {
         $this->container['daily_activity_list'] = $daily_activity_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets managed_by_linked_account_merchant_id
+     *
+     * @return bool
+     */
+    public function getManagedByLinkedAccountMerchantId()
+    {
+        return $this->container['managed_by_linked_account_merchant_id'];
+    }
+
+    /**
+     * Sets managed_by_linked_account_merchant_id
+     *
+     * @param bool $managed_by_linked_account_merchant_id If not null, this account is managed by the specified parent merchant id.
+     *
+     * @return $this
+     */
+    public function setManagedByLinkedAccountMerchantId($managed_by_linked_account_merchant_id)
+    {
+        $this->container['managed_by_linked_account_merchant_id'] = $managed_by_linked_account_merchant_id;
 
         return $this;
     }
@@ -415,6 +523,30 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets processing_percentage
+     *
+     * @return string
+     */
+    public function getProcessingPercentage()
+    {
+        return $this->container['processing_percentage'];
+    }
+
+    /**
+     * Sets processing_percentage
+     *
+     * @param string $processing_percentage The percentage rate charged for the service.
+     *
+     * @return $this
+     */
+    public function setProcessingPercentage($processing_percentage)
+    {
+        $this->container['processing_percentage'] = $processing_percentage;
+
+        return $this;
+    }
+
+    /**
      * Gets reject_at_end
      *
      * @return bool
@@ -434,6 +566,54 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     public function setRejectAtEnd($reject_at_end)
     {
         $this->container['reject_at_end'] = $reject_at_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets trial_mode
+     *
+     * @return bool
+     */
+    public function getTrialMode()
+    {
+        return $this->container['trial_mode'];
+    }
+
+    /**
+     * Sets trial_mode
+     *
+     * @param bool $trial_mode True if the account is currently in trial mode.  Set to false to exit trial mode.
+     *
+     * @return $this
+     */
+    public function setTrialMode($trial_mode)
+    {
+        $this->container['trial_mode'] = $trial_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets trial_mode_expiration_dts
+     *
+     * @return string
+     */
+    public function getTrialModeExpirationDts()
+    {
+        return $this->container['trial_mode_expiration_dts'];
+    }
+
+    /**
+     * Sets trial_mode_expiration_dts
+     *
+     * @param string $trial_mode_expiration_dts The date when trial mode expires.  If this date is reached without exiting trial mode, the service will de-activate.
+     *
+     * @return $this
+     */
+    public function setTrialModeExpirationDts($trial_mode_expiration_dts)
+    {
+        $this->container['trial_mode_expiration_dts'] = $trial_mode_expiration_dts;
 
         return $this;
     }

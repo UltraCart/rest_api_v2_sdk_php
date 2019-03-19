@@ -59,6 +59,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
         'description' => 'string',
         'selected' => 'bool',
         'states' => '\ultracart\v2\models\TaxProviderUltraCartState[]',
+        'tax_billing' => 'bool',
         'title' => 'string'
     ];
 
@@ -71,6 +72,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
         'description' => null,
         'selected' => null,
         'states' => null,
+        'tax_billing' => null,
         'title' => null
     ];
 
@@ -104,6 +106,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
         'description' => 'description',
         'selected' => 'selected',
         'states' => 'states',
+        'tax_billing' => 'tax_billing',
         'title' => 'title'
     ];
 
@@ -116,6 +119,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'selected' => 'setSelected',
         'states' => 'setStates',
+        'tax_billing' => 'setTaxBilling',
         'title' => 'setTitle'
     ];
 
@@ -128,6 +132,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'selected' => 'getSelected',
         'states' => 'getStates',
+        'tax_billing' => 'getTaxBilling',
         'title' => 'getTitle'
     ];
 
@@ -194,6 +199,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['selected'] = isset($data['selected']) ? $data['selected'] : null;
         $this->container['states'] = isset($data['states']) ? $data['states'] : null;
+        $this->container['tax_billing'] = isset($data['tax_billing']) ? $data['tax_billing'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
@@ -290,6 +296,30 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
     public function setStates($states)
     {
         $this->container['states'] = $states;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_billing
+     *
+     * @return bool
+     */
+    public function getTaxBilling()
+    {
+        return $this->container['tax_billing'];
+    }
+
+    /**
+     * Sets tax_billing
+     *
+     * @param bool $tax_billing True if sales tax should be collected based on billing address instead of shipping address
+     *
+     * @return $this
+     */
+    public function setTaxBilling($tax_billing)
+    {
+        $this->container['tax_billing'] = $tax_billing;
 
         return $this;
     }

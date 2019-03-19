@@ -84,6 +84,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'realtime_percentage_discount' => 'float',
         'signup_notification' => '\ultracart\v2\models\PricingTierNotification',
         'suppress_buysafe' => 'bool',
+        'suppress_mailing_list' => 'bool',
         'tax_exempt' => 'bool',
         'track_separately' => 'bool'
     ];
@@ -122,6 +123,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'realtime_percentage_discount' => null,
         'signup_notification' => null,
         'suppress_buysafe' => null,
+        'suppress_mailing_list' => null,
         'tax_exempt' => null,
         'track_separately' => null
     ];
@@ -181,6 +183,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'realtime_percentage_discount' => 'realtime_percentage_discount',
         'signup_notification' => 'signup_notification',
         'suppress_buysafe' => 'suppress_buysafe',
+        'suppress_mailing_list' => 'suppress_mailing_list',
         'tax_exempt' => 'tax_exempt',
         'track_separately' => 'track_separately'
     ];
@@ -219,6 +222,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'realtime_percentage_discount' => 'setRealtimePercentageDiscount',
         'signup_notification' => 'setSignupNotification',
         'suppress_buysafe' => 'setSuppressBuysafe',
+        'suppress_mailing_list' => 'setSuppressMailingList',
         'tax_exempt' => 'setTaxExempt',
         'track_separately' => 'setTrackSeparately'
     ];
@@ -257,6 +261,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'realtime_percentage_discount' => 'getRealtimePercentageDiscount',
         'signup_notification' => 'getSignupNotification',
         'suppress_buysafe' => 'getSuppressBuysafe',
+        'suppress_mailing_list' => 'getSuppressMailingList',
         'tax_exempt' => 'getTaxExempt',
         'track_separately' => 'getTrackSeparately'
     ];
@@ -349,6 +354,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         $this->container['realtime_percentage_discount'] = isset($data['realtime_percentage_discount']) ? $data['realtime_percentage_discount'] : null;
         $this->container['signup_notification'] = isset($data['signup_notification']) ? $data['signup_notification'] : null;
         $this->container['suppress_buysafe'] = isset($data['suppress_buysafe']) ? $data['suppress_buysafe'] : null;
+        $this->container['suppress_mailing_list'] = isset($data['suppress_mailing_list']) ? $data['suppress_mailing_list'] : null;
         $this->container['tax_exempt'] = isset($data['tax_exempt']) ? $data['tax_exempt'] : null;
         $this->container['track_separately'] = isset($data['track_separately']) ? $data['track_separately'] : null;
     }
@@ -1057,6 +1063,30 @@ class PricingTier implements ModelInterface, ArrayAccess
     public function setSuppressBuysafe($suppress_buysafe)
     {
         $this->container['suppress_buysafe'] = $suppress_buysafe;
+
+        return $this;
+    }
+
+    /**
+     * Gets suppress_mailing_list
+     *
+     * @return bool
+     */
+    public function getSuppressMailingList()
+    {
+        return $this->container['suppress_mailing_list'];
+    }
+
+    /**
+     * Sets suppress_mailing_list
+     *
+     * @param bool $suppress_mailing_list Suppress mailing list
+     *
+     * @return $this
+     */
+    public function setSuppressMailingList($suppress_mailing_list)
+    {
+        $this->container['suppress_mailing_list'] = $suppress_mailing_list;
 
         return $this;
     }

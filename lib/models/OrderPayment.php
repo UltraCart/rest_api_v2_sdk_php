@@ -503,7 +503,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Sets payment_dts
      *
-     * @param string $payment_dts Date/time that the payment was successfully processed
+     * @param string $payment_dts Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true
      *
      * @return $this
      */

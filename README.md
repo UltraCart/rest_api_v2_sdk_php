@@ -180,6 +180,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
+*OrderApi* | [**insertOrder**](docs/Api/OrderApi.md#insertorder) | **POST** /order/orders | Insert an order
 *OrderApi* | [**refundOrder**](docs/Api/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
 *OrderApi* | [**resendReceipt**](docs/Api/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
@@ -377,6 +378,7 @@ Class | Method | HTTP request | Description
  - [CustomerResponse](docs/Model/CustomerResponse.md)
  - [CustomerReviewer](docs/Model/CustomerReviewer.md)
  - [CustomerShipping](docs/Model/CustomerShipping.md)
+ - [CustomerSoftwareEntitlement](docs/Model/CustomerSoftwareEntitlement.md)
  - [CustomerTaxCodes](docs/Model/CustomerTaxCodes.md)
  - [CustomersResponse](docs/Model/CustomersResponse.md)
  - [DataTablesServerSideResponse](docs/Model/DataTablesServerSideResponse.md)
@@ -508,6 +510,7 @@ Class | Method | HTTP request | Description
  - [PricingTiersResponse](docs/Model/PricingTiersResponse.md)
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
+ - [SelfConfig](docs/Model/SelfConfig.md)
  - [StateProvince](docs/Model/StateProvince.md)
  - [TaxCity](docs/Model/TaxCity.md)
  - [TaxCountry](docs/Model/TaxCountry.md)

@@ -56,6 +56,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'arbitrary_shipping_handling_total' => '\ultracart\v2\models\Currency',
         'other_refunded' => '\ultracart\v2\models\Currency',
         'shipping_handling_refunded' => '\ultracart\v2\models\Currency',
         'shipping_handling_total' => '\ultracart\v2\models\Currency',
@@ -78,6 +79,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'arbitrary_shipping_handling_total' => null,
         'other_refunded' => null,
         'shipping_handling_refunded' => null,
         'shipping_handling_total' => null,
@@ -121,6 +123,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
         'other_refunded' => 'other_refunded',
         'shipping_handling_refunded' => 'shipping_handling_refunded',
         'shipping_handling_total' => 'shipping_handling_total',
@@ -143,6 +146,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
         'other_refunded' => 'setOtherRefunded',
         'shipping_handling_refunded' => 'setShippingHandlingRefunded',
         'shipping_handling_total' => 'setShippingHandlingTotal',
@@ -165,6 +169,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
         'other_refunded' => 'getOtherRefunded',
         'shipping_handling_refunded' => 'getShippingHandlingRefunded',
         'shipping_handling_total' => 'getShippingHandlingTotal',
@@ -241,6 +246,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['arbitrary_shipping_handling_total'] = isset($data['arbitrary_shipping_handling_total']) ? $data['arbitrary_shipping_handling_total'] : null;
         $this->container['other_refunded'] = isset($data['other_refunded']) ? $data['other_refunded'] : null;
         $this->container['shipping_handling_refunded'] = isset($data['shipping_handling_refunded']) ? $data['shipping_handling_refunded'] : null;
         $this->container['shipping_handling_total'] = isset($data['shipping_handling_total']) ? $data['shipping_handling_total'] : null;
@@ -281,6 +287,30 @@ class OrderSummary implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets arbitrary_shipping_handling_total
+     *
+     * @return \ultracart\v2\models\Currency
+     */
+    public function getArbitraryShippingHandlingTotal()
+    {
+        return $this->container['arbitrary_shipping_handling_total'];
+    }
+
+    /**
+     * Sets arbitrary_shipping_handling_total
+     *
+     * @param \ultracart\v2\models\Currency $arbitrary_shipping_handling_total arbitrary_shipping_handling_total
+     *
+     * @return $this
+     */
+    public function setArbitraryShippingHandlingTotal($arbitrary_shipping_handling_total)
+    {
+        $this->container['arbitrary_shipping_handling_total'] = $arbitrary_shipping_handling_total;
+
+        return $this;
+    }
 
     /**
      * Gets other_refunded

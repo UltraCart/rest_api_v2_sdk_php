@@ -56,10 +56,15 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'auto_approve_purchase_order' => 'bool',
         'channel_partner_code' => 'string',
         'channel_partner_data' => 'string',
         'channel_partner_oid' => 'int',
-        'channel_partner_order_id' => 'string'
+        'channel_partner_order_id' => 'string',
+        'no_realtime_payment_processing' => 'bool',
+        'skip_payment_processing' => 'bool',
+        'store_if_payment_declines' => 'bool',
+        'treat_warnings_as_errors' => 'bool'
     ];
 
     /**
@@ -68,10 +73,15 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'auto_approve_purchase_order' => null,
         'channel_partner_code' => null,
         'channel_partner_data' => null,
         'channel_partner_oid' => 'int32',
-        'channel_partner_order_id' => null
+        'channel_partner_order_id' => null,
+        'no_realtime_payment_processing' => null,
+        'skip_payment_processing' => null,
+        'store_if_payment_declines' => null,
+        'treat_warnings_as_errors' => null
     ];
 
     /**
@@ -101,10 +111,15 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_approve_purchase_order' => 'auto_approve_purchase_order',
         'channel_partner_code' => 'channel_partner_code',
         'channel_partner_data' => 'channel_partner_data',
         'channel_partner_oid' => 'channel_partner_oid',
-        'channel_partner_order_id' => 'channel_partner_order_id'
+        'channel_partner_order_id' => 'channel_partner_order_id',
+        'no_realtime_payment_processing' => 'no_realtime_payment_processing',
+        'skip_payment_processing' => 'skip_payment_processing',
+        'store_if_payment_declines' => 'store_if_payment_declines',
+        'treat_warnings_as_errors' => 'treat_warnings_as_errors'
     ];
 
     /**
@@ -113,10 +128,15 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auto_approve_purchase_order' => 'setAutoApprovePurchaseOrder',
         'channel_partner_code' => 'setChannelPartnerCode',
         'channel_partner_data' => 'setChannelPartnerData',
         'channel_partner_oid' => 'setChannelPartnerOid',
-        'channel_partner_order_id' => 'setChannelPartnerOrderId'
+        'channel_partner_order_id' => 'setChannelPartnerOrderId',
+        'no_realtime_payment_processing' => 'setNoRealtimePaymentProcessing',
+        'skip_payment_processing' => 'setSkipPaymentProcessing',
+        'store_if_payment_declines' => 'setStoreIfPaymentDeclines',
+        'treat_warnings_as_errors' => 'setTreatWarningsAsErrors'
     ];
 
     /**
@@ -125,10 +145,15 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auto_approve_purchase_order' => 'getAutoApprovePurchaseOrder',
         'channel_partner_code' => 'getChannelPartnerCode',
         'channel_partner_data' => 'getChannelPartnerData',
         'channel_partner_oid' => 'getChannelPartnerOid',
-        'channel_partner_order_id' => 'getChannelPartnerOrderId'
+        'channel_partner_order_id' => 'getChannelPartnerOrderId',
+        'no_realtime_payment_processing' => 'getNoRealtimePaymentProcessing',
+        'skip_payment_processing' => 'getSkipPaymentProcessing',
+        'store_if_payment_declines' => 'getStoreIfPaymentDeclines',
+        'treat_warnings_as_errors' => 'getTreatWarningsAsErrors'
     ];
 
     /**
@@ -191,10 +216,15 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['auto_approve_purchase_order'] = isset($data['auto_approve_purchase_order']) ? $data['auto_approve_purchase_order'] : null;
         $this->container['channel_partner_code'] = isset($data['channel_partner_code']) ? $data['channel_partner_code'] : null;
         $this->container['channel_partner_data'] = isset($data['channel_partner_data']) ? $data['channel_partner_data'] : null;
         $this->container['channel_partner_oid'] = isset($data['channel_partner_oid']) ? $data['channel_partner_oid'] : null;
         $this->container['channel_partner_order_id'] = isset($data['channel_partner_order_id']) ? $data['channel_partner_order_id'] : null;
+        $this->container['no_realtime_payment_processing'] = isset($data['no_realtime_payment_processing']) ? $data['no_realtime_payment_processing'] : null;
+        $this->container['skip_payment_processing'] = isset($data['skip_payment_processing']) ? $data['skip_payment_processing'] : null;
+        $this->container['store_if_payment_declines'] = isset($data['store_if_payment_declines']) ? $data['store_if_payment_declines'] : null;
+        $this->container['treat_warnings_as_errors'] = isset($data['treat_warnings_as_errors']) ? $data['treat_warnings_as_errors'] : null;
     }
 
     /**
@@ -221,6 +251,30 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets auto_approve_purchase_order
+     *
+     * @return bool
+     */
+    public function getAutoApprovePurchaseOrder()
+    {
+        return $this->container['auto_approve_purchase_order'];
+    }
+
+    /**
+     * Sets auto_approve_purchase_order
+     *
+     * @param bool $auto_approve_purchase_order If true, any purchase order submitted is automatically approved
+     *
+     * @return $this
+     */
+    public function setAutoApprovePurchaseOrder($auto_approve_purchase_order)
+    {
+        $this->container['auto_approve_purchase_order'] = $auto_approve_purchase_order;
+
+        return $this;
+    }
 
     /**
      * Gets channel_partner_code
@@ -283,7 +337,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
     /**
      * Sets channel_partner_oid
      *
-     * @param int $channel_partner_oid Channel partner object identifier
+     * @param int $channel_partner_oid Channel partner object identifier, read-only and available on existing channel orders only.
      *
      * @return $this
      */
@@ -314,6 +368,102 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
     public function setChannelPartnerOrderId($channel_partner_order_id)
     {
         $this->container['channel_partner_order_id'] = $channel_partner_order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets no_realtime_payment_processing
+     *
+     * @return bool
+     */
+    public function getNoRealtimePaymentProcessing()
+    {
+        return $this->container['no_realtime_payment_processing'];
+    }
+
+    /**
+     * Sets no_realtime_payment_processing
+     *
+     * @param bool $no_realtime_payment_processing Indicates this order should be placed in Account Receivable for later payment processing
+     *
+     * @return $this
+     */
+    public function setNoRealtimePaymentProcessing($no_realtime_payment_processing)
+    {
+        $this->container['no_realtime_payment_processing'] = $no_realtime_payment_processing;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_payment_processing
+     *
+     * @return bool
+     */
+    public function getSkipPaymentProcessing()
+    {
+        return $this->container['skip_payment_processing'];
+    }
+
+    /**
+     * Sets skip_payment_processing
+     *
+     * @param bool $skip_payment_processing Indicates this order was already paid for via a channel purchase and no payment collection should be attempted
+     *
+     * @return $this
+     */
+    public function setSkipPaymentProcessing($skip_payment_processing)
+    {
+        $this->container['skip_payment_processing'] = $skip_payment_processing;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_if_payment_declines
+     *
+     * @return bool
+     */
+    public function getStoreIfPaymentDeclines()
+    {
+        return $this->container['store_if_payment_declines'];
+    }
+
+    /**
+     * Sets store_if_payment_declines
+     *
+     * @param bool $store_if_payment_declines If true, any failed payment will place the order in Accounts Receivable rather than rejecting it.
+     *
+     * @return $this
+     */
+    public function setStoreIfPaymentDeclines($store_if_payment_declines)
+    {
+        $this->container['store_if_payment_declines'] = $store_if_payment_declines;
+
+        return $this;
+    }
+
+    /**
+     * Gets treat_warnings_as_errors
+     *
+     * @return bool
+     */
+    public function getTreatWarningsAsErrors()
+    {
+        return $this->container['treat_warnings_as_errors'];
+    }
+
+    /**
+     * Sets treat_warnings_as_errors
+     *
+     * @param bool $treat_warnings_as_errors Any warnings are raised as errors and halt the import of the order
+     *
+     * @return $this
+     */
+    public function setTreatWarningsAsErrors($treat_warnings_as_errors)
+    {
+        $this->container['treat_warnings_as_errors'] = $treat_warnings_as_errors;
 
         return $this;
     }

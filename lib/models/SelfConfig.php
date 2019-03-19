@@ -1,6 +1,6 @@
 <?php
 /**
- * TaxProviderSelf
+ * SelfConfig
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * TaxProviderSelf Class Doc Comment
+ * SelfConfig Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TaxProviderSelf implements ModelInterface, ArrayAccess
+class SelfConfig implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TaxProviderSelf';
+    protected static $swaggerModelName = 'SelfConfig';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'configuration' => '\ultracart\v2\models\SelfConfig',
-        'countries' => '\ultracart\v2\models\TaxCountry[]',
-        'description' => 'string',
-        'selected' => 'bool',
-        'title' => 'string'
+        'tax_billing' => 'bool'
     ];
 
     /**
@@ -69,11 +65,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'configuration' => null,
-        'countries' => null,
-        'description' => null,
-        'selected' => null,
-        'title' => null
+        'tax_billing' => null
     ];
 
     /**
@@ -103,11 +95,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'configuration' => 'configuration',
-        'countries' => 'countries',
-        'description' => 'description',
-        'selected' => 'selected',
-        'title' => 'title'
+        'tax_billing' => 'tax_billing'
     ];
 
     /**
@@ -116,11 +104,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'configuration' => 'setConfiguration',
-        'countries' => 'setCountries',
-        'description' => 'setDescription',
-        'selected' => 'setSelected',
-        'title' => 'setTitle'
+        'tax_billing' => 'setTaxBilling'
     ];
 
     /**
@@ -129,11 +113,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'configuration' => 'getConfiguration',
-        'countries' => 'getCountries',
-        'description' => 'getDescription',
-        'selected' => 'getSelected',
-        'title' => 'getTitle'
+        'tax_billing' => 'getTaxBilling'
     ];
 
     /**
@@ -196,11 +176,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
-        $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['selected'] = isset($data['selected']) ? $data['selected'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['tax_billing'] = isset($data['tax_billing']) ? $data['tax_billing'] : null;
     }
 
     /**
@@ -229,121 +205,25 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets configuration
-     *
-     * @return \ultracart\v2\models\SelfConfig
-     */
-    public function getConfiguration()
-    {
-        return $this->container['configuration'];
-    }
-
-    /**
-     * Sets configuration
-     *
-     * @param \ultracart\v2\models\SelfConfig $configuration configuration
-     *
-     * @return $this
-     */
-    public function setConfiguration($configuration)
-    {
-        $this->container['configuration'] = $configuration;
-
-        return $this;
-    }
-
-    /**
-     * Gets countries
-     *
-     * @return \ultracart\v2\models\TaxCountry[]
-     */
-    public function getCountries()
-    {
-        return $this->container['countries'];
-    }
-
-    /**
-     * Sets countries
-     *
-     * @param \ultracart\v2\models\TaxCountry[] $countries Countries that collect sales tax
-     *
-     * @return $this
-     */
-    public function setCountries($countries)
-    {
-        $this->container['countries'] = $countries;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description Description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets selected
+     * Gets tax_billing
      *
      * @return bool
      */
-    public function getSelected()
+    public function getTaxBilling()
     {
-        return $this->container['selected'];
+        return $this->container['tax_billing'];
     }
 
     /**
-     * Sets selected
+     * Sets tax_billing
      *
-     * @param bool $selected Selected
+     * @param bool $tax_billing True if sales tax should be collected based on billing address instead of shipping address
      *
      * @return $this
      */
-    public function setSelected($selected)
+    public function setTaxBilling($tax_billing)
     {
-        $this->container['selected'] = $selected;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string $title Title
-     *
-     * @return $this
-     */
-    public function setTitle($title)
-    {
-        $this->container['title'] = $title;
+        $this->container['tax_billing'] = $tax_billing;
 
         return $this;
     }

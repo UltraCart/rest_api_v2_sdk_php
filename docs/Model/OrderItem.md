@@ -5,6 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accounting_code** | **string** | QuickBooks code | [optional] 
 **activation_codes** | **string[]** | Activation codes assigned to this item | [optional] 
+**arbitrary_unit_cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
+**auto_order_last_rebill_dts** | **string** | Date/time of the last rebill, used only during order insert to help project future rebills | [optional] 
+**auto_order_schedule** | **string** | Auto order schedule, used only during inserts supplying the recurring schedule | [optional] 
 **barcode** | **string** | Barcode | [optional] 
 **channel_partner_item_id** | **string** | Channel partner item id if this order came through a channel partner and the channel partner item id was mapped to an internal item id | [optional] 
 **cogs** | **float** | Cost of goods sold | [optional] 

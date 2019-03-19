@@ -58,6 +58,9 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'accounting_code' => 'string',
         'activation_codes' => 'string[]',
+        'arbitrary_unit_cost' => '\ultracart\v2\models\Currency',
+        'auto_order_last_rebill_dts' => 'string',
+        'auto_order_schedule' => 'string',
         'barcode' => 'string',
         'channel_partner_item_id' => 'string',
         'cogs' => 'float',
@@ -116,6 +119,9 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'accounting_code' => null,
         'activation_codes' => null,
+        'arbitrary_unit_cost' => null,
+        'auto_order_last_rebill_dts' => 'dateTime',
+        'auto_order_schedule' => null,
         'barcode' => null,
         'channel_partner_item_id' => null,
         'cogs' => null,
@@ -195,6 +201,9 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'accounting_code' => 'accounting_code',
         'activation_codes' => 'activation_codes',
+        'arbitrary_unit_cost' => 'arbitrary_unit_cost',
+        'auto_order_last_rebill_dts' => 'auto_order_last_rebill_dts',
+        'auto_order_schedule' => 'auto_order_schedule',
         'barcode' => 'barcode',
         'channel_partner_item_id' => 'channel_partner_item_id',
         'cogs' => 'cogs',
@@ -253,6 +262,9 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $setters = [
         'accounting_code' => 'setAccountingCode',
         'activation_codes' => 'setActivationCodes',
+        'arbitrary_unit_cost' => 'setArbitraryUnitCost',
+        'auto_order_last_rebill_dts' => 'setAutoOrderLastRebillDts',
+        'auto_order_schedule' => 'setAutoOrderSchedule',
         'barcode' => 'setBarcode',
         'channel_partner_item_id' => 'setChannelPartnerItemId',
         'cogs' => 'setCogs',
@@ -311,6 +323,9 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $getters = [
         'accounting_code' => 'getAccountingCode',
         'activation_codes' => 'getActivationCodes',
+        'arbitrary_unit_cost' => 'getArbitraryUnitCost',
+        'auto_order_last_rebill_dts' => 'getAutoOrderLastRebillDts',
+        'auto_order_schedule' => 'getAutoOrderSchedule',
         'barcode' => 'getBarcode',
         'channel_partner_item_id' => 'getChannelPartnerItemId',
         'cogs' => 'getCogs',
@@ -423,6 +438,9 @@ class OrderItem implements ModelInterface, ArrayAccess
     {
         $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
         $this->container['activation_codes'] = isset($data['activation_codes']) ? $data['activation_codes'] : null;
+        $this->container['arbitrary_unit_cost'] = isset($data['arbitrary_unit_cost']) ? $data['arbitrary_unit_cost'] : null;
+        $this->container['auto_order_last_rebill_dts'] = isset($data['auto_order_last_rebill_dts']) ? $data['auto_order_last_rebill_dts'] : null;
+        $this->container['auto_order_schedule'] = isset($data['auto_order_schedule']) ? $data['auto_order_schedule'] : null;
         $this->container['barcode'] = isset($data['barcode']) ? $data['barcode'] : null;
         $this->container['channel_partner_item_id'] = isset($data['channel_partner_item_id']) ? $data['channel_partner_item_id'] : null;
         $this->container['cogs'] = isset($data['cogs']) ? $data['cogs'] : null;
@@ -584,6 +602,78 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function setActivationCodes($activation_codes)
     {
         $this->container['activation_codes'] = $activation_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_unit_cost
+     *
+     * @return \ultracart\v2\models\Currency
+     */
+    public function getArbitraryUnitCost()
+    {
+        return $this->container['arbitrary_unit_cost'];
+    }
+
+    /**
+     * Sets arbitrary_unit_cost
+     *
+     * @param \ultracart\v2\models\Currency $arbitrary_unit_cost arbitrary_unit_cost
+     *
+     * @return $this
+     */
+    public function setArbitraryUnitCost($arbitrary_unit_cost)
+    {
+        $this->container['arbitrary_unit_cost'] = $arbitrary_unit_cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_last_rebill_dts
+     *
+     * @return string
+     */
+    public function getAutoOrderLastRebillDts()
+    {
+        return $this->container['auto_order_last_rebill_dts'];
+    }
+
+    /**
+     * Sets auto_order_last_rebill_dts
+     *
+     * @param string $auto_order_last_rebill_dts Date/time of the last rebill, used only during order insert to help project future rebills
+     *
+     * @return $this
+     */
+    public function setAutoOrderLastRebillDts($auto_order_last_rebill_dts)
+    {
+        $this->container['auto_order_last_rebill_dts'] = $auto_order_last_rebill_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_schedule
+     *
+     * @return string
+     */
+    public function getAutoOrderSchedule()
+    {
+        return $this->container['auto_order_schedule'];
+    }
+
+    /**
+     * Sets auto_order_schedule
+     *
+     * @param string $auto_order_schedule Auto order schedule, used only during inserts supplying the recurring schedule
+     *
+     * @return $this
+     */
+    public function setAutoOrderSchedule($auto_order_schedule)
+    {
+        $this->container['auto_order_schedule'] = $auto_order_schedule;
 
         return $this;
     }

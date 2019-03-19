@@ -65,7 +65,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number' => 'string',
         'card_number_token' => 'string',
         'card_number_truncated' => 'bool',
-        'card_type' => 'string'
+        'card_type' => 'string',
+        'card_verification_number_token' => 'string'
     ];
 
     /**
@@ -83,7 +84,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number' => null,
         'card_number_token' => null,
         'card_number_truncated' => null,
-        'card_type' => null
+        'card_type' => null,
+        'card_verification_number_token' => null
     ];
 
     /**
@@ -122,7 +124,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number' => 'card_number',
         'card_number_token' => 'card_number_token',
         'card_number_truncated' => 'card_number_truncated',
-        'card_type' => 'card_type'
+        'card_type' => 'card_type',
+        'card_verification_number_token' => 'card_verification_number_token'
     ];
 
     /**
@@ -140,7 +143,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number' => 'setCardNumber',
         'card_number_token' => 'setCardNumberToken',
         'card_number_truncated' => 'setCardNumberTruncated',
-        'card_type' => 'setCardType'
+        'card_type' => 'setCardType',
+        'card_verification_number_token' => 'setCardVerificationNumberToken'
     ];
 
     /**
@@ -158,7 +162,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number' => 'getCardNumber',
         'card_number_token' => 'getCardNumberToken',
         'card_number_truncated' => 'getCardNumberTruncated',
-        'card_type' => 'getCardType'
+        'card_type' => 'getCardType',
+        'card_verification_number_token' => 'getCardVerificationNumberToken'
     ];
 
     /**
@@ -254,6 +259,7 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         $this->container['card_number_token'] = isset($data['card_number_token']) ? $data['card_number_token'] : null;
         $this->container['card_number_truncated'] = isset($data['card_number_truncated']) ? $data['card_number_truncated'] : null;
         $this->container['card_type'] = isset($data['card_type']) ? $data['card_type'] : null;
+        $this->container['card_verification_number_token'] = isset($data['card_verification_number_token']) ? $data['card_verification_number_token'] : null;
     }
 
     /**
@@ -538,6 +544,30 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
             );
         }
         $this->container['card_type'] = $card_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets card_verification_number_token
+     *
+     * @return string
+     */
+    public function getCardVerificationNumberToken()
+    {
+        return $this->container['card_verification_number_token'];
+    }
+
+    /**
+     * Sets card_verification_number_token
+     *
+     * @param string $card_verification_number_token Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries
+     *
+     * @return $this
+     */
+    public function setCardVerificationNumberToken($card_verification_number_token)
+    {
+        $this->container['card_verification_number_token'] = $card_verification_number_token;
 
         return $this;
     }

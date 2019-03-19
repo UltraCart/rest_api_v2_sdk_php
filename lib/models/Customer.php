@@ -100,6 +100,7 @@ class Customer implements ModelInterface, ArrayAccess
         'send_signup_notification' => 'bool',
         'shipping' => '\ultracart\v2\models\CustomerShipping[]',
         'signup_dts' => 'string',
+        'software_entitlements' => '\ultracart\v2\models\CustomerSoftwareEntitlement[]',
         'suppress_buysafe' => 'bool',
         'tax_codes' => '\ultracart\v2\models\CustomerTaxCodes',
         'tax_exempt' => 'bool',
@@ -161,6 +162,7 @@ class Customer implements ModelInterface, ArrayAccess
         'send_signup_notification' => null,
         'shipping' => null,
         'signup_dts' => null,
+        'software_entitlements' => null,
         'suppress_buysafe' => null,
         'tax_codes' => null,
         'tax_exempt' => null,
@@ -243,6 +245,7 @@ class Customer implements ModelInterface, ArrayAccess
         'send_signup_notification' => 'send_signup_notification',
         'shipping' => 'shipping',
         'signup_dts' => 'signup_dts',
+        'software_entitlements' => 'software_entitlements',
         'suppress_buysafe' => 'suppress_buysafe',
         'tax_codes' => 'tax_codes',
         'tax_exempt' => 'tax_exempt',
@@ -304,6 +307,7 @@ class Customer implements ModelInterface, ArrayAccess
         'send_signup_notification' => 'setSendSignupNotification',
         'shipping' => 'setShipping',
         'signup_dts' => 'setSignupDts',
+        'software_entitlements' => 'setSoftwareEntitlements',
         'suppress_buysafe' => 'setSuppressBuysafe',
         'tax_codes' => 'setTaxCodes',
         'tax_exempt' => 'setTaxExempt',
@@ -365,6 +369,7 @@ class Customer implements ModelInterface, ArrayAccess
         'send_signup_notification' => 'getSendSignupNotification',
         'shipping' => 'getShipping',
         'signup_dts' => 'getSignupDts',
+        'software_entitlements' => 'getSoftwareEntitlements',
         'suppress_buysafe' => 'getSuppressBuysafe',
         'tax_codes' => 'getTaxCodes',
         'tax_exempt' => 'getTaxExempt',
@@ -480,6 +485,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['send_signup_notification'] = isset($data['send_signup_notification']) ? $data['send_signup_notification'] : null;
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['signup_dts'] = isset($data['signup_dts']) ? $data['signup_dts'] : null;
+        $this->container['software_entitlements'] = isset($data['software_entitlements']) ? $data['software_entitlements'] : null;
         $this->container['suppress_buysafe'] = isset($data['suppress_buysafe']) ? $data['suppress_buysafe'] : null;
         $this->container['tax_codes'] = isset($data['tax_codes']) ? $data['tax_codes'] : null;
         $this->container['tax_exempt'] = isset($data['tax_exempt']) ? $data['tax_exempt'] : null;
@@ -1666,6 +1672,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setSignupDts($signup_dts)
     {
         $this->container['signup_dts'] = $signup_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets software_entitlements
+     *
+     * @return \ultracart\v2\models\CustomerSoftwareEntitlement[]
+     */
+    public function getSoftwareEntitlements()
+    {
+        return $this->container['software_entitlements'];
+    }
+
+    /**
+     * Sets software_entitlements
+     *
+     * @param \ultracart\v2\models\CustomerSoftwareEntitlement[] $software_entitlements Software entitlements owned by this customer
+     *
+     * @return $this
+     */
+    public function setSoftwareEntitlements($software_entitlements)
+    {
+        $this->container['software_entitlements'] = $software_entitlements;
 
         return $this;
     }

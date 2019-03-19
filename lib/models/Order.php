@@ -1083,7 +1083,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets properties
      *
-     * @param \ultracart\v2\models\OrderProperty[] $properties Properties
+     * @param \ultracart\v2\models\OrderProperty[] $properties Properties, available only through update, not through insert due to the nature of how properties are handled internally
      *
      * @return $this
      */

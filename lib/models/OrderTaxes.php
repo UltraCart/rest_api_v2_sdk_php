@@ -56,6 +56,9 @@ class OrderTaxes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'arbitrary_tax' => 'float',
+        'arbitrary_tax_rate' => 'float',
+        'arbitrary_taxable_subtotal' => 'float',
         'tax_city_accounting_code' => 'string',
         'tax_country_accounting_code' => 'string',
         'tax_county' => 'string',
@@ -76,6 +79,9 @@ class OrderTaxes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'arbitrary_tax' => null,
+        'arbitrary_tax_rate' => null,
+        'arbitrary_taxable_subtotal' => null,
         'tax_city_accounting_code' => null,
         'tax_country_accounting_code' => null,
         'tax_county' => null,
@@ -117,6 +123,9 @@ class OrderTaxes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'arbitrary_tax' => 'arbitrary_tax',
+        'arbitrary_tax_rate' => 'arbitrary_tax_rate',
+        'arbitrary_taxable_subtotal' => 'arbitrary_taxable_subtotal',
         'tax_city_accounting_code' => 'tax_city_accounting_code',
         'tax_country_accounting_code' => 'tax_country_accounting_code',
         'tax_county' => 'tax_county',
@@ -137,6 +146,9 @@ class OrderTaxes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'arbitrary_tax' => 'setArbitraryTax',
+        'arbitrary_tax_rate' => 'setArbitraryTaxRate',
+        'arbitrary_taxable_subtotal' => 'setArbitraryTaxableSubtotal',
         'tax_city_accounting_code' => 'setTaxCityAccountingCode',
         'tax_country_accounting_code' => 'setTaxCountryAccountingCode',
         'tax_county' => 'setTaxCounty',
@@ -157,6 +169,9 @@ class OrderTaxes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'arbitrary_tax' => 'getArbitraryTax',
+        'arbitrary_tax_rate' => 'getArbitraryTaxRate',
+        'arbitrary_taxable_subtotal' => 'getArbitraryTaxableSubtotal',
         'tax_city_accounting_code' => 'getTaxCityAccountingCode',
         'tax_country_accounting_code' => 'getTaxCountryAccountingCode',
         'tax_county' => 'getTaxCounty',
@@ -231,6 +246,9 @@ class OrderTaxes implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['arbitrary_tax'] = isset($data['arbitrary_tax']) ? $data['arbitrary_tax'] : null;
+        $this->container['arbitrary_tax_rate'] = isset($data['arbitrary_tax_rate']) ? $data['arbitrary_tax_rate'] : null;
+        $this->container['arbitrary_taxable_subtotal'] = isset($data['arbitrary_taxable_subtotal']) ? $data['arbitrary_taxable_subtotal'] : null;
         $this->container['tax_city_accounting_code'] = isset($data['tax_city_accounting_code']) ? $data['tax_city_accounting_code'] : null;
         $this->container['tax_country_accounting_code'] = isset($data['tax_country_accounting_code']) ? $data['tax_country_accounting_code'] : null;
         $this->container['tax_county'] = isset($data['tax_county']) ? $data['tax_county'] : null;
@@ -276,6 +294,78 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets arbitrary_tax
+     *
+     * @return float
+     */
+    public function getArbitraryTax()
+    {
+        return $this->container['arbitrary_tax'];
+    }
+
+    /**
+     * Sets arbitrary_tax
+     *
+     * @param float $arbitrary_tax Arbitrary Tax, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+     *
+     * @return $this
+     */
+    public function setArbitraryTax($arbitrary_tax)
+    {
+        $this->container['arbitrary_tax'] = $arbitrary_tax;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_tax_rate
+     *
+     * @return float
+     */
+    public function getArbitraryTaxRate()
+    {
+        return $this->container['arbitrary_tax_rate'];
+    }
+
+    /**
+     * Sets arbitrary_tax_rate
+     *
+     * @param float $arbitrary_tax_rate Arbitrary tax rate, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+     *
+     * @return $this
+     */
+    public function setArbitraryTaxRate($arbitrary_tax_rate)
+    {
+        $this->container['arbitrary_tax_rate'] = $arbitrary_tax_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets arbitrary_taxable_subtotal
+     *
+     * @return float
+     */
+    public function getArbitraryTaxableSubtotal()
+    {
+        return $this->container['arbitrary_taxable_subtotal'];
+    }
+
+    /**
+     * Sets arbitrary_taxable_subtotal
+     *
+     * @param float $arbitrary_taxable_subtotal Arbitrary taxable subtotal, this is meaningless for updating an order.  For inserting a new order, this will override any internal tax calculations and should only be used for orders completed outside the system.
+     *
+     * @return $this
+     */
+    public function setArbitraryTaxableSubtotal($arbitrary_taxable_subtotal)
+    {
+        $this->container['arbitrary_taxable_subtotal'] = $arbitrary_taxable_subtotal;
+
+        return $this;
+    }
 
     /**
      * Gets tax_city_accounting_code
@@ -414,7 +504,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
     /**
      * Sets tax_rate
      *
-     * @param float $tax_rate Tax rate
+     * @param float $tax_rate Tax rate, this is meaningless for updating an order.  For inserting a new order, if you need to override internal tax calculations, use the arbitrary fields.
      *
      * @return $this
      */
@@ -558,7 +648,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
     /**
      * Sets tax_state_accounting_code
      *
-     * @param string $tax_state_accounting_code QuickBOoks tax state code
+     * @param string $tax_state_accounting_code QuickBooks tax state code
      *
      * @return $this
      */

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **card_number_token** | **string** | Card number token from hosted fields used to update the cart number | [optional] 
 **card_number_truncated** | **bool** | True if the card has been truncated | [optional] 
 **card_type** | **string** | Card type | [optional] 
+**card_verification_number_token** | **string** | Card verification number token from hosted fields, only for import/insert of new orders, completely ignored for updates, and always null/empty for queries | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
