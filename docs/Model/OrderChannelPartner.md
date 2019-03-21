@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **auto_approve_purchase_order** | **bool** | If true, any purchase order submitted is automatically approved | [optional] 
 **channel_partner_code** | **string** | The code of the channel partner | [optional] 
-**channel_partner_data** | **string** | Additional data provided by the channel partner | [optional] 
+**channel_partner_data** | **string** | Additional data provided by the channel partner, read-only | [optional] 
 **channel_partner_oid** | **int** | Channel partner object identifier, read-only and available on existing channel orders only. | [optional] 
 **channel_partner_order_id** | **string** | The order ID assigned by the channel partner for this order | [optional] 
 **no_realtime_payment_processing** | **bool** | Indicates this order should be placed in Account Receivable for later payment processing | [optional] 

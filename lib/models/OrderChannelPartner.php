@@ -313,7 +313,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
     /**
      * Sets channel_partner_data
      *
-     * @param string $channel_partner_data Additional data provided by the channel partner
+     * @param string $channel_partner_data Additional data provided by the channel partner, read-only
      *
      * @return $this
      */

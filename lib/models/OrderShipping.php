@@ -66,6 +66,8 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'evening_phone' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
+        'least_cost_route' => 'bool',
+        'least_cost_route_shipping_methods' => 'string[]',
         'lift_gate' => 'bool',
         'postal_code' => 'string',
         'rma' => 'string',
@@ -99,6 +101,8 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'evening_phone' => null,
         'first_name' => null,
         'last_name' => null,
+        'least_cost_route' => null,
+        'least_cost_route_shipping_methods' => null,
         'lift_gate' => null,
         'postal_code' => null,
         'rma' => null,
@@ -153,6 +157,8 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'evening_phone' => 'evening_phone',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
+        'least_cost_route' => 'least_cost_route',
+        'least_cost_route_shipping_methods' => 'least_cost_route_shipping_methods',
         'lift_gate' => 'lift_gate',
         'postal_code' => 'postal_code',
         'rma' => 'rma',
@@ -186,6 +192,8 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'evening_phone' => 'setEveningPhone',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
+        'least_cost_route' => 'setLeastCostRoute',
+        'least_cost_route_shipping_methods' => 'setLeastCostRouteShippingMethods',
         'lift_gate' => 'setLiftGate',
         'postal_code' => 'setPostalCode',
         'rma' => 'setRma',
@@ -219,6 +227,8 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'evening_phone' => 'getEveningPhone',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
+        'least_cost_route' => 'getLeastCostRoute',
+        'least_cost_route_shipping_methods' => 'getLeastCostRouteShippingMethods',
         'lift_gate' => 'getLiftGate',
         'postal_code' => 'getPostalCode',
         'rma' => 'getRma',
@@ -306,6 +316,8 @@ class OrderShipping implements ModelInterface, ArrayAccess
         $this->container['evening_phone'] = isset($data['evening_phone']) ? $data['evening_phone'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['least_cost_route'] = isset($data['least_cost_route']) ? $data['least_cost_route'] : null;
+        $this->container['least_cost_route_shipping_methods'] = isset($data['least_cost_route_shipping_methods']) ? $data['least_cost_route_shipping_methods'] : null;
         $this->container['lift_gate'] = isset($data['lift_gate']) ? $data['lift_gate'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
         $this->container['rma'] = isset($data['rma']) ? $data['rma'] : null;
@@ -725,6 +737,54 @@ class OrderShipping implements ModelInterface, ArrayAccess
         }
 
         $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets least_cost_route
+     *
+     * @return bool
+     */
+    public function getLeastCostRoute()
+    {
+        return $this->container['least_cost_route'];
+    }
+
+    /**
+     * Sets least_cost_route
+     *
+     * @param bool $least_cost_route If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts.
+     *
+     * @return $this
+     */
+    public function setLeastCostRoute($least_cost_route)
+    {
+        $this->container['least_cost_route'] = $least_cost_route;
+
+        return $this;
+    }
+
+    /**
+     * Gets least_cost_route_shipping_methods
+     *
+     * @return string[]
+     */
+    public function getLeastCostRouteShippingMethods()
+    {
+        return $this->container['least_cost_route_shipping_methods'];
+    }
+
+    /**
+     * Sets least_cost_route_shipping_methods
+     *
+     * @param string[] $least_cost_route_shipping_methods List of shipping methods to consider if least_code_route is true. Used only for channel parter order inserts.
+     *
+     * @return $this
+     */
+    public function setLeastCostRouteShippingMethods($least_cost_route_shipping_methods)
+    {
+        $this->container['least_cost_route_shipping_methods'] = $least_cost_route_shipping_methods;
 
         return $this;
     }
