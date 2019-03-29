@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **channel_partner_order_id** | **string** | The order ID assigned by the channel partner for this order | [optional] 
 **no_realtime_payment_processing** | **bool** | Indicates this order should be placed in Account Receivable for later payment processing | [optional] 
 **skip_payment_processing** | **bool** | Indicates this order was already paid for via a channel purchase and no payment collection should be attempted | [optional] 
+**store_completed** | **bool** | Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order. | [optional] 
 **store_if_payment_declines** | **bool** | If true, any failed payment will place the order in Accounts Receivable rather than rejecting it. | [optional] 
 **treat_warnings_as_errors** | **bool** | Any warnings are raised as errors and halt the import of the order | [optional] 
 

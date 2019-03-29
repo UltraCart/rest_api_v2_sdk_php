@@ -63,6 +63,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_order_id' => 'string',
         'no_realtime_payment_processing' => 'bool',
         'skip_payment_processing' => 'bool',
+        'store_completed' => 'bool',
         'store_if_payment_declines' => 'bool',
         'treat_warnings_as_errors' => 'bool'
     ];
@@ -80,6 +81,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_order_id' => null,
         'no_realtime_payment_processing' => null,
         'skip_payment_processing' => null,
+        'store_completed' => null,
         'store_if_payment_declines' => null,
         'treat_warnings_as_errors' => null
     ];
@@ -118,6 +120,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_order_id' => 'channel_partner_order_id',
         'no_realtime_payment_processing' => 'no_realtime_payment_processing',
         'skip_payment_processing' => 'skip_payment_processing',
+        'store_completed' => 'store_completed',
         'store_if_payment_declines' => 'store_if_payment_declines',
         'treat_warnings_as_errors' => 'treat_warnings_as_errors'
     ];
@@ -135,6 +138,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_order_id' => 'setChannelPartnerOrderId',
         'no_realtime_payment_processing' => 'setNoRealtimePaymentProcessing',
         'skip_payment_processing' => 'setSkipPaymentProcessing',
+        'store_completed' => 'setStoreCompleted',
         'store_if_payment_declines' => 'setStoreIfPaymentDeclines',
         'treat_warnings_as_errors' => 'setTreatWarningsAsErrors'
     ];
@@ -152,6 +156,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_order_id' => 'getChannelPartnerOrderId',
         'no_realtime_payment_processing' => 'getNoRealtimePaymentProcessing',
         'skip_payment_processing' => 'getSkipPaymentProcessing',
+        'store_completed' => 'getStoreCompleted',
         'store_if_payment_declines' => 'getStoreIfPaymentDeclines',
         'treat_warnings_as_errors' => 'getTreatWarningsAsErrors'
     ];
@@ -223,6 +228,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         $this->container['channel_partner_order_id'] = isset($data['channel_partner_order_id']) ? $data['channel_partner_order_id'] : null;
         $this->container['no_realtime_payment_processing'] = isset($data['no_realtime_payment_processing']) ? $data['no_realtime_payment_processing'] : null;
         $this->container['skip_payment_processing'] = isset($data['skip_payment_processing']) ? $data['skip_payment_processing'] : null;
+        $this->container['store_completed'] = isset($data['store_completed']) ? $data['store_completed'] : null;
         $this->container['store_if_payment_declines'] = isset($data['store_if_payment_declines']) ? $data['store_if_payment_declines'] : null;
         $this->container['treat_warnings_as_errors'] = isset($data['treat_warnings_as_errors']) ? $data['treat_warnings_as_errors'] : null;
     }
@@ -416,6 +422,30 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
     public function setSkipPaymentProcessing($skip_payment_processing)
     {
         $this->container['skip_payment_processing'] = $skip_payment_processing;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_completed
+     *
+     * @return bool
+     */
+    public function getStoreCompleted()
+    {
+        return $this->container['store_completed'];
+    }
+
+    /**
+     * Sets store_completed
+     *
+     * @param bool $store_completed Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.
+     *
+     * @return $this
+     */
+    public function setStoreCompleted($store_completed)
+    {
+        $this->container['store_completed'] = $store_completed;
 
         return $this;
     }
