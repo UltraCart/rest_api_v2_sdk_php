@@ -77,6 +77,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'phone' => 'string',
         'postal_code' => 'string',
         'purchase_order_number' => 'string',
+        'refund_date_begin' => 'string',
+        'refund_date_end' => 'string',
         'rma' => 'string',
         'screen_branding_theme_code' => 'string',
         'shipment_date_begin' => 'string',
@@ -113,6 +115,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'phone' => null,
         'postal_code' => null,
         'purchase_order_number' => null,
+        'refund_date_begin' => 'dateTime',
+        'refund_date_end' => 'dateTime',
         'rma' => null,
         'screen_branding_theme_code' => null,
         'shipment_date_begin' => 'dateTime',
@@ -170,6 +174,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'phone' => 'phone',
         'postal_code' => 'postal_code',
         'purchase_order_number' => 'purchase_order_number',
+        'refund_date_begin' => 'refund_date_begin',
+        'refund_date_end' => 'refund_date_end',
         'rma' => 'rma',
         'screen_branding_theme_code' => 'screen_branding_theme_code',
         'shipment_date_begin' => 'shipment_date_begin',
@@ -206,6 +212,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'phone' => 'setPhone',
         'postal_code' => 'setPostalCode',
         'purchase_order_number' => 'setPurchaseOrderNumber',
+        'refund_date_begin' => 'setRefundDateBegin',
+        'refund_date_end' => 'setRefundDateEnd',
         'rma' => 'setRma',
         'screen_branding_theme_code' => 'setScreenBrandingThemeCode',
         'shipment_date_begin' => 'setShipmentDateBegin',
@@ -242,6 +250,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'phone' => 'getPhone',
         'postal_code' => 'getPostalCode',
         'purchase_order_number' => 'getPurchaseOrderNumber',
+        'refund_date_begin' => 'getRefundDateBegin',
+        'refund_date_end' => 'getRefundDateEnd',
         'rma' => 'getRma',
         'screen_branding_theme_code' => 'getScreenBrandingThemeCode',
         'shipment_date_begin' => 'getShipmentDateBegin',
@@ -404,6 +414,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
         $this->container['purchase_order_number'] = isset($data['purchase_order_number']) ? $data['purchase_order_number'] : null;
+        $this->container['refund_date_begin'] = isset($data['refund_date_begin']) ? $data['refund_date_begin'] : null;
+        $this->container['refund_date_end'] = isset($data['refund_date_end']) ? $data['refund_date_end'] : null;
         $this->container['rma'] = isset($data['rma']) ? $data['rma'] : null;
         $this->container['screen_branding_theme_code'] = isset($data['screen_branding_theme_code']) ? $data['screen_branding_theme_code'] : null;
         $this->container['shipment_date_begin'] = isset($data['shipment_date_begin']) ? $data['shipment_date_begin'] : null;
@@ -1100,6 +1112,54 @@ class OrderQuery implements ModelInterface, ArrayAccess
     public function setPurchaseOrderNumber($purchase_order_number)
     {
         $this->container['purchase_order_number'] = $purchase_order_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets refund_date_begin
+     *
+     * @return string
+     */
+    public function getRefundDateBegin()
+    {
+        return $this->container['refund_date_begin'];
+    }
+
+    /**
+     * Sets refund_date_begin
+     *
+     * @param string $refund_date_begin Date/time that the order was refunded
+     *
+     * @return $this
+     */
+    public function setRefundDateBegin($refund_date_begin)
+    {
+        $this->container['refund_date_begin'] = $refund_date_begin;
+
+        return $this;
+    }
+
+    /**
+     * Gets refund_date_end
+     *
+     * @return string
+     */
+    public function getRefundDateEnd()
+    {
+        return $this->container['refund_date_end'];
+    }
+
+    /**
+     * Sets refund_date_end
+     *
+     * @param string $refund_date_end Date/time that the order was refunded
+     *
+     * @return $this
+     */
+    public function setRefundDateEnd($refund_date_end)
+    {
+        $this->container['refund_date_end'] = $refund_date_end;
 
         return $this;
     }
