@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **checkout** | [**\ultracart\v2\models\CartCheckout**](CartCheckout.md) |  | [optional] 
 **coupons** | [**\ultracart\v2\models\CartCoupon[]**](CartCoupon.md) | Coupons | [optional] 
 **currency_code** | **string** | The ISO-4217 three letter currency code the customer is viewing prices in | [optional] 
+**currency_conversion** | [**\ultracart\v2\models\CartCurrencyConversion**](CartCurrencyConversion.md) |  | [optional] 
 **customer_profile** | [**\ultracart\v2\models\CartCustomerProfile**](CartCustomerProfile.md) |  | [optional] 
 **exchange_rate** | **float** | The exchange rate if the customer is viewing a different currency than the base | [optional] 
 **gift** | [**\ultracart\v2\models\CartGift**](CartGift.md) |  | [optional] 

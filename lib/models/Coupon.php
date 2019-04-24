@@ -65,6 +65,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => '\ultracart\v2\models\CouponAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase',
+        'calculated_description' => 'string',
         'can_be_used_with_other_coupons' => 'bool',
         'coupon_oid' => 'int',
         'coupon_type' => 'string',
@@ -120,6 +121,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => null,
         'amount_off_subtotal_with_block_purchase' => null,
         'amount_off_subtotal_with_items_purchase' => null,
+        'calculated_description' => null,
         'can_be_used_with_other_coupons' => null,
         'coupon_oid' => 'int32',
         'coupon_type' => null,
@@ -196,6 +198,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'amount_off_subtotal_and_shipping',
         'amount_off_subtotal_with_block_purchase' => 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase' => 'amount_off_subtotal_with_items_purchase',
+        'calculated_description' => 'calculated_)description',
         'can_be_used_with_other_coupons' => 'can_be_used_with_other_coupons',
         'coupon_oid' => 'coupon_oid',
         'coupon_type' => 'coupon_type',
@@ -251,6 +254,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'setAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => 'setAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => 'setAmountOffSubtotalWithItemsPurchase',
+        'calculated_description' => 'setCalculatedDescription',
         'can_be_used_with_other_coupons' => 'setCanBeUsedWithOtherCoupons',
         'coupon_oid' => 'setCouponOid',
         'coupon_type' => 'setCouponType',
@@ -306,6 +310,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'getAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => 'getAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => 'getAmountOffSubtotalWithItemsPurchase',
+        'calculated_description' => 'getCalculatedDescription',
         'can_be_used_with_other_coupons' => 'getCanBeUsedWithOtherCoupons',
         'coupon_oid' => 'getCouponOid',
         'coupon_type' => 'getCouponType',
@@ -415,6 +420,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['amount_off_subtotal_and_shipping'] = isset($data['amount_off_subtotal_and_shipping']) ? $data['amount_off_subtotal_and_shipping'] : null;
         $this->container['amount_off_subtotal_with_block_purchase'] = isset($data['amount_off_subtotal_with_block_purchase']) ? $data['amount_off_subtotal_with_block_purchase'] : null;
         $this->container['amount_off_subtotal_with_items_purchase'] = isset($data['amount_off_subtotal_with_items_purchase']) ? $data['amount_off_subtotal_with_items_purchase'] : null;
+        $this->container['calculated_description'] = isset($data['calculated_description']) ? $data['calculated_description'] : null;
         $this->container['can_be_used_with_other_coupons'] = isset($data['can_be_used_with_other_coupons']) ? $data['can_be_used_with_other_coupons'] : null;
         $this->container['coupon_oid'] = isset($data['coupon_oid']) ? $data['coupon_oid'] : null;
         $this->container['coupon_type'] = isset($data['coupon_type']) ? $data['coupon_type'] : null;
@@ -727,6 +733,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setAmountOffSubtotalWithItemsPurchase($amount_off_subtotal_with_items_purchase)
     {
         $this->container['amount_off_subtotal_with_items_purchase'] = $amount_off_subtotal_with_items_purchase;
+
+        return $this;
+    }
+
+    /**
+     * Gets calculated_description
+     *
+     * @return string
+     */
+    public function getCalculatedDescription()
+    {
+        return $this->container['calculated_description'];
+    }
+
+    /**
+     * Sets calculated_description
+     *
+     * @param string $calculated_description Calculated description displayed to the customer if no description is specified.
+     *
+     * @return $this
+     */
+    public function setCalculatedDescription($calculated_description)
+    {
+        $this->container['calculated_description'] = $calculated_description;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Currency
+ * CartCurrencyConversion
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * Currency Class Doc Comment
+ * CartCurrencyConversion Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Currency implements ModelInterface, ArrayAccess
+class CartCurrencyConversion implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Currency implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Currency';
+    protected static $swaggerModelName = 'CartCurrencyConversion';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,8 @@ class Currency implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'currency_code' => 'string',
-        'exchange_rate' => 'float',
-        'localized' => 'float',
-        'localized_formatted' => 'string',
-        'value' => 'float'
+        'base_currency_code' => 'string',
+        'currencies' => '\ultracart\v2\models\Currency[]'
     ];
 
     /**
@@ -69,11 +66,8 @@ class Currency implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'currency_code' => null,
-        'exchange_rate' => null,
-        'localized' => null,
-        'localized_formatted' => null,
-        'value' => null
+        'base_currency_code' => null,
+        'currencies' => null
     ];
 
     /**
@@ -103,11 +97,8 @@ class Currency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_code' => 'currency_code',
-        'exchange_rate' => 'exchange_rate',
-        'localized' => 'localized',
-        'localized_formatted' => 'localized_formatted',
-        'value' => 'value'
+        'base_currency_code' => 'base_currency_Code',
+        'currencies' => 'currencies'
     ];
 
     /**
@@ -116,11 +107,8 @@ class Currency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency_code' => 'setCurrencyCode',
-        'exchange_rate' => 'setExchangeRate',
-        'localized' => 'setLocalized',
-        'localized_formatted' => 'setLocalizedFormatted',
-        'value' => 'setValue'
+        'base_currency_code' => 'setBaseCurrencyCode',
+        'currencies' => 'setCurrencies'
     ];
 
     /**
@@ -129,11 +117,8 @@ class Currency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency_code' => 'getCurrencyCode',
-        'exchange_rate' => 'getExchangeRate',
-        'localized' => 'getLocalized',
-        'localized_formatted' => 'getLocalizedFormatted',
-        'value' => 'getValue'
+        'base_currency_code' => 'getBaseCurrencyCode',
+        'currencies' => 'getCurrencies'
     ];
 
     /**
@@ -196,11 +181,8 @@ class Currency implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
-        $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
-        $this->container['localized'] = isset($data['localized']) ? $data['localized'] : null;
-        $this->container['localized_formatted'] = isset($data['localized_formatted']) ? $data['localized_formatted'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['base_currency_code'] = isset($data['base_currency_code']) ? $data['base_currency_code'] : null;
+        $this->container['currencies'] = isset($data['currencies']) ? $data['currencies'] : null;
     }
 
     /**
@@ -229,121 +211,49 @@ class Currency implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency_code
+     * Gets base_currency_code
      *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getBaseCurrencyCode()
     {
-        return $this->container['currency_code'];
+        return $this->container['base_currency_code'];
     }
 
     /**
-     * Sets currency_code
+     * Sets base_currency_code
      *
-     * @param string $currency_code Currency code of the localized value
+     * @param string $base_currency_code Base currency code for this merchant
      *
      * @return $this
      */
-    public function setCurrencyCode($currency_code)
+    public function setBaseCurrencyCode($base_currency_code)
     {
-        $this->container['currency_code'] = $currency_code;
+        $this->container['base_currency_code'] = $base_currency_code;
 
         return $this;
     }
 
     /**
-     * Gets exchange_rate
+     * Gets currencies
      *
-     * @return float
+     * @return \ultracart\v2\models\Currency[]
      */
-    public function getExchangeRate()
+    public function getCurrencies()
     {
-        return $this->container['exchange_rate'];
+        return $this->container['currencies'];
     }
 
     /**
-     * Sets exchange_rate
+     * Sets currencies
      *
-     * @param float $exchange_rate Exchange rate used to localize
+     * @param \ultracart\v2\models\Currency[] $currencies Conversion information for 1 unit of base currency to target currencies
      *
      * @return $this
      */
-    public function setExchangeRate($exchange_rate)
+    public function setCurrencies($currencies)
     {
-        $this->container['exchange_rate'] = $exchange_rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets localized
-     *
-     * @return float
-     */
-    public function getLocalized()
-    {
-        return $this->container['localized'];
-    }
-
-    /**
-     * Sets localized
-     *
-     * @param float $localized Value localized to the customer
-     *
-     * @return $this
-     */
-    public function setLocalized($localized)
-    {
-        $this->container['localized'] = $localized;
-
-        return $this;
-    }
-
-    /**
-     * Gets localized_formatted
-     *
-     * @return string
-     */
-    public function getLocalizedFormatted()
-    {
-        return $this->container['localized_formatted'];
-    }
-
-    /**
-     * Sets localized_formatted
-     *
-     * @param string $localized_formatted Value localized and formatted for the customer
-     *
-     * @return $this
-     */
-    public function setLocalizedFormatted($localized_formatted)
-    {
-        $this->container['localized_formatted'] = $localized_formatted;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return float
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param float $value Value in base currency
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['currencies'] = $currencies;
 
         return $this;
     }

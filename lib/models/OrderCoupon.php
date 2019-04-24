@@ -57,6 +57,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accounting_code' => 'string',
+        'automatically_applied' => 'bool',
         'base_coupon_code' => 'string',
         'coupon_code' => 'string'
     ];
@@ -68,6 +69,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accounting_code' => null,
+        'automatically_applied' => null,
         'base_coupon_code' => null,
         'coupon_code' => null
     ];
@@ -100,6 +102,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'accounting_code' => 'accounting_code',
+        'automatically_applied' => 'automatically_applied',
         'base_coupon_code' => 'base_coupon_code',
         'coupon_code' => 'coupon_code'
     ];
@@ -111,6 +114,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accounting_code' => 'setAccountingCode',
+        'automatically_applied' => 'setAutomaticallyApplied',
         'base_coupon_code' => 'setBaseCouponCode',
         'coupon_code' => 'setCouponCode'
     ];
@@ -122,6 +126,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accounting_code' => 'getAccountingCode',
+        'automatically_applied' => 'getAutomaticallyApplied',
         'base_coupon_code' => 'getBaseCouponCode',
         'coupon_code' => 'getCouponCode'
     ];
@@ -187,6 +192,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
+        $this->container['automatically_applied'] = isset($data['automatically_applied']) ? $data['automatically_applied'] : null;
         $this->container['base_coupon_code'] = isset($data['base_coupon_code']) ? $data['base_coupon_code'] : null;
         $this->container['coupon_code'] = isset($data['coupon_code']) ? $data['coupon_code'] : null;
     }
@@ -250,6 +256,30 @@ class OrderCoupon implements ModelInterface, ArrayAccess
     public function setAccountingCode($accounting_code)
     {
         $this->container['accounting_code'] = $accounting_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets automatically_applied
+     *
+     * @return bool
+     */
+    public function getAutomaticallyApplied()
+    {
+        return $this->container['automatically_applied'];
+    }
+
+    /**
+     * Sets automatically_applied
+     *
+     * @param bool $automatically_applied Whether or not the coupon was automatically applied to the order
+     *
+     * @return $this
+     */
+    public function setAutomaticallyApplied($automatically_applied)
+    {
+        $this->container['automatically_applied'] = $automatically_applied;
 
         return $this;
     }

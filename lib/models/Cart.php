@@ -64,6 +64,7 @@ class Cart implements ModelInterface, ArrayAccess
         'checkout' => '\ultracart\v2\models\CartCheckout',
         'coupons' => '\ultracart\v2\models\CartCoupon[]',
         'currency_code' => 'string',
+        'currency_conversion' => '\ultracart\v2\models\CartCurrencyConversion',
         'customer_profile' => '\ultracart\v2\models\CartCustomerProfile',
         'exchange_rate' => 'float',
         'gift' => '\ultracart\v2\models\CartGift',
@@ -95,6 +96,7 @@ class Cart implements ModelInterface, ArrayAccess
         'checkout' => null,
         'coupons' => null,
         'currency_code' => null,
+        'currency_conversion' => null,
         'customer_profile' => null,
         'exchange_rate' => null,
         'gift' => null,
@@ -147,6 +149,7 @@ class Cart implements ModelInterface, ArrayAccess
         'checkout' => 'checkout',
         'coupons' => 'coupons',
         'currency_code' => 'currency_code',
+        'currency_conversion' => 'currency_conversion',
         'customer_profile' => 'customer_profile',
         'exchange_rate' => 'exchange_rate',
         'gift' => 'gift',
@@ -178,6 +181,7 @@ class Cart implements ModelInterface, ArrayAccess
         'checkout' => 'setCheckout',
         'coupons' => 'setCoupons',
         'currency_code' => 'setCurrencyCode',
+        'currency_conversion' => 'setCurrencyConversion',
         'customer_profile' => 'setCustomerProfile',
         'exchange_rate' => 'setExchangeRate',
         'gift' => 'setGift',
@@ -209,6 +213,7 @@ class Cart implements ModelInterface, ArrayAccess
         'checkout' => 'getCheckout',
         'coupons' => 'getCoupons',
         'currency_code' => 'getCurrencyCode',
+        'currency_conversion' => 'getCurrencyConversion',
         'customer_profile' => 'getCustomerProfile',
         'exchange_rate' => 'getExchangeRate',
         'gift' => 'getGift',
@@ -294,6 +299,7 @@ class Cart implements ModelInterface, ArrayAccess
         $this->container['checkout'] = isset($data['checkout']) ? $data['checkout'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
+        $this->container['currency_conversion'] = isset($data['currency_conversion']) ? $data['currency_conversion'] : null;
         $this->container['customer_profile'] = isset($data['customer_profile']) ? $data['customer_profile'] : null;
         $this->container['exchange_rate'] = isset($data['exchange_rate']) ? $data['exchange_rate'] : null;
         $this->container['gift'] = isset($data['gift']) ? $data['gift'] : null;
@@ -553,6 +559,30 @@ class Cart implements ModelInterface, ArrayAccess
         }
 
         $this->container['currency_code'] = $currency_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency_conversion
+     *
+     * @return \ultracart\v2\models\CartCurrencyConversion
+     */
+    public function getCurrencyConversion()
+    {
+        return $this->container['currency_conversion'];
+    }
+
+    /**
+     * Sets currency_conversion
+     *
+     * @param \ultracart\v2\models\CartCurrencyConversion $currency_conversion currency_conversion
+     *
+     * @return $this
+     */
+    public function setCurrencyConversion($currency_conversion)
+    {
+        $this->container['currency_conversion'] = $currency_conversion;
 
         return $this;
     }

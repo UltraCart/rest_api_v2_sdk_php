@@ -253,6 +253,7 @@ Class | Method | HTTP request | Description
  - [CartBuysafe](docs/Model/CartBuysafe.md)
  - [CartCheckout](docs/Model/CartCheckout.md)
  - [CartCoupon](docs/Model/CartCoupon.md)
+ - [CartCurrencyConversion](docs/Model/CartCurrencyConversion.md)
  - [CartCustomerProfile](docs/Model/CartCustomerProfile.md)
  - [CartCustomerProfileAddress](docs/Model/CartCustomerProfileAddress.md)
  - [CartCustomerProfileCreditCard](docs/Model/CartCustomerProfileCreditCard.md)
