@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **amount_off_subtotal_and_shipping** | [**\ultracart\v2\models\CouponAmountOffSubtotalAndShipping**](CouponAmountOffSubtotalAndShipping.md) |  | [optional] 
 **amount_off_subtotal_with_block_purchase** | [**\ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase**](CouponAmountOffSubtotalWithBlockPurchase.md) |  | [optional] 
 **amount_off_subtotal_with_items_purchase** | [**\ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase**](CouponAmountOffSubtotalWithItemsPurchase.md) |  | [optional] 
+**automatically_apply_coupon_codes** | [**\ultracart\v2\models\CouponAutomaticallyApplyCouponCodes**](CouponAutomaticallyApplyCouponCodes.md) |  | [optional] 
 **calculated_description** | **string** | Calculated description displayed to the customer if no description is specified. | [optional] 
 **can_be_used_with_other_coupons** | **bool** | True if this coupon can be used with other coupons in a single order. | [optional] 
 **coupon_oid** | **int** | Coupon oid. | [optional] 

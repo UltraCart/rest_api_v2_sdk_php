@@ -63,6 +63,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_country_accounting_code' => 'string',
         'tax_county' => 'string',
         'tax_county_accounting_code' => 'string',
+        'tax_gift_charge' => 'bool',
         'tax_postal_code_accounting_code' => 'string',
         'tax_rate' => 'float',
         'tax_rate_city' => 'float',
@@ -70,6 +71,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_rate_county' => 'float',
         'tax_rate_postal_code' => 'float',
         'tax_rate_state' => 'float',
+        'tax_shipping' => 'bool',
         'tax_state_accounting_code' => 'string'
     ];
 
@@ -86,6 +88,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_country_accounting_code' => null,
         'tax_county' => null,
         'tax_county_accounting_code' => null,
+        'tax_gift_charge' => null,
         'tax_postal_code_accounting_code' => null,
         'tax_rate' => null,
         'tax_rate_city' => null,
@@ -93,6 +96,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_rate_county' => null,
         'tax_rate_postal_code' => null,
         'tax_rate_state' => null,
+        'tax_shipping' => null,
         'tax_state_accounting_code' => null
     ];
 
@@ -130,6 +134,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_country_accounting_code' => 'tax_country_accounting_code',
         'tax_county' => 'tax_county',
         'tax_county_accounting_code' => 'tax_county_accounting_code',
+        'tax_gift_charge' => 'tax_gift_charge',
         'tax_postal_code_accounting_code' => 'tax_postal_code_accounting_code',
         'tax_rate' => 'tax_rate',
         'tax_rate_city' => 'tax_rate_city',
@@ -137,6 +142,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_rate_county' => 'tax_rate_county',
         'tax_rate_postal_code' => 'tax_rate_postal_code',
         'tax_rate_state' => 'tax_rate_state',
+        'tax_shipping' => 'tax_shipping',
         'tax_state_accounting_code' => 'tax_state_accounting_code'
     ];
 
@@ -153,6 +159,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_country_accounting_code' => 'setTaxCountryAccountingCode',
         'tax_county' => 'setTaxCounty',
         'tax_county_accounting_code' => 'setTaxCountyAccountingCode',
+        'tax_gift_charge' => 'setTaxGiftCharge',
         'tax_postal_code_accounting_code' => 'setTaxPostalCodeAccountingCode',
         'tax_rate' => 'setTaxRate',
         'tax_rate_city' => 'setTaxRateCity',
@@ -160,6 +167,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_rate_county' => 'setTaxRateCounty',
         'tax_rate_postal_code' => 'setTaxRatePostalCode',
         'tax_rate_state' => 'setTaxRateState',
+        'tax_shipping' => 'setTaxShipping',
         'tax_state_accounting_code' => 'setTaxStateAccountingCode'
     ];
 
@@ -176,6 +184,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_country_accounting_code' => 'getTaxCountryAccountingCode',
         'tax_county' => 'getTaxCounty',
         'tax_county_accounting_code' => 'getTaxCountyAccountingCode',
+        'tax_gift_charge' => 'getTaxGiftCharge',
         'tax_postal_code_accounting_code' => 'getTaxPostalCodeAccountingCode',
         'tax_rate' => 'getTaxRate',
         'tax_rate_city' => 'getTaxRateCity',
@@ -183,6 +192,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         'tax_rate_county' => 'getTaxRateCounty',
         'tax_rate_postal_code' => 'getTaxRatePostalCode',
         'tax_rate_state' => 'getTaxRateState',
+        'tax_shipping' => 'getTaxShipping',
         'tax_state_accounting_code' => 'getTaxStateAccountingCode'
     ];
 
@@ -253,6 +263,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         $this->container['tax_country_accounting_code'] = isset($data['tax_country_accounting_code']) ? $data['tax_country_accounting_code'] : null;
         $this->container['tax_county'] = isset($data['tax_county']) ? $data['tax_county'] : null;
         $this->container['tax_county_accounting_code'] = isset($data['tax_county_accounting_code']) ? $data['tax_county_accounting_code'] : null;
+        $this->container['tax_gift_charge'] = isset($data['tax_gift_charge']) ? $data['tax_gift_charge'] : null;
         $this->container['tax_postal_code_accounting_code'] = isset($data['tax_postal_code_accounting_code']) ? $data['tax_postal_code_accounting_code'] : null;
         $this->container['tax_rate'] = isset($data['tax_rate']) ? $data['tax_rate'] : null;
         $this->container['tax_rate_city'] = isset($data['tax_rate_city']) ? $data['tax_rate_city'] : null;
@@ -260,6 +271,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
         $this->container['tax_rate_county'] = isset($data['tax_rate_county']) ? $data['tax_rate_county'] : null;
         $this->container['tax_rate_postal_code'] = isset($data['tax_rate_postal_code']) ? $data['tax_rate_postal_code'] : null;
         $this->container['tax_rate_state'] = isset($data['tax_rate_state']) ? $data['tax_rate_state'] : null;
+        $this->container['tax_shipping'] = isset($data['tax_shipping']) ? $data['tax_shipping'] : null;
         $this->container['tax_state_accounting_code'] = isset($data['tax_state_accounting_code']) ? $data['tax_state_accounting_code'] : null;
     }
 
@@ -468,6 +480,30 @@ class OrderTaxes implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets tax_gift_charge
+     *
+     * @return bool
+     */
+    public function getTaxGiftCharge()
+    {
+        return $this->container['tax_gift_charge'];
+    }
+
+    /**
+     * Sets tax_gift_charge
+     *
+     * @param bool $tax_gift_charge True if gift charge is taxed
+     *
+     * @return $this
+     */
+    public function setTaxGiftCharge($tax_gift_charge)
+    {
+        $this->container['tax_gift_charge'] = $tax_gift_charge;
+
+        return $this;
+    }
+
+    /**
      * Gets tax_postal_code_accounting_code
      *
      * @return string
@@ -631,6 +667,30 @@ class OrderTaxes implements ModelInterface, ArrayAccess
     public function setTaxRateState($tax_rate_state)
     {
         $this->container['tax_rate_state'] = $tax_rate_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_shipping
+     *
+     * @return bool
+     */
+    public function getTaxShipping()
+    {
+        return $this->container['tax_shipping'];
+    }
+
+    /**
+     * Sets tax_shipping
+     *
+     * @param bool $tax_shipping True if shipping is taxed
+     *
+     * @return $this
+     */
+    public function setTaxShipping($tax_shipping)
+    {
+        $this->container['tax_shipping'] = $tax_shipping;
 
         return $this;
     }

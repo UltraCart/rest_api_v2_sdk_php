@@ -186,6 +186,30 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#updateaccountsreceivableretryconfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
+*StorefrontApi* | [**getEmailCampaign**](docs/Api/StorefrontApi.md#getemailcampaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
+*StorefrontApi* | [**getEmailCampaigns**](docs/Api/StorefrontApi.md#getemailcampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
+*StorefrontApi* | [**getEmailCampaignsWithStats**](docs/Api/StorefrontApi.md#getemailcampaignswithstats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
+*StorefrontApi* | [**getEmailCommseq**](docs/Api/StorefrontApi.md#getemailcommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
+*StorefrontApi* | [**getEmailCommseqEmailStats**](docs/Api/StorefrontApi.md#getemailcommseqemailstats) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats/{commseq_email_uuid} | Get email communication sequence emails stats
+*StorefrontApi* | [**getEmailCommseqStats**](docs/Api/StorefrontApi.md#getemailcommseqstats) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stats | Get email communication sequence stats
+*StorefrontApi* | [**getEmailCommseqs**](docs/Api/StorefrontApi.md#getemailcommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
+*StorefrontApi* | [**getEmailFlow**](docs/Api/StorefrontApi.md#getemailflow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
+*StorefrontApi* | [**getEmailFlows**](docs/Api/StorefrontApi.md#getemailflows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
+*StorefrontApi* | [**getEmailList**](docs/Api/StorefrontApi.md#getemaillist) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
+*StorefrontApi* | [**getEmailLists**](docs/Api/StorefrontApi.md#getemaillists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
+*StorefrontApi* | [**getEmailSegment**](docs/Api/StorefrontApi.md#getemailsegment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
+*StorefrontApi* | [**getEmailSegments**](docs/Api/StorefrontApi.md#getemailsegments) | **GET** /storefront/{storefront_oid}/email/segments | Get email segments
+*StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
+*StorefrontApi* | [**insertEmailCommseq**](docs/Api/StorefrontApi.md#insertemailcommseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
+*StorefrontApi* | [**insertEmailFlow**](docs/Api/StorefrontApi.md#insertemailflow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
+*StorefrontApi* | [**insertEmailList**](docs/Api/StorefrontApi.md#insertemaillist) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
+*StorefrontApi* | [**insertEmailSegment**](docs/Api/StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
+*StorefrontApi* | [**startEmailCampaign**](docs/Api/StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
+*StorefrontApi* | [**updateEmailCampaign**](docs/Api/StorefrontApi.md#updateemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
+*StorefrontApi* | [**updateEmailCommseq**](docs/Api/StorefrontApi.md#updateemailcommseq) | **PUT** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Update email commseq
+*StorefrontApi* | [**updateEmailFlow**](docs/Api/StorefrontApi.md#updateemailflow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
+*StorefrontApi* | [**updateEmailList**](docs/Api/StorefrontApi.md#updateemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
+*StorefrontApi* | [**updateEmailSegment**](docs/Api/StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/Api/TaxApi.md#deletetaxproviderselfcountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/Api/TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
@@ -323,6 +347,7 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/Model/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/Model/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/Model/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponAutomaticallyApplyCouponCodes](docs/Model/CouponAutomaticallyApplyCouponCodes.md)
  - [CouponCodesRequest](docs/Model/CouponCodesRequest.md)
  - [CouponCodesResponse](docs/Model/CouponCodesResponse.md)
  - [CouponDiscountItemWithItemPurchase](docs/Model/CouponDiscountItemWithItemPurchase.md)
@@ -386,6 +411,25 @@ Class | Method | HTTP request | Description
  - [Distance](docs/Model/Distance.md)
  - [DistributionCenter](docs/Model/DistributionCenter.md)
  - [DistributionCentersResponse](docs/Model/DistributionCentersResponse.md)
+ - [EmailCampaign](docs/Model/EmailCampaign.md)
+ - [EmailCampaignResponse](docs/Model/EmailCampaignResponse.md)
+ - [EmailCampaignsResponse](docs/Model/EmailCampaignsResponse.md)
+ - [EmailCommseq](docs/Model/EmailCommseq.md)
+ - [EmailCommseqResponse](docs/Model/EmailCommseqResponse.md)
+ - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
+ - [EmailCommseqsResponse](docs/Model/EmailCommseqsResponse.md)
+ - [EmailFlow](docs/Model/EmailFlow.md)
+ - [EmailFlowResponse](docs/Model/EmailFlowResponse.md)
+ - [EmailFlowsResponse](docs/Model/EmailFlowsResponse.md)
+ - [EmailList](docs/Model/EmailList.md)
+ - [EmailListResponse](docs/Model/EmailListResponse.md)
+ - [EmailListSegmentMembership](docs/Model/EmailListSegmentMembership.md)
+ - [EmailListsResponse](docs/Model/EmailListsResponse.md)
+ - [EmailSegment](docs/Model/EmailSegment.md)
+ - [EmailSegmentResponse](docs/Model/EmailSegmentResponse.md)
+ - [EmailSegmentsResponse](docs/Model/EmailSegmentsResponse.md)
+ - [EmailStatSummary](docs/Model/EmailStatSummary.md)
+ - [EmailStatSummaryResponse](docs/Model/EmailStatSummaryResponse.md)
  - [Error](docs/Model/Error.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [FulfillmentInventory](docs/Model/FulfillmentInventory.md)
@@ -582,6 +626,8 @@ Class | Method | HTTP request | Description
  - **order_write**: Allows you to write order information.
  - **item_read**: Allows you to read item information.
  - **item_write**: Allows you to write item information.
+ - **storefront_read**: Allows you to read storefront information.
+ - **storefront_write**: Allows you to write storefront information.
  - **tax_read**: Allows you to read tax configuration information.
  - **tax_write**: Allows you to write tax configuration information.
  - **webhook_read**: Allows you to read webhook information.
