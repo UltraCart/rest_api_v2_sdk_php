@@ -182,6 +182,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
 *OrderApi* | [**insertOrder**](docs/Api/OrderApi.md#insertorder) | **POST** /order/orders | Insert an order
 *OrderApi* | [**refundOrder**](docs/Api/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
+*OrderApi* | [**replacement**](docs/Api/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
 *OrderApi* | [**resendReceipt**](docs/Api/OrderApi.md#resendreceipt) | **POST** /order/orders/{order_id}/resend_receipt | Resend receipt
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#updateaccountsreceivableretryconfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
@@ -205,6 +206,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**insertEmailList**](docs/Api/StorefrontApi.md#insertemaillist) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
 *StorefrontApi* | [**insertEmailSegment**](docs/Api/StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 *StorefrontApi* | [**startEmailCampaign**](docs/Api/StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
+*StorefrontApi* | [**subscribeToEmailList**](docs/Api/StorefrontApi.md#subscribetoemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 *StorefrontApi* | [**updateEmailCampaign**](docs/Api/StorefrontApi.md#updateemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
 *StorefrontApi* | [**updateEmailCommseq**](docs/Api/StorefrontApi.md#updateemailcommseq) | **PUT** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Update email commseq
 *StorefrontApi* | [**updateEmailFlow**](docs/Api/StorefrontApi.md#updateemailflow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
@@ -418,12 +420,14 @@ Class | Method | HTTP request | Description
  - [EmailCommseqResponse](docs/Model/EmailCommseqResponse.md)
  - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
  - [EmailCommseqsResponse](docs/Model/EmailCommseqsResponse.md)
+ - [EmailCustomer](docs/Model/EmailCustomer.md)
  - [EmailFlow](docs/Model/EmailFlow.md)
  - [EmailFlowResponse](docs/Model/EmailFlowResponse.md)
  - [EmailFlowsResponse](docs/Model/EmailFlowsResponse.md)
  - [EmailList](docs/Model/EmailList.md)
  - [EmailListResponse](docs/Model/EmailListResponse.md)
  - [EmailListSegmentMembership](docs/Model/EmailListSegmentMembership.md)
+ - [EmailListSubscribeResponse](docs/Model/EmailListSubscribeResponse.md)
  - [EmailListsResponse](docs/Model/EmailListsResponse.md)
  - [EmailSegment](docs/Model/EmailSegment.md)
  - [EmailSegmentResponse](docs/Model/EmailSegmentResponse.md)
@@ -544,6 +548,9 @@ Class | Method | HTTP request | Description
  - [OrderProperty](docs/Model/OrderProperty.md)
  - [OrderQuery](docs/Model/OrderQuery.md)
  - [OrderQuote](docs/Model/OrderQuote.md)
+ - [OrderReplacement](docs/Model/OrderReplacement.md)
+ - [OrderReplacementItem](docs/Model/OrderReplacementItem.md)
+ - [OrderReplacementResponse](docs/Model/OrderReplacementResponse.md)
  - [OrderResponse](docs/Model/OrderResponse.md)
  - [OrderSalesforce](docs/Model/OrderSalesforce.md)
  - [OrderShipping](docs/Model/OrderShipping.md)
