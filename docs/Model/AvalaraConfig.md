@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **last_test_dts** | **string** | Date/time of the connection test to Avalara | [optional] 
 **license_key** | **string** | Avalara license key | [optional] 
 **sandbox** | **bool** | True if this Avalara instance is pointed at the Avalara Sandbox | [optional] 
+**send_test_orders** | **bool** | Send test orders through to Avalara.  The default is to not transmit test orders to Avalara. | [optional] 
 **service_url** | **string** | Avalara service URL | [optional] 
 **test_results** | **string** | Test results of the last connection test to Avalara | [optional] 
 

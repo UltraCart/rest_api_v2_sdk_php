@@ -56,10 +56,10 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'configuration' => '\ultracart\v2\models\UltraCartConfig',
         'description' => 'string',
         'selected' => 'bool',
         'states' => '\ultracart\v2\models\TaxProviderUltraCartState[]',
-        'tax_billing' => 'bool',
         'title' => 'string'
     ];
 
@@ -69,10 +69,10 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'configuration' => null,
         'description' => null,
         'selected' => null,
         'states' => null,
-        'tax_billing' => null,
         'title' => null
     ];
 
@@ -103,10 +103,10 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'configuration' => 'configuration',
         'description' => 'description',
         'selected' => 'selected',
         'states' => 'states',
-        'tax_billing' => 'tax_billing',
         'title' => 'title'
     ];
 
@@ -116,10 +116,10 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'configuration' => 'setConfiguration',
         'description' => 'setDescription',
         'selected' => 'setSelected',
         'states' => 'setStates',
-        'tax_billing' => 'setTaxBilling',
         'title' => 'setTitle'
     ];
 
@@ -129,10 +129,10 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'configuration' => 'getConfiguration',
         'description' => 'getDescription',
         'selected' => 'getSelected',
         'states' => 'getStates',
-        'tax_billing' => 'getTaxBilling',
         'title' => 'getTitle'
     ];
 
@@ -196,10 +196,10 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['selected'] = isset($data['selected']) ? $data['selected'] : null;
         $this->container['states'] = isset($data['states']) ? $data['states'] : null;
-        $this->container['tax_billing'] = isset($data['tax_billing']) ? $data['tax_billing'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
@@ -227,6 +227,30 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets configuration
+     *
+     * @return \ultracart\v2\models\UltraCartConfig
+     */
+    public function getConfiguration()
+    {
+        return $this->container['configuration'];
+    }
+
+    /**
+     * Sets configuration
+     *
+     * @param \ultracart\v2\models\UltraCartConfig $configuration configuration
+     *
+     * @return $this
+     */
+    public function setConfiguration($configuration)
+    {
+        $this->container['configuration'] = $configuration;
+
+        return $this;
+    }
 
     /**
      * Gets description
@@ -296,30 +320,6 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
     public function setStates($states)
     {
         $this->container['states'] = $states;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_billing
-     *
-     * @return bool
-     */
-    public function getTaxBilling()
-    {
-        return $this->container['tax_billing'];
-    }
-
-    /**
-     * Sets tax_billing
-     *
-     * @param bool $tax_billing True if sales tax should be collected based on billing address instead of shipping address
-     *
-     * @return $this
-     */
-    public function setTaxBilling($tax_billing)
-    {
-        $this->container['tax_billing'] = $tax_billing;
 
         return $this;
     }

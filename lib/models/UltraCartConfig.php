@@ -1,6 +1,6 @@
 <?php
 /**
- * TaxJarConfig
+ * UltraCartConfig
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * TaxJarConfig Class Doc Comment
+ * UltraCartConfig Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TaxJarConfig implements ModelInterface, ArrayAccess
+class UltraCartConfig implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TaxJarConfig';
+    protected static $swaggerModelName = 'UltraCartConfig';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active' => 'bool',
-        'api_key' => 'string',
-        'estimate_only' => 'bool',
-        'send_test_orders' => 'bool',
-        'use_distribution_center_from' => 'bool'
+        'tax_billing' => 'bool'
     ];
 
     /**
@@ -69,11 +65,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'active' => null,
-        'api_key' => null,
-        'estimate_only' => null,
-        'send_test_orders' => null,
-        'use_distribution_center_from' => null
+        'tax_billing' => null
     ];
 
     /**
@@ -103,11 +95,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'active' => 'active',
-        'api_key' => 'api_key',
-        'estimate_only' => 'estimate_only',
-        'send_test_orders' => 'send_test_orders',
-        'use_distribution_center_from' => 'use_distribution_center_from'
+        'tax_billing' => 'tax_billing'
     ];
 
     /**
@@ -116,11 +104,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'active' => 'setActive',
-        'api_key' => 'setApiKey',
-        'estimate_only' => 'setEstimateOnly',
-        'send_test_orders' => 'setSendTestOrders',
-        'use_distribution_center_from' => 'setUseDistributionCenterFrom'
+        'tax_billing' => 'setTaxBilling'
     ];
 
     /**
@@ -129,11 +113,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'active' => 'getActive',
-        'api_key' => 'getApiKey',
-        'estimate_only' => 'getEstimateOnly',
-        'send_test_orders' => 'getSendTestOrders',
-        'use_distribution_center_from' => 'getUseDistributionCenterFrom'
+        'tax_billing' => 'getTaxBilling'
     ];
 
     /**
@@ -196,11 +176,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;
-        $this->container['estimate_only'] = isset($data['estimate_only']) ? $data['estimate_only'] : null;
-        $this->container['send_test_orders'] = isset($data['send_test_orders']) ? $data['send_test_orders'] : null;
-        $this->container['use_distribution_center_from'] = isset($data['use_distribution_center_from']) ? $data['use_distribution_center_from'] : null;
+        $this->container['tax_billing'] = isset($data['tax_billing']) ? $data['tax_billing'] : null;
     }
 
     /**
@@ -229,121 +205,25 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets active
+     * Gets tax_billing
      *
      * @return bool
      */
-    public function getActive()
+    public function getTaxBilling()
     {
-        return $this->container['active'];
+        return $this->container['tax_billing'];
     }
 
     /**
-     * Sets active
+     * Sets tax_billing
      *
-     * @param bool $active True if TaxJar is active for this merchant
+     * @param bool $tax_billing True if sales tax should be collected based on billing address instead of shipping address
      *
      * @return $this
      */
-    public function setActive($active)
+    public function setTaxBilling($tax_billing)
     {
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets api_key
-     *
-     * @return string
-     */
-    public function getApiKey()
-    {
-        return $this->container['api_key'];
-    }
-
-    /**
-     * Sets api_key
-     *
-     * @param string $api_key TaxJar API key
-     *
-     * @return $this
-     */
-    public function setApiKey($api_key)
-    {
-        $this->container['api_key'] = $api_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets estimate_only
-     *
-     * @return bool
-     */
-    public function getEstimateOnly()
-    {
-        return $this->container['estimate_only'];
-    }
-
-    /**
-     * Sets estimate_only
-     *
-     * @param bool $estimate_only True if this TaxJar configuration is to estimate taxes only and not report placed orders to TaxJar
-     *
-     * @return $this
-     */
-    public function setEstimateOnly($estimate_only)
-    {
-        $this->container['estimate_only'] = $estimate_only;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_test_orders
-     *
-     * @return bool
-     */
-    public function getSendTestOrders()
-    {
-        return $this->container['send_test_orders'];
-    }
-
-    /**
-     * Sets send_test_orders
-     *
-     * @param bool $send_test_orders Send test orders through to TaxJar.  The default is to not transmit test orders to TaxJar.
-     *
-     * @return $this
-     */
-    public function setSendTestOrders($send_test_orders)
-    {
-        $this->container['send_test_orders'] = $send_test_orders;
-
-        return $this;
-    }
-
-    /**
-     * Gets use_distribution_center_from
-     *
-     * @return bool
-     */
-    public function getUseDistributionCenterFrom()
-    {
-        return $this->container['use_distribution_center_from'];
-    }
-
-    /**
-     * Sets use_distribution_center_from
-     *
-     * @param bool $use_distribution_center_from Use distribution center from address
-     *
-     * @return $this
-     */
-    public function setUseDistributionCenterFrom($use_distribution_center_from)
-    {
-        $this->container['use_distribution_center_from'] = $use_distribution_center_from;
+        $this->container['tax_billing'] = $tax_billing;
 
         return $this;
     }

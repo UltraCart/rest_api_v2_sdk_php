@@ -56,6 +56,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'additional_merchant_notes_new_order' => 'string',
+        'additional_merchant_notes_original_order' => 'string',
         'custom_field1' => 'string',
         'custom_field2' => 'string',
         'custom_field3' => 'string',
@@ -67,7 +69,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
         'immediate_charge' => 'bool',
         'items' => '\ultracart\v2\models\OrderReplacementItem[]',
         'original_order_id' => 'string',
-        'shipping_method' => 'string'
+        'shipping_method' => 'string',
+        'skip_payment' => 'bool'
     ];
 
     /**
@@ -76,6 +79,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'additional_merchant_notes_new_order' => null,
+        'additional_merchant_notes_original_order' => null,
         'custom_field1' => null,
         'custom_field2' => null,
         'custom_field3' => null,
@@ -87,7 +92,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
         'immediate_charge' => null,
         'items' => null,
         'original_order_id' => null,
-        'shipping_method' => null
+        'shipping_method' => null,
+        'skip_payment' => null
     ];
 
     /**
@@ -117,6 +123,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'additional_merchant_notes_new_order' => 'additional_merchant_notes_new_order',
+        'additional_merchant_notes_original_order' => 'additional_merchant_notes_original_order',
         'custom_field1' => 'custom_field1',
         'custom_field2' => 'custom_field2',
         'custom_field3' => 'custom_field3',
@@ -128,7 +136,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
         'immediate_charge' => 'immediate_charge',
         'items' => 'items',
         'original_order_id' => 'original_order_id',
-        'shipping_method' => 'shipping_method'
+        'shipping_method' => 'shipping_method',
+        'skip_payment' => 'skip_payment'
     ];
 
     /**
@@ -137,6 +146,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'additional_merchant_notes_new_order' => 'setAdditionalMerchantNotesNewOrder',
+        'additional_merchant_notes_original_order' => 'setAdditionalMerchantNotesOriginalOrder',
         'custom_field1' => 'setCustomField1',
         'custom_field2' => 'setCustomField2',
         'custom_field3' => 'setCustomField3',
@@ -148,7 +159,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
         'immediate_charge' => 'setImmediateCharge',
         'items' => 'setItems',
         'original_order_id' => 'setOriginalOrderId',
-        'shipping_method' => 'setShippingMethod'
+        'shipping_method' => 'setShippingMethod',
+        'skip_payment' => 'setSkipPayment'
     ];
 
     /**
@@ -157,6 +169,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'additional_merchant_notes_new_order' => 'getAdditionalMerchantNotesNewOrder',
+        'additional_merchant_notes_original_order' => 'getAdditionalMerchantNotesOriginalOrder',
         'custom_field1' => 'getCustomField1',
         'custom_field2' => 'getCustomField2',
         'custom_field3' => 'getCustomField3',
@@ -168,7 +182,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
         'immediate_charge' => 'getImmediateCharge',
         'items' => 'getItems',
         'original_order_id' => 'getOriginalOrderId',
-        'shipping_method' => 'getShippingMethod'
+        'shipping_method' => 'getShippingMethod',
+        'skip_payment' => 'getSkipPayment'
     ];
 
     /**
@@ -231,6 +246,8 @@ class OrderReplacement implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['additional_merchant_notes_new_order'] = isset($data['additional_merchant_notes_new_order']) ? $data['additional_merchant_notes_new_order'] : null;
+        $this->container['additional_merchant_notes_original_order'] = isset($data['additional_merchant_notes_original_order']) ? $data['additional_merchant_notes_original_order'] : null;
         $this->container['custom_field1'] = isset($data['custom_field1']) ? $data['custom_field1'] : null;
         $this->container['custom_field2'] = isset($data['custom_field2']) ? $data['custom_field2'] : null;
         $this->container['custom_field3'] = isset($data['custom_field3']) ? $data['custom_field3'] : null;
@@ -243,6 +260,7 @@ class OrderReplacement implements ModelInterface, ArrayAccess
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['original_order_id'] = isset($data['original_order_id']) ? $data['original_order_id'] : null;
         $this->container['shipping_method'] = isset($data['shipping_method']) ? $data['shipping_method'] : null;
+        $this->container['skip_payment'] = isset($data['skip_payment']) ? $data['skip_payment'] : null;
     }
 
     /**
@@ -318,6 +336,54 @@ class OrderReplacement implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets additional_merchant_notes_new_order
+     *
+     * @return string
+     */
+    public function getAdditionalMerchantNotesNewOrder()
+    {
+        return $this->container['additional_merchant_notes_new_order'];
+    }
+
+    /**
+     * Sets additional_merchant_notes_new_order
+     *
+     * @param string $additional_merchant_notes_new_order Additional merchant notes to append to the new order
+     *
+     * @return $this
+     */
+    public function setAdditionalMerchantNotesNewOrder($additional_merchant_notes_new_order)
+    {
+        $this->container['additional_merchant_notes_new_order'] = $additional_merchant_notes_new_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_merchant_notes_original_order
+     *
+     * @return string
+     */
+    public function getAdditionalMerchantNotesOriginalOrder()
+    {
+        return $this->container['additional_merchant_notes_original_order'];
+    }
+
+    /**
+     * Sets additional_merchant_notes_original_order
+     *
+     * @param string $additional_merchant_notes_original_order Additional merchant notes to append to the original order
+     *
+     * @return $this
+     */
+    public function setAdditionalMerchantNotesOriginalOrder($additional_merchant_notes_original_order)
+    {
+        $this->container['additional_merchant_notes_original_order'] = $additional_merchant_notes_original_order;
+
+        return $this;
+    }
 
     /**
      * Gets custom_field1
@@ -631,6 +697,30 @@ class OrderReplacement implements ModelInterface, ArrayAccess
     public function setShippingMethod($shipping_method)
     {
         $this->container['shipping_method'] = $shipping_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_payment
+     *
+     * @return bool
+     */
+    public function getSkipPayment()
+    {
+        return $this->container['skip_payment'];
+    }
+
+    /**
+     * Sets skip_payment
+     *
+     * @param bool $skip_payment Set to true if you want to skip the payment as if it was successful.
+     *
+     * @return $this
+     */
+    public function setSkipPayment($skip_payment)
+    {
+        $this->container['skip_payment'] = $skip_payment;
 
         return $this;
     }

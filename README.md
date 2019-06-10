@@ -586,6 +586,7 @@ Class | Method | HTTP request | Description
  - [TaxStateCode](docs/Model/TaxStateCode.md)
  - [TempMultimedia](docs/Model/TempMultimedia.md)
  - [TempMultimediaResponse](docs/Model/TempMultimediaResponse.md)
+ - [UltraCartConfig](docs/Model/UltraCartConfig.md)
  - [Webhook](docs/Model/Webhook.md)
  - [WebhookEventCategory](docs/Model/WebhookEventCategory.md)
  - [WebhookEventSubscription](docs/Model/WebhookEventSubscription.md)

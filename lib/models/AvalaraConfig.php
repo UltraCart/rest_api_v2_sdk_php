@@ -66,6 +66,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'last_test_dts' => 'string',
         'license_key' => 'string',
         'sandbox' => 'bool',
+        'send_test_orders' => 'bool',
         'service_url' => 'string',
         'test_results' => 'string'
     ];
@@ -86,6 +87,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'last_test_dts' => 'dateTime',
         'license_key' => null,
         'sandbox' => null,
+        'send_test_orders' => null,
         'service_url' => null,
         'test_results' => null
     ];
@@ -127,6 +129,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'last_test_dts' => 'last_test_dts',
         'license_key' => 'license_key',
         'sandbox' => 'sandbox',
+        'send_test_orders' => 'send_test_orders',
         'service_url' => 'service_url',
         'test_results' => 'test_results'
     ];
@@ -147,6 +150,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'last_test_dts' => 'setLastTestDts',
         'license_key' => 'setLicenseKey',
         'sandbox' => 'setSandbox',
+        'send_test_orders' => 'setSendTestOrders',
         'service_url' => 'setServiceUrl',
         'test_results' => 'setTestResults'
     ];
@@ -167,6 +171,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         'last_test_dts' => 'getLastTestDts',
         'license_key' => 'getLicenseKey',
         'sandbox' => 'getSandbox',
+        'send_test_orders' => 'getSendTestOrders',
         'service_url' => 'getServiceUrl',
         'test_results' => 'getTestResults'
     ];
@@ -241,6 +246,7 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
         $this->container['last_test_dts'] = isset($data['last_test_dts']) ? $data['last_test_dts'] : null;
         $this->container['license_key'] = isset($data['license_key']) ? $data['license_key'] : null;
         $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['send_test_orders'] = isset($data['send_test_orders']) ? $data['send_test_orders'] : null;
         $this->container['service_url'] = isset($data['service_url']) ? $data['service_url'] : null;
         $this->container['test_results'] = isset($data['test_results']) ? $data['test_results'] : null;
     }
@@ -506,6 +512,30 @@ class AvalaraConfig implements ModelInterface, ArrayAccess
     public function setSandbox($sandbox)
     {
         $this->container['sandbox'] = $sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_test_orders
+     *
+     * @return bool
+     */
+    public function getSendTestOrders()
+    {
+        return $this->container['send_test_orders'];
+    }
+
+    /**
+     * Sets send_test_orders
+     *
+     * @param bool $send_test_orders Send test orders through to Avalara.  The default is to not transmit test orders to Avalara.
+     *
+     * @return $this
+     */
+    public function setSendTestOrders($send_test_orders)
+    {
+        $this->container['send_test_orders'] = $send_test_orders;
 
         return $this;
     }
