@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailStatSummaryResponse
+ * EmailBaseTemplateListResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailStatSummaryResponse Class Doc Comment
+ * EmailBaseTemplateListResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
+class EmailBaseTemplateListResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailStatSummaryResponse';
+    protected static $swaggerModelName = 'EmailBaseTemplateListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\ultracart\v2\models\Error',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'stats' => '\ultracart\v2\models\EmailStat',
-        'success' => 'bool'
+        'template_paths' => 'string[]'
     ];
 
     /**
@@ -68,10 +65,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error' => null,
-        'metadata' => null,
-        'stats' => null,
-        'success' => null
+        'template_paths' => null
     ];
 
     /**
@@ -101,10 +95,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'metadata' => 'metadata',
-        'stats' => 'stats',
-        'success' => 'success'
+        'template_paths' => 'templatePaths'
     ];
 
     /**
@@ -113,10 +104,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'metadata' => 'setMetadata',
-        'stats' => 'setStats',
-        'success' => 'setSuccess'
+        'template_paths' => 'setTemplatePaths'
     ];
 
     /**
@@ -125,10 +113,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'metadata' => 'getMetadata',
-        'stats' => 'getStats',
-        'success' => 'getSuccess'
+        'template_paths' => 'getTemplatePaths'
     ];
 
     /**
@@ -191,10 +176,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['stats'] = isset($data['stats']) ? $data['stats'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['template_paths'] = isset($data['template_paths']) ? $data['template_paths'] : null;
     }
 
     /**
@@ -223,97 +205,25 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets template_paths
      *
-     * @return \ultracart\v2\models\Error
+     * @return string[]
      */
-    public function getError()
+    public function getTemplatePaths()
     {
-        return $this->container['error'];
+        return $this->container['template_paths'];
     }
 
     /**
-     * Sets error
+     * Sets template_paths
      *
-     * @param \ultracart\v2\models\Error $error error
+     * @param string[] $template_paths template_paths
      *
      * @return $this
      */
-    public function setError($error)
+    public function setTemplatePaths($template_paths)
     {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
-     *
-     * @return $this
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets stats
-     *
-     * @return \ultracart\v2\models\EmailStat
-     */
-    public function getStats()
-    {
-        return $this->container['stats'];
-    }
-
-    /**
-     * Sets stats
-     *
-     * @param \ultracart\v2\models\EmailStat $stats stats
-     *
-     * @return $this
-     */
-    public function setStats($stats)
-    {
-        $this->container['stats'] = $stats;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success Indicates if API call was successful
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
+        $this->container['template_paths'] = $template_paths;
 
         return $this;
     }

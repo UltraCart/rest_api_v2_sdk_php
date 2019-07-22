@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **status_dts** | **string** | Timestamp when the last status change happened | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 **trigger_parameter** | **string** | Trigger parameter | [optional] 
+**trigger_parameter_name** | **string** | Trigger parameter name | [optional] 
 **trigger_type** | **string** | Trigger type | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

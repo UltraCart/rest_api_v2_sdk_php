@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailStatSummaryResponse
+ * EmailListArchiveResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailStatSummaryResponse Class Doc Comment
+ * EmailListArchiveResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
+class EmailListArchiveResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailStatSummaryResponse';
+    protected static $swaggerModelName = 'EmailListArchiveResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'error' => '\ultracart\v2\models\Error',
+        'list_in_use' => 'bool',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'stats' => '\ultracart\v2\models\EmailStat',
         'success' => 'bool'
     ];
 
@@ -69,8 +69,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'error' => null,
+        'list_in_use' => null,
         'metadata' => null,
-        'stats' => null,
         'success' => null
     ];
 
@@ -102,8 +102,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'error' => 'error',
+        'list_in_use' => 'list_in_use',
         'metadata' => 'metadata',
-        'stats' => 'stats',
         'success' => 'success'
     ];
 
@@ -114,8 +114,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'error' => 'setError',
+        'list_in_use' => 'setListInUse',
         'metadata' => 'setMetadata',
-        'stats' => 'setStats',
         'success' => 'setSuccess'
     ];
 
@@ -126,8 +126,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'error' => 'getError',
+        'list_in_use' => 'getListInUse',
         'metadata' => 'getMetadata',
-        'stats' => 'getStats',
         'success' => 'getSuccess'
     ];
 
@@ -192,8 +192,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['list_in_use'] = isset($data['list_in_use']) ? $data['list_in_use'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['stats'] = isset($data['stats']) ? $data['stats'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
@@ -247,6 +247,30 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets list_in_use
+     *
+     * @return bool
+     */
+    public function getListInUse()
+    {
+        return $this->container['list_in_use'];
+    }
+
+    /**
+     * Sets list_in_use
+     *
+     * @param bool $list_in_use list_in_use
+     *
+     * @return $this
+     */
+    public function setListInUse($list_in_use)
+    {
+        $this->container['list_in_use'] = $list_in_use;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
      * @return \ultracart\v2\models\ResponseMetadata
@@ -266,30 +290,6 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets stats
-     *
-     * @return \ultracart\v2\models\EmailStat
-     */
-    public function getStats()
-    {
-        return $this->container['stats'];
-    }
-
-    /**
-     * Sets stats
-     *
-     * @param \ultracart\v2\models\EmailStat $stats stats
-     *
-     * @return $this
-     */
-    public function setStats($stats)
-    {
-        $this->container['stats'] = $stats;
 
         return $this;
     }

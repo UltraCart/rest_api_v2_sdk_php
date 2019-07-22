@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailFlow
+ * EmailTemplate
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailFlow Class Doc Comment
+ * EmailTemplate Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailFlow implements ModelInterface, ArrayAccess
+class EmailTemplate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailFlow';
+    protected static $swaggerModelName = 'EmailTemplate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,19 +56,16 @@ class EmailFlow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allow_multiple_concurrent_enrollments' => 'bool',
-        'created_dts' => 'string',
-        'deleted' => 'bool',
-        'email_communication_sequence_uuid' => 'string',
-        'email_flow_uuid' => 'string',
-        'filter_profile_equation_json' => 'string',
+        'container_cjson' => 'string',
+        'description' => 'string',
+        'email_template_oid' => 'int',
+        'email_template_vm_path' => 'string',
         'merchant_id' => 'string',
         'name' => 'string',
-        'status' => 'string',
-        'status_dts' => 'string',
+        'preview_amazon_listing_key' => 'string',
+        'sort_order' => 'int',
         'storefront_oid' => 'int',
-        'trigger_parameter' => 'string',
-        'trigger_parameter_name' => 'string',
+        'system' => 'bool',
         'trigger_type' => 'string'
     ];
 
@@ -78,19 +75,16 @@ class EmailFlow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'allow_multiple_concurrent_enrollments' => null,
-        'created_dts' => 'dateTime',
-        'deleted' => null,
-        'email_communication_sequence_uuid' => null,
-        'email_flow_uuid' => null,
-        'filter_profile_equation_json' => null,
+        'container_cjson' => null,
+        'description' => null,
+        'email_template_oid' => 'int32',
+        'email_template_vm_path' => null,
         'merchant_id' => null,
         'name' => null,
-        'status' => null,
-        'status_dts' => 'dateTime',
+        'preview_amazon_listing_key' => null,
+        'sort_order' => 'int32',
         'storefront_oid' => 'int32',
-        'trigger_parameter' => null,
-        'trigger_parameter_name' => null,
+        'system' => null,
         'trigger_type' => null
     ];
 
@@ -121,19 +115,16 @@ class EmailFlow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allow_multiple_concurrent_enrollments' => 'allow_multiple_concurrent_enrollments',
-        'created_dts' => 'created_dts',
-        'deleted' => 'deleted',
-        'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
-        'email_flow_uuid' => 'email_flow_uuid',
-        'filter_profile_equation_json' => 'filter_profile_equation_json',
+        'container_cjson' => 'container_cjson',
+        'description' => 'description',
+        'email_template_oid' => 'email_template_oid',
+        'email_template_vm_path' => 'email_template_vm_path',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
-        'status' => 'status',
-        'status_dts' => 'status_dts',
+        'preview_amazon_listing_key' => 'preview_amazon_listing_key',
+        'sort_order' => 'sort_order',
         'storefront_oid' => 'storefront_oid',
-        'trigger_parameter' => 'trigger_parameter',
-        'trigger_parameter_name' => 'trigger_parameter_name',
+        'system' => 'system',
         'trigger_type' => 'trigger_type'
     ];
 
@@ -143,19 +134,16 @@ class EmailFlow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allow_multiple_concurrent_enrollments' => 'setAllowMultipleConcurrentEnrollments',
-        'created_dts' => 'setCreatedDts',
-        'deleted' => 'setDeleted',
-        'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
-        'email_flow_uuid' => 'setEmailFlowUuid',
-        'filter_profile_equation_json' => 'setFilterProfileEquationJson',
+        'container_cjson' => 'setContainerCjson',
+        'description' => 'setDescription',
+        'email_template_oid' => 'setEmailTemplateOid',
+        'email_template_vm_path' => 'setEmailTemplateVmPath',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
-        'status' => 'setStatus',
-        'status_dts' => 'setStatusDts',
+        'preview_amazon_listing_key' => 'setPreviewAmazonListingKey',
+        'sort_order' => 'setSortOrder',
         'storefront_oid' => 'setStorefrontOid',
-        'trigger_parameter' => 'setTriggerParameter',
-        'trigger_parameter_name' => 'setTriggerParameterName',
+        'system' => 'setSystem',
         'trigger_type' => 'setTriggerType'
     ];
 
@@ -165,19 +153,16 @@ class EmailFlow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allow_multiple_concurrent_enrollments' => 'getAllowMultipleConcurrentEnrollments',
-        'created_dts' => 'getCreatedDts',
-        'deleted' => 'getDeleted',
-        'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
-        'email_flow_uuid' => 'getEmailFlowUuid',
-        'filter_profile_equation_json' => 'getFilterProfileEquationJson',
+        'container_cjson' => 'getContainerCjson',
+        'description' => 'getDescription',
+        'email_template_oid' => 'getEmailTemplateOid',
+        'email_template_vm_path' => 'getEmailTemplateVmPath',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
-        'status' => 'getStatus',
-        'status_dts' => 'getStatusDts',
+        'preview_amazon_listing_key' => 'getPreviewAmazonListingKey',
+        'sort_order' => 'getSortOrder',
         'storefront_oid' => 'getStorefrontOid',
-        'trigger_parameter' => 'getTriggerParameter',
-        'trigger_parameter_name' => 'getTriggerParameterName',
+        'system' => 'getSystem',
         'trigger_type' => 'getTriggerType'
     ];
 
@@ -241,19 +226,16 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allow_multiple_concurrent_enrollments'] = isset($data['allow_multiple_concurrent_enrollments']) ? $data['allow_multiple_concurrent_enrollments'] : null;
-        $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
-        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
-        $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
-        $this->container['email_flow_uuid'] = isset($data['email_flow_uuid']) ? $data['email_flow_uuid'] : null;
-        $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
+        $this->container['container_cjson'] = isset($data['container_cjson']) ? $data['container_cjson'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['email_template_oid'] = isset($data['email_template_oid']) ? $data['email_template_oid'] : null;
+        $this->container['email_template_vm_path'] = isset($data['email_template_vm_path']) ? $data['email_template_vm_path'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
+        $this->container['preview_amazon_listing_key'] = isset($data['preview_amazon_listing_key']) ? $data['preview_amazon_listing_key'] : null;
+        $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
-        $this->container['trigger_parameter'] = isset($data['trigger_parameter']) ? $data['trigger_parameter'] : null;
-        $this->container['trigger_parameter_name'] = isset($data['trigger_parameter_name']) ? $data['trigger_parameter_name'] : null;
+        $this->container['system'] = isset($data['system']) ? $data['system'] : null;
         $this->container['trigger_type'] = isset($data['trigger_type']) ? $data['trigger_type'] : null;
     }
 
@@ -268,6 +250,14 @@ class EmailFlow implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 250)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 250.";
+        }
+
+        if (!is_null($this->container['preview_amazon_listing_key']) && (mb_strlen($this->container['preview_amazon_listing_key']) > 250)) {
+            $invalidProperties[] = "invalid value for 'preview_amazon_listing_key', the character length must be smaller than or equal to 250.";
+        }
+
+        if (!is_null($this->container['trigger_type']) && (mb_strlen($this->container['trigger_type']) > 100)) {
+            $invalidProperties[] = "invalid value for 'trigger_type', the character length must be smaller than or equal to 100.";
         }
 
         return $invalidProperties;
@@ -285,150 +275,108 @@ class EmailFlow implements ModelInterface, ArrayAccess
         if (mb_strlen($this->container['name']) > 250) {
             return false;
         }
+        if (mb_strlen($this->container['preview_amazon_listing_key']) > 250) {
+            return false;
+        }
+        if (mb_strlen($this->container['trigger_type']) > 100) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets allow_multiple_concurrent_enrollments
-     *
-     * @return bool
-     */
-    public function getAllowMultipleConcurrentEnrollments()
-    {
-        return $this->container['allow_multiple_concurrent_enrollments'];
-    }
-
-    /**
-     * Sets allow_multiple_concurrent_enrollments
-     *
-     * @param bool $allow_multiple_concurrent_enrollments True if a customer may be enrolled in this flow multiple times
-     *
-     * @return $this
-     */
-    public function setAllowMultipleConcurrentEnrollments($allow_multiple_concurrent_enrollments)
-    {
-        $this->container['allow_multiple_concurrent_enrollments'] = $allow_multiple_concurrent_enrollments;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_dts
+     * Gets container_cjson
      *
      * @return string
      */
-    public function getCreatedDts()
+    public function getContainerCjson()
     {
-        return $this->container['created_dts'];
+        return $this->container['container_cjson'];
     }
 
     /**
-     * Sets created_dts
+     * Sets container_cjson
      *
-     * @param string $created_dts Created date
+     * @param string $container_cjson Container cjson
      *
      * @return $this
      */
-    public function setCreatedDts($created_dts)
+    public function setContainerCjson($container_cjson)
     {
-        $this->container['created_dts'] = $created_dts;
+        $this->container['container_cjson'] = $container_cjson;
 
         return $this;
     }
 
     /**
-     * Gets deleted
-     *
-     * @return bool
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool $deleted True if this campaign was deleted
-     *
-     * @return $this
-     */
-    public function setDeleted($deleted)
-    {
-        $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets email_communication_sequence_uuid
+     * Gets description
      *
      * @return string
      */
-    public function getEmailCommunicationSequenceUuid()
+    public function getDescription()
     {
-        return $this->container['email_communication_sequence_uuid'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets email_communication_sequence_uuid
+     * Sets description
      *
-     * @param string $email_communication_sequence_uuid Email communication sequence UUID
+     * @param string $description Description of email template
      *
      * @return $this
      */
-    public function setEmailCommunicationSequenceUuid($email_communication_sequence_uuid)
+    public function setDescription($description)
     {
-        $this->container['email_communication_sequence_uuid'] = $email_communication_sequence_uuid;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets email_flow_uuid
+     * Gets email_template_oid
      *
-     * @return string
+     * @return int
      */
-    public function getEmailFlowUuid()
+    public function getEmailTemplateOid()
     {
-        return $this->container['email_flow_uuid'];
+        return $this->container['email_template_oid'];
     }
 
     /**
-     * Sets email_flow_uuid
+     * Sets email_template_oid
      *
-     * @param string $email_flow_uuid Email flow UUID
+     * @param int $email_template_oid Email template oid
      *
      * @return $this
      */
-    public function setEmailFlowUuid($email_flow_uuid)
+    public function setEmailTemplateOid($email_template_oid)
     {
-        $this->container['email_flow_uuid'] = $email_flow_uuid;
+        $this->container['email_template_oid'] = $email_template_oid;
 
         return $this;
     }
 
     /**
-     * Gets filter_profile_equation_json
+     * Gets email_template_vm_path
      *
      * @return string
      */
-    public function getFilterProfileEquationJson()
+    public function getEmailTemplateVmPath()
     {
-        return $this->container['filter_profile_equation_json'];
+        return $this->container['email_template_vm_path'];
     }
 
     /**
-     * Sets filter_profile_equation_json
+     * Sets email_template_vm_path
      *
-     * @param string $filter_profile_equation_json File profile equation json
+     * @param string $email_template_vm_path Email Template VM Path
      *
      * @return $this
      */
-    public function setFilterProfileEquationJson($filter_profile_equation_json)
+    public function setEmailTemplateVmPath($email_template_vm_path)
     {
-        $this->container['filter_profile_equation_json'] = $filter_profile_equation_json;
+        $this->container['email_template_vm_path'] = $email_template_vm_path;
 
         return $this;
     }
@@ -470,14 +418,14 @@ class EmailFlow implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of email flow
+     * @param string $name Name of email template
      *
      * @return $this
      */
     public function setName($name)
     {
         if (!is_null($name) && (mb_strlen($name) > 250)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling EmailFlow., must be smaller than or equal to 250.');
+            throw new \InvalidArgumentException('invalid length for $name when calling EmailTemplate., must be smaller than or equal to 250.');
         }
 
         $this->container['name'] = $name;
@@ -486,49 +434,53 @@ class EmailFlow implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets status
+     * Gets preview_amazon_listing_key
      *
      * @return string
      */
-    public function getStatus()
+    public function getPreviewAmazonListingKey()
     {
-        return $this->container['status'];
+        return $this->container['preview_amazon_listing_key'];
     }
 
     /**
-     * Sets status
+     * Sets preview_amazon_listing_key
      *
-     * @param string $status Status of the campaign of draft, archived, active, and inactive
+     * @param string $preview_amazon_listing_key Amazon key for preview png image
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setPreviewAmazonListingKey($preview_amazon_listing_key)
     {
-        $this->container['status'] = $status;
+        if (!is_null($preview_amazon_listing_key) && (mb_strlen($preview_amazon_listing_key) > 250)) {
+            throw new \InvalidArgumentException('invalid length for $preview_amazon_listing_key when calling EmailTemplate., must be smaller than or equal to 250.');
+        }
+
+        $this->container['preview_amazon_listing_key'] = $preview_amazon_listing_key;
 
         return $this;
     }
 
     /**
-     * Gets status_dts
+     * Gets sort_order
      *
-     * @return string
+     * @return int
      */
-    public function getStatusDts()
+    public function getSortOrder()
     {
-        return $this->container['status_dts'];
+        return $this->container['sort_order'];
     }
 
     /**
-     * Sets status_dts
+     * Sets sort_order
      *
-     * @param string $status_dts Timestamp when the last status change happened
+     * @param int $sort_order Sort order (optional)
      *
      * @return $this
      */
-    public function setStatusDts($status_dts)
+    public function setSortOrder($sort_order)
     {
-        $this->container['status_dts'] = $status_dts;
+        $this->container['sort_order'] = $sort_order;
 
         return $this;
     }
@@ -546,7 +498,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
     /**
      * Sets storefront_oid
      *
-     * @param int $storefront_oid Storefront oid
+     * @param int $storefront_oid StoreFront oid
      *
      * @return $this
      */
@@ -558,49 +510,25 @@ class EmailFlow implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets trigger_parameter
+     * Gets system
      *
-     * @return string
+     * @return bool
      */
-    public function getTriggerParameter()
+    public function getSystem()
     {
-        return $this->container['trigger_parameter'];
+        return $this->container['system'];
     }
 
     /**
-     * Sets trigger_parameter
+     * Sets system
      *
-     * @param string $trigger_parameter Trigger parameter
+     * @param bool $system True if this email template is system-wide,false if merchant specific
      *
      * @return $this
      */
-    public function setTriggerParameter($trigger_parameter)
+    public function setSystem($system)
     {
-        $this->container['trigger_parameter'] = $trigger_parameter;
-
-        return $this;
-    }
-
-    /**
-     * Gets trigger_parameter_name
-     *
-     * @return string
-     */
-    public function getTriggerParameterName()
-    {
-        return $this->container['trigger_parameter_name'];
-    }
-
-    /**
-     * Sets trigger_parameter_name
-     *
-     * @param string $trigger_parameter_name Trigger parameter name
-     *
-     * @return $this
-     */
-    public function setTriggerParameterName($trigger_parameter_name)
-    {
-        $this->container['trigger_parameter_name'] = $trigger_parameter_name;
+        $this->container['system'] = $system;
 
         return $this;
     }
@@ -624,6 +552,10 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     public function setTriggerType($trigger_type)
     {
+        if (!is_null($trigger_type) && (mb_strlen($trigger_type) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $trigger_type when calling EmailTemplate., must be smaller than or equal to 100.');
+        }
+
         $this->container['trigger_type'] = $trigger_type;
 
         return $this;

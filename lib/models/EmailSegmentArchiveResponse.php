@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailStatSummaryResponse
+ * EmailSegmentArchiveResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailStatSummaryResponse Class Doc Comment
+ * EmailSegmentArchiveResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
+class EmailSegmentArchiveResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailStatSummaryResponse';
+    protected static $swaggerModelName = 'EmailSegmentArchiveResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'stats' => '\ultracart\v2\models\EmailStat',
+        'segment_in_use' => 'bool',
         'success' => 'bool'
     ];
 
@@ -70,7 +70,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'error' => null,
         'metadata' => null,
-        'stats' => null,
+        'segment_in_use' => null,
         'success' => null
     ];
 
@@ -103,7 +103,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'error' => 'error',
         'metadata' => 'metadata',
-        'stats' => 'stats',
+        'segment_in_use' => 'segment_in_use',
         'success' => 'success'
     ];
 
@@ -115,7 +115,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'error' => 'setError',
         'metadata' => 'setMetadata',
-        'stats' => 'setStats',
+        'segment_in_use' => 'setSegmentInUse',
         'success' => 'setSuccess'
     ];
 
@@ -127,7 +127,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'error' => 'getError',
         'metadata' => 'getMetadata',
-        'stats' => 'getStats',
+        'segment_in_use' => 'getSegmentInUse',
         'success' => 'getSuccess'
     ];
 
@@ -193,7 +193,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     {
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['stats'] = isset($data['stats']) ? $data['stats'] : null;
+        $this->container['segment_in_use'] = isset($data['segment_in_use']) ? $data['segment_in_use'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
@@ -271,25 +271,25 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets stats
+     * Gets segment_in_use
      *
-     * @return \ultracart\v2\models\EmailStat
+     * @return bool
      */
-    public function getStats()
+    public function getSegmentInUse()
     {
-        return $this->container['stats'];
+        return $this->container['segment_in_use'];
     }
 
     /**
-     * Sets stats
+     * Sets segment_in_use
      *
-     * @param \ultracart\v2\models\EmailStat $stats stats
+     * @param bool $segment_in_use segment_in_use
      *
      * @return $this
      */
-    public function setStats($stats)
+    public function setSegmentInUse($segment_in_use)
     {
-        $this->container['stats'] = $stats;
+        $this->container['segment_in_use'] = $segment_in_use;
 
         return $this;
     }

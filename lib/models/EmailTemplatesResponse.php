@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailStatSummaryResponse
+ * EmailTemplatesResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailStatSummaryResponse Class Doc Comment
+ * EmailTemplatesResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
+class EmailTemplatesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailStatSummaryResponse';
+    protected static $swaggerModelName = 'EmailTemplatesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'stats' => '\ultracart\v2\models\EmailStat',
-        'success' => 'bool'
+        'success' => 'bool',
+        'templates' => '\ultracart\v2\models\EmailTemplate[]'
     ];
 
     /**
@@ -70,8 +70,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'error' => null,
         'metadata' => null,
-        'stats' => null,
-        'success' => null
+        'success' => null,
+        'templates' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'error' => 'error',
         'metadata' => 'metadata',
-        'stats' => 'stats',
-        'success' => 'success'
+        'success' => 'success',
+        'templates' => 'templates'
     ];
 
     /**
@@ -115,8 +115,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'error' => 'setError',
         'metadata' => 'setMetadata',
-        'stats' => 'setStats',
-        'success' => 'setSuccess'
+        'success' => 'setSuccess',
+        'templates' => 'setTemplates'
     ];
 
     /**
@@ -127,8 +127,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'error' => 'getError',
         'metadata' => 'getMetadata',
-        'stats' => 'getStats',
-        'success' => 'getSuccess'
+        'success' => 'getSuccess',
+        'templates' => 'getTemplates'
     ];
 
     /**
@@ -193,8 +193,8 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     {
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['stats'] = isset($data['stats']) ? $data['stats'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['templates'] = isset($data['templates']) ? $data['templates'] : null;
     }
 
     /**
@@ -271,30 +271,6 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets stats
-     *
-     * @return \ultracart\v2\models\EmailStat
-     */
-    public function getStats()
-    {
-        return $this->container['stats'];
-    }
-
-    /**
-     * Sets stats
-     *
-     * @param \ultracart\v2\models\EmailStat $stats stats
-     *
-     * @return $this
-     */
-    public function setStats($stats)
-    {
-        $this->container['stats'] = $stats;
-
-        return $this;
-    }
-
-    /**
      * Gets success
      *
      * @return bool
@@ -314,6 +290,30 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets templates
+     *
+     * @return \ultracart\v2\models\EmailTemplate[]
+     */
+    public function getTemplates()
+    {
+        return $this->container['templates'];
+    }
+
+    /**
+     * Sets templates
+     *
+     * @param \ultracart\v2\models\EmailTemplate[] $templates templates
+     *
+     * @return $this
+     */
+    public function setTemplates($templates)
+    {
+        $this->container['templates'] = $templates;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailFlow
+ * EmailCommseqEmail
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailFlow Class Doc Comment
+ * EmailCommseqEmail Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailFlow implements ModelInterface, ArrayAccess
+class EmailCommseqEmail implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailFlow';
+    protected static $swaggerModelName = 'EmailCommseqEmail';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,20 +56,20 @@ class EmailFlow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allow_multiple_concurrent_enrollments' => 'bool',
-        'created_dts' => 'string',
         'deleted' => 'bool',
-        'email_communication_sequence_uuid' => 'string',
-        'email_flow_uuid' => 'string',
+        'edited_by_user' => 'string',
+        'email_communication_sequence_email_uuid' => 'string',
+        'email_container_cjson' => 'string',
+        'email_template_vm_path' => 'string',
         'filter_profile_equation_json' => 'string',
+        'individually_render' => 'bool',
         'merchant_id' => 'string',
-        'name' => 'string',
-        'status' => 'string',
-        'status_dts' => 'string',
+        'preview_text' => 'string',
+        'smart_sending' => 'bool',
         'storefront_oid' => 'int',
-        'trigger_parameter' => 'string',
-        'trigger_parameter_name' => 'string',
-        'trigger_type' => 'string'
+        'subject' => 'string',
+        'transactional_email' => 'bool',
+        'version' => 'int'
     ];
 
     /**
@@ -78,20 +78,20 @@ class EmailFlow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'allow_multiple_concurrent_enrollments' => null,
-        'created_dts' => 'dateTime',
         'deleted' => null,
-        'email_communication_sequence_uuid' => null,
-        'email_flow_uuid' => null,
+        'edited_by_user' => null,
+        'email_communication_sequence_email_uuid' => null,
+        'email_container_cjson' => null,
+        'email_template_vm_path' => null,
         'filter_profile_equation_json' => null,
+        'individually_render' => null,
         'merchant_id' => null,
-        'name' => null,
-        'status' => null,
-        'status_dts' => 'dateTime',
+        'preview_text' => null,
+        'smart_sending' => null,
         'storefront_oid' => 'int32',
-        'trigger_parameter' => null,
-        'trigger_parameter_name' => null,
-        'trigger_type' => null
+        'subject' => null,
+        'transactional_email' => null,
+        'version' => 'int32'
     ];
 
     /**
@@ -121,20 +121,20 @@ class EmailFlow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allow_multiple_concurrent_enrollments' => 'allow_multiple_concurrent_enrollments',
-        'created_dts' => 'created_dts',
         'deleted' => 'deleted',
-        'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
-        'email_flow_uuid' => 'email_flow_uuid',
+        'edited_by_user' => 'edited_by_user',
+        'email_communication_sequence_email_uuid' => 'email_communication_sequence_email_uuid',
+        'email_container_cjson' => 'email_container_cjson',
+        'email_template_vm_path' => 'email_template_vm_path',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
+        'individually_render' => 'individually_render',
         'merchant_id' => 'merchant_id',
-        'name' => 'name',
-        'status' => 'status',
-        'status_dts' => 'status_dts',
+        'preview_text' => 'preview_text',
+        'smart_sending' => 'smart_sending',
         'storefront_oid' => 'storefront_oid',
-        'trigger_parameter' => 'trigger_parameter',
-        'trigger_parameter_name' => 'trigger_parameter_name',
-        'trigger_type' => 'trigger_type'
+        'subject' => 'subject',
+        'transactional_email' => 'transactional_email',
+        'version' => 'version'
     ];
 
     /**
@@ -143,20 +143,20 @@ class EmailFlow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allow_multiple_concurrent_enrollments' => 'setAllowMultipleConcurrentEnrollments',
-        'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
-        'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
-        'email_flow_uuid' => 'setEmailFlowUuid',
+        'edited_by_user' => 'setEditedByUser',
+        'email_communication_sequence_email_uuid' => 'setEmailCommunicationSequenceEmailUuid',
+        'email_container_cjson' => 'setEmailContainerCjson',
+        'email_template_vm_path' => 'setEmailTemplateVmPath',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
+        'individually_render' => 'setIndividuallyRender',
         'merchant_id' => 'setMerchantId',
-        'name' => 'setName',
-        'status' => 'setStatus',
-        'status_dts' => 'setStatusDts',
+        'preview_text' => 'setPreviewText',
+        'smart_sending' => 'setSmartSending',
         'storefront_oid' => 'setStorefrontOid',
-        'trigger_parameter' => 'setTriggerParameter',
-        'trigger_parameter_name' => 'setTriggerParameterName',
-        'trigger_type' => 'setTriggerType'
+        'subject' => 'setSubject',
+        'transactional_email' => 'setTransactionalEmail',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -165,20 +165,20 @@ class EmailFlow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allow_multiple_concurrent_enrollments' => 'getAllowMultipleConcurrentEnrollments',
-        'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
-        'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
-        'email_flow_uuid' => 'getEmailFlowUuid',
+        'edited_by_user' => 'getEditedByUser',
+        'email_communication_sequence_email_uuid' => 'getEmailCommunicationSequenceEmailUuid',
+        'email_container_cjson' => 'getEmailContainerCjson',
+        'email_template_vm_path' => 'getEmailTemplateVmPath',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
+        'individually_render' => 'getIndividuallyRender',
         'merchant_id' => 'getMerchantId',
-        'name' => 'getName',
-        'status' => 'getStatus',
-        'status_dts' => 'getStatusDts',
+        'preview_text' => 'getPreviewText',
+        'smart_sending' => 'getSmartSending',
         'storefront_oid' => 'getStorefrontOid',
-        'trigger_parameter' => 'getTriggerParameter',
-        'trigger_parameter_name' => 'getTriggerParameterName',
-        'trigger_type' => 'getTriggerType'
+        'subject' => 'getSubject',
+        'transactional_email' => 'getTransactionalEmail',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -241,20 +241,20 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allow_multiple_concurrent_enrollments'] = isset($data['allow_multiple_concurrent_enrollments']) ? $data['allow_multiple_concurrent_enrollments'] : null;
-        $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
-        $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
-        $this->container['email_flow_uuid'] = isset($data['email_flow_uuid']) ? $data['email_flow_uuid'] : null;
+        $this->container['edited_by_user'] = isset($data['edited_by_user']) ? $data['edited_by_user'] : null;
+        $this->container['email_communication_sequence_email_uuid'] = isset($data['email_communication_sequence_email_uuid']) ? $data['email_communication_sequence_email_uuid'] : null;
+        $this->container['email_container_cjson'] = isset($data['email_container_cjson']) ? $data['email_container_cjson'] : null;
+        $this->container['email_template_vm_path'] = isset($data['email_template_vm_path']) ? $data['email_template_vm_path'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
+        $this->container['individually_render'] = isset($data['individually_render']) ? $data['individually_render'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
+        $this->container['preview_text'] = isset($data['preview_text']) ? $data['preview_text'] : null;
+        $this->container['smart_sending'] = isset($data['smart_sending']) ? $data['smart_sending'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
-        $this->container['trigger_parameter'] = isset($data['trigger_parameter']) ? $data['trigger_parameter'] : null;
-        $this->container['trigger_parameter_name'] = isset($data['trigger_parameter_name']) ? $data['trigger_parameter_name'] : null;
-        $this->container['trigger_type'] = isset($data['trigger_type']) ? $data['trigger_type'] : null;
+        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
+        $this->container['transactional_email'] = isset($data['transactional_email']) ? $data['transactional_email'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -265,10 +265,6 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 250)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 250.";
-        }
 
         return $invalidProperties;
     }
@@ -282,60 +278,9 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if (mb_strlen($this->container['name']) > 250) {
-            return false;
-        }
         return true;
     }
 
-
-    /**
-     * Gets allow_multiple_concurrent_enrollments
-     *
-     * @return bool
-     */
-    public function getAllowMultipleConcurrentEnrollments()
-    {
-        return $this->container['allow_multiple_concurrent_enrollments'];
-    }
-
-    /**
-     * Sets allow_multiple_concurrent_enrollments
-     *
-     * @param bool $allow_multiple_concurrent_enrollments True if a customer may be enrolled in this flow multiple times
-     *
-     * @return $this
-     */
-    public function setAllowMultipleConcurrentEnrollments($allow_multiple_concurrent_enrollments)
-    {
-        $this->container['allow_multiple_concurrent_enrollments'] = $allow_multiple_concurrent_enrollments;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_dts
-     *
-     * @return string
-     */
-    public function getCreatedDts()
-    {
-        return $this->container['created_dts'];
-    }
-
-    /**
-     * Sets created_dts
-     *
-     * @param string $created_dts Created date
-     *
-     * @return $this
-     */
-    public function setCreatedDts($created_dts)
-    {
-        $this->container['created_dts'] = $created_dts;
-
-        return $this;
-    }
 
     /**
      * Gets deleted
@@ -350,7 +295,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
     /**
      * Sets deleted
      *
-     * @param bool $deleted True if this campaign was deleted
+     * @param bool $deleted Deleted
      *
      * @return $this
      */
@@ -362,49 +307,97 @@ class EmailFlow implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets email_communication_sequence_uuid
+     * Gets edited_by_user
      *
      * @return string
      */
-    public function getEmailCommunicationSequenceUuid()
+    public function getEditedByUser()
     {
-        return $this->container['email_communication_sequence_uuid'];
+        return $this->container['edited_by_user'];
     }
 
     /**
-     * Sets email_communication_sequence_uuid
+     * Sets edited_by_user
      *
-     * @param string $email_communication_sequence_uuid Email communication sequence UUID
+     * @param string $edited_by_user Edited by user
      *
      * @return $this
      */
-    public function setEmailCommunicationSequenceUuid($email_communication_sequence_uuid)
+    public function setEditedByUser($edited_by_user)
     {
-        $this->container['email_communication_sequence_uuid'] = $email_communication_sequence_uuid;
+        $this->container['edited_by_user'] = $edited_by_user;
 
         return $this;
     }
 
     /**
-     * Gets email_flow_uuid
+     * Gets email_communication_sequence_email_uuid
      *
      * @return string
      */
-    public function getEmailFlowUuid()
+    public function getEmailCommunicationSequenceEmailUuid()
     {
-        return $this->container['email_flow_uuid'];
+        return $this->container['email_communication_sequence_email_uuid'];
     }
 
     /**
-     * Sets email_flow_uuid
+     * Sets email_communication_sequence_email_uuid
      *
-     * @param string $email_flow_uuid Email flow UUID
+     * @param string $email_communication_sequence_email_uuid Email communication sequence email uuid
      *
      * @return $this
      */
-    public function setEmailFlowUuid($email_flow_uuid)
+    public function setEmailCommunicationSequenceEmailUuid($email_communication_sequence_email_uuid)
     {
-        $this->container['email_flow_uuid'] = $email_flow_uuid;
+        $this->container['email_communication_sequence_email_uuid'] = $email_communication_sequence_email_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_container_cjson
+     *
+     * @return string
+     */
+    public function getEmailContainerCjson()
+    {
+        return $this->container['email_container_cjson'];
+    }
+
+    /**
+     * Sets email_container_cjson
+     *
+     * @param string $email_container_cjson Email container cjson
+     *
+     * @return $this
+     */
+    public function setEmailContainerCjson($email_container_cjson)
+    {
+        $this->container['email_container_cjson'] = $email_container_cjson;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_template_vm_path
+     *
+     * @return string
+     */
+    public function getEmailTemplateVmPath()
+    {
+        return $this->container['email_template_vm_path'];
+    }
+
+    /**
+     * Sets email_template_vm_path
+     *
+     * @param string $email_template_vm_path Email template virtual path
+     *
+     * @return $this
+     */
+    public function setEmailTemplateVmPath($email_template_vm_path)
+    {
+        $this->container['email_template_vm_path'] = $email_template_vm_path;
 
         return $this;
     }
@@ -422,13 +415,37 @@ class EmailFlow implements ModelInterface, ArrayAccess
     /**
      * Sets filter_profile_equation_json
      *
-     * @param string $filter_profile_equation_json File profile equation json
+     * @param string $filter_profile_equation_json Filter profile equation json
      *
      * @return $this
      */
     public function setFilterProfileEquationJson($filter_profile_equation_json)
     {
         $this->container['filter_profile_equation_json'] = $filter_profile_equation_json;
+
+        return $this;
+    }
+
+    /**
+     * Gets individually_render
+     *
+     * @return bool
+     */
+    public function getIndividuallyRender()
+    {
+        return $this->container['individually_render'];
+    }
+
+    /**
+     * Sets individually_render
+     *
+     * @param bool $individually_render Individually render
+     *
+     * @return $this
+     */
+    public function setIndividuallyRender($individually_render)
+    {
+        $this->container['individually_render'] = $individually_render;
 
         return $this;
     }
@@ -458,77 +475,49 @@ class EmailFlow implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets preview_text
      *
      * @return string
      */
-    public function getName()
+    public function getPreviewText()
     {
-        return $this->container['name'];
+        return $this->container['preview_text'];
     }
 
     /**
-     * Sets name
+     * Sets preview_text
      *
-     * @param string $name Name of email flow
+     * @param string $preview_text Preview text
      *
      * @return $this
      */
-    public function setName($name)
+    public function setPreviewText($preview_text)
     {
-        if (!is_null($name) && (mb_strlen($name) > 250)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling EmailFlow., must be smaller than or equal to 250.');
-        }
-
-        $this->container['name'] = $name;
+        $this->container['preview_text'] = $preview_text;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets smart_sending
      *
-     * @return string
+     * @return bool
      */
-    public function getStatus()
+    public function getSmartSending()
     {
-        return $this->container['status'];
+        return $this->container['smart_sending'];
     }
 
     /**
-     * Sets status
+     * Sets smart_sending
      *
-     * @param string $status Status of the campaign of draft, archived, active, and inactive
+     * @param bool $smart_sending Smart sending
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setSmartSending($smart_sending)
     {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets status_dts
-     *
-     * @return string
-     */
-    public function getStatusDts()
-    {
-        return $this->container['status_dts'];
-    }
-
-    /**
-     * Sets status_dts
-     *
-     * @param string $status_dts Timestamp when the last status change happened
-     *
-     * @return $this
-     */
-    public function setStatusDts($status_dts)
-    {
-        $this->container['status_dts'] = $status_dts;
+        $this->container['smart_sending'] = $smart_sending;
 
         return $this;
     }
@@ -558,73 +547,73 @@ class EmailFlow implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets trigger_parameter
+     * Gets subject
      *
      * @return string
      */
-    public function getTriggerParameter()
+    public function getSubject()
     {
-        return $this->container['trigger_parameter'];
+        return $this->container['subject'];
     }
 
     /**
-     * Sets trigger_parameter
+     * Sets subject
      *
-     * @param string $trigger_parameter Trigger parameter
+     * @param string $subject Subject
      *
      * @return $this
      */
-    public function setTriggerParameter($trigger_parameter)
+    public function setSubject($subject)
     {
-        $this->container['trigger_parameter'] = $trigger_parameter;
+        $this->container['subject'] = $subject;
 
         return $this;
     }
 
     /**
-     * Gets trigger_parameter_name
+     * Gets transactional_email
      *
-     * @return string
+     * @return bool
      */
-    public function getTriggerParameterName()
+    public function getTransactionalEmail()
     {
-        return $this->container['trigger_parameter_name'];
+        return $this->container['transactional_email'];
     }
 
     /**
-     * Sets trigger_parameter_name
+     * Sets transactional_email
      *
-     * @param string $trigger_parameter_name Trigger parameter name
+     * @param bool $transactional_email Transactional email
      *
      * @return $this
      */
-    public function setTriggerParameterName($trigger_parameter_name)
+    public function setTransactionalEmail($transactional_email)
     {
-        $this->container['trigger_parameter_name'] = $trigger_parameter_name;
+        $this->container['transactional_email'] = $transactional_email;
 
         return $this;
     }
 
     /**
-     * Gets trigger_type
+     * Gets version
      *
-     * @return string
+     * @return int
      */
-    public function getTriggerType()
+    public function getVersion()
     {
-        return $this->container['trigger_type'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets trigger_type
+     * Sets version
      *
-     * @param string $trigger_type Trigger type
+     * @param int $version Version
      *
      * @return $this
      */
-    public function setTriggerType($trigger_type)
+    public function setVersion($version)
     {
-        $this->container['trigger_type'] = $trigger_type;
+        $this->container['version'] = $version;
 
         return $this;
     }

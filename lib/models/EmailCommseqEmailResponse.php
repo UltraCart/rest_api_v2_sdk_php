@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailStatSummaryResponse
+ * EmailCommseqEmailResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailStatSummaryResponse Class Doc Comment
+ * EmailCommseqEmailResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
+class EmailCommseqEmailResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailStatSummaryResponse';
+    protected static $swaggerModelName = 'EmailCommseqEmailResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,9 +56,9 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'email' => '\ultracart\v2\models\EmailCommseqEmail',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'stats' => '\ultracart\v2\models\EmailStat',
         'success' => 'bool'
     ];
 
@@ -68,9 +68,9 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'email' => null,
         'error' => null,
         'metadata' => null,
-        'stats' => null,
         'success' => null
     ];
 
@@ -101,9 +101,9 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'email' => 'email',
         'error' => 'error',
         'metadata' => 'metadata',
-        'stats' => 'stats',
         'success' => 'success'
     ];
 
@@ -113,9 +113,9 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'email' => 'setEmail',
         'error' => 'setError',
         'metadata' => 'setMetadata',
-        'stats' => 'setStats',
         'success' => 'setSuccess'
     ];
 
@@ -125,9 +125,9 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'email' => 'getEmail',
         'error' => 'getError',
         'metadata' => 'getMetadata',
-        'stats' => 'getStats',
         'success' => 'getSuccess'
     ];
 
@@ -191,9 +191,9 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['stats'] = isset($data['stats']) ? $data['stats'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
@@ -221,6 +221,30 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets email
+     *
+     * @return \ultracart\v2\models\EmailCommseqEmail
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param \ultracart\v2\models\EmailCommseqEmail $email email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
 
     /**
      * Gets error
@@ -266,30 +290,6 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets stats
-     *
-     * @return \ultracart\v2\models\EmailStat
-     */
-    public function getStats()
-    {
-        return $this->container['stats'];
-    }
-
-    /**
-     * Sets stats
-     *
-     * @param \ultracart\v2\models\EmailStat $stats stats
-     *
-     * @return $this
-     */
-    public function setStats($stats)
-    {
-        $this->container['stats'] = $stats;
 
         return $this;
     }
