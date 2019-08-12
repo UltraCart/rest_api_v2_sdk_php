@@ -77,6 +77,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'spam_count' => 'int',
         'spam_count_formatted' => 'string',
         'storefront_oid' => 'int',
+        'uuid' => 'string',
         'view_count' => 'int',
         'view_count_formatted' => 'string'
     ];
@@ -108,6 +109,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'spam_count' => 'int32',
         'spam_count_formatted' => null,
         'storefront_oid' => 'int32',
+        'uuid' => null,
         'view_count' => 'int32',
         'view_count_formatted' => null
     ];
@@ -160,6 +162,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'spam_count' => 'spam_count',
         'spam_count_formatted' => 'spam_count_formatted',
         'storefront_oid' => 'storefront_oid',
+        'uuid' => 'uuid',
         'view_count' => 'view_count',
         'view_count_formatted' => 'view_count_formatted'
     ];
@@ -191,6 +194,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'spam_count' => 'setSpamCount',
         'spam_count_formatted' => 'setSpamCountFormatted',
         'storefront_oid' => 'setStorefrontOid',
+        'uuid' => 'setUuid',
         'view_count' => 'setViewCount',
         'view_count_formatted' => 'setViewCountFormatted'
     ];
@@ -222,6 +226,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'spam_count' => 'getSpamCount',
         'spam_count_formatted' => 'getSpamCountFormatted',
         'storefront_oid' => 'getStorefrontOid',
+        'uuid' => 'getUuid',
         'view_count' => 'getViewCount',
         'view_count_formatted' => 'getViewCountFormatted'
     ];
@@ -307,6 +312,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         $this->container['spam_count'] = isset($data['spam_count']) ? $data['spam_count'] : null;
         $this->container['spam_count_formatted'] = isset($data['spam_count_formatted']) ? $data['spam_count_formatted'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
+        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['view_count'] = isset($data['view_count']) ? $data['view_count'] : null;
         $this->container['view_count_formatted'] = isset($data['view_count_formatted']) ? $data['view_count_formatted'] : null;
     }
@@ -836,6 +842,30 @@ class EmailStat implements ModelInterface, ArrayAccess
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets uuid
+     *
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string $uuid List or segment uuid
+     *
+     * @return $this
+     */
+    public function setUuid($uuid)
+    {
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }

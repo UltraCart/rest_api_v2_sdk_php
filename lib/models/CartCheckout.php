@@ -564,7 +564,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
     /**
      * Sets ip_address
      *
-     * @param string $ip_address IP Address
+     * @param string $ip_address IP Address (read only unless non-browser key authenticated)
      *
      * @return $this
      */

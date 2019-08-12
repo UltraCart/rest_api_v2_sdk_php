@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **spam_count** | **int** | Count of emails classified as spam | [optional] 
 **spam_count_formatted** | **string** | Count of emails classified as spam, formatted | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
+**uuid** | **string** | List or segment uuid | [optional] 
 **view_count** | **int** | Count of views | [optional] 
 **view_count_formatted** | **string** | Count of views, formatted | [optional] 
 

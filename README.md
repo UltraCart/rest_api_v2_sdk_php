@@ -200,6 +200,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/Api/StorefrontApi.md#getemailcommseqemailstats) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats/{commseq_email_uuid} | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqStats**](docs/Api/StorefrontApi.md#getemailcommseqstats) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stats | Get email communication sequence stats
 *StorefrontApi* | [**getEmailCommseqs**](docs/Api/StorefrontApi.md#getemailcommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
+*StorefrontApi* | [**getEmailDashboardActivity**](docs/Api/StorefrontApi.md#getemaildashboardactivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
+*StorefrontApi* | [**getEmailDashboardStats**](docs/Api/StorefrontApi.md#getemaildashboardstats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
 *StorefrontApi* | [**getEmailEmail**](docs/Api/StorefrontApi.md#getemailemail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
 *StorefrontApi* | [**getEmailEmails**](docs/Api/StorefrontApi.md#getemailemails) | **GET** /storefront/{storefront_oid}/email/emails | Get email emails
 *StorefrontApi* | [**getEmailFlow**](docs/Api/StorefrontApi.md#getemailflow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
@@ -208,7 +210,6 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailLists**](docs/Api/StorefrontApi.md#getemaillists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
 *StorefrontApi* | [**getEmailSegment**](docs/Api/StorefrontApi.md#getemailsegment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
 *StorefrontApi* | [**getEmailSegments**](docs/Api/StorefrontApi.md#getemailsegments) | **GET** /storefront/{storefront_oid}/email/segments | Get email segments
-*StorefrontApi* | [**getEmailStats**](docs/Api/StorefrontApi.md#getemailstats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get email stats
 *StorefrontApi* | [**getEmailTemplate**](docs/Api/StorefrontApi.md#getemailtemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
@@ -438,6 +439,9 @@ Class | Method | HTTP request | Description
  - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
  - [EmailCommseqsResponse](docs/Model/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/Model/EmailCustomer.md)
+ - [EmailDashboardActivity](docs/Model/EmailDashboardActivity.md)
+ - [EmailDashboardActivityResponse](docs/Model/EmailDashboardActivityResponse.md)
+ - [EmailDashboardStatsResponse](docs/Model/EmailDashboardStatsResponse.md)
  - [EmailFlow](docs/Model/EmailFlow.md)
  - [EmailFlowResponse](docs/Model/EmailFlowResponse.md)
  - [EmailFlowsResponse](docs/Model/EmailFlowsResponse.md)

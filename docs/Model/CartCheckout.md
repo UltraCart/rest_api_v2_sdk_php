@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **custom_field5** | **string** | Custom field 5 | [optional] 
 **custom_field6** | **string** | Custom field 6 | [optional] 
 **custom_field7** | **string** | Custom field 7 | [optional] 
-**ip_address** | **string** | IP Address | [optional] 
+**ip_address** | **string** | IP Address (read only unless non-browser key authenticated) | [optional] 
 **return_code** | **string** | Return code assigned for send return email operation | [optional] 
 **screen_branding_theme_code** | **string** | Screen branding theme code | [optional] 
 
