@@ -215,6 +215,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailListCustomers**](docs/Api/StorefrontApi.md#getemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
 *StorefrontApi* | [**getEmailLists**](docs/Api/StorefrontApi.md#getemaillists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
 *StorefrontApi* | [**getEmailSegment**](docs/Api/StorefrontApi.md#getemailsegment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
+*StorefrontApi* | [**getEmailSegmentCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemailsegmentcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers/{email_customer_uuid}/editor_url | Get email segment customers editor URL
 *StorefrontApi* | [**getEmailSegmentCustomers**](docs/Api/StorefrontApi.md#getemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
 *StorefrontApi* | [**getEmailSegments**](docs/Api/StorefrontApi.md#getemailsegments) | **GET** /storefront/{storefront_oid}/email/segments | Get email segments
 *StorefrontApi* | [**getEmailSendingDomain**](docs/Api/StorefrontApi.md#getemailsendingdomain) | **GET** /storefront/email/sending_domain/{domain} | Get email sending domain
@@ -301,7 +302,6 @@ Class | Method | HTTP request | Description
  - [AutoOrdersResponse](docs/Model/AutoOrdersResponse.md)
  - [AvalaraConfig](docs/Model/AvalaraConfig.md)
  - [BaseResponse](docs/Model/BaseResponse.md)
- - [BigDecimal_](docs/Model/BigDecimal_.md)
  - [Cart](docs/Model/Cart.md)
  - [CartAffiliate](docs/Model/CartAffiliate.md)
  - [CartAffirmCheckoutResponse](docs/Model/CartAffirmCheckoutResponse.md)
@@ -486,7 +486,6 @@ Class | Method | HTTP request | Description
  - [Error](docs/Model/Error.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Experiment](docs/Model/Experiment.md)
- - [ExperimentGraph](docs/Model/ExperimentGraph.md)
  - [ExperimentResponse](docs/Model/ExperimentResponse.md)
  - [ExperimentVariation](docs/Model/ExperimentVariation.md)
  - [ExperimentsResponse](docs/Model/ExperimentsResponse.md)

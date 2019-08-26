@@ -60,7 +60,6 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'int',
         'end_dts' => 'string',
         'equal_weighting' => 'bool',
-        'graph' => '\ultracart\v2\models\ExperimentGraph',
         'id' => 'string',
         'name' => 'string',
         'notes' => 'string',
@@ -85,7 +84,6 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'int32',
         'end_dts' => 'dateTime',
         'equal_weighting' => null,
-        'graph' => null,
         'id' => null,
         'name' => null,
         'notes' => null,
@@ -131,7 +129,6 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'duration_days',
         'end_dts' => 'end_dts',
         'equal_weighting' => 'equal_weighting',
-        'graph' => 'graph',
         'id' => 'id',
         'name' => 'name',
         'notes' => 'notes',
@@ -156,7 +153,6 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'setDurationDays',
         'end_dts' => 'setEndDts',
         'equal_weighting' => 'setEqualWeighting',
-        'graph' => 'setGraph',
         'id' => 'setId',
         'name' => 'setName',
         'notes' => 'setNotes',
@@ -181,7 +177,6 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'getDurationDays',
         'end_dts' => 'getEndDts',
         'equal_weighting' => 'getEqualWeighting',
-        'graph' => 'getGraph',
         'id' => 'getId',
         'name' => 'getName',
         'notes' => 'getNotes',
@@ -277,7 +272,6 @@ class Experiment implements ModelInterface, ArrayAccess
         $this->container['duration_days'] = isset($data['duration_days']) ? $data['duration_days'] : null;
         $this->container['end_dts'] = isset($data['end_dts']) ? $data['end_dts'] : null;
         $this->container['equal_weighting'] = isset($data['equal_weighting']) ? $data['equal_weighting'] : null;
-        $this->container['graph'] = isset($data['graph']) ? $data['graph'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
@@ -421,30 +415,6 @@ class Experiment implements ModelInterface, ArrayAccess
     public function setEqualWeighting($equal_weighting)
     {
         $this->container['equal_weighting'] = $equal_weighting;
-
-        return $this;
-    }
-
-    /**
-     * Gets graph
-     *
-     * @return \ultracart\v2\models\ExperimentGraph
-     */
-    public function getGraph()
-    {
-        return $this->container['graph'];
-    }
-
-    /**
-     * Sets graph
-     *
-     * @param \ultracart\v2\models\ExperimentGraph $graph graph
-     *
-     * @return $this
-     */
-    public function setGraph($graph)
-    {
-        $this->container['graph'] = $graph;
 
         return $this;
     }

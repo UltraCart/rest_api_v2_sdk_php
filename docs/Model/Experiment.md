@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **duration_days** | **int** | Duration in days | [optional] 
 **end_dts** | **string** | End date/time | [optional] 
 **equal_weighting** | **bool** | Whether or not traffic is equally weighted or shifts over time during the experiment | [optional] 
-**graph** | [**\ultracart\v2\models\ExperimentGraph**](ExperimentGraph.md) |  | [optional] 
 **id** | **string** | Experiment id | [optional] 
 **name** | **string** | Experiment name | [optional] 
 **notes** | **string** | Notes about the experiment | [optional] 
