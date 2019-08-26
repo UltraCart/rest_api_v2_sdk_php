@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailDashboardActivity
+ * EmailListCustomer
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailDashboardActivity Class Doc Comment
+ * EmailListCustomer Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailDashboardActivity implements ModelInterface, ArrayAccess
+class EmailListCustomer implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailDashboardActivity';
+    protected static $swaggerModelName = 'EmailListCustomer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'activity_dts' => 'string',
-        'destination_name' => 'string',
-        'destination_uuid' => 'string',
+        'add_dts' => 'string',
         'email' => 'string',
-        'is_list' => 'bool',
-        'is_segment' => 'bool'
+        'email_customer_uuid' => 'string',
+        'email_list_member_uuid' => 'string'
     ];
 
     /**
@@ -71,13 +68,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'activity_dts' => 'dateTime',
-        'destination_name' => null,
-        'destination_uuid' => null,
+        'add_dts' => 'dateTime',
         'email' => null,
-        'is_list' => null,
-        'is_segment' => null
+        'email_customer_uuid' => null,
+        'email_list_member_uuid' => null
     ];
 
     /**
@@ -107,13 +101,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'activity_dts' => 'activity_dts',
-        'destination_name' => 'destination_name',
-        'destination_uuid' => 'destination_uuid',
+        'add_dts' => 'add_dts',
         'email' => 'email',
-        'is_list' => 'is_list',
-        'is_segment' => 'is_segment'
+        'email_customer_uuid' => 'email_customer_uuid',
+        'email_list_member_uuid' => 'email_list_member_uuid'
     ];
 
     /**
@@ -122,13 +113,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'activity_dts' => 'setActivityDts',
-        'destination_name' => 'setDestinationName',
-        'destination_uuid' => 'setDestinationUuid',
+        'add_dts' => 'setAddDts',
         'email' => 'setEmail',
-        'is_list' => 'setIsList',
-        'is_segment' => 'setIsSegment'
+        'email_customer_uuid' => 'setEmailCustomerUuid',
+        'email_list_member_uuid' => 'setEmailListMemberUuid'
     ];
 
     /**
@@ -137,13 +125,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'activity_dts' => 'getActivityDts',
-        'destination_name' => 'getDestinationName',
-        'destination_uuid' => 'getDestinationUuid',
+        'add_dts' => 'getAddDts',
         'email' => 'getEmail',
-        'is_list' => 'getIsList',
-        'is_segment' => 'getIsSegment'
+        'email_customer_uuid' => 'getEmailCustomerUuid',
+        'email_list_member_uuid' => 'getEmailListMemberUuid'
     ];
 
     /**
@@ -206,13 +191,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['activity_dts'] = isset($data['activity_dts']) ? $data['activity_dts'] : null;
-        $this->container['destination_name'] = isset($data['destination_name']) ? $data['destination_name'] : null;
-        $this->container['destination_uuid'] = isset($data['destination_uuid']) ? $data['destination_uuid'] : null;
+        $this->container['add_dts'] = isset($data['add_dts']) ? $data['add_dts'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['is_list'] = isset($data['is_list']) ? $data['is_list'] : null;
-        $this->container['is_segment'] = isset($data['is_segment']) ? $data['is_segment'] : null;
+        $this->container['email_customer_uuid'] = isset($data['email_customer_uuid']) ? $data['email_customer_uuid'] : null;
+        $this->container['email_list_member_uuid'] = isset($data['email_list_member_uuid']) ? $data['email_list_member_uuid'] : null;
     }
 
     /**
@@ -241,97 +223,25 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets add_dts
      *
      * @return string
      */
-    public function getAction()
+    public function getAddDts()
     {
-        return $this->container['action'];
+        return $this->container['add_dts'];
     }
 
     /**
-     * Sets action
+     * Sets add_dts
      *
-     * @param string $action Type of action such as add, remove, subscribe, unsubscribe
+     * @param string $add_dts Added timestamp
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setAddDts($add_dts)
     {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets activity_dts
-     *
-     * @return string
-     */
-    public function getActivityDts()
-    {
-        return $this->container['activity_dts'];
-    }
-
-    /**
-     * Sets activity_dts
-     *
-     * @param string $activity_dts Date/time of the activity
-     *
-     * @return $this
-     */
-    public function setActivityDts($activity_dts)
-    {
-        $this->container['activity_dts'] = $activity_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_name
-     *
-     * @return string
-     */
-    public function getDestinationName()
-    {
-        return $this->container['destination_name'];
-    }
-
-    /**
-     * Sets destination_name
-     *
-     * @param string $destination_name List or segment name
-     *
-     * @return $this
-     */
-    public function setDestinationName($destination_name)
-    {
-        $this->container['destination_name'] = $destination_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_uuid
-     *
-     * @return string
-     */
-    public function getDestinationUuid()
-    {
-        return $this->container['destination_uuid'];
-    }
-
-    /**
-     * Sets destination_uuid
-     *
-     * @param string $destination_uuid List or segment uuid
-     *
-     * @return $this
-     */
-    public function setDestinationUuid($destination_uuid)
-    {
-        $this->container['destination_uuid'] = $destination_uuid;
+        $this->container['add_dts'] = $add_dts;
 
         return $this;
     }
@@ -349,7 +259,7 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email Email address
+     * @param string $email Email
      *
      * @return $this
      */
@@ -361,49 +271,49 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets is_list
+     * Gets email_customer_uuid
      *
-     * @return bool
+     * @return string
      */
-    public function getIsList()
+    public function getEmailCustomerUuid()
     {
-        return $this->container['is_list'];
+        return $this->container['email_customer_uuid'];
     }
 
     /**
-     * Sets is_list
+     * Sets email_customer_uuid
      *
-     * @param bool $is_list true if activity is related to list
+     * @param string $email_customer_uuid Email customer UUID
      *
      * @return $this
      */
-    public function setIsList($is_list)
+    public function setEmailCustomerUuid($email_customer_uuid)
     {
-        $this->container['is_list'] = $is_list;
+        $this->container['email_customer_uuid'] = $email_customer_uuid;
 
         return $this;
     }
 
     /**
-     * Gets is_segment
+     * Gets email_list_member_uuid
      *
-     * @return bool
+     * @return string
      */
-    public function getIsSegment()
+    public function getEmailListMemberUuid()
     {
-        return $this->container['is_segment'];
+        return $this->container['email_list_member_uuid'];
     }
 
     /**
-     * Sets is_segment
+     * Sets email_list_member_uuid
      *
-     * @param bool $is_segment true if activity is related to segment
+     * @param string $email_list_member_uuid Email list member UUID
      *
      * @return $this
      */
-    public function setIsSegment($is_segment)
+    public function setEmailListMemberUuid($email_list_member_uuid)
     {
-        $this->container['is_segment'] = $is_segment;
+        $this->container['email_list_member_uuid'] = $email_list_member_uuid;
 
         return $this;
     }

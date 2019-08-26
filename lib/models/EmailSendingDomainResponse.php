@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailDashboardActivity
+ * EmailSendingDomainResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailDashboardActivity Class Doc Comment
+ * EmailSendingDomainResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailDashboardActivity implements ModelInterface, ArrayAccess
+class EmailSendingDomainResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailDashboardActivity';
+    protected static $swaggerModelName = 'EmailSendingDomainResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'activity_dts' => 'string',
-        'destination_name' => 'string',
-        'destination_uuid' => 'string',
-        'email' => 'string',
-        'is_list' => 'bool',
-        'is_segment' => 'bool'
+        'domain' => '\ultracart\v2\models\EmailDomain',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool'
     ];
 
     /**
@@ -71,13 +68,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'activity_dts' => 'dateTime',
-        'destination_name' => null,
-        'destination_uuid' => null,
-        'email' => null,
-        'is_list' => null,
-        'is_segment' => null
+        'domain' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null
     ];
 
     /**
@@ -107,13 +101,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'activity_dts' => 'activity_dts',
-        'destination_name' => 'destination_name',
-        'destination_uuid' => 'destination_uuid',
-        'email' => 'email',
-        'is_list' => 'is_list',
-        'is_segment' => 'is_segment'
+        'domain' => 'domain',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success'
     ];
 
     /**
@@ -122,13 +113,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'activity_dts' => 'setActivityDts',
-        'destination_name' => 'setDestinationName',
-        'destination_uuid' => 'setDestinationUuid',
-        'email' => 'setEmail',
-        'is_list' => 'setIsList',
-        'is_segment' => 'setIsSegment'
+        'domain' => 'setDomain',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -137,13 +125,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'activity_dts' => 'getActivityDts',
-        'destination_name' => 'getDestinationName',
-        'destination_uuid' => 'getDestinationUuid',
-        'email' => 'getEmail',
-        'is_list' => 'getIsList',
-        'is_segment' => 'getIsSegment'
+        'domain' => 'getDomain',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -206,13 +191,10 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['activity_dts'] = isset($data['activity_dts']) ? $data['activity_dts'] : null;
-        $this->container['destination_name'] = isset($data['destination_name']) ? $data['destination_name'] : null;
-        $this->container['destination_uuid'] = isset($data['destination_uuid']) ? $data['destination_uuid'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['is_list'] = isset($data['is_list']) ? $data['is_list'] : null;
-        $this->container['is_segment'] = isset($data['is_segment']) ? $data['is_segment'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -241,169 +223,97 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets domain
      *
-     * @return string
+     * @return \ultracart\v2\models\EmailDomain
      */
-    public function getAction()
+    public function getDomain()
     {
-        return $this->container['action'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets action
+     * Sets domain
      *
-     * @param string $action Type of action such as add, remove, subscribe, unsubscribe
+     * @param \ultracart\v2\models\EmailDomain $domain domain
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setDomain($domain)
     {
-        $this->container['action'] = $action;
+        $this->container['domain'] = $domain;
 
         return $this;
     }
 
     /**
-     * Gets activity_dts
+     * Gets error
      *
-     * @return string
+     * @return \ultracart\v2\models\Error
      */
-    public function getActivityDts()
+    public function getError()
     {
-        return $this->container['activity_dts'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets activity_dts
+     * Sets error
      *
-     * @param string $activity_dts Date/time of the activity
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setActivityDts($activity_dts)
+    public function setError($error)
     {
-        $this->container['activity_dts'] = $activity_dts;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets destination_name
+     * Gets metadata
      *
-     * @return string
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getDestinationName()
+    public function getMetadata()
     {
-        return $this->container['destination_name'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets destination_name
+     * Sets metadata
      *
-     * @param string $destination_name List or segment name
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setDestinationName($destination_name)
+    public function setMetadata($metadata)
     {
-        $this->container['destination_name'] = $destination_name;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets destination_uuid
-     *
-     * @return string
-     */
-    public function getDestinationUuid()
-    {
-        return $this->container['destination_uuid'];
-    }
-
-    /**
-     * Sets destination_uuid
-     *
-     * @param string $destination_uuid List or segment uuid
-     *
-     * @return $this
-     */
-    public function setDestinationUuid($destination_uuid)
-    {
-        $this->container['destination_uuid'] = $destination_uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email Email address
-     *
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_list
+     * Gets success
      *
      * @return bool
      */
-    public function getIsList()
+    public function getSuccess()
     {
-        return $this->container['is_list'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets is_list
+     * Sets success
      *
-     * @param bool $is_list true if activity is related to list
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setIsList($is_list)
+    public function setSuccess($success)
     {
-        $this->container['is_list'] = $is_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_segment
-     *
-     * @return bool
-     */
-    public function getIsSegment()
-    {
-        return $this->container['is_segment'];
-    }
-
-    /**
-     * Sets is_segment
-     *
-     * @param bool $is_segment true if activity is related to segment
-     *
-     * @return $this
-     */
-    public function setIsSegment($is_segment)
-    {
-        $this->container['is_segment'] = $is_segment;
+        $this->container['success'] = $success;
 
         return $this;
     }

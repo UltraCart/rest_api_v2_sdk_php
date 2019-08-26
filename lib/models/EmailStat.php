@@ -72,10 +72,15 @@ class EmailStat implements ModelInterface, ArrayAccess
         'profit_formatted' => 'string',
         'revenue' => 'float',
         'revenue_formatted' => 'string',
+        'send_count' => 'int',
+        'send_count_formatted' => 'string',
         'skipped_count' => 'int',
         'skipped_count_formatted' => 'string',
         'spam_count' => 'int',
         'spam_count_formatted' => 'string',
+        'stat_type' => 'string',
+        'status' => 'string',
+        'status_dts' => 'string',
         'storefront_oid' => 'int',
         'uuid' => 'string',
         'view_count' => 'int',
@@ -104,10 +109,15 @@ class EmailStat implements ModelInterface, ArrayAccess
         'profit_formatted' => null,
         'revenue' => null,
         'revenue_formatted' => null,
+        'send_count' => 'int32',
+        'send_count_formatted' => null,
         'skipped_count' => 'int32',
         'skipped_count_formatted' => null,
         'spam_count' => 'int32',
         'spam_count_formatted' => null,
+        'stat_type' => null,
+        'status' => null,
+        'status_dts' => null,
         'storefront_oid' => 'int32',
         'uuid' => null,
         'view_count' => 'int32',
@@ -157,10 +167,15 @@ class EmailStat implements ModelInterface, ArrayAccess
         'profit_formatted' => 'profit_formatted',
         'revenue' => 'revenue',
         'revenue_formatted' => 'revenue_formatted',
+        'send_count' => 'send_count',
+        'send_count_formatted' => 'send_count_formatted',
         'skipped_count' => 'skipped_count',
         'skipped_count_formatted' => 'skipped_count_formatted',
         'spam_count' => 'spam_count',
         'spam_count_formatted' => 'spam_count_formatted',
+        'stat_type' => 'stat_type',
+        'status' => 'status',
+        'status_dts' => 'status_dts',
         'storefront_oid' => 'storefront_oid',
         'uuid' => 'uuid',
         'view_count' => 'view_count',
@@ -189,10 +204,15 @@ class EmailStat implements ModelInterface, ArrayAccess
         'profit_formatted' => 'setProfitFormatted',
         'revenue' => 'setRevenue',
         'revenue_formatted' => 'setRevenueFormatted',
+        'send_count' => 'setSendCount',
+        'send_count_formatted' => 'setSendCountFormatted',
         'skipped_count' => 'setSkippedCount',
         'skipped_count_formatted' => 'setSkippedCountFormatted',
         'spam_count' => 'setSpamCount',
         'spam_count_formatted' => 'setSpamCountFormatted',
+        'stat_type' => 'setStatType',
+        'status' => 'setStatus',
+        'status_dts' => 'setStatusDts',
         'storefront_oid' => 'setStorefrontOid',
         'uuid' => 'setUuid',
         'view_count' => 'setViewCount',
@@ -221,10 +241,15 @@ class EmailStat implements ModelInterface, ArrayAccess
         'profit_formatted' => 'getProfitFormatted',
         'revenue' => 'getRevenue',
         'revenue_formatted' => 'getRevenueFormatted',
+        'send_count' => 'getSendCount',
+        'send_count_formatted' => 'getSendCountFormatted',
         'skipped_count' => 'getSkippedCount',
         'skipped_count_formatted' => 'getSkippedCountFormatted',
         'spam_count' => 'getSpamCount',
         'spam_count_formatted' => 'getSpamCountFormatted',
+        'stat_type' => 'getStatType',
+        'status' => 'getStatus',
+        'status_dts' => 'getStatusDts',
         'storefront_oid' => 'getStorefrontOid',
         'uuid' => 'getUuid',
         'view_count' => 'getViewCount',
@@ -307,10 +332,15 @@ class EmailStat implements ModelInterface, ArrayAccess
         $this->container['profit_formatted'] = isset($data['profit_formatted']) ? $data['profit_formatted'] : null;
         $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
         $this->container['revenue_formatted'] = isset($data['revenue_formatted']) ? $data['revenue_formatted'] : null;
+        $this->container['send_count'] = isset($data['send_count']) ? $data['send_count'] : null;
+        $this->container['send_count_formatted'] = isset($data['send_count_formatted']) ? $data['send_count_formatted'] : null;
         $this->container['skipped_count'] = isset($data['skipped_count']) ? $data['skipped_count'] : null;
         $this->container['skipped_count_formatted'] = isset($data['skipped_count_formatted']) ? $data['skipped_count_formatted'] : null;
         $this->container['spam_count'] = isset($data['spam_count']) ? $data['spam_count'] : null;
         $this->container['spam_count_formatted'] = isset($data['spam_count_formatted']) ? $data['spam_count_formatted'] : null;
+        $this->container['stat_type'] = isset($data['stat_type']) ? $data['stat_type'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['view_count'] = isset($data['view_count']) ? $data['view_count'] : null;
@@ -727,6 +757,54 @@ class EmailStat implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets send_count
+     *
+     * @return int
+     */
+    public function getSendCount()
+    {
+        return $this->container['send_count'];
+    }
+
+    /**
+     * Sets send_count
+     *
+     * @param int $send_count Count of emails sent
+     *
+     * @return $this
+     */
+    public function setSendCount($send_count)
+    {
+        $this->container['send_count'] = $send_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_count_formatted
+     *
+     * @return string
+     */
+    public function getSendCountFormatted()
+    {
+        return $this->container['send_count_formatted'];
+    }
+
+    /**
+     * Sets send_count_formatted
+     *
+     * @param string $send_count_formatted Count of emails sent, formatted
+     *
+     * @return $this
+     */
+    public function setSendCountFormatted($send_count_formatted)
+    {
+        $this->container['send_count_formatted'] = $send_count_formatted;
+
+        return $this;
+    }
+
+    /**
      * Gets skipped_count
      *
      * @return int
@@ -818,6 +896,78 @@ class EmailStat implements ModelInterface, ArrayAccess
     public function setSpamCountFormatted($spam_count_formatted)
     {
         $this->container['spam_count_formatted'] = $spam_count_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets stat_type
+     *
+     * @return string
+     */
+    public function getStatType()
+    {
+        return $this->container['stat_type'];
+    }
+
+    /**
+     * Sets stat_type
+     *
+     * @param string $stat_type Campaign, Flow or None (for anything else)
+     *
+     * @return $this
+     */
+    public function setStatType($stat_type)
+    {
+        $this->container['stat_type'] = $stat_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status Status of campaign or flow
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_dts
+     *
+     * @return string
+     */
+    public function getStatusDts()
+    {
+        return $this->container['status_dts'];
+    }
+
+    /**
+     * Sets status_dts
+     *
+     * @param string $status_dts Status dts of campaign or flow
+     *
+     * @return $this
+     */
+    public function setStatusDts($status_dts)
+    {
+        $this->container['status_dts'] = $status_dts;
 
         return $this;
     }

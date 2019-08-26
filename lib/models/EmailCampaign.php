@@ -63,6 +63,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => '\ultracart\v2\models\EmailListSegmentMembership[]',
         'merchant_id' => 'string',
         'name' => 'string',
+        'scheduled_dts' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
         'storefront_oid' => 'int'
@@ -81,6 +82,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => null,
         'merchant_id' => null,
         'name' => null,
+        'scheduled_dts' => 'dateTime',
         'status' => null,
         'status_dts' => 'dateTime',
         'storefront_oid' => 'int32'
@@ -120,6 +122,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => 'memberships',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
+        'scheduled_dts' => 'scheduled_dts',
         'status' => 'status',
         'status_dts' => 'status_dts',
         'storefront_oid' => 'storefront_oid'
@@ -138,6 +141,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => 'setMemberships',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
+        'scheduled_dts' => 'setScheduledDts',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
         'storefront_oid' => 'setStorefrontOid'
@@ -156,6 +160,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => 'getMemberships',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
+        'scheduled_dts' => 'getScheduledDts',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
         'storefront_oid' => 'getStorefrontOid'
@@ -228,6 +233,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['scheduled_dts'] = isset($data['scheduled_dts']) ? $data['scheduled_dts'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
@@ -433,6 +439,30 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduled_dts
+     *
+     * @return string
+     */
+    public function getScheduledDts()
+    {
+        return $this->container['scheduled_dts'];
+    }
+
+    /**
+     * Sets scheduled_dts
+     *
+     * @param string $scheduled_dts Scheduled date
+     *
+     * @return $this
+     */
+    public function setScheduledDts($scheduled_dts)
+    {
+        $this->container['scheduled_dts'] = $scheduled_dts;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailDashboardActivity
+ * EmailSegmentCustomersResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailDashboardActivity Class Doc Comment
+ * EmailSegmentCustomersResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailDashboardActivity implements ModelInterface, ArrayAccess
+class EmailSegmentCustomersResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailDashboardActivity';
+    protected static $swaggerModelName = 'EmailSegmentCustomersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,11 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'activity_dts' => 'string',
-        'destination_name' => 'string',
-        'destination_uuid' => 'string',
-        'email' => 'string',
-        'is_list' => 'bool',
-        'is_segment' => 'bool'
+        'customers' => '\ultracart\v2\models\EmailSegmentCustomer[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_customers' => 'int',
+        'total_pages' => 'int'
     ];
 
     /**
@@ -71,13 +69,11 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'activity_dts' => 'dateTime',
-        'destination_name' => null,
-        'destination_uuid' => null,
-        'email' => null,
-        'is_list' => null,
-        'is_segment' => null
+        'customers' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'total_customers' => 'int32',
+        'total_pages' => 'int32'
     ];
 
     /**
@@ -107,13 +103,11 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'activity_dts' => 'activity_dts',
-        'destination_name' => 'destination_name',
-        'destination_uuid' => 'destination_uuid',
-        'email' => 'email',
-        'is_list' => 'is_list',
-        'is_segment' => 'is_segment'
+        'customers' => 'customers',
+        'page_number' => 'page_number',
+        'page_size' => 'page_size',
+        'total_customers' => 'total_customers',
+        'total_pages' => 'total_pages'
     ];
 
     /**
@@ -122,13 +116,11 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'activity_dts' => 'setActivityDts',
-        'destination_name' => 'setDestinationName',
-        'destination_uuid' => 'setDestinationUuid',
-        'email' => 'setEmail',
-        'is_list' => 'setIsList',
-        'is_segment' => 'setIsSegment'
+        'customers' => 'setCustomers',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_customers' => 'setTotalCustomers',
+        'total_pages' => 'setTotalPages'
     ];
 
     /**
@@ -137,13 +129,11 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'activity_dts' => 'getActivityDts',
-        'destination_name' => 'getDestinationName',
-        'destination_uuid' => 'getDestinationUuid',
-        'email' => 'getEmail',
-        'is_list' => 'getIsList',
-        'is_segment' => 'getIsSegment'
+        'customers' => 'getCustomers',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_customers' => 'getTotalCustomers',
+        'total_pages' => 'getTotalPages'
     ];
 
     /**
@@ -206,13 +196,11 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['activity_dts'] = isset($data['activity_dts']) ? $data['activity_dts'] : null;
-        $this->container['destination_name'] = isset($data['destination_name']) ? $data['destination_name'] : null;
-        $this->container['destination_uuid'] = isset($data['destination_uuid']) ? $data['destination_uuid'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['is_list'] = isset($data['is_list']) ? $data['is_list'] : null;
-        $this->container['is_segment'] = isset($data['is_segment']) ? $data['is_segment'] : null;
+        $this->container['customers'] = isset($data['customers']) ? $data['customers'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_customers'] = isset($data['total_customers']) ? $data['total_customers'] : null;
+        $this->container['total_pages'] = isset($data['total_pages']) ? $data['total_pages'] : null;
     }
 
     /**
@@ -241,169 +229,121 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets customers
      *
-     * @return string
+     * @return \ultracart\v2\models\EmailSegmentCustomer[]
      */
-    public function getAction()
+    public function getCustomers()
     {
-        return $this->container['action'];
+        return $this->container['customers'];
     }
 
     /**
-     * Sets action
+     * Sets customers
      *
-     * @param string $action Type of action such as add, remove, subscribe, unsubscribe
+     * @param \ultracart\v2\models\EmailSegmentCustomer[] $customers Customers on the page
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setCustomers($customers)
     {
-        $this->container['action'] = $action;
+        $this->container['customers'] = $customers;
 
         return $this;
     }
 
     /**
-     * Gets activity_dts
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getActivityDts()
+    public function getPageNumber()
     {
-        return $this->container['activity_dts'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets activity_dts
+     * Sets page_number
      *
-     * @param string $activity_dts Date/time of the activity
+     * @param int $page_number Page number (one based offset)
      *
      * @return $this
      */
-    public function setActivityDts($activity_dts)
+    public function setPageNumber($page_number)
     {
-        $this->container['activity_dts'] = $activity_dts;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets destination_name
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getDestinationName()
+    public function getPageSize()
     {
-        return $this->container['destination_name'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets destination_name
+     * Sets page_size
      *
-     * @param string $destination_name List or segment name
+     * @param int $page_size Number of records per page
      *
      * @return $this
      */
-    public function setDestinationName($destination_name)
+    public function setPageSize($page_size)
     {
-        $this->container['destination_name'] = $destination_name;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets destination_uuid
+     * Gets total_customers
      *
-     * @return string
+     * @return int
      */
-    public function getDestinationUuid()
+    public function getTotalCustomers()
     {
-        return $this->container['destination_uuid'];
+        return $this->container['total_customers'];
     }
 
     /**
-     * Sets destination_uuid
+     * Sets total_customers
      *
-     * @param string $destination_uuid List or segment uuid
+     * @param int $total_customers Total customers
      *
      * @return $this
      */
-    public function setDestinationUuid($destination_uuid)
+    public function setTotalCustomers($total_customers)
     {
-        $this->container['destination_uuid'] = $destination_uuid;
+        $this->container['total_customers'] = $total_customers;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets total_pages
      *
-     * @return string
+     * @return int
      */
-    public function getEmail()
+    public function getTotalPages()
     {
-        return $this->container['email'];
+        return $this->container['total_pages'];
     }
 
     /**
-     * Sets email
+     * Sets total_pages
      *
-     * @param string $email Email address
+     * @param int $total_pages Total number of pages
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setTotalPages($total_pages)
     {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_list
-     *
-     * @return bool
-     */
-    public function getIsList()
-    {
-        return $this->container['is_list'];
-    }
-
-    /**
-     * Sets is_list
-     *
-     * @param bool $is_list true if activity is related to list
-     *
-     * @return $this
-     */
-    public function setIsList($is_list)
-    {
-        $this->container['is_list'] = $is_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_segment
-     *
-     * @return bool
-     */
-    public function getIsSegment()
-    {
-        return $this->container['is_segment'];
-    }
-
-    /**
-     * Sets is_segment
-     *
-     * @param bool $is_segment true if activity is related to segment
-     *
-     * @return $this
-     */
-    public function setIsSegment($is_segment)
-    {
-        $this->container['is_segment'] = $is_segment;
+        $this->container['total_pages'] = $total_pages;
 
         return $this;
     }

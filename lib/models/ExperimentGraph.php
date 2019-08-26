@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailDashboardActivity
+ * ExperimentGraph
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailDashboardActivity Class Doc Comment
+ * ExperimentGraph Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailDashboardActivity implements ModelInterface, ArrayAccess
+class ExperimentGraph implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailDashboardActivity';
+    protected static $swaggerModelName = 'ExperimentGraph';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,13 +56,8 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'activity_dts' => 'string',
-        'destination_name' => 'string',
-        'destination_uuid' => 'string',
-        'email' => 'string',
-        'is_list' => 'bool',
-        'is_segment' => 'bool'
+        'labels' => 'string[]',
+        'values' => '\ultracart\v2\models\BigDecimal_[]'
     ];
 
     /**
@@ -71,13 +66,8 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'activity_dts' => 'dateTime',
-        'destination_name' => null,
-        'destination_uuid' => null,
-        'email' => null,
-        'is_list' => null,
-        'is_segment' => null
+        'labels' => null,
+        'values' => null
     ];
 
     /**
@@ -107,13 +97,8 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'activity_dts' => 'activity_dts',
-        'destination_name' => 'destination_name',
-        'destination_uuid' => 'destination_uuid',
-        'email' => 'email',
-        'is_list' => 'is_list',
-        'is_segment' => 'is_segment'
+        'labels' => 'labels',
+        'values' => 'values'
     ];
 
     /**
@@ -122,13 +107,8 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'activity_dts' => 'setActivityDts',
-        'destination_name' => 'setDestinationName',
-        'destination_uuid' => 'setDestinationUuid',
-        'email' => 'setEmail',
-        'is_list' => 'setIsList',
-        'is_segment' => 'setIsSegment'
+        'labels' => 'setLabels',
+        'values' => 'setValues'
     ];
 
     /**
@@ -137,13 +117,8 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'activity_dts' => 'getActivityDts',
-        'destination_name' => 'getDestinationName',
-        'destination_uuid' => 'getDestinationUuid',
-        'email' => 'getEmail',
-        'is_list' => 'getIsList',
-        'is_segment' => 'getIsSegment'
+        'labels' => 'getLabels',
+        'values' => 'getValues'
     ];
 
     /**
@@ -206,13 +181,8 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['activity_dts'] = isset($data['activity_dts']) ? $data['activity_dts'] : null;
-        $this->container['destination_name'] = isset($data['destination_name']) ? $data['destination_name'] : null;
-        $this->container['destination_uuid'] = isset($data['destination_uuid']) ? $data['destination_uuid'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['is_list'] = isset($data['is_list']) ? $data['is_list'] : null;
-        $this->container['is_segment'] = isset($data['is_segment']) ? $data['is_segment'] : null;
+        $this->container['labels'] = isset($data['labels']) ? $data['labels'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -241,169 +211,49 @@ class EmailDashboardActivity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets labels
      *
-     * @return string
+     * @return string[]
      */
-    public function getAction()
+    public function getLabels()
     {
-        return $this->container['action'];
+        return $this->container['labels'];
     }
 
     /**
-     * Sets action
+     * Sets labels
      *
-     * @param string $action Type of action such as add, remove, subscribe, unsubscribe
+     * @param string[] $labels Labels for the X axis of the graph
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setLabels($labels)
     {
-        $this->container['action'] = $action;
+        $this->container['labels'] = $labels;
 
         return $this;
     }
 
     /**
-     * Gets activity_dts
+     * Gets values
      *
-     * @return string
+     * @return \ultracart\v2\models\BigDecimal_[]
      */
-    public function getActivityDts()
+    public function getValues()
     {
-        return $this->container['activity_dts'];
+        return $this->container['values'];
     }
 
     /**
-     * Sets activity_dts
+     * Sets values
      *
-     * @param string $activity_dts Date/time of the activity
+     * @param \ultracart\v2\models\BigDecimal_[] $values Values for the graph
      *
      * @return $this
      */
-    public function setActivityDts($activity_dts)
+    public function setValues($values)
     {
-        $this->container['activity_dts'] = $activity_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_name
-     *
-     * @return string
-     */
-    public function getDestinationName()
-    {
-        return $this->container['destination_name'];
-    }
-
-    /**
-     * Sets destination_name
-     *
-     * @param string $destination_name List or segment name
-     *
-     * @return $this
-     */
-    public function setDestinationName($destination_name)
-    {
-        $this->container['destination_name'] = $destination_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_uuid
-     *
-     * @return string
-     */
-    public function getDestinationUuid()
-    {
-        return $this->container['destination_uuid'];
-    }
-
-    /**
-     * Sets destination_uuid
-     *
-     * @param string $destination_uuid List or segment uuid
-     *
-     * @return $this
-     */
-    public function setDestinationUuid($destination_uuid)
-    {
-        $this->container['destination_uuid'] = $destination_uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email Email address
-     *
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_list
-     *
-     * @return bool
-     */
-    public function getIsList()
-    {
-        return $this->container['is_list'];
-    }
-
-    /**
-     * Sets is_list
-     *
-     * @param bool $is_list true if activity is related to list
-     *
-     * @return $this
-     */
-    public function setIsList($is_list)
-    {
-        $this->container['is_list'] = $is_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_segment
-     *
-     * @return bool
-     */
-    public function getIsSegment()
-    {
-        return $this->container['is_segment'];
-    }
-
-    /**
-     * Sets is_segment
-     *
-     * @param bool $is_segment true if activity is related to segment
-     *
-     * @return $this
-     */
-    public function setIsSegment($is_segment)
-    {
-        $this->container['is_segment'] = $is_segment;
+        $this->container['values'] = $values;
 
         return $this;
     }

@@ -191,7 +191,11 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**archiveEmailSegment**](docs/Api/StorefrontApi.md#archiveemailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
 *StorefrontApi* | [**cloneEmailCampaign**](docs/Api/StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/Api/StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
+*StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront//email/sending_domains/{domain}/create | Create email campaign
 *StorefrontApi* | [**deleteEmailEmail**](docs/Api/StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
+*StorefrontApi* | [**deleteEmailListCustomer**](docs/Api/StorefrontApi.md#deleteemaillistcustomer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
+*StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront//email/sending_domains/{domain} | delete email campaign
+*StorefrontApi* | [**deleteExperiment**](docs/Api/StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
 *StorefrontApi* | [**getEmailBaseTemplates**](docs/Api/StorefrontApi.md#getemailbasetemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
 *StorefrontApi* | [**getEmailCampaign**](docs/Api/StorefrontApi.md#getemailcampaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
 *StorefrontApi* | [**getEmailCampaigns**](docs/Api/StorefrontApi.md#getemailcampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
@@ -207,17 +211,25 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailFlow**](docs/Api/StorefrontApi.md#getemailflow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
 *StorefrontApi* | [**getEmailFlows**](docs/Api/StorefrontApi.md#getemailflows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
 *StorefrontApi* | [**getEmailList**](docs/Api/StorefrontApi.md#getemaillist) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
+*StorefrontApi* | [**getEmailListCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemaillistcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customers
+*StorefrontApi* | [**getEmailListCustomers**](docs/Api/StorefrontApi.md#getemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
 *StorefrontApi* | [**getEmailLists**](docs/Api/StorefrontApi.md#getemaillists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
 *StorefrontApi* | [**getEmailSegment**](docs/Api/StorefrontApi.md#getemailsegment) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Get email segment
+*StorefrontApi* | [**getEmailSegmentCustomers**](docs/Api/StorefrontApi.md#getemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
 *StorefrontApi* | [**getEmailSegments**](docs/Api/StorefrontApi.md#getemailsegments) | **GET** /storefront/{storefront_oid}/email/segments | Get email segments
+*StorefrontApi* | [**getEmailSendingDomain**](docs/Api/StorefrontApi.md#getemailsendingdomain) | **GET** /storefront/email/sending_domain/{domain} | Get email sending domain
+*StorefrontApi* | [**getEmailSendingDomains**](docs/Api/StorefrontApi.md#getemailsendingdomains) | **GET** /storefront/email/sending_domains | Get email sending domains
 *StorefrontApi* | [**getEmailTemplate**](docs/Api/StorefrontApi.md#getemailtemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
+*StorefrontApi* | [**getExperiments**](docs/Api/StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
 *StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
 *StorefrontApi* | [**insertEmailCommseq**](docs/Api/StorefrontApi.md#insertemailcommseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
 *StorefrontApi* | [**insertEmailEmail**](docs/Api/StorefrontApi.md#insertemailemail) | **POST** /storefront/{storefront_oid}/email/emails | Insert email email
 *StorefrontApi* | [**insertEmailFlow**](docs/Api/StorefrontApi.md#insertemailflow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
 *StorefrontApi* | [**insertEmailList**](docs/Api/StorefrontApi.md#insertemaillist) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
 *StorefrontApi* | [**insertEmailSegment**](docs/Api/StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
+*StorefrontApi* | [**searchEmailListCustomers**](docs/Api/StorefrontApi.md#searchemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
+*StorefrontApi* | [**searchEmailSegmentCustomers**](docs/Api/StorefrontApi.md#searchemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
 *StorefrontApi* | [**startEmailCampaign**](docs/Api/StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/Api/StorefrontApi.md#subscribetoemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 *StorefrontApi* | [**updateEmailCampaign**](docs/Api/StorefrontApi.md#updateemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
@@ -226,6 +238,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailFlow**](docs/Api/StorefrontApi.md#updateemailflow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
 *StorefrontApi* | [**updateEmailList**](docs/Api/StorefrontApi.md#updateemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
 *StorefrontApi* | [**updateEmailSegment**](docs/Api/StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
+*StorefrontApi* | [**updateExperiment**](docs/Api/StorefrontApi.md#updateexperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
+*StorefrontApi* | [**verifyEmailSendingDomain**](docs/Api/StorefrontApi.md#verifyemailsendingdomain) | **POST** /storefront//email/sending_domains/{domain}/verify | Verify email campaign
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/Api/TaxApi.md#deletetaxproviderselfcountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/Api/TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
@@ -252,6 +266,7 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**updateTaxProviderTaxJar**](docs/Api/TaxApi.md#updatetaxprovidertaxjar) | **POST** /tax/providers/taxjar | Update the TaxJar tax provider
 *TaxApi* | [**updateTaxProviderUltraCart**](docs/Api/TaxApi.md#updatetaxproviderultracart) | **POST** /tax/providers/ultracart | Update the UltraCart tax provider
 *WebhookApi* | [**deleteWebhook**](docs/Api/WebhookApi.md#deletewebhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
+*WebhookApi* | [**deleteWebhookByUrl**](docs/Api/WebhookApi.md#deletewebhookbyurl) | **DELETE** /webhook/webhooks | Delete a webhook by URL
 *WebhookApi* | [**getWebhookLog**](docs/Api/WebhookApi.md#getwebhooklog) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
 *WebhookApi* | [**getWebhookLogSummaries**](docs/Api/WebhookApi.md#getwebhooklogsummaries) | **GET** /webhook/webhooks/{webhookOid}/logs | Retrieve the log summaries
 *WebhookApi* | [**getWebhooks**](docs/Api/WebhookApi.md#getwebhooks) | **GET** /webhook/webhooks | Retrieve webhooks
@@ -286,6 +301,7 @@ Class | Method | HTTP request | Description
  - [AutoOrdersResponse](docs/Model/AutoOrdersResponse.md)
  - [AvalaraConfig](docs/Model/AvalaraConfig.md)
  - [BaseResponse](docs/Model/BaseResponse.md)
+ - [BigDecimal_](docs/Model/BigDecimal_.md)
  - [Cart](docs/Model/Cart.md)
  - [CartAffiliate](docs/Model/CartAffiliate.md)
  - [CartAffirmCheckoutResponse](docs/Model/CartAffirmCheckoutResponse.md)
@@ -439,28 +455,41 @@ Class | Method | HTTP request | Description
  - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
  - [EmailCommseqsResponse](docs/Model/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/Model/EmailCustomer.md)
+ - [EmailCustomerEditorUrlResponse](docs/Model/EmailCustomerEditorUrlResponse.md)
  - [EmailDashboardActivity](docs/Model/EmailDashboardActivity.md)
  - [EmailDashboardActivityResponse](docs/Model/EmailDashboardActivityResponse.md)
  - [EmailDashboardStatsResponse](docs/Model/EmailDashboardStatsResponse.md)
+ - [EmailDomain](docs/Model/EmailDomain.md)
  - [EmailFlow](docs/Model/EmailFlow.md)
  - [EmailFlowResponse](docs/Model/EmailFlowResponse.md)
  - [EmailFlowsResponse](docs/Model/EmailFlowsResponse.md)
  - [EmailList](docs/Model/EmailList.md)
  - [EmailListArchiveResponse](docs/Model/EmailListArchiveResponse.md)
+ - [EmailListCustomer](docs/Model/EmailListCustomer.md)
+ - [EmailListCustomersResponse](docs/Model/EmailListCustomersResponse.md)
  - [EmailListResponse](docs/Model/EmailListResponse.md)
  - [EmailListSegmentMembership](docs/Model/EmailListSegmentMembership.md)
  - [EmailListSubscribeResponse](docs/Model/EmailListSubscribeResponse.md)
  - [EmailListsResponse](docs/Model/EmailListsResponse.md)
  - [EmailSegment](docs/Model/EmailSegment.md)
  - [EmailSegmentArchiveResponse](docs/Model/EmailSegmentArchiveResponse.md)
+ - [EmailSegmentCustomer](docs/Model/EmailSegmentCustomer.md)
+ - [EmailSegmentCustomersResponse](docs/Model/EmailSegmentCustomersResponse.md)
  - [EmailSegmentResponse](docs/Model/EmailSegmentResponse.md)
  - [EmailSegmentsResponse](docs/Model/EmailSegmentsResponse.md)
+ - [EmailSendingDomainResponse](docs/Model/EmailSendingDomainResponse.md)
+ - [EmailSendingDomainsResponse](docs/Model/EmailSendingDomainsResponse.md)
  - [EmailStat](docs/Model/EmailStat.md)
  - [EmailStatSummaryResponse](docs/Model/EmailStatSummaryResponse.md)
  - [EmailTemplate](docs/Model/EmailTemplate.md)
  - [EmailTemplatesResponse](docs/Model/EmailTemplatesResponse.md)
  - [Error](docs/Model/Error.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
+ - [Experiment](docs/Model/Experiment.md)
+ - [ExperimentGraph](docs/Model/ExperimentGraph.md)
+ - [ExperimentResponse](docs/Model/ExperimentResponse.md)
+ - [ExperimentVariation](docs/Model/ExperimentVariation.md)
+ - [ExperimentsResponse](docs/Model/ExperimentsResponse.md)
  - [FulfillmentInventory](docs/Model/FulfillmentInventory.md)
  - [FulfillmentShipment](docs/Model/FulfillmentShipment.md)
  - [HTTPHeader](docs/Model/HTTPHeader.md)

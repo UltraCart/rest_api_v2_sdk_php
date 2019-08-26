@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **memberships** | [**\ultracart\v2\models\EmailListSegmentMembership[]**](EmailListSegmentMembership.md) | List and segment memberships | [optional] 
 **merchant_id** | **string** | Merchant ID | [optional] 
 **name** | **string** | Name of email campaign | [optional] 
+**scheduled_dts** | **string** | Scheduled date | [optional] 
 **status** | **string** | Status of the campaign of draft, archived, and sent | [optional] 
 **status_dts** | **string** | Timestamp when the last status change happened | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
