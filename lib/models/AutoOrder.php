@@ -63,6 +63,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'cancel_upgrade' => 'bool',
         'canceled_by_user' => 'string',
         'canceled_dts' => 'string',
+        'completed' => 'bool',
         'credit_card_attempt' => 'int',
         'disabled_dts' => 'string',
         'enabled' => 'bool',
@@ -89,6 +90,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'cancel_upgrade' => null,
         'canceled_by_user' => null,
         'canceled_dts' => 'dateTime',
+        'completed' => null,
         'credit_card_attempt' => 'int32',
         'disabled_dts' => 'dateTime',
         'enabled' => null,
@@ -136,6 +138,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'cancel_upgrade' => 'cancel_upgrade',
         'canceled_by_user' => 'canceled_by_user',
         'canceled_dts' => 'canceled_dts',
+        'completed' => 'completed',
         'credit_card_attempt' => 'credit_card_attempt',
         'disabled_dts' => 'disabled_dts',
         'enabled' => 'enabled',
@@ -162,6 +165,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'cancel_upgrade' => 'setCancelUpgrade',
         'canceled_by_user' => 'setCanceledByUser',
         'canceled_dts' => 'setCanceledDts',
+        'completed' => 'setCompleted',
         'credit_card_attempt' => 'setCreditCardAttempt',
         'disabled_dts' => 'setDisabledDts',
         'enabled' => 'setEnabled',
@@ -188,6 +192,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'cancel_upgrade' => 'getCancelUpgrade',
         'canceled_by_user' => 'getCanceledByUser',
         'canceled_dts' => 'getCanceledDts',
+        'completed' => 'getCompleted',
         'credit_card_attempt' => 'getCreditCardAttempt',
         'disabled_dts' => 'getDisabledDts',
         'enabled' => 'getEnabled',
@@ -268,6 +273,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         $this->container['cancel_upgrade'] = isset($data['cancel_upgrade']) ? $data['cancel_upgrade'] : null;
         $this->container['canceled_by_user'] = isset($data['canceled_by_user']) ? $data['canceled_by_user'] : null;
         $this->container['canceled_dts'] = isset($data['canceled_dts']) ? $data['canceled_dts'] : null;
+        $this->container['completed'] = isset($data['completed']) ? $data['completed'] : null;
         $this->container['credit_card_attempt'] = isset($data['credit_card_attempt']) ? $data['credit_card_attempt'] : null;
         $this->container['disabled_dts'] = isset($data['disabled_dts']) ? $data['disabled_dts'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
@@ -470,6 +476,30 @@ class AutoOrder implements ModelInterface, ArrayAccess
     public function setCanceledDts($canceled_dts)
     {
         $this->container['canceled_dts'] = $canceled_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets completed
+     *
+     * @return bool
+     */
+    public function getCompleted()
+    {
+        return $this->container['completed'];
+    }
+
+    /**
+     * Sets completed
+     *
+     * @param bool $completed True if the auto order ran successfully to completion
+     *
+     * @return $this
+     */
+    public function setCompleted($completed)
+    {
+        $this->container['completed'] = $completed;
 
         return $this;
     }

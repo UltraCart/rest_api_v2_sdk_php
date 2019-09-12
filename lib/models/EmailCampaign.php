@@ -56,6 +56,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'click_rate_formatted' => 'string',
         'created_dts' => 'string',
         'deleted' => 'bool',
         'email_campaign_uuid' => 'string',
@@ -63,6 +64,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => '\ultracart\v2\models\EmailListSegmentMembership[]',
         'merchant_id' => 'string',
         'name' => 'string',
+        'open_rate_formatted' => 'string',
+        'revenue_formatted' => 'string',
         'scheduled_dts' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
@@ -75,6 +78,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'click_rate_formatted' => null,
         'created_dts' => 'dateTime',
         'deleted' => null,
         'email_campaign_uuid' => null,
@@ -82,6 +86,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => null,
         'merchant_id' => null,
         'name' => null,
+        'open_rate_formatted' => null,
+        'revenue_formatted' => null,
         'scheduled_dts' => 'dateTime',
         'status' => null,
         'status_dts' => 'dateTime',
@@ -115,6 +121,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'click_rate_formatted' => 'click_rate_formatted',
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'email_campaign_uuid' => 'email_campaign_uuid',
@@ -122,6 +129,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => 'memberships',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
+        'open_rate_formatted' => 'open_rate_formatted',
+        'revenue_formatted' => 'revenue_formatted',
         'scheduled_dts' => 'scheduled_dts',
         'status' => 'status',
         'status_dts' => 'status_dts',
@@ -134,6 +143,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'click_rate_formatted' => 'setClickRateFormatted',
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'email_campaign_uuid' => 'setEmailCampaignUuid',
@@ -141,6 +151,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => 'setMemberships',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
+        'open_rate_formatted' => 'setOpenRateFormatted',
+        'revenue_formatted' => 'setRevenueFormatted',
         'scheduled_dts' => 'setScheduledDts',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
@@ -153,6 +165,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'click_rate_formatted' => 'getClickRateFormatted',
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'email_campaign_uuid' => 'getEmailCampaignUuid',
@@ -160,6 +173,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'memberships' => 'getMemberships',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
+        'open_rate_formatted' => 'getOpenRateFormatted',
+        'revenue_formatted' => 'getRevenueFormatted',
         'scheduled_dts' => 'getScheduledDts',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
@@ -226,6 +241,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['click_rate_formatted'] = isset($data['click_rate_formatted']) ? $data['click_rate_formatted'] : null;
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email_campaign_uuid'] = isset($data['email_campaign_uuid']) ? $data['email_campaign_uuid'] : null;
@@ -233,6 +249,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['open_rate_formatted'] = isset($data['open_rate_formatted']) ? $data['open_rate_formatted'] : null;
+        $this->container['revenue_formatted'] = isset($data['revenue_formatted']) ? $data['revenue_formatted'] : null;
         $this->container['scheduled_dts'] = isset($data['scheduled_dts']) ? $data['scheduled_dts'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
@@ -270,6 +288,30 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets click_rate_formatted
+     *
+     * @return string
+     */
+    public function getClickRateFormatted()
+    {
+        return $this->container['click_rate_formatted'];
+    }
+
+    /**
+     * Sets click_rate_formatted
+     *
+     * @param string $click_rate_formatted Click rate of emails
+     *
+     * @return $this
+     */
+    public function setClickRateFormatted($click_rate_formatted)
+    {
+        $this->container['click_rate_formatted'] = $click_rate_formatted;
+
+        return $this;
+    }
 
     /**
      * Gets created_dts
@@ -439,6 +481,54 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_rate_formatted
+     *
+     * @return string
+     */
+    public function getOpenRateFormatted()
+    {
+        return $this->container['open_rate_formatted'];
+    }
+
+    /**
+     * Sets open_rate_formatted
+     *
+     * @param string $open_rate_formatted Open rate of emails
+     *
+     * @return $this
+     */
+    public function setOpenRateFormatted($open_rate_formatted)
+    {
+        $this->container['open_rate_formatted'] = $open_rate_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets revenue_formatted
+     *
+     * @return string
+     */
+    public function getRevenueFormatted()
+    {
+        return $this->container['revenue_formatted'];
+    }
+
+    /**
+     * Sets revenue_formatted
+     *
+     * @param string $revenue_formatted Revenue associated with campaign
+     *
+     * @return $this
+     */
+    public function setRevenueFormatted($revenue_formatted)
+    {
+        $this->container['revenue_formatted'] = $revenue_formatted;
 
         return $this;
     }

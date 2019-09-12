@@ -647,7 +647,7 @@ class CouponApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json; charset=UTF-8']
             );
         }
 
@@ -967,7 +967,7 @@ class CouponApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json; charset=UTF-8']
             );
         }
 

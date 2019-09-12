@@ -154,6 +154,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersByQuery**](docs/Api/CustomerApi.md#getcustomersbyquery) | **GET** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEditorValues**](docs/Api/CustomerApi.md#geteditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
+*CustomerApi* | [**getEmailLists**](docs/Api/CustomerApi.md#getemaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *FulfillmentApi* | [**acknowledgeOrders**](docs/Api/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
@@ -191,10 +192,10 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**archiveEmailSegment**](docs/Api/StorefrontApi.md#archiveemailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
 *StorefrontApi* | [**cloneEmailCampaign**](docs/Api/StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/Api/StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
-*StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront//email/sending_domains/{domain}/create | Create email campaign
+*StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 *StorefrontApi* | [**deleteEmailEmail**](docs/Api/StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
 *StorefrontApi* | [**deleteEmailListCustomer**](docs/Api/StorefrontApi.md#deleteemaillistcustomer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
-*StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront//email/sending_domains/{domain} | delete email campaign
+*StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/Api/StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
 *StorefrontApi* | [**getEmailBaseTemplates**](docs/Api/StorefrontApi.md#getemailbasetemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
 *StorefrontApi* | [**getEmailCampaign**](docs/Api/StorefrontApi.md#getemailcampaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
@@ -208,6 +209,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailDashboardStats**](docs/Api/StorefrontApi.md#getemaildashboardstats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
 *StorefrontApi* | [**getEmailEmail**](docs/Api/StorefrontApi.md#getemailemail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
 *StorefrontApi* | [**getEmailEmails**](docs/Api/StorefrontApi.md#getemailemails) | **GET** /storefront/{storefront_oid}/email/emails | Get email emails
+*StorefrontApi* | [**getEmailEmailsMultiple**](docs/Api/StorefrontApi.md#getemailemailsmultiple) | **POST** /storefront/{storefront_oid}/email/emails/multiple | Get email emails multiple
 *StorefrontApi* | [**getEmailFlow**](docs/Api/StorefrontApi.md#getemailflow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
 *StorefrontApi* | [**getEmailFlows**](docs/Api/StorefrontApi.md#getemailflows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
 *StorefrontApi* | [**getEmailList**](docs/Api/StorefrontApi.md#getemaillist) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
@@ -222,7 +224,9 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailSendingDomains**](docs/Api/StorefrontApi.md#getemailsendingdomains) | **GET** /storefront/email/sending_domains | Get email sending domains
 *StorefrontApi* | [**getEmailTemplate**](docs/Api/StorefrontApi.md#getemailtemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
+*StorefrontApi* | [**getEmailThirdPartyProviders**](docs/Api/StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 *StorefrontApi* | [**getExperiments**](docs/Api/StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+*StorefrontApi* | [**importEmailThirdPartyProviderList**](docs/Api/StorefrontApi.md#importemailthirdpartyproviderlist) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 *StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
 *StorefrontApi* | [**insertEmailCommseq**](docs/Api/StorefrontApi.md#insertemailcommseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
 *StorefrontApi* | [**insertEmailEmail**](docs/Api/StorefrontApi.md#insertemailemail) | **POST** /storefront/{storefront_oid}/email/emails | Insert email email
@@ -240,7 +244,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailList**](docs/Api/StorefrontApi.md#updateemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
 *StorefrontApi* | [**updateEmailSegment**](docs/Api/StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
 *StorefrontApi* | [**updateExperiment**](docs/Api/StorefrontApi.md#updateexperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
-*StorefrontApi* | [**verifyEmailSendingDomain**](docs/Api/StorefrontApi.md#verifyemailsendingdomain) | **POST** /storefront//email/sending_domains/{domain}/verify | Verify email campaign
+*StorefrontApi* | [**verifyEmailSendingDomain**](docs/Api/StorefrontApi.md#verifyemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/verify | Verify email campaign
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/Api/TaxApi.md#deletetaxproviderselfcountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/Api/TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
@@ -285,6 +289,7 @@ Class | Method | HTTP request | Description
  - [AccountsReceivableRetryStatMetrics](docs/Model/AccountsReceivableRetryStatMetrics.md)
  - [AccountsReceivableRetryStatRevenue](docs/Model/AccountsReceivableRetryStatRevenue.md)
  - [AccountsReceivableRetryStatsResponse](docs/Model/AccountsReceivableRetryStatsResponse.md)
+ - [Activity](docs/Model/Activity.md)
  - [AffiliateClick](docs/Model/AffiliateClick.md)
  - [AffiliateClickQuery](docs/Model/AffiliateClickQuery.md)
  - [AffiliateClicksResponse](docs/Model/AffiliateClicksResponse.md)
@@ -422,6 +427,7 @@ Class | Method | HTTP request | Description
  - [CouponsResponse](docs/Model/CouponsResponse.md)
  - [Currency](docs/Model/Currency.md)
  - [Customer](docs/Model/Customer.md)
+ - [CustomerActivity](docs/Model/CustomerActivity.md)
  - [CustomerAffiliate](docs/Model/CustomerAffiliate.md)
  - [CustomerAttachment](docs/Model/CustomerAttachment.md)
  - [CustomerBilling](docs/Model/CustomerBilling.md)
@@ -450,6 +456,7 @@ Class | Method | HTTP request | Description
  - [EmailCommseq](docs/Model/EmailCommseq.md)
  - [EmailCommseqEmail](docs/Model/EmailCommseqEmail.md)
  - [EmailCommseqEmailResponse](docs/Model/EmailCommseqEmailResponse.md)
+ - [EmailCommseqEmailsRequest](docs/Model/EmailCommseqEmailsRequest.md)
  - [EmailCommseqEmailsResponse](docs/Model/EmailCommseqEmailsResponse.md)
  - [EmailCommseqResponse](docs/Model/EmailCommseqResponse.md)
  - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
@@ -483,6 +490,10 @@ Class | Method | HTTP request | Description
  - [EmailStatSummaryResponse](docs/Model/EmailStatSummaryResponse.md)
  - [EmailTemplate](docs/Model/EmailTemplate.md)
  - [EmailTemplatesResponse](docs/Model/EmailTemplatesResponse.md)
+ - [EmailThirdPartyList](docs/Model/EmailThirdPartyList.md)
+ - [EmailThirdPartyListImportRequest](docs/Model/EmailThirdPartyListImportRequest.md)
+ - [EmailThirdPartyProvider](docs/Model/EmailThirdPartyProvider.md)
+ - [EmailThirdPartyProvidersResponse](docs/Model/EmailThirdPartyProvidersResponse.md)
  - [Error](docs/Model/Error.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Experiment](docs/Model/Experiment.md)
@@ -562,6 +573,8 @@ Class | Method | HTTP request | Description
  - [ItemWishlistMember](docs/Model/ItemWishlistMember.md)
  - [ItemsRequest](docs/Model/ItemsRequest.md)
  - [ItemsResponse](docs/Model/ItemsResponse.md)
+ - [ListSegmentMembership](docs/Model/ListSegmentMembership.md)
+ - [Metric](docs/Model/Metric.md)
  - [OauthRevokeSuccessResponse](docs/Model/OauthRevokeSuccessResponse.md)
  - [OauthTokenResponse](docs/Model/OauthTokenResponse.md)
  - [Order](docs/Model/Order.md)

@@ -56,6 +56,7 @@ class Customer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'activity' => '\ultracart\v2\models\CustomerActivity',
         'affiliate_oid' => 'int',
         'allow_3rd_party_billing' => 'bool',
         'allow_cod' => 'bool',
@@ -118,6 +119,7 @@ class Customer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'activity' => null,
         'affiliate_oid' => 'int32',
         'allow_3rd_party_billing' => null,
         'allow_cod' => null,
@@ -201,6 +203,7 @@ class Customer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'activity' => 'activity',
         'affiliate_oid' => 'affiliate_oid',
         'allow_3rd_party_billing' => 'allow_3rd_party_billing',
         'allow_cod' => 'allow_cod',
@@ -263,6 +266,7 @@ class Customer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'activity' => 'setActivity',
         'affiliate_oid' => 'setAffiliateOid',
         'allow_3rd_party_billing' => 'setAllow3rdPartyBilling',
         'allow_cod' => 'setAllowCod',
@@ -325,6 +329,7 @@ class Customer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'activity' => 'getActivity',
         'affiliate_oid' => 'getAffiliateOid',
         'allow_3rd_party_billing' => 'getAllow3rdPartyBilling',
         'allow_cod' => 'getAllowCod',
@@ -441,6 +446,7 @@ class Customer implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['activity'] = isset($data['activity']) ? $data['activity'] : null;
         $this->container['affiliate_oid'] = isset($data['affiliate_oid']) ? $data['affiliate_oid'] : null;
         $this->container['allow_3rd_party_billing'] = isset($data['allow_3rd_party_billing']) ? $data['allow_3rd_party_billing'] : null;
         $this->container['allow_cod'] = isset($data['allow_cod']) ? $data['allow_cod'] : null;
@@ -591,6 +597,30 @@ class Customer implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets activity
+     *
+     * @return \ultracart\v2\models\CustomerActivity
+     */
+    public function getActivity()
+    {
+        return $this->container['activity'];
+    }
+
+    /**
+     * Sets activity
+     *
+     * @param \ultracart\v2\models\CustomerActivity $activity activity
+     *
+     * @return $this
+     */
+    public function setActivity($activity)
+    {
+        $this->container['activity'] = $activity;
+
+        return $this;
+    }
 
     /**
      * Gets affiliate_oid

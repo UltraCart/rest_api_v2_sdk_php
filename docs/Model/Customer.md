@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**activity** | [**\ultracart\v2\models\CustomerActivity**](CustomerActivity.md) |  | [optional] 
 **affiliate_oid** | **int** | Affiliate oid | [optional] 
 **allow_3rd_party_billing** | **bool** | Allow 3rd party billing | [optional] 
 **allow_cod** | **bool** | Allow COD | [optional] 
