@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailThirdPartyProvider
+ * LookupResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailThirdPartyProvider Class Doc Comment
+ * LookupResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
+class LookupResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailThirdPartyProvider';
+    protected static $swaggerModelName = 'LookupResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,10 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'connect_url' => 'string',
-        'list_count' => 'int',
-        'lists' => '\ultracart\v2\models\EmailThirdPartyList[]',
-        'logo_url' => 'string',
-        'name' => 'string'
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'values' => '\ultracart\v2\models\KeyValue[]'
     ];
 
     /**
@@ -69,11 +68,10 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'connect_url' => null,
-        'list_count' => 'int32',
-        'lists' => null,
-        'logo_url' => null,
-        'name' => null
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'values' => null
     ];
 
     /**
@@ -103,11 +101,10 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'connect_url' => 'connect_url',
-        'list_count' => 'list_count',
-        'lists' => 'lists',
-        'logo_url' => 'logo_url',
-        'name' => 'name'
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'values' => 'values'
     ];
 
     /**
@@ -116,11 +113,10 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'connect_url' => 'setConnectUrl',
-        'list_count' => 'setListCount',
-        'lists' => 'setLists',
-        'logo_url' => 'setLogoUrl',
-        'name' => 'setName'
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'values' => 'setValues'
     ];
 
     /**
@@ -129,11 +125,10 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'connect_url' => 'getConnectUrl',
-        'list_count' => 'getListCount',
-        'lists' => 'getLists',
-        'logo_url' => 'getLogoUrl',
-        'name' => 'getName'
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'values' => 'getValues'
     ];
 
     /**
@@ -196,11 +191,10 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['connect_url'] = isset($data['connect_url']) ? $data['connect_url'] : null;
-        $this->container['list_count'] = isset($data['list_count']) ? $data['list_count'] : null;
-        $this->container['lists'] = isset($data['lists']) ? $data['lists'] : null;
-        $this->container['logo_url'] = isset($data['logo_url']) ? $data['logo_url'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['values'] = isset($data['values']) ? $data['values'] : null;
     }
 
     /**
@@ -229,121 +223,97 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets connect_url
+     * Gets error
      *
-     * @return string
+     * @return \ultracart\v2\models\Error
      */
-    public function getConnectUrl()
+    public function getError()
     {
-        return $this->container['connect_url'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets connect_url
+     * Sets error
      *
-     * @param string $connect_url URL to the settings screen to connect.  Null if the provider is already connected.
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setConnectUrl($connect_url)
+    public function setError($error)
     {
-        $this->container['connect_url'] = $connect_url;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets list_count
+     * Gets metadata
      *
-     * @return int
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getListCount()
+    public function getMetadata()
     {
-        return $this->container['list_count'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets list_count
+     * Sets metadata
      *
-     * @param int $list_count list_count
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setListCount($list_count)
+    public function setMetadata($metadata)
     {
-        $this->container['list_count'] = $list_count;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets lists
+     * Gets success
      *
-     * @return \ultracart\v2\models\EmailThirdPartyList[]
+     * @return bool
      */
-    public function getLists()
+    public function getSuccess()
     {
-        return $this->container['lists'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets lists
+     * Sets success
      *
-     * @param \ultracart\v2\models\EmailThirdPartyList[] $lists lists
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setLists($lists)
+    public function setSuccess($success)
     {
-        $this->container['lists'] = $lists;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets logo_url
+     * Gets values
      *
-     * @return string
+     * @return \ultracart\v2\models\KeyValue[]
      */
-    public function getLogoUrl()
+    public function getValues()
     {
-        return $this->container['logo_url'];
+        return $this->container['values'];
     }
 
     /**
-     * Sets logo_url
+     * Sets values
      *
-     * @param string $logo_url logo_url
+     * @param \ultracart\v2\models\KeyValue[] $values values
      *
      * @return $this
      */
-    public function setLogoUrl($logo_url)
+    public function setValues($values)
     {
-        $this->container['logo_url'] = $logo_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['values'] = $values;
 
         return $this;
     }

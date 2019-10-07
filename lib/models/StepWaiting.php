@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailThirdPartyProvider
+ * StepWaiting
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailThirdPartyProvider Class Doc Comment
+ * StepWaiting Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
+class StepWaiting implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailThirdPartyProvider';
+    protected static $swaggerModelName = 'StepWaiting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,8 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'connect_url' => 'string',
-        'list_count' => 'int',
-        'lists' => '\ultracart\v2\models\EmailThirdPartyList[]',
-        'logo_url' => 'string',
-        'name' => 'string'
+        'commseq_step_uuid' => 'string',
+        'number_waiting' => 'int'
     ];
 
     /**
@@ -69,11 +66,8 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'connect_url' => null,
-        'list_count' => 'int32',
-        'lists' => null,
-        'logo_url' => null,
-        'name' => null
+        'commseq_step_uuid' => null,
+        'number_waiting' => 'int32'
     ];
 
     /**
@@ -103,11 +97,8 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'connect_url' => 'connect_url',
-        'list_count' => 'list_count',
-        'lists' => 'lists',
-        'logo_url' => 'logo_url',
-        'name' => 'name'
+        'commseq_step_uuid' => 'commseq_step_uuid',
+        'number_waiting' => 'number_waiting'
     ];
 
     /**
@@ -116,11 +107,8 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'connect_url' => 'setConnectUrl',
-        'list_count' => 'setListCount',
-        'lists' => 'setLists',
-        'logo_url' => 'setLogoUrl',
-        'name' => 'setName'
+        'commseq_step_uuid' => 'setCommseqStepUuid',
+        'number_waiting' => 'setNumberWaiting'
     ];
 
     /**
@@ -129,11 +117,8 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'connect_url' => 'getConnectUrl',
-        'list_count' => 'getListCount',
-        'lists' => 'getLists',
-        'logo_url' => 'getLogoUrl',
-        'name' => 'getName'
+        'commseq_step_uuid' => 'getCommseqStepUuid',
+        'number_waiting' => 'getNumberWaiting'
     ];
 
     /**
@@ -196,11 +181,8 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['connect_url'] = isset($data['connect_url']) ? $data['connect_url'] : null;
-        $this->container['list_count'] = isset($data['list_count']) ? $data['list_count'] : null;
-        $this->container['lists'] = isset($data['lists']) ? $data['lists'] : null;
-        $this->container['logo_url'] = isset($data['logo_url']) ? $data['logo_url'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['commseq_step_uuid'] = isset($data['commseq_step_uuid']) ? $data['commseq_step_uuid'] : null;
+        $this->container['number_waiting'] = isset($data['number_waiting']) ? $data['number_waiting'] : null;
     }
 
     /**
@@ -229,121 +211,49 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets connect_url
+     * Gets commseq_step_uuid
      *
      * @return string
      */
-    public function getConnectUrl()
+    public function getCommseqStepUuid()
     {
-        return $this->container['connect_url'];
+        return $this->container['commseq_step_uuid'];
     }
 
     /**
-     * Sets connect_url
+     * Sets commseq_step_uuid
      *
-     * @param string $connect_url URL to the settings screen to connect.  Null if the provider is already connected.
+     * @param string $commseq_step_uuid commseq_step_uuid
      *
      * @return $this
      */
-    public function setConnectUrl($connect_url)
+    public function setCommseqStepUuid($commseq_step_uuid)
     {
-        $this->container['connect_url'] = $connect_url;
+        $this->container['commseq_step_uuid'] = $commseq_step_uuid;
 
         return $this;
     }
 
     /**
-     * Gets list_count
+     * Gets number_waiting
      *
      * @return int
      */
-    public function getListCount()
+    public function getNumberWaiting()
     {
-        return $this->container['list_count'];
+        return $this->container['number_waiting'];
     }
 
     /**
-     * Sets list_count
+     * Sets number_waiting
      *
-     * @param int $list_count list_count
+     * @param int $number_waiting number_waiting
      *
      * @return $this
      */
-    public function setListCount($list_count)
+    public function setNumberWaiting($number_waiting)
     {
-        $this->container['list_count'] = $list_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets lists
-     *
-     * @return \ultracart\v2\models\EmailThirdPartyList[]
-     */
-    public function getLists()
-    {
-        return $this->container['lists'];
-    }
-
-    /**
-     * Sets lists
-     *
-     * @param \ultracart\v2\models\EmailThirdPartyList[] $lists lists
-     *
-     * @return $this
-     */
-    public function setLists($lists)
-    {
-        $this->container['lists'] = $lists;
-
-        return $this;
-    }
-
-    /**
-     * Gets logo_url
-     *
-     * @return string
-     */
-    public function getLogoUrl()
-    {
-        return $this->container['logo_url'];
-    }
-
-    /**
-     * Sets logo_url
-     *
-     * @param string $logo_url logo_url
-     *
-     * @return $this
-     */
-    public function setLogoUrl($logo_url)
-    {
-        $this->container['logo_url'] = $logo_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['number_waiting'] = $number_waiting;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailThirdPartyProvider
+ * KeyValue
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailThirdPartyProvider Class Doc Comment
+ * KeyValue Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
+class KeyValue implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailThirdPartyProvider';
+    protected static $swaggerModelName = 'KeyValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'connect_url' => 'string',
-        'list_count' => 'int',
-        'lists' => '\ultracart\v2\models\EmailThirdPartyList[]',
-        'logo_url' => 'string',
-        'name' => 'string'
+        'description' => 'string',
+        'key' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -69,11 +67,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'connect_url' => null,
-        'list_count' => 'int32',
-        'lists' => null,
-        'logo_url' => null,
-        'name' => null
+        'description' => null,
+        'key' => null,
+        'value' => null
     ];
 
     /**
@@ -103,11 +99,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'connect_url' => 'connect_url',
-        'list_count' => 'list_count',
-        'lists' => 'lists',
-        'logo_url' => 'logo_url',
-        'name' => 'name'
+        'description' => 'description',
+        'key' => 'key',
+        'value' => 'value'
     ];
 
     /**
@@ -116,11 +110,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'connect_url' => 'setConnectUrl',
-        'list_count' => 'setListCount',
-        'lists' => 'setLists',
-        'logo_url' => 'setLogoUrl',
-        'name' => 'setName'
+        'description' => 'setDescription',
+        'key' => 'setKey',
+        'value' => 'setValue'
     ];
 
     /**
@@ -129,11 +121,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'connect_url' => 'getConnectUrl',
-        'list_count' => 'getListCount',
-        'lists' => 'getLists',
-        'logo_url' => 'getLogoUrl',
-        'name' => 'getName'
+        'description' => 'getDescription',
+        'key' => 'getKey',
+        'value' => 'getValue'
     ];
 
     /**
@@ -196,11 +186,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['connect_url'] = isset($data['connect_url']) ? $data['connect_url'] : null;
-        $this->container['list_count'] = isset($data['list_count']) ? $data['list_count'] : null;
-        $this->container['lists'] = isset($data['lists']) ? $data['lists'] : null;
-        $this->container['logo_url'] = isset($data['logo_url']) ? $data['logo_url'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -229,121 +217,73 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets connect_url
+     * Gets description
      *
      * @return string
      */
-    public function getConnectUrl()
+    public function getDescription()
     {
-        return $this->container['connect_url'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets connect_url
+     * Sets description
      *
-     * @param string $connect_url URL to the settings screen to connect.  Null if the provider is already connected.
+     * @param string $description Optional description of the lookup value
      *
      * @return $this
      */
-    public function setConnectUrl($connect_url)
+    public function setDescription($description)
     {
-        $this->container['connect_url'] = $connect_url;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets list_count
-     *
-     * @return int
-     */
-    public function getListCount()
-    {
-        return $this->container['list_count'];
-    }
-
-    /**
-     * Sets list_count
-     *
-     * @param int $list_count list_count
-     *
-     * @return $this
-     */
-    public function setListCount($list_count)
-    {
-        $this->container['list_count'] = $list_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets lists
-     *
-     * @return \ultracart\v2\models\EmailThirdPartyList[]
-     */
-    public function getLists()
-    {
-        return $this->container['lists'];
-    }
-
-    /**
-     * Sets lists
-     *
-     * @param \ultracart\v2\models\EmailThirdPartyList[] $lists lists
-     *
-     * @return $this
-     */
-    public function setLists($lists)
-    {
-        $this->container['lists'] = $lists;
-
-        return $this;
-    }
-
-    /**
-     * Gets logo_url
+     * Gets key
      *
      * @return string
      */
-    public function getLogoUrl()
+    public function getKey()
     {
-        return $this->container['logo_url'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets logo_url
+     * Sets key
      *
-     * @param string $logo_url logo_url
+     * @param string $key The key or id of this lookup value
      *
      * @return $this
      */
-    public function setLogoUrl($logo_url)
+    public function setKey($key)
     {
-        $this->container['logo_url'] = $logo_url;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets value
      *
      * @return string
      */
-    public function getName()
+    public function getValue()
     {
-        return $this->container['name'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets name
+     * Sets value
      *
-     * @param string $name name
+     * @param string $value The value of this lookup value
      *
      * @return $this
      */
-    public function setName($name)
+    public function setValue($value)
     {
-        $this->container['name'] = $name;
+        $this->container['value'] = $value;
 
         return $this;
     }

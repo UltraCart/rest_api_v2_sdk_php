@@ -18,8 +18,9 @@ Method | HTTP request | Description
 [**getEmailCampaigns**](StorefrontApi.md#getEmailCampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
 [**getEmailCampaignsWithStats**](StorefrontApi.md#getEmailCampaignsWithStats) | **GET** /storefront/{storefront_oid}/email/campaignsWithStats/{stat_days} | Get email campaigns with stats
 [**getEmailCommseq**](StorefrontApi.md#getEmailCommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
-[**getEmailCommseqEmailStats**](StorefrontApi.md#getEmailCommseqEmailStats) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats/{commseq_email_uuid} | Get email communication sequence emails stats
-[**getEmailCommseqStats**](StorefrontApi.md#getEmailCommseqStats) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stats | Get email communication sequence stats
+[**getEmailCommseqEmailStats**](StorefrontApi.md#getEmailCommseqEmailStats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
+[**getEmailCommseqStatOverall**](StorefrontApi.md#getEmailCommseqStatOverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
+[**getEmailCommseqStepWaiting**](StorefrontApi.md#getEmailCommseqStepWaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
 [**getEmailCommseqs**](StorefrontApi.md#getEmailCommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
 [**getEmailDashboardActivity**](StorefrontApi.md#getEmailDashboardActivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 [**getEmailDashboardStats**](StorefrontApi.md#getEmailDashboardStats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
@@ -37,6 +38,7 @@ Method | HTTP request | Description
 [**getEmailSegmentCustomers**](StorefrontApi.md#getEmailSegmentCustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/customers | Get email segment customers
 [**getEmailSegments**](StorefrontApi.md#getEmailSegments) | **GET** /storefront/{storefront_oid}/email/segments | Get email segments
 [**getEmailSendingDomain**](StorefrontApi.md#getEmailSendingDomain) | **GET** /storefront/email/sending_domain/{domain} | Get email sending domain
+[**getEmailSendingDomainStatus**](StorefrontApi.md#getEmailSendingDomainStatus) | **POST** /storefront/email/sending_domains/{domain}/status | Get email sending domain status
 [**getEmailSendingDomains**](StorefrontApi.md#getEmailSendingDomains) | **GET** /storefront/email/sending_domains | Get email sending domains
 [**getEmailTemplate**](StorefrontApi.md#getEmailTemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 [**getEmailTemplates**](StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
@@ -49,6 +51,7 @@ Method | HTTP request | Description
 [**insertEmailFlow**](StorefrontApi.md#insertEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
 [**insertEmailList**](StorefrontApi.md#insertEmailList) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
 [**insertEmailSegment**](StorefrontApi.md#insertEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
+[**search**](StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 [**searchEmailListCustomers**](StorefrontApi.md#searchEmailListCustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 [**searchEmailSegmentCustomers**](StorefrontApi.md#searchEmailSegmentCustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
 [**startEmailCampaign**](StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
@@ -60,7 +63,6 @@ Method | HTTP request | Description
 [**updateEmailList**](StorefrontApi.md#updateEmailList) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
 [**updateEmailSegment**](StorefrontApi.md#updateEmailSegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
 [**updateExperiment**](StorefrontApi.md#updateExperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
-[**verifyEmailSendingDomain**](StorefrontApi.md#verifyEmailSendingDomain) | **POST** /storefront/email/sending_domains/{domain}/verify | Verify email campaign
 
 
 # **archiveEmailList**
@@ -841,7 +843,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEmailCommseqEmailStats**
-> \ultracart\v2\models\EmailStatSummaryResponse getEmailCommseqEmailStats($storefront_oid, $commseq_uuid, $commseq_email_uuid, $days)
+> \ultracart\v2\models\EmailStatSummaryResponse getEmailCommseqEmailStats($storefront_oid, $commseq_uuid, $stats_request)
 
 Get email communication sequence emails stats
 
@@ -864,11 +866,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\api\StorefrontApi(new \Http\Adapter\Guzzle6\Client());
 $storefront_oid = "storefront_oid_example"; // string | null
 $commseq_uuid = "commseq_uuid_example"; // string | null
-$commseq_email_uuid = "commseq_email_uuid_example"; // string | null
-$days = 56; // int | null
+$stats_request = new \ultracart\v2\models\EmailStatSummaryRequest(); // \ultracart\v2\models\EmailStatSummaryRequest | StatsRequest
 
 try {
-    $result = $api_instance->getEmailCommseqEmailStats($storefront_oid, $commseq_uuid, $commseq_email_uuid, $days);
+    $result = $api_instance->getEmailCommseqEmailStats($storefront_oid, $commseq_uuid, $stats_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StorefrontApi->getEmailCommseqEmailStats: ', $e->getMessage(), PHP_EOL;
@@ -882,8 +883,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **string**| null |
  **commseq_uuid** | **string**| null |
- **commseq_email_uuid** | **string**| null |
- **days** | **int**| null | [optional]
+ **stats_request** | [**\ultracart\v2\models\EmailStatSummaryRequest**](../Model/EmailStatSummaryRequest.md)| StatsRequest |
 
 ### Return type
 
@@ -900,10 +900,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getEmailCommseqStats**
-> \ultracart\v2\models\EmailStatSummaryResponse getEmailCommseqStats($storefront_oid, $commseq_uuid, $days)
+# **getEmailCommseqStatOverall**
+> \ultracart\v2\models\EmailCommseqStatResponse getEmailCommseqStatOverall($storefront_oid, $commseq_uuid)
 
-Get email communication sequence stats
+Get communication sequence stats overall
 
 ### Example
 ```php
@@ -924,13 +924,12 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\api\StorefrontApi(new \Http\Adapter\Guzzle6\Client());
 $storefront_oid = "storefront_oid_example"; // string | null
 $commseq_uuid = "commseq_uuid_example"; // string | null
-$days = 56; // int | null
 
 try {
-    $result = $api_instance->getEmailCommseqStats($storefront_oid, $commseq_uuid, $days);
+    $result = $api_instance->getEmailCommseqStatOverall($storefront_oid, $commseq_uuid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getEmailCommseqStats: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StorefrontApi->getEmailCommseqStatOverall: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -941,11 +940,68 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **string**| null |
  **commseq_uuid** | **string**| null |
- **days** | **int**| null | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\EmailStatSummaryResponse**](../Model/EmailStatSummaryResponse.md)
+[**\ultracart\v2\models\EmailCommseqStatResponse**](../Model/EmailCommseqStatResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getEmailCommseqStepWaiting**
+> \ultracart\v2\models\EmailStepWaitingResponse getEmailCommseqStepWaiting($storefront_oid, $commseq_uuid, $waiting_request)
+
+Get email communication sequence customers waiting at each requested step
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\StorefrontApi(new \Http\Adapter\Guzzle6\Client());
+$storefront_oid = "storefront_oid_example"; // string | null
+$commseq_uuid = "commseq_uuid_example"; // string | null
+$waiting_request = new \ultracart\v2\models\EmailStepWaitingRequest(); // \ultracart\v2\models\EmailStepWaitingRequest | WaitingRequest
+
+try {
+    $result = $api_instance->getEmailCommseqStepWaiting($storefront_oid, $commseq_uuid, $waiting_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getEmailCommseqStepWaiting: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **string**| null |
+ **commseq_uuid** | **string**| null |
+ **waiting_request** | [**\ultracart\v2\models\EmailStepWaitingRequest**](../Model/EmailStepWaitingRequest.md)| WaitingRequest |
+
+### Return type
+
+[**\ultracart\v2\models\EmailStepWaitingResponse**](../Model/EmailStepWaitingResponse.md)
 
 ### Authorization
 
@@ -1910,6 +1966,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getEmailSendingDomainStatus**
+> \ultracart\v2\models\EmailSendingDomainResponse getEmailSendingDomainStatus($domain)
+
+Get email sending domain status
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\StorefrontApi(new \Http\Adapter\Guzzle6\Client());
+$domain = "domain_example"; // string | null
+
+try {
+    $result = $api_instance->getEmailSendingDomainStatus($domain);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getEmailSendingDomainStatus: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **string**| null |
+
+### Return type
+
+[**\ultracart\v2\models\EmailSendingDomainResponse**](../Model/EmailSendingDomainResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getEmailSendingDomains**
 > \ultracart\v2\models\EmailSendingDomainsResponse getEmailSendingDomains()
 
@@ -2571,6 +2681,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **search**
+> \ultracart\v2\models\LookupResponse search($category, $matches, $max_hits)
+
+Searches for all matching values
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\StorefrontApi(new \Http\Adapter\Guzzle6\Client());
+$category = "category_example"; // string | null
+$matches = "matches_example"; // string | null
+$max_hits = 56; // int | null
+
+try {
+    $result = $api_instance->search($category, $matches, $max_hits);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->search: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **category** | **string**| null | [optional]
+ **matches** | **string**| null | [optional]
+ **max_hits** | **int**| null | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\LookupResponse**](../Model/LookupResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **searchEmailListCustomers**
 > \ultracart\v2\models\EmailListCustomersResponse searchEmailListCustomers($storefront_oid, $email_list_uuid, $starts_with)
 
@@ -3195,60 +3363,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ExperimentResponse**](../Model/ExperimentResponse.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **verifyEmailSendingDomain**
-> \ultracart\v2\models\EmailSendingDomainResponse verifyEmailSendingDomain($domain)
-
-Verify email campaign
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
-// Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\api\StorefrontApi(new \Http\Adapter\Guzzle6\Client());
-$domain = "domain_example"; // string | null
-
-try {
-    $result = $api_instance->verifyEmailSendingDomain($domain);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->verifyEmailSendingDomain: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **domain** | **string**| null |
-
-### Return type
-
-[**\ultracart\v2\models\EmailSendingDomainResponse**](../Model/EmailSendingDomainResponse.md)
 
 ### Authorization
 

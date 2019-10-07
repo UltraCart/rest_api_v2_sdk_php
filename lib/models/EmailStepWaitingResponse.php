@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailThirdPartyProvider
+ * EmailStepWaitingResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailThirdPartyProvider Class Doc Comment
+ * EmailStepWaitingResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
+class EmailStepWaitingResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailThirdPartyProvider';
+    protected static $swaggerModelName = 'EmailStepWaitingResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'connect_url' => 'string',
-        'list_count' => 'int',
-        'lists' => '\ultracart\v2\models\EmailThirdPartyList[]',
-        'logo_url' => 'string',
-        'name' => 'string'
+        'step_waitings' => '\ultracart\v2\models\StepWaiting[]'
     ];
 
     /**
@@ -69,11 +65,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'connect_url' => null,
-        'list_count' => 'int32',
-        'lists' => null,
-        'logo_url' => null,
-        'name' => null
+        'step_waitings' => null
     ];
 
     /**
@@ -103,11 +95,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'connect_url' => 'connect_url',
-        'list_count' => 'list_count',
-        'lists' => 'lists',
-        'logo_url' => 'logo_url',
-        'name' => 'name'
+        'step_waitings' => 'step_waitings'
     ];
 
     /**
@@ -116,11 +104,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'connect_url' => 'setConnectUrl',
-        'list_count' => 'setListCount',
-        'lists' => 'setLists',
-        'logo_url' => 'setLogoUrl',
-        'name' => 'setName'
+        'step_waitings' => 'setStepWaitings'
     ];
 
     /**
@@ -129,11 +113,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'connect_url' => 'getConnectUrl',
-        'list_count' => 'getListCount',
-        'lists' => 'getLists',
-        'logo_url' => 'getLogoUrl',
-        'name' => 'getName'
+        'step_waitings' => 'getStepWaitings'
     ];
 
     /**
@@ -196,11 +176,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['connect_url'] = isset($data['connect_url']) ? $data['connect_url'] : null;
-        $this->container['list_count'] = isset($data['list_count']) ? $data['list_count'] : null;
-        $this->container['lists'] = isset($data['lists']) ? $data['lists'] : null;
-        $this->container['logo_url'] = isset($data['logo_url']) ? $data['logo_url'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['step_waitings'] = isset($data['step_waitings']) ? $data['step_waitings'] : null;
     }
 
     /**
@@ -229,121 +205,25 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets connect_url
+     * Gets step_waitings
      *
-     * @return string
+     * @return \ultracart\v2\models\StepWaiting[]
      */
-    public function getConnectUrl()
+    public function getStepWaitings()
     {
-        return $this->container['connect_url'];
+        return $this->container['step_waitings'];
     }
 
     /**
-     * Sets connect_url
+     * Sets step_waitings
      *
-     * @param string $connect_url URL to the settings screen to connect.  Null if the provider is already connected.
+     * @param \ultracart\v2\models\StepWaiting[] $step_waitings step_waitings
      *
      * @return $this
      */
-    public function setConnectUrl($connect_url)
+    public function setStepWaitings($step_waitings)
     {
-        $this->container['connect_url'] = $connect_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets list_count
-     *
-     * @return int
-     */
-    public function getListCount()
-    {
-        return $this->container['list_count'];
-    }
-
-    /**
-     * Sets list_count
-     *
-     * @param int $list_count list_count
-     *
-     * @return $this
-     */
-    public function setListCount($list_count)
-    {
-        $this->container['list_count'] = $list_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets lists
-     *
-     * @return \ultracart\v2\models\EmailThirdPartyList[]
-     */
-    public function getLists()
-    {
-        return $this->container['lists'];
-    }
-
-    /**
-     * Sets lists
-     *
-     * @param \ultracart\v2\models\EmailThirdPartyList[] $lists lists
-     *
-     * @return $this
-     */
-    public function setLists($lists)
-    {
-        $this->container['lists'] = $lists;
-
-        return $this;
-    }
-
-    /**
-     * Gets logo_url
-     *
-     * @return string
-     */
-    public function getLogoUrl()
-    {
-        return $this->container['logo_url'];
-    }
-
-    /**
-     * Sets logo_url
-     *
-     * @param string $logo_url logo_url
-     *
-     * @return $this
-     */
-    public function setLogoUrl($logo_url)
-    {
-        $this->container['logo_url'] = $logo_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['step_waitings'] = $step_waitings;
 
         return $this;
     }

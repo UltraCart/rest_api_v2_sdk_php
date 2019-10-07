@@ -56,18 +56,17 @@ class EmailDomain implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'dkim_headers' => 'string',
-        'dkim_public' => 'string',
-        'dkim_selector' => 'string',
-        'dkim_signing_domain' => 'string',
+        'comment' => 'string',
+        'dkim' => '\ultracart\v2\models\VerificationRecord[]',
         'dkim_status' => 'string',
         'domain' => 'string',
         'esp_domain_uuid' => 'string',
-        'hostname' => 'string',
+        'identity_status' => 'string',
         'merchant_id' => 'string',
-        'tracking_domain' => 'string',
-        'type' => 'string',
-        'value' => 'string'
+        'provider' => 'string',
+        'start_dkim_dts' => 'string',
+        'start_identity_dts' => 'string',
+        'verification' => '\ultracart\v2\models\VerificationRecord'
     ];
 
     /**
@@ -76,18 +75,17 @@ class EmailDomain implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'dkim_headers' => null,
-        'dkim_public' => null,
-        'dkim_selector' => null,
-        'dkim_signing_domain' => null,
+        'comment' => null,
+        'dkim' => null,
         'dkim_status' => null,
         'domain' => null,
         'esp_domain_uuid' => null,
-        'hostname' => null,
+        'identity_status' => null,
         'merchant_id' => null,
-        'tracking_domain' => null,
-        'type' => null,
-        'value' => null
+        'provider' => null,
+        'start_dkim_dts' => null,
+        'start_identity_dts' => null,
+        'verification' => null
     ];
 
     /**
@@ -117,18 +115,17 @@ class EmailDomain implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'dkim_headers' => 'dkim_headers',
-        'dkim_public' => 'dkim_public',
-        'dkim_selector' => 'dkim_selector',
-        'dkim_signing_domain' => 'dkim_signing_domain',
+        'comment' => 'comment',
+        'dkim' => 'dkim',
         'dkim_status' => 'dkim_status',
         'domain' => 'domain',
         'esp_domain_uuid' => 'esp_domain_uuid',
-        'hostname' => 'hostname',
+        'identity_status' => 'identity_status',
         'merchant_id' => 'merchant_id',
-        'tracking_domain' => 'tracking_domain',
-        'type' => 'type',
-        'value' => 'value'
+        'provider' => 'provider',
+        'start_dkim_dts' => 'start_dkim_dts',
+        'start_identity_dts' => 'start_identity_dts',
+        'verification' => 'verification'
     ];
 
     /**
@@ -137,18 +134,17 @@ class EmailDomain implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'dkim_headers' => 'setDkimHeaders',
-        'dkim_public' => 'setDkimPublic',
-        'dkim_selector' => 'setDkimSelector',
-        'dkim_signing_domain' => 'setDkimSigningDomain',
+        'comment' => 'setComment',
+        'dkim' => 'setDkim',
         'dkim_status' => 'setDkimStatus',
         'domain' => 'setDomain',
         'esp_domain_uuid' => 'setEspDomainUuid',
-        'hostname' => 'setHostname',
+        'identity_status' => 'setIdentityStatus',
         'merchant_id' => 'setMerchantId',
-        'tracking_domain' => 'setTrackingDomain',
-        'type' => 'setType',
-        'value' => 'setValue'
+        'provider' => 'setProvider',
+        'start_dkim_dts' => 'setStartDkimDts',
+        'start_identity_dts' => 'setStartIdentityDts',
+        'verification' => 'setVerification'
     ];
 
     /**
@@ -157,18 +153,17 @@ class EmailDomain implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'dkim_headers' => 'getDkimHeaders',
-        'dkim_public' => 'getDkimPublic',
-        'dkim_selector' => 'getDkimSelector',
-        'dkim_signing_domain' => 'getDkimSigningDomain',
+        'comment' => 'getComment',
+        'dkim' => 'getDkim',
         'dkim_status' => 'getDkimStatus',
         'domain' => 'getDomain',
         'esp_domain_uuid' => 'getEspDomainUuid',
-        'hostname' => 'getHostname',
+        'identity_status' => 'getIdentityStatus',
         'merchant_id' => 'getMerchantId',
-        'tracking_domain' => 'getTrackingDomain',
-        'type' => 'getType',
-        'value' => 'getValue'
+        'provider' => 'getProvider',
+        'start_dkim_dts' => 'getStartDkimDts',
+        'start_identity_dts' => 'getStartIdentityDts',
+        'verification' => 'getVerification'
     ];
 
     /**
@@ -231,18 +226,17 @@ class EmailDomain implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['dkim_headers'] = isset($data['dkim_headers']) ? $data['dkim_headers'] : null;
-        $this->container['dkim_public'] = isset($data['dkim_public']) ? $data['dkim_public'] : null;
-        $this->container['dkim_selector'] = isset($data['dkim_selector']) ? $data['dkim_selector'] : null;
-        $this->container['dkim_signing_domain'] = isset($data['dkim_signing_domain']) ? $data['dkim_signing_domain'] : null;
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['dkim'] = isset($data['dkim']) ? $data['dkim'] : null;
         $this->container['dkim_status'] = isset($data['dkim_status']) ? $data['dkim_status'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
-        $this->container['hostname'] = isset($data['hostname']) ? $data['hostname'] : null;
+        $this->container['identity_status'] = isset($data['identity_status']) ? $data['identity_status'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
-        $this->container['tracking_domain'] = isset($data['tracking_domain']) ? $data['tracking_domain'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
+        $this->container['start_dkim_dts'] = isset($data['start_dkim_dts']) ? $data['start_dkim_dts'] : null;
+        $this->container['start_identity_dts'] = isset($data['start_identity_dts']) ? $data['start_identity_dts'] : null;
+        $this->container['verification'] = isset($data['verification']) ? $data['verification'] : null;
     }
 
     /**
@@ -271,97 +265,49 @@ class EmailDomain implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets dkim_headers
+     * Gets comment
      *
      * @return string
      */
-    public function getDkimHeaders()
+    public function getComment()
     {
-        return $this->container['dkim_headers'];
+        return $this->container['comment'];
     }
 
     /**
-     * Sets dkim_headers
+     * Sets comment
      *
-     * @param string $dkim_headers dkim_headers
+     * @param string $comment comment
      *
      * @return $this
      */
-    public function setDkimHeaders($dkim_headers)
+    public function setComment($comment)
     {
-        $this->container['dkim_headers'] = $dkim_headers;
+        $this->container['comment'] = $comment;
 
         return $this;
     }
 
     /**
-     * Gets dkim_public
+     * Gets dkim
      *
-     * @return string
+     * @return \ultracart\v2\models\VerificationRecord[]
      */
-    public function getDkimPublic()
+    public function getDkim()
     {
-        return $this->container['dkim_public'];
+        return $this->container['dkim'];
     }
 
     /**
-     * Sets dkim_public
+     * Sets dkim
      *
-     * @param string $dkim_public dkim_public
+     * @param \ultracart\v2\models\VerificationRecord[] $dkim dkim
      *
      * @return $this
      */
-    public function setDkimPublic($dkim_public)
+    public function setDkim($dkim)
     {
-        $this->container['dkim_public'] = $dkim_public;
-
-        return $this;
-    }
-
-    /**
-     * Gets dkim_selector
-     *
-     * @return string
-     */
-    public function getDkimSelector()
-    {
-        return $this->container['dkim_selector'];
-    }
-
-    /**
-     * Sets dkim_selector
-     *
-     * @param string $dkim_selector dkim_selector
-     *
-     * @return $this
-     */
-    public function setDkimSelector($dkim_selector)
-    {
-        $this->container['dkim_selector'] = $dkim_selector;
-
-        return $this;
-    }
-
-    /**
-     * Gets dkim_signing_domain
-     *
-     * @return string
-     */
-    public function getDkimSigningDomain()
-    {
-        return $this->container['dkim_signing_domain'];
-    }
-
-    /**
-     * Sets dkim_signing_domain
-     *
-     * @param string $dkim_signing_domain dkim_signing_domain
-     *
-     * @return $this
-     */
-    public function setDkimSigningDomain($dkim_signing_domain)
-    {
-        $this->container['dkim_signing_domain'] = $dkim_signing_domain;
+        $this->container['dkim'] = $dkim;
 
         return $this;
     }
@@ -439,25 +385,25 @@ class EmailDomain implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets hostname
+     * Gets identity_status
      *
      * @return string
      */
-    public function getHostname()
+    public function getIdentityStatus()
     {
-        return $this->container['hostname'];
+        return $this->container['identity_status'];
     }
 
     /**
-     * Sets hostname
+     * Sets identity_status
      *
-     * @param string $hostname hostname
+     * @param string $identity_status identity_status
      *
      * @return $this
      */
-    public function setHostname($hostname)
+    public function setIdentityStatus($identity_status)
     {
-        $this->container['hostname'] = $hostname;
+        $this->container['identity_status'] = $identity_status;
 
         return $this;
     }
@@ -487,73 +433,97 @@ class EmailDomain implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tracking_domain
+     * Gets provider
      *
      * @return string
      */
-    public function getTrackingDomain()
+    public function getProvider()
     {
-        return $this->container['tracking_domain'];
+        return $this->container['provider'];
     }
 
     /**
-     * Sets tracking_domain
+     * Sets provider
      *
-     * @param string $tracking_domain tracking_domain
+     * @param string $provider provider
      *
      * @return $this
      */
-    public function setTrackingDomain($tracking_domain)
+    public function setProvider($provider)
     {
-        $this->container['tracking_domain'] = $tracking_domain;
+        $this->container['provider'] = $provider;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets start_dkim_dts
      *
      * @return string
      */
-    public function getType()
+    public function getStartDkimDts()
     {
-        return $this->container['type'];
+        return $this->container['start_dkim_dts'];
     }
 
     /**
-     * Sets type
+     * Sets start_dkim_dts
      *
-     * @param string $type type
+     * @param string $start_dkim_dts start_dkim_dts
      *
      * @return $this
      */
-    public function setType($type)
+    public function setStartDkimDts($start_dkim_dts)
     {
-        $this->container['type'] = $type;
+        $this->container['start_dkim_dts'] = $start_dkim_dts;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets start_identity_dts
      *
      * @return string
      */
-    public function getValue()
+    public function getStartIdentityDts()
     {
-        return $this->container['value'];
+        return $this->container['start_identity_dts'];
     }
 
     /**
-     * Sets value
+     * Sets start_identity_dts
      *
-     * @param string $value value
+     * @param string $start_identity_dts start_identity_dts
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setStartIdentityDts($start_identity_dts)
     {
-        $this->container['value'] = $value;
+        $this->container['start_identity_dts'] = $start_identity_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification
+     *
+     * @return \ultracart\v2\models\VerificationRecord
+     */
+    public function getVerification()
+    {
+        return $this->container['verification'];
+    }
+
+    /**
+     * Sets verification
+     *
+     * @param \ultracart\v2\models\VerificationRecord $verification verification
+     *
+     * @return $this
+     */
+    public function setVerification($verification)
+    {
+        $this->container['verification'] = $verification;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'stats' => '\ultracart\v2\models\EmailStat',
+        'stats' => '\ultracart\v2\models\EmailStat[]',
         'success' => 'bool'
     ];
 
@@ -273,7 +273,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     /**
      * Gets stats
      *
-     * @return \ultracart\v2\models\EmailStat
+     * @return \ultracart\v2\models\EmailStat[]
      */
     public function getStats()
     {
@@ -283,7 +283,7 @@ class EmailStatSummaryResponse implements ModelInterface, ArrayAccess
     /**
      * Sets stats
      *
-     * @param \ultracart\v2\models\EmailStat $stats stats
+     * @param \ultracart\v2\models\EmailStat[] $stats stats
      *
      * @return $this
      */
