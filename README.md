@@ -157,6 +157,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getEmailLists**](docs/Api/CustomerApi.md#getemaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
+*CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *FulfillmentApi* | [**acknowledgeOrders**](docs/Api/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
 *FulfillmentApi* | [**getDistributionCenterOrders**](docs/Api/FulfillmentApi.md#getdistributioncenterorders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
 *FulfillmentApi* | [**getDistributionCenters**](docs/Api/FulfillmentApi.md#getdistributioncenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
@@ -197,6 +198,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteEmailListCustomer**](docs/Api/StorefrontApi.md#deleteemaillistcustomer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/Api/StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+*StorefrontApi* | [**geocodeAddress**](docs/Api/StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
+*StorefrontApi* | [**getCountries**](docs/Api/StorefrontApi.md#getcountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 *StorefrontApi* | [**getEmailBaseTemplates**](docs/Api/StorefrontApi.md#getemailbasetemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
 *StorefrontApi* | [**getEmailCampaign**](docs/Api/StorefrontApi.md#getemailcampaign) | **GET** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Get email campaign
 *StorefrontApi* | [**getEmailCampaigns**](docs/Api/StorefrontApi.md#getemailcampaigns) | **GET** /storefront/{storefront_oid}/email/campaigns | Get email campaigns
@@ -228,6 +231,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/Api/StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 *StorefrontApi* | [**getExperiments**](docs/Api/StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+*StorefrontApi* | [**getHistogramPropertyNames**](docs/Api/StorefrontApi.md#gethistogrampropertynames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
+*StorefrontApi* | [**getHistogramPropertyValues**](docs/Api/StorefrontApi.md#gethistogrampropertyvalues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
 *StorefrontApi* | [**importEmailThirdPartyProviderList**](docs/Api/StorefrontApi.md#importemailthirdpartyproviderlist) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 *StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
 *StorefrontApi* | [**insertEmailCommseq**](docs/Api/StorefrontApi.md#insertemailcommseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
@@ -376,6 +381,7 @@ Class | Method | HTTP request | Description
  - [CheckoutSetupBrowserKeyResponse](docs/Model/CheckoutSetupBrowserKeyResponse.md)
  - [CheckoutStateProvinceResponse](docs/Model/CheckoutStateProvinceResponse.md)
  - [CityStateZip](docs/Model/CityStateZip.md)
+ - [CountriesResponse](docs/Model/CountriesResponse.md)
  - [Country](docs/Model/Country.md)
  - [Coupon](docs/Model/Coupon.md)
  - [CouponAmountOffItems](docs/Model/CouponAmountOffItems.md)
@@ -436,6 +442,7 @@ Class | Method | HTTP request | Description
  - [CustomerCard](docs/Model/CustomerCard.md)
  - [CustomerEditorValues](docs/Model/CustomerEditorValues.md)
  - [CustomerEmail](docs/Model/CustomerEmail.md)
+ - [CustomerEmailListChanges](docs/Model/CustomerEmailListChanges.md)
  - [CustomerOrdersSummary](docs/Model/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/Model/CustomerPricingTier.md)
  - [CustomerPrivacy](docs/Model/CustomerPrivacy.md)
@@ -474,6 +481,8 @@ Class | Method | HTTP request | Description
  - [EmailFlow](docs/Model/EmailFlow.md)
  - [EmailFlowResponse](docs/Model/EmailFlowResponse.md)
  - [EmailFlowsResponse](docs/Model/EmailFlowsResponse.md)
+ - [EmailHistogramPropertyNamesResponse](docs/Model/EmailHistogramPropertyNamesResponse.md)
+ - [EmailHistogramPropertyValuesResponse](docs/Model/EmailHistogramPropertyValuesResponse.md)
  - [EmailList](docs/Model/EmailList.md)
  - [EmailListArchiveResponse](docs/Model/EmailListArchiveResponse.md)
  - [EmailListCustomer](docs/Model/EmailListCustomer.md)
@@ -509,6 +518,8 @@ Class | Method | HTTP request | Description
  - [ExperimentsResponse](docs/Model/ExperimentsResponse.md)
  - [FulfillmentInventory](docs/Model/FulfillmentInventory.md)
  - [FulfillmentShipment](docs/Model/FulfillmentShipment.md)
+ - [GeocodeRequest](docs/Model/GeocodeRequest.md)
+ - [GeocodeResponse](docs/Model/GeocodeResponse.md)
  - [HTTPHeader](docs/Model/HTTPHeader.md)
  - [Item](docs/Model/Item.md)
  - [ItemAccounting](docs/Model/ItemAccounting.md)
@@ -635,6 +646,7 @@ Class | Method | HTTP request | Description
  - [PricingTier](docs/Model/PricingTier.md)
  - [PricingTierNotification](docs/Model/PricingTierNotification.md)
  - [PricingTiersResponse](docs/Model/PricingTiersResponse.md)
+ - [Property](docs/Model/Property.md)
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
  - [SelfConfig](docs/Model/SelfConfig.md)

@@ -97,6 +97,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
         'search_lowest_price' => 'float',
         'search_lowest_url' => 'string',
         'search_position' => 'int',
+        'shipping_label' => 'string',
         'size' => 'string',
         'video_director' => 'string',
         'video_format' => 'string',
@@ -152,6 +153,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
         'search_lowest_price' => null,
         'search_lowest_url' => null,
         'search_position' => 'int32',
+        'shipping_label' => null,
         'size' => null,
         'video_director' => null,
         'video_format' => null,
@@ -228,6 +230,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
         'search_lowest_price' => 'search_lowest_price',
         'search_lowest_url' => 'search_lowest_url',
         'search_position' => 'search_position',
+        'shipping_label' => 'shippingLabel',
         'size' => 'size',
         'video_director' => 'video_director',
         'video_format' => 'video_format',
@@ -283,6 +286,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
         'search_lowest_price' => 'setSearchLowestPrice',
         'search_lowest_url' => 'setSearchLowestUrl',
         'search_position' => 'setSearchPosition',
+        'shipping_label' => 'setShippingLabel',
         'size' => 'setSize',
         'video_director' => 'setVideoDirector',
         'video_format' => 'setVideoFormat',
@@ -338,6 +342,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
         'search_lowest_price' => 'getSearchLowestPrice',
         'search_lowest_url' => 'getSearchLowestUrl',
         'search_position' => 'getSearchPosition',
+        'shipping_label' => 'getShippingLabel',
         'size' => 'getSize',
         'video_director' => 'getVideoDirector',
         'video_format' => 'getVideoFormat',
@@ -447,6 +452,7 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
         $this->container['search_lowest_price'] = isset($data['search_lowest_price']) ? $data['search_lowest_price'] : null;
         $this->container['search_lowest_url'] = isset($data['search_lowest_url']) ? $data['search_lowest_url'] : null;
         $this->container['search_position'] = isset($data['search_position']) ? $data['search_position'] : null;
+        $this->container['shipping_label'] = isset($data['shipping_label']) ? $data['shipping_label'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['video_director'] = isset($data['video_director']) ? $data['video_director'] : null;
         $this->container['video_format'] = isset($data['video_format']) ? $data['video_format'] : null;
@@ -1880,6 +1886,30 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess
     public function setSearchPosition($search_position)
     {
         $this->container['search_position'] = $search_position;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_label
+     *
+     * @return string
+     */
+    public function getShippingLabel()
+    {
+        return $this->container['shipping_label'];
+    }
+
+    /**
+     * Sets shipping_label
+     *
+     * @param string $shipping_label shipping_label
+     *
+     * @return $this
+     */
+    public function setShippingLabel($shipping_label)
+    {
+        $this->container['shipping_label'] = $shipping_label;
 
         return $this;
     }

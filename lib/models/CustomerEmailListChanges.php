@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerActivity
+ * CustomerEmailListChanges
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomerActivity Class Doc Comment
+ * CustomerEmailListChanges Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerActivity implements ModelInterface, ArrayAccess
+class CustomerEmailListChanges implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomerActivity';
+    protected static $swaggerModelName = 'CustomerEmailListChanges';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'activities' => '\ultracart\v2\models\Activity[]',
-        'memberships' => '\ultracart\v2\models\ListSegmentMembership[]',
-        'metrics' => '\ultracart\v2\models\Metric[]',
-        'properties_list' => '\ultracart\v2\models\Property[]'
+        'add_to_lists' => 'string[]',
+        'remove_from_lists' => 'string[]'
     ];
 
     /**
@@ -68,10 +66,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'activities' => null,
-        'memberships' => null,
-        'metrics' => null,
-        'properties_list' => null
+        'add_to_lists' => null,
+        'remove_from_lists' => null
     ];
 
     /**
@@ -101,10 +97,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'activities' => 'activities',
-        'memberships' => 'memberships',
-        'metrics' => 'metrics',
-        'properties_list' => 'properties_list'
+        'add_to_lists' => 'add_to_lists',
+        'remove_from_lists' => 'remove_from_lists'
     ];
 
     /**
@@ -113,10 +107,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'activities' => 'setActivities',
-        'memberships' => 'setMemberships',
-        'metrics' => 'setMetrics',
-        'properties_list' => 'setPropertiesList'
+        'add_to_lists' => 'setAddToLists',
+        'remove_from_lists' => 'setRemoveFromLists'
     ];
 
     /**
@@ -125,10 +117,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'activities' => 'getActivities',
-        'memberships' => 'getMemberships',
-        'metrics' => 'getMetrics',
-        'properties_list' => 'getPropertiesList'
+        'add_to_lists' => 'getAddToLists',
+        'remove_from_lists' => 'getRemoveFromLists'
     ];
 
     /**
@@ -191,10 +181,8 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['activities'] = isset($data['activities']) ? $data['activities'] : null;
-        $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
-        $this->container['metrics'] = isset($data['metrics']) ? $data['metrics'] : null;
-        $this->container['properties_list'] = isset($data['properties_list']) ? $data['properties_list'] : null;
+        $this->container['add_to_lists'] = isset($data['add_to_lists']) ? $data['add_to_lists'] : null;
+        $this->container['remove_from_lists'] = isset($data['remove_from_lists']) ? $data['remove_from_lists'] : null;
     }
 
     /**
@@ -223,97 +211,49 @@ class CustomerActivity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets activities
+     * Gets add_to_lists
      *
-     * @return \ultracart\v2\models\Activity[]
+     * @return string[]
      */
-    public function getActivities()
+    public function getAddToLists()
     {
-        return $this->container['activities'];
+        return $this->container['add_to_lists'];
     }
 
     /**
-     * Sets activities
+     * Sets add_to_lists
      *
-     * @param \ultracart\v2\models\Activity[] $activities activities
+     * @param string[] $add_to_lists Add this customer to these email lists
      *
      * @return $this
      */
-    public function setActivities($activities)
+    public function setAddToLists($add_to_lists)
     {
-        $this->container['activities'] = $activities;
+        $this->container['add_to_lists'] = $add_to_lists;
 
         return $this;
     }
 
     /**
-     * Gets memberships
+     * Gets remove_from_lists
      *
-     * @return \ultracart\v2\models\ListSegmentMembership[]
+     * @return string[]
      */
-    public function getMemberships()
+    public function getRemoveFromLists()
     {
-        return $this->container['memberships'];
+        return $this->container['remove_from_lists'];
     }
 
     /**
-     * Sets memberships
+     * Sets remove_from_lists
      *
-     * @param \ultracart\v2\models\ListSegmentMembership[] $memberships memberships
+     * @param string[] $remove_from_lists Remove this customer from these email lists
      *
      * @return $this
      */
-    public function setMemberships($memberships)
+    public function setRemoveFromLists($remove_from_lists)
     {
-        $this->container['memberships'] = $memberships;
-
-        return $this;
-    }
-
-    /**
-     * Gets metrics
-     *
-     * @return \ultracart\v2\models\Metric[]
-     */
-    public function getMetrics()
-    {
-        return $this->container['metrics'];
-    }
-
-    /**
-     * Sets metrics
-     *
-     * @param \ultracart\v2\models\Metric[] $metrics metrics
-     *
-     * @return $this
-     */
-    public function setMetrics($metrics)
-    {
-        $this->container['metrics'] = $metrics;
-
-        return $this;
-    }
-
-    /**
-     * Gets properties_list
-     *
-     * @return \ultracart\v2\models\Property[]
-     */
-    public function getPropertiesList()
-    {
-        return $this->container['properties_list'];
-    }
-
-    /**
-     * Sets properties_list
-     *
-     * @param \ultracart\v2\models\Property[] $properties_list properties_list
-     *
-     * @return $this
-     */
-    public function setPropertiesList($properties_list)
-    {
-        $this->container['properties_list'] = $properties_list;
+        $this->container['remove_from_lists'] = $remove_from_lists;
 
         return $this;
     }

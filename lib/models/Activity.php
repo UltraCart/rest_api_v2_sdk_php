@@ -60,6 +60,7 @@ class Activity implements ModelInterface, ArrayAccess
         'metric' => 'string',
         'subject' => 'string',
         'ts' => 'int',
+        'type' => 'string',
         'uuid' => 'string'
     ];
 
@@ -73,6 +74,7 @@ class Activity implements ModelInterface, ArrayAccess
         'metric' => null,
         'subject' => null,
         'ts' => 'int64',
+        'type' => null,
         'uuid' => null
     ];
 
@@ -107,6 +109,7 @@ class Activity implements ModelInterface, ArrayAccess
         'metric' => 'metric',
         'subject' => 'subject',
         'ts' => 'ts',
+        'type' => 'type',
         'uuid' => 'uuid'
     ];
 
@@ -120,6 +123,7 @@ class Activity implements ModelInterface, ArrayAccess
         'metric' => 'setMetric',
         'subject' => 'setSubject',
         'ts' => 'setTs',
+        'type' => 'setType',
         'uuid' => 'setUuid'
     ];
 
@@ -133,6 +137,7 @@ class Activity implements ModelInterface, ArrayAccess
         'metric' => 'getMetric',
         'subject' => 'getSubject',
         'ts' => 'getTs',
+        'type' => 'getType',
         'uuid' => 'getUuid'
     ];
 
@@ -200,6 +205,7 @@ class Activity implements ModelInterface, ArrayAccess
         $this->container['metric'] = isset($data['metric']) ? $data['metric'] : null;
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
         $this->container['ts'] = isset($data['ts']) ? $data['ts'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
     }
 
@@ -320,6 +326,30 @@ class Activity implements ModelInterface, ArrayAccess
     public function setTs($ts)
     {
         $this->container['ts'] = $ts;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

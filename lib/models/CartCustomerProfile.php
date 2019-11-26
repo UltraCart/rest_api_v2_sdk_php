@@ -63,6 +63,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
         'credit_cards' => '\ultracart\v2\models\CartCustomerProfileCreditCard[]',
         'customer_profile_oid' => 'int',
         'dhl_account_number' => 'string',
+        'dhl_duty_account_number' => 'string',
         'email' => 'string',
         'fedex_account_number' => 'string',
         'free_shipping' => 'bool',
@@ -92,6 +93,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
         'credit_cards' => null,
         'customer_profile_oid' => 'int32',
         'dhl_account_number' => null,
+        'dhl_duty_account_number' => null,
         'email' => null,
         'fedex_account_number' => null,
         'free_shipping' => null,
@@ -142,6 +144,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
         'credit_cards' => 'credit_cards',
         'customer_profile_oid' => 'customer_profile_oid',
         'dhl_account_number' => 'dhl_account_number',
+        'dhl_duty_account_number' => 'dhl_duty_account_number',
         'email' => 'email',
         'fedex_account_number' => 'fedex_account_number',
         'free_shipping' => 'free_shipping',
@@ -171,6 +174,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
         'credit_cards' => 'setCreditCards',
         'customer_profile_oid' => 'setCustomerProfileOid',
         'dhl_account_number' => 'setDhlAccountNumber',
+        'dhl_duty_account_number' => 'setDhlDutyAccountNumber',
         'email' => 'setEmail',
         'fedex_account_number' => 'setFedexAccountNumber',
         'free_shipping' => 'setFreeShipping',
@@ -200,6 +204,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
         'credit_cards' => 'getCreditCards',
         'customer_profile_oid' => 'getCustomerProfileOid',
         'dhl_account_number' => 'getDhlAccountNumber',
+        'dhl_duty_account_number' => 'getDhlDutyAccountNumber',
         'email' => 'getEmail',
         'fedex_account_number' => 'getFedexAccountNumber',
         'free_shipping' => 'getFreeShipping',
@@ -283,6 +288,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
         $this->container['credit_cards'] = isset($data['credit_cards']) ? $data['credit_cards'] : null;
         $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['dhl_account_number'] = isset($data['dhl_account_number']) ? $data['dhl_account_number'] : null;
+        $this->container['dhl_duty_account_number'] = isset($data['dhl_duty_account_number']) ? $data['dhl_duty_account_number'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['fedex_account_number'] = isset($data['fedex_account_number']) ? $data['fedex_account_number'] : null;
         $this->container['free_shipping'] = isset($data['free_shipping']) ? $data['free_shipping'] : null;
@@ -488,6 +494,30 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
     public function setDhlAccountNumber($dhl_account_number)
     {
         $this->container['dhl_account_number'] = $dhl_account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets dhl_duty_account_number
+     *
+     * @return string
+     */
+    public function getDhlDutyAccountNumber()
+    {
+        return $this->container['dhl_duty_account_number'];
+    }
+
+    /**
+     * Sets dhl_duty_account_number
+     *
+     * @param string $dhl_duty_account_number DHL duty account number on file
+     *
+     * @return $this
+     */
+    public function setDhlDutyAccountNumber($dhl_duty_account_number)
+    {
+        $this->container['dhl_duty_account_number'] = $dhl_duty_account_number;
 
         return $this;
     }

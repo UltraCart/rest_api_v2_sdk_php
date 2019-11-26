@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **cc_emails** | [**\ultracart\v2\models\CustomerEmail[]**](CustomerEmail.md) | Additional emails to CC notification | [optional] 
 **customer_profile_oid** | **int** | Customer profile object identifier | [optional] 
 **dhl_account_number** | **string** | DHL account number | [optional] 
+**dhl_duty_account_number** | **string** | DHL duty account number | [optional] 
 **email** | **string** | Email address of this customer profile | [optional] 
 **exempt_shipping_handling_charge** | **bool** | Exempt shipping handling charge | [optional] 
 **fedex_account_number** | **string** | FedEx account number | [optional] 

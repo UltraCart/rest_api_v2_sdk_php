@@ -63,6 +63,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'company' => 'string',
         'country_code' => 'string',
         'day_phone' => 'string',
+        'day_phone_e164' => 'string',
         'email' => 'string',
         'evening_phone' => 'string',
         'first_name' => 'string',
@@ -85,6 +86,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'company' => null,
         'country_code' => null,
         'day_phone' => null,
+        'day_phone_e164' => null,
         'email' => null,
         'evening_phone' => null,
         'first_name' => null,
@@ -128,6 +130,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'company' => 'company',
         'country_code' => 'country_code',
         'day_phone' => 'day_phone',
+        'day_phone_e164' => 'day_phone_e164',
         'email' => 'email',
         'evening_phone' => 'evening_phone',
         'first_name' => 'first_name',
@@ -150,6 +153,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'company' => 'setCompany',
         'country_code' => 'setCountryCode',
         'day_phone' => 'setDayPhone',
+        'day_phone_e164' => 'setDayPhoneE164',
         'email' => 'setEmail',
         'evening_phone' => 'setEveningPhone',
         'first_name' => 'setFirstName',
@@ -172,6 +176,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'company' => 'getCompany',
         'country_code' => 'getCountryCode',
         'day_phone' => 'getDayPhone',
+        'day_phone_e164' => 'getDayPhoneE164',
         'email' => 'getEmail',
         'evening_phone' => 'getEveningPhone',
         'first_name' => 'getFirstName',
@@ -248,6 +253,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
         $this->container['day_phone'] = isset($data['day_phone']) ? $data['day_phone'] : null;
+        $this->container['day_phone_e164'] = isset($data['day_phone_e164']) ? $data['day_phone_e164'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['evening_phone'] = isset($data['evening_phone']) ? $data['evening_phone'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
@@ -288,6 +294,10 @@ class OrderBilling implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['day_phone']) && (mb_strlen($this->container['day_phone']) > 25)) {
             $invalidProperties[] = "invalid value for 'day_phone', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['day_phone_e164']) && (mb_strlen($this->container['day_phone_e164']) > 25)) {
+            $invalidProperties[] = "invalid value for 'day_phone_e164', the character length must be smaller than or equal to 25.";
         }
 
         if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 100)) {
@@ -346,6 +356,9 @@ class OrderBilling implements ModelInterface, ArrayAccess
             return false;
         }
         if (mb_strlen($this->container['day_phone']) > 25) {
+            return false;
+        }
+        if (mb_strlen($this->container['day_phone_e164']) > 25) {
             return false;
         }
         if (mb_strlen($this->container['email']) > 100) {
@@ -561,6 +574,34 @@ class OrderBilling implements ModelInterface, ArrayAccess
         }
 
         $this->container['day_phone'] = $day_phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets day_phone_e164
+     *
+     * @return string
+     */
+    public function getDayPhoneE164()
+    {
+        return $this->container['day_phone_e164'];
+    }
+
+    /**
+     * Sets day_phone_e164
+     *
+     * @param string $day_phone_e164 Day time phone (E164 format)
+     *
+     * @return $this
+     */
+    public function setDayPhoneE164($day_phone_e164)
+    {
+        if (!is_null($day_phone_e164) && (mb_strlen($day_phone_e164) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $day_phone_e164 when calling OrderBilling., must be smaller than or equal to 25.');
+        }
+
+        $this->container['day_phone_e164'] = $day_phone_e164;
 
         return $this;
     }

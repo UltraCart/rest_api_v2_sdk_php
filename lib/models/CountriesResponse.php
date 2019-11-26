@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerActivity
+ * CountriesResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomerActivity Class Doc Comment
+ * CountriesResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerActivity implements ModelInterface, ArrayAccess
+class CountriesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomerActivity';
+    protected static $swaggerModelName = 'CountriesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'activities' => '\ultracart\v2\models\Activity[]',
-        'memberships' => '\ultracart\v2\models\ListSegmentMembership[]',
-        'metrics' => '\ultracart\v2\models\Metric[]',
-        'properties_list' => '\ultracart\v2\models\Property[]'
+        'countries' => '\ultracart\v2\models\Country[]'
     ];
 
     /**
@@ -68,10 +65,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'activities' => null,
-        'memberships' => null,
-        'metrics' => null,
-        'properties_list' => null
+        'countries' => null
     ];
 
     /**
@@ -101,10 +95,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'activities' => 'activities',
-        'memberships' => 'memberships',
-        'metrics' => 'metrics',
-        'properties_list' => 'properties_list'
+        'countries' => 'countries'
     ];
 
     /**
@@ -113,10 +104,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'activities' => 'setActivities',
-        'memberships' => 'setMemberships',
-        'metrics' => 'setMetrics',
-        'properties_list' => 'setPropertiesList'
+        'countries' => 'setCountries'
     ];
 
     /**
@@ -125,10 +113,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'activities' => 'getActivities',
-        'memberships' => 'getMemberships',
-        'metrics' => 'getMetrics',
-        'properties_list' => 'getPropertiesList'
+        'countries' => 'getCountries'
     ];
 
     /**
@@ -191,10 +176,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['activities'] = isset($data['activities']) ? $data['activities'] : null;
-        $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
-        $this->container['metrics'] = isset($data['metrics']) ? $data['metrics'] : null;
-        $this->container['properties_list'] = isset($data['properties_list']) ? $data['properties_list'] : null;
+        $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
     }
 
     /**
@@ -223,97 +205,25 @@ class CustomerActivity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets activities
+     * Gets countries
      *
-     * @return \ultracart\v2\models\Activity[]
+     * @return \ultracart\v2\models\Country[]
      */
-    public function getActivities()
+    public function getCountries()
     {
-        return $this->container['activities'];
+        return $this->container['countries'];
     }
 
     /**
-     * Sets activities
+     * Sets countries
      *
-     * @param \ultracart\v2\models\Activity[] $activities activities
+     * @param \ultracart\v2\models\Country[] $countries countries
      *
      * @return $this
      */
-    public function setActivities($activities)
+    public function setCountries($countries)
     {
-        $this->container['activities'] = $activities;
-
-        return $this;
-    }
-
-    /**
-     * Gets memberships
-     *
-     * @return \ultracart\v2\models\ListSegmentMembership[]
-     */
-    public function getMemberships()
-    {
-        return $this->container['memberships'];
-    }
-
-    /**
-     * Sets memberships
-     *
-     * @param \ultracart\v2\models\ListSegmentMembership[] $memberships memberships
-     *
-     * @return $this
-     */
-    public function setMemberships($memberships)
-    {
-        $this->container['memberships'] = $memberships;
-
-        return $this;
-    }
-
-    /**
-     * Gets metrics
-     *
-     * @return \ultracart\v2\models\Metric[]
-     */
-    public function getMetrics()
-    {
-        return $this->container['metrics'];
-    }
-
-    /**
-     * Sets metrics
-     *
-     * @param \ultracart\v2\models\Metric[] $metrics metrics
-     *
-     * @return $this
-     */
-    public function setMetrics($metrics)
-    {
-        $this->container['metrics'] = $metrics;
-
-        return $this;
-    }
-
-    /**
-     * Gets properties_list
-     *
-     * @return \ultracart\v2\models\Property[]
-     */
-    public function getPropertiesList()
-    {
-        return $this->container['properties_list'];
-    }
-
-    /**
-     * Sets properties_list
-     *
-     * @param \ultracart\v2\models\Property[] $properties_list properties_list
-     *
-     * @return $this
-     */
-    public function setPropertiesList($properties_list)
-    {
-        $this->container['properties_list'] = $properties_list;
+        $this->container['countries'] = $countries;
 
         return $this;
     }

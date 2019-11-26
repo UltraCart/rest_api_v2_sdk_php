@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerActivity
+ * GeocodeRequest
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomerActivity Class Doc Comment
+ * GeocodeRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerActivity implements ModelInterface, ArrayAccess
+class GeocodeRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomerActivity';
+    protected static $swaggerModelName = 'GeocodeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'activities' => '\ultracart\v2\models\Activity[]',
-        'memberships' => '\ultracart\v2\models\ListSegmentMembership[]',
-        'metrics' => '\ultracart\v2\models\Metric[]',
-        'properties_list' => '\ultracart\v2\models\Property[]'
+        'address' => 'string',
+        'city' => 'string',
+        'country_code' => 'string',
+        'postal_code' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -68,10 +69,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'activities' => null,
-        'memberships' => null,
-        'metrics' => null,
-        'properties_list' => null
+        'address' => null,
+        'city' => null,
+        'country_code' => null,
+        'postal_code' => null,
+        'state' => null
     ];
 
     /**
@@ -101,10 +103,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'activities' => 'activities',
-        'memberships' => 'memberships',
-        'metrics' => 'metrics',
-        'properties_list' => 'properties_list'
+        'address' => 'address',
+        'city' => 'city',
+        'country_code' => 'country_code',
+        'postal_code' => 'postal_code',
+        'state' => 'state'
     ];
 
     /**
@@ -113,10 +116,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'activities' => 'setActivities',
-        'memberships' => 'setMemberships',
-        'metrics' => 'setMetrics',
-        'properties_list' => 'setPropertiesList'
+        'address' => 'setAddress',
+        'city' => 'setCity',
+        'country_code' => 'setCountryCode',
+        'postal_code' => 'setPostalCode',
+        'state' => 'setState'
     ];
 
     /**
@@ -125,10 +129,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'activities' => 'getActivities',
-        'memberships' => 'getMemberships',
-        'metrics' => 'getMetrics',
-        'properties_list' => 'getPropertiesList'
+        'address' => 'getAddress',
+        'city' => 'getCity',
+        'country_code' => 'getCountryCode',
+        'postal_code' => 'getPostalCode',
+        'state' => 'getState'
     ];
 
     /**
@@ -191,10 +196,11 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['activities'] = isset($data['activities']) ? $data['activities'] : null;
-        $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
-        $this->container['metrics'] = isset($data['metrics']) ? $data['metrics'] : null;
-        $this->container['properties_list'] = isset($data['properties_list']) ? $data['properties_list'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
+        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
     }
 
     /**
@@ -223,97 +229,121 @@ class CustomerActivity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets activities
+     * Gets address
      *
-     * @return \ultracart\v2\models\Activity[]
+     * @return string
      */
-    public function getActivities()
+    public function getAddress()
     {
-        return $this->container['activities'];
+        return $this->container['address'];
     }
 
     /**
-     * Sets activities
+     * Sets address
      *
-     * @param \ultracart\v2\models\Activity[] $activities activities
+     * @param string $address address
      *
      * @return $this
      */
-    public function setActivities($activities)
+    public function setAddress($address)
     {
-        $this->container['activities'] = $activities;
+        $this->container['address'] = $address;
 
         return $this;
     }
 
     /**
-     * Gets memberships
+     * Gets city
      *
-     * @return \ultracart\v2\models\ListSegmentMembership[]
+     * @return string
      */
-    public function getMemberships()
+    public function getCity()
     {
-        return $this->container['memberships'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets memberships
+     * Sets city
      *
-     * @param \ultracart\v2\models\ListSegmentMembership[] $memberships memberships
+     * @param string $city city
      *
      * @return $this
      */
-    public function setMemberships($memberships)
+    public function setCity($city)
     {
-        $this->container['memberships'] = $memberships;
+        $this->container['city'] = $city;
 
         return $this;
     }
 
     /**
-     * Gets metrics
+     * Gets country_code
      *
-     * @return \ultracart\v2\models\Metric[]
+     * @return string
      */
-    public function getMetrics()
+    public function getCountryCode()
     {
-        return $this->container['metrics'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets metrics
+     * Sets country_code
      *
-     * @param \ultracart\v2\models\Metric[] $metrics metrics
+     * @param string $country_code country_code
      *
      * @return $this
      */
-    public function setMetrics($metrics)
+    public function setCountryCode($country_code)
     {
-        $this->container['metrics'] = $metrics;
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }
 
     /**
-     * Gets properties_list
+     * Gets postal_code
      *
-     * @return \ultracart\v2\models\Property[]
+     * @return string
      */
-    public function getPropertiesList()
+    public function getPostalCode()
     {
-        return $this->container['properties_list'];
+        return $this->container['postal_code'];
     }
 
     /**
-     * Sets properties_list
+     * Sets postal_code
      *
-     * @param \ultracart\v2\models\Property[] $properties_list properties_list
+     * @param string $postal_code postal_code
      *
      * @return $this
      */
-    public function setPropertiesList($properties_list)
+    public function setPostalCode($postal_code)
     {
-        $this->container['properties_list'] = $properties_list;
+        $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string $state state
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
 
         return $this;
     }

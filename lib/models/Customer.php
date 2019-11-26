@@ -73,6 +73,7 @@ class Customer implements ModelInterface, ArrayAccess
         'cc_emails' => '\ultracart\v2\models\CustomerEmail[]',
         'customer_profile_oid' => 'int',
         'dhl_account_number' => 'string',
+        'dhl_duty_account_number' => 'string',
         'email' => 'string',
         'exempt_shipping_handling_charge' => 'bool',
         'fedex_account_number' => 'string',
@@ -136,6 +137,7 @@ class Customer implements ModelInterface, ArrayAccess
         'cc_emails' => null,
         'customer_profile_oid' => 'int32',
         'dhl_account_number' => null,
+        'dhl_duty_account_number' => null,
         'email' => null,
         'exempt_shipping_handling_charge' => null,
         'fedex_account_number' => null,
@@ -220,6 +222,7 @@ class Customer implements ModelInterface, ArrayAccess
         'cc_emails' => 'cc_emails',
         'customer_profile_oid' => 'customer_profile_oid',
         'dhl_account_number' => 'dhl_account_number',
+        'dhl_duty_account_number' => 'dhl_duty_account_number',
         'email' => 'email',
         'exempt_shipping_handling_charge' => 'exempt_shipping_handling_charge',
         'fedex_account_number' => 'fedex_account_number',
@@ -283,6 +286,7 @@ class Customer implements ModelInterface, ArrayAccess
         'cc_emails' => 'setCcEmails',
         'customer_profile_oid' => 'setCustomerProfileOid',
         'dhl_account_number' => 'setDhlAccountNumber',
+        'dhl_duty_account_number' => 'setDhlDutyAccountNumber',
         'email' => 'setEmail',
         'exempt_shipping_handling_charge' => 'setExemptShippingHandlingCharge',
         'fedex_account_number' => 'setFedexAccountNumber',
@@ -346,6 +350,7 @@ class Customer implements ModelInterface, ArrayAccess
         'cc_emails' => 'getCcEmails',
         'customer_profile_oid' => 'getCustomerProfileOid',
         'dhl_account_number' => 'getDhlAccountNumber',
+        'dhl_duty_account_number' => 'getDhlDutyAccountNumber',
         'email' => 'getEmail',
         'exempt_shipping_handling_charge' => 'getExemptShippingHandlingCharge',
         'fedex_account_number' => 'getFedexAccountNumber',
@@ -463,6 +468,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['cc_emails'] = isset($data['cc_emails']) ? $data['cc_emails'] : null;
         $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['dhl_account_number'] = isset($data['dhl_account_number']) ? $data['dhl_account_number'] : null;
+        $this->container['dhl_duty_account_number'] = isset($data['dhl_duty_account_number']) ? $data['dhl_duty_account_number'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['exempt_shipping_handling_charge'] = isset($data['exempt_shipping_handling_charge']) ? $data['exempt_shipping_handling_charge'] : null;
         $this->container['fedex_account_number'] = isset($data['fedex_account_number']) ? $data['fedex_account_number'] : null;
@@ -520,6 +526,10 @@ class Customer implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'dhl_account_number', the character length must be smaller than or equal to 20.";
         }
 
+        if (!is_null($this->container['dhl_duty_account_number']) && (mb_strlen($this->container['dhl_duty_account_number']) > 20)) {
+            $invalidProperties[] = "invalid value for 'dhl_duty_account_number', the character length must be smaller than or equal to 20.";
+        }
+
         if (!is_null($this->container['fedex_account_number']) && (mb_strlen($this->container['fedex_account_number']) > 20)) {
             $invalidProperties[] = "invalid value for 'fedex_account_number', the character length must be smaller than or equal to 20.";
         }
@@ -568,6 +578,9 @@ class Customer implements ModelInterface, ArrayAccess
             return false;
         }
         if (mb_strlen($this->container['dhl_account_number']) > 20) {
+            return false;
+        }
+        if (mb_strlen($this->container['dhl_duty_account_number']) > 20) {
             return false;
         }
         if (mb_strlen($this->container['fedex_account_number']) > 20) {
@@ -1010,6 +1023,34 @@ class Customer implements ModelInterface, ArrayAccess
         }
 
         $this->container['dhl_account_number'] = $dhl_account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets dhl_duty_account_number
+     *
+     * @return string
+     */
+    public function getDhlDutyAccountNumber()
+    {
+        return $this->container['dhl_duty_account_number'];
+    }
+
+    /**
+     * Sets dhl_duty_account_number
+     *
+     * @param string $dhl_duty_account_number DHL duty account number
+     *
+     * @return $this
+     */
+    public function setDhlDutyAccountNumber($dhl_duty_account_number)
+    {
+        if (!is_null($dhl_duty_account_number) && (mb_strlen($dhl_duty_account_number) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $dhl_duty_account_number when calling Customer., must be smaller than or equal to 20.');
+        }
+
+        $this->container['dhl_duty_account_number'] = $dhl_duty_account_number;
 
         return $this;
     }

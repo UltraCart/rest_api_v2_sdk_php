@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **credit_cards** | [**\ultracart\v2\models\CartCustomerProfileCreditCard[]**](CartCustomerProfileCreditCard.md) | Credit cards on file for this profile (masked) | [optional] 
 **customer_profile_oid** | **int** | Unique identifier | [optional] 
 **dhl_account_number** | **string** | DHL account number on file | [optional] 
+**dhl_duty_account_number** | **string** | DHL duty account number on file | [optional] 
 **email** | **string** | Email | [optional] 
 **fedex_account_number** | **string** | FedEx account number on file | [optional] 
 **free_shipping** | **bool** | True if this profile always qualifies for free shipping | [optional] 
