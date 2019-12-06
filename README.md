@@ -181,6 +181,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/Api/OrderApi.md#getaccountsreceivableretrystats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
+*OrderApi* | [**getOrdersBatch**](docs/Api/OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
 *OrderApi* | [**insertOrder**](docs/Api/OrderApi.md#insertorder) | **POST** /order/orders | Insert an order
 *OrderApi* | [**refundOrder**](docs/Api/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
@@ -633,6 +634,7 @@ Class | Method | HTTP request | Description
  - [OrderPaymentTransactionDetail](docs/Model/OrderPaymentTransactionDetail.md)
  - [OrderProperty](docs/Model/OrderProperty.md)
  - [OrderQuery](docs/Model/OrderQuery.md)
+ - [OrderQueryBatch](docs/Model/OrderQueryBatch.md)
  - [OrderQuote](docs/Model/OrderQuote.md)
  - [OrderReplacement](docs/Model/OrderReplacement.md)
  - [OrderReplacementItem](docs/Model/OrderReplacementItem.md)
