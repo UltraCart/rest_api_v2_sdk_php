@@ -100,6 +100,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'shipped_by_user' => 'string',
         'shipped_dts' => 'string',
         'special_product_type' => 'string',
+        'tags' => '\ultracart\v2\models\OrderItemTag[]',
         'tax_free' => 'bool',
         'taxable_cost' => '\ultracart\v2\models\Currency',
         'total_cost_with_discount' => '\ultracart\v2\models\Currency',
@@ -161,6 +162,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'shipped_by_user' => null,
         'shipped_dts' => 'dateTime',
         'special_product_type' => null,
+        'tags' => null,
         'tax_free' => null,
         'taxable_cost' => null,
         'total_cost_with_discount' => null,
@@ -243,6 +245,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'shipped_by_user' => 'shipped_by_user',
         'shipped_dts' => 'shipped_dts',
         'special_product_type' => 'special_product_type',
+        'tags' => 'tags',
         'tax_free' => 'tax_free',
         'taxable_cost' => 'taxable_cost',
         'total_cost_with_discount' => 'total_cost_with_discount',
@@ -304,6 +307,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'shipped_by_user' => 'setShippedByUser',
         'shipped_dts' => 'setShippedDts',
         'special_product_type' => 'setSpecialProductType',
+        'tags' => 'setTags',
         'tax_free' => 'setTaxFree',
         'taxable_cost' => 'setTaxableCost',
         'total_cost_with_discount' => 'setTotalCostWithDiscount',
@@ -365,6 +369,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'shipped_by_user' => 'getShippedByUser',
         'shipped_dts' => 'getShippedDts',
         'special_product_type' => 'getSpecialProductType',
+        'tags' => 'getTags',
         'tax_free' => 'getTaxFree',
         'taxable_cost' => 'getTaxableCost',
         'total_cost_with_discount' => 'getTotalCostWithDiscount',
@@ -480,6 +485,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         $this->container['shipped_by_user'] = isset($data['shipped_by_user']) ? $data['shipped_by_user'] : null;
         $this->container['shipped_dts'] = isset($data['shipped_dts']) ? $data['shipped_dts'] : null;
         $this->container['special_product_type'] = isset($data['special_product_type']) ? $data['special_product_type'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tax_free'] = isset($data['tax_free']) ? $data['tax_free'] : null;
         $this->container['taxable_cost'] = isset($data['taxable_cost']) ? $data['taxable_cost'] : null;
         $this->container['total_cost_with_discount'] = isset($data['total_cost_with_discount']) ? $data['total_cost_with_discount'] : null;
@@ -1634,6 +1640,30 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function setSpecialProductType($special_product_type)
     {
         $this->container['special_product_type'] = $special_product_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \ultracart\v2\models\OrderItemTag[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \ultracart\v2\models\OrderItemTag[] $tags Tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

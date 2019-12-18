@@ -65,6 +65,8 @@ class Webhook implements ModelInterface, ArrayAccess
         'consecutive_failures' => 'int',
         'disabled' => 'bool',
         'event_categories' => '\ultracart\v2\models\WebhookEventCategory[]',
+        'iam_access_key' => 'string',
+        'iam_secret_key' => 'string',
         'maximum_events' => 'int',
         'maximum_size' => 'int',
         'merchant_id' => 'string',
@@ -89,6 +91,8 @@ class Webhook implements ModelInterface, ArrayAccess
         'consecutive_failures' => 'int32',
         'disabled' => null,
         'event_categories' => null,
+        'iam_access_key' => null,
+        'iam_secret_key' => null,
         'maximum_events' => 'int32',
         'maximum_size' => 'int32',
         'merchant_id' => null,
@@ -134,6 +138,8 @@ class Webhook implements ModelInterface, ArrayAccess
         'consecutive_failures' => 'consecutive_failures',
         'disabled' => 'disabled',
         'event_categories' => 'event_categories',
+        'iam_access_key' => 'iam_access_key',
+        'iam_secret_key' => 'iam_secret_key',
         'maximum_events' => 'maximum_events',
         'maximum_size' => 'maximum_size',
         'merchant_id' => 'merchant_id',
@@ -158,6 +164,8 @@ class Webhook implements ModelInterface, ArrayAccess
         'consecutive_failures' => 'setConsecutiveFailures',
         'disabled' => 'setDisabled',
         'event_categories' => 'setEventCategories',
+        'iam_access_key' => 'setIamAccessKey',
+        'iam_secret_key' => 'setIamSecretKey',
         'maximum_events' => 'setMaximumEvents',
         'maximum_size' => 'setMaximumSize',
         'merchant_id' => 'setMerchantId',
@@ -182,6 +190,8 @@ class Webhook implements ModelInterface, ArrayAccess
         'consecutive_failures' => 'getConsecutiveFailures',
         'disabled' => 'getDisabled',
         'event_categories' => 'getEventCategories',
+        'iam_access_key' => 'getIamAccessKey',
+        'iam_secret_key' => 'getIamSecretKey',
         'maximum_events' => 'getMaximumEvents',
         'maximum_size' => 'getMaximumSize',
         'merchant_id' => 'getMerchantId',
@@ -288,6 +298,8 @@ class Webhook implements ModelInterface, ArrayAccess
         $this->container['consecutive_failures'] = isset($data['consecutive_failures']) ? $data['consecutive_failures'] : null;
         $this->container['disabled'] = isset($data['disabled']) ? $data['disabled'] : null;
         $this->container['event_categories'] = isset($data['event_categories']) ? $data['event_categories'] : null;
+        $this->container['iam_access_key'] = isset($data['iam_access_key']) ? $data['iam_access_key'] : null;
+        $this->container['iam_secret_key'] = isset($data['iam_secret_key']) ? $data['iam_secret_key'] : null;
         $this->container['maximum_events'] = isset($data['maximum_events']) ? $data['maximum_events'] : null;
         $this->container['maximum_size'] = isset($data['maximum_size']) ? $data['maximum_size'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
@@ -576,6 +588,54 @@ class Webhook implements ModelInterface, ArrayAccess
     public function setEventCategories($event_categories)
     {
         $this->container['event_categories'] = $event_categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets iam_access_key
+     *
+     * @return string
+     */
+    public function getIamAccessKey()
+    {
+        return $this->container['iam_access_key'];
+    }
+
+    /**
+     * Sets iam_access_key
+     *
+     * @param string $iam_access_key IAM Access Key for AWS SQS Delivery
+     *
+     * @return $this
+     */
+    public function setIamAccessKey($iam_access_key)
+    {
+        $this->container['iam_access_key'] = $iam_access_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets iam_secret_key
+     *
+     * @return string
+     */
+    public function getIamSecretKey()
+    {
+        return $this->container['iam_secret_key'];
+    }
+
+    /**
+     * Sets iam_secret_key
+     *
+     * @param string $iam_secret_key IAM Secret Key for AWS SQS Delivery
+     *
+     * @return $this
+     */
+    public function setIamSecretKey($iam_secret_key)
+    {
+        $this->container['iam_secret_key'] = $iam_secret_key;
 
         return $this;
     }

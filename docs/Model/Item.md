@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **reviews** | [**\ultracart\v2\models\ItemReviews**](ItemReviews.md) |  | [optional] 
 **salesforce** | [**\ultracart\v2\models\ItemSalesforce**](ItemSalesforce.md) |  | [optional] 
 **shipping** | [**\ultracart\v2\models\ItemShipping**](ItemShipping.md) |  | [optional] 
+**tags** | [**\ultracart\v2\models\ItemTags**](ItemTags.md) |  | [optional] 
 **tax** | [**\ultracart\v2\models\ItemTax**](ItemTax.md) |  | [optional] 
 **third_party_email_marketing** | [**\ultracart\v2\models\ItemThirdPartyEmailMarketing[]**](ItemThirdPartyEmailMarketing.md) | 3rd Party Email Marketing | [optional] 
 **variant_items** | [**\ultracart\v2\models\ItemVariantItem[]**](ItemVariantItem.md) | Variant Items | [optional] 

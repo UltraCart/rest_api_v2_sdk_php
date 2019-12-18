@@ -97,6 +97,7 @@ class Item implements ModelInterface, ArrayAccess
         'reviews' => '\ultracart\v2\models\ItemReviews',
         'salesforce' => '\ultracart\v2\models\ItemSalesforce',
         'shipping' => '\ultracart\v2\models\ItemShipping',
+        'tags' => '\ultracart\v2\models\ItemTags',
         'tax' => '\ultracart\v2\models\ItemTax',
         'third_party_email_marketing' => '\ultracart\v2\models\ItemThirdPartyEmailMarketing[]',
         'variant_items' => '\ultracart\v2\models\ItemVariantItem[]',
@@ -151,6 +152,7 @@ class Item implements ModelInterface, ArrayAccess
         'reviews' => null,
         'salesforce' => null,
         'shipping' => null,
+        'tags' => null,
         'tax' => null,
         'third_party_email_marketing' => null,
         'variant_items' => null,
@@ -226,6 +228,7 @@ class Item implements ModelInterface, ArrayAccess
         'reviews' => 'reviews',
         'salesforce' => 'salesforce',
         'shipping' => 'shipping',
+        'tags' => 'tags',
         'tax' => 'tax',
         'third_party_email_marketing' => 'third_party_email_marketing',
         'variant_items' => 'variant_items',
@@ -280,6 +283,7 @@ class Item implements ModelInterface, ArrayAccess
         'reviews' => 'setReviews',
         'salesforce' => 'setSalesforce',
         'shipping' => 'setShipping',
+        'tags' => 'setTags',
         'tax' => 'setTax',
         'third_party_email_marketing' => 'setThirdPartyEmailMarketing',
         'variant_items' => 'setVariantItems',
@@ -334,6 +338,7 @@ class Item implements ModelInterface, ArrayAccess
         'reviews' => 'getReviews',
         'salesforce' => 'getSalesforce',
         'shipping' => 'getShipping',
+        'tags' => 'getTags',
         'tax' => 'getTax',
         'third_party_email_marketing' => 'getThirdPartyEmailMarketing',
         'variant_items' => 'getVariantItems',
@@ -442,6 +447,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['reviews'] = isset($data['reviews']) ? $data['reviews'] : null;
         $this->container['salesforce'] = isset($data['salesforce']) ? $data['salesforce'] : null;
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
         $this->container['third_party_email_marketing'] = isset($data['third_party_email_marketing']) ? $data['third_party_email_marketing'] : null;
         $this->container['variant_items'] = isset($data['variant_items']) ? $data['variant_items'] : null;
@@ -1487,6 +1493,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setShipping($shipping)
     {
         $this->container['shipping'] = $shipping;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \ultracart\v2\models\ItemTags
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \ultracart\v2\models\ItemTags $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

@@ -81,6 +81,7 @@ class Customer implements ModelInterface, ArrayAccess
         'free_shipping_minimum' => 'float',
         'last_modified_by' => 'string',
         'last_modified_dts' => 'string',
+        'loyalty' => '\ultracart\v2\models\CustomerLoyalty',
         'maximum_item_count' => 'int',
         'minimum_item_count' => 'int',
         'minimum_subtotal' => 'float',
@@ -104,6 +105,7 @@ class Customer implements ModelInterface, ArrayAccess
         'signup_dts' => 'string',
         'software_entitlements' => '\ultracart\v2\models\CustomerSoftwareEntitlement[]',
         'suppress_buysafe' => 'bool',
+        'tags' => '\ultracart\v2\models\CustomerTag[]',
         'tax_codes' => '\ultracart\v2\models\CustomerTaxCodes',
         'tax_exempt' => 'bool',
         'tax_id' => 'string',
@@ -145,6 +147,7 @@ class Customer implements ModelInterface, ArrayAccess
         'free_shipping_minimum' => null,
         'last_modified_by' => null,
         'last_modified_dts' => 'dateTime',
+        'loyalty' => null,
         'maximum_item_count' => 'int32',
         'minimum_item_count' => 'int32',
         'minimum_subtotal' => null,
@@ -168,6 +171,7 @@ class Customer implements ModelInterface, ArrayAccess
         'signup_dts' => null,
         'software_entitlements' => null,
         'suppress_buysafe' => null,
+        'tags' => null,
         'tax_codes' => null,
         'tax_exempt' => null,
         'tax_id' => null,
@@ -230,6 +234,7 @@ class Customer implements ModelInterface, ArrayAccess
         'free_shipping_minimum' => 'free_shipping_minimum',
         'last_modified_by' => 'last_modified_by',
         'last_modified_dts' => 'last_modified_dts',
+        'loyalty' => 'loyalty',
         'maximum_item_count' => 'maximum_item_count',
         'minimum_item_count' => 'minimum_item_count',
         'minimum_subtotal' => 'minimum_subtotal',
@@ -253,6 +258,7 @@ class Customer implements ModelInterface, ArrayAccess
         'signup_dts' => 'signup_dts',
         'software_entitlements' => 'software_entitlements',
         'suppress_buysafe' => 'suppress_buysafe',
+        'tags' => 'tags',
         'tax_codes' => 'tax_codes',
         'tax_exempt' => 'tax_exempt',
         'tax_id' => 'tax_id',
@@ -294,6 +300,7 @@ class Customer implements ModelInterface, ArrayAccess
         'free_shipping_minimum' => 'setFreeShippingMinimum',
         'last_modified_by' => 'setLastModifiedBy',
         'last_modified_dts' => 'setLastModifiedDts',
+        'loyalty' => 'setLoyalty',
         'maximum_item_count' => 'setMaximumItemCount',
         'minimum_item_count' => 'setMinimumItemCount',
         'minimum_subtotal' => 'setMinimumSubtotal',
@@ -317,6 +324,7 @@ class Customer implements ModelInterface, ArrayAccess
         'signup_dts' => 'setSignupDts',
         'software_entitlements' => 'setSoftwareEntitlements',
         'suppress_buysafe' => 'setSuppressBuysafe',
+        'tags' => 'setTags',
         'tax_codes' => 'setTaxCodes',
         'tax_exempt' => 'setTaxExempt',
         'tax_id' => 'setTaxId',
@@ -358,6 +366,7 @@ class Customer implements ModelInterface, ArrayAccess
         'free_shipping_minimum' => 'getFreeShippingMinimum',
         'last_modified_by' => 'getLastModifiedBy',
         'last_modified_dts' => 'getLastModifiedDts',
+        'loyalty' => 'getLoyalty',
         'maximum_item_count' => 'getMaximumItemCount',
         'minimum_item_count' => 'getMinimumItemCount',
         'minimum_subtotal' => 'getMinimumSubtotal',
@@ -381,6 +390,7 @@ class Customer implements ModelInterface, ArrayAccess
         'signup_dts' => 'getSignupDts',
         'software_entitlements' => 'getSoftwareEntitlements',
         'suppress_buysafe' => 'getSuppressBuysafe',
+        'tags' => 'getTags',
         'tax_codes' => 'getTaxCodes',
         'tax_exempt' => 'getTaxExempt',
         'tax_id' => 'getTaxId',
@@ -476,6 +486,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['free_shipping_minimum'] = isset($data['free_shipping_minimum']) ? $data['free_shipping_minimum'] : null;
         $this->container['last_modified_by'] = isset($data['last_modified_by']) ? $data['last_modified_by'] : null;
         $this->container['last_modified_dts'] = isset($data['last_modified_dts']) ? $data['last_modified_dts'] : null;
+        $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
         $this->container['maximum_item_count'] = isset($data['maximum_item_count']) ? $data['maximum_item_count'] : null;
         $this->container['minimum_item_count'] = isset($data['minimum_item_count']) ? $data['minimum_item_count'] : null;
         $this->container['minimum_subtotal'] = isset($data['minimum_subtotal']) ? $data['minimum_subtotal'] : null;
@@ -499,6 +510,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['signup_dts'] = isset($data['signup_dts']) ? $data['signup_dts'] : null;
         $this->container['software_entitlements'] = isset($data['software_entitlements']) ? $data['software_entitlements'] : null;
         $this->container['suppress_buysafe'] = isset($data['suppress_buysafe']) ? $data['suppress_buysafe'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tax_codes'] = isset($data['tax_codes']) ? $data['tax_codes'] : null;
         $this->container['tax_exempt'] = isset($data['tax_exempt']) ? $data['tax_exempt'] : null;
         $this->container['tax_id'] = isset($data['tax_id']) ? $data['tax_id'] : null;
@@ -1232,6 +1244,30 @@ class Customer implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets loyalty
+     *
+     * @return \ultracart\v2\models\CustomerLoyalty
+     */
+    public function getLoyalty()
+    {
+        return $this->container['loyalty'];
+    }
+
+    /**
+     * Sets loyalty
+     *
+     * @param \ultracart\v2\models\CustomerLoyalty $loyalty loyalty
+     *
+     * @return $this
+     */
+    public function setLoyalty($loyalty)
+    {
+        $this->container['loyalty'] = $loyalty;
+
+        return $this;
+    }
+
+    /**
      * Gets maximum_item_count
      *
      * @return int
@@ -1791,6 +1827,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setSuppressBuysafe($suppress_buysafe)
     {
         $this->container['suppress_buysafe'] = $suppress_buysafe;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \ultracart\v2\models\CustomerTag[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \ultracart\v2\models\CustomerTag[] $tags Tags for this customer
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

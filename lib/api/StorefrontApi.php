@@ -741,6 +741,355 @@ class StorefrontApi
     }
 
     /**
+     * Operation checkDownloadEmailSegment
+     *
+     * Check download of email segment
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     * @param  string $email_segment_rebuild_uuid null (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailSegmentDownloadPrepareResponse
+     */
+    public function checkDownloadEmailSegment($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
+    {
+        list($response) = $this->checkDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation checkDownloadEmailSegmentWithHttpInfo
+     *
+     * Check download of email segment
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     * @param  string $email_segment_rebuild_uuid null (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentDownloadPrepareResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function checkDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
+    {
+        $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
+        $request = $this->checkDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation checkDownloadEmailSegmentAsync
+     *
+     * Check download of email segment
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     * @param  string $email_segment_rebuild_uuid null (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function checkDownloadEmailSegmentAsync($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
+    {
+        return $this->checkDownloadEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation checkDownloadEmailSegmentAsyncWithHttpInfo
+     *
+     * Check download of email segment
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     * @param  string $email_segment_rebuild_uuid null (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function checkDownloadEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
+    {
+        $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
+        $request = $this->checkDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'checkDownloadEmailSegment'
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     * @param  string $email_segment_rebuild_uuid null (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function checkDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling checkDownloadEmailSegment'
+            );
+        }
+        // verify the required parameter 'email_segment_uuid' is set
+        if ($email_segment_uuid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_segment_uuid when calling checkDownloadEmailSegment'
+            );
+        }
+        // verify the required parameter 'email_segment_rebuild_uuid' is set
+        if ($email_segment_rebuild_uuid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_segment_rebuild_uuid when calling checkDownloadEmailSegment'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_segment_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'email_segment_uuid' . '}',
+                ObjectSerializer::toPathValue($email_segment_uuid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_segment_rebuild_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'email_segment_rebuild_uuid' . '}',
+                ObjectSerializer::toPathValue($email_segment_rebuild_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation cloneEmailCampaign
      *
      * Clone email campaign
@@ -16504,6 +16853,336 @@ class StorefrontApi
         if (isset($email_segment)) {
             $_tempBody = $email_segment;
         }
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation prepareDownloadEmailSegment
+     *
+     * Prepare download of email segment
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailSegmentDownloadPrepareResponse
+     */
+    public function prepareDownloadEmailSegment($storefront_oid, $email_segment_uuid)
+    {
+        list($response) = $this->prepareDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid);
+        return $response;
+    }
+
+    /**
+     * Operation prepareDownloadEmailSegmentWithHttpInfo
+     *
+     * Prepare download of email segment
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentDownloadPrepareResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function prepareDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
+    {
+        $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
+        $request = $this->prepareDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation prepareDownloadEmailSegmentAsync
+     *
+     * Prepare download of email segment
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function prepareDownloadEmailSegmentAsync($storefront_oid, $email_segment_uuid)
+    {
+        return $this->prepareDownloadEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation prepareDownloadEmailSegmentAsyncWithHttpInfo
+     *
+     * Prepare download of email segment
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function prepareDownloadEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid)
+    {
+        $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
+        $request = $this->prepareDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'prepareDownloadEmailSegment'
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $email_segment_uuid null (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function prepareDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling prepareDownloadEmailSegment'
+            );
+        }
+        // verify the required parameter 'email_segment_uuid' is set
+        if ($email_segment_uuid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_segment_uuid when calling prepareDownloadEmailSegment'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_segment_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'email_segment_uuid' . '}',
+                ObjectSerializer::toPathValue($email_segment_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(

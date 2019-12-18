@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **salesforce** | [**\ultracart\v2\models\OrderSalesforce**](OrderSalesforce.md) |  | [optional] 
 **shipping** | [**\ultracart\v2\models\OrderShipping**](OrderShipping.md) |  | [optional] 
 **summary** | [**\ultracart\v2\models\OrderSummary**](OrderSummary.md) |  | [optional] 
+**tags** | [**\ultracart\v2\models\OrderTag[]**](OrderTag.md) | tags, available only through update, not through insert due to the nature of how tags are handled internally | [optional] 
 **taxes** | [**\ultracart\v2\models\OrderTaxes**](OrderTaxes.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

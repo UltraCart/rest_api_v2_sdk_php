@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **shipped_by_user** | **string** | Shipped by user | [optional] 
 **shipped_dts** | **string** | Date/time that this item was marked shipped | [optional] 
 **special_product_type** | **string** | Special product type (USPS Media Mail) | [optional] 
+**tags** | [**\ultracart\v2\models\OrderItemTag[]**](OrderItemTag.md) | Tags | [optional] 
 **tax_free** | **bool** | True if the item is tax free | [optional] 
 **taxable_cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **total_cost_with_discount** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 

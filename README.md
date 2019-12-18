@@ -192,6 +192,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
 *StorefrontApi* | [**archiveEmailList**](docs/Api/StorefrontApi.md#archiveemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
 *StorefrontApi* | [**archiveEmailSegment**](docs/Api/StorefrontApi.md#archiveemailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
+*StorefrontApi* | [**checkDownloadEmailSegment**](docs/Api/StorefrontApi.md#checkdownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 *StorefrontApi* | [**cloneEmailCampaign**](docs/Api/StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/Api/StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
 *StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
@@ -241,6 +242,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**insertEmailFlow**](docs/Api/StorefrontApi.md#insertemailflow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
 *StorefrontApi* | [**insertEmailList**](docs/Api/StorefrontApi.md#insertemaillist) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
 *StorefrontApi* | [**insertEmailSegment**](docs/Api/StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
+*StorefrontApi* | [**prepareDownloadEmailSegment**](docs/Api/StorefrontApi.md#preparedownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare | Prepare download of email segment
 *StorefrontApi* | [**search**](docs/Api/StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 *StorefrontApi* | [**searchEmailListCustomers**](docs/Api/StorefrontApi.md#searchemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 *StorefrontApi* | [**searchEmailSegmentCustomers**](docs/Api/StorefrontApi.md#searchemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
@@ -444,6 +446,9 @@ Class | Method | HTTP request | Description
  - [CustomerEditorValues](docs/Model/CustomerEditorValues.md)
  - [CustomerEmail](docs/Model/CustomerEmail.md)
  - [CustomerEmailListChanges](docs/Model/CustomerEmailListChanges.md)
+ - [CustomerLoyalty](docs/Model/CustomerLoyalty.md)
+ - [CustomerLoyaltyLedger](docs/Model/CustomerLoyaltyLedger.md)
+ - [CustomerLoyaltyRedemption](docs/Model/CustomerLoyaltyRedemption.md)
  - [CustomerOrdersSummary](docs/Model/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/Model/CustomerPricingTier.md)
  - [CustomerPrivacy](docs/Model/CustomerPrivacy.md)
@@ -453,6 +458,7 @@ Class | Method | HTTP request | Description
  - [CustomerReviewer](docs/Model/CustomerReviewer.md)
  - [CustomerShipping](docs/Model/CustomerShipping.md)
  - [CustomerSoftwareEntitlement](docs/Model/CustomerSoftwareEntitlement.md)
+ - [CustomerTag](docs/Model/CustomerTag.md)
  - [CustomerTaxCodes](docs/Model/CustomerTaxCodes.md)
  - [CustomersResponse](docs/Model/CustomersResponse.md)
  - [DataTablesServerSideResponse](docs/Model/DataTablesServerSideResponse.md)
@@ -496,6 +502,7 @@ Class | Method | HTTP request | Description
  - [EmailSegmentArchiveResponse](docs/Model/EmailSegmentArchiveResponse.md)
  - [EmailSegmentCustomer](docs/Model/EmailSegmentCustomer.md)
  - [EmailSegmentCustomersResponse](docs/Model/EmailSegmentCustomersResponse.md)
+ - [EmailSegmentDownloadPrepareResponse](docs/Model/EmailSegmentDownloadPrepareResponse.md)
  - [EmailSegmentResponse](docs/Model/EmailSegmentResponse.md)
  - [EmailSegmentsResponse](docs/Model/EmailSegmentsResponse.md)
  - [EmailSendingDomainResponse](docs/Model/EmailSendingDomainResponse.md)
@@ -583,6 +590,8 @@ Class | Method | HTTP request | Description
  - [ItemShippingDistributionCenter](docs/Model/ItemShippingDistributionCenter.md)
  - [ItemShippingMethod](docs/Model/ItemShippingMethod.md)
  - [ItemShippingPackageRequirement](docs/Model/ItemShippingPackageRequirement.md)
+ - [ItemTag](docs/Model/ItemTag.md)
+ - [ItemTags](docs/Model/ItemTags.md)
  - [ItemTax](docs/Model/ItemTax.md)
  - [ItemTaxExemption](docs/Model/ItemTaxExemption.md)
  - [ItemThirdPartyEmailMarketing](docs/Model/ItemThirdPartyEmailMarketing.md)
@@ -623,6 +632,7 @@ Class | Method | HTTP request | Description
  - [OrderItemOption](docs/Model/OrderItemOption.md)
  - [OrderItemOptionFileAttachment](docs/Model/OrderItemOptionFileAttachment.md)
  - [OrderItemProperty](docs/Model/OrderItemProperty.md)
+ - [OrderItemTag](docs/Model/OrderItemTag.md)
  - [OrderLinkedShipment](docs/Model/OrderLinkedShipment.md)
  - [OrderMarketing](docs/Model/OrderMarketing.md)
  - [OrderPayment](docs/Model/OrderPayment.md)
@@ -643,6 +653,7 @@ Class | Method | HTTP request | Description
  - [OrderSalesforce](docs/Model/OrderSalesforce.md)
  - [OrderShipping](docs/Model/OrderShipping.md)
  - [OrderSummary](docs/Model/OrderSummary.md)
+ - [OrderTag](docs/Model/OrderTag.md)
  - [OrderTaxes](docs/Model/OrderTaxes.md)
  - [OrdersResponse](docs/Model/OrdersResponse.md)
  - [PricingTier](docs/Model/PricingTier.md)

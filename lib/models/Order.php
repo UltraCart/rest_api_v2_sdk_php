@@ -88,6 +88,7 @@ class Order implements ModelInterface, ArrayAccess
         'salesforce' => '\ultracart\v2\models\OrderSalesforce',
         'shipping' => '\ultracart\v2\models\OrderShipping',
         'summary' => '\ultracart\v2\models\OrderSummary',
+        'tags' => '\ultracart\v2\models\OrderTag[]',
         'taxes' => '\ultracart\v2\models\OrderTaxes'
     ];
 
@@ -129,6 +130,7 @@ class Order implements ModelInterface, ArrayAccess
         'salesforce' => null,
         'shipping' => null,
         'summary' => null,
+        'tags' => null,
         'taxes' => null
     ];
 
@@ -191,6 +193,7 @@ class Order implements ModelInterface, ArrayAccess
         'salesforce' => 'salesforce',
         'shipping' => 'shipping',
         'summary' => 'summary',
+        'tags' => 'Tags',
         'taxes' => 'taxes'
     ];
 
@@ -232,6 +235,7 @@ class Order implements ModelInterface, ArrayAccess
         'salesforce' => 'setSalesforce',
         'shipping' => 'setShipping',
         'summary' => 'setSummary',
+        'tags' => 'setTags',
         'taxes' => 'setTaxes'
     ];
 
@@ -273,6 +277,7 @@ class Order implements ModelInterface, ArrayAccess
         'salesforce' => 'getSalesforce',
         'shipping' => 'getShipping',
         'summary' => 'getSummary',
+        'tags' => 'getTags',
         'taxes' => 'getTaxes'
     ];
 
@@ -399,6 +404,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['salesforce'] = isset($data['salesforce']) ? $data['salesforce'] : null;
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['taxes'] = isset($data['taxes']) ? $data['taxes'] : null;
     }
 
@@ -1234,6 +1240,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setSummary($summary)
     {
         $this->container['summary'] = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \ultracart\v2\models\OrderTag[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \ultracart\v2\models\OrderTag[] $tags tags, available only through update, not through insert due to the nature of how tags are handled internally
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
