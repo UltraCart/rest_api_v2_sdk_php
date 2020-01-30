@@ -59,6 +59,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'string',
         'deleted' => 'bool',
         'email_segment_uuid' => 'string',
+        'facebook_custom_audience' => 'bool',
         'filter_profile_equation_json' => 'string',
         'member_count' => 'int',
         'merchant_id' => 'string',
@@ -76,6 +77,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'dateTime',
         'deleted' => null,
         'email_segment_uuid' => null,
+        'facebook_custom_audience' => null,
         'filter_profile_equation_json' => null,
         'member_count' => 'int32',
         'merchant_id' => null,
@@ -114,6 +116,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'email_segment_uuid' => 'email_segment_uuid',
+        'facebook_custom_audience' => 'facebook_custom_audience',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'member_count' => 'member_count',
         'merchant_id' => 'merchant_id',
@@ -131,6 +134,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'email_segment_uuid' => 'setEmailSegmentUuid',
+        'facebook_custom_audience' => 'setFacebookCustomAudience',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'member_count' => 'setMemberCount',
         'merchant_id' => 'setMerchantId',
@@ -148,6 +152,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'email_segment_uuid' => 'getEmailSegmentUuid',
+        'facebook_custom_audience' => 'getFacebookCustomAudience',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'member_count' => 'getMemberCount',
         'merchant_id' => 'getMerchantId',
@@ -219,6 +224,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email_segment_uuid'] = isset($data['email_segment_uuid']) ? $data['email_segment_uuid'] : null;
+        $this->container['facebook_custom_audience'] = isset($data['facebook_custom_audience']) ? $data['facebook_custom_audience'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['member_count'] = isset($data['member_count']) ? $data['member_count'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
@@ -327,6 +333,30 @@ class EmailSegment implements ModelInterface, ArrayAccess
     public function setEmailSegmentUuid($email_segment_uuid)
     {
         $this->container['email_segment_uuid'] = $email_segment_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets facebook_custom_audience
+     *
+     * @return bool
+     */
+    public function getFacebookCustomAudience()
+    {
+        return $this->container['facebook_custom_audience'];
+    }
+
+    /**
+     * Sets facebook_custom_audience
+     *
+     * @param bool $facebook_custom_audience True if you want to sync to a facebook custom audience
+     *
+     * @return $this
+     */
+    public function setFacebookCustomAudience($facebook_custom_audience)
+    {
+        $this->container['facebook_custom_audience'] = $facebook_custom_audience;
 
         return $this;
     }

@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **member_count** | **int** | Count of members in this list | [optional] 
 **merchant_id** | **string** | Merchant ID | [optional] 
 **name** | **string** | Name of email list | [optional] 
+**public_description** | **string** | Description of list shown to customer. | [optional] 
+**public_list** | **bool** | True if this list is public | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

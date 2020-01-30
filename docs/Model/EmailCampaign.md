@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **deleted** | **bool** | True if this campaign was deleted | [optional] 
 **email_campaign_uuid** | **string** | Email campaign UUID | [optional] 
 **email_communication_sequence_uuid** | **string** | Email communication sequence UUID | [optional] 
+**esp_domain_user** | **string** | User of the sending address | [optional] 
+**esp_domain_uuid** | **string** | UUID of the sending domain | [optional] 
 **memberships** | [**\ultracart\v2\models\EmailListSegmentMembership[]**](EmailListSegmentMembership.md) | List and segment memberships | [optional] 
 **merchant_id** | **string** | Merchant ID | [optional] 
 **name** | **string** | Name of email campaign | [optional] 

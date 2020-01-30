@@ -57,13 +57,18 @@ class EmailFlow implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'allow_multiple_concurrent_enrollments' => 'bool',
+        'click_rate_formatted' => 'string',
         'created_dts' => 'string',
         'deleted' => 'bool',
         'email_communication_sequence_uuid' => 'string',
         'email_flow_uuid' => 'string',
+        'esp_domain_user' => 'string',
+        'esp_domain_uuid' => 'string',
         'filter_profile_equation_json' => 'string',
         'merchant_id' => 'string',
         'name' => 'string',
+        'open_rate_formatted' => 'string',
+        'revenue_formatted' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
         'storefront_oid' => 'int',
@@ -79,13 +84,18 @@ class EmailFlow implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'allow_multiple_concurrent_enrollments' => null,
+        'click_rate_formatted' => null,
         'created_dts' => 'dateTime',
         'deleted' => null,
         'email_communication_sequence_uuid' => null,
         'email_flow_uuid' => null,
+        'esp_domain_user' => null,
+        'esp_domain_uuid' => null,
         'filter_profile_equation_json' => null,
         'merchant_id' => null,
         'name' => null,
+        'open_rate_formatted' => null,
+        'revenue_formatted' => null,
         'status' => null,
         'status_dts' => 'dateTime',
         'storefront_oid' => 'int32',
@@ -122,13 +132,18 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'allow_multiple_concurrent_enrollments' => 'allow_multiple_concurrent_enrollments',
+        'click_rate_formatted' => 'click_rate_formatted',
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
         'email_flow_uuid' => 'email_flow_uuid',
+        'esp_domain_user' => 'esp_domain_user',
+        'esp_domain_uuid' => 'esp_domain_uuid',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
+        'open_rate_formatted' => 'open_rate_formatted',
+        'revenue_formatted' => 'revenue_formatted',
         'status' => 'status',
         'status_dts' => 'status_dts',
         'storefront_oid' => 'storefront_oid',
@@ -144,13 +159,18 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'allow_multiple_concurrent_enrollments' => 'setAllowMultipleConcurrentEnrollments',
+        'click_rate_formatted' => 'setClickRateFormatted',
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
         'email_flow_uuid' => 'setEmailFlowUuid',
+        'esp_domain_user' => 'setEspDomainUser',
+        'esp_domain_uuid' => 'setEspDomainUuid',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
+        'open_rate_formatted' => 'setOpenRateFormatted',
+        'revenue_formatted' => 'setRevenueFormatted',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
         'storefront_oid' => 'setStorefrontOid',
@@ -166,13 +186,18 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'allow_multiple_concurrent_enrollments' => 'getAllowMultipleConcurrentEnrollments',
+        'click_rate_formatted' => 'getClickRateFormatted',
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
         'email_flow_uuid' => 'getEmailFlowUuid',
+        'esp_domain_user' => 'getEspDomainUser',
+        'esp_domain_uuid' => 'getEspDomainUuid',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
+        'open_rate_formatted' => 'getOpenRateFormatted',
+        'revenue_formatted' => 'getRevenueFormatted',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
         'storefront_oid' => 'getStorefrontOid',
@@ -242,13 +267,18 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['allow_multiple_concurrent_enrollments'] = isset($data['allow_multiple_concurrent_enrollments']) ? $data['allow_multiple_concurrent_enrollments'] : null;
+        $this->container['click_rate_formatted'] = isset($data['click_rate_formatted']) ? $data['click_rate_formatted'] : null;
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
         $this->container['email_flow_uuid'] = isset($data['email_flow_uuid']) ? $data['email_flow_uuid'] : null;
+        $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
+        $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['open_rate_formatted'] = isset($data['open_rate_formatted']) ? $data['open_rate_formatted'] : null;
+        $this->container['revenue_formatted'] = isset($data['revenue_formatted']) ? $data['revenue_formatted'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
@@ -309,6 +339,30 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function setAllowMultipleConcurrentEnrollments($allow_multiple_concurrent_enrollments)
     {
         $this->container['allow_multiple_concurrent_enrollments'] = $allow_multiple_concurrent_enrollments;
+
+        return $this;
+    }
+
+    /**
+     * Gets click_rate_formatted
+     *
+     * @return string
+     */
+    public function getClickRateFormatted()
+    {
+        return $this->container['click_rate_formatted'];
+    }
+
+    /**
+     * Sets click_rate_formatted
+     *
+     * @param string $click_rate_formatted Click rate of emails, formatted
+     *
+     * @return $this
+     */
+    public function setClickRateFormatted($click_rate_formatted)
+    {
+        $this->container['click_rate_formatted'] = $click_rate_formatted;
 
         return $this;
     }
@@ -410,6 +464,54 @@ class EmailFlow implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets esp_domain_user
+     *
+     * @return string
+     */
+    public function getEspDomainUser()
+    {
+        return $this->container['esp_domain_user'];
+    }
+
+    /**
+     * Sets esp_domain_user
+     *
+     * @param string $esp_domain_user Username of sending email
+     *
+     * @return $this
+     */
+    public function setEspDomainUser($esp_domain_user)
+    {
+        $this->container['esp_domain_user'] = $esp_domain_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_domain_uuid
+     *
+     * @return string
+     */
+    public function getEspDomainUuid()
+    {
+        return $this->container['esp_domain_uuid'];
+    }
+
+    /**
+     * Sets esp_domain_uuid
+     *
+     * @param string $esp_domain_uuid UUID of sending domain
+     *
+     * @return $this
+     */
+    public function setEspDomainUuid($esp_domain_uuid)
+    {
+        $this->container['esp_domain_uuid'] = $esp_domain_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets filter_profile_equation_json
      *
      * @return string
@@ -481,6 +583,54 @@ class EmailFlow implements ModelInterface, ArrayAccess
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_rate_formatted
+     *
+     * @return string
+     */
+    public function getOpenRateFormatted()
+    {
+        return $this->container['open_rate_formatted'];
+    }
+
+    /**
+     * Sets open_rate_formatted
+     *
+     * @param string $open_rate_formatted Open rate of emails, formatted
+     *
+     * @return $this
+     */
+    public function setOpenRateFormatted($open_rate_formatted)
+    {
+        $this->container['open_rate_formatted'] = $open_rate_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets revenue_formatted
+     *
+     * @return string
+     */
+    public function getRevenueFormatted()
+    {
+        return $this->container['revenue_formatted'];
+    }
+
+    /**
+     * Sets revenue_formatted
+     *
+     * @param string $revenue_formatted Revenue, formatted
+     *
+     * @return $this
+     */
+    public function setRevenueFormatted($revenue_formatted)
+    {
+        $this->container['revenue_formatted'] = $revenue_formatted;
 
         return $this;
     }

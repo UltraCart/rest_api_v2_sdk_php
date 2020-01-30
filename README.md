@@ -573,6 +573,7 @@ Class | Method | HTTP request | Description
  - [ItemPricingTier](docs/Model/ItemPricingTier.md)
  - [ItemPricingTierDiscount](docs/Model/ItemPricingTierDiscount.md)
  - [ItemPricingTierLimit](docs/Model/ItemPricingTierLimit.md)
+ - [ItemProperty](docs/Model/ItemProperty.md)
  - [ItemRealtimePricing](docs/Model/ItemRealtimePricing.md)
  - [ItemRelated](docs/Model/ItemRelated.md)
  - [ItemRelatedItem](docs/Model/ItemRelatedItem.md)

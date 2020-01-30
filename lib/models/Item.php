@@ -89,6 +89,7 @@ class Item implements ModelInterface, ArrayAccess
         'payment_processing' => '\ultracart\v2\models\ItemPaymentProcessing',
         'physical' => '\ultracart\v2\models\ItemPhysical',
         'pricing' => '\ultracart\v2\models\ItemPricing',
+        'properties' => '\ultracart\v2\models\ItemProperty[]',
         'realtime_pricing' => '\ultracart\v2\models\ItemRealtimePricing',
         'related' => '\ultracart\v2\models\ItemRelated',
         'reporting' => '\ultracart\v2\models\ItemReporting',
@@ -144,6 +145,7 @@ class Item implements ModelInterface, ArrayAccess
         'payment_processing' => null,
         'physical' => null,
         'pricing' => null,
+        'properties' => null,
         'realtime_pricing' => null,
         'related' => null,
         'reporting' => null,
@@ -220,6 +222,7 @@ class Item implements ModelInterface, ArrayAccess
         'payment_processing' => 'payment_processing',
         'physical' => 'physical',
         'pricing' => 'pricing',
+        'properties' => 'properties',
         'realtime_pricing' => 'realtime_pricing',
         'related' => 'related',
         'reporting' => 'reporting',
@@ -275,6 +278,7 @@ class Item implements ModelInterface, ArrayAccess
         'payment_processing' => 'setPaymentProcessing',
         'physical' => 'setPhysical',
         'pricing' => 'setPricing',
+        'properties' => 'setProperties',
         'realtime_pricing' => 'setRealtimePricing',
         'related' => 'setRelated',
         'reporting' => 'setReporting',
@@ -330,6 +334,7 @@ class Item implements ModelInterface, ArrayAccess
         'payment_processing' => 'getPaymentProcessing',
         'physical' => 'getPhysical',
         'pricing' => 'getPricing',
+        'properties' => 'getProperties',
         'realtime_pricing' => 'getRealtimePricing',
         'related' => 'getRelated',
         'reporting' => 'getReporting',
@@ -439,6 +444,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['payment_processing'] = isset($data['payment_processing']) ? $data['payment_processing'] : null;
         $this->container['physical'] = isset($data['physical']) ? $data['physical'] : null;
         $this->container['pricing'] = isset($data['pricing']) ? $data['pricing'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['realtime_pricing'] = isset($data['realtime_pricing']) ? $data['realtime_pricing'] : null;
         $this->container['related'] = isset($data['related']) ? $data['related'] : null;
         $this->container['reporting'] = isset($data['reporting']) ? $data['reporting'] : null;
@@ -1301,6 +1307,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setPricing($pricing)
     {
         $this->container['pricing'] = $pricing;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\ItemProperty[]
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\ItemProperty[] $properties Properties
+     *
+     * @return $this
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

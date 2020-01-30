@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **payment_processing** | [**\ultracart\v2\models\ItemPaymentProcessing**](ItemPaymentProcessing.md) |  | [optional] 
 **physical** | [**\ultracart\v2\models\ItemPhysical**](ItemPhysical.md) |  | [optional] 
 **pricing** | [**\ultracart\v2\models\ItemPricing**](ItemPricing.md) |  | [optional] 
+**properties** | [**\ultracart\v2\models\ItemProperty[]**](ItemProperty.md) | Properties | [optional] 
 **realtime_pricing** | [**\ultracart\v2\models\ItemRealtimePricing**](ItemRealtimePricing.md) |  | [optional] 
 **related** | [**\ultracart\v2\models\ItemRelated**](ItemRelated.md) |  | [optional] 
 **reporting** | [**\ultracart\v2\models\ItemReporting**](ItemReporting.md) |  | [optional] 

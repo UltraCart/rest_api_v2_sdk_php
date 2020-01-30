@@ -66,6 +66,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'name' => 'string',
         'open_count' => 'int',
         'open_count_formatted' => 'string',
+        'order_count' => 'int',
+        'order_count_formatted' => 'string',
         'permanent_bounce_count' => 'int',
         'permanent_bounce_count_formatted' => 'string',
         'profit' => 'float',
@@ -103,6 +105,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'name' => null,
         'open_count' => 'int32',
         'open_count_formatted' => null,
+        'order_count' => 'int32',
+        'order_count_formatted' => null,
         'permanent_bounce_count' => 'int32',
         'permanent_bounce_count_formatted' => null,
         'profit' => null,
@@ -161,6 +165,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'name' => 'name',
         'open_count' => 'open_count',
         'open_count_formatted' => 'open_count_formatted',
+        'order_count' => 'order_count',
+        'order_count_formatted' => 'order_count_formatted',
         'permanent_bounce_count' => 'permanent_bounce_count',
         'permanent_bounce_count_formatted' => 'permanent_bounce_count_formatted',
         'profit' => 'profit',
@@ -198,6 +204,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'open_count' => 'setOpenCount',
         'open_count_formatted' => 'setOpenCountFormatted',
+        'order_count' => 'setOrderCount',
+        'order_count_formatted' => 'setOrderCountFormatted',
         'permanent_bounce_count' => 'setPermanentBounceCount',
         'permanent_bounce_count_formatted' => 'setPermanentBounceCountFormatted',
         'profit' => 'setProfit',
@@ -235,6 +243,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'open_count' => 'getOpenCount',
         'open_count_formatted' => 'getOpenCountFormatted',
+        'order_count' => 'getOrderCount',
+        'order_count_formatted' => 'getOrderCountFormatted',
         'permanent_bounce_count' => 'getPermanentBounceCount',
         'permanent_bounce_count_formatted' => 'getPermanentBounceCountFormatted',
         'profit' => 'getProfit',
@@ -326,6 +336,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['open_count'] = isset($data['open_count']) ? $data['open_count'] : null;
         $this->container['open_count_formatted'] = isset($data['open_count_formatted']) ? $data['open_count_formatted'] : null;
+        $this->container['order_count'] = isset($data['order_count']) ? $data['order_count'] : null;
+        $this->container['order_count_formatted'] = isset($data['order_count_formatted']) ? $data['order_count_formatted'] : null;
         $this->container['permanent_bounce_count'] = isset($data['permanent_bounce_count']) ? $data['permanent_bounce_count'] : null;
         $this->container['permanent_bounce_count_formatted'] = isset($data['permanent_bounce_count_formatted']) ? $data['permanent_bounce_count_formatted'] : null;
         $this->container['profit'] = isset($data['profit']) ? $data['profit'] : null;
@@ -608,6 +620,54 @@ class EmailStat implements ModelInterface, ArrayAccess
     public function setOpenCountFormatted($open_count_formatted)
     {
         $this->container['open_count_formatted'] = $open_count_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_count
+     *
+     * @return int
+     */
+    public function getOrderCount()
+    {
+        return $this->container['order_count'];
+    }
+
+    /**
+     * Sets order_count
+     *
+     * @param int $order_count Count of orders
+     *
+     * @return $this
+     */
+    public function setOrderCount($order_count)
+    {
+        $this->container['order_count'] = $order_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_count_formatted
+     *
+     * @return string
+     */
+    public function getOrderCountFormatted()
+    {
+        return $this->container['order_count_formatted'];
+    }
+
+    /**
+     * Sets order_count_formatted
+     *
+     * @param string $order_count_formatted Count of orders, formatted
+     *
+     * @return $this
+     */
+    public function setOrderCountFormatted($order_count_formatted)
+    {
+        $this->container['order_count_formatted'] = $order_count_formatted;
 
         return $this;
     }

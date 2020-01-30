@@ -62,6 +62,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'member_count' => 'int',
         'merchant_id' => 'string',
         'name' => 'string',
+        'public_description' => 'string',
+        'public_list' => 'bool',
         'storefront_oid' => 'int'
     ];
 
@@ -77,6 +79,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'member_count' => 'int32',
         'merchant_id' => null,
         'name' => null,
+        'public_description' => null,
+        'public_list' => null,
         'storefront_oid' => 'int32'
     ];
 
@@ -113,6 +117,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'member_count' => 'member_count',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
+        'public_description' => 'public_description',
+        'public_list' => 'public_list',
         'storefront_oid' => 'storefront_oid'
     ];
 
@@ -128,6 +134,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'member_count' => 'setMemberCount',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
+        'public_description' => 'setPublicDescription',
+        'public_list' => 'setPublicList',
         'storefront_oid' => 'setStorefrontOid'
     ];
 
@@ -143,6 +151,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'member_count' => 'getMemberCount',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
+        'public_description' => 'getPublicDescription',
+        'public_list' => 'getPublicList',
         'storefront_oid' => 'getStorefrontOid'
     ];
 
@@ -212,6 +222,8 @@ class EmailList implements ModelInterface, ArrayAccess
         $this->container['member_count'] = isset($data['member_count']) ? $data['member_count'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['public_description'] = isset($data['public_description']) ? $data['public_description'] : null;
+        $this->container['public_list'] = isset($data['public_list']) ? $data['public_list'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
     }
 
@@ -391,6 +403,54 @@ class EmailList implements ModelInterface, ArrayAccess
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_description
+     *
+     * @return string
+     */
+    public function getPublicDescription()
+    {
+        return $this->container['public_description'];
+    }
+
+    /**
+     * Sets public_description
+     *
+     * @param string $public_description Description of list shown to customer.
+     *
+     * @return $this
+     */
+    public function setPublicDescription($public_description)
+    {
+        $this->container['public_description'] = $public_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_list
+     *
+     * @return bool
+     */
+    public function getPublicList()
+    {
+        return $this->container['public_list'];
+    }
+
+    /**
+     * Sets public_list
+     *
+     * @param bool $public_list True if this list is public
+     *
+     * @return $this
+     */
+    public function setPublicList($public_list)
+    {
+        $this->container['public_list'] = $public_list;
 
         return $this;
     }

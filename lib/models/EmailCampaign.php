@@ -61,6 +61,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'deleted' => 'bool',
         'email_campaign_uuid' => 'string',
         'email_communication_sequence_uuid' => 'string',
+        'esp_domain_user' => 'string',
+        'esp_domain_uuid' => 'string',
         'memberships' => '\ultracart\v2\models\EmailListSegmentMembership[]',
         'merchant_id' => 'string',
         'name' => 'string',
@@ -83,6 +85,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'deleted' => null,
         'email_campaign_uuid' => null,
         'email_communication_sequence_uuid' => null,
+        'esp_domain_user' => null,
+        'esp_domain_uuid' => null,
         'memberships' => null,
         'merchant_id' => null,
         'name' => null,
@@ -126,6 +130,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'deleted' => 'deleted',
         'email_campaign_uuid' => 'email_campaign_uuid',
         'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
+        'esp_domain_user' => 'esp_domain_user',
+        'esp_domain_uuid' => 'esp_domain_uuid',
         'memberships' => 'memberships',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
@@ -148,6 +154,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'deleted' => 'setDeleted',
         'email_campaign_uuid' => 'setEmailCampaignUuid',
         'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
+        'esp_domain_user' => 'setEspDomainUser',
+        'esp_domain_uuid' => 'setEspDomainUuid',
         'memberships' => 'setMemberships',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
@@ -170,6 +178,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'deleted' => 'getDeleted',
         'email_campaign_uuid' => 'getEmailCampaignUuid',
         'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
+        'esp_domain_user' => 'getEspDomainUser',
+        'esp_domain_uuid' => 'getEspDomainUuid',
         'memberships' => 'getMemberships',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
@@ -246,6 +256,8 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email_campaign_uuid'] = isset($data['email_campaign_uuid']) ? $data['email_campaign_uuid'] : null;
         $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
+        $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
+        $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
         $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -405,6 +417,54 @@ class EmailCampaign implements ModelInterface, ArrayAccess
     public function setEmailCommunicationSequenceUuid($email_communication_sequence_uuid)
     {
         $this->container['email_communication_sequence_uuid'] = $email_communication_sequence_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_domain_user
+     *
+     * @return string
+     */
+    public function getEspDomainUser()
+    {
+        return $this->container['esp_domain_user'];
+    }
+
+    /**
+     * Sets esp_domain_user
+     *
+     * @param string $esp_domain_user User of the sending address
+     *
+     * @return $this
+     */
+    public function setEspDomainUser($esp_domain_user)
+    {
+        $this->container['esp_domain_user'] = $esp_domain_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_domain_uuid
+     *
+     * @return string
+     */
+    public function getEspDomainUuid()
+    {
+        return $this->container['esp_domain_uuid'];
+    }
+
+    /**
+     * Sets esp_domain_uuid
+     *
+     * @param string $esp_domain_uuid UUID of the sending domain
+     *
+     * @return $this
+     */
+    public function setEspDomainUuid($esp_domain_uuid)
+    {
+        $this->container['esp_domain_uuid'] = $esp_domain_uuid;
 
         return $this;
     }
