@@ -87,6 +87,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
         'started_count' => 'int',
         'started_count_formatted' => 'string',
         'storefront_oid' => 'int',
+        'unsubscribe_count' => 'int',
+        'unsubscribe_count_formatted' => 'string',
         'view_count' => 'int',
         'view_count_formatted' => 'string'
     ];
@@ -128,6 +130,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
         'started_count' => 'int32',
         'started_count_formatted' => null,
         'storefront_oid' => 'int32',
+        'unsubscribe_count' => 'int32',
+        'unsubscribe_count_formatted' => null,
         'view_count' => 'int32',
         'view_count_formatted' => null
     ];
@@ -190,6 +194,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
         'started_count' => 'started_count',
         'started_count_formatted' => 'started_count_formatted',
         'storefront_oid' => 'storefront_oid',
+        'unsubscribe_count' => 'unsubscribe_count',
+        'unsubscribe_count_formatted' => 'unsubscribe_count_formatted',
         'view_count' => 'view_count',
         'view_count_formatted' => 'view_count_formatted'
     ];
@@ -231,6 +237,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
         'started_count' => 'setStartedCount',
         'started_count_formatted' => 'setStartedCountFormatted',
         'storefront_oid' => 'setStorefrontOid',
+        'unsubscribe_count' => 'setUnsubscribeCount',
+        'unsubscribe_count_formatted' => 'setUnsubscribeCountFormatted',
         'view_count' => 'setViewCount',
         'view_count_formatted' => 'setViewCountFormatted'
     ];
@@ -272,6 +280,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
         'started_count' => 'getStartedCount',
         'started_count_formatted' => 'getStartedCountFormatted',
         'storefront_oid' => 'getStorefrontOid',
+        'unsubscribe_count' => 'getUnsubscribeCount',
+        'unsubscribe_count_formatted' => 'getUnsubscribeCountFormatted',
         'view_count' => 'getViewCount',
         'view_count_formatted' => 'getViewCountFormatted'
     ];
@@ -367,6 +377,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
         $this->container['started_count'] = isset($data['started_count']) ? $data['started_count'] : null;
         $this->container['started_count_formatted'] = isset($data['started_count_formatted']) ? $data['started_count_formatted'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
+        $this->container['unsubscribe_count'] = isset($data['unsubscribe_count']) ? $data['unsubscribe_count'] : null;
+        $this->container['unsubscribe_count_formatted'] = isset($data['unsubscribe_count_formatted']) ? $data['unsubscribe_count_formatted'] : null;
         $this->container['view_count'] = isset($data['view_count']) ? $data['view_count'] : null;
         $this->container['view_count_formatted'] = isset($data['view_count_formatted']) ? $data['view_count_formatted'] : null;
     }
@@ -1136,6 +1148,54 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets unsubscribe_count
+     *
+     * @return int
+     */
+    public function getUnsubscribeCount()
+    {
+        return $this->container['unsubscribe_count'];
+    }
+
+    /**
+     * Sets unsubscribe_count
+     *
+     * @param int $unsubscribe_count Count of unsubscribes caused
+     *
+     * @return $this
+     */
+    public function setUnsubscribeCount($unsubscribe_count)
+    {
+        $this->container['unsubscribe_count'] = $unsubscribe_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets unsubscribe_count_formatted
+     *
+     * @return string
+     */
+    public function getUnsubscribeCountFormatted()
+    {
+        return $this->container['unsubscribe_count_formatted'];
+    }
+
+    /**
+     * Sets unsubscribe_count_formatted
+     *
+     * @param string $unsubscribe_count_formatted Count of unsubscribes caused, formatted
+     *
+     * @return $this
+     */
+    public function setUnsubscribeCountFormatted($unsubscribe_count_formatted)
+    {
+        $this->container['unsubscribe_count_formatted'] = $unsubscribe_count_formatted;
 
         return $this;
     }

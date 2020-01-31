@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **preshipment_notice_sent** | **bool** | True if the preshipment notice associated with the next rebill has been sent | [optional] 
 **rebill_value** | **float** | The value of the rebills of this item | [optional] 
 **remaining_repeat_count** | **int** | The number of rebills remaining before this item is complete | [optional] 
+**simple_schedule** | [**\ultracart\v2\models\AutoOrderItemSimpleSchedule**](AutoOrderItemSimpleSchedule.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

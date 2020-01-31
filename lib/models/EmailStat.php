@@ -84,6 +84,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'status' => 'string',
         'status_dts' => 'string',
         'storefront_oid' => 'int',
+        'unsubscribe_count' => 'int',
+        'unsubscribe_count_formatted' => 'string',
         'uuid' => 'string',
         'view_count' => 'int',
         'view_count_formatted' => 'string'
@@ -123,6 +125,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'status' => null,
         'status_dts' => null,
         'storefront_oid' => 'int32',
+        'unsubscribe_count' => 'int32',
+        'unsubscribe_count_formatted' => null,
         'uuid' => null,
         'view_count' => 'int32',
         'view_count_formatted' => null
@@ -183,6 +187,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'status' => 'status',
         'status_dts' => 'status_dts',
         'storefront_oid' => 'storefront_oid',
+        'unsubscribe_count' => 'unsubscribe_count',
+        'unsubscribe_count_formatted' => 'unsubscribe_count_formatted',
         'uuid' => 'uuid',
         'view_count' => 'view_count',
         'view_count_formatted' => 'view_count_formatted'
@@ -222,6 +228,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
         'storefront_oid' => 'setStorefrontOid',
+        'unsubscribe_count' => 'setUnsubscribeCount',
+        'unsubscribe_count_formatted' => 'setUnsubscribeCountFormatted',
         'uuid' => 'setUuid',
         'view_count' => 'setViewCount',
         'view_count_formatted' => 'setViewCountFormatted'
@@ -261,6 +269,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
         'storefront_oid' => 'getStorefrontOid',
+        'unsubscribe_count' => 'getUnsubscribeCount',
+        'unsubscribe_count_formatted' => 'getUnsubscribeCountFormatted',
         'uuid' => 'getUuid',
         'view_count' => 'getViewCount',
         'view_count_formatted' => 'getViewCountFormatted'
@@ -354,6 +364,8 @@ class EmailStat implements ModelInterface, ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
+        $this->container['unsubscribe_count'] = isset($data['unsubscribe_count']) ? $data['unsubscribe_count'] : null;
+        $this->container['unsubscribe_count_formatted'] = isset($data['unsubscribe_count_formatted']) ? $data['unsubscribe_count_formatted'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['view_count'] = isset($data['view_count']) ? $data['view_count'] : null;
         $this->container['view_count_formatted'] = isset($data['view_count_formatted']) ? $data['view_count_formatted'] : null;
@@ -1052,6 +1064,54 @@ class EmailStat implements ModelInterface, ArrayAccess
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets unsubscribe_count
+     *
+     * @return int
+     */
+    public function getUnsubscribeCount()
+    {
+        return $this->container['unsubscribe_count'];
+    }
+
+    /**
+     * Sets unsubscribe_count
+     *
+     * @param int $unsubscribe_count Count of emails classified as unsubscribe
+     *
+     * @return $this
+     */
+    public function setUnsubscribeCount($unsubscribe_count)
+    {
+        $this->container['unsubscribe_count'] = $unsubscribe_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets unsubscribe_count_formatted
+     *
+     * @return string
+     */
+    public function getUnsubscribeCountFormatted()
+    {
+        return $this->container['unsubscribe_count_formatted'];
+    }
+
+    /**
+     * Sets unsubscribe_count_formatted
+     *
+     * @param string $unsubscribe_count_formatted Count of emails classified as unsubscribe, formatted
+     *
+     * @return $this
+     */
+    public function setUnsubscribeCountFormatted($unsubscribe_count_formatted)
+    {
+        $this->container['unsubscribe_count_formatted'] = $unsubscribe_count_formatted;
 
         return $this;
     }

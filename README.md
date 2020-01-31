@@ -235,6 +235,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getExperiments**](docs/Api/StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
 *StorefrontApi* | [**getHistogramPropertyNames**](docs/Api/StorefrontApi.md#gethistogrampropertynames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 *StorefrontApi* | [**getHistogramPropertyValues**](docs/Api/StorefrontApi.md#gethistogrampropertyvalues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
+*StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{id}/transaction_email/list | Gets a list of transaction email names
 *StorefrontApi* | [**importEmailThirdPartyProviderList**](docs/Api/StorefrontApi.md#importemailthirdpartyproviderlist) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 *StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
 *StorefrontApi* | [**insertEmailCommseq**](docs/Api/StorefrontApi.md#insertemailcommseq) | **POST** /storefront/{storefront_oid}/email/commseqs | Insert email commseq
@@ -312,6 +313,7 @@ Class | Method | HTTP request | Description
  - [AutoOrderItem](docs/Model/AutoOrderItem.md)
  - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
+ - [AutoOrderItemSimpleSchedule](docs/Model/AutoOrderItemSimpleSchedule.md)
  - [AutoOrderQuery](docs/Model/AutoOrderQuery.md)
  - [AutoOrderResponse](docs/Model/AutoOrderResponse.md)
  - [AutoOrdersResponse](docs/Model/AutoOrdersResponse.md)
@@ -688,6 +690,7 @@ Class | Method | HTTP request | Description
  - [TaxStateCode](docs/Model/TaxStateCode.md)
  - [TempMultimedia](docs/Model/TempMultimedia.md)
  - [TempMultimediaResponse](docs/Model/TempMultimediaResponse.md)
+ - [TransactionEmailListResponse](docs/Model/TransactionEmailListResponse.md)
  - [UltraCartConfig](docs/Model/UltraCartConfig.md)
  - [VerificationRecord](docs/Model/VerificationRecord.md)
  - [Webhook](docs/Model/Webhook.md)

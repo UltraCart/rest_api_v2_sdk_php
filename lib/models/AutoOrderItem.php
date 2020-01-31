@@ -78,7 +78,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'paypal_recurring_payment_profile_id' => 'string',
         'preshipment_notice_sent' => 'bool',
         'rebill_value' => 'float',
-        'remaining_repeat_count' => 'int'
+        'remaining_repeat_count' => 'int',
+        'simple_schedule' => '\ultracart\v2\models\AutoOrderItemSimpleSchedule'
     ];
 
     /**
@@ -109,7 +110,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'paypal_recurring_payment_profile_id' => null,
         'preshipment_notice_sent' => null,
         'rebill_value' => null,
-        'remaining_repeat_count' => 'int32'
+        'remaining_repeat_count' => 'int32',
+        'simple_schedule' => null
     ];
 
     /**
@@ -161,7 +163,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'paypal_recurring_payment_profile_id' => 'paypal_recurring_payment_profile_id',
         'preshipment_notice_sent' => 'preshipment_notice_sent',
         'rebill_value' => 'rebill_value',
-        'remaining_repeat_count' => 'remaining_repeat_count'
+        'remaining_repeat_count' => 'remaining_repeat_count',
+        'simple_schedule' => 'simple_schedule'
     ];
 
     /**
@@ -192,7 +195,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'paypal_recurring_payment_profile_id' => 'setPaypalRecurringPaymentProfileId',
         'preshipment_notice_sent' => 'setPreshipmentNoticeSent',
         'rebill_value' => 'setRebillValue',
-        'remaining_repeat_count' => 'setRemainingRepeatCount'
+        'remaining_repeat_count' => 'setRemainingRepeatCount',
+        'simple_schedule' => 'setSimpleSchedule'
     ];
 
     /**
@@ -223,7 +227,8 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'paypal_recurring_payment_profile_id' => 'getPaypalRecurringPaymentProfileId',
         'preshipment_notice_sent' => 'getPreshipmentNoticeSent',
         'rebill_value' => 'getRebillValue',
-        'remaining_repeat_count' => 'getRemainingRepeatCount'
+        'remaining_repeat_count' => 'getRemainingRepeatCount',
+        'simple_schedule' => 'getSimpleSchedule'
     ];
 
     /**
@@ -346,6 +351,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         $this->container['preshipment_notice_sent'] = isset($data['preshipment_notice_sent']) ? $data['preshipment_notice_sent'] : null;
         $this->container['rebill_value'] = isset($data['rebill_value']) ? $data['rebill_value'] : null;
         $this->container['remaining_repeat_count'] = isset($data['remaining_repeat_count']) ? $data['remaining_repeat_count'] : null;
+        $this->container['simple_schedule'] = isset($data['simple_schedule']) ? $data['simple_schedule'] : null;
     }
 
     /**
@@ -942,6 +948,30 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     public function setRemainingRepeatCount($remaining_repeat_count)
     {
         $this->container['remaining_repeat_count'] = $remaining_repeat_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets simple_schedule
+     *
+     * @return \ultracart\v2\models\AutoOrderItemSimpleSchedule
+     */
+    public function getSimpleSchedule()
+    {
+        return $this->container['simple_schedule'];
+    }
+
+    /**
+     * Sets simple_schedule
+     *
+     * @param \ultracart\v2\models\AutoOrderItemSimpleSchedule $simple_schedule simple_schedule
+     *
+     * @return $this
+     */
+    public function setSimpleSchedule($simple_schedule)
+    {
+        $this->container['simple_schedule'] = $simple_schedule;
 
         return $this;
     }
