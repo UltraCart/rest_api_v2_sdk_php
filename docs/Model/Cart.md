@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **marketing** | [**\ultracart\v2\models\CartMarketing**](CartMarketing.md) |  | [optional] 
 **merchant_id** | **string** | Merchant ID this cart is associated with | [optional] 
 **payment** | [**\ultracart\v2\models\CartPayment**](CartPayment.md) |  | [optional] 
+**properties** | [**\ultracart\v2\models\CartProperty[]**](CartProperty.md) | Properties associated with the cart | [optional] 
 **settings** | [**\ultracart\v2\models\CartSettings**](CartSettings.md) |  | [optional] 
 **shipping** | [**\ultracart\v2\models\CartShipping**](CartShipping.md) |  | [optional] 
 **summary** | [**\ultracart\v2\models\CartSummary**](CartSummary.md) |  | [optional] 

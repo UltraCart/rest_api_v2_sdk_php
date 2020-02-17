@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhookEventCategory
+ * CartProperty
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * WebhookEventCategory Class Doc Comment
+ * CartProperty Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebhookEventCategory implements ModelInterface, ArrayAccess
+class CartProperty implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WebhookEventCategory';
+    protected static $swaggerModelName = 'CartProperty';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_expansions' => 'string[]',
-        'event_category' => 'string',
-        'events' => '\ultracart\v2\models\WebhookEventSubscription[]',
-        'subscribed' => 'bool'
+        'display' => 'bool',
+        'expiration_dts' => 'string',
+        'name' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -68,10 +68,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_expansions' => null,
-        'event_category' => null,
-        'events' => null,
-        'subscribed' => null
+        'display' => null,
+        'expiration_dts' => 'dateTime',
+        'name' => null,
+        'value' => null
     ];
 
     /**
@@ -101,10 +101,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_expansions' => 'available_expansions',
-        'event_category' => 'event_category',
-        'events' => 'events',
-        'subscribed' => 'subscribed'
+        'display' => 'display',
+        'expiration_dts' => 'expiration_dts',
+        'name' => 'name',
+        'value' => 'value'
     ];
 
     /**
@@ -113,10 +113,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_expansions' => 'setAvailableExpansions',
-        'event_category' => 'setEventCategory',
-        'events' => 'setEvents',
-        'subscribed' => 'setSubscribed'
+        'display' => 'setDisplay',
+        'expiration_dts' => 'setExpirationDts',
+        'name' => 'setName',
+        'value' => 'setValue'
     ];
 
     /**
@@ -125,10 +125,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_expansions' => 'getAvailableExpansions',
-        'event_category' => 'getEventCategory',
-        'events' => 'getEvents',
-        'subscribed' => 'getSubscribed'
+        'display' => 'getDisplay',
+        'expiration_dts' => 'getExpirationDts',
+        'name' => 'getName',
+        'value' => 'getValue'
     ];
 
     /**
@@ -191,10 +191,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_expansions'] = isset($data['available_expansions']) ? $data['available_expansions'] : null;
-        $this->container['event_category'] = isset($data['event_category']) ? $data['event_category'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
-        $this->container['subscribed'] = isset($data['subscribed']) ? $data['subscribed'] : null;
+        $this->container['display'] = isset($data['display']) ? $data['display'] : null;
+        $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -205,6 +205,14 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['value']) && (mb_strlen($this->container['value']) > 3800)) {
+            $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 3800.";
+        }
 
         return $invalidProperties;
     }
@@ -218,102 +226,116 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if (mb_strlen($this->container['name']) > 100) {
+            return false;
+        }
+        if (mb_strlen($this->container['value']) > 3800) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets available_expansions
-     *
-     * @return string[]
-     */
-    public function getAvailableExpansions()
-    {
-        return $this->container['available_expansions'];
-    }
-
-    /**
-     * Sets available_expansions
-     *
-     * @param string[] $available_expansions Array of available expansion constants
-     *
-     * @return $this
-     */
-    public function setAvailableExpansions($available_expansions)
-    {
-        $this->container['available_expansions'] = $available_expansions;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_category
-     *
-     * @return string
-     */
-    public function getEventCategory()
-    {
-        return $this->container['event_category'];
-    }
-
-    /**
-     * Sets event_category
-     *
-     * @param string $event_category Name of the event category
-     *
-     * @return $this
-     */
-    public function setEventCategory($event_category)
-    {
-        $this->container['event_category'] = $event_category;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     *
-     * @return \ultracart\v2\models\WebhookEventSubscription[]
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param \ultracart\v2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
-     *
-     * @return $this
-     */
-    public function setEvents($events)
-    {
-        $this->container['events'] = $events;
-
-        return $this;
-    }
-
-    /**
-     * Gets subscribed
+     * Gets display
      *
      * @return bool
      */
-    public function getSubscribed()
+    public function getDisplay()
     {
-        return $this->container['subscribed'];
+        return $this->container['display'];
     }
 
     /**
-     * Sets subscribed
+     * Sets display
      *
-     * @param bool $subscribed True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
+     * @param bool $display True if this property is displayed to the customer
      *
      * @return $this
      */
-    public function setSubscribed($subscribed)
+    public function setDisplay($display)
     {
-        $this->container['subscribed'] = $subscribed;
+        $this->container['display'] = $display;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration_dts
+     *
+     * @return string
+     */
+    public function getExpirationDts()
+    {
+        return $this->container['expiration_dts'];
+    }
+
+    /**
+     * Sets expiration_dts
+     *
+     * @param string $expiration_dts The date/time that the property expires and is deleted
+     *
+     * @return $this
+     */
+    public function setExpirationDts($expiration_dts)
+    {
+        $this->container['expiration_dts'] = $expiration_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        if (!is_null($name) && (mb_strlen($name) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling CartProperty., must be smaller than or equal to 100.');
+        }
+
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string $value Value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        if (!is_null($value) && (mb_strlen($value) > 3800)) {
+            throw new \InvalidArgumentException('invalid length for $value when calling CartProperty., must be smaller than or equal to 3800.');
+        }
+
+        $this->container['value'] = $value;
 
         return $this;
     }

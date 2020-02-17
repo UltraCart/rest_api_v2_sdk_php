@@ -60,6 +60,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'edited_by_user' => 'string',
         'email_communication_sequence_email_uuid' => 'string',
         'email_container_cjson' => 'string',
+        'email_container_cjson_last_modified_dts' => 'string',
         'email_template_vm_path' => 'string',
         'filter_profile_equation_json' => 'string',
         'individually_render' => 'bool',
@@ -82,6 +83,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'edited_by_user' => null,
         'email_communication_sequence_email_uuid' => null,
         'email_container_cjson' => null,
+        'email_container_cjson_last_modified_dts' => 'dateTime',
         'email_template_vm_path' => null,
         'filter_profile_equation_json' => null,
         'individually_render' => null,
@@ -125,6 +127,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'edited_by_user' => 'edited_by_user',
         'email_communication_sequence_email_uuid' => 'email_communication_sequence_email_uuid',
         'email_container_cjson' => 'email_container_cjson',
+        'email_container_cjson_last_modified_dts' => 'email_container_cjson_last_modified_dts',
         'email_template_vm_path' => 'email_template_vm_path',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'individually_render' => 'individually_render',
@@ -147,6 +150,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'edited_by_user' => 'setEditedByUser',
         'email_communication_sequence_email_uuid' => 'setEmailCommunicationSequenceEmailUuid',
         'email_container_cjson' => 'setEmailContainerCjson',
+        'email_container_cjson_last_modified_dts' => 'setEmailContainerCjsonLastModifiedDts',
         'email_template_vm_path' => 'setEmailTemplateVmPath',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'individually_render' => 'setIndividuallyRender',
@@ -169,6 +173,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'edited_by_user' => 'getEditedByUser',
         'email_communication_sequence_email_uuid' => 'getEmailCommunicationSequenceEmailUuid',
         'email_container_cjson' => 'getEmailContainerCjson',
+        'email_container_cjson_last_modified_dts' => 'getEmailContainerCjsonLastModifiedDts',
         'email_template_vm_path' => 'getEmailTemplateVmPath',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'individually_render' => 'getIndividuallyRender',
@@ -245,6 +250,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         $this->container['edited_by_user'] = isset($data['edited_by_user']) ? $data['edited_by_user'] : null;
         $this->container['email_communication_sequence_email_uuid'] = isset($data['email_communication_sequence_email_uuid']) ? $data['email_communication_sequence_email_uuid'] : null;
         $this->container['email_container_cjson'] = isset($data['email_container_cjson']) ? $data['email_container_cjson'] : null;
+        $this->container['email_container_cjson_last_modified_dts'] = isset($data['email_container_cjson_last_modified_dts']) ? $data['email_container_cjson_last_modified_dts'] : null;
         $this->container['email_template_vm_path'] = isset($data['email_template_vm_path']) ? $data['email_template_vm_path'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['individually_render'] = isset($data['individually_render']) ? $data['individually_render'] : null;
@@ -374,6 +380,30 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
     public function setEmailContainerCjson($email_container_cjson)
     {
         $this->container['email_container_cjson'] = $email_container_cjson;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_container_cjson_last_modified_dts
+     *
+     * @return string
+     */
+    public function getEmailContainerCjsonLastModifiedDts()
+    {
+        return $this->container['email_container_cjson_last_modified_dts'];
+    }
+
+    /**
+     * Sets email_container_cjson_last_modified_dts
+     *
+     * @param string $email_container_cjson_last_modified_dts Timestamp the last time the container was modified.
+     *
+     * @return $this
+     */
+    public function setEmailContainerCjsonLastModifiedDts($email_container_cjson_last_modified_dts)
+    {
+        $this->container['email_container_cjson_last_modified_dts'] = $email_container_cjson_last_modified_dts;
 
         return $this;
     }

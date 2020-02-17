@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhookEventCategory
+ * TransactionEmailResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * WebhookEventCategory Class Doc Comment
+ * TransactionEmailResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebhookEventCategory implements ModelInterface, ArrayAccess
+class TransactionEmailResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WebhookEventCategory';
+    protected static $swaggerModelName = 'TransactionEmailResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_expansions' => 'string[]',
-        'event_category' => 'string',
-        'events' => '\ultracart\v2\models\WebhookEventSubscription[]',
-        'subscribed' => 'bool'
+        'email' => '\ultracart\v2\models\TransactionEmail',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool'
     ];
 
     /**
@@ -68,10 +68,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_expansions' => null,
-        'event_category' => null,
-        'events' => null,
-        'subscribed' => null
+        'email' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null
     ];
 
     /**
@@ -101,10 +101,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_expansions' => 'available_expansions',
-        'event_category' => 'event_category',
-        'events' => 'events',
-        'subscribed' => 'subscribed'
+        'email' => 'email',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success'
     ];
 
     /**
@@ -113,10 +113,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_expansions' => 'setAvailableExpansions',
-        'event_category' => 'setEventCategory',
-        'events' => 'setEvents',
-        'subscribed' => 'setSubscribed'
+        'email' => 'setEmail',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -125,10 +125,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_expansions' => 'getAvailableExpansions',
-        'event_category' => 'getEventCategory',
-        'events' => 'getEvents',
-        'subscribed' => 'getSubscribed'
+        'email' => 'getEmail',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -191,10 +191,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_expansions'] = isset($data['available_expansions']) ? $data['available_expansions'] : null;
-        $this->container['event_category'] = isset($data['event_category']) ? $data['event_category'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
-        $this->container['subscribed'] = isset($data['subscribed']) ? $data['subscribed'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -223,97 +223,97 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets available_expansions
+     * Gets email
      *
-     * @return string[]
+     * @return \ultracart\v2\models\TransactionEmail
      */
-    public function getAvailableExpansions()
+    public function getEmail()
     {
-        return $this->container['available_expansions'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets available_expansions
+     * Sets email
      *
-     * @param string[] $available_expansions Array of available expansion constants
+     * @param \ultracart\v2\models\TransactionEmail $email email
      *
      * @return $this
      */
-    public function setAvailableExpansions($available_expansions)
+    public function setEmail($email)
     {
-        $this->container['available_expansions'] = $available_expansions;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets event_category
+     * Gets error
      *
-     * @return string
+     * @return \ultracart\v2\models\Error
      */
-    public function getEventCategory()
+    public function getError()
     {
-        return $this->container['event_category'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets event_category
+     * Sets error
      *
-     * @param string $event_category Name of the event category
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setEventCategory($event_category)
+    public function setError($error)
     {
-        $this->container['event_category'] = $event_category;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets metadata
      *
-     * @return \ultracart\v2\models\WebhookEventSubscription[]
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getEvents()
+    public function getMetadata()
     {
-        return $this->container['events'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets events
+     * Sets metadata
      *
-     * @param \ultracart\v2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setEvents($events)
+    public function setMetadata($metadata)
     {
-        $this->container['events'] = $events;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets subscribed
+     * Gets success
      *
      * @return bool
      */
-    public function getSubscribed()
+    public function getSuccess()
     {
-        return $this->container['subscribed'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets subscribed
+     * Sets success
      *
-     * @param bool $subscribed True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setSubscribed($subscribed)
+    public function setSuccess($success)
     {
-        $this->container['subscribed'] = $subscribed;
+        $this->container['success'] = $success;
 
         return $this;
     }

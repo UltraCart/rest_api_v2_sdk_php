@@ -196,6 +196,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**cloneEmailCampaign**](docs/Api/StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/Api/StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
 *StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+*StorefrontApi* | [**deleteEmailCommseqStat**](docs/Api/StorefrontApi.md#deleteemailcommseqstat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 *StorefrontApi* | [**deleteEmailEmail**](docs/Api/StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
 *StorefrontApi* | [**deleteEmailListCustomer**](docs/Api/StorefrontApi.md#deleteemaillistcustomer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
@@ -235,6 +236,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getExperiments**](docs/Api/StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
 *StorefrontApi* | [**getHistogramPropertyNames**](docs/Api/StorefrontApi.md#gethistogrampropertynames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 *StorefrontApi* | [**getHistogramPropertyValues**](docs/Api/StorefrontApi.md#gethistogrampropertyvalues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
+*StorefrontApi* | [**getTransactionEmail**](docs/Api/StorefrontApi.md#gettransactionemail) | **GET** /storefront/{id}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{id}/transaction_email/list | Gets a list of transaction email names
 *StorefrontApi* | [**importEmailThirdPartyProviderList**](docs/Api/StorefrontApi.md#importemailthirdpartyproviderlist) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 *StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
@@ -247,6 +249,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**search**](docs/Api/StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
 *StorefrontApi* | [**searchEmailListCustomers**](docs/Api/StorefrontApi.md#searchemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 *StorefrontApi* | [**searchEmailSegmentCustomers**](docs/Api/StorefrontApi.md#searchemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
+*StorefrontApi* | [**sendEmailTest**](docs/Api/StorefrontApi.md#sendemailtest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**startEmailCampaign**](docs/Api/StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/Api/StorefrontApi.md#subscribetoemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 *StorefrontApi* | [**updateEmailCampaign**](docs/Api/StorefrontApi.md#updateemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid} | Update email campaign
@@ -256,6 +259,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailList**](docs/Api/StorefrontApi.md#updateemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
 *StorefrontApi* | [**updateEmailSegment**](docs/Api/StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
 *StorefrontApi* | [**updateExperiment**](docs/Api/StorefrontApi.md#updateexperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
+*StorefrontApi* | [**updateTransactionEmail**](docs/Api/StorefrontApi.md#updatetransactionemail) | **PUT** /storefront/{id}/transaction_email/list/{email_id} | Updates a transaction email object
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/Api/TaxApi.md#deletetaxproviderselfcountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/Api/TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
@@ -355,6 +359,7 @@ Class | Method | HTTP request | Description
  - [CartProfileLoginResponse](docs/Model/CartProfileLoginResponse.md)
  - [CartProfileRegisterRequest](docs/Model/CartProfileRegisterRequest.md)
  - [CartProfileRegisterResponse](docs/Model/CartProfileRegisterResponse.md)
+ - [CartProperty](docs/Model/CartProperty.md)
  - [CartResponse](docs/Model/CartResponse.md)
  - [CartSettings](docs/Model/CartSettings.md)
  - [CartSettingsBilling](docs/Model/CartSettingsBilling.md)
@@ -474,6 +479,8 @@ Class | Method | HTTP request | Description
  - [EmailCommseq](docs/Model/EmailCommseq.md)
  - [EmailCommseqEmail](docs/Model/EmailCommseqEmail.md)
  - [EmailCommseqEmailResponse](docs/Model/EmailCommseqEmailResponse.md)
+ - [EmailCommseqEmailSendTestRequest](docs/Model/EmailCommseqEmailSendTestRequest.md)
+ - [EmailCommseqEmailSendTestResponse](docs/Model/EmailCommseqEmailSendTestResponse.md)
  - [EmailCommseqEmailsRequest](docs/Model/EmailCommseqEmailsRequest.md)
  - [EmailCommseqEmailsResponse](docs/Model/EmailCommseqEmailsResponse.md)
  - [EmailCommseqResponse](docs/Model/EmailCommseqResponse.md)
@@ -690,7 +697,10 @@ Class | Method | HTTP request | Description
  - [TaxStateCode](docs/Model/TaxStateCode.md)
  - [TempMultimedia](docs/Model/TempMultimedia.md)
  - [TempMultimediaResponse](docs/Model/TempMultimediaResponse.md)
+ - [TransactionEmail](docs/Model/TransactionEmail.md)
  - [TransactionEmailListResponse](docs/Model/TransactionEmailListResponse.md)
+ - [TransactionEmailOption](docs/Model/TransactionEmailOption.md)
+ - [TransactionEmailResponse](docs/Model/TransactionEmailResponse.md)
  - [UltraCartConfig](docs/Model/UltraCartConfig.md)
  - [VerificationRecord](docs/Model/VerificationRecord.md)
  - [Webhook](docs/Model/Webhook.md)

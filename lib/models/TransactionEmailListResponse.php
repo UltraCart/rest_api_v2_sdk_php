@@ -56,7 +56,10 @@ class TransactionEmailListResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'email_names' => 'string[]'
+        'email_names' => 'string[]',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool'
     ];
 
     /**
@@ -65,7 +68,10 @@ class TransactionEmailListResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'email_names' => null
+        'email_names' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null
     ];
 
     /**
@@ -95,7 +101,10 @@ class TransactionEmailListResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'email_names' => 'email_names'
+        'email_names' => 'email_names',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success'
     ];
 
     /**
@@ -104,7 +113,10 @@ class TransactionEmailListResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'email_names' => 'setEmailNames'
+        'email_names' => 'setEmailNames',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -113,7 +125,10 @@ class TransactionEmailListResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'email_names' => 'getEmailNames'
+        'email_names' => 'getEmailNames',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -177,6 +192,9 @@ class TransactionEmailListResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['email_names'] = isset($data['email_names']) ? $data['email_names'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -224,6 +242,78 @@ class TransactionEmailListResponse implements ModelInterface, ArrayAccess
     public function setEmailNames($email_names)
     {
         $this->container['email_names'] = $email_names;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     *
+     * @return \ultracart\v2\models\Error
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param \ultracart\v2\models\Error $error error
+     *
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success Indicates if API call was successful
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
 
         return $this;
     }

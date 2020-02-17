@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhookEventCategory
+ * TransactionEmailOption
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * WebhookEventCategory Class Doc Comment
+ * TransactionEmailOption Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebhookEventCategory implements ModelInterface, ArrayAccess
+class TransactionEmailOption implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WebhookEventCategory';
+    protected static $swaggerModelName = 'TransactionEmailOption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,14 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'available_expansions' => 'string[]',
-        'event_category' => 'string',
-        'events' => '\ultracart\v2\models\WebhookEventSubscription[]',
-        'subscribed' => 'bool'
+        'description' => 'string',
+        'merchant_email_delivery_option_oid' => 'int',
+        'merchant_id' => 'string',
+        'name' => 'string',
+        'selected' => 'bool',
+        'store_front_oid' => 'int',
+        'template_display' => 'string',
+        'template_type' => 'string'
     ];
 
     /**
@@ -68,10 +72,14 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'available_expansions' => null,
-        'event_category' => null,
-        'events' => null,
-        'subscribed' => null
+        'description' => null,
+        'merchant_email_delivery_option_oid' => 'int32',
+        'merchant_id' => null,
+        'name' => null,
+        'selected' => null,
+        'store_front_oid' => 'int32',
+        'template_display' => null,
+        'template_type' => null
     ];
 
     /**
@@ -101,10 +109,14 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'available_expansions' => 'available_expansions',
-        'event_category' => 'event_category',
-        'events' => 'events',
-        'subscribed' => 'subscribed'
+        'description' => 'description',
+        'merchant_email_delivery_option_oid' => 'merchantEmailDeliveryOptionOid',
+        'merchant_id' => 'merchantId',
+        'name' => 'name',
+        'selected' => 'selected',
+        'store_front_oid' => 'storeFrontOid',
+        'template_display' => 'templateDisplay',
+        'template_type' => 'templateType'
     ];
 
     /**
@@ -113,10 +125,14 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'available_expansions' => 'setAvailableExpansions',
-        'event_category' => 'setEventCategory',
-        'events' => 'setEvents',
-        'subscribed' => 'setSubscribed'
+        'description' => 'setDescription',
+        'merchant_email_delivery_option_oid' => 'setMerchantEmailDeliveryOptionOid',
+        'merchant_id' => 'setMerchantId',
+        'name' => 'setName',
+        'selected' => 'setSelected',
+        'store_front_oid' => 'setStoreFrontOid',
+        'template_display' => 'setTemplateDisplay',
+        'template_type' => 'setTemplateType'
     ];
 
     /**
@@ -125,10 +141,14 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'available_expansions' => 'getAvailableExpansions',
-        'event_category' => 'getEventCategory',
-        'events' => 'getEvents',
-        'subscribed' => 'getSubscribed'
+        'description' => 'getDescription',
+        'merchant_email_delivery_option_oid' => 'getMerchantEmailDeliveryOptionOid',
+        'merchant_id' => 'getMerchantId',
+        'name' => 'getName',
+        'selected' => 'getSelected',
+        'store_front_oid' => 'getStoreFrontOid',
+        'template_display' => 'getTemplateDisplay',
+        'template_type' => 'getTemplateType'
     ];
 
     /**
@@ -191,10 +211,14 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['available_expansions'] = isset($data['available_expansions']) ? $data['available_expansions'] : null;
-        $this->container['event_category'] = isset($data['event_category']) ? $data['event_category'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
-        $this->container['subscribed'] = isset($data['subscribed']) ? $data['subscribed'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['merchant_email_delivery_option_oid'] = isset($data['merchant_email_delivery_option_oid']) ? $data['merchant_email_delivery_option_oid'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['selected'] = isset($data['selected']) ? $data['selected'] : null;
+        $this->container['store_front_oid'] = isset($data['store_front_oid']) ? $data['store_front_oid'] : null;
+        $this->container['template_display'] = isset($data['template_display']) ? $data['template_display'] : null;
+        $this->container['template_type'] = isset($data['template_type']) ? $data['template_type'] : null;
     }
 
     /**
@@ -223,97 +247,193 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets available_expansions
-     *
-     * @return string[]
-     */
-    public function getAvailableExpansions()
-    {
-        return $this->container['available_expansions'];
-    }
-
-    /**
-     * Sets available_expansions
-     *
-     * @param string[] $available_expansions Array of available expansion constants
-     *
-     * @return $this
-     */
-    public function setAvailableExpansions($available_expansions)
-    {
-        $this->container['available_expansions'] = $available_expansions;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_category
+     * Gets description
      *
      * @return string
      */
-    public function getEventCategory()
+    public function getDescription()
     {
-        return $this->container['event_category'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets event_category
+     * Sets description
      *
-     * @param string $event_category Name of the event category
+     * @param string $description description
      *
      * @return $this
      */
-    public function setEventCategory($event_category)
+    public function setDescription($description)
     {
-        $this->container['event_category'] = $event_category;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets merchant_email_delivery_option_oid
      *
-     * @return \ultracart\v2\models\WebhookEventSubscription[]
+     * @return int
      */
-    public function getEvents()
+    public function getMerchantEmailDeliveryOptionOid()
     {
-        return $this->container['events'];
+        return $this->container['merchant_email_delivery_option_oid'];
     }
 
     /**
-     * Sets events
+     * Sets merchant_email_delivery_option_oid
      *
-     * @param \ultracart\v2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
+     * @param int $merchant_email_delivery_option_oid merchant_email_delivery_option_oid
      *
      * @return $this
      */
-    public function setEvents($events)
+    public function setMerchantEmailDeliveryOptionOid($merchant_email_delivery_option_oid)
     {
-        $this->container['events'] = $events;
+        $this->container['merchant_email_delivery_option_oid'] = $merchant_email_delivery_option_oid;
 
         return $this;
     }
 
     /**
-     * Gets subscribed
+     * Gets merchant_id
+     *
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     *
+     * @param string $merchant_id merchant_id
+     *
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets selected
      *
      * @return bool
      */
-    public function getSubscribed()
+    public function getSelected()
     {
-        return $this->container['subscribed'];
+        return $this->container['selected'];
     }
 
     /**
-     * Sets subscribed
+     * Sets selected
      *
-     * @param bool $subscribed True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
+     * @param bool $selected selected
      *
      * @return $this
      */
-    public function setSubscribed($subscribed)
+    public function setSelected($selected)
     {
-        $this->container['subscribed'] = $subscribed;
+        $this->container['selected'] = $selected;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_front_oid
+     *
+     * @return int
+     */
+    public function getStoreFrontOid()
+    {
+        return $this->container['store_front_oid'];
+    }
+
+    /**
+     * Sets store_front_oid
+     *
+     * @param int $store_front_oid store_front_oid
+     *
+     * @return $this
+     */
+    public function setStoreFrontOid($store_front_oid)
+    {
+        $this->container['store_front_oid'] = $store_front_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_display
+     *
+     * @return string
+     */
+    public function getTemplateDisplay()
+    {
+        return $this->container['template_display'];
+    }
+
+    /**
+     * Sets template_display
+     *
+     * @param string $template_display template_display
+     *
+     * @return $this
+     */
+    public function setTemplateDisplay($template_display)
+    {
+        $this->container['template_display'] = $template_display;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_type
+     *
+     * @return string
+     */
+    public function getTemplateType()
+    {
+        return $this->container['template_type'];
+    }
+
+    /**
+     * Sets template_type
+     *
+     * @param string $template_type template_type
+     *
+     * @return $this
+     */
+    public function setTemplateType($template_type)
+    {
+        $this->container['template_type'] = $template_type;
 
         return $this;
     }

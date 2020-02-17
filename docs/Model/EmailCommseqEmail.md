@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **edited_by_user** | **string** | Edited by user | [optional] 
 **email_communication_sequence_email_uuid** | **string** | Email communication sequence email uuid | [optional] 
 **email_container_cjson** | **string** | Email container cjson | [optional] 
+**email_container_cjson_last_modified_dts** | **string** | Timestamp the last time the container was modified. | [optional] 
 **email_template_vm_path** | **string** | Email template virtual path | [optional] 
 **filter_profile_equation_json** | **string** | Filter profile equation json | [optional] 
 **individually_render** | **bool** | Individually render | [optional] 

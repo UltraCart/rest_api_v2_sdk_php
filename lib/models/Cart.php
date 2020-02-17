@@ -75,6 +75,7 @@ class Cart implements ModelInterface, ArrayAccess
         'marketing' => '\ultracart\v2\models\CartMarketing',
         'merchant_id' => 'string',
         'payment' => '\ultracart\v2\models\CartPayment',
+        'properties' => '\ultracart\v2\models\CartProperty[]',
         'settings' => '\ultracart\v2\models\CartSettings',
         'shipping' => '\ultracart\v2\models\CartShipping',
         'summary' => '\ultracart\v2\models\CartSummary',
@@ -107,6 +108,7 @@ class Cart implements ModelInterface, ArrayAccess
         'marketing' => null,
         'merchant_id' => null,
         'payment' => null,
+        'properties' => null,
         'settings' => null,
         'shipping' => null,
         'summary' => null,
@@ -160,6 +162,7 @@ class Cart implements ModelInterface, ArrayAccess
         'marketing' => 'marketing',
         'merchant_id' => 'merchant_id',
         'payment' => 'payment',
+        'properties' => 'properties',
         'settings' => 'settings',
         'shipping' => 'shipping',
         'summary' => 'summary',
@@ -192,6 +195,7 @@ class Cart implements ModelInterface, ArrayAccess
         'marketing' => 'setMarketing',
         'merchant_id' => 'setMerchantId',
         'payment' => 'setPayment',
+        'properties' => 'setProperties',
         'settings' => 'setSettings',
         'shipping' => 'setShipping',
         'summary' => 'setSummary',
@@ -224,6 +228,7 @@ class Cart implements ModelInterface, ArrayAccess
         'marketing' => 'getMarketing',
         'merchant_id' => 'getMerchantId',
         'payment' => 'getPayment',
+        'properties' => 'getProperties',
         'settings' => 'getSettings',
         'shipping' => 'getShipping',
         'summary' => 'getSummary',
@@ -310,6 +315,7 @@ class Cart implements ModelInterface, ArrayAccess
         $this->container['marketing'] = isset($data['marketing']) ? $data['marketing'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['settings'] = isset($data['settings']) ? $data['settings'] : null;
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
@@ -827,6 +833,30 @@ class Cart implements ModelInterface, ArrayAccess
     public function setPayment($payment)
     {
         $this->container['payment'] = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\CartProperty[]
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\CartProperty[] $properties Properties associated with the cart
+     *
+     * @return $this
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

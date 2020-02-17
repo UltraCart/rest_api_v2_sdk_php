@@ -64,6 +64,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_flow_uuid' => 'string',
         'esp_domain_user' => 'string',
         'esp_domain_uuid' => 'string',
+        'esp_friendly_name' => 'string',
         'filter_profile_equation_json' => 'string',
         'merchant_id' => 'string',
         'name' => 'string',
@@ -91,6 +92,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_flow_uuid' => null,
         'esp_domain_user' => null,
         'esp_domain_uuid' => null,
+        'esp_friendly_name' => null,
         'filter_profile_equation_json' => null,
         'merchant_id' => null,
         'name' => null,
@@ -139,6 +141,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_flow_uuid' => 'email_flow_uuid',
         'esp_domain_user' => 'esp_domain_user',
         'esp_domain_uuid' => 'esp_domain_uuid',
+        'esp_friendly_name' => 'esp_friendly_name',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
@@ -166,6 +169,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_flow_uuid' => 'setEmailFlowUuid',
         'esp_domain_user' => 'setEspDomainUser',
         'esp_domain_uuid' => 'setEspDomainUuid',
+        'esp_friendly_name' => 'setEspFriendlyName',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
@@ -193,6 +197,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_flow_uuid' => 'getEmailFlowUuid',
         'esp_domain_user' => 'getEspDomainUser',
         'esp_domain_uuid' => 'getEspDomainUuid',
+        'esp_friendly_name' => 'getEspFriendlyName',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
@@ -274,6 +279,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         $this->container['email_flow_uuid'] = isset($data['email_flow_uuid']) ? $data['email_flow_uuid'] : null;
         $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
+        $this->container['esp_friendly_name'] = isset($data['esp_friendly_name']) ? $data['esp_friendly_name'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -507,6 +513,30 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function setEspDomainUuid($esp_domain_uuid)
     {
         $this->container['esp_domain_uuid'] = $esp_domain_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_friendly_name
+     *
+     * @return string
+     */
+    public function getEspFriendlyName()
+    {
+        return $this->container['esp_friendly_name'];
+    }
+
+    /**
+     * Sets esp_friendly_name
+     *
+     * @param string $esp_friendly_name Friendly name of the sending email
+     *
+     * @return $this
+     */
+    public function setEspFriendlyName($esp_friendly_name)
+    {
+        $this->container['esp_friendly_name'] = $esp_friendly_name;
 
         return $this;
     }
