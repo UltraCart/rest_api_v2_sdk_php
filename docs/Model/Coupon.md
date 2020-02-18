@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **affiliate_oid** | **int** | Associates an order with an affiliate when this value is set. | [optional] 
+**allow_multiple_one_time_codes** | **bool** | True if multiple one time codes for this coupon can be used on a cart at the same time. | [optional] 
 **amount_off_items** | [**\ultracart\v2\models\CouponAmountOffItems**](CouponAmountOffItems.md) |  | [optional] 
 **amount_off_shipping** | [**\ultracart\v2\models\CouponAmountOffShipping**](CouponAmountOffShipping.md) |  | [optional] 
 **amount_off_shipping_with_items_purchase** | [**\ultracart\v2\models\CouponAmountOffShippingWithItemsPurchase**](CouponAmountOffShippingWithItemsPurchase.md) |  | [optional] 

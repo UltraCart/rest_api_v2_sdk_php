@@ -57,6 +57,7 @@ class Coupon implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'affiliate_oid' => 'int',
+        'allow_multiple_one_time_codes' => 'bool',
         'amount_off_items' => '\ultracart\v2\models\CouponAmountOffItems',
         'amount_off_shipping' => '\ultracart\v2\models\CouponAmountOffShipping',
         'amount_off_shipping_with_items_purchase' => '\ultracart\v2\models\CouponAmountOffShippingWithItemsPurchase',
@@ -114,6 +115,7 @@ class Coupon implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'affiliate_oid' => 'int32',
+        'allow_multiple_one_time_codes' => null,
         'amount_off_items' => null,
         'amount_off_shipping' => null,
         'amount_off_shipping_with_items_purchase' => null,
@@ -192,6 +194,7 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'affiliate_oid' => 'affiliate_oid',
+        'allow_multiple_one_time_codes' => 'allow_multiple_one_time_codes',
         'amount_off_items' => 'amount_off_items',
         'amount_off_shipping' => 'amount_off_shipping',
         'amount_off_shipping_with_items_purchase' => 'amount_off_shipping_with_items_purchase',
@@ -249,6 +252,7 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'affiliate_oid' => 'setAffiliateOid',
+        'allow_multiple_one_time_codes' => 'setAllowMultipleOneTimeCodes',
         'amount_off_items' => 'setAmountOffItems',
         'amount_off_shipping' => 'setAmountOffShipping',
         'amount_off_shipping_with_items_purchase' => 'setAmountOffShippingWithItemsPurchase',
@@ -306,6 +310,7 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'affiliate_oid' => 'getAffiliateOid',
+        'allow_multiple_one_time_codes' => 'getAllowMultipleOneTimeCodes',
         'amount_off_items' => 'getAmountOffItems',
         'amount_off_shipping' => 'getAmountOffShipping',
         'amount_off_shipping_with_items_purchase' => 'getAmountOffShippingWithItemsPurchase',
@@ -417,6 +422,7 @@ class Coupon implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['affiliate_oid'] = isset($data['affiliate_oid']) ? $data['affiliate_oid'] : null;
+        $this->container['allow_multiple_one_time_codes'] = isset($data['allow_multiple_one_time_codes']) ? $data['allow_multiple_one_time_codes'] : null;
         $this->container['amount_off_items'] = isset($data['amount_off_items']) ? $data['amount_off_items'] : null;
         $this->container['amount_off_shipping'] = isset($data['amount_off_shipping']) ? $data['amount_off_shipping'] : null;
         $this->container['amount_off_shipping_with_items_purchase'] = isset($data['amount_off_shipping_with_items_purchase']) ? $data['amount_off_shipping_with_items_purchase'] : null;
@@ -547,6 +553,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setAffiliateOid($affiliate_oid)
     {
         $this->container['affiliate_oid'] = $affiliate_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_multiple_one_time_codes
+     *
+     * @return bool
+     */
+    public function getAllowMultipleOneTimeCodes()
+    {
+        return $this->container['allow_multiple_one_time_codes'];
+    }
+
+    /**
+     * Sets allow_multiple_one_time_codes
+     *
+     * @param bool $allow_multiple_one_time_codes True if multiple one time codes for this coupon can be used on a cart at the same time.
+     *
+     * @return $this
+     */
+    public function setAllowMultipleOneTimeCodes($allow_multiple_one_time_codes)
+    {
+        $this->container['allow_multiple_one_time_codes'] = $allow_multiple_one_time_codes;
 
         return $this;
     }
