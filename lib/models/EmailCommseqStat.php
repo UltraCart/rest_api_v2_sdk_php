@@ -58,6 +58,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'click_count' => 'int',
         'click_count_formatted' => 'string',
+        'conversion_count' => 'int',
+        'conversion_count_formatted' => 'string',
         'delivered_count' => 'int',
         'delivered_count_formatted' => 'string',
         'email_communication_sequence_uuid' => 'string',
@@ -101,6 +103,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'click_count' => 'int32',
         'click_count_formatted' => null,
+        'conversion_count' => 'int32',
+        'conversion_count_formatted' => null,
         'delivered_count' => 'int32',
         'delivered_count_formatted' => null,
         'email_communication_sequence_uuid' => null,
@@ -165,6 +169,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'click_count' => 'click_count',
         'click_count_formatted' => 'click_count_formatted',
+        'conversion_count' => 'conversion_count',
+        'conversion_count_formatted' => 'conversion_count_formatted',
         'delivered_count' => 'delivered_count',
         'delivered_count_formatted' => 'delivered_count_formatted',
         'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
@@ -208,6 +214,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
     protected static $setters = [
         'click_count' => 'setClickCount',
         'click_count_formatted' => 'setClickCountFormatted',
+        'conversion_count' => 'setConversionCount',
+        'conversion_count_formatted' => 'setConversionCountFormatted',
         'delivered_count' => 'setDeliveredCount',
         'delivered_count_formatted' => 'setDeliveredCountFormatted',
         'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
@@ -251,6 +259,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
     protected static $getters = [
         'click_count' => 'getClickCount',
         'click_count_formatted' => 'getClickCountFormatted',
+        'conversion_count' => 'getConversionCount',
+        'conversion_count_formatted' => 'getConversionCountFormatted',
         'delivered_count' => 'getDeliveredCount',
         'delivered_count_formatted' => 'getDeliveredCountFormatted',
         'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
@@ -348,6 +358,8 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
     {
         $this->container['click_count'] = isset($data['click_count']) ? $data['click_count'] : null;
         $this->container['click_count_formatted'] = isset($data['click_count_formatted']) ? $data['click_count_formatted'] : null;
+        $this->container['conversion_count'] = isset($data['conversion_count']) ? $data['conversion_count'] : null;
+        $this->container['conversion_count_formatted'] = isset($data['conversion_count_formatted']) ? $data['conversion_count_formatted'] : null;
         $this->container['delivered_count'] = isset($data['delivered_count']) ? $data['delivered_count'] : null;
         $this->container['delivered_count_formatted'] = isset($data['delivered_count_formatted']) ? $data['delivered_count_formatted'] : null;
         $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
@@ -452,6 +464,54 @@ class EmailCommseqStat implements ModelInterface, ArrayAccess
     public function setClickCountFormatted($click_count_formatted)
     {
         $this->container['click_count_formatted'] = $click_count_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets conversion_count
+     *
+     * @return int
+     */
+    public function getConversionCount()
+    {
+        return $this->container['conversion_count'];
+    }
+
+    /**
+     * Sets conversion_count
+     *
+     * @param int $conversion_count Count of conversion
+     *
+     * @return $this
+     */
+    public function setConversionCount($conversion_count)
+    {
+        $this->container['conversion_count'] = $conversion_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets conversion_count_formatted
+     *
+     * @return string
+     */
+    public function getConversionCountFormatted()
+    {
+        return $this->container['conversion_count_formatted'];
+    }
+
+    /**
+     * Sets conversion_count_formatted
+     *
+     * @param string $conversion_count_formatted Count of conversions, formatted
+     *
+     * @return $this
+     */
+    public function setConversionCountFormatted($conversion_count_formatted)
+    {
+        $this->container['conversion_count_formatted'] = $conversion_count_formatted;
 
         return $this;
     }

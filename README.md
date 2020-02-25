@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
 *AutoOrderApi* | [**getAutoOrders**](docs/Api/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+*AutoOrderApi* | [**getAutoOrdersBatch**](docs/Api/AutoOrderApi.md#getautoordersbatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 *AutoOrderApi* | [**getAutoOrdersByQuery**](docs/Api/AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
 *AutoOrderApi* | [**updateAutoOrder**](docs/Api/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *ChargebackApi* | [**deleteChargeback**](docs/Api/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
@@ -215,10 +216,13 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailDashboardActivity**](docs/Api/StorefrontApi.md#getemaildashboardactivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 *StorefrontApi* | [**getEmailDashboardStats**](docs/Api/StorefrontApi.md#getemaildashboardstats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
 *StorefrontApi* | [**getEmailEmail**](docs/Api/StorefrontApi.md#getemailemail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
+*StorefrontApi* | [**getEmailEmailClicks**](docs/Api/StorefrontApi.md#getemailemailclicks) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/clicks | Get email email clicks
+*StorefrontApi* | [**getEmailEmailOrders**](docs/Api/StorefrontApi.md#getemailemailorders) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/orders | Get email email orders
 *StorefrontApi* | [**getEmailEmails**](docs/Api/StorefrontApi.md#getemailemails) | **GET** /storefront/{storefront_oid}/email/emails | Get email emails
 *StorefrontApi* | [**getEmailEmailsMultiple**](docs/Api/StorefrontApi.md#getemailemailsmultiple) | **POST** /storefront/{storefront_oid}/email/emails/multiple | Get email emails multiple
 *StorefrontApi* | [**getEmailFlow**](docs/Api/StorefrontApi.md#getemailflow) | **GET** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Get email flow
 *StorefrontApi* | [**getEmailFlows**](docs/Api/StorefrontApi.md#getemailflows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
+*StorefrontApi* | [**getEmailGlobalSettings**](docs/Api/StorefrontApi.md#getemailglobalsettings) | **GET** /storefront/email/global_settings | Get email globalsettings
 *StorefrontApi* | [**getEmailList**](docs/Api/StorefrontApi.md#getemaillist) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
 *StorefrontApi* | [**getEmailListCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemaillistcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customers
 *StorefrontApi* | [**getEmailListCustomers**](docs/Api/StorefrontApi.md#getemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
@@ -230,6 +234,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailSendingDomain**](docs/Api/StorefrontApi.md#getemailsendingdomain) | **GET** /storefront/email/sending_domain/{domain} | Get email sending domain
 *StorefrontApi* | [**getEmailSendingDomainStatus**](docs/Api/StorefrontApi.md#getemailsendingdomainstatus) | **POST** /storefront/email/sending_domains/{domain}/status | Get email sending domain status
 *StorefrontApi* | [**getEmailSendingDomains**](docs/Api/StorefrontApi.md#getemailsendingdomains) | **GET** /storefront/email/sending_domains | Get email sending domains
+*StorefrontApi* | [**getEmailSettings**](docs/Api/StorefrontApi.md#getemailsettings) | **GET** /storefront/{storefront_oid}/email/settings | Get email settings
 *StorefrontApi* | [**getEmailTemplate**](docs/Api/StorefrontApi.md#getemailtemplate) | **GET** /storefront/{storefront_oid}/email/templates/{email_template_oid} | Get email template
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/Api/StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
@@ -256,8 +261,10 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailCommseq**](docs/Api/StorefrontApi.md#updateemailcommseq) | **PUT** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Update email commseq
 *StorefrontApi* | [**updateEmailEmail**](docs/Api/StorefrontApi.md#updateemailemail) | **PUT** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Update email email
 *StorefrontApi* | [**updateEmailFlow**](docs/Api/StorefrontApi.md#updateemailflow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
+*StorefrontApi* | [**updateEmailGlobalSettings**](docs/Api/StorefrontApi.md#updateemailglobalsettings) | **POST** /storefront/email/global_settings | Update email global settings
 *StorefrontApi* | [**updateEmailList**](docs/Api/StorefrontApi.md#updateemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
 *StorefrontApi* | [**updateEmailSegment**](docs/Api/StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
+*StorefrontApi* | [**updateEmailSettings**](docs/Api/StorefrontApi.md#updateemailsettings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 *StorefrontApi* | [**updateExperiment**](docs/Api/StorefrontApi.md#updateexperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
 *StorefrontApi* | [**updateTransactionEmail**](docs/Api/StorefrontApi.md#updatetransactionemail) | **PUT** /storefront/{id}/transaction_email/list/{email_id} | Updates a transaction email object
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
@@ -319,6 +326,7 @@ Class | Method | HTTP request | Description
  - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
  - [AutoOrderItemSimpleSchedule](docs/Model/AutoOrderItemSimpleSchedule.md)
  - [AutoOrderQuery](docs/Model/AutoOrderQuery.md)
+ - [AutoOrderQueryBatch](docs/Model/AutoOrderQueryBatch.md)
  - [AutoOrderResponse](docs/Model/AutoOrderResponse.md)
  - [AutoOrdersResponse](docs/Model/AutoOrdersResponse.md)
  - [AvalaraConfig](docs/Model/AvalaraConfig.md)
@@ -476,6 +484,8 @@ Class | Method | HTTP request | Description
  - [EmailCampaign](docs/Model/EmailCampaign.md)
  - [EmailCampaignResponse](docs/Model/EmailCampaignResponse.md)
  - [EmailCampaignsResponse](docs/Model/EmailCampaignsResponse.md)
+ - [EmailClick](docs/Model/EmailClick.md)
+ - [EmailClicksResponse](docs/Model/EmailClicksResponse.md)
  - [EmailCommseq](docs/Model/EmailCommseq.md)
  - [EmailCommseqEmail](docs/Model/EmailCommseqEmail.md)
  - [EmailCommseqEmailResponse](docs/Model/EmailCommseqEmailResponse.md)
@@ -497,6 +507,8 @@ Class | Method | HTTP request | Description
  - [EmailFlow](docs/Model/EmailFlow.md)
  - [EmailFlowResponse](docs/Model/EmailFlowResponse.md)
  - [EmailFlowsResponse](docs/Model/EmailFlowsResponse.md)
+ - [EmailGlobalSettings](docs/Model/EmailGlobalSettings.md)
+ - [EmailGlobalSettingsResponse](docs/Model/EmailGlobalSettingsResponse.md)
  - [EmailHistogramPropertyNamesResponse](docs/Model/EmailHistogramPropertyNamesResponse.md)
  - [EmailHistogramPropertyValuesResponse](docs/Model/EmailHistogramPropertyValuesResponse.md)
  - [EmailList](docs/Model/EmailList.md)
@@ -507,6 +519,8 @@ Class | Method | HTTP request | Description
  - [EmailListSegmentMembership](docs/Model/EmailListSegmentMembership.md)
  - [EmailListSubscribeResponse](docs/Model/EmailListSubscribeResponse.md)
  - [EmailListsResponse](docs/Model/EmailListsResponse.md)
+ - [EmailOrder](docs/Model/EmailOrder.md)
+ - [EmailOrdersResponse](docs/Model/EmailOrdersResponse.md)
  - [EmailSegment](docs/Model/EmailSegment.md)
  - [EmailSegmentArchiveResponse](docs/Model/EmailSegmentArchiveResponse.md)
  - [EmailSegmentCustomer](docs/Model/EmailSegmentCustomer.md)
@@ -516,6 +530,8 @@ Class | Method | HTTP request | Description
  - [EmailSegmentsResponse](docs/Model/EmailSegmentsResponse.md)
  - [EmailSendingDomainResponse](docs/Model/EmailSendingDomainResponse.md)
  - [EmailSendingDomainsResponse](docs/Model/EmailSendingDomainsResponse.md)
+ - [EmailSettings](docs/Model/EmailSettings.md)
+ - [EmailSettingsResponse](docs/Model/EmailSettingsResponse.md)
  - [EmailStat](docs/Model/EmailStat.md)
  - [EmailStatSummaryRequest](docs/Model/EmailStatSummaryRequest.md)
  - [EmailStatSummaryResponse](docs/Model/EmailStatSummaryResponse.md)

@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **click_count** | **int** | Count of clicked emails | [optional] 
 **click_count_formatted** | **string** | Count of clicked emails, formatted | [optional] 
+**conversion_count** | **int** | Count of conversions | [optional] 
+**conversion_count_formatted** | **string** | Count of conversions, formatted | [optional] 
 **delivered_count** | **int** | Count of delivered emails | [optional] 
 **delivered_count_formatted** | **string** | Count of delivered emails, formatted | [optional] 
 **kickbox_count** | **int** | Count of emails kicked | [optional] 
@@ -33,7 +35,7 @@ Name | Type | Description | Notes
 **storefront_oid** | **int** | Storefront oid | [optional] 
 **unsubscribe_count** | **int** | Count of emails classified as unsubscribe | [optional] 
 **unsubscribe_count_formatted** | **string** | Count of emails classified as unsubscribe, formatted | [optional] 
-**uuid** | **string** | List or segment uuid | [optional] 
+**uuid** | **string** | List/Segment uuid, or Flow/Campaign uuid depending on level of stat aggregation. | [optional] 
 **view_count** | **int** | Count of views | [optional] 
 **view_count_formatted** | **string** | Count of views, formatted | [optional] 
 

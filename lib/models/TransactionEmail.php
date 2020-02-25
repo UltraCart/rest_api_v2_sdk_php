@@ -67,6 +67,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'size' => 'string',
         'store_front_fs_directory_oid' => 'int',
         'store_front_fs_file_oid' => 'int',
+        'subject' => 'string',
         'syntax_errors' => 'string',
         'template_path_relative_path' => 'string',
         'theme_relative_path' => 'string'
@@ -89,6 +90,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'size' => null,
         'store_front_fs_directory_oid' => 'int32',
         'store_front_fs_file_oid' => 'int32',
+        'subject' => null,
         'syntax_errors' => null,
         'template_path_relative_path' => null,
         'theme_relative_path' => null
@@ -132,6 +134,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'size' => 'size',
         'store_front_fs_directory_oid' => 'store_front_fs_directory_oid',
         'store_front_fs_file_oid' => 'store_front_fs_file_oid',
+        'subject' => 'subject',
         'syntax_errors' => 'syntax_errors',
         'template_path_relative_path' => 'template_path_relative_path',
         'theme_relative_path' => 'theme_relative_path'
@@ -154,6 +157,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'size' => 'setSize',
         'store_front_fs_directory_oid' => 'setStoreFrontFsDirectoryOid',
         'store_front_fs_file_oid' => 'setStoreFrontFsFileOid',
+        'subject' => 'setSubject',
         'syntax_errors' => 'setSyntaxErrors',
         'template_path_relative_path' => 'setTemplatePathRelativePath',
         'theme_relative_path' => 'setThemeRelativePath'
@@ -176,6 +180,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'size' => 'getSize',
         'store_front_fs_directory_oid' => 'getStoreFrontFsDirectoryOid',
         'store_front_fs_file_oid' => 'getStoreFrontFsFileOid',
+        'subject' => 'getSubject',
         'syntax_errors' => 'getSyntaxErrors',
         'template_path_relative_path' => 'getTemplatePathRelativePath',
         'theme_relative_path' => 'getThemeRelativePath'
@@ -252,6 +257,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['store_front_fs_directory_oid'] = isset($data['store_front_fs_directory_oid']) ? $data['store_front_fs_directory_oid'] : null;
         $this->container['store_front_fs_file_oid'] = isset($data['store_front_fs_file_oid']) ? $data['store_front_fs_file_oid'] : null;
+        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
         $this->container['syntax_errors'] = isset($data['syntax_errors']) ? $data['syntax_errors'] : null;
         $this->container['template_path_relative_path'] = isset($data['template_path_relative_path']) ? $data['template_path_relative_path'] : null;
         $this->container['theme_relative_path'] = isset($data['theme_relative_path']) ? $data['theme_relative_path'] : null;
@@ -542,6 +548,30 @@ class TransactionEmail implements ModelInterface, ArrayAccess
     public function setStoreFrontFsFileOid($store_front_fs_file_oid)
     {
         $this->container['store_front_fs_file_oid'] = $store_front_fs_file_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->container['subject'];
+    }
+
+    /**
+     * Sets subject
+     *
+     * @param string $subject Subject
+     *
+     * @return $this
+     */
+    public function setSubject($subject)
+    {
+        $this->container['subject'] = $subject;
 
         return $this;
     }

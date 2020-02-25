@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
 [**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
 [**getAutoOrders**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
+[**getAutoOrdersBatch**](AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
 [**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
 [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 
@@ -254,6 +255,60 @@ Name | Type | Description  | Notes
  **_since** | **string**| Fetch auto orders that have been created/modified since this date/time. | [optional]
  **_sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getAutoOrdersBatch**
+> \ultracart\v2\models\AutoOrdersResponse getAutoOrdersBatch($auto_order_batch, $_expand)
+
+Retrieve auto order batch
+
+Retrieves a group of auto orders from the account based on an array of auto order oids.  If more than 200 auto order ids are specified, the API call will fail with a bad request error.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$auto_order_batch = new \ultracart\v2\models\AutoOrderQueryBatch(); // \ultracart\v2\models\AutoOrderQueryBatch | Auto order batch
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.
+
+try {
+    $result = $api_instance->getAutoOrdersBatch($auto_order_batch, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AutoOrderApi->getAutoOrdersBatch: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auto_order_batch** | [**\ultracart\v2\models\AutoOrderQueryBatch**](../Model/AutoOrderQueryBatch.md)| Auto order batch |
+ **_expand** | **string**| The object expansion to perform on the result. | [optional]
 
 ### Return type
 
