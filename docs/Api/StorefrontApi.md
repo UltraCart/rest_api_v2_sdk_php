@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **cloneEmailCampaign**
-> \ultracart\v2\models\EmailCampaignResponse cloneEmailCampaign($storefront_oid, $email_campaign_uuid)
+> \ultracart\v2\models\EmailCampaignResponse cloneEmailCampaign($storefront_oid, $email_campaign_uuid, $target_storefront_oid)
 
 Clone email campaign
 
@@ -276,9 +276,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\api\StorefrontApi(new \Http\Adapter\Guzzle6\Client());
 $storefront_oid = "storefront_oid_example"; // string | null
 $email_campaign_uuid = "email_campaign_uuid_example"; // string | null
+$target_storefront_oid = "target_storefront_oid_example"; // string | null
 
 try {
-    $result = $api_instance->cloneEmailCampaign($storefront_oid, $email_campaign_uuid);
+    $result = $api_instance->cloneEmailCampaign($storefront_oid, $email_campaign_uuid, $target_storefront_oid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StorefrontApi->cloneEmailCampaign: ', $e->getMessage(), PHP_EOL;
@@ -292,6 +293,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **string**| null |
  **email_campaign_uuid** | **string**| null |
+ **target_storefront_oid** | **string**| null | [optional]
 
 ### Return type
 
@@ -309,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **cloneEmailFlow**
-> \ultracart\v2\models\EmailFlowResponse cloneEmailFlow($storefront_oid, $email_flow_uuid)
+> \ultracart\v2\models\EmailFlowResponse cloneEmailFlow($storefront_oid, $email_flow_uuid, $target_storefront_oid)
 
 Clone email flow
 
@@ -332,9 +334,10 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 $api_instance = new ultracart\v2\api\StorefrontApi(new \Http\Adapter\Guzzle6\Client());
 $storefront_oid = "storefront_oid_example"; // string | null
 $email_flow_uuid = "email_flow_uuid_example"; // string | null
+$target_storefront_oid = "target_storefront_oid_example"; // string | null
 
 try {
-    $result = $api_instance->cloneEmailFlow($storefront_oid, $email_flow_uuid);
+    $result = $api_instance->cloneEmailFlow($storefront_oid, $email_flow_uuid, $target_storefront_oid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StorefrontApi->cloneEmailFlow: ', $e->getMessage(), PHP_EOL;
@@ -348,6 +351,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storefront_oid** | **string**| null |
  **email_flow_uuid** | **string**| null |
+ **target_storefront_oid** | **string**| null | [optional]
 
 ### Return type
 

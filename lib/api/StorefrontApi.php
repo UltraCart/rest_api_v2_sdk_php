@@ -1096,14 +1096,15 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_campaign_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\EmailCampaignResponse
      */
-    public function cloneEmailCampaign($storefront_oid, $email_campaign_uuid)
+    public function cloneEmailCampaign($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
-        list($response) = $this->cloneEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid);
+        list($response) = $this->cloneEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid, $target_storefront_oid);
         return $response;
     }
 
@@ -1114,15 +1115,16 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_campaign_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloneEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid)
+    public function cloneEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
         $returnType = '\ultracart\v2\models\EmailCampaignResponse';
-        $request = $this->cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid);
+        $request = $this->cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $target_storefront_oid);
 
         try {
 
@@ -1229,13 +1231,14 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_campaign_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloneEmailCampaignAsync($storefront_oid, $email_campaign_uuid)
+    public function cloneEmailCampaignAsync($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
-        return $this->cloneEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid)
+        return $this->cloneEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid, $target_storefront_oid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1250,14 +1253,15 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_campaign_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloneEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid)
+    public function cloneEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
         $returnType = '\ultracart\v2\models\EmailCampaignResponse';
-        $request = $this->cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid);
+        $request = $this->cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $target_storefront_oid);
 
         return $this->client
             ->sendAsync($request)
@@ -1301,11 +1305,12 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_campaign_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid)
+    protected function cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null) {
@@ -1327,6 +1332,10 @@ class StorefrontApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($target_storefront_oid !== null) {
+            $queryParams['target_storefront_oid'] = ObjectSerializer::toQueryValue($target_storefront_oid);
+        }
 
         // path params
         if ($storefront_oid !== null) {
@@ -1426,14 +1435,15 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_flow_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\EmailFlowResponse
      */
-    public function cloneEmailFlow($storefront_oid, $email_flow_uuid)
+    public function cloneEmailFlow($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
-        list($response) = $this->cloneEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid);
+        list($response) = $this->cloneEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $target_storefront_oid);
         return $response;
     }
 
@@ -1444,15 +1454,16 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_flow_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cloneEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid)
+    public function cloneEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
         $returnType = '\ultracart\v2\models\EmailFlowResponse';
-        $request = $this->cloneEmailFlowRequest($storefront_oid, $email_flow_uuid);
+        $request = $this->cloneEmailFlowRequest($storefront_oid, $email_flow_uuid, $target_storefront_oid);
 
         try {
 
@@ -1559,13 +1570,14 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_flow_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloneEmailFlowAsync($storefront_oid, $email_flow_uuid)
+    public function cloneEmailFlowAsync($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
-        return $this->cloneEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow_uuid)
+        return $this->cloneEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow_uuid, $target_storefront_oid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1580,14 +1592,15 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_flow_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cloneEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow_uuid)
+    public function cloneEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
         $returnType = '\ultracart\v2\models\EmailFlowResponse';
-        $request = $this->cloneEmailFlowRequest($storefront_oid, $email_flow_uuid);
+        $request = $this->cloneEmailFlowRequest($storefront_oid, $email_flow_uuid, $target_storefront_oid);
 
         return $this->client
             ->sendAsync($request)
@@ -1631,11 +1644,12 @@ class StorefrontApi
      *
      * @param  string $storefront_oid null (required)
      * @param  string $email_flow_uuid null (required)
+     * @param  string $target_storefront_oid null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cloneEmailFlowRequest($storefront_oid, $email_flow_uuid)
+    protected function cloneEmailFlowRequest($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null) {
@@ -1657,6 +1671,10 @@ class StorefrontApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($target_storefront_oid !== null) {
+            $queryParams['target_storefront_oid'] = ObjectSerializer::toQueryValue($target_storefront_oid);
+        }
 
         // path params
         if ($storefront_oid !== null) {
