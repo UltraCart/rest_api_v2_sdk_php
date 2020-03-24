@@ -1887,16 +1887,16 @@ class OrderApi
      *
      * Retrieve an order using a token
      *
-     * @param  string $order_token The order token to retrieve. (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\OrderResponse
      */
-    public function getOrderByToken($order_token, $_expand = null)
+    public function getOrderByToken($order_by_token_query, $_expand = null)
     {
-        list($response) = $this->getOrderByTokenWithHttpInfo($order_token, $_expand);
+        list($response) = $this->getOrderByTokenWithHttpInfo($order_by_token_query, $_expand);
         return $response;
     }
 
@@ -1905,17 +1905,17 @@ class OrderApi
      *
      * Retrieve an order using a token
      *
-     * @param  string $order_token The order token to retrieve. (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrderByTokenWithHttpInfo($order_token, $_expand = null)
+    public function getOrderByTokenWithHttpInfo($order_by_token_query, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->getOrderByTokenRequest($order_token, $_expand);
+        $request = $this->getOrderByTokenRequest($order_by_token_query, $_expand);
 
         try {
 
@@ -2020,15 +2020,15 @@ class OrderApi
      *
      * Retrieve an order using a token
      *
-     * @param  string $order_token The order token to retrieve. (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderByTokenAsync($order_token, $_expand = null)
+    public function getOrderByTokenAsync($order_by_token_query, $_expand = null)
     {
-        return $this->getOrderByTokenAsyncWithHttpInfo($order_token, $_expand)
+        return $this->getOrderByTokenAsyncWithHttpInfo($order_by_token_query, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2041,16 +2041,16 @@ class OrderApi
      *
      * Retrieve an order using a token
      *
-     * @param  string $order_token The order token to retrieve. (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrderByTokenAsyncWithHttpInfo($order_token, $_expand = null)
+    public function getOrderByTokenAsyncWithHttpInfo($order_by_token_query, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrderResponse';
-        $request = $this->getOrderByTokenRequest($order_token, $_expand);
+        $request = $this->getOrderByTokenRequest($order_by_token_query, $_expand);
 
         return $this->client
             ->sendAsync($request)
@@ -2092,18 +2092,18 @@ class OrderApi
     /**
      * Create request for operation 'getOrderByToken'
      *
-     * @param  string $order_token The order token to retrieve. (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOrderByTokenRequest($order_token, $_expand = null)
+    protected function getOrderByTokenRequest($order_by_token_query, $_expand = null)
     {
-        // verify the required parameter 'order_token' is set
-        if ($order_token === null) {
+        // verify the required parameter 'order_by_token_query' is set
+        if ($order_by_token_query === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_token when calling getOrderByToken'
+                'Missing the required parameter $order_by_token_query when calling getOrderByToken'
             );
         }
 
@@ -2120,12 +2120,11 @@ class OrderApi
         }
 
 
-        // form params
-        if ($order_token !== null) {
-            $formParams['order_token'] = ObjectSerializer::toFormValue($order_token);
-        }
         // body params
         $_tempBody = null;
+        if (isset($order_by_token_query)) {
+            $_tempBody = $order_by_token_query;
+        }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(

@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrderByToken**
-> \ultracart\v2\models\OrderResponse getOrderByToken($order_token, $_expand)
+> \ultracart\v2\models\OrderResponse getOrderByToken($order_by_token_query, $_expand)
 
 Retrieve an order using a token
 
@@ -356,11 +356,11 @@ ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-si
 // ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
 $api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
-$order_token = "order_token_example"; // string | The order token to retrieve.
+$order_by_token_query = new \ultracart\v2\models\OrderByTokenQuery(); // \ultracart\v2\models\OrderByTokenQuery | Order by token query
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getOrderByToken($order_token, $_expand);
+    $result = $api_instance->getOrderByToken($order_by_token_query, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->getOrderByToken: ', $e->getMessage(), PHP_EOL;
@@ -372,7 +372,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_token** | **string**| The order token to retrieve. |
+ **order_by_token_query** | [**\ultracart\v2\models\OrderByTokenQuery**](../Model/OrderByTokenQuery.md)| Order by token query |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

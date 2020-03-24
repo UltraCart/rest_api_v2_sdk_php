@@ -659,6 +659,7 @@ Class | Method | HTTP request | Description
  - [OrderAutoOrder](docs/Model/OrderAutoOrder.md)
  - [OrderBilling](docs/Model/OrderBilling.md)
  - [OrderBuysafe](docs/Model/OrderBuysafe.md)
+ - [OrderByTokenQuery](docs/Model/OrderByTokenQuery.md)
  - [OrderChannelPartner](docs/Model/OrderChannelPartner.md)
  - [OrderCheckout](docs/Model/OrderCheckout.md)
  - [OrderCoupon](docs/Model/OrderCoupon.md)
