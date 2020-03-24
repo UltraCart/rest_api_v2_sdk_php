@@ -59,6 +59,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'add_to_cart_count' => 'int',
         'average_duration_seconds' => 'int',
         'average_objective_per_session' => 'float',
+        'average_order_value' => 'float',
         'bounce_count' => 'int',
         'conversion_rate' => 'float',
         'duration_seconds_sum' => 'int',
@@ -83,6 +84,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'add_to_cart_count' => 'int32',
         'average_duration_seconds' => 'int32',
         'average_objective_per_session' => null,
+        'average_order_value' => null,
         'bounce_count' => 'int32',
         'conversion_rate' => null,
         'duration_seconds_sum' => 'int64',
@@ -128,6 +130,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'add_to_cart_count' => 'add_to_cart_count',
         'average_duration_seconds' => 'average_duration_seconds',
         'average_objective_per_session' => 'average_objective_per_session',
+        'average_order_value' => 'average_order_value',
         'bounce_count' => 'bounce_count',
         'conversion_rate' => 'conversion_rate',
         'duration_seconds_sum' => 'duration_seconds_sum',
@@ -152,6 +155,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'add_to_cart_count' => 'setAddToCartCount',
         'average_duration_seconds' => 'setAverageDurationSeconds',
         'average_objective_per_session' => 'setAverageObjectivePerSession',
+        'average_order_value' => 'setAverageOrderValue',
         'bounce_count' => 'setBounceCount',
         'conversion_rate' => 'setConversionRate',
         'duration_seconds_sum' => 'setDurationSecondsSum',
@@ -176,6 +180,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'add_to_cart_count' => 'getAddToCartCount',
         'average_duration_seconds' => 'getAverageDurationSeconds',
         'average_objective_per_session' => 'getAverageObjectivePerSession',
+        'average_order_value' => 'getAverageOrderValue',
         'bounce_count' => 'getBounceCount',
         'conversion_rate' => 'getConversionRate',
         'duration_seconds_sum' => 'getDurationSecondsSum',
@@ -254,6 +259,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         $this->container['add_to_cart_count'] = isset($data['add_to_cart_count']) ? $data['add_to_cart_count'] : null;
         $this->container['average_duration_seconds'] = isset($data['average_duration_seconds']) ? $data['average_duration_seconds'] : null;
         $this->container['average_objective_per_session'] = isset($data['average_objective_per_session']) ? $data['average_objective_per_session'] : null;
+        $this->container['average_order_value'] = isset($data['average_order_value']) ? $data['average_order_value'] : null;
         $this->container['bounce_count'] = isset($data['bounce_count']) ? $data['bounce_count'] : null;
         $this->container['conversion_rate'] = isset($data['conversion_rate']) ? $data['conversion_rate'] : null;
         $this->container['duration_seconds_sum'] = isset($data['duration_seconds_sum']) ? $data['duration_seconds_sum'] : null;
@@ -362,6 +368,30 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     public function setAverageObjectivePerSession($average_objective_per_session)
     {
         $this->container['average_objective_per_session'] = $average_objective_per_session;
+
+        return $this;
+    }
+
+    /**
+     * Gets average_order_value
+     *
+     * @return float
+     */
+    public function getAverageOrderValue()
+    {
+        return $this->container['average_order_value'];
+    }
+
+    /**
+     * Sets average_order_value
+     *
+     * @param float $average_order_value Average order value for this variation
+     *
+     * @return $this
+     */
+    public function setAverageOrderValue($average_order_value)
+    {
+        $this->container['average_order_value'] = $average_order_value;
 
         return $this;
     }

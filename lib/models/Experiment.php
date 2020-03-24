@@ -60,6 +60,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'int',
         'end_dts' => 'string',
         'equal_weighting' => 'bool',
+        'experiment_type' => 'string',
         'id' => 'string',
         'name' => 'string',
         'notes' => 'string',
@@ -84,6 +85,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'int32',
         'end_dts' => 'dateTime',
         'equal_weighting' => null,
+        'experiment_type' => null,
         'id' => null,
         'name' => null,
         'notes' => null,
@@ -129,6 +131,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'duration_days',
         'end_dts' => 'end_dts',
         'equal_weighting' => 'equal_weighting',
+        'experiment_type' => 'experiment_type',
         'id' => 'id',
         'name' => 'name',
         'notes' => 'notes',
@@ -153,6 +156,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'setDurationDays',
         'end_dts' => 'setEndDts',
         'equal_weighting' => 'setEqualWeighting',
+        'experiment_type' => 'setExperimentType',
         'id' => 'setId',
         'name' => 'setName',
         'notes' => 'setNotes',
@@ -177,6 +181,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'duration_days' => 'getDurationDays',
         'end_dts' => 'getEndDts',
         'equal_weighting' => 'getEqualWeighting',
+        'experiment_type' => 'getExperimentType',
         'id' => 'getId',
         'name' => 'getName',
         'notes' => 'getNotes',
@@ -272,6 +277,7 @@ class Experiment implements ModelInterface, ArrayAccess
         $this->container['duration_days'] = isset($data['duration_days']) ? $data['duration_days'] : null;
         $this->container['end_dts'] = isset($data['end_dts']) ? $data['end_dts'] : null;
         $this->container['equal_weighting'] = isset($data['equal_weighting']) ? $data['equal_weighting'] : null;
+        $this->container['experiment_type'] = isset($data['experiment_type']) ? $data['experiment_type'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
@@ -415,6 +421,30 @@ class Experiment implements ModelInterface, ArrayAccess
     public function setEqualWeighting($equal_weighting)
     {
         $this->container['equal_weighting'] = $equal_weighting;
+
+        return $this;
+    }
+
+    /**
+     * Gets experiment_type
+     *
+     * @return string
+     */
+    public function getExperimentType()
+    {
+        return $this->container['experiment_type'];
+    }
+
+    /**
+     * Sets experiment_type
+     *
+     * @param string $experiment_type The type of experiment
+     *
+     * @return $this
+     */
+    public function setExperimentType($experiment_type)
+    {
+        $this->container['experiment_type'] = $experiment_type;
 
         return $this;
     }

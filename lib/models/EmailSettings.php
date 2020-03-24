@@ -59,6 +59,12 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'marketing_esp_domain_user' => 'string',
         'marketing_esp_domain_uuid' => 'string',
         'marketing_esp_friendly_name' => 'string',
+        'postcard_from_address1' => 'string',
+        'postcard_from_address2' => 'string',
+        'postcard_from_city' => 'string',
+        'postcard_from_name' => 'string',
+        'postcard_from_postal_code' => 'string',
+        'postcard_from_state' => 'string',
         'transactional_esp_domain_user' => 'string',
         'transactional_esp_domain_uuid' => 'string',
         'transactional_esp_friendly_name' => 'string'
@@ -73,6 +79,12 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'marketing_esp_domain_user' => null,
         'marketing_esp_domain_uuid' => null,
         'marketing_esp_friendly_name' => null,
+        'postcard_from_address1' => null,
+        'postcard_from_address2' => null,
+        'postcard_from_city' => null,
+        'postcard_from_name' => null,
+        'postcard_from_postal_code' => null,
+        'postcard_from_state' => null,
         'transactional_esp_domain_user' => null,
         'transactional_esp_domain_uuid' => null,
         'transactional_esp_friendly_name' => null
@@ -108,6 +120,12 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'marketing_esp_domain_user' => 'marketing_esp_domain_user',
         'marketing_esp_domain_uuid' => 'marketing_esp_domain_uuid',
         'marketing_esp_friendly_name' => 'marketing_esp_friendly_name',
+        'postcard_from_address1' => 'postcard_from_address1',
+        'postcard_from_address2' => 'postcard_from_address2',
+        'postcard_from_city' => 'postcard_from_city',
+        'postcard_from_name' => 'postcard_from_name',
+        'postcard_from_postal_code' => 'postcard_from_postal_code',
+        'postcard_from_state' => 'postcard_from_state',
         'transactional_esp_domain_user' => 'transactional_esp_domain_user',
         'transactional_esp_domain_uuid' => 'transactional_esp_domain_uuid',
         'transactional_esp_friendly_name' => 'transactional_esp_friendly_name'
@@ -122,6 +140,12 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'marketing_esp_domain_user' => 'setMarketingEspDomainUser',
         'marketing_esp_domain_uuid' => 'setMarketingEspDomainUuid',
         'marketing_esp_friendly_name' => 'setMarketingEspFriendlyName',
+        'postcard_from_address1' => 'setPostcardFromAddress1',
+        'postcard_from_address2' => 'setPostcardFromAddress2',
+        'postcard_from_city' => 'setPostcardFromCity',
+        'postcard_from_name' => 'setPostcardFromName',
+        'postcard_from_postal_code' => 'setPostcardFromPostalCode',
+        'postcard_from_state' => 'setPostcardFromState',
         'transactional_esp_domain_user' => 'setTransactionalEspDomainUser',
         'transactional_esp_domain_uuid' => 'setTransactionalEspDomainUuid',
         'transactional_esp_friendly_name' => 'setTransactionalEspFriendlyName'
@@ -136,6 +160,12 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'marketing_esp_domain_user' => 'getMarketingEspDomainUser',
         'marketing_esp_domain_uuid' => 'getMarketingEspDomainUuid',
         'marketing_esp_friendly_name' => 'getMarketingEspFriendlyName',
+        'postcard_from_address1' => 'getPostcardFromAddress1',
+        'postcard_from_address2' => 'getPostcardFromAddress2',
+        'postcard_from_city' => 'getPostcardFromCity',
+        'postcard_from_name' => 'getPostcardFromName',
+        'postcard_from_postal_code' => 'getPostcardFromPostalCode',
+        'postcard_from_state' => 'getPostcardFromState',
         'transactional_esp_domain_user' => 'getTransactionalEspDomainUser',
         'transactional_esp_domain_uuid' => 'getTransactionalEspDomainUuid',
         'transactional_esp_friendly_name' => 'getTransactionalEspFriendlyName'
@@ -204,6 +234,12 @@ class EmailSettings implements ModelInterface, ArrayAccess
         $this->container['marketing_esp_domain_user'] = isset($data['marketing_esp_domain_user']) ? $data['marketing_esp_domain_user'] : null;
         $this->container['marketing_esp_domain_uuid'] = isset($data['marketing_esp_domain_uuid']) ? $data['marketing_esp_domain_uuid'] : null;
         $this->container['marketing_esp_friendly_name'] = isset($data['marketing_esp_friendly_name']) ? $data['marketing_esp_friendly_name'] : null;
+        $this->container['postcard_from_address1'] = isset($data['postcard_from_address1']) ? $data['postcard_from_address1'] : null;
+        $this->container['postcard_from_address2'] = isset($data['postcard_from_address2']) ? $data['postcard_from_address2'] : null;
+        $this->container['postcard_from_city'] = isset($data['postcard_from_city']) ? $data['postcard_from_city'] : null;
+        $this->container['postcard_from_name'] = isset($data['postcard_from_name']) ? $data['postcard_from_name'] : null;
+        $this->container['postcard_from_postal_code'] = isset($data['postcard_from_postal_code']) ? $data['postcard_from_postal_code'] : null;
+        $this->container['postcard_from_state'] = isset($data['postcard_from_state']) ? $data['postcard_from_state'] : null;
         $this->container['transactional_esp_domain_user'] = isset($data['transactional_esp_domain_user']) ? $data['transactional_esp_domain_user'] : null;
         $this->container['transactional_esp_domain_uuid'] = isset($data['transactional_esp_domain_uuid']) ? $data['transactional_esp_domain_uuid'] : null;
         $this->container['transactional_esp_friendly_name'] = isset($data['transactional_esp_friendly_name']) ? $data['transactional_esp_friendly_name'] : null;
@@ -302,6 +338,150 @@ class EmailSettings implements ModelInterface, ArrayAccess
     public function setMarketingEspFriendlyName($marketing_esp_friendly_name)
     {
         $this->container['marketing_esp_friendly_name'] = $marketing_esp_friendly_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_from_address1
+     *
+     * @return string
+     */
+    public function getPostcardFromAddress1()
+    {
+        return $this->container['postcard_from_address1'];
+    }
+
+    /**
+     * Sets postcard_from_address1
+     *
+     * @param string $postcard_from_address1 postcard_from_address1
+     *
+     * @return $this
+     */
+    public function setPostcardFromAddress1($postcard_from_address1)
+    {
+        $this->container['postcard_from_address1'] = $postcard_from_address1;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_from_address2
+     *
+     * @return string
+     */
+    public function getPostcardFromAddress2()
+    {
+        return $this->container['postcard_from_address2'];
+    }
+
+    /**
+     * Sets postcard_from_address2
+     *
+     * @param string $postcard_from_address2 postcard_from_address2
+     *
+     * @return $this
+     */
+    public function setPostcardFromAddress2($postcard_from_address2)
+    {
+        $this->container['postcard_from_address2'] = $postcard_from_address2;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_from_city
+     *
+     * @return string
+     */
+    public function getPostcardFromCity()
+    {
+        return $this->container['postcard_from_city'];
+    }
+
+    /**
+     * Sets postcard_from_city
+     *
+     * @param string $postcard_from_city postcard_from_city
+     *
+     * @return $this
+     */
+    public function setPostcardFromCity($postcard_from_city)
+    {
+        $this->container['postcard_from_city'] = $postcard_from_city;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_from_name
+     *
+     * @return string
+     */
+    public function getPostcardFromName()
+    {
+        return $this->container['postcard_from_name'];
+    }
+
+    /**
+     * Sets postcard_from_name
+     *
+     * @param string $postcard_from_name postcard_from_name
+     *
+     * @return $this
+     */
+    public function setPostcardFromName($postcard_from_name)
+    {
+        $this->container['postcard_from_name'] = $postcard_from_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_from_postal_code
+     *
+     * @return string
+     */
+    public function getPostcardFromPostalCode()
+    {
+        return $this->container['postcard_from_postal_code'];
+    }
+
+    /**
+     * Sets postcard_from_postal_code
+     *
+     * @param string $postcard_from_postal_code postcard_from_postal_code
+     *
+     * @return $this
+     */
+    public function setPostcardFromPostalCode($postcard_from_postal_code)
+    {
+        $this->container['postcard_from_postal_code'] = $postcard_from_postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_from_state
+     *
+     * @return string
+     */
+    public function getPostcardFromState()
+    {
+        return $this->container['postcard_from_state'];
+    }
+
+    /**
+     * Sets postcard_from_state
+     *
+     * @param string $postcard_from_state postcard_from_state
+     *
+     * @return $this
+     */
+    public function setPostcardFromState($postcard_from_state)
+    {
+        $this->container['postcard_from_state'] = $postcard_from_state;
 
         return $this;
     }

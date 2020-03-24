@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **add_to_cart_count** | **int** | Total add to cart count for this variation | [optional] 
 **average_duration_seconds** | **int** | Average duration seconds per session for this variation | [optional] 
 **average_objective_per_session** | **float** | Average objective value per session for this variation | [optional] 
+**average_order_value** | **float** | Average order value for this variation | [optional] 
 **bounce_count** | **int** | Total bounce count for this variation | [optional] 
 **conversion_rate** | **float** | Conversion rate for this variation | [optional] 
 **duration_seconds_sum** | **int** | Total number of seconds spent on the site for this variation | [optional] 
