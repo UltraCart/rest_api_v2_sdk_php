@@ -451,6 +451,7 @@ Class | Method | HTTP request | Description
  - [CouponPercentOffSubtotalWithSubtotal](docs/Model/CouponPercentOffSubtotalWithSubtotal.md)
  - [CouponQuery](docs/Model/CouponQuery.md)
  - [CouponResponse](docs/Model/CouponResponse.md)
+ - [CouponRestriction](docs/Model/CouponRestriction.md)
  - [CouponTierAmount](docs/Model/CouponTierAmount.md)
  - [CouponTierItemDiscount](docs/Model/CouponTierItemDiscount.md)
  - [CouponTierPercent](docs/Model/CouponTierPercent.md)

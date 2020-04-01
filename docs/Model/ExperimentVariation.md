@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **revenue** | **float** | Total revenue for this variation | [optional] 
 **session_count** | **int** | Total sessions for this variation | [optional] 
 **traffic_percentage** | **float** | Percentage of the traffic this variation is currently receiving | [optional] 
+**url** | **string** | Url of the variation if this experiment is a url experiment. | [optional] 
 **variation_name** | **string** | Name of the variation | [optional] 
 **variation_number** | **int** | Variation number | [optional] 
 **winner** | **bool** | True if this variation has been declared the winner | [optional] 

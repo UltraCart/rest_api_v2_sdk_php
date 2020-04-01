@@ -1,6 +1,6 @@
 <?php
 /**
- * WebhookEventCategory
+ * CouponRestriction
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * WebhookEventCategory Class Doc Comment
+ * CouponRestriction Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class WebhookEventCategory implements ModelInterface, ArrayAccess
+class CouponRestriction implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WebhookEventCategory';
+    protected static $swaggerModelName = 'CouponRestriction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'any_subscribed' => 'bool',
-        'available_expansions' => 'string[]',
-        'event_category' => 'string',
-        'events' => '\ultracart\v2\models\WebhookEventSubscription[]',
-        'subscribed' => 'bool'
+        'invalid_for_this' => 'bool',
+        'name' => 'string',
+        'valid_for_this' => 'bool',
+        'valid_only_for_this' => 'bool'
     ];
 
     /**
@@ -69,11 +68,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'any_subscribed' => null,
-        'available_expansions' => null,
-        'event_category' => null,
-        'events' => null,
-        'subscribed' => null
+        'invalid_for_this' => null,
+        'name' => null,
+        'valid_for_this' => null,
+        'valid_only_for_this' => null
     ];
 
     /**
@@ -103,11 +101,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'any_subscribed' => 'any_subscribed',
-        'available_expansions' => 'available_expansions',
-        'event_category' => 'event_category',
-        'events' => 'events',
-        'subscribed' => 'subscribed'
+        'invalid_for_this' => 'invalidForThis',
+        'name' => 'name',
+        'valid_for_this' => 'validForThis',
+        'valid_only_for_this' => 'validOnlyForThis'
     ];
 
     /**
@@ -116,11 +113,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'any_subscribed' => 'setAnySubscribed',
-        'available_expansions' => 'setAvailableExpansions',
-        'event_category' => 'setEventCategory',
-        'events' => 'setEvents',
-        'subscribed' => 'setSubscribed'
+        'invalid_for_this' => 'setInvalidForThis',
+        'name' => 'setName',
+        'valid_for_this' => 'setValidForThis',
+        'valid_only_for_this' => 'setValidOnlyForThis'
     ];
 
     /**
@@ -129,11 +125,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'any_subscribed' => 'getAnySubscribed',
-        'available_expansions' => 'getAvailableExpansions',
-        'event_category' => 'getEventCategory',
-        'events' => 'getEvents',
-        'subscribed' => 'getSubscribed'
+        'invalid_for_this' => 'getInvalidForThis',
+        'name' => 'getName',
+        'valid_for_this' => 'getValidForThis',
+        'valid_only_for_this' => 'getValidOnlyForThis'
     ];
 
     /**
@@ -196,11 +191,10 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['any_subscribed'] = isset($data['any_subscribed']) ? $data['any_subscribed'] : null;
-        $this->container['available_expansions'] = isset($data['available_expansions']) ? $data['available_expansions'] : null;
-        $this->container['event_category'] = isset($data['event_category']) ? $data['event_category'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
-        $this->container['subscribed'] = isset($data['subscribed']) ? $data['subscribed'] : null;
+        $this->container['invalid_for_this'] = isset($data['invalid_for_this']) ? $data['invalid_for_this'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['valid_for_this'] = isset($data['valid_for_this']) ? $data['valid_for_this'] : null;
+        $this->container['valid_only_for_this'] = isset($data['valid_only_for_this']) ? $data['valid_only_for_this'] : null;
     }
 
     /**
@@ -229,121 +223,97 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets any_subscribed
+     * Gets invalid_for_this
      *
      * @return bool
      */
-    public function getAnySubscribed()
+    public function getInvalidForThis()
     {
-        return $this->container['any_subscribed'];
+        return $this->container['invalid_for_this'];
     }
 
     /**
-     * Sets any_subscribed
+     * Sets invalid_for_this
      *
-     * @param bool $any_subscribed True if any events are subscribed to.
+     * @param bool $invalid_for_this invalid_for_this
      *
      * @return $this
      */
-    public function setAnySubscribed($any_subscribed)
+    public function setInvalidForThis($invalid_for_this)
     {
-        $this->container['any_subscribed'] = $any_subscribed;
+        $this->container['invalid_for_this'] = $invalid_for_this;
 
         return $this;
     }
 
     /**
-     * Gets available_expansions
-     *
-     * @return string[]
-     */
-    public function getAvailableExpansions()
-    {
-        return $this->container['available_expansions'];
-    }
-
-    /**
-     * Sets available_expansions
-     *
-     * @param string[] $available_expansions Array of available expansion constants
-     *
-     * @return $this
-     */
-    public function setAvailableExpansions($available_expansions)
-    {
-        $this->container['available_expansions'] = $available_expansions;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_category
+     * Gets name
      *
      * @return string
      */
-    public function getEventCategory()
+    public function getName()
     {
-        return $this->container['event_category'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets event_category
+     * Sets name
      *
-     * @param string $event_category Name of the event category
+     * @param string $name name
      *
      * @return $this
      */
-    public function setEventCategory($event_category)
+    public function setName($name)
     {
-        $this->container['event_category'] = $event_category;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets events
-     *
-     * @return \ultracart\v2\models\WebhookEventSubscription[]
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param \ultracart\v2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
-     *
-     * @return $this
-     */
-    public function setEvents($events)
-    {
-        $this->container['events'] = $events;
-
-        return $this;
-    }
-
-    /**
-     * Gets subscribed
+     * Gets valid_for_this
      *
      * @return bool
      */
-    public function getSubscribed()
+    public function getValidForThis()
     {
-        return $this->container['subscribed'];
+        return $this->container['valid_for_this'];
     }
 
     /**
-     * Sets subscribed
+     * Sets valid_for_this
      *
-     * @param bool $subscribed True if all the events within this category are subscribed.  This is a convenience flag to make user interfaces easier.
+     * @param bool $valid_for_this valid_for_this
      *
      * @return $this
      */
-    public function setSubscribed($subscribed)
+    public function setValidForThis($valid_for_this)
     {
-        $this->container['subscribed'] = $subscribed;
+        $this->container['valid_for_this'] = $valid_for_this;
+
+        return $this;
+    }
+
+    /**
+     * Gets valid_only_for_this
+     *
+     * @return bool
+     */
+    public function getValidOnlyForThis()
+    {
+        return $this->container['valid_only_for_this'];
+    }
+
+    /**
+     * Sets valid_only_for_this
+     *
+     * @param bool $valid_only_for_this valid_only_for_this
+     *
+     * @return $this
+     */
+    public function setValidOnlyForThis($valid_only_for_this)
+    {
+        $this->container['valid_only_for_this'] = $valid_only_for_this;
 
         return $this;
     }

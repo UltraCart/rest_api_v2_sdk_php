@@ -85,6 +85,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_with_items_purchase' => '\ultracart\v2\models\CouponFreeShippingWithItemsPurchase',
         'free_shipping_with_subtotal' => '\ultracart\v2\models\CouponFreeShippingWithSubtotal',
         'merchant_code' => 'string',
+        'merchant_notes' => 'string',
         'multiple_amounts_off_items' => '\ultracart\v2\models\CouponMultipleAmountsOffItems',
         'no_discount' => '\ultracart\v2\models\CouponNoDiscount',
         'percent_off_item_with_items_quantity_purchase' => '\ultracart\v2\models\CouponPercentOffItemWithItemsQuantityPurchase',
@@ -99,6 +100,9 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_subtotal_with_items_purchase' => '\ultracart\v2\models\CouponPercentOffSubtotalWithItemsPurchase',
         'percent_off_subtotal_with_subtotal' => '\ultracart\v2\models\CouponPercentOffSubtotalWithSubtotal',
         'quickbooks_code' => 'string',
+        'restrict_by_postal_codes' => 'string[]',
+        'restrict_by_screen_branding_theme_codes' => '\ultracart\v2\models\CouponRestriction[]',
+        'restrict_by_storefronts' => '\ultracart\v2\models\CouponRestriction[]',
         'start_dts' => 'string',
         'tiered_amount_off_item' => '\ultracart\v2\models\CouponTieredAmountOffItem',
         'tiered_amount_off_subtotal' => '\ultracart\v2\models\CouponTieredAmountOffSubtotal',
@@ -143,6 +147,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_with_items_purchase' => null,
         'free_shipping_with_subtotal' => null,
         'merchant_code' => null,
+        'merchant_notes' => null,
         'multiple_amounts_off_items' => null,
         'no_discount' => null,
         'percent_off_item_with_items_quantity_purchase' => null,
@@ -157,6 +162,9 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_subtotal_with_items_purchase' => null,
         'percent_off_subtotal_with_subtotal' => null,
         'quickbooks_code' => null,
+        'restrict_by_postal_codes' => null,
+        'restrict_by_screen_branding_theme_codes' => null,
+        'restrict_by_storefronts' => null,
         'start_dts' => 'dateTime',
         'tiered_amount_off_item' => null,
         'tiered_amount_off_subtotal' => null,
@@ -204,7 +212,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_with_block_purchase' => 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase' => 'amount_off_subtotal_with_items_purchase',
         'automatically_apply_coupon_codes' => 'automatically_apply_coupon_codes',
-        'calculated_description' => 'calculated_)description',
+        'calculated_description' => 'calculated_description',
         'can_be_used_with_other_coupons' => 'can_be_used_with_other_coupons',
         'coupon_oid' => 'coupon_oid',
         'coupon_type' => 'coupon_type',
@@ -222,6 +230,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_with_items_purchase' => 'free_shipping_with_items_purchase',
         'free_shipping_with_subtotal' => 'free_shipping_with_subtotal',
         'merchant_code' => 'merchant_code',
+        'merchant_notes' => 'merchant_notes',
         'multiple_amounts_off_items' => 'multiple_amounts_off_items',
         'no_discount' => 'no_discount',
         'percent_off_item_with_items_quantity_purchase' => 'percent_off_item_with_items_quantity_purchase',
@@ -233,9 +242,12 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_subtotal' => 'percent_off_subtotal',
         'percent_off_subtotal_and_free_shipping' => 'percent_off_subtotal_and_free_shipping',
         'percent_off_subtotal_limit' => 'percent_off_subtotal_limit',
-        'percent_off_subtotal_with_items_purchase' => 'percent_off_subtotal_with_items purchase',
+        'percent_off_subtotal_with_items_purchase' => 'percent_off_subtotal_with_items_purchase',
         'percent_off_subtotal_with_subtotal' => 'percent_off_subtotal_with_subtotal',
         'quickbooks_code' => 'quickbooks_code',
+        'restrict_by_postal_codes' => 'restrict_by_postal_codes',
+        'restrict_by_screen_branding_theme_codes' => 'restrict_by_screen_branding_theme_codes',
+        'restrict_by_storefronts' => 'restrict_by_storefronts',
         'start_dts' => 'start_dts',
         'tiered_amount_off_item' => 'tiered_amount_off_item',
         'tiered_amount_off_subtotal' => 'tiered_amount_off_subtotal',
@@ -280,6 +292,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_with_items_purchase' => 'setFreeShippingWithItemsPurchase',
         'free_shipping_with_subtotal' => 'setFreeShippingWithSubtotal',
         'merchant_code' => 'setMerchantCode',
+        'merchant_notes' => 'setMerchantNotes',
         'multiple_amounts_off_items' => 'setMultipleAmountsOffItems',
         'no_discount' => 'setNoDiscount',
         'percent_off_item_with_items_quantity_purchase' => 'setPercentOffItemWithItemsQuantityPurchase',
@@ -294,6 +307,9 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_subtotal_with_items_purchase' => 'setPercentOffSubtotalWithItemsPurchase',
         'percent_off_subtotal_with_subtotal' => 'setPercentOffSubtotalWithSubtotal',
         'quickbooks_code' => 'setQuickbooksCode',
+        'restrict_by_postal_codes' => 'setRestrictByPostalCodes',
+        'restrict_by_screen_branding_theme_codes' => 'setRestrictByScreenBrandingThemeCodes',
+        'restrict_by_storefronts' => 'setRestrictByStorefronts',
         'start_dts' => 'setStartDts',
         'tiered_amount_off_item' => 'setTieredAmountOffItem',
         'tiered_amount_off_subtotal' => 'setTieredAmountOffSubtotal',
@@ -338,6 +354,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_with_items_purchase' => 'getFreeShippingWithItemsPurchase',
         'free_shipping_with_subtotal' => 'getFreeShippingWithSubtotal',
         'merchant_code' => 'getMerchantCode',
+        'merchant_notes' => 'getMerchantNotes',
         'multiple_amounts_off_items' => 'getMultipleAmountsOffItems',
         'no_discount' => 'getNoDiscount',
         'percent_off_item_with_items_quantity_purchase' => 'getPercentOffItemWithItemsQuantityPurchase',
@@ -352,6 +369,9 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_subtotal_with_items_purchase' => 'getPercentOffSubtotalWithItemsPurchase',
         'percent_off_subtotal_with_subtotal' => 'getPercentOffSubtotalWithSubtotal',
         'quickbooks_code' => 'getQuickbooksCode',
+        'restrict_by_postal_codes' => 'getRestrictByPostalCodes',
+        'restrict_by_screen_branding_theme_codes' => 'getRestrictByScreenBrandingThemeCodes',
+        'restrict_by_storefronts' => 'getRestrictByStorefronts',
         'start_dts' => 'getStartDts',
         'tiered_amount_off_item' => 'getTieredAmountOffItem',
         'tiered_amount_off_subtotal' => 'getTieredAmountOffSubtotal',
@@ -450,6 +470,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['free_shipping_with_items_purchase'] = isset($data['free_shipping_with_items_purchase']) ? $data['free_shipping_with_items_purchase'] : null;
         $this->container['free_shipping_with_subtotal'] = isset($data['free_shipping_with_subtotal']) ? $data['free_shipping_with_subtotal'] : null;
         $this->container['merchant_code'] = isset($data['merchant_code']) ? $data['merchant_code'] : null;
+        $this->container['merchant_notes'] = isset($data['merchant_notes']) ? $data['merchant_notes'] : null;
         $this->container['multiple_amounts_off_items'] = isset($data['multiple_amounts_off_items']) ? $data['multiple_amounts_off_items'] : null;
         $this->container['no_discount'] = isset($data['no_discount']) ? $data['no_discount'] : null;
         $this->container['percent_off_item_with_items_quantity_purchase'] = isset($data['percent_off_item_with_items_quantity_purchase']) ? $data['percent_off_item_with_items_quantity_purchase'] : null;
@@ -464,6 +485,9 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['percent_off_subtotal_with_items_purchase'] = isset($data['percent_off_subtotal_with_items_purchase']) ? $data['percent_off_subtotal_with_items_purchase'] : null;
         $this->container['percent_off_subtotal_with_subtotal'] = isset($data['percent_off_subtotal_with_subtotal']) ? $data['percent_off_subtotal_with_subtotal'] : null;
         $this->container['quickbooks_code'] = isset($data['quickbooks_code']) ? $data['quickbooks_code'] : null;
+        $this->container['restrict_by_postal_codes'] = isset($data['restrict_by_postal_codes']) ? $data['restrict_by_postal_codes'] : null;
+        $this->container['restrict_by_screen_branding_theme_codes'] = isset($data['restrict_by_screen_branding_theme_codes']) ? $data['restrict_by_screen_branding_theme_codes'] : null;
+        $this->container['restrict_by_storefronts'] = isset($data['restrict_by_storefronts']) ? $data['restrict_by_storefronts'] : null;
         $this->container['start_dts'] = isset($data['start_dts']) ? $data['start_dts'] : null;
         $this->container['tiered_amount_off_item'] = isset($data['tiered_amount_off_item']) ? $data['tiered_amount_off_item'] : null;
         $this->container['tiered_amount_off_subtotal'] = isset($data['tiered_amount_off_subtotal']) ? $data['tiered_amount_off_subtotal'] : null;
@@ -494,6 +518,10 @@ class Coupon implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'merchant_code', the character length must be smaller than or equal to 20.";
         }
 
+        if (!is_null($this->container['merchant_notes']) && (mb_strlen($this->container['merchant_notes']) > 250)) {
+            $invalidProperties[] = "invalid value for 'merchant_notes', the character length must be smaller than or equal to 250.";
+        }
+
         if (!is_null($this->container['quickbooks_code']) && (mb_strlen($this->container['quickbooks_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'quickbooks_code', the character length must be smaller than or equal to 20.";
         }
@@ -521,6 +549,9 @@ class Coupon implements ModelInterface, ArrayAccess
             return false;
         }
         if (mb_strlen($this->container['merchant_code']) > 20) {
+            return false;
+        }
+        if (mb_strlen($this->container['merchant_notes']) > 250) {
             return false;
         }
         if (mb_strlen($this->container['quickbooks_code']) > 20) {
@@ -1242,6 +1273,34 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets merchant_notes
+     *
+     * @return string
+     */
+    public function getMerchantNotes()
+    {
+        return $this->container['merchant_notes'];
+    }
+
+    /**
+     * Sets merchant_notes
+     *
+     * @param string $merchant_notes Internal notes about this coupon.  These are not visible to customer.
+     *
+     * @return $this
+     */
+    public function setMerchantNotes($merchant_notes)
+    {
+        if (!is_null($merchant_notes) && (mb_strlen($merchant_notes) > 250)) {
+            throw new \InvalidArgumentException('invalid length for $merchant_notes when calling Coupon., must be smaller than or equal to 250.');
+        }
+
+        $this->container['merchant_notes'] = $merchant_notes;
+
+        return $this;
+    }
+
+    /**
      * Gets multiple_amounts_off_items
      *
      * @return \ultracart\v2\models\CouponMultipleAmountsOffItems
@@ -1577,6 +1636,78 @@ class Coupon implements ModelInterface, ArrayAccess
         }
 
         $this->container['quickbooks_code'] = $quickbooks_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets restrict_by_postal_codes
+     *
+     * @return string[]
+     */
+    public function getRestrictByPostalCodes()
+    {
+        return $this->container['restrict_by_postal_codes'];
+    }
+
+    /**
+     * Sets restrict_by_postal_codes
+     *
+     * @param string[] $restrict_by_postal_codes Optional list of postal codes which restrict a coupon to within these postal codes.
+     *
+     * @return $this
+     */
+    public function setRestrictByPostalCodes($restrict_by_postal_codes)
+    {
+        $this->container['restrict_by_postal_codes'] = $restrict_by_postal_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets restrict_by_screen_branding_theme_codes
+     *
+     * @return \ultracart\v2\models\CouponRestriction[]
+     */
+    public function getRestrictByScreenBrandingThemeCodes()
+    {
+        return $this->container['restrict_by_screen_branding_theme_codes'];
+    }
+
+    /**
+     * Sets restrict_by_screen_branding_theme_codes
+     *
+     * @param \ultracart\v2\models\CouponRestriction[] $restrict_by_screen_branding_theme_codes Optional list of legacy screen branding theme codes to limit coupon use to only those themes.
+     *
+     * @return $this
+     */
+    public function setRestrictByScreenBrandingThemeCodes($restrict_by_screen_branding_theme_codes)
+    {
+        $this->container['restrict_by_screen_branding_theme_codes'] = $restrict_by_screen_branding_theme_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets restrict_by_storefronts
+     *
+     * @return \ultracart\v2\models\CouponRestriction[]
+     */
+    public function getRestrictByStorefronts()
+    {
+        return $this->container['restrict_by_storefronts'];
+    }
+
+    /**
+     * Sets restrict_by_storefronts
+     *
+     * @param \ultracart\v2\models\CouponRestriction[] $restrict_by_storefronts Optional list of storefronts to limit coupon use to only those storefronts.
+     *
+     * @return $this
+     */
+    public function setRestrictByStorefronts($restrict_by_storefronts)
+    {
+        $this->container['restrict_by_storefronts'] = $restrict_by_storefronts;
 
         return $this;
     }

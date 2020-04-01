@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **stat_type** | **string** | Campaign, Flow or None (for anything else) | [optional] 
 **status** | **string** | Status of campaign or flow | [optional] 
 **status_dts** | **string** | Status dts of campaign or flow | [optional] 
+**steps** | [**\ultracart\v2\models\EmailStat[]**](EmailStat.md) |  | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 **unsubscribe_count** | **int** | Count of emails classified as unsubscribe | [optional] 
 **unsubscribe_count_formatted** | **string** | Count of emails classified as unsubscribe, formatted | [optional] 

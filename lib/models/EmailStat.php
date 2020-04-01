@@ -85,6 +85,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'stat_type' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
+        'steps' => '\ultracart\v2\models\EmailStat[]',
         'storefront_oid' => 'int',
         'unsubscribe_count' => 'int',
         'unsubscribe_count_formatted' => 'string',
@@ -128,6 +129,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'stat_type' => null,
         'status' => null,
         'status_dts' => null,
+        'steps' => null,
         'storefront_oid' => 'int32',
         'unsubscribe_count' => 'int32',
         'unsubscribe_count_formatted' => null,
@@ -192,6 +194,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'stat_type' => 'stat_type',
         'status' => 'status',
         'status_dts' => 'status_dts',
+        'steps' => 'steps',
         'storefront_oid' => 'storefront_oid',
         'unsubscribe_count' => 'unsubscribe_count',
         'unsubscribe_count_formatted' => 'unsubscribe_count_formatted',
@@ -235,6 +238,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'stat_type' => 'setStatType',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
+        'steps' => 'setSteps',
         'storefront_oid' => 'setStorefrontOid',
         'unsubscribe_count' => 'setUnsubscribeCount',
         'unsubscribe_count_formatted' => 'setUnsubscribeCountFormatted',
@@ -278,6 +282,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'stat_type' => 'getStatType',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
+        'steps' => 'getSteps',
         'storefront_oid' => 'getStorefrontOid',
         'unsubscribe_count' => 'getUnsubscribeCount',
         'unsubscribe_count_formatted' => 'getUnsubscribeCountFormatted',
@@ -375,6 +380,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         $this->container['stat_type'] = isset($data['stat_type']) ? $data['stat_type'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
+        $this->container['steps'] = isset($data['steps']) ? $data['steps'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
         $this->container['unsubscribe_count'] = isset($data['unsubscribe_count']) ? $data['unsubscribe_count'] : null;
         $this->container['unsubscribe_count_formatted'] = isset($data['unsubscribe_count_formatted']) ? $data['unsubscribe_count_formatted'] : null;
@@ -1100,6 +1106,30 @@ class EmailStat implements ModelInterface, ArrayAccess
     public function setStatusDts($status_dts)
     {
         $this->container['status_dts'] = $status_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets steps
+     *
+     * @return \ultracart\v2\models\EmailStat[]
+     */
+    public function getSteps()
+    {
+        return $this->container['steps'];
+    }
+
+    /**
+     * Sets steps
+     *
+     * @param \ultracart\v2\models\EmailStat[] $steps steps
+     *
+     * @return $this
+     */
+    public function setSteps($steps)
+    {
+        $this->container['steps'] = $steps;
 
         return $this;
     }

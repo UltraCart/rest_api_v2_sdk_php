@@ -70,6 +70,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'revenue' => 'float',
         'session_count' => 'int',
         'traffic_percentage' => 'float',
+        'url' => 'string',
         'variation_name' => 'string',
         'variation_number' => 'int',
         'winner' => 'bool'
@@ -95,6 +96,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'revenue' => null,
         'session_count' => 'int32',
         'traffic_percentage' => null,
+        'url' => null,
         'variation_name' => null,
         'variation_number' => 'int32',
         'winner' => null
@@ -141,6 +143,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'revenue' => 'revenue',
         'session_count' => 'session_count',
         'traffic_percentage' => 'traffic_percentage',
+        'url' => 'url',
         'variation_name' => 'variation_name',
         'variation_number' => 'variation_number',
         'winner' => 'winner'
@@ -166,6 +169,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'revenue' => 'setRevenue',
         'session_count' => 'setSessionCount',
         'traffic_percentage' => 'setTrafficPercentage',
+        'url' => 'setUrl',
         'variation_name' => 'setVariationName',
         'variation_number' => 'setVariationNumber',
         'winner' => 'setWinner'
@@ -191,6 +195,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'revenue' => 'getRevenue',
         'session_count' => 'getSessionCount',
         'traffic_percentage' => 'getTrafficPercentage',
+        'url' => 'getUrl',
         'variation_name' => 'getVariationName',
         'variation_number' => 'getVariationNumber',
         'winner' => 'getWinner'
@@ -270,6 +275,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
         $this->container['session_count'] = isset($data['session_count']) ? $data['session_count'] : null;
         $this->container['traffic_percentage'] = isset($data['traffic_percentage']) ? $data['traffic_percentage'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['variation_name'] = isset($data['variation_name']) ? $data['variation_name'] : null;
         $this->container['variation_number'] = isset($data['variation_number']) ? $data['variation_number'] : null;
         $this->container['winner'] = isset($data['winner']) ? $data['winner'] : null;
@@ -632,6 +638,30 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     public function setTrafficPercentage($traffic_percentage)
     {
         $this->container['traffic_percentage'] = $traffic_percentage;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url Url of the variation if this experiment is a url experiment.
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

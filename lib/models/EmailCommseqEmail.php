@@ -59,12 +59,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'deleted' => 'bool',
         'edited_by_user' => 'string',
         'email_communication_sequence_email_uuid' => 'string',
+        'email_communication_sequence_uuid' => 'string',
         'email_container_cjson' => 'string',
         'email_container_cjson_last_modified_dts' => 'string',
         'email_template_vm_path' => 'string',
         'filter_profile_equation_json' => 'string',
         'individually_render' => 'bool',
         'merchant_id' => 'string',
+        'pending_review' => 'bool',
         'preview_text' => 'string',
         'smart_sending' => 'bool',
         'storefront_oid' => 'int',
@@ -82,12 +84,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'deleted' => null,
         'edited_by_user' => null,
         'email_communication_sequence_email_uuid' => null,
+        'email_communication_sequence_uuid' => null,
         'email_container_cjson' => null,
         'email_container_cjson_last_modified_dts' => 'dateTime',
         'email_template_vm_path' => null,
         'filter_profile_equation_json' => null,
         'individually_render' => null,
         'merchant_id' => null,
+        'pending_review' => null,
         'preview_text' => null,
         'smart_sending' => null,
         'storefront_oid' => 'int32',
@@ -126,12 +130,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'deleted' => 'deleted',
         'edited_by_user' => 'edited_by_user',
         'email_communication_sequence_email_uuid' => 'email_communication_sequence_email_uuid',
+        'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
         'email_container_cjson' => 'email_container_cjson',
         'email_container_cjson_last_modified_dts' => 'email_container_cjson_last_modified_dts',
         'email_template_vm_path' => 'email_template_vm_path',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'individually_render' => 'individually_render',
         'merchant_id' => 'merchant_id',
+        'pending_review' => 'pending_review',
         'preview_text' => 'preview_text',
         'smart_sending' => 'smart_sending',
         'storefront_oid' => 'storefront_oid',
@@ -149,12 +155,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'deleted' => 'setDeleted',
         'edited_by_user' => 'setEditedByUser',
         'email_communication_sequence_email_uuid' => 'setEmailCommunicationSequenceEmailUuid',
+        'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
         'email_container_cjson' => 'setEmailContainerCjson',
         'email_container_cjson_last_modified_dts' => 'setEmailContainerCjsonLastModifiedDts',
         'email_template_vm_path' => 'setEmailTemplateVmPath',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'individually_render' => 'setIndividuallyRender',
         'merchant_id' => 'setMerchantId',
+        'pending_review' => 'setPendingReview',
         'preview_text' => 'setPreviewText',
         'smart_sending' => 'setSmartSending',
         'storefront_oid' => 'setStorefrontOid',
@@ -172,12 +180,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'deleted' => 'getDeleted',
         'edited_by_user' => 'getEditedByUser',
         'email_communication_sequence_email_uuid' => 'getEmailCommunicationSequenceEmailUuid',
+        'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
         'email_container_cjson' => 'getEmailContainerCjson',
         'email_container_cjson_last_modified_dts' => 'getEmailContainerCjsonLastModifiedDts',
         'email_template_vm_path' => 'getEmailTemplateVmPath',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'individually_render' => 'getIndividuallyRender',
         'merchant_id' => 'getMerchantId',
+        'pending_review' => 'getPendingReview',
         'preview_text' => 'getPreviewText',
         'smart_sending' => 'getSmartSending',
         'storefront_oid' => 'getStorefrontOid',
@@ -249,12 +259,14 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['edited_by_user'] = isset($data['edited_by_user']) ? $data['edited_by_user'] : null;
         $this->container['email_communication_sequence_email_uuid'] = isset($data['email_communication_sequence_email_uuid']) ? $data['email_communication_sequence_email_uuid'] : null;
+        $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
         $this->container['email_container_cjson'] = isset($data['email_container_cjson']) ? $data['email_container_cjson'] : null;
         $this->container['email_container_cjson_last_modified_dts'] = isset($data['email_container_cjson_last_modified_dts']) ? $data['email_container_cjson_last_modified_dts'] : null;
         $this->container['email_template_vm_path'] = isset($data['email_template_vm_path']) ? $data['email_template_vm_path'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['individually_render'] = isset($data['individually_render']) ? $data['individually_render'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['pending_review'] = isset($data['pending_review']) ? $data['pending_review'] : null;
         $this->container['preview_text'] = isset($data['preview_text']) ? $data['preview_text'] : null;
         $this->container['smart_sending'] = isset($data['smart_sending']) ? $data['smart_sending'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
@@ -356,6 +368,30 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
     public function setEmailCommunicationSequenceEmailUuid($email_communication_sequence_email_uuid)
     {
         $this->container['email_communication_sequence_email_uuid'] = $email_communication_sequence_email_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_communication_sequence_uuid
+     *
+     * @return string
+     */
+    public function getEmailCommunicationSequenceUuid()
+    {
+        return $this->container['email_communication_sequence_uuid'];
+    }
+
+    /**
+     * Sets email_communication_sequence_uuid
+     *
+     * @param string $email_communication_sequence_uuid Email commseq UUID
+     *
+     * @return $this
+     */
+    public function setEmailCommunicationSequenceUuid($email_communication_sequence_uuid)
+    {
+        $this->container['email_communication_sequence_uuid'] = $email_communication_sequence_uuid;
 
         return $this;
     }
@@ -500,6 +536,30 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pending_review
+     *
+     * @return bool
+     */
+    public function getPendingReview()
+    {
+        return $this->container['pending_review'];
+    }
+
+    /**
+     * Sets pending_review
+     *
+     * @param bool $pending_review True if the content of this email is pending review by UltraCart
+     *
+     * @return $this
+     */
+    public function setPendingReview($pending_review)
+    {
+        $this->container['pending_review'] = $pending_review;
 
         return $this;
     }

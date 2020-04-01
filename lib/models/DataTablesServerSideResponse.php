@@ -56,6 +56,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'data' => '\ultracart\v2\models\Customer[]',
         'draw' => 'int',
         'records_filtered' => 'int',
         'records_total' => 'int'
@@ -67,6 +68,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'data' => null,
         'draw' => 'int32',
         'records_filtered' => 'int32',
         'records_total' => 'int32'
@@ -99,6 +101,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'data' => 'data',
         'draw' => 'draw',
         'records_filtered' => 'recordsFiltered',
         'records_total' => 'recordsTotal'
@@ -110,6 +113,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'data' => 'setData',
         'draw' => 'setDraw',
         'records_filtered' => 'setRecordsFiltered',
         'records_total' => 'setRecordsTotal'
@@ -121,6 +125,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'data' => 'getData',
         'draw' => 'getDraw',
         'records_filtered' => 'getRecordsFiltered',
         'records_total' => 'getRecordsTotal'
@@ -186,6 +191,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['draw'] = isset($data['draw']) ? $data['draw'] : null;
         $this->container['records_filtered'] = isset($data['records_filtered']) ? $data['records_filtered'] : null;
         $this->container['records_total'] = isset($data['records_total']) ? $data['records_total'] : null;
@@ -215,6 +221,30 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets data
+     *
+     * @return \ultracart\v2\models\Customer[]
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \ultracart\v2\models\Customer[] $data data
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
 
     /**
      * Gets draw
