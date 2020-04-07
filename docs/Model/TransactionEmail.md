@@ -4,6 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **content** | **string** | Actual template contents | [optional] 
+**esp_domain_uuid** | **string** | The uuid of the sending domain | [optional] 
+**esp_friendly_name** | **string** | Friendly from that will appear in customer email clients. | [optional] 
+**esp_user** | **string** | The username of the sending email.  This is not the full email.  Only the username which is everything before the @ sign. | [optional] 
 **file_exists** | **bool** | An internal identifier used to aid in retrieving templates from the filesystem. | [optional] 
 **file_name** | **string** | File name | [optional] 
 **group** | **string** | Group | [optional] 

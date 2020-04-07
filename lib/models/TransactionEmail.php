@@ -57,6 +57,9 @@ class TransactionEmail implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'content' => 'string',
+        'esp_domain_uuid' => 'string',
+        'esp_friendly_name' => 'string',
+        'esp_user' => 'string',
         'file_exists' => 'bool',
         'file_name' => 'string',
         'group' => 'string',
@@ -80,6 +83,9 @@ class TransactionEmail implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'content' => null,
+        'esp_domain_uuid' => null,
+        'esp_friendly_name' => null,
+        'esp_user' => null,
         'file_exists' => null,
         'file_name' => null,
         'group' => null,
@@ -124,6 +130,9 @@ class TransactionEmail implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'content' => 'content',
+        'esp_domain_uuid' => 'esp_domain_uuid',
+        'esp_friendly_name' => 'esp_friendly_name',
+        'esp_user' => 'esp_user',
         'file_exists' => 'file_exists',
         'file_name' => 'file_name',
         'group' => 'group',
@@ -147,6 +156,9 @@ class TransactionEmail implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'content' => 'setContent',
+        'esp_domain_uuid' => 'setEspDomainUuid',
+        'esp_friendly_name' => 'setEspFriendlyName',
+        'esp_user' => 'setEspUser',
         'file_exists' => 'setFileExists',
         'file_name' => 'setFileName',
         'group' => 'setGroup',
@@ -170,6 +182,9 @@ class TransactionEmail implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'content' => 'getContent',
+        'esp_domain_uuid' => 'getEspDomainUuid',
+        'esp_friendly_name' => 'getEspFriendlyName',
+        'esp_user' => 'getEspUser',
         'file_exists' => 'getFileExists',
         'file_name' => 'getFileName',
         'group' => 'getGroup',
@@ -247,6 +262,9 @@ class TransactionEmail implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
+        $this->container['esp_friendly_name'] = isset($data['esp_friendly_name']) ? $data['esp_friendly_name'] : null;
+        $this->container['esp_user'] = isset($data['esp_user']) ? $data['esp_user'] : null;
         $this->container['file_exists'] = isset($data['file_exists']) ? $data['file_exists'] : null;
         $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
         $this->container['group'] = isset($data['group']) ? $data['group'] : null;
@@ -308,6 +326,78 @@ class TransactionEmail implements ModelInterface, ArrayAccess
     public function setContent($content)
     {
         $this->container['content'] = $content;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_domain_uuid
+     *
+     * @return string
+     */
+    public function getEspDomainUuid()
+    {
+        return $this->container['esp_domain_uuid'];
+    }
+
+    /**
+     * Sets esp_domain_uuid
+     *
+     * @param string $esp_domain_uuid The uuid of the sending domain
+     *
+     * @return $this
+     */
+    public function setEspDomainUuid($esp_domain_uuid)
+    {
+        $this->container['esp_domain_uuid'] = $esp_domain_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_friendly_name
+     *
+     * @return string
+     */
+    public function getEspFriendlyName()
+    {
+        return $this->container['esp_friendly_name'];
+    }
+
+    /**
+     * Sets esp_friendly_name
+     *
+     * @param string $esp_friendly_name Friendly from that will appear in customer email clients.
+     *
+     * @return $this
+     */
+    public function setEspFriendlyName($esp_friendly_name)
+    {
+        $this->container['esp_friendly_name'] = $esp_friendly_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_user
+     *
+     * @return string
+     */
+    public function getEspUser()
+    {
+        return $this->container['esp_user'];
+    }
+
+    /**
+     * Sets esp_user
+     *
+     * @param string $esp_user The username of the sending email.  This is not the full email.  Only the username which is everything before the @ sign.
+     *
+     * @return $this
+     */
+    public function setEspUser($esp_user)
+    {
+        $this->container['esp_user'] = $esp_user;
 
         return $this;
     }

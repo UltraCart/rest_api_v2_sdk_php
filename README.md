@@ -10,6 +10,7 @@ For more information, please visit [http://www.ultracart.com](http://www.ultraca
 ## Requirements
 
 PHP 5.5 and later
+PHP Multibyte String (mbstring) See https://www.php.net/manual/en/book.mbstring.php
 
 ## Installation & Usage
 ### Composer
@@ -21,11 +22,12 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/UltraCart/rest_api_v2_sdk_php.git"
+      "url": "https://github.com/ultracart/rest_api_v2_sdk_php.git"
     }
   ],
   "require": {
-    "UltraCart/rest_api_v2_sdk_php": "*@dev"
+    "ultracart/rest_api_v2_sdk_php": "*@dev",
+    "guzzlehttp/guzzle": "~6.0"
   }
 }
 ```
@@ -54,52 +56,72 @@ composer install
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```php
-<?php /* docs.ultracart.com sample */ ?>
-
-<?php
-// for testing and development only
-set_time_limit(3000);
-ini_set('max_execution_time', 3000);
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-?>
-
-<?php
-// initialization code
-require_once './vendor/autoload.php';
-$simple_key = '4256aaf6dfedfa01582fe9a961ab0100216d737b874a4801582fe9a961ab0100';
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', $simple_key);
-
-$client = new GuzzleHttp\Client(['verify' => true, 'debug' => false]);
-$config = ultracart\v2\Configuration::getDefaultConfiguration();
-$headerSelector = new \ultracart\v2\HeaderSelector(/* leave null for version tied to this sdk version */);
-
-$auto_order_api = new ultracart\v2\Api\AutoorderApi($client, $config, $headerSelector);
-?>
-
-<html>
-<body>
 <?php
 
+// This example downloads all completed records.  To run, you need to set up an API key and replace the dummy key below.
+// Please see this article for instructions on setting up a Simple API key.
+// https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Configure API key authorization: ultraCartSimpleApiKey
+// They key below is a development key so 1) not worried you're seeing it and 2) it won't work for you.
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', '0a4842d0f198c801706475cf15380100b575d4eb25ddeb01706475cf15380100');
+
+// Disable SSL verification if we're having issues with this PHP install not having the proper CA installed.
+//  Fix your CA for a production environment!
+// Set debug to true if you need more information on request/response
+$client = new GuzzleHttp\Client(['verify' => false, 'debug' => false]);
+
+$api_instance = new ultracart\v2\api\OrderApi(
+    $client,
+    ultracart\v2\Configuration::getDefaultConfiguration(),
+    new ultracart\v2\HeaderSelector("2017-03-01")
+);
+
+// The UltraCart objects are large.  Very large.  So we have encapsulated the fields in sub objects allowing you to
+// only request the sub objects you need.  This is done via the expansion object.   The API docs on the main web site
+// have more details about expansions:  https://www.ultracart.com/api/#expansion.html
+$_expand = "affiliate,affiliate.ledger,auto_order,billing,buysafe,channel_partner,checkout,coupon,customer_profile,digital_order,edi,fraud_score,gift,gift_certificate,internal,item,linked_shipment,marketing,payment,payment.transaction,quote,salesforce,shipping,summary,taxes"; // string | The object expansion to perform on the result.
+
+// this is a detailed example that includes chunking to illustrate how to fetch large record sets from UltraCart.
+$_limit = 100;
+$counter = 1;
+$order_query = new \ultracart\v2\models\OrderQuery();
+// we are essentially setting the dates to 'forever' to get all records.
+$order_query->setPaymentDateBegin("2010-01-01T00:00:00.0000000-05:00");
+$order_query->setPaymentDateEnd("2021-01-01T00:00:00.0000000-05:00");
+// there are multiple stages for order flow.  when doing analysis, you almost always want *only* completed orders.
+$order_query->setCurrentStage(\ultracart\v2\models\OrderQuery::CURRENT_STAGE_COMPLETED_ORDER);
+
+$order_response = null;
+
+echo "<html><body><pre>";
 try {
-    $auto_order_oid = 2078718;  // this is found either by looping through auto orders, or from the back end.
-    $auto_order_response = $auto_order_api->getAutoOrder($auto_order_oid, "items");
-    $auto_order = $auto_order_response->getAutoOrder();
-    $auto_order->getItems()[0]->setArbitraryQuantity(4);
-    $auto_order_response = $auto_order_api->updateAutoOrder($auto_order, $auto_order_oid);
+    do {
+        if ($order_response == null) {
+            $order_response = $api_instance->getOrdersByQuery($order_query, $_limit, 0, null, $_expand);
+        } else {
+            $order_response = $api_instance->getOrdersByQuery($order_query, $_limit, $order_response->getMetadata()->getResultSet()->getNextOffset(), null, $_expand);
+        }
 
-} catch (\ultracart\v2\ApiException $e) {
-    error_log($e->getResponseBody());
+        echo "order_response.Orders.length: " . sizeof($order_response->getOrders()) . "\n";
+        // print out a line for each order *item*
+        // notice, email is within the billing child object.
+        foreach ($order_response->getOrders() as $order) {
+            $order_id = $order->getOrderId();
+            $email = $order->getBilling()->getEmail(); // notice the email is part of the billing sub object.
+            foreach($order->getItems() as $item){
+                echo $order_id . ',' . $email . ',' . $item->getMerchantItemId() . ',' . $item->getQuantity() . "\n";
+            }
+        }
+    } while ($order_response->getMetadata()->getResultSet()->getMore());
+
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->getOrdersByQuery: ', $e->getMessage(), PHP_EOL;
 }
-
+echo "</pre></body></html>";
 ?>
-<pre>
-<?php echo print_r($auto_order); ?>
-<?php echo print_r($auto_order_response); ?>
-</pre>
-<?php echo 'Finished.'; ?>
-</body>
-</html>
 ```
 
 ## Documentation for API Endpoints
@@ -231,6 +253,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailListCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemaillistcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customers
 *StorefrontApi* | [**getEmailListCustomers**](docs/Api/StorefrontApi.md#getemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
 *StorefrontApi* | [**getEmailLists**](docs/Api/StorefrontApi.md#getemaillists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
+*StorefrontApi* | [**getEmailPerformance**](docs/Api/StorefrontApi.md#getemailperformance) | **GET** /storefront/{storefront_oid}/email/performance | Get email performance
 *StorefrontApi* | [**getEmailPostcard**](docs/Api/StorefrontApi.md#getemailpostcard) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Get email postcard
 *StorefrontApi* | [**getEmailPostcards**](docs/Api/StorefrontApi.md#getemailpostcards) | **GET** /storefront/{storefront_oid}/email/postcards | Get email postcards
 *StorefrontApi* | [**getEmailPostcardsMultiple**](docs/Api/StorefrontApi.md#getemailpostcardsmultiple) | **POST** /storefront/{storefront_oid}/email/postcards/multiple | Get email postcards multiple
@@ -539,6 +562,9 @@ Class | Method | HTTP request | Description
  - [EmailListsResponse](docs/Model/EmailListsResponse.md)
  - [EmailOrder](docs/Model/EmailOrder.md)
  - [EmailOrdersResponse](docs/Model/EmailOrdersResponse.md)
+ - [EmailPerformance](docs/Model/EmailPerformance.md)
+ - [EmailPerformanceDaily](docs/Model/EmailPerformanceDaily.md)
+ - [EmailPerformanceResponse](docs/Model/EmailPerformanceResponse.md)
  - [EmailPostcardStat](docs/Model/EmailPostcardStat.md)
  - [EmailSegment](docs/Model/EmailSegment.md)
  - [EmailSegmentArchiveResponse](docs/Model/EmailSegmentArchiveResponse.md)
