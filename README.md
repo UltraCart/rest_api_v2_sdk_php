@@ -9,8 +9,8 @@ For more information, please visit [http://www.ultracart.com](http://www.ultraca
 
 ## Requirements
 
-PHP 5.5 and later
-PHP Multibyte String (mbstring) See https://www.php.net/manual/en/book.mbstring.php
+- PHP 5.5 and later
+- PHP Multibyte String (mbstring) See https://www.php.net/manual/en/book.mbstring.php
 
 ## Installation & Usage
 ### Composer
