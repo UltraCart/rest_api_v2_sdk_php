@@ -64,6 +64,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'member_count' => 'int',
         'merchant_id' => 'string',
         'name' => 'string',
+        'rank_json' => 'string',
         'rebuild_required' => 'bool',
         'storefront_oid' => 'int'
     ];
@@ -82,6 +83,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'member_count' => 'int32',
         'merchant_id' => null,
         'name' => null,
+        'rank_json' => null,
         'rebuild_required' => null,
         'storefront_oid' => 'int32'
     ];
@@ -121,6 +123,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'member_count' => 'member_count',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
+        'rank_json' => 'rank_json',
         'rebuild_required' => 'rebuild_required',
         'storefront_oid' => 'storefront_oid'
     ];
@@ -139,6 +142,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'member_count' => 'setMemberCount',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
+        'rank_json' => 'setRankJson',
         'rebuild_required' => 'setRebuildRequired',
         'storefront_oid' => 'setStorefrontOid'
     ];
@@ -157,6 +161,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'member_count' => 'getMemberCount',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
+        'rank_json' => 'getRankJson',
         'rebuild_required' => 'getRebuildRequired',
         'storefront_oid' => 'getStorefrontOid'
     ];
@@ -229,6 +234,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         $this->container['member_count'] = isset($data['member_count']) ? $data['member_count'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['rank_json'] = isset($data['rank_json']) ? $data['rank_json'] : null;
         $this->container['rebuild_required'] = isset($data['rebuild_required']) ? $data['rebuild_required'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
     }
@@ -457,6 +463,30 @@ class EmailSegment implements ModelInterface, ArrayAccess
         }
 
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rank_json
+     *
+     * @return string
+     */
+    public function getRankJson()
+    {
+        return $this->container['rank_json'];
+    }
+
+    /**
+     * Sets rank_json
+     *
+     * @param string $rank_json Rank settings json
+     *
+     * @return $this
+     */
+    public function setRankJson($rank_json)
+    {
+        $this->container['rank_json'] = $rank_json;
 
         return $this;
     }

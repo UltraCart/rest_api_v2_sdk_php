@@ -60,6 +60,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'click_count_formatted' => 'string',
         'conversion_count' => 'int',
         'conversion_count_formatted' => 'string',
+        'deleted' => 'bool',
         'delivered_count' => 'int',
         'delivered_count_formatted' => 'string',
         'kickbox_count' => 'int',
@@ -104,6 +105,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'click_count_formatted' => null,
         'conversion_count' => 'int32',
         'conversion_count_formatted' => null,
+        'deleted' => null,
         'delivered_count' => 'int32',
         'delivered_count_formatted' => null,
         'kickbox_count' => 'int32',
@@ -169,6 +171,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'click_count_formatted' => 'click_count_formatted',
         'conversion_count' => 'conversion_count',
         'conversion_count_formatted' => 'conversion_count_formatted',
+        'deleted' => 'deleted',
         'delivered_count' => 'delivered_count',
         'delivered_count_formatted' => 'delivered_count_formatted',
         'kickbox_count' => 'kickbox_count',
@@ -213,6 +216,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'click_count_formatted' => 'setClickCountFormatted',
         'conversion_count' => 'setConversionCount',
         'conversion_count_formatted' => 'setConversionCountFormatted',
+        'deleted' => 'setDeleted',
         'delivered_count' => 'setDeliveredCount',
         'delivered_count_formatted' => 'setDeliveredCountFormatted',
         'kickbox_count' => 'setKickboxCount',
@@ -257,6 +261,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         'click_count_formatted' => 'getClickCountFormatted',
         'conversion_count' => 'getConversionCount',
         'conversion_count_formatted' => 'getConversionCountFormatted',
+        'deleted' => 'getDeleted',
         'delivered_count' => 'getDeliveredCount',
         'delivered_count_formatted' => 'getDeliveredCountFormatted',
         'kickbox_count' => 'getKickboxCount',
@@ -355,6 +360,7 @@ class EmailStat implements ModelInterface, ArrayAccess
         $this->container['click_count_formatted'] = isset($data['click_count_formatted']) ? $data['click_count_formatted'] : null;
         $this->container['conversion_count'] = isset($data['conversion_count']) ? $data['conversion_count'] : null;
         $this->container['conversion_count_formatted'] = isset($data['conversion_count_formatted']) ? $data['conversion_count_formatted'] : null;
+        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['delivered_count'] = isset($data['delivered_count']) ? $data['delivered_count'] : null;
         $this->container['delivered_count_formatted'] = isset($data['delivered_count_formatted']) ? $data['delivered_count_formatted'] : null;
         $this->container['kickbox_count'] = isset($data['kickbox_count']) ? $data['kickbox_count'] : null;
@@ -506,6 +512,30 @@ class EmailStat implements ModelInterface, ArrayAccess
     public function setConversionCountFormatted($conversion_count_formatted)
     {
         $this->container['conversion_count_formatted'] = $conversion_count_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleted
+     *
+     * @return bool
+     */
+    public function getDeleted()
+    {
+        return $this->container['deleted'];
+    }
+
+    /**
+     * Sets deleted
+     *
+     * @param bool $deleted True if campaign/flow has been archived
+     *
+     * @return $this
+     */
+    public function setDeleted($deleted)
+    {
+        $this->container['deleted'] = $deleted;
 
         return $this;
     }

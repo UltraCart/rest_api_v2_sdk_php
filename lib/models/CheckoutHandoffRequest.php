@@ -62,7 +62,8 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
         'operation' => 'string',
         'paypal_maximum_upsell_revenue' => 'float',
         'paypal_return_url' => 'string',
-        'secure_host_name' => 'string'
+        'secure_host_name' => 'string',
+        'ucacid' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
         'operation' => null,
         'paypal_maximum_upsell_revenue' => null,
         'paypal_return_url' => null,
-        'secure_host_name' => null
+        'secure_host_name' => null,
+        'ucacid' => null
     ];
 
     /**
@@ -113,7 +115,8 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
         'operation' => 'operation',
         'paypal_maximum_upsell_revenue' => 'paypal_maximum_upsell_revenue',
         'paypal_return_url' => 'paypal_return_url',
-        'secure_host_name' => 'secure_host_name'
+        'secure_host_name' => 'secure_host_name',
+        'ucacid' => 'ucacid'
     ];
 
     /**
@@ -128,7 +131,8 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
         'operation' => 'setOperation',
         'paypal_maximum_upsell_revenue' => 'setPaypalMaximumUpsellRevenue',
         'paypal_return_url' => 'setPaypalReturnUrl',
-        'secure_host_name' => 'setSecureHostName'
+        'secure_host_name' => 'setSecureHostName',
+        'ucacid' => 'setUcacid'
     ];
 
     /**
@@ -143,7 +147,8 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
         'operation' => 'getOperation',
         'paypal_maximum_upsell_revenue' => 'getPaypalMaximumUpsellRevenue',
         'paypal_return_url' => 'getPaypalReturnUrl',
-        'secure_host_name' => 'getSecureHostName'
+        'secure_host_name' => 'getSecureHostName',
+        'ucacid' => 'getUcacid'
     ];
 
     /**
@@ -234,6 +239,7 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
         $this->container['paypal_maximum_upsell_revenue'] = isset($data['paypal_maximum_upsell_revenue']) ? $data['paypal_maximum_upsell_revenue'] : null;
         $this->container['paypal_return_url'] = isset($data['paypal_return_url']) ? $data['paypal_return_url'] : null;
         $this->container['secure_host_name'] = isset($data['secure_host_name']) ? $data['secure_host_name'] : null;
+        $this->container['ucacid'] = isset($data['ucacid']) ? $data['ucacid'] : null;
     }
 
     /**
@@ -446,6 +452,30 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
     public function setSecureHostName($secure_host_name)
     {
         $this->container['secure_host_name'] = $secure_host_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets ucacid
+     *
+     * @return string
+     */
+    public function getUcacid()
+    {
+        return $this->container['ucacid'];
+    }
+
+    /**
+     * Sets ucacid
+     *
+     * @param string $ucacid The UltraCart Analytics cookie value.  Populate this if you're handing off from a different domain than the checkout.
+     *
+     * @return $this
+     */
+    public function setUcacid($ucacid)
+    {
+        $this->container['ucacid'] = $ucacid;
 
         return $this;
     }

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **esp_commseq_uuid** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
 **order_id** | **string** |  | [optional] 
+**please_review** | **bool** |  | [optional] 
 **send_to_additional_emails** | **string[]** |  | [optional] 
 **send_to_logged_in_user** | **bool** |  | [optional] 
 

@@ -7251,6 +7251,350 @@ class StorefrontApi
     }
 
     /**
+     * Operation getEmailCommseqStepStats
+     *
+     * Get email communication sequence step stats
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_uuid null (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailStepStatResponse
+     */
+    public function getEmailCommseqStepStats($storefront_oid, $commseq_uuid, $stats_request)
+    {
+        list($response) = $this->getEmailCommseqStepStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request);
+        return $response;
+    }
+
+    /**
+     * Operation getEmailCommseqStepStatsWithHttpInfo
+     *
+     * Get email communication sequence step stats
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_uuid null (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailStepStatResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCommseqStepStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
+    {
+        $returnType = '\ultracart\v2\models\EmailStepStatResponse';
+        $request = $this->getEmailCommseqStepStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailStepStatResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEmailCommseqStepStatsAsync
+     *
+     * Get email communication sequence step stats
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_uuid null (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailCommseqStepStatsAsync($storefront_oid, $commseq_uuid, $stats_request)
+    {
+        return $this->getEmailCommseqStepStatsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEmailCommseqStepStatsAsyncWithHttpInfo
+     *
+     * Get email communication sequence step stats
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_uuid null (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailCommseqStepStatsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
+    {
+        $returnType = '\ultracart\v2\models\EmailStepStatResponse';
+        $request = $this->getEmailCommseqStepStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEmailCommseqStepStats'
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_uuid null (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getEmailCommseqStepStatsRequest($storefront_oid, $commseq_uuid, $stats_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getEmailCommseqStepStats'
+            );
+        }
+        // verify the required parameter 'commseq_uuid' is set
+        if ($commseq_uuid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $commseq_uuid when calling getEmailCommseqStepStats'
+            );
+        }
+        // verify the required parameter 'stats_request' is set
+        if ($stats_request === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $stats_request when calling getEmailCommseqStepStats'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($commseq_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commseq_uuid' . '}',
+                ObjectSerializer::toPathValue($commseq_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($stats_request)) {
+            $_tempBody = $stats_request;
+        }
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getEmailCommseqStepWaiting
      *
      * Get email communication sequence customers waiting at each requested step
@@ -18872,6 +19216,331 @@ class StorefrontApi
     }
 
     /**
+     * Operation globalUnsubscribe
+     *
+     * Globally unsubscribe a customer
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailGlobalUnsubscribeResponse
+     */
+    public function globalUnsubscribe($storefront_oid, $unsubscribe)
+    {
+        list($response) = $this->globalUnsubscribeWithHttpInfo($storefront_oid, $unsubscribe);
+        return $response;
+    }
+
+    /**
+     * Operation globalUnsubscribeWithHttpInfo
+     *
+     * Globally unsubscribe a customer
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailGlobalUnsubscribeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function globalUnsubscribeWithHttpInfo($storefront_oid, $unsubscribe)
+    {
+        $returnType = '\ultracart\v2\models\EmailGlobalUnsubscribeResponse';
+        $request = $this->globalUnsubscribeRequest($storefront_oid, $unsubscribe);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailGlobalUnsubscribeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation globalUnsubscribeAsync
+     *
+     * Globally unsubscribe a customer
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function globalUnsubscribeAsync($storefront_oid, $unsubscribe)
+    {
+        return $this->globalUnsubscribeAsyncWithHttpInfo($storefront_oid, $unsubscribe)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation globalUnsubscribeAsyncWithHttpInfo
+     *
+     * Globally unsubscribe a customer
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function globalUnsubscribeAsyncWithHttpInfo($storefront_oid, $unsubscribe)
+    {
+        $returnType = '\ultracart\v2\models\EmailGlobalUnsubscribeResponse';
+        $request = $this->globalUnsubscribeRequest($storefront_oid, $unsubscribe);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'globalUnsubscribe'
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function globalUnsubscribeRequest($storefront_oid, $unsubscribe)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling globalUnsubscribe'
+            );
+        }
+        // verify the required parameter 'unsubscribe' is set
+        if ($unsubscribe === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $unsubscribe when calling globalUnsubscribe'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/globalUnsubscribe';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($unsubscribe)) {
+            $_tempBody = $unsubscribe;
+        }
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation importEmailThirdPartyProviderList
      *
      * Import a third party provider list
@@ -21765,21 +22434,366 @@ class StorefrontApi
     }
 
     /**
+     * Operation review
+     *
+     * Request a review of an email
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_email_uuid null (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailCommseqEmailSendTestResponse
+     */
+    public function review($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
+    {
+        list($response) = $this->reviewWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request);
+        return $response;
+    }
+
+    /**
+     * Operation reviewWithHttpInfo
+     *
+     * Request a review of an email
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_email_uuid null (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function reviewWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
+    {
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
+        $request = $this->reviewRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request);
+
+        try {
+
+            try {
+                $response = $this->client->send($request);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailCommseqEmailSendTestResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation reviewAsync
+     *
+     * Request a review of an email
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_email_uuid null (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reviewAsync($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
+    {
+        return $this->reviewAsyncWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation reviewAsyncWithHttpInfo
+     *
+     * Request a review of an email
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_email_uuid null (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function reviewAsyncWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
+    {
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
+        $request = $this->reviewRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request);
+
+        return $this->client
+            ->sendAsync($request)
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'review'
+     *
+     * @param  string $storefront_oid null (required)
+     * @param  string $commseq_email_uuid null (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function reviewRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling review'
+            );
+        }
+        // verify the required parameter 'commseq_email_uuid' is set
+        if ($commseq_email_uuid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $commseq_email_uuid when calling review'
+            );
+        }
+        // verify the required parameter 'email_commseq_email_review_request' is set
+        if ($email_commseq_email_review_request === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_commseq_email_review_request when calling review'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($commseq_email_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commseq_email_uuid' . '}',
+                ObjectSerializer::toPathValue($commseq_email_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($email_commseq_email_review_request)) {
+            $_tempBody = $email_commseq_email_review_request;
+        }
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation search
      *
      * Searches for all matching values
      *
      * @param  string $category null (optional)
      * @param  string $matches null (optional)
+     * @param  string $storefront_oid null (optional)
      * @param  int $max_hits null (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\LookupResponse
      */
-    public function search($category = null, $matches = null, $max_hits = null)
+    public function search($category = null, $matches = null, $storefront_oid = null, $max_hits = null)
     {
-        list($response) = $this->searchWithHttpInfo($category, $matches, $max_hits);
+        list($response) = $this->searchWithHttpInfo($category, $matches, $storefront_oid, $max_hits);
         return $response;
     }
 
@@ -21790,16 +22804,17 @@ class StorefrontApi
      *
      * @param  string $category null (optional)
      * @param  string $matches null (optional)
+     * @param  string $storefront_oid null (optional)
      * @param  int $max_hits null (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\LookupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchWithHttpInfo($category = null, $matches = null, $max_hits = null)
+    public function searchWithHttpInfo($category = null, $matches = null, $storefront_oid = null, $max_hits = null)
     {
         $returnType = '\ultracart\v2\models\LookupResponse';
-        $request = $this->searchRequest($category, $matches, $max_hits);
+        $request = $this->searchRequest($category, $matches, $storefront_oid, $max_hits);
 
         try {
 
@@ -21906,14 +22921,15 @@ class StorefrontApi
      *
      * @param  string $category null (optional)
      * @param  string $matches null (optional)
+     * @param  string $storefront_oid null (optional)
      * @param  int $max_hits null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAsync($category = null, $matches = null, $max_hits = null)
+    public function searchAsync($category = null, $matches = null, $storefront_oid = null, $max_hits = null)
     {
-        return $this->searchAsyncWithHttpInfo($category, $matches, $max_hits)
+        return $this->searchAsyncWithHttpInfo($category, $matches, $storefront_oid, $max_hits)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -21928,15 +22944,16 @@ class StorefrontApi
      *
      * @param  string $category null (optional)
      * @param  string $matches null (optional)
+     * @param  string $storefront_oid null (optional)
      * @param  int $max_hits null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAsyncWithHttpInfo($category = null, $matches = null, $max_hits = null)
+    public function searchAsyncWithHttpInfo($category = null, $matches = null, $storefront_oid = null, $max_hits = null)
     {
         $returnType = '\ultracart\v2\models\LookupResponse';
-        $request = $this->searchRequest($category, $matches, $max_hits);
+        $request = $this->searchRequest($category, $matches, $storefront_oid, $max_hits);
 
         return $this->client
             ->sendAsync($request)
@@ -21980,12 +22997,13 @@ class StorefrontApi
      *
      * @param  string $category null (optional)
      * @param  string $matches null (optional)
+     * @param  string $storefront_oid null (optional)
      * @param  int $max_hits null (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchRequest($category = null, $matches = null, $max_hits = null)
+    protected function searchRequest($category = null, $matches = null, $storefront_oid = null, $max_hits = null)
     {
 
         $resourcePath = '/storefront/search';
@@ -22002,6 +23020,10 @@ class StorefrontApi
         // query params
         if ($matches !== null) {
             $queryParams['matches'] = ObjectSerializer::toQueryValue($matches);
+        }
+        // query params
+        if ($storefront_oid !== null) {
+            $queryParams['storefront_oid'] = ObjectSerializer::toQueryValue($storefront_oid);
         }
         // query params
         if ($max_hits !== null) {

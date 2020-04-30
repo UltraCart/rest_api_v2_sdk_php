@@ -63,6 +63,7 @@ class EmailCommseqEmailSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_uuid' => 'string',
         'name' => 'string',
         'order_id' => 'string',
+        'please_review' => 'bool',
         'send_to_additional_emails' => 'string[]',
         'send_to_logged_in_user' => 'bool'
     ];
@@ -80,6 +81,7 @@ class EmailCommseqEmailSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_uuid' => null,
         'name' => null,
         'order_id' => null,
+        'please_review' => null,
         'send_to_additional_emails' => null,
         'send_to_logged_in_user' => null
     ];
@@ -118,6 +120,7 @@ class EmailCommseqEmailSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_uuid' => 'esp_commseq_uuid',
         'name' => 'name',
         'order_id' => 'order_id',
+        'please_review' => 'please_review',
         'send_to_additional_emails' => 'send_to_additional_emails',
         'send_to_logged_in_user' => 'send_to_logged_in_user'
     ];
@@ -135,6 +138,7 @@ class EmailCommseqEmailSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_uuid' => 'setEspCommseqUuid',
         'name' => 'setName',
         'order_id' => 'setOrderId',
+        'please_review' => 'setPleaseReview',
         'send_to_additional_emails' => 'setSendToAdditionalEmails',
         'send_to_logged_in_user' => 'setSendToLoggedInUser'
     ];
@@ -152,6 +156,7 @@ class EmailCommseqEmailSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_uuid' => 'getEspCommseqUuid',
         'name' => 'getName',
         'order_id' => 'getOrderId',
+        'please_review' => 'getPleaseReview',
         'send_to_additional_emails' => 'getSendToAdditionalEmails',
         'send_to_logged_in_user' => 'getSendToLoggedInUser'
     ];
@@ -223,6 +228,7 @@ class EmailCommseqEmailSendTestRequest implements ModelInterface, ArrayAccess
         $this->container['esp_commseq_uuid'] = isset($data['esp_commseq_uuid']) ? $data['esp_commseq_uuid'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['please_review'] = isset($data['please_review']) ? $data['please_review'] : null;
         $this->container['send_to_additional_emails'] = isset($data['send_to_additional_emails']) ? $data['send_to_additional_emails'] : null;
         $this->container['send_to_logged_in_user'] = isset($data['send_to_logged_in_user']) ? $data['send_to_logged_in_user'] : null;
     }
@@ -416,6 +422,30 @@ class EmailCommseqEmailSendTestRequest implements ModelInterface, ArrayAccess
     public function setOrderId($order_id)
     {
         $this->container['order_id'] = $order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets please_review
+     *
+     * @return bool
+     */
+    public function getPleaseReview()
+    {
+        return $this->container['please_review'];
+    }
+
+    /**
+     * Sets please_review
+     *
+     * @param bool $please_review please_review
+     *
+     * @return $this
+     */
+    public function setPleaseReview($please_review)
+    {
+        $this->container['please_review'] = $please_review;
 
         return $this;
     }

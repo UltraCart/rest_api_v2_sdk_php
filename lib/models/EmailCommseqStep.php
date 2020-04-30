@@ -60,6 +60,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'child_email_communication_sequence_steps' => '\ultracart\v2\models\EmailCommseqStep[]',
         'email_communication_sequence_step_uuid' => 'string',
         'filter_profile_equation_json' => 'string',
+        'merchant_notes' => 'string',
         'step_config_json' => 'string',
         'type' => 'string'
     ];
@@ -74,6 +75,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'child_email_communication_sequence_steps' => null,
         'email_communication_sequence_step_uuid' => null,
         'filter_profile_equation_json' => null,
+        'merchant_notes' => null,
         'step_config_json' => null,
         'type' => null
     ];
@@ -109,6 +111,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'child_email_communication_sequence_steps' => 'child_email_communication_sequence_steps',
         'email_communication_sequence_step_uuid' => 'email_communication_sequence_step_uuid',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
+        'merchant_notes' => 'merchant_notes',
         'step_config_json' => 'step_config_json',
         'type' => 'type'
     ];
@@ -123,6 +126,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'child_email_communication_sequence_steps' => 'setChildEmailCommunicationSequenceSteps',
         'email_communication_sequence_step_uuid' => 'setEmailCommunicationSequenceStepUuid',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
+        'merchant_notes' => 'setMerchantNotes',
         'step_config_json' => 'setStepConfigJson',
         'type' => 'setType'
     ];
@@ -137,6 +141,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'child_email_communication_sequence_steps' => 'getChildEmailCommunicationSequenceSteps',
         'email_communication_sequence_step_uuid' => 'getEmailCommunicationSequenceStepUuid',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
+        'merchant_notes' => 'getMerchantNotes',
         'step_config_json' => 'getStepConfigJson',
         'type' => 'getType'
     ];
@@ -228,6 +233,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         $this->container['child_email_communication_sequence_steps'] = isset($data['child_email_communication_sequence_steps']) ? $data['child_email_communication_sequence_steps'] : null;
         $this->container['email_communication_sequence_step_uuid'] = isset($data['email_communication_sequence_step_uuid']) ? $data['email_communication_sequence_step_uuid'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
+        $this->container['merchant_notes'] = isset($data['merchant_notes']) ? $data['merchant_notes'] : null;
         $this->container['step_config_json'] = isset($data['step_config_json']) ? $data['step_config_json'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -361,6 +367,30 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
     public function setFilterProfileEquationJson($filter_profile_equation_json)
     {
         $this->container['filter_profile_equation_json'] = $filter_profile_equation_json;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_notes
+     *
+     * @return string
+     */
+    public function getMerchantNotes()
+    {
+        return $this->container['merchant_notes'];
+    }
+
+    /**
+     * Sets merchant_notes
+     *
+     * @param string $merchant_notes Internal merchant notes
+     *
+     * @return $this
+     */
+    public function setMerchantNotes($merchant_notes)
+    {
+        $this->container['merchant_notes'] = $merchant_notes;
 
         return $this;
     }

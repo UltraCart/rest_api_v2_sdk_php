@@ -78,6 +78,7 @@ class Item implements ModelInterface, ArrayAccess
         'instant_payment_notifications' => '\ultracart\v2\models\ItemInstantPaymentNotifications',
         'internal' => '\ultracart\v2\models\ItemInternal',
         'kit' => 'bool',
+        'kit_component_only' => 'bool',
         'kit_definition' => '\ultracart\v2\models\ItemKitDefinition',
         'last_modified_dts' => 'string',
         'merchant_id' => 'string',
@@ -134,6 +135,7 @@ class Item implements ModelInterface, ArrayAccess
         'instant_payment_notifications' => null,
         'internal' => null,
         'kit' => null,
+        'kit_component_only' => null,
         'kit_definition' => null,
         'last_modified_dts' => 'dateTime',
         'merchant_id' => null,
@@ -211,6 +213,7 @@ class Item implements ModelInterface, ArrayAccess
         'instant_payment_notifications' => 'instant_payment_notifications',
         'internal' => 'internal',
         'kit' => 'kit',
+        'kit_component_only' => 'kit_component_only',
         'kit_definition' => 'kit_definition',
         'last_modified_dts' => 'last_modified_dts',
         'merchant_id' => 'merchant_id',
@@ -267,6 +270,7 @@ class Item implements ModelInterface, ArrayAccess
         'instant_payment_notifications' => 'setInstantPaymentNotifications',
         'internal' => 'setInternal',
         'kit' => 'setKit',
+        'kit_component_only' => 'setKitComponentOnly',
         'kit_definition' => 'setKitDefinition',
         'last_modified_dts' => 'setLastModifiedDts',
         'merchant_id' => 'setMerchantId',
@@ -323,6 +327,7 @@ class Item implements ModelInterface, ArrayAccess
         'instant_payment_notifications' => 'getInstantPaymentNotifications',
         'internal' => 'getInternal',
         'kit' => 'getKit',
+        'kit_component_only' => 'getKitComponentOnly',
         'kit_definition' => 'getKitDefinition',
         'last_modified_dts' => 'getLastModifiedDts',
         'merchant_id' => 'getMerchantId',
@@ -433,6 +438,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['instant_payment_notifications'] = isset($data['instant_payment_notifications']) ? $data['instant_payment_notifications'] : null;
         $this->container['internal'] = isset($data['internal']) ? $data['internal'] : null;
         $this->container['kit'] = isset($data['kit']) ? $data['kit'] : null;
+        $this->container['kit_component_only'] = isset($data['kit_component_only']) ? $data['kit_component_only'] : null;
         $this->container['kit_definition'] = isset($data['kit_definition']) ? $data['kit_definition'] : null;
         $this->container['last_modified_dts'] = isset($data['last_modified_dts']) ? $data['last_modified_dts'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
@@ -1035,6 +1041,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setKit($kit)
     {
         $this->container['kit'] = $kit;
+
+        return $this;
+    }
+
+    /**
+     * Gets kit_component_only
+     *
+     * @return bool
+     */
+    public function getKitComponentOnly()
+    {
+        return $this->container['kit_component_only'];
+    }
+
+    /**
+     * Sets kit_component_only
+     *
+     * @param bool $kit_component_only True if this item can only be usd as a kit component
+     *
+     * @return $this
+     */
+    public function setKitComponentOnly($kit_component_only)
+    {
+        $this->container['kit_component_only'] = $kit_component_only;
 
         return $this;
     }

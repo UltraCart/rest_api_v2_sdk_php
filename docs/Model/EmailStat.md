@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **click_count_formatted** | **string** | Count of clicked emails, formatted | [optional] 
 **conversion_count** | **int** | Count of conversions | [optional] 
 **conversion_count_formatted** | **string** | Count of conversions, formatted | [optional] 
+**deleted** | **bool** | True if campaign/flow has been archived | [optional] 
 **delivered_count** | **int** | Count of delivered emails | [optional] 
 **delivered_count_formatted** | **string** | Count of delivered emails, formatted | [optional] 
 **kickbox_count** | **int** | Count of emails kicked | [optional] 

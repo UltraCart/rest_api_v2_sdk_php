@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **member_count** | **int** | Count of members in this segment | [optional] 
 **merchant_id** | **string** | Merchant ID | [optional] 
 **name** | **string** | Name of email segment | [optional] 
+**rank_json** | **string** | Rank settings json | [optional] 
 **rebuild_required** | **bool** | True if a rebuild is required because some part of the segment has changed | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 
