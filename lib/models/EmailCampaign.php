@@ -68,6 +68,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'merchant_id' => 'string',
         'name' => 'string',
         'open_rate_formatted' => 'string',
+        'prevent_sending_due_to_spam' => 'bool',
         'revenue_formatted' => 'string',
         'scheduled_dts' => 'string',
         'status' => 'string',
@@ -93,6 +94,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'merchant_id' => null,
         'name' => null,
         'open_rate_formatted' => null,
+        'prevent_sending_due_to_spam' => null,
         'revenue_formatted' => null,
         'scheduled_dts' => 'dateTime',
         'status' => null,
@@ -139,6 +141,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'merchant_id' => 'merchant_id',
         'name' => 'name',
         'open_rate_formatted' => 'open_rate_formatted',
+        'prevent_sending_due_to_spam' => 'prevent_sending_due_to_spam',
         'revenue_formatted' => 'revenue_formatted',
         'scheduled_dts' => 'scheduled_dts',
         'status' => 'status',
@@ -164,6 +167,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
         'open_rate_formatted' => 'setOpenRateFormatted',
+        'prevent_sending_due_to_spam' => 'setPreventSendingDueToSpam',
         'revenue_formatted' => 'setRevenueFormatted',
         'scheduled_dts' => 'setScheduledDts',
         'status' => 'setStatus',
@@ -189,6 +193,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
         'open_rate_formatted' => 'getOpenRateFormatted',
+        'prevent_sending_due_to_spam' => 'getPreventSendingDueToSpam',
         'revenue_formatted' => 'getRevenueFormatted',
         'scheduled_dts' => 'getScheduledDts',
         'status' => 'getStatus',
@@ -268,6 +273,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['open_rate_formatted'] = isset($data['open_rate_formatted']) ? $data['open_rate_formatted'] : null;
+        $this->container['prevent_sending_due_to_spam'] = isset($data['prevent_sending_due_to_spam']) ? $data['prevent_sending_due_to_spam'] : null;
         $this->container['revenue_formatted'] = isset($data['revenue_formatted']) ? $data['revenue_formatted'] : null;
         $this->container['scheduled_dts'] = isset($data['scheduled_dts']) ? $data['scheduled_dts'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -595,6 +601,30 @@ class EmailCampaign implements ModelInterface, ArrayAccess
     public function setOpenRateFormatted($open_rate_formatted)
     {
         $this->container['open_rate_formatted'] = $open_rate_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets prevent_sending_due_to_spam
+     *
+     * @return bool
+     */
+    public function getPreventSendingDueToSpam()
+    {
+        return $this->container['prevent_sending_due_to_spam'];
+    }
+
+    /**
+     * Sets prevent_sending_due_to_spam
+     *
+     * @param bool $prevent_sending_due_to_spam True if this campaign is prevented from sending at this time due to spam complaints.
+     *
+     * @return $this
+     */
+    public function setPreventSendingDueToSpam($prevent_sending_due_to_spam)
+    {
+        $this->container['prevent_sending_due_to_spam'] = $prevent_sending_due_to_spam;
 
         return $this;
     }

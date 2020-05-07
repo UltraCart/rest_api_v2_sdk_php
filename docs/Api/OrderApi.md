@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**cancelOrder**](OrderApi.md#cancelOrder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 [**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
+[**generateOrderByToken**](OrderApi.md#generateOrderByToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
 [**getAccountsReceivableRetryConfig**](OrderApi.md#getAccountsReceivableRetryConfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 [**getAccountsReceivableRetryStats**](OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 [**getOrder**](OrderApi.md#getOrder) | **GET** /order/orders/{order_id} | Retrieve an order
@@ -168,6 +169,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\OrderFormatResponse**](../Model/OrderFormatResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **generateOrderByToken**
+> \ultracart\v2\models\OrderTokenResponse generateOrderByToken($order_id)
+
+Generate an order token for a given order id
+
+Retrieves a single order token for a given order id.  The token can be used with the getOrderByToken API.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$order_id = "order_id_example"; // string | The order id to generate a token for.
+
+try {
+    $result = $api_instance->generateOrderByToken($order_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->generateOrderByToken: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to generate a token for. |
+
+### Return type
+
+[**\ultracart\v2\models\OrderTokenResponse**](../Model/OrderTokenResponse.md)
 
 ### Authorization
 

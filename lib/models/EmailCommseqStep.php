@@ -59,6 +59,9 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'alt_child_email_communication_sequence_steps' => '\ultracart\v2\models\EmailCommseqStep[]',
         'child_email_communication_sequence_steps' => '\ultracart\v2\models\EmailCommseqStep[]',
         'email_communication_sequence_step_uuid' => 'string',
+        'email_pending_review' => 'bool',
+        'email_rejected' => 'bool',
+        'email_requires_review' => 'bool',
         'filter_profile_equation_json' => 'string',
         'merchant_notes' => 'string',
         'step_config_json' => 'string',
@@ -74,6 +77,9 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'alt_child_email_communication_sequence_steps' => null,
         'child_email_communication_sequence_steps' => null,
         'email_communication_sequence_step_uuid' => null,
+        'email_pending_review' => null,
+        'email_rejected' => null,
+        'email_requires_review' => null,
         'filter_profile_equation_json' => null,
         'merchant_notes' => null,
         'step_config_json' => null,
@@ -110,6 +116,9 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'alt_child_email_communication_sequence_steps' => 'alt_child_email_communication_sequence_steps',
         'child_email_communication_sequence_steps' => 'child_email_communication_sequence_steps',
         'email_communication_sequence_step_uuid' => 'email_communication_sequence_step_uuid',
+        'email_pending_review' => 'email_pending_review',
+        'email_rejected' => 'email_rejected',
+        'email_requires_review' => 'email_requires_review',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'merchant_notes' => 'merchant_notes',
         'step_config_json' => 'step_config_json',
@@ -125,6 +134,9 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'alt_child_email_communication_sequence_steps' => 'setAltChildEmailCommunicationSequenceSteps',
         'child_email_communication_sequence_steps' => 'setChildEmailCommunicationSequenceSteps',
         'email_communication_sequence_step_uuid' => 'setEmailCommunicationSequenceStepUuid',
+        'email_pending_review' => 'setEmailPendingReview',
+        'email_rejected' => 'setEmailRejected',
+        'email_requires_review' => 'setEmailRequiresReview',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'merchant_notes' => 'setMerchantNotes',
         'step_config_json' => 'setStepConfigJson',
@@ -140,6 +152,9 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         'alt_child_email_communication_sequence_steps' => 'getAltChildEmailCommunicationSequenceSteps',
         'child_email_communication_sequence_steps' => 'getChildEmailCommunicationSequenceSteps',
         'email_communication_sequence_step_uuid' => 'getEmailCommunicationSequenceStepUuid',
+        'email_pending_review' => 'getEmailPendingReview',
+        'email_rejected' => 'getEmailRejected',
+        'email_requires_review' => 'getEmailRequiresReview',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'merchant_notes' => 'getMerchantNotes',
         'step_config_json' => 'getStepConfigJson',
@@ -232,6 +247,9 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
         $this->container['alt_child_email_communication_sequence_steps'] = isset($data['alt_child_email_communication_sequence_steps']) ? $data['alt_child_email_communication_sequence_steps'] : null;
         $this->container['child_email_communication_sequence_steps'] = isset($data['child_email_communication_sequence_steps']) ? $data['child_email_communication_sequence_steps'] : null;
         $this->container['email_communication_sequence_step_uuid'] = isset($data['email_communication_sequence_step_uuid']) ? $data['email_communication_sequence_step_uuid'] : null;
+        $this->container['email_pending_review'] = isset($data['email_pending_review']) ? $data['email_pending_review'] : null;
+        $this->container['email_rejected'] = isset($data['email_rejected']) ? $data['email_rejected'] : null;
+        $this->container['email_requires_review'] = isset($data['email_requires_review']) ? $data['email_requires_review'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['merchant_notes'] = isset($data['merchant_notes']) ? $data['merchant_notes'] : null;
         $this->container['step_config_json'] = isset($data['step_config_json']) ? $data['step_config_json'] : null;
@@ -343,6 +361,78 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
     public function setEmailCommunicationSequenceStepUuid($email_communication_sequence_step_uuid)
     {
         $this->container['email_communication_sequence_step_uuid'] = $email_communication_sequence_step_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_pending_review
+     *
+     * @return bool
+     */
+    public function getEmailPendingReview()
+    {
+        return $this->container['email_pending_review'];
+    }
+
+    /**
+     * Sets email_pending_review
+     *
+     * @param bool $email_pending_review True if the content of the email associated with this step is pending review by UltraCart
+     *
+     * @return $this
+     */
+    public function setEmailPendingReview($email_pending_review)
+    {
+        $this->container['email_pending_review'] = $email_pending_review;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_rejected
+     *
+     * @return bool
+     */
+    public function getEmailRejected()
+    {
+        return $this->container['email_rejected'];
+    }
+
+    /**
+     * Sets email_rejected
+     *
+     * @param bool $email_rejected True if the content of the email associated with this step was rejected during review by UltraCart
+     *
+     * @return $this
+     */
+    public function setEmailRejected($email_rejected)
+    {
+        $this->container['email_rejected'] = $email_rejected;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_requires_review
+     *
+     * @return bool
+     */
+    public function getEmailRequiresReview()
+    {
+        return $this->container['email_requires_review'];
+    }
+
+    /**
+     * Sets email_requires_review
+     *
+     * @param bool $email_requires_review True if the content of the email associated with this step requires review by UltraCart
+     *
+     * @return $this
+     */
+    public function setEmailRequiresReview($email_requires_review)
+    {
+        $this->container['email_requires_review'] = $email_requires_review;
 
         return $this;
     }

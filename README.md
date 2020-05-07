@@ -201,6 +201,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**cancelOrder**](docs/Api/OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**format**](docs/Api/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
+*OrderApi* | [**generateOrderByToken**](docs/Api/OrderApi.md#generateorderbytoken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
 *OrderApi* | [**getAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#getaccountsreceivableretryconfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/Api/OrderApi.md#getaccountsreceivableretrystats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
@@ -251,10 +252,11 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailFlows**](docs/Api/StorefrontApi.md#getemailflows) | **GET** /storefront/{storefront_oid}/email/flows | Get email flows
 *StorefrontApi* | [**getEmailGlobalSettings**](docs/Api/StorefrontApi.md#getemailglobalsettings) | **GET** /storefront/email/global_settings | Get email globalsettings
 *StorefrontApi* | [**getEmailList**](docs/Api/StorefrontApi.md#getemaillist) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
-*StorefrontApi* | [**getEmailListCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemaillistcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customers
+*StorefrontApi* | [**getEmailListCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemaillistcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customer editor url
 *StorefrontApi* | [**getEmailListCustomers**](docs/Api/StorefrontApi.md#getemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
 *StorefrontApi* | [**getEmailLists**](docs/Api/StorefrontApi.md#getemaillists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
 *StorefrontApi* | [**getEmailPerformance**](docs/Api/StorefrontApi.md#getemailperformance) | **GET** /storefront/{storefront_oid}/email/performance | Get email performance
+*StorefrontApi* | [**getEmailPlan**](docs/Api/StorefrontApi.md#getemailplan) | **GET** /storefront/{storefront_oid}/email/plan | Get email plan
 *StorefrontApi* | [**getEmailPostcard**](docs/Api/StorefrontApi.md#getemailpostcard) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Get email postcard
 *StorefrontApi* | [**getEmailPostcards**](docs/Api/StorefrontApi.md#getemailpostcards) | **GET** /storefront/{storefront_oid}/email/postcards | Get email postcards
 *StorefrontApi* | [**getEmailPostcardsMultiple**](docs/Api/StorefrontApi.md#getemailpostcardsmultiple) | **POST** /storefront/{storefront_oid}/email/postcards/multiple | Get email postcards multiple
@@ -298,6 +300,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailFlow**](docs/Api/StorefrontApi.md#updateemailflow) | **PUT** /storefront/{storefront_oid}/email/flows/{email_flow_uuid} | Update email flow
 *StorefrontApi* | [**updateEmailGlobalSettings**](docs/Api/StorefrontApi.md#updateemailglobalsettings) | **POST** /storefront/email/global_settings | Update email global settings
 *StorefrontApi* | [**updateEmailList**](docs/Api/StorefrontApi.md#updateemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
+*StorefrontApi* | [**updateEmailPlan**](docs/Api/StorefrontApi.md#updateemailplan) | **POST** /storefront/{storefront_oid}/email/plan | Update email plan
 *StorefrontApi* | [**updateEmailPostcard**](docs/Api/StorefrontApi.md#updateemailpostcard) | **PUT** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Update email postcard
 *StorefrontApi* | [**updateEmailSegment**](docs/Api/StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
 *StorefrontApi* | [**updateEmailSettings**](docs/Api/StorefrontApi.md#updateemailsettings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
@@ -570,6 +573,9 @@ Class | Method | HTTP request | Description
  - [EmailPerformance](docs/Model/EmailPerformance.md)
  - [EmailPerformanceDaily](docs/Model/EmailPerformanceDaily.md)
  - [EmailPerformanceResponse](docs/Model/EmailPerformanceResponse.md)
+ - [EmailPlan](docs/Model/EmailPlan.md)
+ - [EmailPlanAdditional](docs/Model/EmailPlanAdditional.md)
+ - [EmailPlanResponse](docs/Model/EmailPlanResponse.md)
  - [EmailPostcardStat](docs/Model/EmailPostcardStat.md)
  - [EmailSegment](docs/Model/EmailSegment.md)
  - [EmailSegmentArchiveResponse](docs/Model/EmailSegmentArchiveResponse.md)
@@ -737,6 +743,7 @@ Class | Method | HTTP request | Description
  - [OrderSummary](docs/Model/OrderSummary.md)
  - [OrderTag](docs/Model/OrderTag.md)
  - [OrderTaxes](docs/Model/OrderTaxes.md)
+ - [OrderTokenResponse](docs/Model/OrderTokenResponse.md)
  - [OrdersResponse](docs/Model/OrdersResponse.md)
  - [PricingTier](docs/Model/PricingTier.md)
  - [PricingTierNotification](docs/Model/PricingTierNotification.md)

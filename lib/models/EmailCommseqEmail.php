@@ -68,6 +68,8 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'merchant_id' => 'string',
         'pending_review' => 'bool',
         'preview_text' => 'string',
+        'rejected' => 'bool',
+        'requires_review' => 'bool',
         'smart_sending' => 'bool',
         'storefront_oid' => 'int',
         'subject' => 'string',
@@ -93,6 +95,8 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'merchant_id' => null,
         'pending_review' => null,
         'preview_text' => null,
+        'rejected' => null,
+        'requires_review' => null,
         'smart_sending' => null,
         'storefront_oid' => 'int32',
         'subject' => null,
@@ -139,6 +143,8 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'merchant_id' => 'merchant_id',
         'pending_review' => 'pending_review',
         'preview_text' => 'preview_text',
+        'rejected' => 'rejected',
+        'requires_review' => 'requires_review',
         'smart_sending' => 'smart_sending',
         'storefront_oid' => 'storefront_oid',
         'subject' => 'subject',
@@ -164,6 +170,8 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'merchant_id' => 'setMerchantId',
         'pending_review' => 'setPendingReview',
         'preview_text' => 'setPreviewText',
+        'rejected' => 'setRejected',
+        'requires_review' => 'setRequiresReview',
         'smart_sending' => 'setSmartSending',
         'storefront_oid' => 'setStorefrontOid',
         'subject' => 'setSubject',
@@ -189,6 +197,8 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'merchant_id' => 'getMerchantId',
         'pending_review' => 'getPendingReview',
         'preview_text' => 'getPreviewText',
+        'rejected' => 'getRejected',
+        'requires_review' => 'getRequiresReview',
         'smart_sending' => 'getSmartSending',
         'storefront_oid' => 'getStorefrontOid',
         'subject' => 'getSubject',
@@ -268,6 +278,8 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['pending_review'] = isset($data['pending_review']) ? $data['pending_review'] : null;
         $this->container['preview_text'] = isset($data['preview_text']) ? $data['preview_text'] : null;
+        $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
+        $this->container['requires_review'] = isset($data['requires_review']) ? $data['requires_review'] : null;
         $this->container['smart_sending'] = isset($data['smart_sending']) ? $data['smart_sending'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
@@ -584,6 +596,54 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
     public function setPreviewText($preview_text)
     {
         $this->container['preview_text'] = $preview_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejected
+     *
+     * @return bool
+     */
+    public function getRejected()
+    {
+        return $this->container['rejected'];
+    }
+
+    /**
+     * Sets rejected
+     *
+     * @param bool $rejected True if the content of this email was rejected during review by UltraCart
+     *
+     * @return $this
+     */
+    public function setRejected($rejected)
+    {
+        $this->container['rejected'] = $rejected;
+
+        return $this;
+    }
+
+    /**
+     * Gets requires_review
+     *
+     * @return bool
+     */
+    public function getRequiresReview()
+    {
+        return $this->container['requires_review'];
+    }
+
+    /**
+     * Sets requires_review
+     *
+     * @param bool $requires_review True if the content of this email is requires review by UltraCart
+     *
+     * @return $this
+     */
+    public function setRequiresReview($requires_review)
+    {
+        $this->container['requires_review'] = $requires_review;
 
         return $this;
     }
