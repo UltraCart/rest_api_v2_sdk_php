@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allow_csv_download** | **bool** | True if the current user has the rights to download this list. | [optional] 
 **created_dts** | **string** | Created date | [optional] 
 **deleted** | **bool** | True if this campaign was deleted | [optional] 
 **email_list_uuid** | **string** | Email list UUID | [optional] 

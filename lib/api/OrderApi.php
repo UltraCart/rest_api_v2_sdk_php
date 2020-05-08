@@ -976,7 +976,7 @@ class OrderApi
     }
 
     /**
-     * Operation generateOrderByToken
+     * Operation generateOrderToken
      *
      * Generate an order token for a given order id
      *
@@ -986,14 +986,14 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\OrderTokenResponse
      */
-    public function generateOrderByToken($order_id)
+    public function generateOrderToken($order_id)
     {
-        list($response) = $this->generateOrderByTokenWithHttpInfo($order_id);
+        list($response) = $this->generateOrderTokenWithHttpInfo($order_id);
         return $response;
     }
 
     /**
-     * Operation generateOrderByTokenWithHttpInfo
+     * Operation generateOrderTokenWithHttpInfo
      *
      * Generate an order token for a given order id
      *
@@ -1003,10 +1003,10 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OrderTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateOrderByTokenWithHttpInfo($order_id)
+    public function generateOrderTokenWithHttpInfo($order_id)
     {
         $returnType = '\ultracart\v2\models\OrderTokenResponse';
-        $request = $this->generateOrderByTokenRequest($order_id);
+        $request = $this->generateOrderTokenRequest($order_id);
 
         try {
 
@@ -1107,7 +1107,7 @@ class OrderApi
     }
 
     /**
-     * Operation generateOrderByTokenAsync
+     * Operation generateOrderTokenAsync
      *
      * Generate an order token for a given order id
      *
@@ -1116,9 +1116,9 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateOrderByTokenAsync($order_id)
+    public function generateOrderTokenAsync($order_id)
     {
-        return $this->generateOrderByTokenAsyncWithHttpInfo($order_id)
+        return $this->generateOrderTokenAsyncWithHttpInfo($order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1127,7 +1127,7 @@ class OrderApi
     }
 
     /**
-     * Operation generateOrderByTokenAsyncWithHttpInfo
+     * Operation generateOrderTokenAsyncWithHttpInfo
      *
      * Generate an order token for a given order id
      *
@@ -1136,10 +1136,10 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateOrderByTokenAsyncWithHttpInfo($order_id)
+    public function generateOrderTokenAsyncWithHttpInfo($order_id)
     {
         $returnType = '\ultracart\v2\models\OrderTokenResponse';
-        $request = $this->generateOrderByTokenRequest($order_id);
+        $request = $this->generateOrderTokenRequest($order_id);
 
         return $this->client
             ->sendAsync($request)
@@ -1179,19 +1179,19 @@ class OrderApi
     }
 
     /**
-     * Create request for operation 'generateOrderByToken'
+     * Create request for operation 'generateOrderToken'
      *
      * @param  string $order_id The order id to generate a token for. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function generateOrderByTokenRequest($order_id)
+    protected function generateOrderTokenRequest($order_id)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling generateOrderByToken'
+                'Missing the required parameter $order_id when calling generateOrderToken'
             );
         }
 
