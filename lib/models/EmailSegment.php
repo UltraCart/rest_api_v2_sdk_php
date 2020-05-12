@@ -56,6 +56,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'allow_csv_download' => 'bool',
         'created_dts' => 'string',
         'deleted' => 'bool',
         'email_segment_uuid' => 'string',
@@ -75,6 +76,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'allow_csv_download' => null,
         'created_dts' => 'dateTime',
         'deleted' => null,
         'email_segment_uuid' => null,
@@ -115,6 +117,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'allow_csv_download' => 'allow_csv_download',
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'email_segment_uuid' => 'email_segment_uuid',
@@ -134,6 +137,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'allow_csv_download' => 'setAllowCsvDownload',
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'email_segment_uuid' => 'setEmailSegmentUuid',
@@ -153,6 +157,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'allow_csv_download' => 'getAllowCsvDownload',
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'email_segment_uuid' => 'getEmailSegmentUuid',
@@ -226,6 +231,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['allow_csv_download'] = isset($data['allow_csv_download']) ? $data['allow_csv_download'] : null;
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email_segment_uuid'] = isset($data['email_segment_uuid']) ? $data['email_segment_uuid'] : null;
@@ -270,6 +276,30 @@ class EmailSegment implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets allow_csv_download
+     *
+     * @return bool
+     */
+    public function getAllowCsvDownload()
+    {
+        return $this->container['allow_csv_download'];
+    }
+
+    /**
+     * Sets allow_csv_download
+     *
+     * @param bool $allow_csv_download True if the current user has the rights to download this segment.
+     *
+     * @return $this
+     */
+    public function setAllowCsvDownload($allow_csv_download)
+    {
+        $this->container['allow_csv_download'] = $allow_csv_download;
+
+        return $this;
+    }
 
     /**
      * Gets created_dts

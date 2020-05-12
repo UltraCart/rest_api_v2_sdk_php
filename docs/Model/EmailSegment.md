@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allow_csv_download** | **bool** | True if the current user has the rights to download this segment. | [optional] 
 **created_dts** | **string** | Created date | [optional] 
 **deleted** | **bool** | True if this campaign was deleted | [optional] 
 **email_segment_uuid** | **string** | Email segment UUID | [optional] 

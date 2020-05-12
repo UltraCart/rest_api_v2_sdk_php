@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **override_affiliate_id** | **int** | Override the affiliate id given credit for rebills of this auto order | [optional] 
 **rebill_orders** | [**\ultracart\v2\models\Order[]**](Order.md) | Rebill orders that have taken place on this auto order | [optional] 
 **rotating_transaction_gateway_code** | **string** | The RTG code associated with this order for future rebills | [optional] 
+**status** | **string** | The status of the auto order | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

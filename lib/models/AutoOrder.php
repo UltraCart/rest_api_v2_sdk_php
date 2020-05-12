@@ -74,7 +74,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'original_order_id' => 'string',
         'override_affiliate_id' => 'int',
         'rebill_orders' => '\ultracart\v2\models\Order[]',
-        'rotating_transaction_gateway_code' => 'string'
+        'rotating_transaction_gateway_code' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -101,7 +102,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'original_order_id' => null,
         'override_affiliate_id' => 'int32',
         'rebill_orders' => null,
-        'rotating_transaction_gateway_code' => null
+        'rotating_transaction_gateway_code' => null,
+        'status' => null
     ];
 
     /**
@@ -149,7 +151,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'original_order_id' => 'original_order_id',
         'override_affiliate_id' => 'override_affiliate_id',
         'rebill_orders' => 'rebill_orders',
-        'rotating_transaction_gateway_code' => 'rotating_transaction_gateway_code'
+        'rotating_transaction_gateway_code' => 'rotating_transaction_gateway_code',
+        'status' => 'status'
     ];
 
     /**
@@ -176,7 +179,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'original_order_id' => 'setOriginalOrderId',
         'override_affiliate_id' => 'setOverrideAffiliateId',
         'rebill_orders' => 'setRebillOrders',
-        'rotating_transaction_gateway_code' => 'setRotatingTransactionGatewayCode'
+        'rotating_transaction_gateway_code' => 'setRotatingTransactionGatewayCode',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -203,7 +207,8 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'original_order_id' => 'getOriginalOrderId',
         'override_affiliate_id' => 'getOverrideAffiliateId',
         'rebill_orders' => 'getRebillOrders',
-        'rotating_transaction_gateway_code' => 'getRotatingTransactionGatewayCode'
+        'rotating_transaction_gateway_code' => 'getRotatingTransactionGatewayCode',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -247,8 +252,25 @@ class AutoOrder implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const STATUS_ACTIVE = 'active';
+    const STATUS_CANCELED = 'canceled';
+    const STATUS_DISABLED = 'disabled';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_ACTIVE,
+            self::STATUS_CANCELED,
+            self::STATUS_DISABLED,
+        ];
+    }
     
 
     /**
@@ -285,6 +307,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         $this->container['override_affiliate_id'] = isset($data['override_affiliate_id']) ? $data['override_affiliate_id'] : null;
         $this->container['rebill_orders'] = isset($data['rebill_orders']) ? $data['rebill_orders'] : null;
         $this->container['rotating_transaction_gateway_code'] = isset($data['rotating_transaction_gateway_code']) ? $data['rotating_transaction_gateway_code'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -295,6 +318,14 @@ class AutoOrder implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($this->container['status'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -308,6 +339,10 @@ class AutoOrder implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($this->container['status'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
@@ -764,6 +799,39 @@ class AutoOrder implements ModelInterface, ArrayAccess
     public function setRotatingTransactionGatewayCode($rotating_transaction_gateway_code)
     {
         $this->container['rotating_transaction_gateway_code'] = $rotating_transaction_gateway_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status The status of the auto order
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
