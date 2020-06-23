@@ -57,6 +57,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'allow_csv_download' => 'bool',
+        'allow_facebook_audiences' => 'bool',
         'created_dts' => 'string',
         'deleted' => 'bool',
         'email_segment_uuid' => 'string',
@@ -67,7 +68,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'name' => 'string',
         'rank_json' => 'string',
         'rebuild_required' => 'bool',
-        'storefront_oid' => 'int'
+        'storefront_oid' => 'int',
+        'used_by' => '\ultracart\v2\models\EmailListSegmentUsedBy[]'
     ];
 
     /**
@@ -77,6 +79,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'allow_csv_download' => null,
+        'allow_facebook_audiences' => null,
         'created_dts' => 'dateTime',
         'deleted' => null,
         'email_segment_uuid' => null,
@@ -87,7 +90,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'name' => null,
         'rank_json' => null,
         'rebuild_required' => null,
-        'storefront_oid' => 'int32'
+        'storefront_oid' => 'int32',
+        'used_by' => null
     ];
 
     /**
@@ -118,6 +122,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'allow_csv_download' => 'allow_csv_download',
+        'allow_facebook_audiences' => 'allow_facebook_audiences',
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'email_segment_uuid' => 'email_segment_uuid',
@@ -128,7 +133,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'name' => 'name',
         'rank_json' => 'rank_json',
         'rebuild_required' => 'rebuild_required',
-        'storefront_oid' => 'storefront_oid'
+        'storefront_oid' => 'storefront_oid',
+        'used_by' => 'used_by'
     ];
 
     /**
@@ -138,6 +144,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'allow_csv_download' => 'setAllowCsvDownload',
+        'allow_facebook_audiences' => 'setAllowFacebookAudiences',
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'email_segment_uuid' => 'setEmailSegmentUuid',
@@ -148,7 +155,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'rank_json' => 'setRankJson',
         'rebuild_required' => 'setRebuildRequired',
-        'storefront_oid' => 'setStorefrontOid'
+        'storefront_oid' => 'setStorefrontOid',
+        'used_by' => 'setUsedBy'
     ];
 
     /**
@@ -158,6 +166,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'allow_csv_download' => 'getAllowCsvDownload',
+        'allow_facebook_audiences' => 'getAllowFacebookAudiences',
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'email_segment_uuid' => 'getEmailSegmentUuid',
@@ -168,7 +177,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'rank_json' => 'getRankJson',
         'rebuild_required' => 'getRebuildRequired',
-        'storefront_oid' => 'getStorefrontOid'
+        'storefront_oid' => 'getStorefrontOid',
+        'used_by' => 'getUsedBy'
     ];
 
     /**
@@ -232,6 +242,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['allow_csv_download'] = isset($data['allow_csv_download']) ? $data['allow_csv_download'] : null;
+        $this->container['allow_facebook_audiences'] = isset($data['allow_facebook_audiences']) ? $data['allow_facebook_audiences'] : null;
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email_segment_uuid'] = isset($data['email_segment_uuid']) ? $data['email_segment_uuid'] : null;
@@ -243,6 +254,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         $this->container['rank_json'] = isset($data['rank_json']) ? $data['rank_json'] : null;
         $this->container['rebuild_required'] = isset($data['rebuild_required']) ? $data['rebuild_required'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
+        $this->container['used_by'] = isset($data['used_by']) ? $data['used_by'] : null;
     }
 
     /**
@@ -297,6 +309,30 @@ class EmailSegment implements ModelInterface, ArrayAccess
     public function setAllowCsvDownload($allow_csv_download)
     {
         $this->container['allow_csv_download'] = $allow_csv_download;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_facebook_audiences
+     *
+     * @return bool
+     */
+    public function getAllowFacebookAudiences()
+    {
+        return $this->container['allow_facebook_audiences'];
+    }
+
+    /**
+     * Sets allow_facebook_audiences
+     *
+     * @param bool $allow_facebook_audiences True if this StoreFront has the Facebook Analytics app connected and supports them
+     *
+     * @return $this
+     */
+    public function setAllowFacebookAudiences($allow_facebook_audiences)
+    {
+        $this->container['allow_facebook_audiences'] = $allow_facebook_audiences;
 
         return $this;
     }
@@ -565,6 +601,30 @@ class EmailSegment implements ModelInterface, ArrayAccess
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_by
+     *
+     * @return \ultracart\v2\models\EmailListSegmentUsedBy[]
+     */
+    public function getUsedBy()
+    {
+        return $this->container['used_by'];
+    }
+
+    /**
+     * Sets used_by
+     *
+     * @param \ultracart\v2\models\EmailListSegmentUsedBy[] $used_by Details on the flows or campaigns that use this list.
+     *
+     * @return $this
+     */
+    public function setUsedBy($used_by)
+    {
+        $this->container['used_by'] = $used_by;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailCustomer
+ * EmailPerformanceCustomerHistogramPeriod
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailCustomer Class Doc Comment
+ * EmailPerformanceCustomerHistogramPeriod Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailCustomer implements ModelInterface, ArrayAccess
+class EmailPerformanceCustomerHistogramPeriod implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailCustomer';
+    protected static $swaggerModelName = 'EmailPerformanceCustomerHistogramPeriod';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,11 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active' => 'bool',
-        'email' => 'string',
-        'email_customer_uuid' => 'string',
-        'first_name' => 'string',
-        'last_interaction_dts' => 'string',
-        'last_name' => 'string'
+        'active' => 'int',
+        'inactive' => 'int',
+        'month' => 'int',
+        'total' => 'int',
+        'year' => 'int'
     ];
 
     /**
@@ -70,12 +69,11 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'active' => null,
-        'email' => null,
-        'email_customer_uuid' => null,
-        'first_name' => null,
-        'last_interaction_dts' => 'dateTime',
-        'last_name' => null
+        'active' => 'int32',
+        'inactive' => 'int32',
+        'month' => 'int32',
+        'total' => 'int32',
+        'year' => 'int32'
     ];
 
     /**
@@ -106,11 +104,10 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'active' => 'active',
-        'email' => 'email',
-        'email_customer_uuid' => 'email_customer_uuid',
-        'first_name' => 'first_name',
-        'last_interaction_dts' => 'last_interaction_dts',
-        'last_name' => 'last_name'
+        'inactive' => 'inactive',
+        'month' => 'month',
+        'total' => 'total',
+        'year' => 'year'
     ];
 
     /**
@@ -120,11 +117,10 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'active' => 'setActive',
-        'email' => 'setEmail',
-        'email_customer_uuid' => 'setEmailCustomerUuid',
-        'first_name' => 'setFirstName',
-        'last_interaction_dts' => 'setLastInteractionDts',
-        'last_name' => 'setLastName'
+        'inactive' => 'setInactive',
+        'month' => 'setMonth',
+        'total' => 'setTotal',
+        'year' => 'setYear'
     ];
 
     /**
@@ -134,11 +130,10 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'active' => 'getActive',
-        'email' => 'getEmail',
-        'email_customer_uuid' => 'getEmailCustomerUuid',
-        'first_name' => 'getFirstName',
-        'last_interaction_dts' => 'getLastInteractionDts',
-        'last_name' => 'getLastName'
+        'inactive' => 'getInactive',
+        'month' => 'getMonth',
+        'total' => 'getTotal',
+        'year' => 'getYear'
     ];
 
     /**
@@ -202,11 +197,10 @@ class EmailCustomer implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['email_customer_uuid'] = isset($data['email_customer_uuid']) ? $data['email_customer_uuid'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_interaction_dts'] = isset($data['last_interaction_dts']) ? $data['last_interaction_dts'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['inactive'] = isset($data['inactive']) ? $data['inactive'] : null;
+        $this->container['month'] = isset($data['month']) ? $data['month'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['year'] = isset($data['year']) ? $data['year'] : null;
     }
 
     /**
@@ -237,7 +231,7 @@ class EmailCustomer implements ModelInterface, ArrayAccess
     /**
      * Gets active
      *
-     * @return bool
+     * @return int
      */
     public function getActive()
     {
@@ -247,7 +241,7 @@ class EmailCustomer implements ModelInterface, ArrayAccess
     /**
      * Sets active
      *
-     * @param bool $active True if the customer is flagged as active within StoreFront Communications
+     * @param int $active Active customers last active in this period
      *
      * @return $this
      */
@@ -259,121 +253,97 @@ class EmailCustomer implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets email
+     * Gets inactive
      *
-     * @return string
+     * @return int
      */
-    public function getEmail()
+    public function getInactive()
     {
-        return $this->container['email'];
+        return $this->container['inactive'];
     }
 
     /**
-     * Sets email
+     * Sets inactive
      *
-     * @param string $email Email
+     * @param int $inactive Inactive customers last active in this period
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setInactive($inactive)
     {
-        $this->container['email'] = $email;
+        $this->container['inactive'] = $inactive;
 
         return $this;
     }
 
     /**
-     * Gets email_customer_uuid
+     * Gets month
      *
-     * @return string
+     * @return int
      */
-    public function getEmailCustomerUuid()
+    public function getMonth()
     {
-        return $this->container['email_customer_uuid'];
+        return $this->container['month'];
     }
 
     /**
-     * Sets email_customer_uuid
+     * Sets month
      *
-     * @param string $email_customer_uuid Email customer UUID
+     * @param int $month Month (1 = January)
      *
      * @return $this
      */
-    public function setEmailCustomerUuid($email_customer_uuid)
+    public function setMonth($month)
     {
-        $this->container['email_customer_uuid'] = $email_customer_uuid;
+        $this->container['month'] = $month;
 
         return $this;
     }
 
     /**
-     * Gets first_name
+     * Gets total
      *
-     * @return string
+     * @return int
      */
-    public function getFirstName()
+    public function getTotal()
     {
-        return $this->container['first_name'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets first_name
+     * Sets total
      *
-     * @param string $first_name First name
+     * @param int $total Total customers last active in this period
      *
      * @return $this
      */
-    public function setFirstName($first_name)
+    public function setTotal($total)
     {
-        $this->container['first_name'] = $first_name;
+        $this->container['total'] = $total;
 
         return $this;
     }
 
     /**
-     * Gets last_interaction_dts
+     * Gets year
      *
-     * @return string
+     * @return int
      */
-    public function getLastInteractionDts()
+    public function getYear()
     {
-        return $this->container['last_interaction_dts'];
+        return $this->container['year'];
     }
 
     /**
-     * Sets last_interaction_dts
+     * Sets year
      *
-     * @param string $last_interaction_dts Last interaction
+     * @param int $year Year (four digits)
      *
      * @return $this
      */
-    public function setLastInteractionDts($last_interaction_dts)
+    public function setYear($year)
     {
-        $this->container['last_interaction_dts'] = $last_interaction_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string $last_name Last name
-     *
-     * @return $this
-     */
-    public function setLastName($last_name)
-    {
-        $this->container['last_name'] = $last_name;
+        $this->container['year'] = $year;
 
         return $this;
     }

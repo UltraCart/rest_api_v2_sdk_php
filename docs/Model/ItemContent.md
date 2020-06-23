@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assignments** | [**\ultracart\v2\models\ItemContentAssignment[]**](ItemContentAssignment.md) | StoreFront assignments | [optional] 
 **attributes** | [**\ultracart\v2\models\ItemContentAttribute[]**](ItemContentAttribute.md) | StoreFront attributes | [optional] 
+**custom_thank_you_url** | **string** | Custom Thank You URL | [optional] 
 **exclude_from_search** | **bool** | Exclude from search | [optional] 
 **exclude_from_top_sellers** | **bool** | Exclude from the top sellers list in the StoreFront | [optional] 
 **extended_description** | **string** | Extended description (max 2000 characters) | [optional] 

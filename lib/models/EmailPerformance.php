@@ -61,6 +61,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'bounce_count' => 'int',
         'bounce_percentage' => 'float',
         'bounce_percentage_formatted' => 'string',
+        'customer_histogram' => '\ultracart\v2\models\EmailPerformanceCustomerHistogram',
         'daily_stats' => '\ultracart\v2\models\EmailPerformanceDaily[]',
         'delivered_count' => 'int',
         'max_active_customers' => 'int',
@@ -90,6 +91,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'bounce_count' => 'int32',
         'bounce_percentage' => null,
         'bounce_percentage_formatted' => null,
+        'customer_histogram' => null,
         'daily_stats' => null,
         'delivered_count' => 'int32',
         'max_active_customers' => 'int32',
@@ -140,6 +142,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'bounce_count' => 'bounce_count',
         'bounce_percentage' => 'bounce_percentage',
         'bounce_percentage_formatted' => 'bounce_percentage_formatted',
+        'customer_histogram' => 'customer_histogram',
         'daily_stats' => 'daily_stats',
         'delivered_count' => 'delivered_count',
         'max_active_customers' => 'max_active_customers',
@@ -169,6 +172,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'bounce_count' => 'setBounceCount',
         'bounce_percentage' => 'setBouncePercentage',
         'bounce_percentage_formatted' => 'setBouncePercentageFormatted',
+        'customer_histogram' => 'setCustomerHistogram',
         'daily_stats' => 'setDailyStats',
         'delivered_count' => 'setDeliveredCount',
         'max_active_customers' => 'setMaxActiveCustomers',
@@ -198,6 +202,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'bounce_count' => 'getBounceCount',
         'bounce_percentage' => 'getBouncePercentage',
         'bounce_percentage_formatted' => 'getBouncePercentageFormatted',
+        'customer_histogram' => 'getCustomerHistogram',
         'daily_stats' => 'getDailyStats',
         'delivered_count' => 'getDeliveredCount',
         'max_active_customers' => 'getMaxActiveCustomers',
@@ -281,6 +286,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         $this->container['bounce_count'] = isset($data['bounce_count']) ? $data['bounce_count'] : null;
         $this->container['bounce_percentage'] = isset($data['bounce_percentage']) ? $data['bounce_percentage'] : null;
         $this->container['bounce_percentage_formatted'] = isset($data['bounce_percentage_formatted']) ? $data['bounce_percentage_formatted'] : null;
+        $this->container['customer_histogram'] = isset($data['customer_histogram']) ? $data['customer_histogram'] : null;
         $this->container['daily_stats'] = isset($data['daily_stats']) ? $data['daily_stats'] : null;
         $this->container['delivered_count'] = isset($data['delivered_count']) ? $data['delivered_count'] : null;
         $this->container['max_active_customers'] = isset($data['max_active_customers']) ? $data['max_active_customers'] : null;
@@ -440,6 +446,30 @@ class EmailPerformance implements ModelInterface, ArrayAccess
     public function setBouncePercentageFormatted($bounce_percentage_formatted)
     {
         $this->container['bounce_percentage_formatted'] = $bounce_percentage_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_histogram
+     *
+     * @return \ultracart\v2\models\EmailPerformanceCustomerHistogram
+     */
+    public function getCustomerHistogram()
+    {
+        return $this->container['customer_histogram'];
+    }
+
+    /**
+     * Sets customer_histogram
+     *
+     * @param \ultracart\v2\models\EmailPerformanceCustomerHistogram $customer_histogram customer_histogram
+     *
+     * @return $this
+     */
+    public function setCustomerHistogram($customer_histogram)
+    {
+        $this->container['customer_histogram'] = $customer_histogram;
 
         return $this;
     }

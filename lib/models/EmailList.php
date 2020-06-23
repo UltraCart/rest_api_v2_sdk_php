@@ -65,7 +65,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'name' => 'string',
         'public_description' => 'string',
         'public_list' => 'bool',
-        'storefront_oid' => 'int'
+        'storefront_oid' => 'int',
+        'used_by' => '\ultracart\v2\models\EmailListSegmentUsedBy[]'
     ];
 
     /**
@@ -83,7 +84,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'name' => null,
         'public_description' => null,
         'public_list' => null,
-        'storefront_oid' => 'int32'
+        'storefront_oid' => 'int32',
+        'used_by' => null
     ];
 
     /**
@@ -122,7 +124,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'name' => 'name',
         'public_description' => 'public_description',
         'public_list' => 'public_list',
-        'storefront_oid' => 'storefront_oid'
+        'storefront_oid' => 'storefront_oid',
+        'used_by' => 'used_by'
     ];
 
     /**
@@ -140,7 +143,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'public_description' => 'setPublicDescription',
         'public_list' => 'setPublicList',
-        'storefront_oid' => 'setStorefrontOid'
+        'storefront_oid' => 'setStorefrontOid',
+        'used_by' => 'setUsedBy'
     ];
 
     /**
@@ -158,7 +162,8 @@ class EmailList implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'public_description' => 'getPublicDescription',
         'public_list' => 'getPublicList',
-        'storefront_oid' => 'getStorefrontOid'
+        'storefront_oid' => 'getStorefrontOid',
+        'used_by' => 'getUsedBy'
     ];
 
     /**
@@ -231,6 +236,7 @@ class EmailList implements ModelInterface, ArrayAccess
         $this->container['public_description'] = isset($data['public_description']) ? $data['public_description'] : null;
         $this->container['public_list'] = isset($data['public_list']) ? $data['public_list'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
+        $this->container['used_by'] = isset($data['used_by']) ? $data['used_by'] : null;
     }
 
     /**
@@ -505,6 +511,30 @@ class EmailList implements ModelInterface, ArrayAccess
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets used_by
+     *
+     * @return \ultracart\v2\models\EmailListSegmentUsedBy[]
+     */
+    public function getUsedBy()
+    {
+        return $this->container['used_by'];
+    }
+
+    /**
+     * Sets used_by
+     *
+     * @param \ultracart\v2\models\EmailListSegmentUsedBy[] $used_by Details on the flows or campaigns that use this list.
+     *
+     * @return $this
+     */
+    public function setUsedBy($used_by)
+    {
+        $this->container['used_by'] = $used_by;
 
         return $this;
     }

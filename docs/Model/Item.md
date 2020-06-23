@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **pricing** | [**\ultracart\v2\models\ItemPricing**](ItemPricing.md) |  | [optional] 
 **properties** | [**\ultracart\v2\models\ItemProperty[]**](ItemProperty.md) | Properties | [optional] 
 **realtime_pricing** | [**\ultracart\v2\models\ItemRealtimePricing**](ItemRealtimePricing.md) |  | [optional] 
+**recommend_replenishment_days** | **int** | Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable. | [optional] 
 **related** | [**\ultracart\v2\models\ItemRelated**](ItemRelated.md) |  | [optional] 
 **reporting** | [**\ultracart\v2\models\ItemReporting**](ItemReporting.md) |  | [optional] 
 **restriction** | [**\ultracart\v2\models\ItemRestriction**](ItemRestriction.md) |  | [optional] 

@@ -57,11 +57,13 @@ class EmailFlow implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'allow_multiple_concurrent_enrollments' => 'bool',
+        'back_populating' => 'bool',
         'click_rate_formatted' => 'string',
         'created_dts' => 'string',
         'deleted' => 'bool',
         'email_communication_sequence_uuid' => 'string',
         'email_flow_uuid' => 'string',
+        'enrolled_customers' => 'int',
         'esp_domain_user' => 'string',
         'esp_domain_uuid' => 'string',
         'esp_friendly_name' => 'string',
@@ -85,11 +87,13 @@ class EmailFlow implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'allow_multiple_concurrent_enrollments' => null,
+        'back_populating' => null,
         'click_rate_formatted' => null,
         'created_dts' => 'dateTime',
         'deleted' => null,
         'email_communication_sequence_uuid' => null,
         'email_flow_uuid' => null,
+        'enrolled_customers' => 'int32',
         'esp_domain_user' => null,
         'esp_domain_uuid' => null,
         'esp_friendly_name' => null,
@@ -134,11 +138,13 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'allow_multiple_concurrent_enrollments' => 'allow_multiple_concurrent_enrollments',
+        'back_populating' => 'back_populating',
         'click_rate_formatted' => 'click_rate_formatted',
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
         'email_flow_uuid' => 'email_flow_uuid',
+        'enrolled_customers' => 'enrolled_customers',
         'esp_domain_user' => 'esp_domain_user',
         'esp_domain_uuid' => 'esp_domain_uuid',
         'esp_friendly_name' => 'esp_friendly_name',
@@ -162,11 +168,13 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'allow_multiple_concurrent_enrollments' => 'setAllowMultipleConcurrentEnrollments',
+        'back_populating' => 'setBackPopulating',
         'click_rate_formatted' => 'setClickRateFormatted',
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
         'email_flow_uuid' => 'setEmailFlowUuid',
+        'enrolled_customers' => 'setEnrolledCustomers',
         'esp_domain_user' => 'setEspDomainUser',
         'esp_domain_uuid' => 'setEspDomainUuid',
         'esp_friendly_name' => 'setEspFriendlyName',
@@ -190,11 +198,13 @@ class EmailFlow implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'allow_multiple_concurrent_enrollments' => 'getAllowMultipleConcurrentEnrollments',
+        'back_populating' => 'getBackPopulating',
         'click_rate_formatted' => 'getClickRateFormatted',
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
         'email_flow_uuid' => 'getEmailFlowUuid',
+        'enrolled_customers' => 'getEnrolledCustomers',
         'esp_domain_user' => 'getEspDomainUser',
         'esp_domain_uuid' => 'getEspDomainUuid',
         'esp_friendly_name' => 'getEspFriendlyName',
@@ -272,11 +282,13 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['allow_multiple_concurrent_enrollments'] = isset($data['allow_multiple_concurrent_enrollments']) ? $data['allow_multiple_concurrent_enrollments'] : null;
+        $this->container['back_populating'] = isset($data['back_populating']) ? $data['back_populating'] : null;
         $this->container['click_rate_formatted'] = isset($data['click_rate_formatted']) ? $data['click_rate_formatted'] : null;
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
         $this->container['email_flow_uuid'] = isset($data['email_flow_uuid']) ? $data['email_flow_uuid'] : null;
+        $this->container['enrolled_customers'] = isset($data['enrolled_customers']) ? $data['enrolled_customers'] : null;
         $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
         $this->container['esp_friendly_name'] = isset($data['esp_friendly_name']) ? $data['esp_friendly_name'] : null;
@@ -345,6 +357,30 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function setAllowMultipleConcurrentEnrollments($allow_multiple_concurrent_enrollments)
     {
         $this->container['allow_multiple_concurrent_enrollments'] = $allow_multiple_concurrent_enrollments;
+
+        return $this;
+    }
+
+    /**
+     * Gets back_populating
+     *
+     * @return bool
+     */
+    public function getBackPopulating()
+    {
+        return $this->container['back_populating'];
+    }
+
+    /**
+     * Sets back_populating
+     *
+     * @param bool $back_populating True if the flow is currently performing a back population.
+     *
+     * @return $this
+     */
+    public function setBackPopulating($back_populating)
+    {
+        $this->container['back_populating'] = $back_populating;
 
         return $this;
     }
@@ -465,6 +501,30 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function setEmailFlowUuid($email_flow_uuid)
     {
         $this->container['email_flow_uuid'] = $email_flow_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets enrolled_customers
+     *
+     * @return int
+     */
+    public function getEnrolledCustomers()
+    {
+        return $this->container['enrolled_customers'];
+    }
+
+    /**
+     * Sets enrolled_customers
+     *
+     * @param int $enrolled_customers Number of enrolled customers.
+     *
+     * @return $this
+     */
+    public function setEnrolledCustomers($enrolled_customers)
+    {
+        $this->container['enrolled_customers'] = $enrolled_customers;
 
         return $this;
     }

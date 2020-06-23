@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailCustomer
+ * LibraryItemAsset
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailCustomer Class Doc Comment
+ * LibraryItemAsset Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailCustomer implements ModelInterface, ArrayAccess
+class LibraryItemAsset implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailCustomer';
+    protected static $swaggerModelName = 'LibraryItemAsset';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,8 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active' => 'bool',
-        'email' => 'string',
-        'email_customer_uuid' => 'string',
-        'first_name' => 'string',
-        'last_interaction_dts' => 'string',
-        'last_name' => 'string'
+        'mime_type' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -70,12 +66,8 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'active' => null,
-        'email' => null,
-        'email_customer_uuid' => null,
-        'first_name' => null,
-        'last_interaction_dts' => 'dateTime',
-        'last_name' => null
+        'mime_type' => null,
+        'url' => null
     ];
 
     /**
@@ -105,12 +97,8 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'active' => 'active',
-        'email' => 'email',
-        'email_customer_uuid' => 'email_customer_uuid',
-        'first_name' => 'first_name',
-        'last_interaction_dts' => 'last_interaction_dts',
-        'last_name' => 'last_name'
+        'mime_type' => 'mime_type',
+        'url' => 'url'
     ];
 
     /**
@@ -119,12 +107,8 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'active' => 'setActive',
-        'email' => 'setEmail',
-        'email_customer_uuid' => 'setEmailCustomerUuid',
-        'first_name' => 'setFirstName',
-        'last_interaction_dts' => 'setLastInteractionDts',
-        'last_name' => 'setLastName'
+        'mime_type' => 'setMimeType',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -133,12 +117,8 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'active' => 'getActive',
-        'email' => 'getEmail',
-        'email_customer_uuid' => 'getEmailCustomerUuid',
-        'first_name' => 'getFirstName',
-        'last_interaction_dts' => 'getLastInteractionDts',
-        'last_name' => 'getLastName'
+        'mime_type' => 'getMimeType',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -201,12 +181,8 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['email_customer_uuid'] = isset($data['email_customer_uuid']) ? $data['email_customer_uuid'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_interaction_dts'] = isset($data['last_interaction_dts']) ? $data['last_interaction_dts'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -235,145 +211,49 @@ class EmailCustomer implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets active
+     * Gets mime_type
      *
-     * @return bool
+     * @return string
      */
-    public function getActive()
+    public function getMimeType()
     {
-        return $this->container['active'];
+        return $this->container['mime_type'];
     }
 
     /**
-     * Sets active
+     * Sets mime_type
      *
-     * @param bool $active True if the customer is flagged as active within StoreFront Communications
+     * @param string $mime_type mime_type
      *
      * @return $this
      */
-    public function setActive($active)
+    public function setMimeType($mime_type)
     {
-        $this->container['active'] = $active;
+        $this->container['mime_type'] = $mime_type;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets url
      *
      * @return string
      */
-    public function getEmail()
+    public function getUrl()
     {
-        return $this->container['email'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets email
+     * Sets url
      *
-     * @param string $email Email
+     * @param string $url url
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setUrl($url)
     {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets email_customer_uuid
-     *
-     * @return string
-     */
-    public function getEmailCustomerUuid()
-    {
-        return $this->container['email_customer_uuid'];
-    }
-
-    /**
-     * Sets email_customer_uuid
-     *
-     * @param string $email_customer_uuid Email customer UUID
-     *
-     * @return $this
-     */
-    public function setEmailCustomerUuid($email_customer_uuid)
-    {
-        $this->container['email_customer_uuid'] = $email_customer_uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string $first_name First name
-     *
-     * @return $this
-     */
-    public function setFirstName($first_name)
-    {
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_interaction_dts
-     *
-     * @return string
-     */
-    public function getLastInteractionDts()
-    {
-        return $this->container['last_interaction_dts'];
-    }
-
-    /**
-     * Sets last_interaction_dts
-     *
-     * @param string $last_interaction_dts Last interaction
-     *
-     * @return $this
-     */
-    public function setLastInteractionDts($last_interaction_dts)
-    {
-        $this->container['last_interaction_dts'] = $last_interaction_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string $last_name Last name
-     *
-     * @return $this
-     */
-    public function setLastName($last_name)
-    {
-        $this->container['last_name'] = $last_name;
+        $this->container['url'] = $url;
 
         return $this;
     }

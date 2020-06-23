@@ -92,6 +92,7 @@ class Item implements ModelInterface, ArrayAccess
         'pricing' => '\ultracart\v2\models\ItemPricing',
         'properties' => '\ultracart\v2\models\ItemProperty[]',
         'realtime_pricing' => '\ultracart\v2\models\ItemRealtimePricing',
+        'recommend_replenishment_days' => 'int',
         'related' => '\ultracart\v2\models\ItemRelated',
         'reporting' => '\ultracart\v2\models\ItemReporting',
         'restriction' => '\ultracart\v2\models\ItemRestriction',
@@ -149,6 +150,7 @@ class Item implements ModelInterface, ArrayAccess
         'pricing' => null,
         'properties' => null,
         'realtime_pricing' => null,
+        'recommend_replenishment_days' => 'int32',
         'related' => null,
         'reporting' => null,
         'restriction' => null,
@@ -227,6 +229,7 @@ class Item implements ModelInterface, ArrayAccess
         'pricing' => 'pricing',
         'properties' => 'properties',
         'realtime_pricing' => 'realtime_pricing',
+        'recommend_replenishment_days' => 'recommend_replenishment_days',
         'related' => 'related',
         'reporting' => 'reporting',
         'restriction' => 'restriction',
@@ -284,6 +287,7 @@ class Item implements ModelInterface, ArrayAccess
         'pricing' => 'setPricing',
         'properties' => 'setProperties',
         'realtime_pricing' => 'setRealtimePricing',
+        'recommend_replenishment_days' => 'setRecommendReplenishmentDays',
         'related' => 'setRelated',
         'reporting' => 'setReporting',
         'restriction' => 'setRestriction',
@@ -341,6 +345,7 @@ class Item implements ModelInterface, ArrayAccess
         'pricing' => 'getPricing',
         'properties' => 'getProperties',
         'realtime_pricing' => 'getRealtimePricing',
+        'recommend_replenishment_days' => 'getRecommendReplenishmentDays',
         'related' => 'getRelated',
         'reporting' => 'getReporting',
         'restriction' => 'getRestriction',
@@ -452,6 +457,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['pricing'] = isset($data['pricing']) ? $data['pricing'] : null;
         $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['realtime_pricing'] = isset($data['realtime_pricing']) ? $data['realtime_pricing'] : null;
+        $this->container['recommend_replenishment_days'] = isset($data['recommend_replenishment_days']) ? $data['recommend_replenishment_days'] : null;
         $this->container['related'] = isset($data['related']) ? $data['related'] : null;
         $this->container['reporting'] = isset($data['reporting']) ? $data['reporting'] : null;
         $this->container['restriction'] = isset($data['restriction']) ? $data['restriction'] : null;
@@ -1385,6 +1391,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setRealtimePricing($realtime_pricing)
     {
         $this->container['realtime_pricing'] = $realtime_pricing;
+
+        return $this;
+    }
+
+    /**
+     * Gets recommend_replenishment_days
+     *
+     * @return int
+     */
+    public function getRecommendReplenishmentDays()
+    {
+        return $this->container['recommend_replenishment_days'];
+    }
+
+    /**
+     * Sets recommend_replenishment_days
+     *
+     * @param int $recommend_replenishment_days Number of days to recommend replenishment after.  Null is not configured.  Set to zero to disable.
+     *
+     * @return $this
+     */
+    public function setRecommendReplenishmentDays($recommend_replenishment_days)
+    {
+        $this->container['recommend_replenishment_days'] = $recommend_replenishment_days;
 
         return $this;
     }

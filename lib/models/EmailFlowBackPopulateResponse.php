@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailCustomer
+ * EmailFlowBackPopulateResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailCustomer Class Doc Comment
+ * EmailFlowBackPopulateResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailCustomer implements ModelInterface, ArrayAccess
+class EmailFlowBackPopulateResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailCustomer';
+    protected static $swaggerModelName = 'EmailFlowBackPopulateResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,9 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active' => 'bool',
-        'email' => 'string',
-        'email_customer_uuid' => 'string',
-        'first_name' => 'string',
-        'last_interaction_dts' => 'string',
-        'last_name' => 'string'
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool'
     ];
 
     /**
@@ -70,12 +67,9 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'active' => null,
-        'email' => null,
-        'email_customer_uuid' => null,
-        'first_name' => null,
-        'last_interaction_dts' => 'dateTime',
-        'last_name' => null
+        'error' => null,
+        'metadata' => null,
+        'success' => null
     ];
 
     /**
@@ -105,12 +99,9 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'active' => 'active',
-        'email' => 'email',
-        'email_customer_uuid' => 'email_customer_uuid',
-        'first_name' => 'first_name',
-        'last_interaction_dts' => 'last_interaction_dts',
-        'last_name' => 'last_name'
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success'
     ];
 
     /**
@@ -119,12 +110,9 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'active' => 'setActive',
-        'email' => 'setEmail',
-        'email_customer_uuid' => 'setEmailCustomerUuid',
-        'first_name' => 'setFirstName',
-        'last_interaction_dts' => 'setLastInteractionDts',
-        'last_name' => 'setLastName'
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -133,12 +121,9 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'active' => 'getActive',
-        'email' => 'getEmail',
-        'email_customer_uuid' => 'getEmailCustomerUuid',
-        'first_name' => 'getFirstName',
-        'last_interaction_dts' => 'getLastInteractionDts',
-        'last_name' => 'getLastName'
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -201,12 +186,9 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['email_customer_uuid'] = isset($data['email_customer_uuid']) ? $data['email_customer_uuid'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_interaction_dts'] = isset($data['last_interaction_dts']) ? $data['last_interaction_dts'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -235,145 +217,73 @@ class EmailCustomer implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets active
+     * Gets error
+     *
+     * @return \ultracart\v2\models\Error
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param \ultracart\v2\models\Error $error error
+     *
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
      *
      * @return bool
      */
-    public function getActive()
+    public function getSuccess()
     {
-        return $this->container['active'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets active
+     * Sets success
      *
-     * @param bool $active True if the customer is flagged as active within StoreFront Communications
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setActive($active)
+    public function setSuccess($success)
     {
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string $email Email
-     *
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets email_customer_uuid
-     *
-     * @return string
-     */
-    public function getEmailCustomerUuid()
-    {
-        return $this->container['email_customer_uuid'];
-    }
-
-    /**
-     * Sets email_customer_uuid
-     *
-     * @param string $email_customer_uuid Email customer UUID
-     *
-     * @return $this
-     */
-    public function setEmailCustomerUuid($email_customer_uuid)
-    {
-        $this->container['email_customer_uuid'] = $email_customer_uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string $first_name First name
-     *
-     * @return $this
-     */
-    public function setFirstName($first_name)
-    {
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_interaction_dts
-     *
-     * @return string
-     */
-    public function getLastInteractionDts()
-    {
-        return $this->container['last_interaction_dts'];
-    }
-
-    /**
-     * Sets last_interaction_dts
-     *
-     * @param string $last_interaction_dts Last interaction
-     *
-     * @return $this
-     */
-    public function setLastInteractionDts($last_interaction_dts)
-    {
-        $this->container['last_interaction_dts'] = $last_interaction_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string $last_name Last name
-     *
-     * @return $this
-     */
-    public function setLastName($last_name)
-    {
-        $this->container['last_name'] = $last_name;
+        $this->container['success'] = $success;
 
         return $this;
     }

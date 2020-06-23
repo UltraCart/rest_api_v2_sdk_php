@@ -58,6 +58,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'assignments' => '\ultracart\v2\models\ItemContentAssignment[]',
         'attributes' => '\ultracart\v2\models\ItemContentAttribute[]',
+        'custom_thank_you_url' => 'string',
         'exclude_from_search' => 'bool',
         'exclude_from_top_sellers' => 'bool',
         'extended_description' => 'string',
@@ -77,6 +78,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'assignments' => null,
         'attributes' => null,
+        'custom_thank_you_url' => null,
         'exclude_from_search' => null,
         'exclude_from_top_sellers' => null,
         'extended_description' => null,
@@ -117,6 +119,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'assignments' => 'assignments',
         'attributes' => 'attributes',
+        'custom_thank_you_url' => 'custom_thank_you_url',
         'exclude_from_search' => 'exclude_from_search',
         'exclude_from_top_sellers' => 'exclude_from_top_sellers',
         'extended_description' => 'extended_description',
@@ -136,6 +139,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     protected static $setters = [
         'assignments' => 'setAssignments',
         'attributes' => 'setAttributes',
+        'custom_thank_you_url' => 'setCustomThankYouUrl',
         'exclude_from_search' => 'setExcludeFromSearch',
         'exclude_from_top_sellers' => 'setExcludeFromTopSellers',
         'extended_description' => 'setExtendedDescription',
@@ -155,6 +159,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     protected static $getters = [
         'assignments' => 'getAssignments',
         'attributes' => 'getAttributes',
+        'custom_thank_you_url' => 'getCustomThankYouUrl',
         'exclude_from_search' => 'getExcludeFromSearch',
         'exclude_from_top_sellers' => 'getExcludeFromTopSellers',
         'extended_description' => 'getExtendedDescription',
@@ -228,6 +233,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     {
         $this->container['assignments'] = isset($data['assignments']) ? $data['assignments'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['custom_thank_you_url'] = isset($data['custom_thank_you_url']) ? $data['custom_thank_you_url'] : null;
         $this->container['exclude_from_search'] = isset($data['exclude_from_search']) ? $data['exclude_from_search'] : null;
         $this->container['exclude_from_top_sellers'] = isset($data['exclude_from_top_sellers']) ? $data['exclude_from_top_sellers'] : null;
         $this->container['extended_description'] = isset($data['extended_description']) ? $data['extended_description'] : null;
@@ -315,6 +321,30 @@ class ItemContent implements ModelInterface, ArrayAccess
     public function setAttributes($attributes)
     {
         $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_thank_you_url
+     *
+     * @return string
+     */
+    public function getCustomThankYouUrl()
+    {
+        return $this->container['custom_thank_you_url'];
+    }
+
+    /**
+     * Sets custom_thank_you_url
+     *
+     * @param string $custom_thank_you_url Custom Thank You URL
+     *
+     * @return $this
+     */
+    public function setCustomThankYouUrl($custom_thank_you_url)
+    {
+        $this->container['custom_thank_you_url'] = $custom_thank_you_url;
 
         return $this;
     }

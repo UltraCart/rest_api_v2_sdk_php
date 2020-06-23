@@ -58,6 +58,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'additional_customers' => 'int',
         'additional_emails' => 'int',
+        'allow_list_import' => 'bool',
         'customer_tiers' => '\ultracart\v2\models\EmailPlanAdditional[]',
         'initial_sending_limits' => 'int',
         'plan_customers' => 'int',
@@ -79,6 +80,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'additional_customers' => 'int32',
         'additional_emails' => 'int32',
+        'allow_list_import' => null,
         'customer_tiers' => null,
         'initial_sending_limits' => 'int32',
         'plan_customers' => 'int32',
@@ -121,6 +123,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'additional_customers' => 'additional_customers',
         'additional_emails' => 'additional_emails',
+        'allow_list_import' => 'allow_list_import',
         'customer_tiers' => 'customer_tiers',
         'initial_sending_limits' => 'initial_sending_limits',
         'plan_customers' => 'plan_customers',
@@ -142,6 +145,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $setters = [
         'additional_customers' => 'setAdditionalCustomers',
         'additional_emails' => 'setAdditionalEmails',
+        'allow_list_import' => 'setAllowListImport',
         'customer_tiers' => 'setCustomerTiers',
         'initial_sending_limits' => 'setInitialSendingLimits',
         'plan_customers' => 'setPlanCustomers',
@@ -163,6 +167,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $getters = [
         'additional_customers' => 'getAdditionalCustomers',
         'additional_emails' => 'getAdditionalEmails',
+        'allow_list_import' => 'getAllowListImport',
         'customer_tiers' => 'getCustomerTiers',
         'initial_sending_limits' => 'getInitialSendingLimits',
         'plan_customers' => 'getPlanCustomers',
@@ -238,6 +243,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     {
         $this->container['additional_customers'] = isset($data['additional_customers']) ? $data['additional_customers'] : null;
         $this->container['additional_emails'] = isset($data['additional_emails']) ? $data['additional_emails'] : null;
+        $this->container['allow_list_import'] = isset($data['allow_list_import']) ? $data['allow_list_import'] : null;
         $this->container['customer_tiers'] = isset($data['customer_tiers']) ? $data['customer_tiers'] : null;
         $this->container['initial_sending_limits'] = isset($data['initial_sending_limits']) ? $data['initial_sending_limits'] : null;
         $this->container['plan_customers'] = isset($data['plan_customers']) ? $data['plan_customers'] : null;
@@ -320,6 +326,30 @@ class EmailPlan implements ModelInterface, ArrayAccess
     public function setAdditionalEmails($additional_emails)
     {
         $this->container['additional_emails'] = $additional_emails;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_list_import
+     *
+     * @return bool
+     */
+    public function getAllowListImport()
+    {
+        return $this->container['allow_list_import'];
+    }
+
+    /**
+     * Sets allow_list_import
+     *
+     * @param bool $allow_list_import allow_list_import
+     *
+     * @return $this
+     */
+    public function setAllowListImport($allow_list_import)
+    {
+        $this->container['allow_list_import'] = $allow_list_import;
 
         return $this;
     }

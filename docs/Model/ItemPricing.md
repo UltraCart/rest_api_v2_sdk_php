@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allow_arbitrary_cost** | **bool** | Allow arbitrary cost | [optional] 
 **arbitrary_cost_velocity_code** | **string** | Arbitrary cost velocity code | [optional] 
+**auto_order_cost** | **float** | Cost if customer selects to receive item on auto order.  Set to zero to delete. | [optional] 
 **automatic_pricing_tier_name** | **string** | Automatic pricing tier name | [optional] 
 **automatic_pricing_tier_oid** | **int** | Automatic pricing tier object identifier | [optional] 
 **cogs** | **float** | Cost of goods sold | [optional] 

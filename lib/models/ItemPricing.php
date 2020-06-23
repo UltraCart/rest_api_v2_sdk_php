@@ -58,6 +58,7 @@ class ItemPricing implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'allow_arbitrary_cost' => 'bool',
         'arbitrary_cost_velocity_code' => 'string',
+        'auto_order_cost' => 'float',
         'automatic_pricing_tier_name' => 'string',
         'automatic_pricing_tier_oid' => 'int',
         'cogs' => 'float',
@@ -83,6 +84,7 @@ class ItemPricing implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'allow_arbitrary_cost' => null,
         'arbitrary_cost_velocity_code' => null,
+        'auto_order_cost' => null,
         'automatic_pricing_tier_name' => null,
         'automatic_pricing_tier_oid' => 'int32',
         'cogs' => null,
@@ -129,6 +131,7 @@ class ItemPricing implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'allow_arbitrary_cost' => 'allow_arbitrary_cost',
         'arbitrary_cost_velocity_code' => 'arbitrary_cost_velocity_code',
+        'auto_order_cost' => 'auto_order_cost',
         'automatic_pricing_tier_name' => 'automatic_pricing_tier_name',
         'automatic_pricing_tier_oid' => 'automatic_pricing_tier_oid',
         'cogs' => 'cogs',
@@ -154,6 +157,7 @@ class ItemPricing implements ModelInterface, ArrayAccess
     protected static $setters = [
         'allow_arbitrary_cost' => 'setAllowArbitraryCost',
         'arbitrary_cost_velocity_code' => 'setArbitraryCostVelocityCode',
+        'auto_order_cost' => 'setAutoOrderCost',
         'automatic_pricing_tier_name' => 'setAutomaticPricingTierName',
         'automatic_pricing_tier_oid' => 'setAutomaticPricingTierOid',
         'cogs' => 'setCogs',
@@ -179,6 +183,7 @@ class ItemPricing implements ModelInterface, ArrayAccess
     protected static $getters = [
         'allow_arbitrary_cost' => 'getAllowArbitraryCost',
         'arbitrary_cost_velocity_code' => 'getArbitraryCostVelocityCode',
+        'auto_order_cost' => 'getAutoOrderCost',
         'automatic_pricing_tier_name' => 'getAutomaticPricingTierName',
         'automatic_pricing_tier_oid' => 'getAutomaticPricingTierOid',
         'cogs' => 'getCogs',
@@ -258,6 +263,7 @@ class ItemPricing implements ModelInterface, ArrayAccess
     {
         $this->container['allow_arbitrary_cost'] = isset($data['allow_arbitrary_cost']) ? $data['allow_arbitrary_cost'] : null;
         $this->container['arbitrary_cost_velocity_code'] = isset($data['arbitrary_cost_velocity_code']) ? $data['arbitrary_cost_velocity_code'] : null;
+        $this->container['auto_order_cost'] = isset($data['auto_order_cost']) ? $data['auto_order_cost'] : null;
         $this->container['automatic_pricing_tier_name'] = isset($data['automatic_pricing_tier_name']) ? $data['automatic_pricing_tier_name'] : null;
         $this->container['automatic_pricing_tier_oid'] = isset($data['automatic_pricing_tier_oid']) ? $data['automatic_pricing_tier_oid'] : null;
         $this->container['cogs'] = isset($data['cogs']) ? $data['cogs'] : null;
@@ -362,6 +368,30 @@ class ItemPricing implements ModelInterface, ArrayAccess
         }
 
         $this->container['arbitrary_cost_velocity_code'] = $arbitrary_cost_velocity_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_cost
+     *
+     * @return float
+     */
+    public function getAutoOrderCost()
+    {
+        return $this->container['auto_order_cost'];
+    }
+
+    /**
+     * Sets auto_order_cost
+     *
+     * @param float $auto_order_cost Cost if customer selects to receive item on auto order.  Set to zero to delete.
+     *
+     * @return $this
+     */
+    public function setAutoOrderCost($auto_order_cost)
+    {
+        $this->container['auto_order_cost'] = $auto_order_cost;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailCustomer
+ * EmailCustomersResponse
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailCustomer Class Doc Comment
+ * EmailCustomersResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailCustomer implements ModelInterface, ArrayAccess
+class EmailCustomersResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailCustomer';
+    protected static $swaggerModelName = 'EmailCustomersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,11 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'active' => 'bool',
-        'email' => 'string',
-        'email_customer_uuid' => 'string',
-        'first_name' => 'string',
-        'last_interaction_dts' => 'string',
-        'last_name' => 'string'
+        'customers' => '\ultracart\v2\models\EmailCustomer[]',
+        'page_number' => 'int',
+        'page_size' => 'int',
+        'total_customers' => 'int',
+        'total_pages' => 'int'
     ];
 
     /**
@@ -70,12 +69,11 @@ class EmailCustomer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'active' => null,
-        'email' => null,
-        'email_customer_uuid' => null,
-        'first_name' => null,
-        'last_interaction_dts' => 'dateTime',
-        'last_name' => null
+        'customers' => null,
+        'page_number' => 'int32',
+        'page_size' => 'int32',
+        'total_customers' => 'int32',
+        'total_pages' => 'int32'
     ];
 
     /**
@@ -105,12 +103,11 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'active' => 'active',
-        'email' => 'email',
-        'email_customer_uuid' => 'email_customer_uuid',
-        'first_name' => 'first_name',
-        'last_interaction_dts' => 'last_interaction_dts',
-        'last_name' => 'last_name'
+        'customers' => 'customers',
+        'page_number' => 'page_number',
+        'page_size' => 'page_size',
+        'total_customers' => 'total_customers',
+        'total_pages' => 'total_pages'
     ];
 
     /**
@@ -119,12 +116,11 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'active' => 'setActive',
-        'email' => 'setEmail',
-        'email_customer_uuid' => 'setEmailCustomerUuid',
-        'first_name' => 'setFirstName',
-        'last_interaction_dts' => 'setLastInteractionDts',
-        'last_name' => 'setLastName'
+        'customers' => 'setCustomers',
+        'page_number' => 'setPageNumber',
+        'page_size' => 'setPageSize',
+        'total_customers' => 'setTotalCustomers',
+        'total_pages' => 'setTotalPages'
     ];
 
     /**
@@ -133,12 +129,11 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'active' => 'getActive',
-        'email' => 'getEmail',
-        'email_customer_uuid' => 'getEmailCustomerUuid',
-        'first_name' => 'getFirstName',
-        'last_interaction_dts' => 'getLastInteractionDts',
-        'last_name' => 'getLastName'
+        'customers' => 'getCustomers',
+        'page_number' => 'getPageNumber',
+        'page_size' => 'getPageSize',
+        'total_customers' => 'getTotalCustomers',
+        'total_pages' => 'getTotalPages'
     ];
 
     /**
@@ -201,12 +196,11 @@ class EmailCustomer implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['email_customer_uuid'] = isset($data['email_customer_uuid']) ? $data['email_customer_uuid'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_interaction_dts'] = isset($data['last_interaction_dts']) ? $data['last_interaction_dts'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['customers'] = isset($data['customers']) ? $data['customers'] : null;
+        $this->container['page_number'] = isset($data['page_number']) ? $data['page_number'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['total_customers'] = isset($data['total_customers']) ? $data['total_customers'] : null;
+        $this->container['total_pages'] = isset($data['total_pages']) ? $data['total_pages'] : null;
     }
 
     /**
@@ -235,145 +229,121 @@ class EmailCustomer implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets active
+     * Gets customers
      *
-     * @return bool
+     * @return \ultracart\v2\models\EmailCustomer[]
      */
-    public function getActive()
+    public function getCustomers()
     {
-        return $this->container['active'];
+        return $this->container['customers'];
     }
 
     /**
-     * Sets active
+     * Sets customers
      *
-     * @param bool $active True if the customer is flagged as active within StoreFront Communications
+     * @param \ultracart\v2\models\EmailCustomer[] $customers Customers on the page
      *
      * @return $this
      */
-    public function setActive($active)
+    public function setCustomers($customers)
     {
-        $this->container['active'] = $active;
+        $this->container['customers'] = $customers;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets page_number
      *
-     * @return string
+     * @return int
      */
-    public function getEmail()
+    public function getPageNumber()
     {
-        return $this->container['email'];
+        return $this->container['page_number'];
     }
 
     /**
-     * Sets email
+     * Sets page_number
      *
-     * @param string $email Email
+     * @param int $page_number Page number (one based offset)
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setPageNumber($page_number)
     {
-        $this->container['email'] = $email;
+        $this->container['page_number'] = $page_number;
 
         return $this;
     }
 
     /**
-     * Gets email_customer_uuid
+     * Gets page_size
      *
-     * @return string
+     * @return int
      */
-    public function getEmailCustomerUuid()
+    public function getPageSize()
     {
-        return $this->container['email_customer_uuid'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets email_customer_uuid
+     * Sets page_size
      *
-     * @param string $email_customer_uuid Email customer UUID
+     * @param int $page_size Number of records per page
      *
      * @return $this
      */
-    public function setEmailCustomerUuid($email_customer_uuid)
+    public function setPageSize($page_size)
     {
-        $this->container['email_customer_uuid'] = $email_customer_uuid;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets first_name
+     * Gets total_customers
      *
-     * @return string
+     * @return int
      */
-    public function getFirstName()
+    public function getTotalCustomers()
     {
-        return $this->container['first_name'];
+        return $this->container['total_customers'];
     }
 
     /**
-     * Sets first_name
+     * Sets total_customers
      *
-     * @param string $first_name First name
+     * @param int $total_customers Total customers
      *
      * @return $this
      */
-    public function setFirstName($first_name)
+    public function setTotalCustomers($total_customers)
     {
-        $this->container['first_name'] = $first_name;
+        $this->container['total_customers'] = $total_customers;
 
         return $this;
     }
 
     /**
-     * Gets last_interaction_dts
+     * Gets total_pages
      *
-     * @return string
+     * @return int
      */
-    public function getLastInteractionDts()
+    public function getTotalPages()
     {
-        return $this->container['last_interaction_dts'];
+        return $this->container['total_pages'];
     }
 
     /**
-     * Sets last_interaction_dts
+     * Sets total_pages
      *
-     * @param string $last_interaction_dts Last interaction
+     * @param int $total_pages Total number of pages
      *
      * @return $this
      */
-    public function setLastInteractionDts($last_interaction_dts)
+    public function setTotalPages($total_pages)
     {
-        $this->container['last_interaction_dts'] = $last_interaction_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string $last_name Last name
-     *
-     * @return $this
-     */
-    public function setLastName($last_name)
-    {
-        $this->container['last_name'] = $last_name;
+        $this->container['total_pages'] = $total_pages;
 
         return $this;
     }

@@ -56,6 +56,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'can_downgrade' => 'bool',
+        'can_upgrade' => 'bool',
         'cost' => 'float',
         'cost_formatted' => 'string',
         'customers' => 'int',
@@ -68,6 +70,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'can_downgrade' => null,
+        'can_upgrade' => null,
         'cost' => null,
         'cost_formatted' => null,
         'customers' => 'int32',
@@ -101,6 +105,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'can_downgrade' => 'can_downgrade',
+        'can_upgrade' => 'can_upgrade',
         'cost' => 'cost',
         'cost_formatted' => 'cost_formatted',
         'customers' => 'customers',
@@ -113,6 +119,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'can_downgrade' => 'setCanDowngrade',
+        'can_upgrade' => 'setCanUpgrade',
         'cost' => 'setCost',
         'cost_formatted' => 'setCostFormatted',
         'customers' => 'setCustomers',
@@ -125,6 +133,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'can_downgrade' => 'getCanDowngrade',
+        'can_upgrade' => 'getCanUpgrade',
         'cost' => 'getCost',
         'cost_formatted' => 'getCostFormatted',
         'customers' => 'getCustomers',
@@ -191,6 +201,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['can_downgrade'] = isset($data['can_downgrade']) ? $data['can_downgrade'] : null;
+        $this->container['can_upgrade'] = isset($data['can_upgrade']) ? $data['can_upgrade'] : null;
         $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
         $this->container['cost_formatted'] = isset($data['cost_formatted']) ? $data['cost_formatted'] : null;
         $this->container['customers'] = isset($data['customers']) ? $data['customers'] : null;
@@ -221,6 +233,54 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets can_downgrade
+     *
+     * @return bool
+     */
+    public function getCanDowngrade()
+    {
+        return $this->container['can_downgrade'];
+    }
+
+    /**
+     * Sets can_downgrade
+     *
+     * @param bool $can_downgrade can_downgrade
+     *
+     * @return $this
+     */
+    public function setCanDowngrade($can_downgrade)
+    {
+        $this->container['can_downgrade'] = $can_downgrade;
+
+        return $this;
+    }
+
+    /**
+     * Gets can_upgrade
+     *
+     * @return bool
+     */
+    public function getCanUpgrade()
+    {
+        return $this->container['can_upgrade'];
+    }
+
+    /**
+     * Sets can_upgrade
+     *
+     * @param bool $can_upgrade can_upgrade
+     *
+     * @return $this
+     */
+    public function setCanUpgrade($can_upgrade)
+    {
+        $this->container['can_upgrade'] = $can_upgrade;
+
+        return $this;
+    }
 
     /**
      * Gets cost

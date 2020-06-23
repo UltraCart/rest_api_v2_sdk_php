@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **bounce_count** | **int** | Bounce count | [optional] 
 **bounce_percentage** | **float** | bounce percentage rate based upon our look back window.  This should be under five percent or the account will be paused for sending. | [optional] 
 **bounce_percentage_formatted** | **string** | bounce percentage rate (formatted) based upon our look back window.  This should be under five percent or the account will be paused for sending. | [optional] 
+**customer_histogram** | [**\ultracart\v2\models\EmailPerformanceCustomerHistogram**](EmailPerformanceCustomerHistogram.md) |  | [optional] 
 **daily_stats** | [**\ultracart\v2\models\EmailPerformanceDaily[]**](EmailPerformanceDaily.md) | Daily statistics used for charting | [optional] 
 **delivered_count** | **int** | Delivered count | [optional] 
 **max_active_customers** | **int** | Maximum active customers allowed under their billing plan | [optional] 
