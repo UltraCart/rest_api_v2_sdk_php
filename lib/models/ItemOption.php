@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemOption Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -70,7 +70,7 @@ class ItemOption implements ModelInterface, ArrayAccess
         'required' => 'bool',
         'system_option' => 'bool',
         'type' => 'string',
-        'values' => '\ultracartv2\models\ItemOptionValue[]'
+        'values' => '\ultracart\v2\models\ItemOptionValue[]'
     ];
 
     /**
@@ -655,7 +655,7 @@ class ItemOption implements ModelInterface, ArrayAccess
     /**
      * Gets values
      *
-     * @return \ultracartv2\models\ItemOptionValue[]
+     * @return \ultracart\v2\models\ItemOptionValue[]
      */
     public function getValues()
     {
@@ -665,7 +665,7 @@ class ItemOption implements ModelInterface, ArrayAccess
     /**
      * Sets values
      *
-     * @param \ultracartv2\models\ItemOptionValue[] $values Values
+     * @param \ultracart\v2\models\ItemOptionValue[] $values Values
      *
      * @return $this
      */

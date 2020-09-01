@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemVariation Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -61,7 +61,7 @@ class ItemVariation implements ModelInterface, ArrayAccess
         'default_text_translated_text_instance_oid' => 'int',
         'name' => 'string',
         'name_translated_text_instance_oid' => 'int',
-        'options' => '\ultracartv2\models\ItemVariationOption[]'
+        'options' => '\ultracart\v2\models\ItemVariationOption[]'
     ];
 
     /**
@@ -343,7 +343,7 @@ class ItemVariation implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \ultracartv2\models\ItemVariationOption[]
+     * @return \ultracart\v2\models\ItemVariationOption[]
      */
     public function getOptions()
     {
@@ -353,7 +353,7 @@ class ItemVariation implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \ultracartv2\models\ItemVariationOption[] $options Options
+     * @param \ultracart\v2\models\ItemVariationOption[] $options Options
      *
      * @return $this
      */

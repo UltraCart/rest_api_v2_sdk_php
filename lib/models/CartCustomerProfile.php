@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartCustomerProfile Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,8 +60,8 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
         'allow_3rd_party_billing' => 'bool',
         'allow_cod' => 'bool',
         'allow_purchase_order' => 'bool',
-        'billing_addresses' => '\ultracartv2\models\CartCustomerProfileAddress[]',
-        'credit_cards' => '\ultracartv2\models\CartCustomerProfileCreditCard[]',
+        'billing_addresses' => '\ultracart\v2\models\CartCustomerProfileAddress[]',
+        'credit_cards' => '\ultracart\v2\models\CartCustomerProfileCreditCard[]',
         'customer_profile_oid' => 'int',
         'dhl_account_number' => 'string',
         'dhl_duty_account_number' => 'string',
@@ -76,7 +76,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
         'no_free_shipping' => 'bool',
         'no_realtime_charge' => 'bool',
         'pricing_tiers' => 'string[]',
-        'shipping_addresses' => '\ultracartv2\models\CartCustomerProfileAddress[]',
+        'shipping_addresses' => '\ultracart\v2\models\CartCustomerProfileAddress[]',
         'tax_exempt' => 'bool',
         'ups_account_number' => 'string'
     ];
@@ -405,7 +405,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Gets billing_addresses
      *
-     * @return \ultracartv2\models\CartCustomerProfileAddress[]
+     * @return \ultracart\v2\models\CartCustomerProfileAddress[]
      */
     public function getBillingAddresses()
     {
@@ -415,7 +415,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Sets billing_addresses
      *
-     * @param \ultracartv2\models\CartCustomerProfileAddress[] $billing_addresses Billing addresses on file for this profile
+     * @param \ultracart\v2\models\CartCustomerProfileAddress[] $billing_addresses Billing addresses on file for this profile
      *
      * @return $this
      */
@@ -429,7 +429,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Gets credit_cards
      *
-     * @return \ultracartv2\models\CartCustomerProfileCreditCard[]
+     * @return \ultracart\v2\models\CartCustomerProfileCreditCard[]
      */
     public function getCreditCards()
     {
@@ -439,7 +439,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Sets credit_cards
      *
-     * @param \ultracartv2\models\CartCustomerProfileCreditCard[] $credit_cards Credit cards on file for this profile (masked)
+     * @param \ultracart\v2\models\CartCustomerProfileCreditCard[] $credit_cards Credit cards on file for this profile (masked)
      *
      * @return $this
      */
@@ -789,7 +789,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_addresses
      *
-     * @return \ultracartv2\models\CartCustomerProfileAddress[]
+     * @return \ultracart\v2\models\CartCustomerProfileAddress[]
      */
     public function getShippingAddresses()
     {
@@ -799,7 +799,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_addresses
      *
-     * @param \ultracartv2\models\CartCustomerProfileAddress[] $shipping_addresses Shipping addresses on file for this profile
+     * @param \ultracart\v2\models\CartCustomerProfileAddress[] $shipping_addresses Shipping addresses on file for this profile
      *
      * @return $this
      */

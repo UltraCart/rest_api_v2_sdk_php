@@ -1,4 +1,4 @@
-# ultracartv2\OrderApi
+# ultracart\v2\OrderApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **cancelOrder**
-> \ultracartv2\models\BaseResponse cancelOrder($order_id)
+> \ultracart\v2\models\BaseResponse cancelOrder($order_id)
 
 Cancel an order
 
@@ -38,16 +38,16 @@ Cancel an order on the UltraCart account.  If the success flag is false, then co
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\BaseResponse**](../Model/BaseResponse.md)
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
 
 ### Authorization
 
@@ -99,16 +99,16 @@ Delete an order on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -147,7 +147,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **format**
-> \ultracartv2\models\OrderFormatResponse format($order_id, $format_options)
+> \ultracart\v2\models\OrderFormatResponse format($order_id, $format_options)
 
 Format order
 
@@ -159,16 +159,16 @@ Format the order for display at text or html
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -176,7 +176,7 @@ $api_instance = new ultracartv2\api\OrderApi(
 );
 
 $order_id = "order_id_example"; // string | The order id to format
-$format_options = new \ultracartv2\models\OrderFormat(); // \ultracartv2\models\OrderFormat | Format options
+$format_options = new \ultracart\v2\models\OrderFormat(); // \ultracart\v2\models\OrderFormat | Format options
 
 try {
     $result = $apiInstance->format($order_id, $format_options);
@@ -192,11 +192,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| The order id to format |
- **format_options** | [**\ultracartv2\models\OrderFormat**](../Model/OrderFormat.md)| Format options |
+ **format_options** | [**\ultracart\v2\models\OrderFormat**](../Model/OrderFormat.md)| Format options |
 
 ### Return type
 
-[**\ultracartv2\models\OrderFormatResponse**](../Model/OrderFormatResponse.md)
+[**\ultracart\v2\models\OrderFormatResponse**](../Model/OrderFormatResponse.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generateOrderToken**
-> \ultracartv2\models\OrderTokenResponse generateOrderToken($order_id)
+> \ultracart\v2\models\OrderTokenResponse generateOrderToken($order_id)
 
 Generate an order token for a given order id
 
@@ -222,16 +222,16 @@ Retrieves a single order token for a given order id.  The token can be used with
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\OrderTokenResponse**](../Model/OrderTokenResponse.md)
+[**\ultracart\v2\models\OrderTokenResponse**](../Model/OrderTokenResponse.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccountsReceivableRetryConfig**
-> \ultracartv2\models\AccountsReceivableRetryConfigResponse getAccountsReceivableRetryConfig()
+> \ultracart\v2\models\AccountsReceivableRetryConfigResponse getAccountsReceivableRetryConfig()
 
 Retrieve A/R Retry Configuration
 
@@ -283,16 +283,16 @@ Retrieve A/R Retry Configuration. This is primarily an internal API call.  It is
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -314,7 +314,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\AccountsReceivableRetryConfigResponse**](../Model/AccountsReceivableRetryConfigResponse.md)
+[**\ultracart\v2\models\AccountsReceivableRetryConfigResponse**](../Model/AccountsReceivableRetryConfigResponse.md)
 
 ### Authorization
 
@@ -328,7 +328,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccountsReceivableRetryStats**
-> \ultracartv2\models\AccountsReceivableRetryStatsResponse getAccountsReceivableRetryStats($from, $to)
+> \ultracart\v2\models\AccountsReceivableRetryStatsResponse getAccountsReceivableRetryStats($from, $to)
 
 Retrieve A/R Retry Statistics
 
@@ -340,16 +340,16 @@ Retrieve A/R Retry Statistics. This is primarily an internal API call.  It is do
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -377,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\AccountsReceivableRetryStatsResponse**](../Model/AccountsReceivableRetryStatsResponse.md)
+[**\ultracart\v2\models\AccountsReceivableRetryStatsResponse**](../Model/AccountsReceivableRetryStatsResponse.md)
 
 ### Authorization
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrder**
-> \ultracartv2\models\OrderResponse getOrder($order_id, $_expand)
+> \ultracart\v2\models\OrderResponse getOrder($order_id, $_expand)
 
 Retrieve an order
 
@@ -403,16 +403,16 @@ Retrieves a single order using the specified order id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\OrderResponse**](../Model/OrderResponse.md)
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
 
 ### Authorization
 
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrderByToken**
-> \ultracartv2\models\OrderResponse getOrderByToken($order_by_token_query, $_expand)
+> \ultracart\v2\models\OrderResponse getOrderByToken($order_by_token_query, $_expand)
 
 Retrieve an order using a token
 
@@ -466,23 +466,23 @@ Retrieves a single order using the specified order token.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$order_by_token_query = new \ultracartv2\models\OrderByTokenQuery(); // \ultracartv2\models\OrderByTokenQuery | Order by token query
+$order_by_token_query = new \ultracart\v2\models\OrderByTokenQuery(); // \ultracart\v2\models\OrderByTokenQuery | Order by token query
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -498,12 +498,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_by_token_query** | [**\ultracartv2\models\OrderByTokenQuery**](../Model/OrderByTokenQuery.md)| Order by token query |
+ **order_by_token_query** | [**\ultracart\v2\models\OrderByTokenQuery**](../Model/OrderByTokenQuery.md)| Order by token query |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracartv2\models\OrderResponse**](../Model/OrderResponse.md)
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
 
 ### Authorization
 
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrders**
-> \ultracartv2\models\OrdersResponse getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $_limit, $_offset, $_sort, $_expand)
+> \ultracart\v2\models\OrdersResponse getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve orders
 
@@ -529,16 +529,16 @@ Retrieves a group of orders from the account.  If no parameters are specified, t
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
 
 ### Authorization
 
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrdersBatch**
-> \ultracartv2\models\OrdersResponse getOrdersBatch($order_batch, $_expand)
+> \ultracart\v2\models\OrdersResponse getOrdersBatch($order_batch, $_expand)
 
 Retrieve order batch
 
@@ -656,23 +656,23 @@ Retrieves a group of orders from the account based on an array of order ids.  If
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$order_batch = new \ultracartv2\models\OrderQueryBatch(); // \ultracartv2\models\OrderQueryBatch | Order batch
+$order_batch = new \ultracart\v2\models\OrderQueryBatch(); // \ultracart\v2\models\OrderQueryBatch | Order batch
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.
 
 try {
@@ -688,12 +688,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_batch** | [**\ultracartv2\models\OrderQueryBatch**](../Model/OrderQueryBatch.md)| Order batch |
+ **order_batch** | [**\ultracart\v2\models\OrderQueryBatch**](../Model/OrderQueryBatch.md)| Order batch |
  **_expand** | **string**| The object expansion to perform on the result. | [optional]
 
 ### Return type
 
-[**\ultracartv2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
 
 ### Authorization
 
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrdersByQuery**
-> \ultracartv2\models\OrdersResponse getOrdersByQuery($order_query, $_limit, $_offset, $_sort, $_expand)
+> \ultracart\v2\models\OrdersResponse getOrdersByQuery($order_query, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve orders
 
@@ -719,23 +719,23 @@ Retrieves a group of orders from the account based on a query object.  If no par
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$order_query = new \ultracartv2\models\OrderQuery(); // \ultracartv2\models\OrderQuery | Order query
+$order_query = new \ultracart\v2\models\OrderQuery(); // \ultracart\v2\models\OrderQuery | Order query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_sort = "_sort_example"; // string | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -754,7 +754,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_query** | [**\ultracartv2\models\OrderQuery**](../Model/OrderQuery.md)| Order query |
+ **order_query** | [**\ultracart\v2\models\OrderQuery**](../Model/OrderQuery.md)| Order query |
  **_limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_sort** | **string**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
@@ -762,7 +762,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
 
 ### Authorization
 
@@ -776,7 +776,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **insertOrder**
-> \ultracartv2\models\OrderResponse insertOrder($order, $_expand)
+> \ultracart\v2\models\OrderResponse insertOrder($order, $_expand)
 
 Insert an order
 
@@ -788,23 +788,23 @@ Inserts a new order on the UltraCart account.  This is probably NOT the method y
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$order = new \ultracartv2\models\Order(); // \ultracartv2\models\Order | Order to insert
+$order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to insert
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -820,12 +820,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order** | [**\ultracartv2\models\Order**](../Model/Order.md)| Order to insert |
+ **order** | [**\ultracart\v2\models\Order**](../Model/Order.md)| Order to insert |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracartv2\models\OrderResponse**](../Model/OrderResponse.md)
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
 
 ### Authorization
 
@@ -839,7 +839,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **processPayment**
-> \ultracartv2\models\OrderProcessPaymentResponse processPayment($order_id, $process_payment_request)
+> \ultracart\v2\models\OrderProcessPaymentResponse processPayment($order_id, $process_payment_request)
 
 Process payment
 
@@ -851,16 +851,16 @@ Process payment on order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -868,7 +868,7 @@ $api_instance = new ultracartv2\api\OrderApi(
 );
 
 $order_id = "order_id_example"; // string | The order id to process payment on
-$process_payment_request = new \ultracartv2\models\OrderProcessPaymentRequest(); // \ultracartv2\models\OrderProcessPaymentRequest | Process payment parameters
+$process_payment_request = new \ultracart\v2\models\OrderProcessPaymentRequest(); // \ultracart\v2\models\OrderProcessPaymentRequest | Process payment parameters
 
 try {
     $result = $apiInstance->processPayment($order_id, $process_payment_request);
@@ -884,11 +884,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| The order id to process payment on |
- **process_payment_request** | [**\ultracartv2\models\OrderProcessPaymentRequest**](../Model/OrderProcessPaymentRequest.md)| Process payment parameters |
+ **process_payment_request** | [**\ultracart\v2\models\OrderProcessPaymentRequest**](../Model/OrderProcessPaymentRequest.md)| Process payment parameters |
 
 ### Return type
 
-[**\ultracartv2\models\OrderProcessPaymentResponse**](../Model/OrderProcessPaymentResponse.md)
+[**\ultracart\v2\models\OrderProcessPaymentResponse**](../Model/OrderProcessPaymentResponse.md)
 
 ### Authorization
 
@@ -902,7 +902,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **refundOrder**
-> \ultracartv2\models\OrderResponse refundOrder($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand)
+> \ultracart\v2\models\OrderResponse refundOrder($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand)
 
 Refund an order
 
@@ -914,23 +914,23 @@ Perform a refund operation on an order and then update the order if successful
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$order = new \ultracartv2\models\Order(); // \ultracartv2\models\Order | Order to refund
+$order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to refund
 $order_id = "order_id_example"; // string | The order id to refund.
 $reject_after_refund = false; // bool | Reject order after refund
 $skip_customer_notification = false; // bool | Skip customer email notification
@@ -952,7 +952,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order** | [**\ultracartv2\models\Order**](../Model/Order.md)| Order to refund |
+ **order** | [**\ultracart\v2\models\Order**](../Model/Order.md)| Order to refund |
  **order_id** | **string**| The order id to refund. |
  **reject_after_refund** | **bool**| Reject order after refund | [optional] [default to false]
  **skip_customer_notification** | **bool**| Skip customer email notification | [optional] [default to false]
@@ -963,7 +963,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\OrderResponse**](../Model/OrderResponse.md)
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
 
 ### Authorization
 
@@ -977,7 +977,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **replacement**
-> \ultracartv2\models\OrderReplacementResponse replacement($order_id, $replacement)
+> \ultracart\v2\models\OrderReplacementResponse replacement($order_id, $replacement)
 
 Replacement order
 
@@ -989,16 +989,16 @@ Create a replacement order based upon a previous order
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1006,7 +1006,7 @@ $api_instance = new ultracartv2\api\OrderApi(
 );
 
 $order_id = "order_id_example"; // string | The order id to generate a replacement for.
-$replacement = new \ultracartv2\models\OrderReplacement(); // \ultracartv2\models\OrderReplacement | Replacement order details
+$replacement = new \ultracart\v2\models\OrderReplacement(); // \ultracart\v2\models\OrderReplacement | Replacement order details
 
 try {
     $result = $apiInstance->replacement($order_id, $replacement);
@@ -1022,11 +1022,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| The order id to generate a replacement for. |
- **replacement** | [**\ultracartv2\models\OrderReplacement**](../Model/OrderReplacement.md)| Replacement order details |
+ **replacement** | [**\ultracart\v2\models\OrderReplacement**](../Model/OrderReplacement.md)| Replacement order details |
 
 ### Return type
 
-[**\ultracartv2\models\OrderReplacementResponse**](../Model/OrderReplacementResponse.md)
+[**\ultracart\v2\models\OrderReplacementResponse**](../Model/OrderReplacementResponse.md)
 
 ### Authorization
 
@@ -1040,7 +1040,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resendReceipt**
-> \ultracartv2\models\BaseResponse resendReceipt($order_id)
+> \ultracart\v2\models\BaseResponse resendReceipt($order_id)
 
 Resend receipt
 
@@ -1052,16 +1052,16 @@ Resend the receipt for an order on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1087,7 +1087,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\BaseResponse**](../Model/BaseResponse.md)
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
 
 ### Authorization
 
@@ -1101,7 +1101,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resendShipmentConfirmation**
-> \ultracartv2\models\BaseResponse resendShipmentConfirmation($order_id)
+> \ultracart\v2\models\BaseResponse resendShipmentConfirmation($order_id)
 
 Resend shipment confirmation
 
@@ -1113,16 +1113,16 @@ Resend shipment confirmation for an order on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1148,7 +1148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\BaseResponse**](../Model/BaseResponse.md)
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
 
 ### Authorization
 
@@ -1162,7 +1162,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAccountsReceivableRetryConfig**
-> \ultracartv2\models\BaseResponse updateAccountsReceivableRetryConfig($retry_config)
+> \ultracart\v2\models\BaseResponse updateAccountsReceivableRetryConfig($retry_config)
 
 Update A/R Retry Configuration
 
@@ -1174,23 +1174,23 @@ Update A/R Retry Configuration.  This is primarily an internal API call.  It is 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$retry_config = new \ultracartv2\models\AccountsReceivableRetryConfig(); // \ultracartv2\models\AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
+$retry_config = new \ultracart\v2\models\AccountsReceivableRetryConfig(); // \ultracart\v2\models\AccountsReceivableRetryConfig | AccountsReceivableRetryConfig object
 
 try {
     $result = $apiInstance->updateAccountsReceivableRetryConfig($retry_config);
@@ -1205,11 +1205,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **retry_config** | [**\ultracartv2\models\AccountsReceivableRetryConfig**](../Model/AccountsReceivableRetryConfig.md)| AccountsReceivableRetryConfig object |
+ **retry_config** | [**\ultracart\v2\models\AccountsReceivableRetryConfig**](../Model/AccountsReceivableRetryConfig.md)| AccountsReceivableRetryConfig object |
 
 ### Return type
 
-[**\ultracartv2\models\BaseResponse**](../Model/BaseResponse.md)
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
 
 ### Authorization
 
@@ -1223,7 +1223,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrder**
-> \ultracartv2\models\OrderResponse updateOrder($order, $order_id, $_expand)
+> \ultracart\v2\models\OrderResponse updateOrder($order, $order_id, $_expand)
 
 Update an order
 
@@ -1235,23 +1235,23 @@ Update a new order on the UltraCart account.  This is probably NOT the method yo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OrderApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OrderApi(
+$api_instance = new ultracart\v2\api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$order = new \ultracartv2\models\Order(); // \ultracartv2\models\Order | Order to update
+$order = new \ultracart\v2\models\Order(); // \ultracart\v2\models\Order | Order to update
 $order_id = "order_id_example"; // string | The order id to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -1268,13 +1268,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order** | [**\ultracartv2\models\Order**](../Model/Order.md)| Order to update |
+ **order** | [**\ultracart\v2\models\Order**](../Model/Order.md)| Order to update |
  **order_id** | **string**| The order id to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracartv2\models\OrderResponse**](../Model/OrderResponse.md)
+[**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
 
 ### Authorization
 

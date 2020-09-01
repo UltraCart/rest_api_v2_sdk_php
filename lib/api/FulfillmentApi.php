@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * FulfillmentApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -95,7 +95,7 @@ class FulfillmentApi
      * @param  string $distribution_center_code Distribution center code (required)
      * @param  string[] $order_ids Orders to acknowledge receipt of (limit 100) (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -112,7 +112,7 @@ class FulfillmentApi
      * @param  string $distribution_center_code Distribution center code (required)
      * @param  string[] $order_ids Orders to acknowledge receipt of (limit 100) (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -156,7 +156,7 @@ class FulfillmentApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -164,7 +164,7 @@ class FulfillmentApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -172,7 +172,7 @@ class FulfillmentApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -180,7 +180,7 @@ class FulfillmentApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -188,7 +188,7 @@ class FulfillmentApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -389,9 +389,9 @@ class FulfillmentApi
      *
      * @param  string $distribution_center_code Distribution center code (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrdersResponse
+     * @return \ultracart\v2\models\OrdersResponse
      */
     public function getDistributionCenterOrders($distribution_center_code)
     {
@@ -406,13 +406,13 @@ class FulfillmentApi
      *
      * @param  string $distribution_center_code Distribution center code (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDistributionCenterOrdersWithHttpInfo($distribution_center_code)
     {
-        $returnType = '\ultracartv2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getDistributionCenterOrdersRequest($distribution_center_code);
 
         try {
@@ -464,7 +464,7 @@ class FulfillmentApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrdersResponse',
+                        '\ultracart\v2\models\OrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -472,7 +472,7 @@ class FulfillmentApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -480,7 +480,7 @@ class FulfillmentApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -488,7 +488,7 @@ class FulfillmentApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -496,7 +496,7 @@ class FulfillmentApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -504,7 +504,7 @@ class FulfillmentApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -546,7 +546,7 @@ class FulfillmentApi
      */
     public function getDistributionCenterOrdersAsyncWithHttpInfo($distribution_center_code)
     {
-        $returnType = '\ultracartv2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getDistributionCenterOrdersRequest($distribution_center_code);
 
         return $this->client
@@ -706,9 +706,9 @@ class FulfillmentApi
      * Retrieve distribution centers
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\DistributionCentersResponse
+     * @return \ultracart\v2\models\DistributionCentersResponse
      */
     public function getDistributionCenters()
     {
@@ -722,13 +722,13 @@ class FulfillmentApi
      * Retrieve distribution centers
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\DistributionCentersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\DistributionCentersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDistributionCentersWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\DistributionCentersResponse';
+        $returnType = '\ultracart\v2\models\DistributionCentersResponse';
         $request = $this->getDistributionCentersRequest();
 
         try {
@@ -780,7 +780,7 @@ class FulfillmentApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\DistributionCentersResponse',
+                        '\ultracart\v2\models\DistributionCentersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -788,7 +788,7 @@ class FulfillmentApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -796,7 +796,7 @@ class FulfillmentApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -804,7 +804,7 @@ class FulfillmentApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -812,7 +812,7 @@ class FulfillmentApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -820,7 +820,7 @@ class FulfillmentApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -860,7 +860,7 @@ class FulfillmentApi
      */
     public function getDistributionCentersAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\DistributionCentersResponse';
+        $returnType = '\ultracart\v2\models\DistributionCentersResponse';
         $request = $this->getDistributionCentersRequest();
 
         return $this->client
@@ -1005,9 +1005,9 @@ class FulfillmentApi
      * Mark orders as shipped
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
+     * @param  \ultracart\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1022,9 +1022,9 @@ class FulfillmentApi
      * Mark orders as shipped
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
+     * @param  \ultracart\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1068,7 +1068,7 @@ class FulfillmentApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1076,7 +1076,7 @@ class FulfillmentApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1084,7 +1084,7 @@ class FulfillmentApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1092,7 +1092,7 @@ class FulfillmentApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1100,7 +1100,7 @@ class FulfillmentApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1116,7 +1116,7 @@ class FulfillmentApi
      * Mark orders as shipped
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
+     * @param  \ultracart\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1137,7 +1137,7 @@ class FulfillmentApi
      * Mark orders as shipped
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
+     * @param  \ultracart\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1174,7 +1174,7 @@ class FulfillmentApi
      * Create request for operation 'shipOrders'
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
+     * @param  \ultracart\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1300,9 +1300,9 @@ class FulfillmentApi
      * Update inventory
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @param  \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1317,9 +1317,9 @@ class FulfillmentApi
      * Update inventory
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @param  \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1363,7 +1363,7 @@ class FulfillmentApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1371,7 +1371,7 @@ class FulfillmentApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1379,7 +1379,7 @@ class FulfillmentApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1387,7 +1387,7 @@ class FulfillmentApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1395,7 +1395,7 @@ class FulfillmentApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1411,7 +1411,7 @@ class FulfillmentApi
      * Update inventory
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @param  \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1432,7 +1432,7 @@ class FulfillmentApi
      * Update inventory
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @param  \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1469,7 +1469,7 @@ class FulfillmentApi
      * Create request for operation 'updateInventory'
      *
      * @param  string $distribution_center_code Distribution center code (required)
-     * @param  \ultracartv2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     * @param  \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

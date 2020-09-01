@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **additional_customers** | **int** |  | [optional] 
 **additional_emails** | **int** |  | [optional] 
 **allow_list_import** | **bool** |  | [optional] 
-**customer_tiers** | [**\ultracartv2\models\EmailPlanAdditional[]**](EmailPlanAdditional.md) |  | [optional] 
+**customer_tiers** | [**\ultracart\v2\models\EmailPlanAdditional[]**](EmailPlanAdditional.md) |  | [optional] 
 **initial_sending_limits** | **int** |  | [optional] 
 **plan_customers** | **int** |  | [optional] 
 **plan_emails** | **int** |  | [optional] 

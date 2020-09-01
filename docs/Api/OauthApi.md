@@ -1,4 +1,4 @@
-# ultracartv2\OauthApi
+# ultracart\v2\OauthApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **oauthAccessToken**
-> \ultracartv2\models\OauthTokenResponse oauthAccessToken($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
+> \ultracart\v2\models\OauthTokenResponse oauthAccessToken($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
 
 Exchange authorization code for access token.
 
@@ -21,20 +21,20 @@ The final leg in the OAuth process which exchanges the specified access token fo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OauthApi(
+$api_instance = new ultracart\v2\api\OauthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\OauthTokenResponse**](../Model/OauthTokenResponse.md)
+[**\ultracart\v2\models\OauthTokenResponse**](../Model/OauthTokenResponse.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **oauthRevoke**
-> \ultracartv2\models\OauthRevokeSuccessResponse oauthRevoke($client_id, $token)
+> \ultracart\v2\models\OauthRevokeSuccessResponse oauthRevoke($client_id, $token)
 
 Revoke this OAuth application.
 
@@ -94,20 +94,20 @@ Revokes the OAuth application associated with the specified client_id and token.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\OauthApi(
+$api_instance = new ultracart\v2\api\OauthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\OauthRevokeSuccessResponse**](../Model/OauthRevokeSuccessResponse.md)
+[**\ultracart\v2\models\OauthRevokeSuccessResponse**](../Model/OauthRevokeSuccessResponse.md)
 
 ### Authorization
 

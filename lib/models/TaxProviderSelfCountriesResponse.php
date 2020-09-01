@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxProviderSelfCountriesResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class TaxProviderSelfCountriesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'countries' => '\ultracartv2\models\TaxCountryCode[]'
+        'countries' => '\ultracart\v2\models\TaxCountryCode[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TaxProviderSelfCountriesResponse implements ModelInterface, ArrayAccess
     /**
      * Gets countries
      *
-     * @return \ultracartv2\models\TaxCountryCode[]
+     * @return \ultracart\v2\models\TaxCountryCode[]
      */
     public function getCountries()
     {
@@ -217,7 +217,7 @@ class TaxProviderSelfCountriesResponse implements ModelInterface, ArrayAccess
     /**
      * Sets countries
      *
-     * @param \ultracartv2\models\TaxCountryCode[] $countries countries
+     * @param \ultracart\v2\models\TaxCountryCode[] $countries countries
      *
      * @return $this
      */

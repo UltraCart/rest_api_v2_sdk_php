@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * AffiliateLedgersResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,9 +57,9 @@ class AffiliateLedgersResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\ultracartv2\models\Error',
-        'ledgers' => '\ultracartv2\models\AffiliateLedger[]',
-        'metadata' => '\ultracartv2\models\ResponseMetadata',
+        'error' => '\ultracart\v2\models\Error',
+        'ledgers' => '\ultracart\v2\models\AffiliateLedger[]',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool'
     ];
 
@@ -225,7 +225,7 @@ class AffiliateLedgersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets error
      *
-     * @return \ultracartv2\models\Error
+     * @return \ultracart\v2\models\Error
      */
     public function getError()
     {
@@ -235,7 +235,7 @@ class AffiliateLedgersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets error
      *
-     * @param \ultracartv2\models\Error $error error
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
@@ -249,7 +249,7 @@ class AffiliateLedgersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets ledgers
      *
-     * @return \ultracartv2\models\AffiliateLedger[]
+     * @return \ultracart\v2\models\AffiliateLedger[]
      */
     public function getLedgers()
     {
@@ -259,7 +259,7 @@ class AffiliateLedgersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets ledgers
      *
-     * @param \ultracartv2\models\AffiliateLedger[] $ledgers ledgers
+     * @param \ultracart\v2\models\AffiliateLedger[] $ledgers ledgers
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class AffiliateLedgersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return \ultracartv2\models\ResponseMetadata
+     * @return \ultracart\v2\models\ResponseMetadata
      */
     public function getMetadata()
     {
@@ -283,7 +283,7 @@ class AffiliateLedgersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \ultracartv2\models\ResponseMetadata $metadata metadata
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */

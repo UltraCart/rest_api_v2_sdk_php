@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartBuysafe Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,7 +58,7 @@ class CartBuysafe implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'bond_available' => 'bool',
-        'bond_cost' => '\ultracartv2\models\Currency',
+        'bond_cost' => '\ultracart\v2\models\Currency',
         'bond_free' => 'bool',
         'bond_wanted' => 'bool',
         'cart_display_text' => 'string',
@@ -261,7 +261,7 @@ class CartBuysafe implements ModelInterface, ArrayAccess
     /**
      * Gets bond_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getBondCost()
     {
@@ -271,7 +271,7 @@ class CartBuysafe implements ModelInterface, ArrayAccess
     /**
      * Sets bond_cost
      *
-     * @param \ultracartv2\models\Currency $bond_cost bond_cost
+     * @param \ultracart\v2\models\Currency $bond_cost bond_cost
      *
      * @return $this
      */

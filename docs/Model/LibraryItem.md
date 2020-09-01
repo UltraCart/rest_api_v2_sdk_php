@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assets** | [**\ultracartv2\models\LibraryItemAsset[]**](LibraryItemAsset.md) |  | [optional] 
+**assets** | [**\ultracart\v2\models\LibraryItemAsset[]**](LibraryItemAsset.md) |  | [optional] 
 **categories** | **string[]** |  | [optional] 
 **content** | **string** |  | [optional] 
 **content_type** | **string** |  | [optional] 
@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **purchased** | **bool** | True if this library item has been purchased | [optional] 
 **purchased_from_library_item_oid** | **int** | The published item that was purchased to make this item.  This allows for comparisons between published and purchased | [optional] 
 **purchased_version** | **int** | The published version when this item was purchased.  This allows for out-of-date alerts to be shown when there is a difference between published and purchased | [optional] 
-**screenshots** | [**\ultracartv2\models\LibraryItemScreenshot[]**](LibraryItemScreenshot.md) |  | [optional] 
-**share_with_accounts** | [**\ultracartv2\models\LibraryItemAccount[]**](LibraryItemAccount.md) |  | [optional] 
-**share_with_other_emails** | [**\ultracartv2\models\LibraryItemEmail[]**](LibraryItemEmail.md) |  | [optional] 
+**screenshots** | [**\ultracart\v2\models\LibraryItemScreenshot[]**](LibraryItemScreenshot.md) |  | [optional] 
+**share_with_accounts** | [**\ultracart\v2\models\LibraryItemAccount[]**](LibraryItemAccount.md) |  | [optional] 
+**share_with_other_emails** | [**\ultracart\v2\models\LibraryItemEmail[]**](LibraryItemEmail.md) |  | [optional] 
 **shared** | **bool** | True if this item is shared from another merchant account | [optional] 
 **source** | **bool** | True if this library item has been published | [optional] 
 **source_to_library_item_oid** | **int** | This oid points to the published library item, if there is one. | [optional] 

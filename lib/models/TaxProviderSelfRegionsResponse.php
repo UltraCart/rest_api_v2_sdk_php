@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxProviderSelfRegionsResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class TaxProviderSelfRegionsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'regions' => '\ultracartv2\models\TaxStateCode[]'
+        'regions' => '\ultracart\v2\models\TaxStateCode[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class TaxProviderSelfRegionsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets regions
      *
-     * @return \ultracartv2\models\TaxStateCode[]
+     * @return \ultracart\v2\models\TaxStateCode[]
      */
     public function getRegions()
     {
@@ -217,7 +217,7 @@ class TaxProviderSelfRegionsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets regions
      *
-     * @param \ultracartv2\models\TaxStateCode[] $regions regions
+     * @param \ultracart\v2\models\TaxStateCode[] $regions regions
      *
      * @return $this
      */

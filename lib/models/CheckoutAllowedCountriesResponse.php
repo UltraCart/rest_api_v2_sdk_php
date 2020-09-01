@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CheckoutAllowedCountriesResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class CheckoutAllowedCountriesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'countries' => '\ultracartv2\models\Country[]'
+        'countries' => '\ultracart\v2\models\Country[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CheckoutAllowedCountriesResponse implements ModelInterface, ArrayAccess
     /**
      * Gets countries
      *
-     * @return \ultracartv2\models\Country[]
+     * @return \ultracart\v2\models\Country[]
      */
     public function getCountries()
     {
@@ -217,7 +217,7 @@ class CheckoutAllowedCountriesResponse implements ModelInterface, ArrayAccess
     /**
      * Sets countries
      *
-     * @param \ultracartv2\models\Country[] $countries countries
+     * @param \ultracart\v2\models\Country[] $countries countries
      *
      * @return $this
      */

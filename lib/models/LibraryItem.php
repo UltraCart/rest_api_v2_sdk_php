@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * LibraryItem Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'assets' => '\ultracartv2\models\LibraryItemAsset[]',
+        'assets' => '\ultracart\v2\models\LibraryItemAsset[]',
         'categories' => 'string[]',
         'content' => 'string',
         'content_type' => 'string',
@@ -73,9 +73,9 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'purchased' => 'bool',
         'purchased_from_library_item_oid' => 'int',
         'purchased_version' => 'int',
-        'screenshots' => '\ultracartv2\models\LibraryItemScreenshot[]',
-        'share_with_accounts' => '\ultracartv2\models\LibraryItemAccount[]',
-        'share_with_other_emails' => '\ultracartv2\models\LibraryItemEmail[]',
+        'screenshots' => '\ultracart\v2\models\LibraryItemScreenshot[]',
+        'share_with_accounts' => '\ultracart\v2\models\LibraryItemAccount[]',
+        'share_with_other_emails' => '\ultracart\v2\models\LibraryItemEmail[]',
         'shared' => 'bool',
         'source' => 'bool',
         'source_to_library_item_oid' => 'int',
@@ -363,7 +363,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     /**
      * Gets assets
      *
-     * @return \ultracartv2\models\LibraryItemAsset[]
+     * @return \ultracart\v2\models\LibraryItemAsset[]
      */
     public function getAssets()
     {
@@ -373,7 +373,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     /**
      * Sets assets
      *
-     * @param \ultracartv2\models\LibraryItemAsset[] $assets assets
+     * @param \ultracart\v2\models\LibraryItemAsset[] $assets assets
      *
      * @return $this
      */
@@ -747,7 +747,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     /**
      * Gets screenshots
      *
-     * @return \ultracartv2\models\LibraryItemScreenshot[]
+     * @return \ultracart\v2\models\LibraryItemScreenshot[]
      */
     public function getScreenshots()
     {
@@ -757,7 +757,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     /**
      * Sets screenshots
      *
-     * @param \ultracartv2\models\LibraryItemScreenshot[] $screenshots screenshots
+     * @param \ultracart\v2\models\LibraryItemScreenshot[] $screenshots screenshots
      *
      * @return $this
      */
@@ -771,7 +771,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     /**
      * Gets share_with_accounts
      *
-     * @return \ultracartv2\models\LibraryItemAccount[]
+     * @return \ultracart\v2\models\LibraryItemAccount[]
      */
     public function getShareWithAccounts()
     {
@@ -781,7 +781,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     /**
      * Sets share_with_accounts
      *
-     * @param \ultracartv2\models\LibraryItemAccount[] $share_with_accounts share_with_accounts
+     * @param \ultracart\v2\models\LibraryItemAccount[] $share_with_accounts share_with_accounts
      *
      * @return $this
      */
@@ -795,7 +795,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     /**
      * Gets share_with_other_emails
      *
-     * @return \ultracartv2\models\LibraryItemEmail[]
+     * @return \ultracart\v2\models\LibraryItemEmail[]
      */
     public function getShareWithOtherEmails()
     {
@@ -805,7 +805,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     /**
      * Sets share_with_other_emails
      *
-     * @param \ultracartv2\models\LibraryItemEmail[] $share_with_other_emails share_with_other_emails
+     * @param \ultracart\v2\models\LibraryItemEmail[] $share_with_other_emails share_with_other_emails
      *
      * @return $this
      */

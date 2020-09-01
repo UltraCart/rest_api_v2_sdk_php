@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxProvidersResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,14 +57,14 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'avalara' => '\ultracartv2\models\TaxProviderAvalara',
-        'error' => '\ultracartv2\models\Error',
-        'metadata' => '\ultracartv2\models\ResponseMetadata',
-        'self' => '\ultracartv2\models\TaxProviderSelf',
-        'sovos' => '\ultracartv2\models\TaxProviderSovos',
+        'avalara' => '\ultracart\v2\models\TaxProviderAvalara',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'self' => '\ultracart\v2\models\TaxProviderSelf',
+        'sovos' => '\ultracart\v2\models\TaxProviderSovos',
         'success' => 'bool',
-        'taxjar' => '\ultracartv2\models\TaxProviderTaxJar',
-        'ultracart' => '\ultracartv2\models\TaxProviderUltraCart'
+        'taxjar' => '\ultracart\v2\models\TaxProviderTaxJar',
+        'ultracart' => '\ultracart\v2\models\TaxProviderUltraCart'
     ];
 
     /**
@@ -249,7 +249,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets avalara
      *
-     * @return \ultracartv2\models\TaxProviderAvalara
+     * @return \ultracart\v2\models\TaxProviderAvalara
      */
     public function getAvalara()
     {
@@ -259,7 +259,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets avalara
      *
-     * @param \ultracartv2\models\TaxProviderAvalara $avalara avalara
+     * @param \ultracart\v2\models\TaxProviderAvalara $avalara avalara
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets error
      *
-     * @return \ultracartv2\models\Error
+     * @return \ultracart\v2\models\Error
      */
     public function getError()
     {
@@ -283,7 +283,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets error
      *
-     * @param \ultracartv2\models\Error $error error
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return \ultracartv2\models\ResponseMetadata
+     * @return \ultracart\v2\models\ResponseMetadata
      */
     public function getMetadata()
     {
@@ -307,7 +307,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \ultracartv2\models\ResponseMetadata $metadata metadata
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
@@ -321,7 +321,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets self
      *
-     * @return \ultracartv2\models\TaxProviderSelf
+     * @return \ultracart\v2\models\TaxProviderSelf
      */
     public function getSelf()
     {
@@ -331,7 +331,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets self
      *
-     * @param \ultracartv2\models\TaxProviderSelf $self self
+     * @param \ultracart\v2\models\TaxProviderSelf $self self
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets sovos
      *
-     * @return \ultracartv2\models\TaxProviderSovos
+     * @return \ultracart\v2\models\TaxProviderSovos
      */
     public function getSovos()
     {
@@ -355,7 +355,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets sovos
      *
-     * @param \ultracartv2\models\TaxProviderSovos $sovos sovos
+     * @param \ultracart\v2\models\TaxProviderSovos $sovos sovos
      *
      * @return $this
      */
@@ -393,7 +393,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets taxjar
      *
-     * @return \ultracartv2\models\TaxProviderTaxJar
+     * @return \ultracart\v2\models\TaxProviderTaxJar
      */
     public function getTaxjar()
     {
@@ -403,7 +403,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets taxjar
      *
-     * @param \ultracartv2\models\TaxProviderTaxJar $taxjar taxjar
+     * @param \ultracart\v2\models\TaxProviderTaxJar $taxjar taxjar
      *
      * @return $this
      */
@@ -417,7 +417,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets ultracart
      *
-     * @return \ultracartv2\models\TaxProviderUltraCart
+     * @return \ultracart\v2\models\TaxProviderUltraCart
      */
     public function getUltracart()
     {
@@ -427,7 +427,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets ultracart
      *
-     * @param \ultracartv2\models\TaxProviderUltraCart $ultracart ultracart
+     * @param \ultracart\v2\models\TaxProviderUltraCart $ultracart ultracart
      *
      * @return $this
      */

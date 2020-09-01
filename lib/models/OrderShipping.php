@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderShipping Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -84,7 +84,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'state_region' => 'string',
         'title' => 'string',
         'tracking_numbers' => 'string[]',
-        'weight' => '\ultracartv2\models\Weight'
+        'weight' => '\ultracart\v2\models\Weight'
     ];
 
     /**
@@ -1145,7 +1145,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
     /**
      * Gets weight
      *
-     * @return \ultracartv2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getWeight()
     {
@@ -1155,7 +1155,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
     /**
      * Sets weight
      *
-     * @param \ultracartv2\models\Weight $weight weight
+     * @param \ultracart\v2\models\Weight $weight weight
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxProviderSelf Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,8 +57,8 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'configuration' => '\ultracartv2\models\SelfConfig',
-        'countries' => '\ultracartv2\models\TaxCountry[]',
+        'configuration' => '\ultracart\v2\models\SelfConfig',
+        'countries' => '\ultracart\v2\models\TaxCountry[]',
         'description' => 'string',
         'selected' => 'bool',
         'title' => 'string'
@@ -231,7 +231,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
     /**
      * Gets configuration
      *
-     * @return \ultracartv2\models\SelfConfig
+     * @return \ultracart\v2\models\SelfConfig
      */
     public function getConfiguration()
     {
@@ -241,7 +241,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
     /**
      * Sets configuration
      *
-     * @param \ultracartv2\models\SelfConfig $configuration configuration
+     * @param \ultracart\v2\models\SelfConfig $configuration configuration
      *
      * @return $this
      */
@@ -255,7 +255,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
     /**
      * Gets countries
      *
-     * @return \ultracartv2\models\TaxCountry[]
+     * @return \ultracart\v2\models\TaxCountry[]
      */
     public function getCountries()
     {
@@ -265,7 +265,7 @@ class TaxProviderSelf implements ModelInterface, ArrayAccess
     /**
      * Sets countries
      *
-     * @param \ultracartv2\models\TaxCountry[] $countries Countries that collect sales tax
+     * @param \ultracart\v2\models\TaxCountry[] $countries Countries that collect sales tax
      *
      * @return $this
      */

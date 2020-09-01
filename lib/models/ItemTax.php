@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemTax Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class ItemTax implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'exemptions' => '\ultracartv2\models\ItemTaxExemption[]',
+        'exemptions' => '\ultracart\v2\models\ItemTaxExemption[]',
         'tax_free' => 'bool',
         'taxable_cost' => 'float'
     ];
@@ -219,7 +219,7 @@ class ItemTax implements ModelInterface, ArrayAccess
     /**
      * Gets exemptions
      *
-     * @return \ultracartv2\models\ItemTaxExemption[]
+     * @return \ultracart\v2\models\ItemTaxExemption[]
      */
     public function getExemptions()
     {
@@ -229,7 +229,7 @@ class ItemTax implements ModelInterface, ArrayAccess
     /**
      * Sets exemptions
      *
-     * @param \ultracartv2\models\ItemTaxExemption[] $exemptions Exemptions
+     * @param \ultracart\v2\models\ItemTaxExemption[] $exemptions Exemptions
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderGiftCertificate Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class OrderGiftCertificate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'gift_certificate_amount' => '\ultracartv2\models\Currency',
+        'gift_certificate_amount' => '\ultracart\v2\models\Currency',
         'gift_certificate_code' => 'string',
         'gift_certificate_oid' => 'int'
     ];
@@ -219,7 +219,7 @@ class OrderGiftCertificate implements ModelInterface, ArrayAccess
     /**
      * Gets gift_certificate_amount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftCertificateAmount()
     {
@@ -229,7 +229,7 @@ class OrderGiftCertificate implements ModelInterface, ArrayAccess
     /**
      * Sets gift_certificate_amount
      *
-     * @param \ultracartv2\models\Currency $gift_certificate_amount gift_certificate_amount
+     * @param \ultracart\v2\models\Currency $gift_certificate_amount gift_certificate_amount
      *
      * @return $this
      */

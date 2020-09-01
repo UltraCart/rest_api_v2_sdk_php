@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemAutoOrderStep Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,8 +59,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'arbitrary_schedule_days' => 'int',
         'arbitrary_unit_cost' => 'float',
-        'arbitrary_unit_cost_schedules' => '\ultracartv2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]',
-        'grandfather_pricing' => '\ultracartv2\models\ItemAutoOrderStepGrandfatherPricing[]',
+        'arbitrary_unit_cost_schedules' => '\ultracart\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]',
+        'grandfather_pricing' => '\ultracart\v2\models\ItemAutoOrderStepGrandfatherPricing[]',
         'managed_by' => 'string',
         'pause_days' => 'int',
         'pause_until_date' => 'string',
@@ -366,7 +366,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     /**
      * Gets arbitrary_unit_cost_schedules
      *
-     * @return \ultracartv2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]
+     * @return \ultracart\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]
      */
     public function getArbitraryUnitCostSchedules()
     {
@@ -376,7 +376,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     /**
      * Sets arbitrary_unit_cost_schedules
      *
-     * @param \ultracartv2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[] $arbitrary_unit_cost_schedules Arbitrary unit costs schedules for more advanced discounting by rebill attempt
+     * @param \ultracart\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[] $arbitrary_unit_cost_schedules Arbitrary unit costs schedules for more advanced discounting by rebill attempt
      *
      * @return $this
      */
@@ -390,7 +390,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     /**
      * Gets grandfather_pricing
      *
-     * @return \ultracartv2\models\ItemAutoOrderStepGrandfatherPricing[]
+     * @return \ultracart\v2\models\ItemAutoOrderStepGrandfatherPricing[]
      */
     public function getGrandfatherPricing()
     {
@@ -400,7 +400,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     /**
      * Sets grandfather_pricing
      *
-     * @param \ultracartv2\models\ItemAutoOrderStepGrandfatherPricing[] $grandfather_pricing Grand-father pricing configuration if the rebill schedule has changed over time
+     * @param \ultracart\v2\models\ItemAutoOrderStepGrandfatherPricing[] $grandfather_pricing Grand-father pricing configuration if the rebill schedule has changed over time
      *
      * @return $this
      */

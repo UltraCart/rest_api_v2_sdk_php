@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartItemOptionValue Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,8 +57,8 @@ class CartItemOptionValue implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'additional_cost' => '\ultracartv2\models\Currency',
-        'additional_weight' => '\ultracartv2\models\Weight',
+        'additional_cost' => '\ultracart\v2\models\Currency',
+        'additional_weight' => '\ultracart\v2\models\Weight',
         'default_value' => 'bool',
         'display_order' => 'int',
         'value' => 'string'
@@ -231,7 +231,7 @@ class CartItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Gets additional_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getAdditionalCost()
     {
@@ -241,7 +241,7 @@ class CartItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Sets additional_cost
      *
-     * @param \ultracartv2\models\Currency $additional_cost additional_cost
+     * @param \ultracart\v2\models\Currency $additional_cost additional_cost
      *
      * @return $this
      */
@@ -255,7 +255,7 @@ class CartItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Gets additional_weight
      *
-     * @return \ultracartv2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getAdditionalWeight()
     {
@@ -265,7 +265,7 @@ class CartItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Sets additional_weight
      *
-     * @param \ultracartv2\models\Weight $additional_weight additional_weight
+     * @param \ultracart\v2\models\Weight $additional_weight additional_weight
      *
      * @return $this
      */

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * OrderApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -94,9 +94,9 @@ class OrderApi
      *
      * @param  string $order_id The order id to cancel. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function cancelOrder($order_id)
     {
@@ -111,13 +111,13 @@ class OrderApi
      *
      * @param  string $order_id The order id to cancel. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function cancelOrderWithHttpInfo($order_id)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->cancelOrderRequest($order_id);
 
         try {
@@ -169,7 +169,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -177,7 +177,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -185,7 +185,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -193,7 +193,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -201,7 +201,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -209,7 +209,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -251,7 +251,7 @@ class OrderApi
      */
     public function cancelOrderAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->cancelOrderRequest($order_id);
 
         return $this->client
@@ -412,7 +412,7 @@ class OrderApi
      *
      * @param  string $order_id The order id to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -428,7 +428,7 @@ class OrderApi
      *
      * @param  string $order_id The order id to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -472,7 +472,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -480,7 +480,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -488,7 +488,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -496,7 +496,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -504,7 +504,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -692,11 +692,11 @@ class OrderApi
      * Format order
      *
      * @param  string $order_id The order id to format (required)
-     * @param  \ultracartv2\models\OrderFormat $format_options Format options (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderFormatResponse
+     * @return \ultracart\v2\models\OrderFormatResponse
      */
     public function format($order_id, $format_options)
     {
@@ -710,15 +710,15 @@ class OrderApi
      * Format order
      *
      * @param  string $order_id The order id to format (required)
-     * @param  \ultracartv2\models\OrderFormat $format_options Format options (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderFormatResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderFormatResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function formatWithHttpInfo($order_id, $format_options)
     {
-        $returnType = '\ultracartv2\models\OrderFormatResponse';
+        $returnType = '\ultracart\v2\models\OrderFormatResponse';
         $request = $this->formatRequest($order_id, $format_options);
 
         try {
@@ -770,7 +770,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderFormatResponse',
+                        '\ultracart\v2\models\OrderFormatResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -778,7 +778,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -786,7 +786,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -794,7 +794,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -802,7 +802,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -810,7 +810,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -826,7 +826,7 @@ class OrderApi
      * Format order
      *
      * @param  string $order_id The order id to format (required)
-     * @param  \ultracartv2\models\OrderFormat $format_options Format options (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -847,14 +847,14 @@ class OrderApi
      * Format order
      *
      * @param  string $order_id The order id to format (required)
-     * @param  \ultracartv2\models\OrderFormat $format_options Format options (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function formatAsyncWithHttpInfo($order_id, $format_options)
     {
-        $returnType = '\ultracartv2\models\OrderFormatResponse';
+        $returnType = '\ultracart\v2\models\OrderFormatResponse';
         $request = $this->formatRequest($order_id, $format_options);
 
         return $this->client
@@ -898,7 +898,7 @@ class OrderApi
      * Create request for operation 'format'
      *
      * @param  string $order_id The order id to format (required)
-     * @param  \ultracartv2\models\OrderFormat $format_options Format options (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1025,9 +1025,9 @@ class OrderApi
      *
      * @param  string $order_id The order id to generate a token for. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderTokenResponse
+     * @return \ultracart\v2\models\OrderTokenResponse
      */
     public function generateOrderToken($order_id)
     {
@@ -1042,13 +1042,13 @@ class OrderApi
      *
      * @param  string $order_id The order id to generate a token for. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateOrderTokenWithHttpInfo($order_id)
     {
-        $returnType = '\ultracartv2\models\OrderTokenResponse';
+        $returnType = '\ultracart\v2\models\OrderTokenResponse';
         $request = $this->generateOrderTokenRequest($order_id);
 
         try {
@@ -1100,7 +1100,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderTokenResponse',
+                        '\ultracart\v2\models\OrderTokenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1108,7 +1108,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1116,7 +1116,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1124,7 +1124,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1132,7 +1132,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1140,7 +1140,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1182,7 +1182,7 @@ class OrderApi
      */
     public function generateOrderTokenAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\ultracartv2\models\OrderTokenResponse';
+        $returnType = '\ultracart\v2\models\OrderTokenResponse';
         $request = $this->generateOrderTokenRequest($order_id);
 
         return $this->client
@@ -1342,9 +1342,9 @@ class OrderApi
      * Retrieve A/R Retry Configuration
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AccountsReceivableRetryConfigResponse
+     * @return \ultracart\v2\models\AccountsReceivableRetryConfigResponse
      */
     public function getAccountsReceivableRetryConfig()
     {
@@ -1358,13 +1358,13 @@ class OrderApi
      * Retrieve A/R Retry Configuration
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AccountsReceivableRetryConfigResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AccountsReceivableRetryConfigResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountsReceivableRetryConfigWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\AccountsReceivableRetryConfigResponse';
+        $returnType = '\ultracart\v2\models\AccountsReceivableRetryConfigResponse';
         $request = $this->getAccountsReceivableRetryConfigRequest();
 
         try {
@@ -1416,7 +1416,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AccountsReceivableRetryConfigResponse',
+                        '\ultracart\v2\models\AccountsReceivableRetryConfigResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1424,7 +1424,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1432,7 +1432,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1440,7 +1440,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1448,7 +1448,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1456,7 +1456,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1496,7 +1496,7 @@ class OrderApi
      */
     public function getAccountsReceivableRetryConfigAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\AccountsReceivableRetryConfigResponse';
+        $returnType = '\ultracart\v2\models\AccountsReceivableRetryConfigResponse';
         $request = $this->getAccountsReceivableRetryConfigRequest();
 
         return $this->client
@@ -1643,9 +1643,9 @@ class OrderApi
      * @param  string $from from (optional)
      * @param  string $to to (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AccountsReceivableRetryStatsResponse
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatsResponse
      */
     public function getAccountsReceivableRetryStats($from = null, $to = null)
     {
@@ -1661,13 +1661,13 @@ class OrderApi
      * @param  string $from (optional)
      * @param  string $to (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AccountsReceivableRetryStatsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AccountsReceivableRetryStatsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountsReceivableRetryStatsWithHttpInfo($from = null, $to = null)
     {
-        $returnType = '\ultracartv2\models\AccountsReceivableRetryStatsResponse';
+        $returnType = '\ultracart\v2\models\AccountsReceivableRetryStatsResponse';
         $request = $this->getAccountsReceivableRetryStatsRequest($from, $to);
 
         try {
@@ -1719,7 +1719,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AccountsReceivableRetryStatsResponse',
+                        '\ultracart\v2\models\AccountsReceivableRetryStatsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1727,7 +1727,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1735,7 +1735,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1743,7 +1743,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1751,7 +1751,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1759,7 +1759,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1803,7 +1803,7 @@ class OrderApi
      */
     public function getAccountsReceivableRetryStatsAsyncWithHttpInfo($from = null, $to = null)
     {
-        $returnType = '\ultracartv2\models\AccountsReceivableRetryStatsResponse';
+        $returnType = '\ultracart\v2\models\AccountsReceivableRetryStatsResponse';
         $request = $this->getAccountsReceivableRetryStatsRequest($from, $to);
 
         return $this->client
@@ -1960,9 +1960,9 @@ class OrderApi
      * @param  string $order_id The order id to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderResponse
+     * @return \ultracart\v2\models\OrderResponse
      */
     public function getOrder($order_id, $_expand = null)
     {
@@ -1978,13 +1978,13 @@ class OrderApi
      * @param  string $order_id The order id to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderWithHttpInfo($order_id, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->getOrderRequest($order_id, $_expand);
 
         try {
@@ -2036,7 +2036,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderResponse',
+                        '\ultracart\v2\models\OrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2044,7 +2044,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2052,7 +2052,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2060,7 +2060,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2068,7 +2068,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2076,7 +2076,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2120,7 +2120,7 @@ class OrderApi
      */
     public function getOrderAsyncWithHttpInfo($order_id, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->getOrderRequest($order_id, $_expand);
 
         return $this->client
@@ -2284,12 +2284,12 @@ class OrderApi
      *
      * Retrieve an order using a token
      *
-     * @param  \ultracartv2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderResponse
+     * @return \ultracart\v2\models\OrderResponse
      */
     public function getOrderByToken($order_by_token_query, $_expand = null)
     {
@@ -2302,16 +2302,16 @@ class OrderApi
      *
      * Retrieve an order using a token
      *
-     * @param  \ultracartv2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderByTokenWithHttpInfo($order_by_token_query, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->getOrderByTokenRequest($order_by_token_query, $_expand);
 
         try {
@@ -2363,7 +2363,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderResponse',
+                        '\ultracart\v2\models\OrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2371,7 +2371,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2379,7 +2379,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2387,7 +2387,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2395,7 +2395,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2403,7 +2403,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2418,7 +2418,7 @@ class OrderApi
      *
      * Retrieve an order using a token
      *
-     * @param  \ultracartv2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2439,7 +2439,7 @@ class OrderApi
      *
      * Retrieve an order using a token
      *
-     * @param  \ultracartv2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2447,7 +2447,7 @@ class OrderApi
      */
     public function getOrderByTokenAsyncWithHttpInfo($order_by_token_query, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->getOrderByTokenRequest($order_by_token_query, $_expand);
 
         return $this->client
@@ -2490,7 +2490,7 @@ class OrderApi
     /**
      * Create request for operation 'getOrderByToken'
      *
-     * @param  \ultracartv2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2641,9 +2641,9 @@ class OrderApi
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrdersResponse
+     * @return \ultracart\v2\models\OrdersResponse
      */
     public function getOrders($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
@@ -2691,13 +2691,13 @@ class OrderApi
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrdersWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $_limit, $_offset, $_sort, $_expand);
 
         try {
@@ -2749,7 +2749,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrdersResponse',
+                        '\ultracart\v2\models\OrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2757,7 +2757,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2765,7 +2765,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2773,7 +2773,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2781,7 +2781,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2789,7 +2789,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2897,7 +2897,7 @@ class OrderApi
      */
     public function getOrdersAsyncWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $_limit, $_offset, $_sort, $_expand);
 
         return $this->client
@@ -3211,12 +3211,12 @@ class OrderApi
      *
      * Retrieve order batch
      *
-     * @param  \ultracartv2\models\OrderQueryBatch $order_batch Order batch (required)
+     * @param  \ultracart\v2\models\OrderQueryBatch $order_batch Order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrdersResponse
+     * @return \ultracart\v2\models\OrdersResponse
      */
     public function getOrdersBatch($order_batch, $_expand = null)
     {
@@ -3229,16 +3229,16 @@ class OrderApi
      *
      * Retrieve order batch
      *
-     * @param  \ultracartv2\models\OrderQueryBatch $order_batch Order batch (required)
+     * @param  \ultracart\v2\models\OrderQueryBatch $order_batch Order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrdersBatchWithHttpInfo($order_batch, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersBatchRequest($order_batch, $_expand);
 
         try {
@@ -3290,7 +3290,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrdersResponse',
+                        '\ultracart\v2\models\OrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3298,7 +3298,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3306,7 +3306,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3314,7 +3314,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3322,7 +3322,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3330,7 +3330,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3345,7 +3345,7 @@ class OrderApi
      *
      * Retrieve order batch
      *
-     * @param  \ultracartv2\models\OrderQueryBatch $order_batch Order batch (required)
+     * @param  \ultracart\v2\models\OrderQueryBatch $order_batch Order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
      * @throws \InvalidArgumentException
@@ -3366,7 +3366,7 @@ class OrderApi
      *
      * Retrieve order batch
      *
-     * @param  \ultracartv2\models\OrderQueryBatch $order_batch Order batch (required)
+     * @param  \ultracart\v2\models\OrderQueryBatch $order_batch Order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
      * @throws \InvalidArgumentException
@@ -3374,7 +3374,7 @@ class OrderApi
      */
     public function getOrdersBatchAsyncWithHttpInfo($order_batch, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersBatchRequest($order_batch, $_expand);
 
         return $this->client
@@ -3417,7 +3417,7 @@ class OrderApi
     /**
      * Create request for operation 'getOrdersBatch'
      *
-     * @param  \ultracartv2\models\OrderQueryBatch $order_batch Order batch (required)
+     * @param  \ultracart\v2\models\OrderQueryBatch $order_batch Order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
      * @throws \InvalidArgumentException
@@ -3533,15 +3533,15 @@ class OrderApi
      *
      * Retrieve orders
      *
-     * @param  \ultracartv2\models\OrderQuery $order_query Order query (required)
+     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrdersResponse
+     * @return \ultracart\v2\models\OrdersResponse
      */
     public function getOrdersByQuery($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
@@ -3554,19 +3554,19 @@ class OrderApi
      *
      * Retrieve orders
      *
-     * @param  \ultracartv2\models\OrderQuery $order_query Order query (required)
+     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrdersByQueryWithHttpInfo($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersByQueryRequest($order_query, $_limit, $_offset, $_sort, $_expand);
 
         try {
@@ -3618,7 +3618,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrdersResponse',
+                        '\ultracart\v2\models\OrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3626,7 +3626,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3634,7 +3634,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3642,7 +3642,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3650,7 +3650,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3658,7 +3658,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3673,7 +3673,7 @@ class OrderApi
      *
      * Retrieve orders
      *
-     * @param  \ultracartv2\models\OrderQuery $order_query Order query (required)
+     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3697,7 +3697,7 @@ class OrderApi
      *
      * Retrieve orders
      *
-     * @param  \ultracartv2\models\OrderQuery $order_query Order query (required)
+     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3708,7 +3708,7 @@ class OrderApi
      */
     public function getOrdersByQueryAsyncWithHttpInfo($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersByQueryRequest($order_query, $_limit, $_offset, $_sort, $_expand);
 
         return $this->client
@@ -3751,7 +3751,7 @@ class OrderApi
     /**
      * Create request for operation 'getOrdersByQuery'
      *
-     * @param  \ultracartv2\models\OrderQuery $order_query Order query (required)
+     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3882,12 +3882,12 @@ class OrderApi
      *
      * Insert an order
      *
-     * @param  \ultracartv2\models\Order $order Order to insert (required)
+     * @param  \ultracart\v2\models\Order $order Order to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderResponse
+     * @return \ultracart\v2\models\OrderResponse
      */
     public function insertOrder($order, $_expand = null)
     {
@@ -3900,16 +3900,16 @@ class OrderApi
      *
      * Insert an order
      *
-     * @param  \ultracartv2\models\Order $order Order to insert (required)
+     * @param  \ultracart\v2\models\Order $order Order to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertOrderWithHttpInfo($order, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->insertOrderRequest($order, $_expand);
 
         try {
@@ -3961,7 +3961,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderResponse',
+                        '\ultracart\v2\models\OrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3969,7 +3969,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3977,7 +3977,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3985,7 +3985,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3993,7 +3993,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4001,7 +4001,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4016,7 +4016,7 @@ class OrderApi
      *
      * Insert an order
      *
-     * @param  \ultracartv2\models\Order $order Order to insert (required)
+     * @param  \ultracart\v2\models\Order $order Order to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -4037,7 +4037,7 @@ class OrderApi
      *
      * Insert an order
      *
-     * @param  \ultracartv2\models\Order $order Order to insert (required)
+     * @param  \ultracart\v2\models\Order $order Order to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -4045,7 +4045,7 @@ class OrderApi
      */
     public function insertOrderAsyncWithHttpInfo($order, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->insertOrderRequest($order, $_expand);
 
         return $this->client
@@ -4088,7 +4088,7 @@ class OrderApi
     /**
      * Create request for operation 'insertOrder'
      *
-     * @param  \ultracartv2\models\Order $order Order to insert (required)
+     * @param  \ultracart\v2\models\Order $order Order to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -4205,11 +4205,11 @@ class OrderApi
      * Process payment
      *
      * @param  string $order_id The order id to process payment on (required)
-     * @param  \ultracartv2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
+     * @param  \ultracart\v2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderProcessPaymentResponse
+     * @return \ultracart\v2\models\OrderProcessPaymentResponse
      */
     public function processPayment($order_id, $process_payment_request)
     {
@@ -4223,15 +4223,15 @@ class OrderApi
      * Process payment
      *
      * @param  string $order_id The order id to process payment on (required)
-     * @param  \ultracartv2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
+     * @param  \ultracart\v2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderProcessPaymentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderProcessPaymentResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function processPaymentWithHttpInfo($order_id, $process_payment_request)
     {
-        $returnType = '\ultracartv2\models\OrderProcessPaymentResponse';
+        $returnType = '\ultracart\v2\models\OrderProcessPaymentResponse';
         $request = $this->processPaymentRequest($order_id, $process_payment_request);
 
         try {
@@ -4283,7 +4283,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderProcessPaymentResponse',
+                        '\ultracart\v2\models\OrderProcessPaymentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4291,7 +4291,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4299,7 +4299,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4307,7 +4307,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4315,7 +4315,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4323,7 +4323,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4339,7 +4339,7 @@ class OrderApi
      * Process payment
      *
      * @param  string $order_id The order id to process payment on (required)
-     * @param  \ultracartv2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
+     * @param  \ultracart\v2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4360,14 +4360,14 @@ class OrderApi
      * Process payment
      *
      * @param  string $order_id The order id to process payment on (required)
-     * @param  \ultracartv2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
+     * @param  \ultracart\v2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function processPaymentAsyncWithHttpInfo($order_id, $process_payment_request)
     {
-        $returnType = '\ultracartv2\models\OrderProcessPaymentResponse';
+        $returnType = '\ultracart\v2\models\OrderProcessPaymentResponse';
         $request = $this->processPaymentRequest($order_id, $process_payment_request);
 
         return $this->client
@@ -4411,7 +4411,7 @@ class OrderApi
      * Create request for operation 'processPayment'
      *
      * @param  string $order_id The order id to process payment on (required)
-     * @param  \ultracartv2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
+     * @param  \ultracart\v2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4536,7 +4536,7 @@ class OrderApi
      *
      * Refund an order
      *
-     * @param  \ultracartv2\models\Order $order Order to refund (required)
+     * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
      * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
      * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
@@ -4545,9 +4545,9 @@ class OrderApi
      * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderResponse
+     * @return \ultracart\v2\models\OrderResponse
      */
     public function refundOrder($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
@@ -4560,7 +4560,7 @@ class OrderApi
      *
      * Refund an order
      *
-     * @param  \ultracartv2\models\Order $order Order to refund (required)
+     * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
      * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
      * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
@@ -4569,13 +4569,13 @@ class OrderApi
      * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function refundOrderWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
 
         try {
@@ -4627,7 +4627,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderResponse',
+                        '\ultracart\v2\models\OrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4635,7 +4635,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4643,7 +4643,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4651,7 +4651,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4659,7 +4659,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4667,7 +4667,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4682,7 +4682,7 @@ class OrderApi
      *
      * Refund an order
      *
-     * @param  \ultracartv2\models\Order $order Order to refund (required)
+     * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
      * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
      * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
@@ -4709,7 +4709,7 @@ class OrderApi
      *
      * Refund an order
      *
-     * @param  \ultracartv2\models\Order $order Order to refund (required)
+     * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
      * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
      * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
@@ -4723,7 +4723,7 @@ class OrderApi
      */
     public function refundOrderAsyncWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
 
         return $this->client
@@ -4766,7 +4766,7 @@ class OrderApi
     /**
      * Create request for operation 'refundOrder'
      *
-     * @param  \ultracartv2\models\Order $order Order to refund (required)
+     * @param  \ultracart\v2\models\Order $order Order to refund (required)
      * @param  string $order_id The order id to refund. (required)
      * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
      * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
@@ -4923,11 +4923,11 @@ class OrderApi
      * Replacement order
      *
      * @param  string $order_id The order id to generate a replacement for. (required)
-     * @param  \ultracartv2\models\OrderReplacement $replacement Replacement order details (required)
+     * @param  \ultracart\v2\models\OrderReplacement $replacement Replacement order details (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderReplacementResponse
+     * @return \ultracart\v2\models\OrderReplacementResponse
      */
     public function replacement($order_id, $replacement)
     {
@@ -4941,15 +4941,15 @@ class OrderApi
      * Replacement order
      *
      * @param  string $order_id The order id to generate a replacement for. (required)
-     * @param  \ultracartv2\models\OrderReplacement $replacement Replacement order details (required)
+     * @param  \ultracart\v2\models\OrderReplacement $replacement Replacement order details (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderReplacementResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderReplacementResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function replacementWithHttpInfo($order_id, $replacement)
     {
-        $returnType = '\ultracartv2\models\OrderReplacementResponse';
+        $returnType = '\ultracart\v2\models\OrderReplacementResponse';
         $request = $this->replacementRequest($order_id, $replacement);
 
         try {
@@ -5001,7 +5001,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderReplacementResponse',
+                        '\ultracart\v2\models\OrderReplacementResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5009,7 +5009,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5017,7 +5017,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5025,7 +5025,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5033,7 +5033,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5041,7 +5041,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5057,7 +5057,7 @@ class OrderApi
      * Replacement order
      *
      * @param  string $order_id The order id to generate a replacement for. (required)
-     * @param  \ultracartv2\models\OrderReplacement $replacement Replacement order details (required)
+     * @param  \ultracart\v2\models\OrderReplacement $replacement Replacement order details (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5078,14 +5078,14 @@ class OrderApi
      * Replacement order
      *
      * @param  string $order_id The order id to generate a replacement for. (required)
-     * @param  \ultracartv2\models\OrderReplacement $replacement Replacement order details (required)
+     * @param  \ultracart\v2\models\OrderReplacement $replacement Replacement order details (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function replacementAsyncWithHttpInfo($order_id, $replacement)
     {
-        $returnType = '\ultracartv2\models\OrderReplacementResponse';
+        $returnType = '\ultracart\v2\models\OrderReplacementResponse';
         $request = $this->replacementRequest($order_id, $replacement);
 
         return $this->client
@@ -5129,7 +5129,7 @@ class OrderApi
      * Create request for operation 'replacement'
      *
      * @param  string $order_id The order id to generate a replacement for. (required)
-     * @param  \ultracartv2\models\OrderReplacement $replacement Replacement order details (required)
+     * @param  \ultracart\v2\models\OrderReplacement $replacement Replacement order details (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5256,9 +5256,9 @@ class OrderApi
      *
      * @param  string $order_id The order id to resend the receipt for. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function resendReceipt($order_id)
     {
@@ -5273,13 +5273,13 @@ class OrderApi
      *
      * @param  string $order_id The order id to resend the receipt for. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resendReceiptWithHttpInfo($order_id)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->resendReceiptRequest($order_id);
 
         try {
@@ -5331,7 +5331,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5339,7 +5339,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5347,7 +5347,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5355,7 +5355,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5363,7 +5363,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5371,7 +5371,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5413,7 +5413,7 @@ class OrderApi
      */
     public function resendReceiptAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->resendReceiptRequest($order_id);
 
         return $this->client
@@ -5574,9 +5574,9 @@ class OrderApi
      *
      * @param  string $order_id The order id to resend the shipment notification for. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function resendShipmentConfirmation($order_id)
     {
@@ -5591,13 +5591,13 @@ class OrderApi
      *
      * @param  string $order_id The order id to resend the shipment notification for. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resendShipmentConfirmationWithHttpInfo($order_id)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->resendShipmentConfirmationRequest($order_id);
 
         try {
@@ -5649,7 +5649,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5657,7 +5657,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5665,7 +5665,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5673,7 +5673,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5681,7 +5681,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5689,7 +5689,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5731,7 +5731,7 @@ class OrderApi
      */
     public function resendShipmentConfirmationAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->resendShipmentConfirmationRequest($order_id);
 
         return $this->client
@@ -5890,11 +5890,11 @@ class OrderApi
      *
      * Update A/R Retry Configuration
      *
-     * @param  \ultracartv2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
+     * @param  \ultracart\v2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function updateAccountsReceivableRetryConfig($retry_config)
     {
@@ -5907,15 +5907,15 @@ class OrderApi
      *
      * Update A/R Retry Configuration
      *
-     * @param  \ultracartv2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
+     * @param  \ultracart\v2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateAccountsReceivableRetryConfigWithHttpInfo($retry_config)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->updateAccountsReceivableRetryConfigRequest($retry_config);
 
         try {
@@ -5967,7 +5967,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5975,7 +5975,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5983,7 +5983,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5991,7 +5991,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5999,7 +5999,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6007,7 +6007,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6022,7 +6022,7 @@ class OrderApi
      *
      * Update A/R Retry Configuration
      *
-     * @param  \ultracartv2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
+     * @param  \ultracart\v2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6042,14 +6042,14 @@ class OrderApi
      *
      * Update A/R Retry Configuration
      *
-     * @param  \ultracartv2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
+     * @param  \ultracart\v2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateAccountsReceivableRetryConfigAsyncWithHttpInfo($retry_config)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->updateAccountsReceivableRetryConfigRequest($retry_config);
 
         return $this->client
@@ -6092,7 +6092,7 @@ class OrderApi
     /**
      * Create request for operation 'updateAccountsReceivableRetryConfig'
      *
-     * @param  \ultracartv2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
+     * @param  \ultracart\v2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6203,13 +6203,13 @@ class OrderApi
      *
      * Update an order
      *
-     * @param  \ultracartv2\models\Order $order Order to update (required)
+     * @param  \ultracart\v2\models\Order $order Order to update (required)
      * @param  string $order_id The order id to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OrderResponse
+     * @return \ultracart\v2\models\OrderResponse
      */
     public function updateOrder($order, $order_id, $_expand = null)
     {
@@ -6222,17 +6222,17 @@ class OrderApi
      *
      * Update an order
      *
-     * @param  \ultracartv2\models\Order $order Order to update (required)
+     * @param  \ultracart\v2\models\Order $order Order to update (required)
      * @param  string $order_id The order id to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateOrderWithHttpInfo($order, $order_id, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->updateOrderRequest($order, $order_id, $_expand);
 
         try {
@@ -6284,7 +6284,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OrderResponse',
+                        '\ultracart\v2\models\OrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6292,7 +6292,7 @@ class OrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6300,7 +6300,7 @@ class OrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6308,7 +6308,7 @@ class OrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6316,7 +6316,7 @@ class OrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6324,7 +6324,7 @@ class OrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6339,7 +6339,7 @@ class OrderApi
      *
      * Update an order
      *
-     * @param  \ultracartv2\models\Order $order Order to update (required)
+     * @param  \ultracart\v2\models\Order $order Order to update (required)
      * @param  string $order_id The order id to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -6361,7 +6361,7 @@ class OrderApi
      *
      * Update an order
      *
-     * @param  \ultracartv2\models\Order $order Order to update (required)
+     * @param  \ultracart\v2\models\Order $order Order to update (required)
      * @param  string $order_id The order id to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -6370,7 +6370,7 @@ class OrderApi
      */
     public function updateOrderAsyncWithHttpInfo($order, $order_id, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\OrderResponse';
+        $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->updateOrderRequest($order, $order_id, $_expand);
 
         return $this->client
@@ -6413,7 +6413,7 @@ class OrderApi
     /**
      * Create request for operation 'updateOrder'
      *
-     * @param  \ultracartv2\models\Order $order Order to update (required)
+     * @param  \ultracart\v2\models\Order $order Order to update (required)
      * @param  string $order_id The order id to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *

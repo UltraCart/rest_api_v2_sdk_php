@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemPricingTier Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,8 +58,8 @@ class ItemPricingTier implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'default_tier' => 'bool',
-        'discounts' => '\ultracartv2\models\ItemPricingTierDiscount[]',
-        'limit' => '\ultracartv2\models\ItemPricingTierLimit',
+        'discounts' => '\ultracart\v2\models\ItemPricingTierDiscount[]',
+        'limit' => '\ultracart\v2\models\ItemPricingTierLimit',
         'name' => 'string',
         'pricing_tier_oid' => 'int'
     ];
@@ -255,7 +255,7 @@ class ItemPricingTier implements ModelInterface, ArrayAccess
     /**
      * Gets discounts
      *
-     * @return \ultracartv2\models\ItemPricingTierDiscount[]
+     * @return \ultracart\v2\models\ItemPricingTierDiscount[]
      */
     public function getDiscounts()
     {
@@ -265,7 +265,7 @@ class ItemPricingTier implements ModelInterface, ArrayAccess
     /**
      * Sets discounts
      *
-     * @param \ultracartv2\models\ItemPricingTierDiscount[] $discounts Discounts
+     * @param \ultracart\v2\models\ItemPricingTierDiscount[] $discounts Discounts
      *
      * @return $this
      */
@@ -279,7 +279,7 @@ class ItemPricingTier implements ModelInterface, ArrayAccess
     /**
      * Gets limit
      *
-     * @return \ultracartv2\models\ItemPricingTierLimit
+     * @return \ultracart\v2\models\ItemPricingTierLimit
      */
     public function getLimit()
     {
@@ -289,7 +289,7 @@ class ItemPricingTier implements ModelInterface, ArrayAccess
     /**
      * Sets limit
      *
-     * @param \ultracartv2\models\ItemPricingTierLimit $limit limit
+     * @param \ultracart\v2\models\ItemPricingTierLimit $limit limit
      *
      * @return $this
      */

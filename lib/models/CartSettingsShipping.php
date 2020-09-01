@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartSettingsShipping Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,11 +57,11 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'deliver_on_date' => '\ultracartv2\models\CartSettingsShippingCalendar',
-        'estimates' => '\ultracartv2\models\CartSettingsShippingEstimate[]',
+        'deliver_on_date' => '\ultracart\v2\models\CartSettingsShippingCalendar',
+        'estimates' => '\ultracart\v2\models\CartSettingsShippingEstimate[]',
         'need_shipping' => 'bool',
-        'provinces' => '\ultracartv2\models\CartSettingsProvince[]',
-        'ship_on_date' => '\ultracartv2\models\CartSettingsShippingCalendar'
+        'provinces' => '\ultracart\v2\models\CartSettingsProvince[]',
+        'ship_on_date' => '\ultracart\v2\models\CartSettingsShippingCalendar'
     ];
 
     /**
@@ -231,7 +231,7 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
     /**
      * Gets deliver_on_date
      *
-     * @return \ultracartv2\models\CartSettingsShippingCalendar
+     * @return \ultracart\v2\models\CartSettingsShippingCalendar
      */
     public function getDeliverOnDate()
     {
@@ -241,7 +241,7 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
     /**
      * Sets deliver_on_date
      *
-     * @param \ultracartv2\models\CartSettingsShippingCalendar $deliver_on_date deliver_on_date
+     * @param \ultracart\v2\models\CartSettingsShippingCalendar $deliver_on_date deliver_on_date
      *
      * @return $this
      */
@@ -255,7 +255,7 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
     /**
      * Gets estimates
      *
-     * @return \ultracartv2\models\CartSettingsShippingEstimate[]
+     * @return \ultracart\v2\models\CartSettingsShippingEstimate[]
      */
     public function getEstimates()
     {
@@ -265,7 +265,7 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
     /**
      * Sets estimates
      *
-     * @param \ultracartv2\models\CartSettingsShippingEstimate[] $estimates Estimates for this cart
+     * @param \ultracart\v2\models\CartSettingsShippingEstimate[] $estimates Estimates for this cart
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
     /**
      * Gets provinces
      *
-     * @return \ultracartv2\models\CartSettingsProvince[]
+     * @return \ultracart\v2\models\CartSettingsProvince[]
      */
     public function getProvinces()
     {
@@ -313,7 +313,7 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
     /**
      * Sets provinces
      *
-     * @param \ultracartv2\models\CartSettingsProvince[] $provinces Provinces
+     * @param \ultracart\v2\models\CartSettingsProvince[] $provinces Provinces
      *
      * @return $this
      */
@@ -327,7 +327,7 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
     /**
      * Gets ship_on_date
      *
-     * @return \ultracartv2\models\CartSettingsShippingCalendar
+     * @return \ultracart\v2\models\CartSettingsShippingCalendar
      */
     public function getShipOnDate()
     {
@@ -337,7 +337,7 @@ class CartSettingsShipping implements ModelInterface, ArrayAccess
     /**
      * Sets ship_on_date
      *
-     * @param \ultracartv2\models\CartSettingsShippingCalendar $ship_on_date ship_on_date
+     * @param \ultracart\v2\models\CartSettingsShippingCalendar $ship_on_date ship_on_date
      *
      * @return $this
      */

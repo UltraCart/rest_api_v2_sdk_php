@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartSettingsGiftWrap Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class CartSettingsGiftWrap implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cost' => '\ultracartv2\models\Currency',
+        'cost' => '\ultracart\v2\models\Currency',
         'title' => 'string',
         'url' => 'string'
     ];
@@ -219,7 +219,7 @@ class CartSettingsGiftWrap implements ModelInterface, ArrayAccess
     /**
      * Gets cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCost()
     {
@@ -229,7 +229,7 @@ class CartSettingsGiftWrap implements ModelInterface, ArrayAccess
     /**
      * Sets cost
      *
-     * @param \ultracartv2\models\Currency $cost cost
+     * @param \ultracart\v2\models\Currency $cost cost
      *
      * @return $this
      */

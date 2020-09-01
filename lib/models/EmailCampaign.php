@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailCampaign Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -66,7 +66,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'esp_domain_user' => 'string',
         'esp_domain_uuid' => 'string',
         'esp_friendly_name' => 'string',
-        'memberships' => '\ultracartv2\models\EmailListSegmentMembership[]',
+        'memberships' => '\ultracart\v2\models\EmailListSegmentMembership[]',
         'merchant_id' => 'string',
         'name' => 'string',
         'open_rate_formatted' => 'string',
@@ -541,7 +541,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
     /**
      * Gets memberships
      *
-     * @return \ultracartv2\models\EmailListSegmentMembership[]
+     * @return \ultracart\v2\models\EmailListSegmentMembership[]
      */
     public function getMemberships()
     {
@@ -551,7 +551,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
     /**
      * Sets memberships
      *
-     * @param \ultracartv2\models\EmailListSegmentMembership[] $memberships List and segment memberships
+     * @param \ultracart\v2\models\EmailListSegmentMembership[] $memberships List and segment memberships
      *
      * @return $this
      */

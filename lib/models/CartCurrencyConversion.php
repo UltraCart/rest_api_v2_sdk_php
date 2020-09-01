@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartCurrencyConversion Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,7 +58,7 @@ class CartCurrencyConversion implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'base_currency_code' => 'string',
-        'currencies' => '\ultracartv2\models\Currency[]'
+        'currencies' => '\ultracart\v2\models\Currency[]'
     ];
 
     /**
@@ -237,7 +237,7 @@ class CartCurrencyConversion implements ModelInterface, ArrayAccess
     /**
      * Gets currencies
      *
-     * @return \ultracartv2\models\Currency[]
+     * @return \ultracart\v2\models\Currency[]
      */
     public function getCurrencies()
     {
@@ -247,7 +247,7 @@ class CartCurrencyConversion implements ModelInterface, ArrayAccess
     /**
      * Sets currencies
      *
-     * @param \ultracartv2\models\Currency[] $currencies Conversion information for 1 unit of base currency to target currencies
+     * @param \ultracart\v2\models\Currency[] $currencies Conversion information for 1 unit of base currency to target currencies
      *
      * @return $this
      */

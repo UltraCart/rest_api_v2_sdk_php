@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartFinalizeOrderResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,8 +58,8 @@ class CartFinalizeOrderResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'errors' => 'string[]',
-        'next_cart' => '\ultracartv2\models\Cart',
-        'order' => '\ultracartv2\models\Order',
+        'next_cart' => '\ultracart\v2\models\Cart',
+        'order' => '\ultracart\v2\models\Order',
         'order_id' => 'string',
         'successful' => 'bool'
     ];
@@ -255,7 +255,7 @@ class CartFinalizeOrderResponse implements ModelInterface, ArrayAccess
     /**
      * Gets next_cart
      *
-     * @return \ultracartv2\models\Cart
+     * @return \ultracart\v2\models\Cart
      */
     public function getNextCart()
     {
@@ -265,7 +265,7 @@ class CartFinalizeOrderResponse implements ModelInterface, ArrayAccess
     /**
      * Sets next_cart
      *
-     * @param \ultracartv2\models\Cart $next_cart next_cart
+     * @param \ultracart\v2\models\Cart $next_cart next_cart
      *
      * @return $this
      */
@@ -279,7 +279,7 @@ class CartFinalizeOrderResponse implements ModelInterface, ArrayAccess
     /**
      * Gets order
      *
-     * @return \ultracartv2\models\Order
+     * @return \ultracart\v2\models\Order
      */
     public function getOrder()
     {
@@ -289,7 +289,7 @@ class CartFinalizeOrderResponse implements ModelInterface, ArrayAccess
     /**
      * Sets order
      *
-     * @param \ultracartv2\models\Order $order order
+     * @param \ultracart\v2\models\Order $order order
      *
      * @return $this
      */

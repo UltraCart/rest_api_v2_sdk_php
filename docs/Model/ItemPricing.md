@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **sale_cost** | **float** | Sale cost | [optional] 
 **sale_end** | **string** | Sale end | [optional] 
 **sale_start** | **string** | Sale start | [optional] 
-**tiers** | [**\ultracartv2\models\ItemPricingTier[]**](ItemPricingTier.md) | Tiers | [optional] 
+**tiers** | [**\ultracart\v2\models\ItemPricingTier[]**](ItemPricingTier.md) | Tiers | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemRelated Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,7 +59,7 @@ class ItemRelated implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'no_system_calculated_related_items' => 'bool',
         'not_relatable' => 'bool',
-        'related_items' => '\ultracartv2\models\ItemRelatedItem[]'
+        'related_items' => '\ultracart\v2\models\ItemRelatedItem[]'
     ];
 
     /**
@@ -267,7 +267,7 @@ class ItemRelated implements ModelInterface, ArrayAccess
     /**
      * Gets related_items
      *
-     * @return \ultracartv2\models\ItemRelatedItem[]
+     * @return \ultracart\v2\models\ItemRelatedItem[]
      */
     public function getRelatedItems()
     {
@@ -277,7 +277,7 @@ class ItemRelated implements ModelInterface, ArrayAccess
     /**
      * Sets related_items
      *
-     * @param \ultracartv2\models\ItemRelatedItem[] $related_items Related items
+     * @param \ultracart\v2\models\ItemRelatedItem[] $related_items Related items
      *
      * @return $this
      */

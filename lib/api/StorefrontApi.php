@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * StorefrontApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -92,11 +92,11 @@ class StorefrontApi
      *
      * Add to library
      *
-     * @param  \ultracartv2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemResponse
+     * @return \ultracart\v2\models\LibraryItemResponse
      */
     public function addToLibrary($add_library_request)
     {
@@ -109,15 +109,15 @@ class StorefrontApi
      *
      * Add to library
      *
-     * @param  \ultracartv2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addToLibraryWithHttpInfo($add_library_request)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->addToLibraryRequest($add_library_request);
 
         try {
@@ -169,7 +169,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemResponse',
+                        '\ultracart\v2\models\LibraryItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -177,7 +177,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -185,7 +185,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -193,7 +193,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -201,7 +201,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -209,7 +209,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -224,7 +224,7 @@ class StorefrontApi
      *
      * Add to library
      *
-     * @param  \ultracartv2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -244,14 +244,14 @@ class StorefrontApi
      *
      * Add to library
      *
-     * @param  \ultracartv2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function addToLibraryAsyncWithHttpInfo($add_library_request)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->addToLibraryRequest($add_library_request);
 
         return $this->client
@@ -294,7 +294,7 @@ class StorefrontApi
     /**
      * Create request for operation 'addToLibrary'
      *
-     * @param  \ultracartv2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -413,9 +413,9 @@ class StorefrontApi
      * @param  int $library_item_oid library_item_oid (required)
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ApplyLibraryItemResponse
+     * @return \ultracart\v2\models\ApplyLibraryItemResponse
      */
     public function applyToStoreFront($library_item_oid, $storefront_oid)
     {
@@ -431,13 +431,13 @@ class StorefrontApi
      * @param  int $library_item_oid (required)
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ApplyLibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ApplyLibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function applyToStoreFrontWithHttpInfo($library_item_oid, $storefront_oid)
     {
-        $returnType = '\ultracartv2\models\ApplyLibraryItemResponse';
+        $returnType = '\ultracart\v2\models\ApplyLibraryItemResponse';
         $request = $this->applyToStoreFrontRequest($library_item_oid, $storefront_oid);
 
         try {
@@ -489,7 +489,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ApplyLibraryItemResponse',
+                        '\ultracart\v2\models\ApplyLibraryItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -497,7 +497,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -505,7 +505,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -513,7 +513,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -521,7 +521,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -529,7 +529,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -573,7 +573,7 @@ class StorefrontApi
      */
     public function applyToStoreFrontAsyncWithHttpInfo($library_item_oid, $storefront_oid)
     {
-        $returnType = '\ultracartv2\models\ApplyLibraryItemResponse';
+        $returnType = '\ultracart\v2\models\ApplyLibraryItemResponse';
         $request = $this->applyToStoreFrontRequest($library_item_oid, $storefront_oid);
 
         return $this->client
@@ -755,9 +755,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_list_uuid email_list_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListArchiveResponse
+     * @return \ultracart\v2\models\EmailListArchiveResponse
      */
     public function archiveEmailList($storefront_oid, $email_list_uuid)
     {
@@ -773,13 +773,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListArchiveResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListArchiveResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function archiveEmailListWithHttpInfo($storefront_oid, $email_list_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailListArchiveResponse';
+        $returnType = '\ultracart\v2\models\EmailListArchiveResponse';
         $request = $this->archiveEmailListRequest($storefront_oid, $email_list_uuid);
 
         try {
@@ -831,7 +831,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListArchiveResponse',
+                        '\ultracart\v2\models\EmailListArchiveResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -839,7 +839,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -847,7 +847,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -855,7 +855,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -863,7 +863,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -871,7 +871,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -915,7 +915,7 @@ class StorefrontApi
      */
     public function archiveEmailListAsyncWithHttpInfo($storefront_oid, $email_list_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailListArchiveResponse';
+        $returnType = '\ultracart\v2\models\EmailListArchiveResponse';
         $request = $this->archiveEmailListRequest($storefront_oid, $email_list_uuid);
 
         return $this->client
@@ -1097,9 +1097,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_segment_uuid email_segment_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentArchiveResponse
+     * @return \ultracart\v2\models\EmailSegmentArchiveResponse
      */
     public function archiveEmailSegment($storefront_oid, $email_segment_uuid)
     {
@@ -1115,13 +1115,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_segment_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentArchiveResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentArchiveResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function archiveEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentArchiveResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentArchiveResponse';
         $request = $this->archiveEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
         try {
@@ -1173,7 +1173,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentArchiveResponse',
+                        '\ultracart\v2\models\EmailSegmentArchiveResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1181,7 +1181,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1189,7 +1189,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1197,7 +1197,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1205,7 +1205,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1213,7 +1213,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1257,7 +1257,7 @@ class StorefrontApi
      */
     public function archiveEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentArchiveResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentArchiveResponse';
         $request = $this->archiveEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
         return $this->client
@@ -1438,11 +1438,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_flow_uuid email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
+     * @param  \ultracart\v2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailFlowBackPopulateResponse
+     * @return \ultracart\v2\models\EmailFlowBackPopulateResponse
      */
     public function backPopulateEmailFlow($storefront_oid, $email_flow_uuid, $back_populate_request)
     {
@@ -1457,15 +1457,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
+     * @param  \ultracart\v2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailFlowBackPopulateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailFlowBackPopulateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function backPopulateEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $back_populate_request)
     {
-        $returnType = '\ultracartv2\models\EmailFlowBackPopulateResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowBackPopulateResponse';
         $request = $this->backPopulateEmailFlowRequest($storefront_oid, $email_flow_uuid, $back_populate_request);
 
         try {
@@ -1517,7 +1517,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailFlowBackPopulateResponse',
+                        '\ultracart\v2\models\EmailFlowBackPopulateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1525,7 +1525,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1533,7 +1533,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1541,7 +1541,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1549,7 +1549,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1557,7 +1557,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1574,7 +1574,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
+     * @param  \ultracart\v2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1596,14 +1596,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
+     * @param  \ultracart\v2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function backPopulateEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow_uuid, $back_populate_request)
     {
-        $returnType = '\ultracartv2\models\EmailFlowBackPopulateResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowBackPopulateResponse';
         $request = $this->backPopulateEmailFlowRequest($storefront_oid, $email_flow_uuid, $back_populate_request);
 
         return $this->client
@@ -1648,7 +1648,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
+     * @param  \ultracart\v2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1796,9 +1796,9 @@ class StorefrontApi
      * @param  string $email_segment_uuid email_segment_uuid (required)
      * @param  string $email_segment_rebuild_uuid email_segment_rebuild_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentDownloadPrepareResponse
+     * @return \ultracart\v2\models\EmailSegmentDownloadPrepareResponse
      */
     public function checkDownloadEmailSegment($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
     {
@@ -1815,13 +1815,13 @@ class StorefrontApi
      * @param  string $email_segment_uuid (required)
      * @param  string $email_segment_rebuild_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentDownloadPrepareResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentDownloadPrepareResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function checkDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentDownloadPrepareResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
         $request = $this->checkDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid);
 
         try {
@@ -1873,7 +1873,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentDownloadPrepareResponse',
+                        '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1881,7 +1881,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1889,7 +1889,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1897,7 +1897,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1905,7 +1905,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1913,7 +1913,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1959,7 +1959,7 @@ class StorefrontApi
      */
     public function checkDownloadEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentDownloadPrepareResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
         $request = $this->checkDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid);
 
         return $this->client
@@ -2157,9 +2157,9 @@ class StorefrontApi
      * @param  string $email_campaign_uuid email_campaign_uuid (required)
      * @param  int $target_storefront_oid target_storefront_oid (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCampaignResponse
+     * @return \ultracart\v2\models\EmailCampaignResponse
      */
     public function cloneEmailCampaign($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
@@ -2176,13 +2176,13 @@ class StorefrontApi
      * @param  string $email_campaign_uuid (required)
      * @param  int $target_storefront_oid (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function cloneEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $target_storefront_oid);
 
         try {
@@ -2234,7 +2234,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCampaignResponse',
+                        '\ultracart\v2\models\EmailCampaignResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2242,7 +2242,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2250,7 +2250,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2258,7 +2258,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2266,7 +2266,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2274,7 +2274,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2320,7 +2320,7 @@ class StorefrontApi
      */
     public function cloneEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $target_storefront_oid);
 
         return $this->client
@@ -2508,9 +2508,9 @@ class StorefrontApi
      * @param  string $email_flow_uuid email_flow_uuid (required)
      * @param  int $target_storefront_oid target_storefront_oid (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailFlowResponse
+     * @return \ultracart\v2\models\EmailFlowResponse
      */
     public function cloneEmailFlow($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
@@ -2527,13 +2527,13 @@ class StorefrontApi
      * @param  string $email_flow_uuid (required)
      * @param  int $target_storefront_oid (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function cloneEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
-        $returnType = '\ultracartv2\models\EmailFlowResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->cloneEmailFlowRequest($storefront_oid, $email_flow_uuid, $target_storefront_oid);
 
         try {
@@ -2585,7 +2585,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailFlowResponse',
+                        '\ultracart\v2\models\EmailFlowResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2593,7 +2593,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2601,7 +2601,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2609,7 +2609,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2617,7 +2617,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2625,7 +2625,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2671,7 +2671,7 @@ class StorefrontApi
      */
     public function cloneEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
-        $returnType = '\ultracartv2\models\EmailFlowResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->cloneEmailFlowRequest($storefront_oid, $email_flow_uuid, $target_storefront_oid);
 
         return $this->client
@@ -2857,9 +2857,9 @@ class StorefrontApi
      *
      * @param  string $domain domain (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSendingDomainResponse
+     * @return \ultracart\v2\models\EmailSendingDomainResponse
      */
     public function createEmailSendingDomain($domain)
     {
@@ -2874,13 +2874,13 @@ class StorefrontApi
      *
      * @param  string $domain (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createEmailSendingDomainWithHttpInfo($domain)
     {
-        $returnType = '\ultracartv2\models\EmailSendingDomainResponse';
+        $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->createEmailSendingDomainRequest($domain);
 
         try {
@@ -2932,7 +2932,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSendingDomainResponse',
+                        '\ultracart\v2\models\EmailSendingDomainResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2940,7 +2940,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2948,7 +2948,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2956,7 +2956,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2964,7 +2964,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2972,7 +2972,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3014,7 +3014,7 @@ class StorefrontApi
      */
     public function createEmailSendingDomainAsyncWithHttpInfo($domain)
     {
-        $returnType = '\ultracartv2\models\EmailSendingDomainResponse';
+        $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->createEmailSendingDomainRequest($domain);
 
         return $this->client
@@ -3181,7 +3181,7 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_uuid commseq_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3198,7 +3198,7 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3242,7 +3242,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3250,7 +3250,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3258,7 +3258,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3266,7 +3266,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3274,7 +3274,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3486,9 +3486,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_email_uuid commseq_email_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function deleteEmailEmail($storefront_oid, $commseq_email_uuid)
     {
@@ -3504,13 +3504,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailEmailRequest($storefront_oid, $commseq_email_uuid);
 
         try {
@@ -3562,7 +3562,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3570,7 +3570,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3578,7 +3578,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3586,7 +3586,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3594,7 +3594,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3602,7 +3602,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3646,7 +3646,7 @@ class StorefrontApi
      */
     public function deleteEmailEmailAsyncWithHttpInfo($storefront_oid, $commseq_email_uuid)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailEmailRequest($storefront_oid, $commseq_email_uuid);
 
         return $this->client
@@ -3829,9 +3829,9 @@ class StorefrontApi
      * @param  string $email_list_uuid email_list_uuid (required)
      * @param  string $email_customer_uuid email_customer_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function deleteEmailListCustomer($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
@@ -3848,13 +3848,13 @@ class StorefrontApi
      * @param  string $email_list_uuid (required)
      * @param  string $email_customer_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteEmailListCustomerWithHttpInfo($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailListCustomerRequest($storefront_oid, $email_list_uuid, $email_customer_uuid);
 
         try {
@@ -3906,7 +3906,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3914,7 +3914,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3922,7 +3922,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3930,7 +3930,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3938,7 +3938,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3946,7 +3946,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3992,7 +3992,7 @@ class StorefrontApi
      */
     public function deleteEmailListCustomerAsyncWithHttpInfo($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailListCustomerRequest($storefront_oid, $email_list_uuid, $email_customer_uuid);
 
         return $this->client
@@ -4189,9 +4189,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_postcard_uuid commseq_postcard_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function deleteEmailPostcard($storefront_oid, $commseq_postcard_uuid)
     {
@@ -4207,13 +4207,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid);
 
         try {
@@ -4265,7 +4265,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4273,7 +4273,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4281,7 +4281,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4289,7 +4289,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4297,7 +4297,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4305,7 +4305,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4349,7 +4349,7 @@ class StorefrontApi
      */
     public function deleteEmailPostcardAsyncWithHttpInfo($storefront_oid, $commseq_postcard_uuid)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid);
 
         return $this->client
@@ -4530,9 +4530,9 @@ class StorefrontApi
      *
      * @param  string $domain domain (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function deleteEmailSendingDomain($domain)
     {
@@ -4547,13 +4547,13 @@ class StorefrontApi
      *
      * @param  string $domain (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteEmailSendingDomainWithHttpInfo($domain)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailSendingDomainRequest($domain);
 
         try {
@@ -4605,7 +4605,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4613,7 +4613,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4621,7 +4621,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4629,7 +4629,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4637,7 +4637,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4645,7 +4645,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4687,7 +4687,7 @@ class StorefrontApi
      */
     public function deleteEmailSendingDomainAsyncWithHttpInfo($domain)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailSendingDomainRequest($domain);
 
         return $this->client
@@ -4854,7 +4854,7 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  int $storefront_experiment_oid storefront_experiment_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -4871,7 +4871,7 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  int $storefront_experiment_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -4915,7 +4915,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4923,7 +4923,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4931,7 +4931,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4939,7 +4939,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4947,7 +4947,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5158,7 +5158,7 @@ class StorefrontApi
      *
      * @param  int $library_item_oid library_item_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -5174,7 +5174,7 @@ class StorefrontApi
      *
      * @param  int $library_item_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -5218,7 +5218,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5226,7 +5226,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5234,7 +5234,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5242,7 +5242,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5250,7 +5250,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5444,9 +5444,9 @@ class StorefrontApi
      *
      * @param  int $library_item_oid library_item_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemResponse
+     * @return \ultracart\v2\models\LibraryItemResponse
      */
     public function duplicateLibraryItem($library_item_oid)
     {
@@ -5461,13 +5461,13 @@ class StorefrontApi
      *
      * @param  int $library_item_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function duplicateLibraryItemWithHttpInfo($library_item_oid)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->duplicateLibraryItemRequest($library_item_oid);
 
         try {
@@ -5519,7 +5519,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemResponse',
+                        '\ultracart\v2\models\LibraryItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5527,7 +5527,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5535,7 +5535,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5543,7 +5543,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5551,7 +5551,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5559,7 +5559,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5601,7 +5601,7 @@ class StorefrontApi
      */
     public function duplicateLibraryItemAsyncWithHttpInfo($library_item_oid)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->duplicateLibraryItemRequest($library_item_oid);
 
         return $this->client
@@ -5766,11 +5766,11 @@ class StorefrontApi
      * Obtain lat/long for an address
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\GeocodeRequest $geocode_request geocode request (required)
+     * @param  \ultracart\v2\models\GeocodeRequest $geocode_request geocode request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\GeocodeResponse
+     * @return \ultracart\v2\models\GeocodeResponse
      */
     public function geocodeAddress($storefront_oid, $geocode_request)
     {
@@ -5784,15 +5784,15 @@ class StorefrontApi
      * Obtain lat/long for an address
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\GeocodeRequest $geocode_request geocode request (required)
+     * @param  \ultracart\v2\models\GeocodeRequest $geocode_request geocode request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\GeocodeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\GeocodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function geocodeAddressWithHttpInfo($storefront_oid, $geocode_request)
     {
-        $returnType = '\ultracartv2\models\GeocodeResponse';
+        $returnType = '\ultracart\v2\models\GeocodeResponse';
         $request = $this->geocodeAddressRequest($storefront_oid, $geocode_request);
 
         try {
@@ -5844,7 +5844,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\GeocodeResponse',
+                        '\ultracart\v2\models\GeocodeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5852,7 +5852,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5860,7 +5860,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5868,7 +5868,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5876,7 +5876,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5884,7 +5884,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5900,7 +5900,7 @@ class StorefrontApi
      * Obtain lat/long for an address
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\GeocodeRequest $geocode_request geocode request (required)
+     * @param  \ultracart\v2\models\GeocodeRequest $geocode_request geocode request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5921,14 +5921,14 @@ class StorefrontApi
      * Obtain lat/long for an address
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\GeocodeRequest $geocode_request geocode request (required)
+     * @param  \ultracart\v2\models\GeocodeRequest $geocode_request geocode request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function geocodeAddressAsyncWithHttpInfo($storefront_oid, $geocode_request)
     {
-        $returnType = '\ultracartv2\models\GeocodeResponse';
+        $returnType = '\ultracart\v2\models\GeocodeResponse';
         $request = $this->geocodeAddressRequest($storefront_oid, $geocode_request);
 
         return $this->client
@@ -5972,7 +5972,7 @@ class StorefrontApi
      * Create request for operation 'geocodeAddress'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\GeocodeRequest $geocode_request geocode request (required)
+     * @param  \ultracart\v2\models\GeocodeRequest $geocode_request geocode request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6104,9 +6104,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CountriesResponse
+     * @return \ultracart\v2\models\CountriesResponse
      */
     public function getCountries($storefront_oid)
     {
@@ -6121,13 +6121,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CountriesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CountriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCountriesWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\CountriesResponse';
+        $returnType = '\ultracart\v2\models\CountriesResponse';
         $request = $this->getCountriesRequest($storefront_oid);
 
         try {
@@ -6179,7 +6179,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CountriesResponse',
+                        '\ultracart\v2\models\CountriesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6187,7 +6187,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6195,7 +6195,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6203,7 +6203,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6211,7 +6211,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6219,7 +6219,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6261,7 +6261,7 @@ class StorefrontApi
      */
     public function getCountriesAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\CountriesResponse';
+        $returnType = '\ultracart\v2\models\CountriesResponse';
         $request = $this->getCountriesRequest($storefront_oid);
 
         return $this->client
@@ -6427,9 +6427,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailEditorTokenResponse
+     * @return \ultracart\v2\models\EmailEditorTokenResponse
      */
     public function getEditorToken($storefront_oid)
     {
@@ -6444,13 +6444,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailEditorTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailEditorTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEditorTokenWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailEditorTokenResponse';
+        $returnType = '\ultracart\v2\models\EmailEditorTokenResponse';
         $request = $this->getEditorTokenRequest($storefront_oid);
 
         try {
@@ -6502,7 +6502,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailEditorTokenResponse',
+                        '\ultracart\v2\models\EmailEditorTokenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6510,7 +6510,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6518,7 +6518,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6526,7 +6526,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6534,7 +6534,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6542,7 +6542,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6584,7 +6584,7 @@ class StorefrontApi
      */
     public function getEditorTokenAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailEditorTokenResponse';
+        $returnType = '\ultracart\v2\models\EmailEditorTokenResponse';
         $request = $this->getEditorTokenRequest($storefront_oid);
 
         return $this->client
@@ -6750,9 +6750,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailBaseTemplateListResponse
+     * @return \ultracart\v2\models\EmailBaseTemplateListResponse
      */
     public function getEmailBaseTemplates($storefront_oid)
     {
@@ -6767,13 +6767,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailBaseTemplateListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailBaseTemplateListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailBaseTemplatesWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailBaseTemplateListResponse';
+        $returnType = '\ultracart\v2\models\EmailBaseTemplateListResponse';
         $request = $this->getEmailBaseTemplatesRequest($storefront_oid);
 
         try {
@@ -6825,7 +6825,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailBaseTemplateListResponse',
+                        '\ultracart\v2\models\EmailBaseTemplateListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6833,7 +6833,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6841,7 +6841,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6849,7 +6849,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6857,7 +6857,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6865,7 +6865,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6907,7 +6907,7 @@ class StorefrontApi
      */
     public function getEmailBaseTemplatesAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailBaseTemplateListResponse';
+        $returnType = '\ultracart\v2\models\EmailBaseTemplateListResponse';
         $request = $this->getEmailBaseTemplatesRequest($storefront_oid);
 
         return $this->client
@@ -7074,9 +7074,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_campaign_uuid email_campaign_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCampaignResponse
+     * @return \ultracart\v2\models\EmailCampaignResponse
      */
     public function getEmailCampaign($storefront_oid, $email_campaign_uuid)
     {
@@ -7092,13 +7092,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_campaign_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->getEmailCampaignRequest($storefront_oid, $email_campaign_uuid);
 
         try {
@@ -7150,7 +7150,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCampaignResponse',
+                        '\ultracart\v2\models\EmailCampaignResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7158,7 +7158,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7166,7 +7166,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7174,7 +7174,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7182,7 +7182,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7190,7 +7190,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7234,7 +7234,7 @@ class StorefrontApi
      */
     public function getEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->getEmailCampaignRequest($storefront_oid, $email_campaign_uuid);
 
         return $this->client
@@ -7416,9 +7416,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_campaign_uuid email_campaign_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ScreenshotsResponse
+     * @return \ultracart\v2\models\ScreenshotsResponse
      */
     public function getEmailCampaignScreenshots($storefront_oid, $email_campaign_uuid)
     {
@@ -7434,13 +7434,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_campaign_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ScreenshotsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ScreenshotsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCampaignScreenshotsWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        $returnType = '\ultracartv2\models\ScreenshotsResponse';
+        $returnType = '\ultracart\v2\models\ScreenshotsResponse';
         $request = $this->getEmailCampaignScreenshotsRequest($storefront_oid, $email_campaign_uuid);
 
         try {
@@ -7492,7 +7492,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ScreenshotsResponse',
+                        '\ultracart\v2\models\ScreenshotsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7500,7 +7500,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7508,7 +7508,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7516,7 +7516,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7524,7 +7524,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7532,7 +7532,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7576,7 +7576,7 @@ class StorefrontApi
      */
     public function getEmailCampaignScreenshotsAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        $returnType = '\ultracartv2\models\ScreenshotsResponse';
+        $returnType = '\ultracart\v2\models\ScreenshotsResponse';
         $request = $this->getEmailCampaignScreenshotsRequest($storefront_oid, $email_campaign_uuid);
 
         return $this->client
@@ -7757,9 +7757,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCampaignsResponse
+     * @return \ultracart\v2\models\EmailCampaignsResponse
      */
     public function getEmailCampaigns($storefront_oid)
     {
@@ -7774,13 +7774,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCampaignsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCampaignsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCampaignsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignsResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignsResponse';
         $request = $this->getEmailCampaignsRequest($storefront_oid);
 
         try {
@@ -7832,7 +7832,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCampaignsResponse',
+                        '\ultracart\v2\models\EmailCampaignsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7840,7 +7840,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7848,7 +7848,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7856,7 +7856,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7864,7 +7864,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7872,7 +7872,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7914,7 +7914,7 @@ class StorefrontApi
      */
     public function getEmailCampaignsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignsResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignsResponse';
         $request = $this->getEmailCampaignsRequest($storefront_oid);
 
         return $this->client
@@ -8081,9 +8081,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $stat_days stat_days (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCampaignsResponse
+     * @return \ultracart\v2\models\EmailCampaignsResponse
      */
     public function getEmailCampaignsWithStats($storefront_oid, $stat_days)
     {
@@ -8099,13 +8099,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $stat_days (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCampaignsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCampaignsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCampaignsWithStatsWithHttpInfo($storefront_oid, $stat_days)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignsResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignsResponse';
         $request = $this->getEmailCampaignsWithStatsRequest($storefront_oid, $stat_days);
 
         try {
@@ -8157,7 +8157,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCampaignsResponse',
+                        '\ultracart\v2\models\EmailCampaignsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8165,7 +8165,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8173,7 +8173,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8181,7 +8181,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8189,7 +8189,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8197,7 +8197,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8241,7 +8241,7 @@ class StorefrontApi
      */
     public function getEmailCampaignsWithStatsAsyncWithHttpInfo($storefront_oid, $stat_days)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignsResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignsResponse';
         $request = $this->getEmailCampaignsWithStatsRequest($storefront_oid, $stat_days);
 
         return $this->client
@@ -8423,9 +8423,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_uuid commseq_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqResponse
+     * @return \ultracart\v2\models\EmailCommseqResponse
      */
     public function getEmailCommseq($storefront_oid, $commseq_uuid)
     {
@@ -8441,13 +8441,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCommseqWithHttpInfo($storefront_oid, $commseq_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->getEmailCommseqRequest($storefront_oid, $commseq_uuid);
 
         try {
@@ -8499,7 +8499,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqResponse',
+                        '\ultracart\v2\models\EmailCommseqResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8507,7 +8507,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8515,7 +8515,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8523,7 +8523,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8531,7 +8531,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8539,7 +8539,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8583,7 +8583,7 @@ class StorefrontApi
      */
     public function getEmailCommseqAsyncWithHttpInfo($storefront_oid, $commseq_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->getEmailCommseqRequest($storefront_oid, $commseq_uuid);
 
         return $this->client
@@ -8764,11 +8764,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_uuid commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailStatSummaryResponse
+     * @return \ultracart\v2\models\EmailStatSummaryResponse
      */
     public function getEmailCommseqEmailStats($storefront_oid, $commseq_uuid, $stats_request)
     {
@@ -8783,15 +8783,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailStatSummaryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailStatSummaryResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCommseqEmailStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        $returnType = '\ultracartv2\models\EmailStatSummaryResponse';
+        $returnType = '\ultracart\v2\models\EmailStatSummaryResponse';
         $request = $this->getEmailCommseqEmailStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
         try {
@@ -8843,7 +8843,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailStatSummaryResponse',
+                        '\ultracart\v2\models\EmailStatSummaryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8851,7 +8851,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8859,7 +8859,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8867,7 +8867,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8875,7 +8875,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8883,7 +8883,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8900,7 +8900,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8922,14 +8922,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getEmailCommseqEmailStatsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        $returnType = '\ultracartv2\models\EmailStatSummaryResponse';
+        $returnType = '\ultracart\v2\models\EmailStatSummaryResponse';
         $request = $this->getEmailCommseqEmailStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
         return $this->client
@@ -8974,7 +8974,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9120,11 +9120,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_uuid commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailStatPostcardSummaryResponse
+     * @return \ultracart\v2\models\EmailStatPostcardSummaryResponse
      */
     public function getEmailCommseqPostcardStats($storefront_oid, $commseq_uuid, $stats_request)
     {
@@ -9139,15 +9139,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailStatPostcardSummaryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailStatPostcardSummaryResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCommseqPostcardStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        $returnType = '\ultracartv2\models\EmailStatPostcardSummaryResponse';
+        $returnType = '\ultracart\v2\models\EmailStatPostcardSummaryResponse';
         $request = $this->getEmailCommseqPostcardStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
         try {
@@ -9199,7 +9199,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailStatPostcardSummaryResponse',
+                        '\ultracart\v2\models\EmailStatPostcardSummaryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9207,7 +9207,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9215,7 +9215,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9223,7 +9223,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9231,7 +9231,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9239,7 +9239,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9256,7 +9256,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9278,14 +9278,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getEmailCommseqPostcardStatsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        $returnType = '\ultracartv2\models\EmailStatPostcardSummaryResponse';
+        $returnType = '\ultracart\v2\models\EmailStatPostcardSummaryResponse';
         $request = $this->getEmailCommseqPostcardStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
         return $this->client
@@ -9330,7 +9330,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9477,9 +9477,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_uuid commseq_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqStatResponse
+     * @return \ultracart\v2\models\EmailCommseqStatResponse
      */
     public function getEmailCommseqStatOverall($storefront_oid, $commseq_uuid)
     {
@@ -9495,13 +9495,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqStatResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqStatResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCommseqStatOverallWithHttpInfo($storefront_oid, $commseq_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqStatResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqStatResponse';
         $request = $this->getEmailCommseqStatOverallRequest($storefront_oid, $commseq_uuid);
 
         try {
@@ -9553,7 +9553,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqStatResponse',
+                        '\ultracart\v2\models\EmailCommseqStatResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9561,7 +9561,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9569,7 +9569,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9577,7 +9577,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9585,7 +9585,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9593,7 +9593,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9637,7 +9637,7 @@ class StorefrontApi
      */
     public function getEmailCommseqStatOverallAsyncWithHttpInfo($storefront_oid, $commseq_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqStatResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqStatResponse';
         $request = $this->getEmailCommseqStatOverallRequest($storefront_oid, $commseq_uuid);
 
         return $this->client
@@ -9818,11 +9818,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_uuid commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailStepStatResponse
+     * @return \ultracart\v2\models\EmailStepStatResponse
      */
     public function getEmailCommseqStepStats($storefront_oid, $commseq_uuid, $stats_request)
     {
@@ -9837,15 +9837,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailStepStatResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailStepStatResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCommseqStepStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        $returnType = '\ultracartv2\models\EmailStepStatResponse';
+        $returnType = '\ultracart\v2\models\EmailStepStatResponse';
         $request = $this->getEmailCommseqStepStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
         try {
@@ -9897,7 +9897,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailStepStatResponse',
+                        '\ultracart\v2\models\EmailStepStatResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9905,7 +9905,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9913,7 +9913,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9921,7 +9921,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9929,7 +9929,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9937,7 +9937,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9954,7 +9954,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9976,14 +9976,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getEmailCommseqStepStatsAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        $returnType = '\ultracartv2\models\EmailStepStatResponse';
+        $returnType = '\ultracart\v2\models\EmailStepStatResponse';
         $request = $this->getEmailCommseqStepStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
         return $this->client
@@ -10028,7 +10028,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -10174,11 +10174,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_uuid commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
+     * @param  \ultracart\v2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailStepWaitingResponse
+     * @return \ultracart\v2\models\EmailStepWaitingResponse
      */
     public function getEmailCommseqStepWaiting($storefront_oid, $commseq_uuid, $waiting_request)
     {
@@ -10193,15 +10193,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
+     * @param  \ultracart\v2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailStepWaitingResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailStepWaitingResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCommseqStepWaitingWithHttpInfo($storefront_oid, $commseq_uuid, $waiting_request)
     {
-        $returnType = '\ultracartv2\models\EmailStepWaitingResponse';
+        $returnType = '\ultracart\v2\models\EmailStepWaitingResponse';
         $request = $this->getEmailCommseqStepWaitingRequest($storefront_oid, $commseq_uuid, $waiting_request);
 
         try {
@@ -10253,7 +10253,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailStepWaitingResponse',
+                        '\ultracart\v2\models\EmailStepWaitingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10261,7 +10261,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10269,7 +10269,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10277,7 +10277,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10285,7 +10285,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10293,7 +10293,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10310,7 +10310,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
+     * @param  \ultracart\v2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10332,14 +10332,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
+     * @param  \ultracart\v2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getEmailCommseqStepWaitingAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $waiting_request)
     {
-        $returnType = '\ultracartv2\models\EmailStepWaitingResponse';
+        $returnType = '\ultracart\v2\models\EmailStepWaitingResponse';
         $request = $this->getEmailCommseqStepWaitingRequest($storefront_oid, $commseq_uuid, $waiting_request);
 
         return $this->client
@@ -10384,7 +10384,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
+     * @param  \ultracart\v2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -10530,9 +10530,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqsResponse
+     * @return \ultracart\v2\models\EmailCommseqsResponse
      */
     public function getEmailCommseqs($storefront_oid)
     {
@@ -10547,13 +10547,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCommseqsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqsResponse';
         $request = $this->getEmailCommseqsRequest($storefront_oid);
 
         try {
@@ -10605,7 +10605,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqsResponse',
+                        '\ultracart\v2\models\EmailCommseqsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10613,7 +10613,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10621,7 +10621,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10629,7 +10629,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10637,7 +10637,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10645,7 +10645,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10687,7 +10687,7 @@ class StorefrontApi
      */
     public function getEmailCommseqsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqsResponse';
         $request = $this->getEmailCommseqsRequest($storefront_oid);
 
         return $this->client
@@ -10854,9 +10854,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_customer_uuid email_customer_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCustomerEditorUrlResponse
+     * @return \ultracart\v2\models\EmailCustomerEditorUrlResponse
      */
     public function getEmailCustomerEditorUrl($storefront_oid, $email_customer_uuid)
     {
@@ -10872,13 +10872,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_customer_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCustomerEditorUrlWithHttpInfo($storefront_oid, $email_customer_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCustomerEditorUrlResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailCustomerEditorUrlRequest($storefront_oid, $email_customer_uuid);
 
         try {
@@ -10930,7 +10930,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCustomerEditorUrlResponse',
+                        '\ultracart\v2\models\EmailCustomerEditorUrlResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10938,7 +10938,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10946,7 +10946,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10954,7 +10954,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10962,7 +10962,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10970,7 +10970,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11014,7 +11014,7 @@ class StorefrontApi
      */
     public function getEmailCustomerEditorUrlAsyncWithHttpInfo($storefront_oid, $email_customer_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCustomerEditorUrlResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailCustomerEditorUrlRequest($storefront_oid, $email_customer_uuid);
 
         return $this->client
@@ -11198,9 +11198,9 @@ class StorefrontApi
      * @param  int $page_size page_size (optional)
      * @param  string $search_email_prefix search_email_prefix (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCustomersResponse
+     * @return \ultracart\v2\models\EmailCustomersResponse
      */
     public function getEmailCustomers($storefront_oid, $page_number = null, $page_size = null, $search_email_prefix = null)
     {
@@ -11218,13 +11218,13 @@ class StorefrontApi
      * @param  int $page_size (optional)
      * @param  string $search_email_prefix (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailCustomersWithHttpInfo($storefront_oid, $page_number = null, $page_size = null, $search_email_prefix = null)
     {
-        $returnType = '\ultracartv2\models\EmailCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomersResponse';
         $request = $this->getEmailCustomersRequest($storefront_oid, $page_number, $page_size, $search_email_prefix);
 
         try {
@@ -11276,7 +11276,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCustomersResponse',
+                        '\ultracart\v2\models\EmailCustomersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11284,7 +11284,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11292,7 +11292,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11300,7 +11300,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11308,7 +11308,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11316,7 +11316,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11364,7 +11364,7 @@ class StorefrontApi
      */
     public function getEmailCustomersAsyncWithHttpInfo($storefront_oid, $page_number = null, $page_size = null, $search_email_prefix = null)
     {
-        $returnType = '\ultracartv2\models\EmailCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomersResponse';
         $request = $this->getEmailCustomersRequest($storefront_oid, $page_number, $page_size, $search_email_prefix);
 
         return $this->client
@@ -11546,9 +11546,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  int $last_records last_records (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailDashboardActivityResponse
+     * @return \ultracart\v2\models\EmailDashboardActivityResponse
      */
     public function getEmailDashboardActivity($storefront_oid, $last_records = null)
     {
@@ -11564,13 +11564,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  int $last_records (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailDashboardActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailDashboardActivityResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailDashboardActivityWithHttpInfo($storefront_oid, $last_records = null)
     {
-        $returnType = '\ultracartv2\models\EmailDashboardActivityResponse';
+        $returnType = '\ultracart\v2\models\EmailDashboardActivityResponse';
         $request = $this->getEmailDashboardActivityRequest($storefront_oid, $last_records);
 
         try {
@@ -11622,7 +11622,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailDashboardActivityResponse',
+                        '\ultracart\v2\models\EmailDashboardActivityResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11630,7 +11630,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11638,7 +11638,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11646,7 +11646,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11654,7 +11654,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11662,7 +11662,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11706,7 +11706,7 @@ class StorefrontApi
      */
     public function getEmailDashboardActivityAsyncWithHttpInfo($storefront_oid, $last_records = null)
     {
-        $returnType = '\ultracartv2\models\EmailDashboardActivityResponse';
+        $returnType = '\ultracart\v2\models\EmailDashboardActivityResponse';
         $request = $this->getEmailDashboardActivityRequest($storefront_oid, $last_records);
 
         return $this->client
@@ -11878,9 +11878,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  int $days days (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailDashboardStatsResponse
+     * @return \ultracart\v2\models\EmailDashboardStatsResponse
      */
     public function getEmailDashboardStats($storefront_oid, $days = null)
     {
@@ -11896,13 +11896,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  int $days (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailDashboardStatsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailDashboardStatsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailDashboardStatsWithHttpInfo($storefront_oid, $days = null)
     {
-        $returnType = '\ultracartv2\models\EmailDashboardStatsResponse';
+        $returnType = '\ultracart\v2\models\EmailDashboardStatsResponse';
         $request = $this->getEmailDashboardStatsRequest($storefront_oid, $days);
 
         try {
@@ -11954,7 +11954,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailDashboardStatsResponse',
+                        '\ultracart\v2\models\EmailDashboardStatsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11962,7 +11962,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11970,7 +11970,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11978,7 +11978,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11986,7 +11986,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11994,7 +11994,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12038,7 +12038,7 @@ class StorefrontApi
      */
     public function getEmailDashboardStatsAsyncWithHttpInfo($storefront_oid, $days = null)
     {
-        $returnType = '\ultracartv2\models\EmailDashboardStatsResponse';
+        $returnType = '\ultracart\v2\models\EmailDashboardStatsResponse';
         $request = $this->getEmailDashboardStatsRequest($storefront_oid, $days);
 
         return $this->client
@@ -12210,9 +12210,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_email_uuid commseq_email_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqEmailResponse
+     * @return \ultracart\v2\models\EmailCommseqEmailResponse
      */
     public function getEmailEmail($storefront_oid, $commseq_email_uuid)
     {
@@ -12228,13 +12228,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->getEmailEmailRequest($storefront_oid, $commseq_email_uuid);
 
         try {
@@ -12286,7 +12286,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqEmailResponse',
+                        '\ultracart\v2\models\EmailCommseqEmailResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12294,7 +12294,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12302,7 +12302,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12310,7 +12310,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12318,7 +12318,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12326,7 +12326,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12370,7 +12370,7 @@ class StorefrontApi
      */
     public function getEmailEmailAsyncWithHttpInfo($storefront_oid, $commseq_email_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->getEmailEmailRequest($storefront_oid, $commseq_email_uuid);
 
         return $this->client
@@ -12555,9 +12555,9 @@ class StorefrontApi
      * @param  string $commseq_email_uuid commseq_email_uuid (required)
      * @param  int $days days (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailClicksResponse
+     * @return \ultracart\v2\models\EmailClicksResponse
      */
     public function getEmailEmailClicks($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
@@ -12576,13 +12576,13 @@ class StorefrontApi
      * @param  string $commseq_email_uuid (required)
      * @param  int $days (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailClicksResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailClicksResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailEmailClicksWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
-        $returnType = '\ultracartv2\models\EmailClicksResponse';
+        $returnType = '\ultracart\v2\models\EmailClicksResponse';
         $request = $this->getEmailEmailClicksRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days);
 
         try {
@@ -12634,7 +12634,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailClicksResponse',
+                        '\ultracart\v2\models\EmailClicksResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12642,7 +12642,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12650,7 +12650,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12658,7 +12658,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12666,7 +12666,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12674,7 +12674,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -12724,7 +12724,7 @@ class StorefrontApi
      */
     public function getEmailEmailClicksAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
-        $returnType = '\ultracartv2\models\EmailClicksResponse';
+        $returnType = '\ultracart\v2\models\EmailClicksResponse';
         $request = $this->getEmailEmailClicksRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days);
 
         return $this->client
@@ -12942,9 +12942,9 @@ class StorefrontApi
      * @param  string $commseq_email_uuid commseq_email_uuid (required)
      * @param  string $order_id order_id (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCustomerEditorUrlResponse
+     * @return \ultracart\v2\models\EmailCustomerEditorUrlResponse
      */
     public function getEmailEmailCustomerEditorUrl($storefront_oid, $commseq_email_uuid, $order_id)
     {
@@ -12961,13 +12961,13 @@ class StorefrontApi
      * @param  string $commseq_email_uuid (required)
      * @param  string $order_id (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailEmailCustomerEditorUrlWithHttpInfo($storefront_oid, $commseq_email_uuid, $order_id)
     {
-        $returnType = '\ultracartv2\models\EmailCustomerEditorUrlResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailEmailCustomerEditorUrlRequest($storefront_oid, $commseq_email_uuid, $order_id);
 
         try {
@@ -13019,7 +13019,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCustomerEditorUrlResponse',
+                        '\ultracart\v2\models\EmailCustomerEditorUrlResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13027,7 +13027,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13035,7 +13035,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13043,7 +13043,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13051,7 +13051,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13059,7 +13059,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13105,7 +13105,7 @@ class StorefrontApi
      */
     public function getEmailEmailCustomerEditorUrlAsyncWithHttpInfo($storefront_oid, $commseq_email_uuid, $order_id)
     {
-        $returnType = '\ultracartv2\models\EmailCustomerEditorUrlResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailEmailCustomerEditorUrlRequest($storefront_oid, $commseq_email_uuid, $order_id);
 
         return $this->client
@@ -13305,9 +13305,9 @@ class StorefrontApi
      * @param  string $commseq_email_uuid commseq_email_uuid (required)
      * @param  int $days days (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailOrdersResponse
+     * @return \ultracart\v2\models\EmailOrdersResponse
      */
     public function getEmailEmailOrders($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
@@ -13326,13 +13326,13 @@ class StorefrontApi
      * @param  string $commseq_email_uuid (required)
      * @param  int $days (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailEmailOrdersWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
-        $returnType = '\ultracartv2\models\EmailOrdersResponse';
+        $returnType = '\ultracart\v2\models\EmailOrdersResponse';
         $request = $this->getEmailEmailOrdersRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days);
 
         try {
@@ -13384,7 +13384,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailOrdersResponse',
+                        '\ultracart\v2\models\EmailOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13392,7 +13392,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13400,7 +13400,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13408,7 +13408,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13416,7 +13416,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13424,7 +13424,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13474,7 +13474,7 @@ class StorefrontApi
      */
     public function getEmailEmailOrdersAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
-        $returnType = '\ultracartv2\models\EmailOrdersResponse';
+        $returnType = '\ultracart\v2\models\EmailOrdersResponse';
         $request = $this->getEmailEmailOrdersRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days);
 
         return $this->client
@@ -13690,9 +13690,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqEmailsResponse
+     * @return \ultracart\v2\models\EmailCommseqEmailsResponse
      */
     public function getEmailEmails($storefront_oid)
     {
@@ -13707,13 +13707,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqEmailsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqEmailsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailEmailsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailsResponse';
         $request = $this->getEmailEmailsRequest($storefront_oid);
 
         try {
@@ -13765,7 +13765,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqEmailsResponse',
+                        '\ultracart\v2\models\EmailCommseqEmailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13773,7 +13773,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13781,7 +13781,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13789,7 +13789,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13797,7 +13797,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13805,7 +13805,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -13847,7 +13847,7 @@ class StorefrontApi
      */
     public function getEmailEmailsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailsResponse';
         $request = $this->getEmailEmailsRequest($storefront_oid);
 
         return $this->client
@@ -14012,11 +14012,11 @@ class StorefrontApi
      * Get email emails multiple
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqEmailsResponse
+     * @return \ultracart\v2\models\EmailCommseqEmailsResponse
      */
     public function getEmailEmailsMultiple($storefront_oid, $email_commseq_emails_request)
     {
@@ -14030,15 +14030,15 @@ class StorefrontApi
      * Get email emails multiple
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqEmailsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqEmailsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailEmailsMultipleWithHttpInfo($storefront_oid, $email_commseq_emails_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailsResponse';
         $request = $this->getEmailEmailsMultipleRequest($storefront_oid, $email_commseq_emails_request);
 
         try {
@@ -14090,7 +14090,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqEmailsResponse',
+                        '\ultracart\v2\models\EmailCommseqEmailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14098,7 +14098,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14106,7 +14106,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14114,7 +14114,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14122,7 +14122,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14130,7 +14130,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14146,7 +14146,7 @@ class StorefrontApi
      * Get email emails multiple
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14167,14 +14167,14 @@ class StorefrontApi
      * Get email emails multiple
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getEmailEmailsMultipleAsyncWithHttpInfo($storefront_oid, $email_commseq_emails_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailsResponse';
         $request = $this->getEmailEmailsMultipleRequest($storefront_oid, $email_commseq_emails_request);
 
         return $this->client
@@ -14218,7 +14218,7 @@ class StorefrontApi
      * Create request for operation 'getEmailEmailsMultiple'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -14351,9 +14351,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_flow_uuid email_flow_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailFlowResponse
+     * @return \ultracart\v2\models\EmailFlowResponse
      */
     public function getEmailFlow($storefront_oid, $email_flow_uuid)
     {
@@ -14369,13 +14369,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailFlowResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->getEmailFlowRequest($storefront_oid, $email_flow_uuid);
 
         try {
@@ -14427,7 +14427,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailFlowResponse',
+                        '\ultracart\v2\models\EmailFlowResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14435,7 +14435,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14443,7 +14443,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14451,7 +14451,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14459,7 +14459,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14467,7 +14467,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14511,7 +14511,7 @@ class StorefrontApi
      */
     public function getEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailFlowResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->getEmailFlowRequest($storefront_oid, $email_flow_uuid);
 
         return $this->client
@@ -14693,9 +14693,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_flow_uuid email_flow_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ScreenshotsResponse
+     * @return \ultracart\v2\models\ScreenshotsResponse
      */
     public function getEmailFlowScreenshots($storefront_oid, $email_flow_uuid)
     {
@@ -14711,13 +14711,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ScreenshotsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ScreenshotsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailFlowScreenshotsWithHttpInfo($storefront_oid, $email_flow_uuid)
     {
-        $returnType = '\ultracartv2\models\ScreenshotsResponse';
+        $returnType = '\ultracart\v2\models\ScreenshotsResponse';
         $request = $this->getEmailFlowScreenshotsRequest($storefront_oid, $email_flow_uuid);
 
         try {
@@ -14769,7 +14769,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ScreenshotsResponse',
+                        '\ultracart\v2\models\ScreenshotsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14777,7 +14777,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14785,7 +14785,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14793,7 +14793,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14801,7 +14801,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14809,7 +14809,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14853,7 +14853,7 @@ class StorefrontApi
      */
     public function getEmailFlowScreenshotsAsyncWithHttpInfo($storefront_oid, $email_flow_uuid)
     {
-        $returnType = '\ultracartv2\models\ScreenshotsResponse';
+        $returnType = '\ultracart\v2\models\ScreenshotsResponse';
         $request = $this->getEmailFlowScreenshotsRequest($storefront_oid, $email_flow_uuid);
 
         return $this->client
@@ -15034,9 +15034,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailFlowsResponse
+     * @return \ultracart\v2\models\EmailFlowsResponse
      */
     public function getEmailFlows($storefront_oid)
     {
@@ -15051,13 +15051,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailFlowsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailFlowsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailFlowsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailFlowsResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowsResponse';
         $request = $this->getEmailFlowsRequest($storefront_oid);
 
         try {
@@ -15109,7 +15109,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailFlowsResponse',
+                        '\ultracart\v2\models\EmailFlowsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15117,7 +15117,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15125,7 +15125,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15133,7 +15133,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15141,7 +15141,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15149,7 +15149,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15191,7 +15191,7 @@ class StorefrontApi
      */
     public function getEmailFlowsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailFlowsResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowsResponse';
         $request = $this->getEmailFlowsRequest($storefront_oid);
 
         return $this->client
@@ -15356,9 +15356,9 @@ class StorefrontApi
      * Get email globalsettings
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailGlobalSettingsResponse
+     * @return \ultracart\v2\models\EmailGlobalSettingsResponse
      */
     public function getEmailGlobalSettings()
     {
@@ -15372,13 +15372,13 @@ class StorefrontApi
      * Get email globalsettings
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailGlobalSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailGlobalSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailGlobalSettingsWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\EmailGlobalSettingsResponse';
+        $returnType = '\ultracart\v2\models\EmailGlobalSettingsResponse';
         $request = $this->getEmailGlobalSettingsRequest();
 
         try {
@@ -15430,7 +15430,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailGlobalSettingsResponse',
+                        '\ultracart\v2\models\EmailGlobalSettingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15438,7 +15438,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15446,7 +15446,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15454,7 +15454,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15462,7 +15462,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15470,7 +15470,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15510,7 +15510,7 @@ class StorefrontApi
      */
     public function getEmailGlobalSettingsAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\EmailGlobalSettingsResponse';
+        $returnType = '\ultracart\v2\models\EmailGlobalSettingsResponse';
         $request = $this->getEmailGlobalSettingsRequest();
 
         return $this->client
@@ -15662,9 +15662,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_list_uuid email_list_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListResponse
+     * @return \ultracart\v2\models\EmailListResponse
      */
     public function getEmailList($storefront_oid, $email_list_uuid)
     {
@@ -15680,13 +15680,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailListWithHttpInfo($storefront_oid, $email_list_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailListResponse';
+        $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->getEmailListRequest($storefront_oid, $email_list_uuid);
 
         try {
@@ -15738,7 +15738,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListResponse',
+                        '\ultracart\v2\models\EmailListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15746,7 +15746,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15754,7 +15754,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15762,7 +15762,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15770,7 +15770,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15778,7 +15778,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -15822,7 +15822,7 @@ class StorefrontApi
      */
     public function getEmailListAsyncWithHttpInfo($storefront_oid, $email_list_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailListResponse';
+        $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->getEmailListRequest($storefront_oid, $email_list_uuid);
 
         return $this->client
@@ -16005,9 +16005,9 @@ class StorefrontApi
      * @param  string $email_list_uuid email_list_uuid (required)
      * @param  string $email_customer_uuid email_customer_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCustomerEditorUrlResponse
+     * @return \ultracart\v2\models\EmailCustomerEditorUrlResponse
      */
     public function getEmailListCustomerEditorUrl($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
@@ -16024,13 +16024,13 @@ class StorefrontApi
      * @param  string $email_list_uuid (required)
      * @param  string $email_customer_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailListCustomerEditorUrlWithHttpInfo($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCustomerEditorUrlResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailListCustomerEditorUrlRequest($storefront_oid, $email_list_uuid, $email_customer_uuid);
 
         try {
@@ -16082,7 +16082,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCustomerEditorUrlResponse',
+                        '\ultracart\v2\models\EmailCustomerEditorUrlResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16090,7 +16090,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16098,7 +16098,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16106,7 +16106,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16114,7 +16114,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16122,7 +16122,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16168,7 +16168,7 @@ class StorefrontApi
      */
     public function getEmailListCustomerEditorUrlAsyncWithHttpInfo($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCustomerEditorUrlResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailListCustomerEditorUrlRequest($storefront_oid, $email_list_uuid, $email_customer_uuid);
 
         return $this->client
@@ -16367,9 +16367,9 @@ class StorefrontApi
      * @param  int $page_number page_number (optional)
      * @param  int $page_size page_size (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListCustomersResponse
+     * @return \ultracart\v2\models\EmailListCustomersResponse
      */
     public function getEmailListCustomers($storefront_oid, $email_list_uuid, $page_number = null, $page_size = null)
     {
@@ -16387,13 +16387,13 @@ class StorefrontApi
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListCustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailListCustomersWithHttpInfo($storefront_oid, $email_list_uuid, $page_number = null, $page_size = null)
     {
-        $returnType = '\ultracartv2\models\EmailListCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailListCustomersResponse';
         $request = $this->getEmailListCustomersRequest($storefront_oid, $email_list_uuid, $page_number, $page_size);
 
         try {
@@ -16445,7 +16445,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListCustomersResponse',
+                        '\ultracart\v2\models\EmailListCustomersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16453,7 +16453,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16461,7 +16461,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16469,7 +16469,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16477,7 +16477,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16485,7 +16485,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16533,7 +16533,7 @@ class StorefrontApi
      */
     public function getEmailListCustomersAsyncWithHttpInfo($storefront_oid, $email_list_uuid, $page_number = null, $page_size = null)
     {
-        $returnType = '\ultracartv2\models\EmailListCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailListCustomersResponse';
         $request = $this->getEmailListCustomersRequest($storefront_oid, $email_list_uuid, $page_number, $page_size);
 
         return $this->client
@@ -16724,9 +16724,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListsResponse
+     * @return \ultracart\v2\models\EmailListsResponse
      */
     public function getEmailLists($storefront_oid)
     {
@@ -16741,13 +16741,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailListsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailListsResponse';
+        $returnType = '\ultracart\v2\models\EmailListsResponse';
         $request = $this->getEmailListsRequest($storefront_oid);
 
         try {
@@ -16799,7 +16799,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListsResponse',
+                        '\ultracart\v2\models\EmailListsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16807,7 +16807,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16815,7 +16815,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16823,7 +16823,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16831,7 +16831,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16839,7 +16839,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -16881,7 +16881,7 @@ class StorefrontApi
      */
     public function getEmailListsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailListsResponse';
+        $returnType = '\ultracart\v2\models\EmailListsResponse';
         $request = $this->getEmailListsRequest($storefront_oid);
 
         return $this->client
@@ -17047,9 +17047,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailPerformanceResponse
+     * @return \ultracart\v2\models\EmailPerformanceResponse
      */
     public function getEmailPerformance($storefront_oid)
     {
@@ -17064,13 +17064,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailPerformanceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailPerformanceResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailPerformanceWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailPerformanceResponse';
+        $returnType = '\ultracart\v2\models\EmailPerformanceResponse';
         $request = $this->getEmailPerformanceRequest($storefront_oid);
 
         try {
@@ -17122,7 +17122,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailPerformanceResponse',
+                        '\ultracart\v2\models\EmailPerformanceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17130,7 +17130,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17138,7 +17138,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17146,7 +17146,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17154,7 +17154,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17162,7 +17162,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17204,7 +17204,7 @@ class StorefrontApi
      */
     public function getEmailPerformanceAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailPerformanceResponse';
+        $returnType = '\ultracart\v2\models\EmailPerformanceResponse';
         $request = $this->getEmailPerformanceRequest($storefront_oid);
 
         return $this->client
@@ -17370,9 +17370,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailPlanResponse
+     * @return \ultracart\v2\models\EmailPlanResponse
      */
     public function getEmailPlan($storefront_oid)
     {
@@ -17387,13 +17387,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailPlanResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailPlanResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailPlanWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailPlanResponse';
+        $returnType = '\ultracart\v2\models\EmailPlanResponse';
         $request = $this->getEmailPlanRequest($storefront_oid);
 
         try {
@@ -17445,7 +17445,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailPlanResponse',
+                        '\ultracart\v2\models\EmailPlanResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17453,7 +17453,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17461,7 +17461,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17469,7 +17469,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17477,7 +17477,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17485,7 +17485,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17527,7 +17527,7 @@ class StorefrontApi
      */
     public function getEmailPlanAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailPlanResponse';
+        $returnType = '\ultracart\v2\models\EmailPlanResponse';
         $request = $this->getEmailPlanRequest($storefront_oid);
 
         return $this->client
@@ -17694,9 +17694,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_postcard_uuid commseq_postcard_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqPostcardResponse
+     * @return \ultracart\v2\models\EmailCommseqPostcardResponse
      */
     public function getEmailPostcard($storefront_oid, $commseq_postcard_uuid)
     {
@@ -17712,13 +17712,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->getEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid);
 
         try {
@@ -17770,7 +17770,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqPostcardResponse',
+                        '\ultracart\v2\models\EmailCommseqPostcardResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17778,7 +17778,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17786,7 +17786,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17794,7 +17794,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17802,7 +17802,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17810,7 +17810,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -17854,7 +17854,7 @@ class StorefrontApi
      */
     public function getEmailPostcardAsyncWithHttpInfo($storefront_oid, $commseq_postcard_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->getEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid);
 
         return $this->client
@@ -18035,9 +18035,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqPostcardsResponse
+     * @return \ultracart\v2\models\EmailCommseqPostcardsResponse
      */
     public function getEmailPostcards($storefront_oid)
     {
@@ -18052,13 +18052,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqPostcardsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailPostcardsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardsResponse';
         $request = $this->getEmailPostcardsRequest($storefront_oid);
 
         try {
@@ -18110,7 +18110,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqPostcardsResponse',
+                        '\ultracart\v2\models\EmailCommseqPostcardsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18118,7 +18118,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18126,7 +18126,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18134,7 +18134,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18142,7 +18142,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18150,7 +18150,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18192,7 +18192,7 @@ class StorefrontApi
      */
     public function getEmailPostcardsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardsResponse';
         $request = $this->getEmailPostcardsRequest($storefront_oid);
 
         return $this->client
@@ -18357,11 +18357,11 @@ class StorefrontApi
      * Get email postcards multiple
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqPostcardsResponse
+     * @return \ultracart\v2\models\EmailCommseqPostcardsResponse
      */
     public function getEmailPostcardsMultiple($storefront_oid, $email_commseq_postcards_request)
     {
@@ -18375,15 +18375,15 @@ class StorefrontApi
      * Get email postcards multiple
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqPostcardsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailPostcardsMultipleWithHttpInfo($storefront_oid, $email_commseq_postcards_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardsResponse';
         $request = $this->getEmailPostcardsMultipleRequest($storefront_oid, $email_commseq_postcards_request);
 
         try {
@@ -18435,7 +18435,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqPostcardsResponse',
+                        '\ultracart\v2\models\EmailCommseqPostcardsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18443,7 +18443,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18451,7 +18451,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18459,7 +18459,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18467,7 +18467,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18475,7 +18475,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18491,7 +18491,7 @@ class StorefrontApi
      * Get email postcards multiple
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -18512,14 +18512,14 @@ class StorefrontApi
      * Get email postcards multiple
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getEmailPostcardsMultipleAsyncWithHttpInfo($storefront_oid, $email_commseq_postcards_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardsResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardsResponse';
         $request = $this->getEmailPostcardsMultipleRequest($storefront_oid, $email_commseq_postcards_request);
 
         return $this->client
@@ -18563,7 +18563,7 @@ class StorefrontApi
      * Create request for operation 'getEmailPostcardsMultiple'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -18696,9 +18696,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_segment_uuid email_segment_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentResponse
+     * @return \ultracart\v2\models\EmailSegmentResponse
      */
     public function getEmailSegment($storefront_oid, $email_segment_uuid)
     {
@@ -18714,13 +18714,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_segment_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->getEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
         try {
@@ -18772,7 +18772,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentResponse',
+                        '\ultracart\v2\models\EmailSegmentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18780,7 +18780,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18788,7 +18788,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18796,7 +18796,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18804,7 +18804,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18812,7 +18812,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -18856,7 +18856,7 @@ class StorefrontApi
      */
     public function getEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->getEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
         return $this->client
@@ -19039,9 +19039,9 @@ class StorefrontApi
      * @param  string $email_segment_uuid email_segment_uuid (required)
      * @param  string $email_customer_uuid email_customer_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCustomerEditorUrlResponse
+     * @return \ultracart\v2\models\EmailCustomerEditorUrlResponse
      */
     public function getEmailSegmentCustomerEditorUrl($storefront_oid, $email_segment_uuid, $email_customer_uuid)
     {
@@ -19058,13 +19058,13 @@ class StorefrontApi
      * @param  string $email_segment_uuid (required)
      * @param  string $email_customer_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailSegmentCustomerEditorUrlWithHttpInfo($storefront_oid, $email_segment_uuid, $email_customer_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCustomerEditorUrlResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailSegmentCustomerEditorUrlRequest($storefront_oid, $email_segment_uuid, $email_customer_uuid);
 
         try {
@@ -19116,7 +19116,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCustomerEditorUrlResponse',
+                        '\ultracart\v2\models\EmailCustomerEditorUrlResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19124,7 +19124,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19132,7 +19132,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19140,7 +19140,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19148,7 +19148,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19156,7 +19156,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19202,7 +19202,7 @@ class StorefrontApi
      */
     public function getEmailSegmentCustomerEditorUrlAsyncWithHttpInfo($storefront_oid, $email_segment_uuid, $email_customer_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailCustomerEditorUrlResponse';
+        $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailSegmentCustomerEditorUrlRequest($storefront_oid, $email_segment_uuid, $email_customer_uuid);
 
         return $this->client
@@ -19401,9 +19401,9 @@ class StorefrontApi
      * @param  int $page_number page_number (optional)
      * @param  int $page_size page_size (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentCustomersResponse
+     * @return \ultracart\v2\models\EmailSegmentCustomersResponse
      */
     public function getEmailSegmentCustomers($storefront_oid, $email_segment_uuid, $page_number = null, $page_size = null)
     {
@@ -19421,13 +19421,13 @@ class StorefrontApi
      * @param  int $page_number (optional)
      * @param  int $page_size (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentCustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailSegmentCustomersWithHttpInfo($storefront_oid, $email_segment_uuid, $page_number = null, $page_size = null)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentCustomersResponse';
         $request = $this->getEmailSegmentCustomersRequest($storefront_oid, $email_segment_uuid, $page_number, $page_size);
 
         try {
@@ -19479,7 +19479,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentCustomersResponse',
+                        '\ultracart\v2\models\EmailSegmentCustomersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19487,7 +19487,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19495,7 +19495,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19503,7 +19503,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19511,7 +19511,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19519,7 +19519,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19567,7 +19567,7 @@ class StorefrontApi
      */
     public function getEmailSegmentCustomersAsyncWithHttpInfo($storefront_oid, $email_segment_uuid, $page_number = null, $page_size = null)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentCustomersResponse';
         $request = $this->getEmailSegmentCustomersRequest($storefront_oid, $email_segment_uuid, $page_number, $page_size);
 
         return $this->client
@@ -19758,9 +19758,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentsResponse
+     * @return \ultracart\v2\models\EmailSegmentsResponse
      */
     public function getEmailSegments($storefront_oid)
     {
@@ -19775,13 +19775,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailSegmentsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentsResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentsResponse';
         $request = $this->getEmailSegmentsRequest($storefront_oid);
 
         try {
@@ -19833,7 +19833,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentsResponse',
+                        '\ultracart\v2\models\EmailSegmentsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19841,7 +19841,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19849,7 +19849,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19857,7 +19857,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19865,7 +19865,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19873,7 +19873,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -19915,7 +19915,7 @@ class StorefrontApi
      */
     public function getEmailSegmentsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentsResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentsResponse';
         $request = $this->getEmailSegmentsRequest($storefront_oid);
 
         return $this->client
@@ -20081,9 +20081,9 @@ class StorefrontApi
      *
      * @param  string $domain domain (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSendingDomainResponse
+     * @return \ultracart\v2\models\EmailSendingDomainResponse
      */
     public function getEmailSendingDomain($domain)
     {
@@ -20098,13 +20098,13 @@ class StorefrontApi
      *
      * @param  string $domain (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailSendingDomainWithHttpInfo($domain)
     {
-        $returnType = '\ultracartv2\models\EmailSendingDomainResponse';
+        $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->getEmailSendingDomainRequest($domain);
 
         try {
@@ -20156,7 +20156,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSendingDomainResponse',
+                        '\ultracart\v2\models\EmailSendingDomainResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20164,7 +20164,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20172,7 +20172,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20180,7 +20180,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20188,7 +20188,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20196,7 +20196,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20238,7 +20238,7 @@ class StorefrontApi
      */
     public function getEmailSendingDomainAsyncWithHttpInfo($domain)
     {
-        $returnType = '\ultracartv2\models\EmailSendingDomainResponse';
+        $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->getEmailSendingDomainRequest($domain);
 
         return $this->client
@@ -20404,9 +20404,9 @@ class StorefrontApi
      *
      * @param  string $domain domain (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSendingDomainResponse
+     * @return \ultracart\v2\models\EmailSendingDomainResponse
      */
     public function getEmailSendingDomainStatus($domain)
     {
@@ -20421,13 +20421,13 @@ class StorefrontApi
      *
      * @param  string $domain (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailSendingDomainStatusWithHttpInfo($domain)
     {
-        $returnType = '\ultracartv2\models\EmailSendingDomainResponse';
+        $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->getEmailSendingDomainStatusRequest($domain);
 
         try {
@@ -20479,7 +20479,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSendingDomainResponse',
+                        '\ultracart\v2\models\EmailSendingDomainResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20487,7 +20487,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20495,7 +20495,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20503,7 +20503,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20511,7 +20511,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20519,7 +20519,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20561,7 +20561,7 @@ class StorefrontApi
      */
     public function getEmailSendingDomainStatusAsyncWithHttpInfo($domain)
     {
-        $returnType = '\ultracartv2\models\EmailSendingDomainResponse';
+        $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->getEmailSendingDomainStatusRequest($domain);
 
         return $this->client
@@ -20726,9 +20726,9 @@ class StorefrontApi
      * Get email sending domains
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSendingDomainsResponse
+     * @return \ultracart\v2\models\EmailSendingDomainsResponse
      */
     public function getEmailSendingDomains()
     {
@@ -20742,13 +20742,13 @@ class StorefrontApi
      * Get email sending domains
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSendingDomainsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSendingDomainsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailSendingDomainsWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\EmailSendingDomainsResponse';
+        $returnType = '\ultracart\v2\models\EmailSendingDomainsResponse';
         $request = $this->getEmailSendingDomainsRequest();
 
         try {
@@ -20800,7 +20800,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSendingDomainsResponse',
+                        '\ultracart\v2\models\EmailSendingDomainsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20808,7 +20808,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20816,7 +20816,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20824,7 +20824,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20832,7 +20832,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20840,7 +20840,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -20880,7 +20880,7 @@ class StorefrontApi
      */
     public function getEmailSendingDomainsAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\EmailSendingDomainsResponse';
+        $returnType = '\ultracart\v2\models\EmailSendingDomainsResponse';
         $request = $this->getEmailSendingDomainsRequest();
 
         return $this->client
@@ -21031,9 +21031,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSettingsResponse
+     * @return \ultracart\v2\models\EmailSettingsResponse
      */
     public function getEmailSettings($storefront_oid)
     {
@@ -21048,13 +21048,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailSettingsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailSettingsResponse';
+        $returnType = '\ultracart\v2\models\EmailSettingsResponse';
         $request = $this->getEmailSettingsRequest($storefront_oid);
 
         try {
@@ -21106,7 +21106,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSettingsResponse',
+                        '\ultracart\v2\models\EmailSettingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21114,7 +21114,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21122,7 +21122,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21130,7 +21130,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21138,7 +21138,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21146,7 +21146,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21188,7 +21188,7 @@ class StorefrontApi
      */
     public function getEmailSettingsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailSettingsResponse';
+        $returnType = '\ultracart\v2\models\EmailSettingsResponse';
         $request = $this->getEmailSettingsRequest($storefront_oid);
 
         return $this->client
@@ -21355,9 +21355,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  int $email_template_oid email_template_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailTemplate
+     * @return \ultracart\v2\models\EmailTemplate
      */
     public function getEmailTemplate($storefront_oid, $email_template_oid)
     {
@@ -21373,13 +21373,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  int $email_template_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailTemplate, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailTemplate, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailTemplateWithHttpInfo($storefront_oid, $email_template_oid)
     {
-        $returnType = '\ultracartv2\models\EmailTemplate';
+        $returnType = '\ultracart\v2\models\EmailTemplate';
         $request = $this->getEmailTemplateRequest($storefront_oid, $email_template_oid);
 
         try {
@@ -21431,7 +21431,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailTemplate',
+                        '\ultracart\v2\models\EmailTemplate',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21439,7 +21439,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21447,7 +21447,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21455,7 +21455,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21463,7 +21463,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21471,7 +21471,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21515,7 +21515,7 @@ class StorefrontApi
      */
     public function getEmailTemplateAsyncWithHttpInfo($storefront_oid, $email_template_oid)
     {
-        $returnType = '\ultracartv2\models\EmailTemplate';
+        $returnType = '\ultracart\v2\models\EmailTemplate';
         $request = $this->getEmailTemplateRequest($storefront_oid, $email_template_oid);
 
         return $this->client
@@ -21697,9 +21697,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $trigger_type trigger_type (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailTemplatesResponse
+     * @return \ultracart\v2\models\EmailTemplatesResponse
      */
     public function getEmailTemplates($storefront_oid, $trigger_type = null)
     {
@@ -21715,13 +21715,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $trigger_type (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailTemplatesWithHttpInfo($storefront_oid, $trigger_type = null)
     {
-        $returnType = '\ultracartv2\models\EmailTemplatesResponse';
+        $returnType = '\ultracart\v2\models\EmailTemplatesResponse';
         $request = $this->getEmailTemplatesRequest($storefront_oid, $trigger_type);
 
         try {
@@ -21773,7 +21773,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailTemplatesResponse',
+                        '\ultracart\v2\models\EmailTemplatesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21781,7 +21781,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21789,7 +21789,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21797,7 +21797,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21805,7 +21805,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21813,7 +21813,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -21857,7 +21857,7 @@ class StorefrontApi
      */
     public function getEmailTemplatesAsyncWithHttpInfo($storefront_oid, $trigger_type = null)
     {
-        $returnType = '\ultracartv2\models\EmailTemplatesResponse';
+        $returnType = '\ultracart\v2\models\EmailTemplatesResponse';
         $request = $this->getEmailTemplatesRequest($storefront_oid, $trigger_type);
 
         return $this->client
@@ -22028,9 +22028,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailThirdPartyProvidersResponse
+     * @return \ultracart\v2\models\EmailThirdPartyProvidersResponse
      */
     public function getEmailThirdPartyProviders($storefront_oid)
     {
@@ -22045,13 +22045,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailThirdPartyProvidersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailThirdPartyProvidersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailThirdPartyProvidersWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailThirdPartyProvidersResponse';
+        $returnType = '\ultracart\v2\models\EmailThirdPartyProvidersResponse';
         $request = $this->getEmailThirdPartyProvidersRequest($storefront_oid);
 
         try {
@@ -22103,7 +22103,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailThirdPartyProvidersResponse',
+                        '\ultracart\v2\models\EmailThirdPartyProvidersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22111,7 +22111,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22119,7 +22119,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22127,7 +22127,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22135,7 +22135,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22143,7 +22143,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22185,7 +22185,7 @@ class StorefrontApi
      */
     public function getEmailThirdPartyProvidersAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\EmailThirdPartyProvidersResponse';
+        $returnType = '\ultracart\v2\models\EmailThirdPartyProvidersResponse';
         $request = $this->getEmailThirdPartyProvidersRequest($storefront_oid);
 
         return $this->client
@@ -22351,9 +22351,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ExperimentsResponse
+     * @return \ultracart\v2\models\ExperimentsResponse
      */
     public function getExperiments($storefront_oid)
     {
@@ -22368,13 +22368,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ExperimentsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ExperimentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getExperimentsWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\ExperimentsResponse';
+        $returnType = '\ultracart\v2\models\ExperimentsResponse';
         $request = $this->getExperimentsRequest($storefront_oid);
 
         try {
@@ -22426,7 +22426,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ExperimentsResponse',
+                        '\ultracart\v2\models\ExperimentsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22434,7 +22434,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22442,7 +22442,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22450,7 +22450,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22458,7 +22458,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22466,7 +22466,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22508,7 +22508,7 @@ class StorefrontApi
      */
     public function getExperimentsAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\ExperimentsResponse';
+        $returnType = '\ultracart\v2\models\ExperimentsResponse';
         $request = $this->getExperimentsRequest($storefront_oid);
 
         return $this->client
@@ -22675,9 +22675,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $property_type property_type (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailHistogramPropertyNamesResponse
+     * @return \ultracart\v2\models\EmailHistogramPropertyNamesResponse
      */
     public function getHistogramPropertyNames($storefront_oid, $property_type = null)
     {
@@ -22693,13 +22693,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $property_type (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailHistogramPropertyNamesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailHistogramPropertyNamesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getHistogramPropertyNamesWithHttpInfo($storefront_oid, $property_type = null)
     {
-        $returnType = '\ultracartv2\models\EmailHistogramPropertyNamesResponse';
+        $returnType = '\ultracart\v2\models\EmailHistogramPropertyNamesResponse';
         $request = $this->getHistogramPropertyNamesRequest($storefront_oid, $property_type);
 
         try {
@@ -22751,7 +22751,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailHistogramPropertyNamesResponse',
+                        '\ultracart\v2\models\EmailHistogramPropertyNamesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22759,7 +22759,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22767,7 +22767,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22775,7 +22775,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22783,7 +22783,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22791,7 +22791,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -22835,7 +22835,7 @@ class StorefrontApi
      */
     public function getHistogramPropertyNamesAsyncWithHttpInfo($storefront_oid, $property_type = null)
     {
-        $returnType = '\ultracartv2\models\EmailHistogramPropertyNamesResponse';
+        $returnType = '\ultracart\v2\models\EmailHistogramPropertyNamesResponse';
         $request = $this->getHistogramPropertyNamesRequest($storefront_oid, $property_type);
 
         return $this->client
@@ -23009,9 +23009,9 @@ class StorefrontApi
      * @param  string $property_type property_type (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailHistogramPropertyValuesResponse
+     * @return \ultracart\v2\models\EmailHistogramPropertyValuesResponse
      */
     public function getHistogramPropertyValues($storefront_oid, $property_name = null, $property_type = null, $limit = null)
     {
@@ -23029,13 +23029,13 @@ class StorefrontApi
      * @param  string $property_type (optional)
      * @param  int $limit (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailHistogramPropertyValuesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailHistogramPropertyValuesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getHistogramPropertyValuesWithHttpInfo($storefront_oid, $property_name = null, $property_type = null, $limit = null)
     {
-        $returnType = '\ultracartv2\models\EmailHistogramPropertyValuesResponse';
+        $returnType = '\ultracart\v2\models\EmailHistogramPropertyValuesResponse';
         $request = $this->getHistogramPropertyValuesRequest($storefront_oid, $property_name, $property_type, $limit);
 
         try {
@@ -23087,7 +23087,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailHistogramPropertyValuesResponse',
+                        '\ultracart\v2\models\EmailHistogramPropertyValuesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23095,7 +23095,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23103,7 +23103,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23111,7 +23111,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23119,7 +23119,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23127,7 +23127,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23175,7 +23175,7 @@ class StorefrontApi
      */
     public function getHistogramPropertyValuesAsyncWithHttpInfo($storefront_oid, $property_name = null, $property_type = null, $limit = null)
     {
-        $returnType = '\ultracartv2\models\EmailHistogramPropertyValuesResponse';
+        $returnType = '\ultracart\v2\models\EmailHistogramPropertyValuesResponse';
         $request = $this->getHistogramPropertyValuesRequest($storefront_oid, $property_name, $property_type, $limit);
 
         return $this->client
@@ -23355,9 +23355,9 @@ class StorefrontApi
      * Get library values used to populate drop down boxes for filtering.
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryFilterValuesResponse
+     * @return \ultracart\v2\models\LibraryFilterValuesResponse
      */
     public function getLibraryFilterValues()
     {
@@ -23371,13 +23371,13 @@ class StorefrontApi
      * Get library values used to populate drop down boxes for filtering.
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryFilterValuesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryFilterValuesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLibraryFilterValuesWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\LibraryFilterValuesResponse';
+        $returnType = '\ultracart\v2\models\LibraryFilterValuesResponse';
         $request = $this->getLibraryFilterValuesRequest();
 
         try {
@@ -23429,7 +23429,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryFilterValuesResponse',
+                        '\ultracart\v2\models\LibraryFilterValuesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23437,7 +23437,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23445,7 +23445,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23453,7 +23453,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23461,7 +23461,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23469,7 +23469,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23509,7 +23509,7 @@ class StorefrontApi
      */
     public function getLibraryFilterValuesAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\LibraryFilterValuesResponse';
+        $returnType = '\ultracart\v2\models\LibraryFilterValuesResponse';
         $request = $this->getLibraryFilterValuesRequest();
 
         return $this->client
@@ -23660,9 +23660,9 @@ class StorefrontApi
      *
      * @param  int $library_item_oid library_item_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemResponse
+     * @return \ultracart\v2\models\LibraryItemResponse
      */
     public function getLibraryItem($library_item_oid)
     {
@@ -23677,13 +23677,13 @@ class StorefrontApi
      *
      * @param  int $library_item_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLibraryItemWithHttpInfo($library_item_oid)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->getLibraryItemRequest($library_item_oid);
 
         try {
@@ -23735,7 +23735,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemResponse',
+                        '\ultracart\v2\models\LibraryItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23743,7 +23743,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23751,7 +23751,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23759,7 +23759,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23767,7 +23767,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23775,7 +23775,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -23817,7 +23817,7 @@ class StorefrontApi
      */
     public function getLibraryItemAsyncWithHttpInfo($library_item_oid)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->getLibraryItemRequest($library_item_oid);
 
         return $this->client
@@ -23981,11 +23981,11 @@ class StorefrontApi
      *
      * Get thumbnail parameters
      *
-     * @param  \ultracartv2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
+     * @param  \ultracart\v2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ThumbnailParametersResponse
+     * @return \ultracart\v2\models\ThumbnailParametersResponse
      */
     public function getThumbnailParameters($thumbnail_parameters)
     {
@@ -23998,15 +23998,15 @@ class StorefrontApi
      *
      * Get thumbnail parameters
      *
-     * @param  \ultracartv2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
+     * @param  \ultracart\v2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ThumbnailParametersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ThumbnailParametersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getThumbnailParametersWithHttpInfo($thumbnail_parameters)
     {
-        $returnType = '\ultracartv2\models\ThumbnailParametersResponse';
+        $returnType = '\ultracart\v2\models\ThumbnailParametersResponse';
         $request = $this->getThumbnailParametersRequest($thumbnail_parameters);
 
         try {
@@ -24058,7 +24058,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ThumbnailParametersResponse',
+                        '\ultracart\v2\models\ThumbnailParametersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24066,7 +24066,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24074,7 +24074,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24082,7 +24082,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24090,7 +24090,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24098,7 +24098,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24113,7 +24113,7 @@ class StorefrontApi
      *
      * Get thumbnail parameters
      *
-     * @param  \ultracartv2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
+     * @param  \ultracart\v2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -24133,14 +24133,14 @@ class StorefrontApi
      *
      * Get thumbnail parameters
      *
-     * @param  \ultracartv2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
+     * @param  \ultracart\v2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getThumbnailParametersAsyncWithHttpInfo($thumbnail_parameters)
     {
-        $returnType = '\ultracartv2\models\ThumbnailParametersResponse';
+        $returnType = '\ultracart\v2\models\ThumbnailParametersResponse';
         $request = $this->getThumbnailParametersRequest($thumbnail_parameters);
 
         return $this->client
@@ -24183,7 +24183,7 @@ class StorefrontApi
     /**
      * Create request for operation 'getThumbnailParameters'
      *
-     * @param  \ultracartv2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
+     * @param  \ultracart\v2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -24302,9 +24302,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_id email_id (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TransactionEmailResponse
+     * @return \ultracart\v2\models\TransactionEmailResponse
      */
     public function getTransactionEmail($storefront_oid, $email_id)
     {
@@ -24320,13 +24320,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_id (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TransactionEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TransactionEmailResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTransactionEmailWithHttpInfo($storefront_oid, $email_id)
     {
-        $returnType = '\ultracartv2\models\TransactionEmailResponse';
+        $returnType = '\ultracart\v2\models\TransactionEmailResponse';
         $request = $this->getTransactionEmailRequest($storefront_oid, $email_id);
 
         try {
@@ -24378,7 +24378,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TransactionEmailResponse',
+                        '\ultracart\v2\models\TransactionEmailResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24386,7 +24386,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24394,7 +24394,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24402,7 +24402,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24410,7 +24410,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24418,7 +24418,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24462,7 +24462,7 @@ class StorefrontApi
      */
     public function getTransactionEmailAsyncWithHttpInfo($storefront_oid, $email_id)
     {
-        $returnType = '\ultracartv2\models\TransactionEmailResponse';
+        $returnType = '\ultracart\v2\models\TransactionEmailResponse';
         $request = $this->getTransactionEmailRequest($storefront_oid, $email_id);
 
         return $this->client
@@ -24643,9 +24643,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TransactionEmailListResponse
+     * @return \ultracart\v2\models\TransactionEmailListResponse
      */
     public function getTransactionEmailList($storefront_oid)
     {
@@ -24660,13 +24660,13 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TransactionEmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TransactionEmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTransactionEmailListWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\TransactionEmailListResponse';
+        $returnType = '\ultracart\v2\models\TransactionEmailListResponse';
         $request = $this->getTransactionEmailListRequest($storefront_oid);
 
         try {
@@ -24718,7 +24718,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TransactionEmailListResponse',
+                        '\ultracart\v2\models\TransactionEmailListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24726,7 +24726,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24734,7 +24734,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24742,7 +24742,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24750,7 +24750,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24758,7 +24758,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -24800,7 +24800,7 @@ class StorefrontApi
      */
     public function getTransactionEmailListAsyncWithHttpInfo($storefront_oid)
     {
-        $returnType = '\ultracartv2\models\TransactionEmailListResponse';
+        $returnType = '\ultracart\v2\models\TransactionEmailListResponse';
         $request = $this->getTransactionEmailListRequest($storefront_oid);
 
         return $this->client
@@ -24965,11 +24965,11 @@ class StorefrontApi
      * Globally unsubscribe a customer
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailGlobalUnsubscribeResponse
+     * @return \ultracart\v2\models\EmailGlobalUnsubscribeResponse
      */
     public function globalUnsubscribe($storefront_oid, $unsubscribe)
     {
@@ -24983,15 +24983,15 @@ class StorefrontApi
      * Globally unsubscribe a customer
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailGlobalUnsubscribeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailGlobalUnsubscribeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function globalUnsubscribeWithHttpInfo($storefront_oid, $unsubscribe)
     {
-        $returnType = '\ultracartv2\models\EmailGlobalUnsubscribeResponse';
+        $returnType = '\ultracart\v2\models\EmailGlobalUnsubscribeResponse';
         $request = $this->globalUnsubscribeRequest($storefront_oid, $unsubscribe);
 
         try {
@@ -25043,7 +25043,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailGlobalUnsubscribeResponse',
+                        '\ultracart\v2\models\EmailGlobalUnsubscribeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25051,7 +25051,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25059,7 +25059,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25067,7 +25067,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25075,7 +25075,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25083,7 +25083,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25099,7 +25099,7 @@ class StorefrontApi
      * Globally unsubscribe a customer
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -25120,14 +25120,14 @@ class StorefrontApi
      * Globally unsubscribe a customer
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function globalUnsubscribeAsyncWithHttpInfo($storefront_oid, $unsubscribe)
     {
-        $returnType = '\ultracartv2\models\EmailGlobalUnsubscribeResponse';
+        $returnType = '\ultracart\v2\models\EmailGlobalUnsubscribeResponse';
         $request = $this->globalUnsubscribeRequest($storefront_oid, $unsubscribe);
 
         return $this->client
@@ -25171,7 +25171,7 @@ class StorefrontApi
      * Create request for operation 'globalUnsubscribe'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -25302,9 +25302,9 @@ class StorefrontApi
      * Import a third party provider list
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
+     * @param  \ultracart\v2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -25319,9 +25319,9 @@ class StorefrontApi
      * Import a third party provider list
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
+     * @param  \ultracart\v2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -25365,7 +25365,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25373,7 +25373,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25381,7 +25381,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25389,7 +25389,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25397,7 +25397,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25413,7 +25413,7 @@ class StorefrontApi
      * Import a third party provider list
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
+     * @param  \ultracart\v2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -25434,7 +25434,7 @@ class StorefrontApi
      * Import a third party provider list
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
+     * @param  \ultracart\v2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -25471,7 +25471,7 @@ class StorefrontApi
      * Create request for operation 'importEmailThirdPartyProviderList'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
+     * @param  \ultracart\v2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -25602,11 +25602,11 @@ class StorefrontApi
      * Insert email campaign
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCampaignResponse
+     * @return \ultracart\v2\models\EmailCampaignResponse
      */
     public function insertEmailCampaign($storefront_oid, $email_campaign)
     {
@@ -25620,15 +25620,15 @@ class StorefrontApi
      * Insert email campaign
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertEmailCampaignWithHttpInfo($storefront_oid, $email_campaign)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->insertEmailCampaignRequest($storefront_oid, $email_campaign);
 
         try {
@@ -25680,7 +25680,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCampaignResponse',
+                        '\ultracart\v2\models\EmailCampaignResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25688,7 +25688,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25696,7 +25696,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25704,7 +25704,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25712,7 +25712,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25720,7 +25720,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -25736,7 +25736,7 @@ class StorefrontApi
      * Insert email campaign
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -25757,14 +25757,14 @@ class StorefrontApi
      * Insert email campaign
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function insertEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->insertEmailCampaignRequest($storefront_oid, $email_campaign);
 
         return $this->client
@@ -25808,7 +25808,7 @@ class StorefrontApi
      * Create request for operation 'insertEmailCampaign'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -25939,11 +25939,11 @@ class StorefrontApi
      * Insert email commseq
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqResponse
+     * @return \ultracart\v2\models\EmailCommseqResponse
      */
     public function insertEmailCommseq($storefront_oid, $email_commseq)
     {
@@ -25957,15 +25957,15 @@ class StorefrontApi
      * Insert email commseq
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertEmailCommseqWithHttpInfo($storefront_oid, $email_commseq)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->insertEmailCommseqRequest($storefront_oid, $email_commseq);
 
         try {
@@ -26017,7 +26017,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqResponse',
+                        '\ultracart\v2\models\EmailCommseqResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26025,7 +26025,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26033,7 +26033,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26041,7 +26041,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26049,7 +26049,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26057,7 +26057,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26073,7 +26073,7 @@ class StorefrontApi
      * Insert email commseq
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -26094,14 +26094,14 @@ class StorefrontApi
      * Insert email commseq
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function insertEmailCommseqAsyncWithHttpInfo($storefront_oid, $email_commseq)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->insertEmailCommseqRequest($storefront_oid, $email_commseq);
 
         return $this->client
@@ -26145,7 +26145,7 @@ class StorefrontApi
      * Create request for operation 'insertEmailCommseq'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -26276,11 +26276,11 @@ class StorefrontApi
      * Insert email email
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email email (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqEmailResponse
+     * @return \ultracart\v2\models\EmailCommseqEmailResponse
      */
     public function insertEmailEmail($storefront_oid, $email_commseq_email)
     {
@@ -26294,15 +26294,15 @@ class StorefrontApi
      * Insert email email
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email email (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertEmailEmailWithHttpInfo($storefront_oid, $email_commseq_email)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->insertEmailEmailRequest($storefront_oid, $email_commseq_email);
 
         try {
@@ -26354,7 +26354,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqEmailResponse',
+                        '\ultracart\v2\models\EmailCommseqEmailResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26362,7 +26362,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26370,7 +26370,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26378,7 +26378,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26386,7 +26386,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26394,7 +26394,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26410,7 +26410,7 @@ class StorefrontApi
      * Insert email email
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email email (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -26431,14 +26431,14 @@ class StorefrontApi
      * Insert email email
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email email (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function insertEmailEmailAsyncWithHttpInfo($storefront_oid, $email_commseq_email)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->insertEmailEmailRequest($storefront_oid, $email_commseq_email);
 
         return $this->client
@@ -26482,7 +26482,7 @@ class StorefrontApi
      * Create request for operation 'insertEmailEmail'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email email (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -26613,11 +26613,11 @@ class StorefrontApi
      * Insert email flow
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailFlowResponse
+     * @return \ultracart\v2\models\EmailFlowResponse
      */
     public function insertEmailFlow($storefront_oid, $email_flow)
     {
@@ -26631,15 +26631,15 @@ class StorefrontApi
      * Insert email flow
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertEmailFlowWithHttpInfo($storefront_oid, $email_flow)
     {
-        $returnType = '\ultracartv2\models\EmailFlowResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->insertEmailFlowRequest($storefront_oid, $email_flow);
 
         try {
@@ -26691,7 +26691,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailFlowResponse',
+                        '\ultracart\v2\models\EmailFlowResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26699,7 +26699,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26707,7 +26707,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26715,7 +26715,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26723,7 +26723,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26731,7 +26731,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -26747,7 +26747,7 @@ class StorefrontApi
      * Insert email flow
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -26768,14 +26768,14 @@ class StorefrontApi
      * Insert email flow
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function insertEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow)
     {
-        $returnType = '\ultracartv2\models\EmailFlowResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->insertEmailFlowRequest($storefront_oid, $email_flow);
 
         return $this->client
@@ -26819,7 +26819,7 @@ class StorefrontApi
      * Create request for operation 'insertEmailFlow'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -26950,11 +26950,11 @@ class StorefrontApi
      * Insert email list
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListResponse
+     * @return \ultracart\v2\models\EmailListResponse
      */
     public function insertEmailList($storefront_oid, $email_list)
     {
@@ -26968,15 +26968,15 @@ class StorefrontApi
      * Insert email list
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertEmailListWithHttpInfo($storefront_oid, $email_list)
     {
-        $returnType = '\ultracartv2\models\EmailListResponse';
+        $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->insertEmailListRequest($storefront_oid, $email_list);
 
         try {
@@ -27028,7 +27028,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListResponse',
+                        '\ultracart\v2\models\EmailListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27036,7 +27036,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27044,7 +27044,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27052,7 +27052,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27060,7 +27060,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27068,7 +27068,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27084,7 +27084,7 @@ class StorefrontApi
      * Insert email list
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -27105,14 +27105,14 @@ class StorefrontApi
      * Insert email list
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function insertEmailListAsyncWithHttpInfo($storefront_oid, $email_list)
     {
-        $returnType = '\ultracartv2\models\EmailListResponse';
+        $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->insertEmailListRequest($storefront_oid, $email_list);
 
         return $this->client
@@ -27156,7 +27156,7 @@ class StorefrontApi
      * Create request for operation 'insertEmailList'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -27287,11 +27287,11 @@ class StorefrontApi
      * Insert email postcard
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqPostcardResponse
+     * @return \ultracart\v2\models\EmailCommseqPostcardResponse
      */
     public function insertEmailPostcard($storefront_oid, $email_commseq_postcard)
     {
@@ -27305,15 +27305,15 @@ class StorefrontApi
      * Insert email postcard
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertEmailPostcardWithHttpInfo($storefront_oid, $email_commseq_postcard)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->insertEmailPostcardRequest($storefront_oid, $email_commseq_postcard);
 
         try {
@@ -27365,7 +27365,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqPostcardResponse',
+                        '\ultracart\v2\models\EmailCommseqPostcardResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27373,7 +27373,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27381,7 +27381,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27389,7 +27389,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27397,7 +27397,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27405,7 +27405,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27421,7 +27421,7 @@ class StorefrontApi
      * Insert email postcard
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -27442,14 +27442,14 @@ class StorefrontApi
      * Insert email postcard
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function insertEmailPostcardAsyncWithHttpInfo($storefront_oid, $email_commseq_postcard)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->insertEmailPostcardRequest($storefront_oid, $email_commseq_postcard);
 
         return $this->client
@@ -27493,7 +27493,7 @@ class StorefrontApi
      * Create request for operation 'insertEmailPostcard'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -27624,11 +27624,11 @@ class StorefrontApi
      * Insert email segment
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentResponse
+     * @return \ultracart\v2\models\EmailSegmentResponse
      */
     public function insertEmailSegment($storefront_oid, $email_segment)
     {
@@ -27642,15 +27642,15 @@ class StorefrontApi
      * Insert email segment
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertEmailSegmentWithHttpInfo($storefront_oid, $email_segment)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->insertEmailSegmentRequest($storefront_oid, $email_segment);
 
         try {
@@ -27702,7 +27702,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentResponse',
+                        '\ultracart\v2\models\EmailSegmentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27710,7 +27710,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27718,7 +27718,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27726,7 +27726,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27734,7 +27734,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27742,7 +27742,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -27758,7 +27758,7 @@ class StorefrontApi
      * Insert email segment
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -27779,14 +27779,14 @@ class StorefrontApi
      * Insert email segment
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function insertEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->insertEmailSegmentRequest($storefront_oid, $email_segment);
 
         return $this->client
@@ -27830,7 +27830,7 @@ class StorefrontApi
      * Create request for operation 'insertEmailSegment'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -27963,9 +27963,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_segment_uuid email_segment_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentDownloadPrepareResponse
+     * @return \ultracart\v2\models\EmailSegmentDownloadPrepareResponse
      */
     public function prepareDownloadEmailSegment($storefront_oid, $email_segment_uuid)
     {
@@ -27981,13 +27981,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_segment_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentDownloadPrepareResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentDownloadPrepareResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function prepareDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentDownloadPrepareResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
         $request = $this->prepareDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
         try {
@@ -28039,7 +28039,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentDownloadPrepareResponse',
+                        '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28047,7 +28047,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28055,7 +28055,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28063,7 +28063,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28071,7 +28071,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28079,7 +28079,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28123,7 +28123,7 @@ class StorefrontApi
      */
     public function prepareDownloadEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentDownloadPrepareResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
         $request = $this->prepareDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
         return $this->client
@@ -28304,9 +28304,9 @@ class StorefrontApi
      *
      * @param  int $library_item_oid library_item_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemResponse
+     * @return \ultracart\v2\models\LibraryItemResponse
      */
     public function publishLibraryItem($library_item_oid)
     {
@@ -28321,13 +28321,13 @@ class StorefrontApi
      *
      * @param  int $library_item_oid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function publishLibraryItemWithHttpInfo($library_item_oid)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->publishLibraryItemRequest($library_item_oid);
 
         try {
@@ -28379,7 +28379,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemResponse',
+                        '\ultracart\v2\models\LibraryItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28387,7 +28387,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28395,7 +28395,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28403,7 +28403,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28411,7 +28411,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28419,7 +28419,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28461,7 +28461,7 @@ class StorefrontApi
      */
     public function publishLibraryItemAsyncWithHttpInfo($library_item_oid)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->publishLibraryItemRequest($library_item_oid);
 
         return $this->client
@@ -28628,9 +28628,9 @@ class StorefrontApi
      * @param  int $library_item_oid library_item_oid (required)
      * @param  int $storefront_oid storefront_oid (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemResponse
+     * @return \ultracart\v2\models\LibraryItemResponse
      */
     public function purchaseLibraryItem($library_item_oid, $storefront_oid = null)
     {
@@ -28646,13 +28646,13 @@ class StorefrontApi
      * @param  int $library_item_oid (required)
      * @param  int $storefront_oid (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function purchaseLibraryItemWithHttpInfo($library_item_oid, $storefront_oid = null)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->purchaseLibraryItemRequest($library_item_oid, $storefront_oid);
 
         try {
@@ -28704,7 +28704,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemResponse',
+                        '\ultracart\v2\models\LibraryItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28712,7 +28712,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28720,7 +28720,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28728,7 +28728,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28736,7 +28736,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28744,7 +28744,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -28788,7 +28788,7 @@ class StorefrontApi
      */
     public function purchaseLibraryItemAsyncWithHttpInfo($library_item_oid, $storefront_oid = null)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->purchaseLibraryItemRequest($library_item_oid, $storefront_oid);
 
         return $this->client
@@ -28961,7 +28961,7 @@ class StorefrontApi
      * @param  string $commseq_uuid commseq_uuid (required)
      * @param  string $commseq_step_uuid commseq_step_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -28979,7 +28979,7 @@ class StorefrontApi
      * @param  string $commseq_uuid (required)
      * @param  string $commseq_step_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -29023,7 +29023,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29031,7 +29031,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29039,7 +29039,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29047,7 +29047,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29055,7 +29055,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29283,11 +29283,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_email_uuid commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqEmailSendTestResponse
+     * @return \ultracart\v2\models\EmailCommseqEmailSendTestResponse
      */
     public function review($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
     {
@@ -29302,15 +29302,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function reviewWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailSendTestResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
         $request = $this->reviewRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request);
 
         try {
@@ -29362,7 +29362,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqEmailSendTestResponse',
+                        '\ultracart\v2\models\EmailCommseqEmailSendTestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29370,7 +29370,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29378,7 +29378,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29386,7 +29386,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29394,7 +29394,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29402,7 +29402,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29419,7 +29419,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -29441,14 +29441,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function reviewAsyncWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailSendTestResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
         $request = $this->reviewRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request);
 
         return $this->client
@@ -29493,7 +29493,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -29643,9 +29643,9 @@ class StorefrontApi
      * @param  int $max_hits max_hits (optional)
      * @param  string $subcategory subcategory (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LookupResponse
+     * @return \ultracart\v2\models\LookupResponse
      */
     public function search($category = null, $matches = null, $storefront_oid = null, $max_hits = null, $subcategory = null)
     {
@@ -29664,13 +29664,13 @@ class StorefrontApi
      * @param  int $max_hits (optional)
      * @param  string $subcategory (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LookupResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LookupResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchWithHttpInfo($category = null, $matches = null, $storefront_oid = null, $max_hits = null, $subcategory = null)
     {
-        $returnType = '\ultracartv2\models\LookupResponse';
+        $returnType = '\ultracart\v2\models\LookupResponse';
         $request = $this->searchRequest($category, $matches, $storefront_oid, $max_hits, $subcategory);
 
         try {
@@ -29722,7 +29722,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LookupResponse',
+                        '\ultracart\v2\models\LookupResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29730,7 +29730,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29738,7 +29738,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29746,7 +29746,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29754,7 +29754,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29762,7 +29762,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29812,7 +29812,7 @@ class StorefrontApi
      */
     public function searchAsyncWithHttpInfo($category = null, $matches = null, $storefront_oid = null, $max_hits = null, $subcategory = null)
     {
-        $returnType = '\ultracartv2\models\LookupResponse';
+        $returnType = '\ultracart\v2\models\LookupResponse';
         $request = $this->searchRequest($category, $matches, $storefront_oid, $max_hits, $subcategory);
 
         return $this->client
@@ -29990,9 +29990,9 @@ class StorefrontApi
      * @param  string $email_list_uuid email_list_uuid (required)
      * @param  string $starts_with starts_with (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListCustomersResponse
+     * @return \ultracart\v2\models\EmailListCustomersResponse
      */
     public function searchEmailListCustomers($storefront_oid, $email_list_uuid, $starts_with = null)
     {
@@ -30009,13 +30009,13 @@ class StorefrontApi
      * @param  string $email_list_uuid (required)
      * @param  string $starts_with (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListCustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchEmailListCustomersWithHttpInfo($storefront_oid, $email_list_uuid, $starts_with = null)
     {
-        $returnType = '\ultracartv2\models\EmailListCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailListCustomersResponse';
         $request = $this->searchEmailListCustomersRequest($storefront_oid, $email_list_uuid, $starts_with);
 
         try {
@@ -30067,7 +30067,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListCustomersResponse',
+                        '\ultracart\v2\models\EmailListCustomersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30075,7 +30075,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30083,7 +30083,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30091,7 +30091,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30099,7 +30099,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30107,7 +30107,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30153,7 +30153,7 @@ class StorefrontApi
      */
     public function searchEmailListCustomersAsyncWithHttpInfo($storefront_oid, $email_list_uuid, $starts_with = null)
     {
-        $returnType = '\ultracartv2\models\EmailListCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailListCustomersResponse';
         $request = $this->searchEmailListCustomersRequest($storefront_oid, $email_list_uuid, $starts_with);
 
         return $this->client
@@ -30341,9 +30341,9 @@ class StorefrontApi
      * @param  string $email_segment_uuid email_segment_uuid (required)
      * @param  string $starts_with starts_with (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentCustomersResponse
+     * @return \ultracart\v2\models\EmailSegmentCustomersResponse
      */
     public function searchEmailSegmentCustomers($storefront_oid, $email_segment_uuid, $starts_with = null)
     {
@@ -30360,13 +30360,13 @@ class StorefrontApi
      * @param  string $email_segment_uuid (required)
      * @param  string $starts_with (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentCustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchEmailSegmentCustomersWithHttpInfo($storefront_oid, $email_segment_uuid, $starts_with = null)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentCustomersResponse';
         $request = $this->searchEmailSegmentCustomersRequest($storefront_oid, $email_segment_uuid, $starts_with);
 
         try {
@@ -30418,7 +30418,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentCustomersResponse',
+                        '\ultracart\v2\models\EmailSegmentCustomersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30426,7 +30426,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30434,7 +30434,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30442,7 +30442,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30450,7 +30450,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30458,7 +30458,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30504,7 +30504,7 @@ class StorefrontApi
      */
     public function searchEmailSegmentCustomersAsyncWithHttpInfo($storefront_oid, $email_segment_uuid, $starts_with = null)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentCustomersResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentCustomersResponse';
         $request = $this->searchEmailSegmentCustomersRequest($storefront_oid, $email_segment_uuid, $starts_with);
 
         return $this->client
@@ -30688,14 +30688,14 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemsResponse
+     * @return \ultracart\v2\models\LibraryItemsResponse
      */
     public function searchLibraryItems($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
@@ -30708,18 +30708,18 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchLibraryItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        $returnType = '\ultracartv2\models\LibraryItemsResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchLibraryItemsRequest($item_query, $_limit, $_offset, $_sort);
 
         try {
@@ -30771,7 +30771,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemsResponse',
+                        '\ultracart\v2\models\LibraryItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30779,7 +30779,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30787,7 +30787,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30795,7 +30795,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30803,7 +30803,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30811,7 +30811,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -30826,7 +30826,7 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -30849,7 +30849,7 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -30859,7 +30859,7 @@ class StorefrontApi
      */
     public function searchLibraryItemsAsyncWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        $returnType = '\ultracartv2\models\LibraryItemsResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchLibraryItemsRequest($item_query, $_limit, $_offset, $_sort);
 
         return $this->client
@@ -30902,7 +30902,7 @@ class StorefrontApi
     /**
      * Create request for operation 'searchLibraryItems'
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -31028,14 +31028,14 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemsResponse
+     * @return \ultracart\v2\models\LibraryItemsResponse
      */
     public function searchPublishedItems($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
@@ -31048,18 +31048,18 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchPublishedItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        $returnType = '\ultracartv2\models\LibraryItemsResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchPublishedItemsRequest($item_query, $_limit, $_offset, $_sort);
 
         try {
@@ -31111,7 +31111,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemsResponse',
+                        '\ultracart\v2\models\LibraryItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31119,7 +31119,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31127,7 +31127,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31135,7 +31135,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31143,7 +31143,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31151,7 +31151,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31166,7 +31166,7 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -31189,7 +31189,7 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -31199,7 +31199,7 @@ class StorefrontApi
      */
     public function searchPublishedItemsAsyncWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        $returnType = '\ultracartv2\models\LibraryItemsResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchPublishedItemsRequest($item_query, $_limit, $_offset, $_sort);
 
         return $this->client
@@ -31242,7 +31242,7 @@ class StorefrontApi
     /**
      * Create request for operation 'searchPublishedItems'
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -31368,14 +31368,14 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemsResponse
+     * @return \ultracart\v2\models\LibraryItemsResponse
      */
     public function searchSharedItems($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
@@ -31388,18 +31388,18 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchSharedItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        $returnType = '\ultracartv2\models\LibraryItemsResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchSharedItemsRequest($item_query, $_limit, $_offset, $_sort);
 
         try {
@@ -31451,7 +31451,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemsResponse',
+                        '\ultracart\v2\models\LibraryItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31459,7 +31459,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31467,7 +31467,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31475,7 +31475,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31483,7 +31483,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31491,7 +31491,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31506,7 +31506,7 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -31529,7 +31529,7 @@ class StorefrontApi
      *
      * Retrieve library items
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -31539,7 +31539,7 @@ class StorefrontApi
      */
     public function searchSharedItemsAsyncWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        $returnType = '\ultracartv2\models\LibraryItemsResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchSharedItemsRequest($item_query, $_limit, $_offset, $_sort);
 
         return $this->client
@@ -31582,7 +31582,7 @@ class StorefrontApi
     /**
      * Create request for operation 'searchSharedItems'
      *
-     * @param  \ultracartv2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -31710,11 +31710,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_email_uuid commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqEmailSendTestResponse
+     * @return \ultracart\v2\models\EmailCommseqEmailSendTestResponse
      */
     public function sendEmailTest($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request)
     {
@@ -31729,15 +31729,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendEmailTestWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailSendTestResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
         $request = $this->sendEmailTestRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request);
 
         try {
@@ -31789,7 +31789,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqEmailSendTestResponse',
+                        '\ultracart\v2\models\EmailCommseqEmailSendTestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31797,7 +31797,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31805,7 +31805,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31813,7 +31813,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31821,7 +31821,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31829,7 +31829,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31846,7 +31846,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -31868,14 +31868,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function sendEmailTestAsyncWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailSendTestResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
         $request = $this->sendEmailTestRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request);
 
         return $this->client
@@ -31920,7 +31920,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -32066,11 +32066,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_postcard_uuid commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqPostcardSendTestResponse
+     * @return \ultracart\v2\models\EmailCommseqPostcardSendTestResponse
      */
     public function sendPostcardTest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request)
     {
@@ -32085,15 +32085,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqPostcardSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardSendTestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendPostcardTestWithHttpInfo($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardSendTestResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardSendTestResponse';
         $request = $this->sendPostcardTestRequest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request);
 
         try {
@@ -32145,7 +32145,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqPostcardSendTestResponse',
+                        '\ultracart\v2\models\EmailCommseqPostcardSendTestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32153,7 +32153,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32161,7 +32161,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32169,7 +32169,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32177,7 +32177,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32185,7 +32185,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32202,7 +32202,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -32224,14 +32224,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function sendPostcardTestAsyncWithHttpInfo($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardSendTestResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardSendTestResponse';
         $request = $this->sendPostcardTestRequest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request);
 
         return $this->client
@@ -32276,7 +32276,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -32423,9 +32423,9 @@ class StorefrontApi
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_campaign_uuid email_campaign_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\BaseResponse
+     * @return \ultracart\v2\models\BaseResponse
      */
     public function startEmailCampaign($storefront_oid, $email_campaign_uuid)
     {
@@ -32441,13 +32441,13 @@ class StorefrontApi
      * @param  int $storefront_oid (required)
      * @param  string $email_campaign_uuid (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function startEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->startEmailCampaignRequest($storefront_oid, $email_campaign_uuid);
 
         try {
@@ -32499,7 +32499,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\BaseResponse',
+                        '\ultracart\v2\models\BaseResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32507,7 +32507,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32515,7 +32515,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32523,7 +32523,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32531,7 +32531,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32539,7 +32539,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32583,7 +32583,7 @@ class StorefrontApi
      */
     public function startEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        $returnType = '\ultracartv2\models\BaseResponse';
+        $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->startEmailCampaignRequest($storefront_oid, $email_campaign_uuid);
 
         return $this->client
@@ -32764,11 +32764,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_list_uuid email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer[] $customers Customers (required)
+     * @param  \ultracart\v2\models\EmailCustomer[] $customers Customers (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListSubscribeResponse
+     * @return \ultracart\v2\models\EmailListSubscribeResponse
      */
     public function subscribeToEmailList($storefront_oid, $email_list_uuid, $customers)
     {
@@ -32783,15 +32783,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer[] $customers Customers (required)
+     * @param  \ultracart\v2\models\EmailCustomer[] $customers Customers (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListSubscribeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListSubscribeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function subscribeToEmailListWithHttpInfo($storefront_oid, $email_list_uuid, $customers)
     {
-        $returnType = '\ultracartv2\models\EmailListSubscribeResponse';
+        $returnType = '\ultracart\v2\models\EmailListSubscribeResponse';
         $request = $this->subscribeToEmailListRequest($storefront_oid, $email_list_uuid, $customers);
 
         try {
@@ -32843,7 +32843,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListSubscribeResponse',
+                        '\ultracart\v2\models\EmailListSubscribeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32851,7 +32851,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32859,7 +32859,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32867,7 +32867,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32875,7 +32875,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32883,7 +32883,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -32900,7 +32900,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer[] $customers Customers (required)
+     * @param  \ultracart\v2\models\EmailCustomer[] $customers Customers (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -32922,14 +32922,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer[] $customers Customers (required)
+     * @param  \ultracart\v2\models\EmailCustomer[] $customers Customers (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function subscribeToEmailListAsyncWithHttpInfo($storefront_oid, $email_list_uuid, $customers)
     {
-        $returnType = '\ultracartv2\models\EmailListSubscribeResponse';
+        $returnType = '\ultracart\v2\models\EmailListSubscribeResponse';
         $request = $this->subscribeToEmailListRequest($storefront_oid, $email_list_uuid, $customers);
 
         return $this->client
@@ -32974,7 +32974,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer[] $customers Customers (required)
+     * @param  \ultracart\v2\models\EmailCustomer[] $customers Customers (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -33120,11 +33120,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_campaign_uuid email_campaign_uuid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCampaignResponse
+     * @return \ultracart\v2\models\EmailCampaignResponse
      */
     public function updateEmailCampaign($storefront_oid, $email_campaign_uuid, $email_campaign)
     {
@@ -33139,15 +33139,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_campaign_uuid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid, $email_campaign)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->updateEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $email_campaign);
 
         try {
@@ -33199,7 +33199,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCampaignResponse',
+                        '\ultracart\v2\models\EmailCampaignResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33207,7 +33207,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33215,7 +33215,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33223,7 +33223,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33231,7 +33231,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33239,7 +33239,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33256,7 +33256,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_campaign_uuid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -33278,14 +33278,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_campaign_uuid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailCampaignAsyncWithHttpInfo($storefront_oid, $email_campaign_uuid, $email_campaign)
     {
-        $returnType = '\ultracartv2\models\EmailCampaignResponse';
+        $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->updateEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $email_campaign);
 
         return $this->client
@@ -33330,7 +33330,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_campaign_uuid (required)
-     * @param  \ultracartv2\models\EmailCampaign $email_campaign Email campaign (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -33476,11 +33476,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_uuid commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqResponse
+     * @return \ultracart\v2\models\EmailCommseqResponse
      */
     public function updateEmailCommseq($storefront_oid, $commseq_uuid, $email_commseq)
     {
@@ -33495,15 +33495,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailCommseqWithHttpInfo($storefront_oid, $commseq_uuid, $email_commseq)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->updateEmailCommseqRequest($storefront_oid, $commseq_uuid, $email_commseq);
 
         try {
@@ -33555,7 +33555,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqResponse',
+                        '\ultracart\v2\models\EmailCommseqResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33563,7 +33563,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33571,7 +33571,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33579,7 +33579,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33587,7 +33587,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33595,7 +33595,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33612,7 +33612,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -33634,14 +33634,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailCommseqAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $email_commseq)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->updateEmailCommseqRequest($storefront_oid, $commseq_uuid, $email_commseq);
 
         return $this->client
@@ -33686,7 +33686,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseq $email_commseq Email commseq (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -33832,9 +33832,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_customer_uuid email_customer_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer $email_customer Email customer (required)
+     * @param  \ultracart\v2\models\EmailCustomer $email_customer Email customer (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -33850,9 +33850,9 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_customer_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer $email_customer Email customer (required)
+     * @param  \ultracart\v2\models\EmailCustomer $email_customer Email customer (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -33896,7 +33896,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33904,7 +33904,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33912,7 +33912,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33920,7 +33920,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33928,7 +33928,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -33945,7 +33945,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_customer_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer $email_customer Email customer (required)
+     * @param  \ultracart\v2\models\EmailCustomer $email_customer Email customer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -33967,7 +33967,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_customer_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer $email_customer Email customer (required)
+     * @param  \ultracart\v2\models\EmailCustomer $email_customer Email customer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -34005,7 +34005,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_customer_uuid (required)
-     * @param  \ultracartv2\models\EmailCustomer $email_customer Email customer (required)
+     * @param  \ultracart\v2\models\EmailCustomer $email_customer Email customer (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -34151,11 +34151,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_email_uuid commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqEmailResponse
+     * @return \ultracart\v2\models\EmailCommseqEmailResponse
      */
     public function updateEmailEmail($storefront_oid, $commseq_email_uuid, $email_commseq_email)
     {
@@ -34170,15 +34170,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->updateEmailEmailRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email);
 
         try {
@@ -34230,7 +34230,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqEmailResponse',
+                        '\ultracart\v2\models\EmailCommseqEmailResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34238,7 +34238,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34246,7 +34246,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34254,7 +34254,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34262,7 +34262,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34270,7 +34270,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34287,7 +34287,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -34309,14 +34309,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailEmailAsyncWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqEmailResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->updateEmailEmailRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email);
 
         return $this->client
@@ -34361,7 +34361,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_email_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -34507,11 +34507,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_flow_uuid email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailFlowResponse
+     * @return \ultracart\v2\models\EmailFlowResponse
      */
     public function updateEmailFlow($storefront_oid, $email_flow_uuid, $email_flow)
     {
@@ -34526,15 +34526,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $email_flow)
     {
-        $returnType = '\ultracartv2\models\EmailFlowResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->updateEmailFlowRequest($storefront_oid, $email_flow_uuid, $email_flow);
 
         try {
@@ -34586,7 +34586,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailFlowResponse',
+                        '\ultracart\v2\models\EmailFlowResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34594,7 +34594,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34602,7 +34602,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34610,7 +34610,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34618,7 +34618,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34626,7 +34626,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34643,7 +34643,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -34665,14 +34665,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailFlowAsyncWithHttpInfo($storefront_oid, $email_flow_uuid, $email_flow)
     {
-        $returnType = '\ultracartv2\models\EmailFlowResponse';
+        $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->updateEmailFlowRequest($storefront_oid, $email_flow_uuid, $email_flow);
 
         return $this->client
@@ -34717,7 +34717,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_flow_uuid (required)
-     * @param  \ultracartv2\models\EmailFlow $email_flow Email flow (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -34861,11 +34861,11 @@ class StorefrontApi
      *
      * Update email global settings
      *
-     * @param  \ultracartv2\models\EmailGlobalSettings $global_settings global settings request (required)
+     * @param  \ultracart\v2\models\EmailGlobalSettings $global_settings global settings request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailGlobalSettingsResponse
+     * @return \ultracart\v2\models\EmailGlobalSettingsResponse
      */
     public function updateEmailGlobalSettings($global_settings)
     {
@@ -34878,15 +34878,15 @@ class StorefrontApi
      *
      * Update email global settings
      *
-     * @param  \ultracartv2\models\EmailGlobalSettings $global_settings global settings request (required)
+     * @param  \ultracart\v2\models\EmailGlobalSettings $global_settings global settings request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailGlobalSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailGlobalSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailGlobalSettingsWithHttpInfo($global_settings)
     {
-        $returnType = '\ultracartv2\models\EmailGlobalSettingsResponse';
+        $returnType = '\ultracart\v2\models\EmailGlobalSettingsResponse';
         $request = $this->updateEmailGlobalSettingsRequest($global_settings);
 
         try {
@@ -34938,7 +34938,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailGlobalSettingsResponse',
+                        '\ultracart\v2\models\EmailGlobalSettingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34946,7 +34946,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34954,7 +34954,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34962,7 +34962,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34970,7 +34970,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34978,7 +34978,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -34993,7 +34993,7 @@ class StorefrontApi
      *
      * Update email global settings
      *
-     * @param  \ultracartv2\models\EmailGlobalSettings $global_settings global settings request (required)
+     * @param  \ultracart\v2\models\EmailGlobalSettings $global_settings global settings request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -35013,14 +35013,14 @@ class StorefrontApi
      *
      * Update email global settings
      *
-     * @param  \ultracartv2\models\EmailGlobalSettings $global_settings global settings request (required)
+     * @param  \ultracart\v2\models\EmailGlobalSettings $global_settings global settings request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailGlobalSettingsAsyncWithHttpInfo($global_settings)
     {
-        $returnType = '\ultracartv2\models\EmailGlobalSettingsResponse';
+        $returnType = '\ultracart\v2\models\EmailGlobalSettingsResponse';
         $request = $this->updateEmailGlobalSettingsRequest($global_settings);
 
         return $this->client
@@ -35063,7 +35063,7 @@ class StorefrontApi
     /**
      * Create request for operation 'updateEmailGlobalSettings'
      *
-     * @param  \ultracartv2\models\EmailGlobalSettings $global_settings global settings request (required)
+     * @param  \ultracart\v2\models\EmailGlobalSettings $global_settings global settings request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -35181,11 +35181,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_list_uuid email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListResponse
+     * @return \ultracart\v2\models\EmailListResponse
      */
     public function updateEmailList($storefront_oid, $email_list_uuid, $email_list)
     {
@@ -35200,15 +35200,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailListWithHttpInfo($storefront_oid, $email_list_uuid, $email_list)
     {
-        $returnType = '\ultracartv2\models\EmailListResponse';
+        $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->updateEmailListRequest($storefront_oid, $email_list_uuid, $email_list);
 
         try {
@@ -35260,7 +35260,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListResponse',
+                        '\ultracart\v2\models\EmailListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35268,7 +35268,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35276,7 +35276,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35284,7 +35284,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35292,7 +35292,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35300,7 +35300,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35317,7 +35317,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -35339,14 +35339,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailListAsyncWithHttpInfo($storefront_oid, $email_list_uuid, $email_list)
     {
-        $returnType = '\ultracartv2\models\EmailListResponse';
+        $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->updateEmailListRequest($storefront_oid, $email_list_uuid, $email_list);
 
         return $this->client
@@ -35391,7 +35391,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_list_uuid (required)
-     * @param  \ultracartv2\models\EmailList $email_list Email list (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -35536,11 +35536,11 @@ class StorefrontApi
      * Update email plan
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailPlan $settings plan request (required)
+     * @param  \ultracart\v2\models\EmailPlan $settings plan request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailPlanResponse
+     * @return \ultracart\v2\models\EmailPlanResponse
      */
     public function updateEmailPlan($storefront_oid, $settings)
     {
@@ -35554,15 +35554,15 @@ class StorefrontApi
      * Update email plan
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailPlan $settings plan request (required)
+     * @param  \ultracart\v2\models\EmailPlan $settings plan request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailPlanResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailPlanResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailPlanWithHttpInfo($storefront_oid, $settings)
     {
-        $returnType = '\ultracartv2\models\EmailPlanResponse';
+        $returnType = '\ultracart\v2\models\EmailPlanResponse';
         $request = $this->updateEmailPlanRequest($storefront_oid, $settings);
 
         try {
@@ -35614,7 +35614,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailPlanResponse',
+                        '\ultracart\v2\models\EmailPlanResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35622,7 +35622,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35630,7 +35630,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35638,7 +35638,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35646,7 +35646,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35654,7 +35654,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35670,7 +35670,7 @@ class StorefrontApi
      * Update email plan
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailPlan $settings plan request (required)
+     * @param  \ultracart\v2\models\EmailPlan $settings plan request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -35691,14 +35691,14 @@ class StorefrontApi
      * Update email plan
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailPlan $settings plan request (required)
+     * @param  \ultracart\v2\models\EmailPlan $settings plan request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailPlanAsyncWithHttpInfo($storefront_oid, $settings)
     {
-        $returnType = '\ultracartv2\models\EmailPlanResponse';
+        $returnType = '\ultracart\v2\models\EmailPlanResponse';
         $request = $this->updateEmailPlanRequest($storefront_oid, $settings);
 
         return $this->client
@@ -35742,7 +35742,7 @@ class StorefrontApi
      * Create request for operation 'updateEmailPlan'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailPlan $settings plan request (required)
+     * @param  \ultracart\v2\models\EmailPlan $settings plan request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -35874,11 +35874,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $commseq_postcard_uuid commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailCommseqPostcardResponse
+     * @return \ultracart\v2\models\EmailCommseqPostcardResponse
      */
     public function updateEmailPostcard($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard)
     {
@@ -35893,15 +35893,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->updateEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard);
 
         try {
@@ -35953,7 +35953,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailCommseqPostcardResponse',
+                        '\ultracart\v2\models\EmailCommseqPostcardResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35961,7 +35961,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35969,7 +35969,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35977,7 +35977,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35985,7 +35985,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -35993,7 +35993,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36010,7 +36010,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -36032,14 +36032,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailPostcardAsyncWithHttpInfo($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard)
     {
-        $returnType = '\ultracartv2\models\EmailCommseqPostcardResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->updateEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard);
 
         return $this->client
@@ -36084,7 +36084,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $commseq_postcard_uuid (required)
-     * @param  \ultracartv2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -36230,11 +36230,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_segment_uuid email_segment_uuid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSegmentResponse
+     * @return \ultracart\v2\models\EmailSegmentResponse
      */
     public function updateEmailSegment($storefront_oid, $email_segment_uuid, $email_segment)
     {
@@ -36249,15 +36249,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_segment_uuid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->updateEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment);
 
         try {
@@ -36309,7 +36309,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSegmentResponse',
+                        '\ultracart\v2\models\EmailSegmentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36317,7 +36317,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36325,7 +36325,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36333,7 +36333,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36341,7 +36341,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36349,7 +36349,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36366,7 +36366,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_segment_uuid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -36388,14 +36388,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_segment_uuid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailSegmentAsyncWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment)
     {
-        $returnType = '\ultracartv2\models\EmailSegmentResponse';
+        $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->updateEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment);
 
         return $this->client
@@ -36440,7 +36440,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_segment_uuid (required)
-     * @param  \ultracartv2\models\EmailSegment $email_segment Email segment (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -36585,11 +36585,11 @@ class StorefrontApi
      * Update email settings
      *
      * @param  int $storefront_oid storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSettings $settings settings request (required)
+     * @param  \ultracart\v2\models\EmailSettings $settings settings request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailSettingsResponse
+     * @return \ultracart\v2\models\EmailSettingsResponse
      */
     public function updateEmailSettings($storefront_oid, $settings)
     {
@@ -36603,15 +36603,15 @@ class StorefrontApi
      * Update email settings
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSettings $settings settings request (required)
+     * @param  \ultracart\v2\models\EmailSettings $settings settings request (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmailSettingsWithHttpInfo($storefront_oid, $settings)
     {
-        $returnType = '\ultracartv2\models\EmailSettingsResponse';
+        $returnType = '\ultracart\v2\models\EmailSettingsResponse';
         $request = $this->updateEmailSettingsRequest($storefront_oid, $settings);
 
         try {
@@ -36663,7 +36663,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailSettingsResponse',
+                        '\ultracart\v2\models\EmailSettingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36671,7 +36671,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36679,7 +36679,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36687,7 +36687,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36695,7 +36695,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36703,7 +36703,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -36719,7 +36719,7 @@ class StorefrontApi
      * Update email settings
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSettings $settings settings request (required)
+     * @param  \ultracart\v2\models\EmailSettings $settings settings request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -36740,14 +36740,14 @@ class StorefrontApi
      * Update email settings
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSettings $settings settings request (required)
+     * @param  \ultracart\v2\models\EmailSettings $settings settings request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmailSettingsAsyncWithHttpInfo($storefront_oid, $settings)
     {
-        $returnType = '\ultracartv2\models\EmailSettingsResponse';
+        $returnType = '\ultracart\v2\models\EmailSettingsResponse';
         $request = $this->updateEmailSettingsRequest($storefront_oid, $settings);
 
         return $this->client
@@ -36791,7 +36791,7 @@ class StorefrontApi
      * Create request for operation 'updateEmailSettings'
      *
      * @param  int $storefront_oid (required)
-     * @param  \ultracartv2\models\EmailSettings $settings settings request (required)
+     * @param  \ultracart\v2\models\EmailSettings $settings settings request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -36923,11 +36923,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  int $storefront_experiment_oid storefront_experiment_oid (required)
-     * @param  \ultracartv2\models\Experiment $experiment Experiment (required)
+     * @param  \ultracart\v2\models\Experiment $experiment Experiment (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ExperimentResponse
+     * @return \ultracart\v2\models\ExperimentResponse
      */
     public function updateExperiment($storefront_oid, $storefront_experiment_oid, $experiment)
     {
@@ -36942,15 +36942,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  int $storefront_experiment_oid (required)
-     * @param  \ultracartv2\models\Experiment $experiment Experiment (required)
+     * @param  \ultracart\v2\models\Experiment $experiment Experiment (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ExperimentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ExperimentResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateExperimentWithHttpInfo($storefront_oid, $storefront_experiment_oid, $experiment)
     {
-        $returnType = '\ultracartv2\models\ExperimentResponse';
+        $returnType = '\ultracart\v2\models\ExperimentResponse';
         $request = $this->updateExperimentRequest($storefront_oid, $storefront_experiment_oid, $experiment);
 
         try {
@@ -37002,7 +37002,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ExperimentResponse',
+                        '\ultracart\v2\models\ExperimentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37010,7 +37010,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37018,7 +37018,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37026,7 +37026,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37034,7 +37034,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37042,7 +37042,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37059,7 +37059,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  int $storefront_experiment_oid (required)
-     * @param  \ultracartv2\models\Experiment $experiment Experiment (required)
+     * @param  \ultracart\v2\models\Experiment $experiment Experiment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -37081,14 +37081,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  int $storefront_experiment_oid (required)
-     * @param  \ultracartv2\models\Experiment $experiment Experiment (required)
+     * @param  \ultracart\v2\models\Experiment $experiment Experiment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateExperimentAsyncWithHttpInfo($storefront_oid, $storefront_experiment_oid, $experiment)
     {
-        $returnType = '\ultracartv2\models\ExperimentResponse';
+        $returnType = '\ultracart\v2\models\ExperimentResponse';
         $request = $this->updateExperimentRequest($storefront_oid, $storefront_experiment_oid, $experiment);
 
         return $this->client
@@ -37133,7 +37133,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  int $storefront_experiment_oid (required)
-     * @param  \ultracartv2\models\Experiment $experiment Experiment (required)
+     * @param  \ultracart\v2\models\Experiment $experiment Experiment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -37278,11 +37278,11 @@ class StorefrontApi
      * Update library item. Note that only certain fields may be updated via this method.
      *
      * @param  int $library_item_oid library_item_oid (required)
-     * @param  \ultracartv2\models\LibraryItem $library_item Library item (required)
+     * @param  \ultracart\v2\models\LibraryItem $library_item Library item (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\LibraryItemResponse
+     * @return \ultracart\v2\models\LibraryItemResponse
      */
     public function updateLibraryItem($library_item_oid, $library_item)
     {
@@ -37296,15 +37296,15 @@ class StorefrontApi
      * Update library item. Note that only certain fields may be updated via this method.
      *
      * @param  int $library_item_oid (required)
-     * @param  \ultracartv2\models\LibraryItem $library_item Library item (required)
+     * @param  \ultracart\v2\models\LibraryItem $library_item Library item (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateLibraryItemWithHttpInfo($library_item_oid, $library_item)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->updateLibraryItemRequest($library_item_oid, $library_item);
 
         try {
@@ -37356,7 +37356,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\LibraryItemResponse',
+                        '\ultracart\v2\models\LibraryItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37364,7 +37364,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37372,7 +37372,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37380,7 +37380,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37388,7 +37388,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37396,7 +37396,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37412,7 +37412,7 @@ class StorefrontApi
      * Update library item. Note that only certain fields may be updated via this method.
      *
      * @param  int $library_item_oid (required)
-     * @param  \ultracartv2\models\LibraryItem $library_item Library item (required)
+     * @param  \ultracart\v2\models\LibraryItem $library_item Library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -37433,14 +37433,14 @@ class StorefrontApi
      * Update library item. Note that only certain fields may be updated via this method.
      *
      * @param  int $library_item_oid (required)
-     * @param  \ultracartv2\models\LibraryItem $library_item Library item (required)
+     * @param  \ultracart\v2\models\LibraryItem $library_item Library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateLibraryItemAsyncWithHttpInfo($library_item_oid, $library_item)
     {
-        $returnType = '\ultracartv2\models\LibraryItemResponse';
+        $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->updateLibraryItemRequest($library_item_oid, $library_item);
 
         return $this->client
@@ -37484,7 +37484,7 @@ class StorefrontApi
      * Create request for operation 'updateLibraryItem'
      *
      * @param  int $library_item_oid (required)
-     * @param  \ultracartv2\models\LibraryItem $library_item Library item (required)
+     * @param  \ultracart\v2\models\LibraryItem $library_item Library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -37616,11 +37616,11 @@ class StorefrontApi
      *
      * @param  int $storefront_oid storefront_oid (required)
      * @param  string $email_id email_id (required)
-     * @param  \ultracartv2\models\TransactionEmail $transaction_email TransactionEmail (required)
+     * @param  \ultracart\v2\models\TransactionEmail $transaction_email TransactionEmail (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TransactionEmailResponse
+     * @return \ultracart\v2\models\TransactionEmailResponse
      */
     public function updateTransactionEmail($storefront_oid, $email_id, $transaction_email)
     {
@@ -37635,15 +37635,15 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_id (required)
-     * @param  \ultracartv2\models\TransactionEmail $transaction_email TransactionEmail (required)
+     * @param  \ultracart\v2\models\TransactionEmail $transaction_email TransactionEmail (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TransactionEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TransactionEmailResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTransactionEmailWithHttpInfo($storefront_oid, $email_id, $transaction_email)
     {
-        $returnType = '\ultracartv2\models\TransactionEmailResponse';
+        $returnType = '\ultracart\v2\models\TransactionEmailResponse';
         $request = $this->updateTransactionEmailRequest($storefront_oid, $email_id, $transaction_email);
 
         try {
@@ -37695,7 +37695,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TransactionEmailResponse',
+                        '\ultracart\v2\models\TransactionEmailResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37703,7 +37703,7 @@ class StorefrontApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37711,7 +37711,7 @@ class StorefrontApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37719,7 +37719,7 @@ class StorefrontApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37727,7 +37727,7 @@ class StorefrontApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37735,7 +37735,7 @@ class StorefrontApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -37752,7 +37752,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_id (required)
-     * @param  \ultracartv2\models\TransactionEmail $transaction_email TransactionEmail (required)
+     * @param  \ultracart\v2\models\TransactionEmail $transaction_email TransactionEmail (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -37774,14 +37774,14 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_id (required)
-     * @param  \ultracartv2\models\TransactionEmail $transaction_email TransactionEmail (required)
+     * @param  \ultracart\v2\models\TransactionEmail $transaction_email TransactionEmail (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTransactionEmailAsyncWithHttpInfo($storefront_oid, $email_id, $transaction_email)
     {
-        $returnType = '\ultracartv2\models\TransactionEmailResponse';
+        $returnType = '\ultracart\v2\models\TransactionEmailResponse';
         $request = $this->updateTransactionEmailRequest($storefront_oid, $email_id, $transaction_email);
 
         return $this->client
@@ -37826,7 +37826,7 @@ class StorefrontApi
      *
      * @param  int $storefront_oid (required)
      * @param  string $email_id (required)
-     * @param  \ultracartv2\models\TransactionEmail $transaction_email TransactionEmail (required)
+     * @param  \ultracart\v2\models\TransactionEmail $transaction_email TransactionEmail (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

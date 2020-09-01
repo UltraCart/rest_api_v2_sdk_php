@@ -28,9 +28,9 @@
         "friendsofphp/php-cs-fixer": "~2.12"
     },
     "autoload": {
-        "psr-4": { "ultracartv2\\" : "lib/" }
+        "psr-4": { "ultracart\\v2\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "ultracartv2\\" : "test/" }
+        "psr-4": { "ultracart\\v2\\" : "test/" }
     }
 }

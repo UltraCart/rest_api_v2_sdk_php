@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * AffiliateApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -92,14 +92,14 @@ class AffiliateApi
      *
      * Retrieve clicks
      *
-     * @param  \ultracartv2\models\AffiliateClickQuery $click_query Click query (required)
+     * @param  \ultracart\v2\models\AffiliateClickQuery $click_query Click query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AffiliateClicksResponse
+     * @return \ultracart\v2\models\AffiliateClicksResponse
      */
     public function getClicksByQuery($click_query, $_limit = '10000', $_offset = '0', $_expand = null)
     {
@@ -112,18 +112,18 @@ class AffiliateApi
      *
      * Retrieve clicks
      *
-     * @param  \ultracartv2\models\AffiliateClickQuery $click_query Click query (required)
+     * @param  \ultracart\v2\models\AffiliateClickQuery $click_query Click query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AffiliateClicksResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AffiliateClicksResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getClicksByQueryWithHttpInfo($click_query, $_limit = '10000', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AffiliateClicksResponse';
+        $returnType = '\ultracart\v2\models\AffiliateClicksResponse';
         $request = $this->getClicksByQueryRequest($click_query, $_limit, $_offset, $_expand);
 
         try {
@@ -175,7 +175,7 @@ class AffiliateApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AffiliateClicksResponse',
+                        '\ultracart\v2\models\AffiliateClicksResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -183,7 +183,7 @@ class AffiliateApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -191,7 +191,7 @@ class AffiliateApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -199,7 +199,7 @@ class AffiliateApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -207,7 +207,7 @@ class AffiliateApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -215,7 +215,7 @@ class AffiliateApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -230,7 +230,7 @@ class AffiliateApi
      *
      * Retrieve clicks
      *
-     * @param  \ultracartv2\models\AffiliateClickQuery $click_query Click query (required)
+     * @param  \ultracart\v2\models\AffiliateClickQuery $click_query Click query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
@@ -253,7 +253,7 @@ class AffiliateApi
      *
      * Retrieve clicks
      *
-     * @param  \ultracartv2\models\AffiliateClickQuery $click_query Click query (required)
+     * @param  \ultracart\v2\models\AffiliateClickQuery $click_query Click query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
@@ -263,7 +263,7 @@ class AffiliateApi
      */
     public function getClicksByQueryAsyncWithHttpInfo($click_query, $_limit = '10000', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AffiliateClicksResponse';
+        $returnType = '\ultracart\v2\models\AffiliateClicksResponse';
         $request = $this->getClicksByQueryRequest($click_query, $_limit, $_offset, $_expand);
 
         return $this->client
@@ -306,7 +306,7 @@ class AffiliateApi
     /**
      * Create request for operation 'getClicksByQuery'
      *
-     * @param  \ultracartv2\models\AffiliateClickQuery $click_query Click query (required)
+     * @param  \ultracart\v2\models\AffiliateClickQuery $click_query Click query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
@@ -432,14 +432,14 @@ class AffiliateApi
      *
      * Retrieve ledger entries
      *
-     * @param  \ultracartv2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
+     * @param  \ultracart\v2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AffiliateLedgersResponse
+     * @return \ultracart\v2\models\AffiliateLedgersResponse
      */
     public function getLedgersByQuery($ledger_query, $_limit = '100', $_offset = '0', $_expand = null)
     {
@@ -452,18 +452,18 @@ class AffiliateApi
      *
      * Retrieve ledger entries
      *
-     * @param  \ultracartv2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
+     * @param  \ultracart\v2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AffiliateLedgersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AffiliateLedgersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getLedgersByQueryWithHttpInfo($ledger_query, $_limit = '100', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AffiliateLedgersResponse';
+        $returnType = '\ultracart\v2\models\AffiliateLedgersResponse';
         $request = $this->getLedgersByQueryRequest($ledger_query, $_limit, $_offset, $_expand);
 
         try {
@@ -515,7 +515,7 @@ class AffiliateApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AffiliateLedgersResponse',
+                        '\ultracart\v2\models\AffiliateLedgersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -523,7 +523,7 @@ class AffiliateApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -531,7 +531,7 @@ class AffiliateApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -539,7 +539,7 @@ class AffiliateApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -547,7 +547,7 @@ class AffiliateApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -555,7 +555,7 @@ class AffiliateApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -570,7 +570,7 @@ class AffiliateApi
      *
      * Retrieve ledger entries
      *
-     * @param  \ultracartv2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
+     * @param  \ultracart\v2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
@@ -593,7 +593,7 @@ class AffiliateApi
      *
      * Retrieve ledger entries
      *
-     * @param  \ultracartv2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
+     * @param  \ultracart\v2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
@@ -603,7 +603,7 @@ class AffiliateApi
      */
     public function getLedgersByQueryAsyncWithHttpInfo($ledger_query, $_limit = '100', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AffiliateLedgersResponse';
+        $returnType = '\ultracart\v2\models\AffiliateLedgersResponse';
         $request = $this->getLedgersByQueryRequest($ledger_query, $_limit, $_offset, $_expand);
 
         return $this->client
@@ -646,7 +646,7 @@ class AffiliateApi
     /**
      * Create request for operation 'getLedgersByQuery'
      *
-     * @param  \ultracartv2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
+     * @param  \ultracart\v2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)

@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cjson** | **string** | Cjson from library item, only populated if this library item was a cjson snippet | [optional] 
 **content_type** | **string** | flow, campaign, cjson, or upsell | [optional] 
-**error** | [**\ultracartv2\models\Error**](Error.md) |  | [optional] 
-**metadata** | [**\ultracartv2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
+**metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **storefront_oid** | **int** | StoreFront oid where content originates necessary for tracking down relative assets | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **title** | **string** | title of library item, usually the name of the flow or campaign, or description of cjson | [optional] 

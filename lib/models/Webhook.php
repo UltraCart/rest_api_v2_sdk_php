@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * Webhook Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,13 +59,13 @@ class Webhook implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'api_user_oid' => 'int',
         'api_version' => 'string',
-        'application_profile' => '\ultracartv2\models\ApiUserApplicationProfile',
+        'application_profile' => '\ultracart\v2\models\ApiUserApplicationProfile',
         'authentication_type' => 'string',
         'basic_password' => 'string',
         'basic_username' => 'string',
         'consecutive_failures' => 'int',
         'disabled' => 'bool',
-        'event_categories' => '\ultracartv2\models\WebhookEventCategory[]',
+        'event_categories' => '\ultracart\v2\models\WebhookEventCategory[]',
         'iam_access_key' => 'string',
         'iam_secret_key' => 'string',
         'maximum_events' => 'int',
@@ -410,7 +410,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Gets application_profile
      *
-     * @return \ultracartv2\models\ApiUserApplicationProfile
+     * @return \ultracart\v2\models\ApiUserApplicationProfile
      */
     public function getApplicationProfile()
     {
@@ -420,7 +420,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets application_profile
      *
-     * @param \ultracartv2\models\ApiUserApplicationProfile $application_profile application_profile
+     * @param \ultracart\v2\models\ApiUserApplicationProfile $application_profile application_profile
      *
      * @return $this
      */
@@ -563,7 +563,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Gets event_categories
      *
-     * @return \ultracartv2\models\WebhookEventCategory[]
+     * @return \ultracart\v2\models\WebhookEventCategory[]
      */
     public function getEventCategories()
     {
@@ -573,7 +573,7 @@ class Webhook implements ModelInterface, ArrayAccess
     /**
      * Sets event_categories
      *
-     * @param \ultracartv2\models\WebhookEventCategory[] $event_categories The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.
+     * @param \ultracart\v2\models\WebhookEventCategory[] $event_categories The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval.
      *
      * @return $this
      */

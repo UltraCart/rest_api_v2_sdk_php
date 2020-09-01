@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * AutoOrderItem Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -65,14 +65,14 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost_remaining_orders' => 'int',
         'auto_order_item_oid' => 'int',
         'frequency' => 'string',
-        'future_schedules' => '\ultracartv2\models\AutoOrderItemFutureSchedule[]',
+        'future_schedules' => '\ultracart\v2\models\AutoOrderItemFutureSchedule[]',
         'last_order_dts' => 'string',
         'life_time_value' => 'float',
         'next_preshipment_notice_dts' => 'string',
         'next_shipment_dts' => 'string',
         'no_order_after_dts' => 'string',
         'number_of_rebills' => 'int',
-        'options' => '\ultracartv2\models\AutoOrderItemOption[]',
+        'options' => '\ultracart\v2\models\AutoOrderItemOption[]',
         'original_item_id' => 'string',
         'original_quantity' => 'float',
         'paypal_payer_id' => 'string',
@@ -80,7 +80,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'preshipment_notice_sent' => 'bool',
         'rebill_value' => 'float',
         'remaining_repeat_count' => 'int',
-        'simple_schedule' => '\ultracartv2\models\AutoOrderItemSimpleSchedule'
+        'simple_schedule' => '\ultracart\v2\models\AutoOrderItemSimpleSchedule'
     ];
 
     /**
@@ -591,7 +591,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets future_schedules
      *
-     * @return \ultracartv2\models\AutoOrderItemFutureSchedule[]
+     * @return \ultracart\v2\models\AutoOrderItemFutureSchedule[]
      */
     public function getFutureSchedules()
     {
@@ -601,7 +601,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets future_schedules
      *
-     * @param \ultracartv2\models\AutoOrderItemFutureSchedule[] $future_schedules The future rebill schedule for this item up to the next ten rebills
+     * @param \ultracart\v2\models\AutoOrderItemFutureSchedule[] $future_schedules The future rebill schedule for this item up to the next ten rebills
      *
      * @return $this
      */
@@ -759,7 +759,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \ultracartv2\models\AutoOrderItemOption[]
+     * @return \ultracart\v2\models\AutoOrderItemOption[]
      */
     public function getOptions()
     {
@@ -769,7 +769,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \ultracartv2\models\AutoOrderItemOption[] $options Options associated with this item
+     * @param \ultracart\v2\models\AutoOrderItemOption[] $options Options associated with this item
      *
      * @return $this
      */
@@ -951,7 +951,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets simple_schedule
      *
-     * @return \ultracartv2\models\AutoOrderItemSimpleSchedule
+     * @return \ultracart\v2\models\AutoOrderItemSimpleSchedule
      */
     public function getSimpleSchedule()
     {
@@ -961,7 +961,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets simple_schedule
      *
-     * @param \ultracartv2\models\AutoOrderItemSimpleSchedule $simple_schedule simple_schedule
+     * @param \ultracart\v2\models\AutoOrderItemSimpleSchedule $simple_schedule simple_schedule
      *
      * @return $this
      */

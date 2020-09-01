@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * WebhookLog Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,10 +60,10 @@ class WebhookLog implements ModelInterface, ArrayAccess
         'delivery_dts' => 'string',
         'duration' => 'int',
         'request' => 'string',
-        'request_headers' => '\ultracartv2\models\HTTPHeader[]',
+        'request_headers' => '\ultracart\v2\models\HTTPHeader[]',
         'request_id' => 'string',
         'response' => 'string',
-        'response_headers' => '\ultracartv2\models\HTTPHeader[]',
+        'response_headers' => '\ultracart\v2\models\HTTPHeader[]',
         'status_code' => 'int',
         'success' => 'bool',
         'uri' => 'string'
@@ -333,7 +333,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     /**
      * Gets request_headers
      *
-     * @return \ultracartv2\models\HTTPHeader[]
+     * @return \ultracart\v2\models\HTTPHeader[]
      */
     public function getRequestHeaders()
     {
@@ -343,7 +343,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     /**
      * Sets request_headers
      *
-     * @param \ultracartv2\models\HTTPHeader[] $request_headers Request headers sent to the server
+     * @param \ultracart\v2\models\HTTPHeader[] $request_headers Request headers sent to the server
      *
      * @return $this
      */
@@ -405,7 +405,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     /**
      * Gets response_headers
      *
-     * @return \ultracartv2\models\HTTPHeader[]
+     * @return \ultracart\v2\models\HTTPHeader[]
      */
     public function getResponseHeaders()
     {
@@ -415,7 +415,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     /**
      * Sets response_headers
      *
-     * @param \ultracartv2\models\HTTPHeader[] $response_headers Response headers received from the server
+     * @param \ultracart\v2\models\HTTPHeader[] $response_headers Response headers received from the server
      *
      * @return $this
      */

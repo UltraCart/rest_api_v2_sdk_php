@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accounting_code** | **string** | Accounting code for programs such as QuickBooks | [optional] 
-**cities** | [**\ultracartv2\models\TaxCity[]**](TaxCity.md) | Cities within this city | [optional] 
+**cities** | [**\ultracart\v2\models\TaxCity[]**](TaxCity.md) | Cities within this city | [optional] 
 **county** | **string** | County | [optional] 
 **county_oid** | **int** | Tax record object identifier used internally by database | [optional] 
 **dont_collect_city** | **bool** | Flag instructing engine to not collect city tax for this county | [optional] 

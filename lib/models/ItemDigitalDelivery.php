@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemDigitalDelivery Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -62,7 +62,7 @@ class ItemDigitalDelivery implements ModelInterface, ArrayAccess
         'activation_code_realtime_url' => 'string',
         'activation_code_shared_secret' => 'string',
         'activation_code_type' => 'string',
-        'digital_items' => '\ultracartv2\models\ItemDigitalItem[]'
+        'digital_items' => '\ultracart\v2\models\ItemDigitalItem[]'
     ];
 
     /**
@@ -381,7 +381,7 @@ class ItemDigitalDelivery implements ModelInterface, ArrayAccess
     /**
      * Gets digital_items
      *
-     * @return \ultracartv2\models\ItemDigitalItem[]
+     * @return \ultracart\v2\models\ItemDigitalItem[]
      */
     public function getDigitalItems()
     {
@@ -391,7 +391,7 @@ class ItemDigitalDelivery implements ModelInterface, ArrayAccess
     /**
      * Sets digital_items
      *
-     * @param \ultracartv2\models\ItemDigitalItem[] $digital_items Digital items that customer can download when this item is purchased
+     * @param \ultracart\v2\models\ItemDigitalItem[] $digital_items Digital items that customer can download when this item is purchased
      *
      * @return $this
      */

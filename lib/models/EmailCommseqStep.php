@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailCommseqStep Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,8 +57,8 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'alt_child_email_communication_sequence_steps' => '\ultracartv2\models\EmailCommseqStep[]',
-        'child_email_communication_sequence_steps' => '\ultracartv2\models\EmailCommseqStep[]',
+        'alt_child_email_communication_sequence_steps' => '\ultracart\v2\models\EmailCommseqStep[]',
+        'child_email_communication_sequence_steps' => '\ultracart\v2\models\EmailCommseqStep[]',
         'email_communication_sequence_step_uuid' => 'string',
         'email_pending_review' => 'bool',
         'email_rejected' => 'bool',
@@ -292,7 +292,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
     /**
      * Gets alt_child_email_communication_sequence_steps
      *
-     * @return \ultracartv2\models\EmailCommseqStep[]
+     * @return \ultracart\v2\models\EmailCommseqStep[]
      */
     public function getAltChildEmailCommunicationSequenceSteps()
     {
@@ -302,7 +302,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
     /**
      * Sets alt_child_email_communication_sequence_steps
      *
-     * @param \ultracartv2\models\EmailCommseqStep[] $alt_child_email_communication_sequence_steps Array of child steps for the alternate path
+     * @param \ultracart\v2\models\EmailCommseqStep[] $alt_child_email_communication_sequence_steps Array of child steps for the alternate path
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
     /**
      * Gets child_email_communication_sequence_steps
      *
-     * @return \ultracartv2\models\EmailCommseqStep[]
+     * @return \ultracart\v2\models\EmailCommseqStep[]
      */
     public function getChildEmailCommunicationSequenceSteps()
     {
@@ -326,7 +326,7 @@ class EmailCommseqStep implements ModelInterface, ArrayAccess
     /**
      * Sets child_email_communication_sequence_steps
      *
-     * @param \ultracartv2\models\EmailCommseqStep[] $child_email_communication_sequence_steps Array of child steps
+     * @param \ultracart\v2\models\EmailCommseqStep[] $child_email_communication_sequence_steps Array of child steps
      *
      * @return $this
      */

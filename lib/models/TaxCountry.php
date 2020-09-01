@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxCountry Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,7 +60,7 @@ class TaxCountry implements ModelInterface, ArrayAccess
         'accounting_code' => 'string',
         'country_code' => 'string',
         'country_oid' => 'int',
-        'states' => '\ultracartv2\models\TaxState[]',
+        'states' => '\ultracart\v2\models\TaxState[]',
         'tax_gift_charge' => 'bool',
         'tax_gift_wrap' => 'bool',
         'tax_rate' => 'float',
@@ -327,7 +327,7 @@ class TaxCountry implements ModelInterface, ArrayAccess
     /**
      * Gets states
      *
-     * @return \ultracartv2\models\TaxState[]
+     * @return \ultracart\v2\models\TaxState[]
      */
     public function getStates()
     {
@@ -337,7 +337,7 @@ class TaxCountry implements ModelInterface, ArrayAccess
     /**
      * Sets states
      *
-     * @param \ultracartv2\models\TaxState[] $states States (or regions or territories) within this country
+     * @param \ultracart\v2\models\TaxState[] $states States (or regions or territories) within this country
      *
      * @return $this
      */

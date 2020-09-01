@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2\models
+ * @package  ultracart\v2\models
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 /**
  * Interface abstracting model access.
  *
- * @package ultracartv2\models
+ * @package ultracart\v2\models
  * @author  Swagger Codegen team
  */
 interface ModelInterface

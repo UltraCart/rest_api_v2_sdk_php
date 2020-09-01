@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartItemOption Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,9 +57,9 @@ class CartItemOption implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cost_if_specified' => '\ultracartv2\models\Currency',
-        'cost_per_letter' => '\ultracartv2\models\Currency',
-        'cost_per_line' => '\ultracartv2\models\Currency',
+        'cost_if_specified' => '\ultracart\v2\models\Currency',
+        'cost_per_letter' => '\ultracart\v2\models\Currency',
+        'cost_per_line' => '\ultracart\v2\models\Currency',
         'ignore_if_default' => 'bool',
         'label' => 'string',
         'name' => 'string',
@@ -68,7 +68,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
         'required' => 'bool',
         'selected_value' => 'string',
         'type' => 'string',
-        'values' => '\ultracartv2\models\CartItemOptionValue[]'
+        'values' => '\ultracart\v2\models\CartItemOptionValue[]'
     ];
 
     /**
@@ -308,7 +308,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     /**
      * Gets cost_if_specified
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCostIfSpecified()
     {
@@ -318,7 +318,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     /**
      * Sets cost_if_specified
      *
-     * @param \ultracartv2\models\Currency $cost_if_specified cost_if_specified
+     * @param \ultracart\v2\models\Currency $cost_if_specified cost_if_specified
      *
      * @return $this
      */
@@ -332,7 +332,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     /**
      * Gets cost_per_letter
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCostPerLetter()
     {
@@ -342,7 +342,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     /**
      * Sets cost_per_letter
      *
-     * @param \ultracartv2\models\Currency $cost_per_letter cost_per_letter
+     * @param \ultracart\v2\models\Currency $cost_per_letter cost_per_letter
      *
      * @return $this
      */
@@ -356,7 +356,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     /**
      * Gets cost_per_line
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCostPerLine()
     {
@@ -366,7 +366,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     /**
      * Sets cost_per_line
      *
-     * @param \ultracartv2\models\Currency $cost_per_line cost_per_line
+     * @param \ultracart\v2\models\Currency $cost_per_line cost_per_line
      *
      * @return $this
      */
@@ -585,7 +585,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     /**
      * Gets values
      *
-     * @return \ultracartv2\models\CartItemOptionValue[]
+     * @return \ultracart\v2\models\CartItemOptionValue[]
      */
     public function getValues()
     {
@@ -595,7 +595,7 @@ class CartItemOption implements ModelInterface, ArrayAccess
     /**
      * Sets values
      *
-     * @param \ultracartv2\models\CartItemOptionValue[] $values Values that the customer can select from for radio or select type options
+     * @param \ultracart\v2\models\CartItemOptionValue[] $values Values that the customer can select from for radio or select type options
      *
      * @return $this
      */

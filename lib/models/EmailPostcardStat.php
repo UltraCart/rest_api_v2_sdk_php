@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailPostcardStat Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -82,7 +82,7 @@ class EmailPostcardStat implements ModelInterface, ArrayAccess
         'stat_type' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
-        'steps' => '\ultracartv2\models\EmailPostcardStat[]',
+        'steps' => '\ultracart\v2\models\EmailPostcardStat[]',
         'storefront_oid' => 'int',
         'unsubscribe_count' => 'int',
         'unsubscribe_count_formatted' => 'string',
@@ -993,7 +993,7 @@ class EmailPostcardStat implements ModelInterface, ArrayAccess
     /**
      * Gets steps
      *
-     * @return \ultracartv2\models\EmailPostcardStat[]
+     * @return \ultracart\v2\models\EmailPostcardStat[]
      */
     public function getSteps()
     {
@@ -1003,7 +1003,7 @@ class EmailPostcardStat implements ModelInterface, ArrayAccess
     /**
      * Sets steps
      *
-     * @param \ultracartv2\models\EmailPostcardStat[] $steps steps
+     * @param \ultracart\v2\models\EmailPostcardStat[] $steps steps
      *
      * @return $this
      */

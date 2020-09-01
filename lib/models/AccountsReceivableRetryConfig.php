@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * AccountsReceivableRetryConfig Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,7 +60,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
         'active' => 'bool',
         'allow_process_linked_accounts' => 'bool',
         'current_service_plan' => 'string',
-        'daily_activity_list' => '\ultracartv2\models\AccountsReceivableRetryDayActivity[]',
+        'daily_activity_list' => '\ultracart\v2\models\AccountsReceivableRetryDayActivity[]',
         'managed_by_linked_account_merchant_id' => 'bool',
         'merchant_id' => 'string',
         'notify_emails' => 'string[]',
@@ -357,7 +357,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     /**
      * Gets daily_activity_list
      *
-     * @return \ultracartv2\models\AccountsReceivableRetryDayActivity[]
+     * @return \ultracart\v2\models\AccountsReceivableRetryDayActivity[]
      */
     public function getDailyActivityList()
     {
@@ -367,7 +367,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     /**
      * Sets daily_activity_list
      *
-     * @param \ultracartv2\models\AccountsReceivableRetryDayActivity[] $daily_activity_list A list of days and what actions should take place on those days after an order reaches accounts receivable
+     * @param \ultracart\v2\models\AccountsReceivableRetryDayActivity[] $daily_activity_list A list of days and what actions should take place on those days after an order reaches accounts receivable
      *
      * @return $this
      */

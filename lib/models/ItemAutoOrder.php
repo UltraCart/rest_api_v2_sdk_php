@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemAutoOrder Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -72,7 +72,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'cancel_other_auto_orders' => 'bool',
         'free_shipping_auto_order' => 'bool',
         'refund_other_auto_orders' => 'bool',
-        'steps' => '\ultracartv2\models\ItemAutoOrderStep[]'
+        'steps' => '\ultracart\v2\models\ItemAutoOrderStep[]'
     ];
 
     /**
@@ -665,7 +665,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
     /**
      * Gets steps
      *
-     * @return \ultracartv2\models\ItemAutoOrderStep[]
+     * @return \ultracart\v2\models\ItemAutoOrderStep[]
      */
     public function getSteps()
     {
@@ -675,7 +675,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
     /**
      * Sets steps
      *
-     * @param \ultracartv2\models\ItemAutoOrderStep[] $steps The rebill steps if this auto order is an upsell
+     * @param \ultracart\v2\models\ItemAutoOrderStep[] $steps The rebill steps if this auto order is an upsell
      *
      * @return $this
      */

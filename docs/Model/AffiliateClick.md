@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ip_address** | **string** | IP address that generated the click | [optional] 
 **landing_page** | **string** | URL of the landing page the customer was sent to. | [optional] 
 **landing_page_query_string** | **string** | Query string on the landing page URL the customer was sent to. | [optional] 
-**link** | [**\ultracartv2\models\AffiliateLink**](AffiliateLink.md) |  | [optional] 
+**link** | [**\ultracart\v2\models\AffiliateLink**](AffiliateLink.md) |  | [optional] 
 **referrer** | **string** | URL that referred the click (Browser Header Referer) | [optional] 
 **referrer_query_string** | **string** | Query string that was on the referrer URL. | [optional] 
 **sub_id** | **string** | Sub ID value passed on the click | [optional] 

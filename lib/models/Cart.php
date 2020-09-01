@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * Cart Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,31 +57,31 @@ class Cart implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'affiliate' => '\ultracartv2\models\CartAffiliate',
+        'affiliate' => '\ultracart\v2\models\CartAffiliate',
         'base_currency_code' => 'string',
-        'billing' => '\ultracartv2\models\CartBilling',
-        'buysafe' => '\ultracartv2\models\CartBuysafe',
+        'billing' => '\ultracart\v2\models\CartBilling',
+        'buysafe' => '\ultracart\v2\models\CartBuysafe',
         'cart_id' => 'string',
-        'checkout' => '\ultracartv2\models\CartCheckout',
-        'coupons' => '\ultracartv2\models\CartCoupon[]',
+        'checkout' => '\ultracart\v2\models\CartCheckout',
+        'coupons' => '\ultracart\v2\models\CartCoupon[]',
         'currency_code' => 'string',
-        'currency_conversion' => '\ultracartv2\models\CartCurrencyConversion',
-        'customer_profile' => '\ultracartv2\models\CartCustomerProfile',
+        'currency_conversion' => '\ultracart\v2\models\CartCurrencyConversion',
+        'customer_profile' => '\ultracart\v2\models\CartCustomerProfile',
         'exchange_rate' => 'float',
-        'gift' => '\ultracartv2\models\CartGift',
-        'gift_certificate' => '\ultracartv2\models\CartGiftCertificate',
-        'items' => '\ultracartv2\models\CartItem[]',
+        'gift' => '\ultracart\v2\models\CartGift',
+        'gift_certificate' => '\ultracart\v2\models\CartGiftCertificate',
+        'items' => '\ultracart\v2\models\CartItem[]',
         'language_iso_code' => 'string',
         'logged_in' => 'bool',
-        'marketing' => '\ultracartv2\models\CartMarketing',
+        'marketing' => '\ultracart\v2\models\CartMarketing',
         'merchant_id' => 'string',
-        'payment' => '\ultracartv2\models\CartPayment',
-        'properties' => '\ultracartv2\models\CartProperty[]',
-        'settings' => '\ultracartv2\models\CartSettings',
-        'shipping' => '\ultracartv2\models\CartShipping',
-        'summary' => '\ultracartv2\models\CartSummary',
-        'taxes' => '\ultracartv2\models\CartTaxes',
-        'upsell_after' => '\ultracartv2\models\CartUpsellAfter'
+        'payment' => '\ultracart\v2\models\CartPayment',
+        'properties' => '\ultracart\v2\models\CartProperty[]',
+        'settings' => '\ultracart\v2\models\CartSettings',
+        'shipping' => '\ultracart\v2\models\CartShipping',
+        'summary' => '\ultracart\v2\models\CartSummary',
+        'taxes' => '\ultracart\v2\models\CartTaxes',
+        'upsell_after' => '\ultracart\v2\models\CartUpsellAfter'
     ];
 
     /**
@@ -363,7 +363,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets affiliate
      *
-     * @return \ultracartv2\models\CartAffiliate
+     * @return \ultracart\v2\models\CartAffiliate
      */
     public function getAffiliate()
     {
@@ -373,7 +373,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets affiliate
      *
-     * @param \ultracartv2\models\CartAffiliate $affiliate affiliate
+     * @param \ultracart\v2\models\CartAffiliate $affiliate affiliate
      *
      * @return $this
      */
@@ -415,7 +415,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets billing
      *
-     * @return \ultracartv2\models\CartBilling
+     * @return \ultracart\v2\models\CartBilling
      */
     public function getBilling()
     {
@@ -425,7 +425,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets billing
      *
-     * @param \ultracartv2\models\CartBilling $billing billing
+     * @param \ultracart\v2\models\CartBilling $billing billing
      *
      * @return $this
      */
@@ -439,7 +439,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets buysafe
      *
-     * @return \ultracartv2\models\CartBuysafe
+     * @return \ultracart\v2\models\CartBuysafe
      */
     public function getBuysafe()
     {
@@ -449,7 +449,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets buysafe
      *
-     * @param \ultracartv2\models\CartBuysafe $buysafe buysafe
+     * @param \ultracart\v2\models\CartBuysafe $buysafe buysafe
      *
      * @return $this
      */
@@ -487,7 +487,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets checkout
      *
-     * @return \ultracartv2\models\CartCheckout
+     * @return \ultracart\v2\models\CartCheckout
      */
     public function getCheckout()
     {
@@ -497,7 +497,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets checkout
      *
-     * @param \ultracartv2\models\CartCheckout $checkout checkout
+     * @param \ultracart\v2\models\CartCheckout $checkout checkout
      *
      * @return $this
      */
@@ -511,7 +511,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets coupons
      *
-     * @return \ultracartv2\models\CartCoupon[]
+     * @return \ultracart\v2\models\CartCoupon[]
      */
     public function getCoupons()
     {
@@ -521,7 +521,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param \ultracartv2\models\CartCoupon[] $coupons Coupons
+     * @param \ultracart\v2\models\CartCoupon[] $coupons Coupons
      *
      * @return $this
      */
@@ -563,7 +563,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets currency_conversion
      *
-     * @return \ultracartv2\models\CartCurrencyConversion
+     * @return \ultracart\v2\models\CartCurrencyConversion
      */
     public function getCurrencyConversion()
     {
@@ -573,7 +573,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets currency_conversion
      *
-     * @param \ultracartv2\models\CartCurrencyConversion $currency_conversion currency_conversion
+     * @param \ultracart\v2\models\CartCurrencyConversion $currency_conversion currency_conversion
      *
      * @return $this
      */
@@ -587,7 +587,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets customer_profile
      *
-     * @return \ultracartv2\models\CartCustomerProfile
+     * @return \ultracart\v2\models\CartCustomerProfile
      */
     public function getCustomerProfile()
     {
@@ -597,7 +597,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets customer_profile
      *
-     * @param \ultracartv2\models\CartCustomerProfile $customer_profile customer_profile
+     * @param \ultracart\v2\models\CartCustomerProfile $customer_profile customer_profile
      *
      * @return $this
      */
@@ -635,7 +635,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets gift
      *
-     * @return \ultracartv2\models\CartGift
+     * @return \ultracart\v2\models\CartGift
      */
     public function getGift()
     {
@@ -645,7 +645,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets gift
      *
-     * @param \ultracartv2\models\CartGift $gift gift
+     * @param \ultracart\v2\models\CartGift $gift gift
      *
      * @return $this
      */
@@ -659,7 +659,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets gift_certificate
      *
-     * @return \ultracartv2\models\CartGiftCertificate
+     * @return \ultracart\v2\models\CartGiftCertificate
      */
     public function getGiftCertificate()
     {
@@ -669,7 +669,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets gift_certificate
      *
-     * @param \ultracartv2\models\CartGiftCertificate $gift_certificate gift_certificate
+     * @param \ultracart\v2\models\CartGiftCertificate $gift_certificate gift_certificate
      *
      * @return $this
      */
@@ -683,7 +683,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \ultracartv2\models\CartItem[]
+     * @return \ultracart\v2\models\CartItem[]
      */
     public function getItems()
     {
@@ -693,7 +693,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \ultracartv2\models\CartItem[] $items Items
+     * @param \ultracart\v2\models\CartItem[] $items Items
      *
      * @return $this
      */
@@ -759,7 +759,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets marketing
      *
-     * @return \ultracartv2\models\CartMarketing
+     * @return \ultracart\v2\models\CartMarketing
      */
     public function getMarketing()
     {
@@ -769,7 +769,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets marketing
      *
-     * @param \ultracartv2\models\CartMarketing $marketing marketing
+     * @param \ultracart\v2\models\CartMarketing $marketing marketing
      *
      * @return $this
      */
@@ -807,7 +807,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets payment
      *
-     * @return \ultracartv2\models\CartPayment
+     * @return \ultracart\v2\models\CartPayment
      */
     public function getPayment()
     {
@@ -817,7 +817,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets payment
      *
-     * @param \ultracartv2\models\CartPayment $payment payment
+     * @param \ultracart\v2\models\CartPayment $payment payment
      *
      * @return $this
      */
@@ -831,7 +831,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets properties
      *
-     * @return \ultracartv2\models\CartProperty[]
+     * @return \ultracart\v2\models\CartProperty[]
      */
     public function getProperties()
     {
@@ -841,7 +841,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets properties
      *
-     * @param \ultracartv2\models\CartProperty[] $properties Properties associated with the cart
+     * @param \ultracart\v2\models\CartProperty[] $properties Properties associated with the cart
      *
      * @return $this
      */
@@ -855,7 +855,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets settings
      *
-     * @return \ultracartv2\models\CartSettings
+     * @return \ultracart\v2\models\CartSettings
      */
     public function getSettings()
     {
@@ -865,7 +865,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets settings
      *
-     * @param \ultracartv2\models\CartSettings $settings settings
+     * @param \ultracart\v2\models\CartSettings $settings settings
      *
      * @return $this
      */
@@ -879,7 +879,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets shipping
      *
-     * @return \ultracartv2\models\CartShipping
+     * @return \ultracart\v2\models\CartShipping
      */
     public function getShipping()
     {
@@ -889,7 +889,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets shipping
      *
-     * @param \ultracartv2\models\CartShipping $shipping shipping
+     * @param \ultracart\v2\models\CartShipping $shipping shipping
      *
      * @return $this
      */
@@ -903,7 +903,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets summary
      *
-     * @return \ultracartv2\models\CartSummary
+     * @return \ultracart\v2\models\CartSummary
      */
     public function getSummary()
     {
@@ -913,7 +913,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets summary
      *
-     * @param \ultracartv2\models\CartSummary $summary summary
+     * @param \ultracart\v2\models\CartSummary $summary summary
      *
      * @return $this
      */
@@ -927,7 +927,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets taxes
      *
-     * @return \ultracartv2\models\CartTaxes
+     * @return \ultracart\v2\models\CartTaxes
      */
     public function getTaxes()
     {
@@ -937,7 +937,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets taxes
      *
-     * @param \ultracartv2\models\CartTaxes $taxes taxes
+     * @param \ultracart\v2\models\CartTaxes $taxes taxes
      *
      * @return $this
      */
@@ -951,7 +951,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Gets upsell_after
      *
-     * @return \ultracartv2\models\CartUpsellAfter
+     * @return \ultracart\v2\models\CartUpsellAfter
      */
     public function getUpsellAfter()
     {
@@ -961,7 +961,7 @@ class Cart implements ModelInterface, ArrayAccess
     /**
      * Sets upsell_after
      *
-     * @param \ultracartv2\models\CartUpsellAfter $upsell_after upsell_after
+     * @param \ultracart\v2\models\CartUpsellAfter $upsell_after upsell_after
      *
      * @return $this
      */

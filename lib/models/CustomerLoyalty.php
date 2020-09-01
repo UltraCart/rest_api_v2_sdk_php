@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CustomerLoyalty Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,8 +58,8 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'current_points' => 'int',
-        'ledger_entries' => '\ultracartv2\models\CustomerLoyaltyLedger[]',
-        'redemptions' => '\ultracartv2\models\CustomerLoyaltyRedemption[]'
+        'ledger_entries' => '\ultracart\v2\models\CustomerLoyaltyLedger[]',
+        'redemptions' => '\ultracart\v2\models\CustomerLoyaltyRedemption[]'
     ];
 
     /**
@@ -243,7 +243,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     /**
      * Gets ledger_entries
      *
-     * @return \ultracartv2\models\CustomerLoyaltyLedger[]
+     * @return \ultracart\v2\models\CustomerLoyaltyLedger[]
      */
     public function getLedgerEntries()
     {
@@ -253,7 +253,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     /**
      * Sets ledger_entries
      *
-     * @param \ultracartv2\models\CustomerLoyaltyLedger[] $ledger_entries Ledger entries
+     * @param \ultracart\v2\models\CustomerLoyaltyLedger[] $ledger_entries Ledger entries
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     /**
      * Gets redemptions
      *
-     * @return \ultracartv2\models\CustomerLoyaltyRedemption[]
+     * @return \ultracart\v2\models\CustomerLoyaltyRedemption[]
      */
     public function getRedemptions()
     {
@@ -277,7 +277,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     /**
      * Sets redemptions
      *
-     * @param \ultracartv2\models\CustomerLoyaltyRedemption[] $redemptions Redemptions
+     * @param \ultracart\v2\models\CustomerLoyaltyRedemption[] $redemptions Redemptions
      *
      * @return $this
      */

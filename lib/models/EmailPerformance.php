@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailPerformance Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -62,8 +62,8 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'bounce_count' => 'int',
         'bounce_percentage' => 'float',
         'bounce_percentage_formatted' => 'string',
-        'customer_histogram' => '\ultracartv2\models\EmailPerformanceCustomerHistogram',
-        'daily_stats' => '\ultracartv2\models\EmailPerformanceDaily[]',
+        'customer_histogram' => '\ultracart\v2\models\EmailPerformanceCustomerHistogram',
+        'daily_stats' => '\ultracart\v2\models\EmailPerformanceDaily[]',
         'delivered_count' => 'int',
         'max_active_customers' => 'int',
         'max_emails_per_day' => 'int',
@@ -453,7 +453,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
     /**
      * Gets customer_histogram
      *
-     * @return \ultracartv2\models\EmailPerformanceCustomerHistogram
+     * @return \ultracart\v2\models\EmailPerformanceCustomerHistogram
      */
     public function getCustomerHistogram()
     {
@@ -463,7 +463,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
     /**
      * Sets customer_histogram
      *
-     * @param \ultracartv2\models\EmailPerformanceCustomerHistogram $customer_histogram customer_histogram
+     * @param \ultracart\v2\models\EmailPerformanceCustomerHistogram $customer_histogram customer_histogram
      *
      * @return $this
      */
@@ -477,7 +477,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
     /**
      * Gets daily_stats
      *
-     * @return \ultracartv2\models\EmailPerformanceDaily[]
+     * @return \ultracart\v2\models\EmailPerformanceDaily[]
      */
     public function getDailyStats()
     {
@@ -487,7 +487,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
     /**
      * Sets daily_stats
      *
-     * @param \ultracartv2\models\EmailPerformanceDaily[] $daily_stats Daily statistics used for charting
+     * @param \ultracart\v2\models\EmailPerformanceDaily[] $daily_stats Daily statistics used for charting
      *
      * @return $this
      */

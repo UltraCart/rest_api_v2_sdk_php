@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartSettingsPayment Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,10 +57,10 @@ class CartSettingsPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'amazon' => '\ultracartv2\models\CartSettingsPaymentAmazon',
-        'credit_card' => '\ultracartv2\models\CartSettingsPaymentCreditCard',
+        'amazon' => '\ultracart\v2\models\CartSettingsPaymentAmazon',
+        'credit_card' => '\ultracart\v2\models\CartSettingsPaymentCreditCard',
         'need_payment' => 'bool',
-        'paypal' => '\ultracartv2\models\CartSettingsPaymentPayPal',
+        'paypal' => '\ultracart\v2\models\CartSettingsPaymentPayPal',
         'supports_amazon' => 'bool',
         'supports_check' => 'bool',
         'supports_cod' => 'bool',
@@ -279,7 +279,7 @@ class CartSettingsPayment implements ModelInterface, ArrayAccess
     /**
      * Gets amazon
      *
-     * @return \ultracartv2\models\CartSettingsPaymentAmazon
+     * @return \ultracart\v2\models\CartSettingsPaymentAmazon
      */
     public function getAmazon()
     {
@@ -289,7 +289,7 @@ class CartSettingsPayment implements ModelInterface, ArrayAccess
     /**
      * Sets amazon
      *
-     * @param \ultracartv2\models\CartSettingsPaymentAmazon $amazon amazon
+     * @param \ultracart\v2\models\CartSettingsPaymentAmazon $amazon amazon
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class CartSettingsPayment implements ModelInterface, ArrayAccess
     /**
      * Gets credit_card
      *
-     * @return \ultracartv2\models\CartSettingsPaymentCreditCard
+     * @return \ultracart\v2\models\CartSettingsPaymentCreditCard
      */
     public function getCreditCard()
     {
@@ -313,7 +313,7 @@ class CartSettingsPayment implements ModelInterface, ArrayAccess
     /**
      * Sets credit_card
      *
-     * @param \ultracartv2\models\CartSettingsPaymentCreditCard $credit_card credit_card
+     * @param \ultracart\v2\models\CartSettingsPaymentCreditCard $credit_card credit_card
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class CartSettingsPayment implements ModelInterface, ArrayAccess
     /**
      * Gets paypal
      *
-     * @return \ultracartv2\models\CartSettingsPaymentPayPal
+     * @return \ultracart\v2\models\CartSettingsPaymentPayPal
      */
     public function getPaypal()
     {
@@ -361,7 +361,7 @@ class CartSettingsPayment implements ModelInterface, ArrayAccess
     /**
      * Sets paypal
      *
-     * @param \ultracartv2\models\CartSettingsPaymentPayPal $paypal paypal
+     * @param \ultracart\v2\models\CartSettingsPaymentPayPal $paypal paypal
      *
      * @return $this
      */

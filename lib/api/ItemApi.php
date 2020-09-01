@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * ItemApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -94,7 +94,7 @@ class ItemApi
      *
      * @param  int $merchant_item_oid The item oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -110,7 +110,7 @@ class ItemApi
      *
      * @param  int $merchant_item_oid The item oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -154,7 +154,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -162,7 +162,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -170,7 +170,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -178,7 +178,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -186,7 +186,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -377,9 +377,9 @@ class ItemApi
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ItemResponse
+     * @return \ultracart\v2\models\ItemResponse
      */
     public function getItem($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
@@ -396,13 +396,13 @@ class ItemApi
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getItemWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemResponse';
+        $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->getItemRequest($merchant_item_oid, $_expand, $_placeholders);
 
         try {
@@ -454,7 +454,7 @@ class ItemApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ItemResponse',
+                        '\ultracart\v2\models\ItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -462,7 +462,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -470,7 +470,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -478,7 +478,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -486,7 +486,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -494,7 +494,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -540,7 +540,7 @@ class ItemApi
      */
     public function getItemAsyncWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemResponse';
+        $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->getItemRequest($merchant_item_oid, $_expand, $_placeholders);
 
         return $this->client
@@ -713,9 +713,9 @@ class ItemApi
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ItemResponse
+     * @return \ultracart\v2\models\ItemResponse
      */
     public function getItemByMerchantItemId($merchant_item_id, $_expand = null, $_placeholders = null)
     {
@@ -732,13 +732,13 @@ class ItemApi
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getItemByMerchantItemIdWithHttpInfo($merchant_item_id, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemResponse';
+        $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->getItemByMerchantItemIdRequest($merchant_item_id, $_expand, $_placeholders);
 
         try {
@@ -790,7 +790,7 @@ class ItemApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ItemResponse',
+                        '\ultracart\v2\models\ItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -798,7 +798,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -806,7 +806,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -814,7 +814,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -822,7 +822,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -830,7 +830,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -876,7 +876,7 @@ class ItemApi
      */
     public function getItemByMerchantItemIdAsyncWithHttpInfo($merchant_item_id, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemResponse';
+        $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->getItemByMerchantItemIdRequest($merchant_item_id, $_expand, $_placeholders);
 
         return $this->client
@@ -1054,9 +1054,9 @@ class ItemApi
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ItemsResponse
+     * @return \ultracart\v2\models\ItemsResponse
      */
     public function getItems($parent_category_id = null, $parent_category_path = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
@@ -1078,13 +1078,13 @@ class ItemApi
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getItemsWithHttpInfo($parent_category_id = null, $parent_category_path = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemsResponse';
+        $returnType = '\ultracart\v2\models\ItemsResponse';
         $request = $this->getItemsRequest($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
 
         try {
@@ -1136,7 +1136,7 @@ class ItemApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ItemsResponse',
+                        '\ultracart\v2\models\ItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1144,7 +1144,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1152,7 +1152,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1160,7 +1160,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1168,7 +1168,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1176,7 +1176,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1232,7 +1232,7 @@ class ItemApi
      */
     public function getItemsAsyncWithHttpInfo($parent_category_id = null, $parent_category_path = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemsResponse';
+        $returnType = '\ultracart\v2\models\ItemsResponse';
         $request = $this->getItemsRequest($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
 
         return $this->client
@@ -1418,9 +1418,9 @@ class ItemApi
      *
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\PricingTiersResponse
+     * @return \ultracart\v2\models\PricingTiersResponse
      */
     public function getPricingTiers($_expand = null)
     {
@@ -1435,13 +1435,13 @@ class ItemApi
      *
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\PricingTiersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\PricingTiersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPricingTiersWithHttpInfo($_expand = null)
     {
-        $returnType = '\ultracartv2\models\PricingTiersResponse';
+        $returnType = '\ultracart\v2\models\PricingTiersResponse';
         $request = $this->getPricingTiersRequest($_expand);
 
         try {
@@ -1493,7 +1493,7 @@ class ItemApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\PricingTiersResponse',
+                        '\ultracart\v2\models\PricingTiersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1501,7 +1501,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1509,7 +1509,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1517,7 +1517,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1525,7 +1525,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1533,7 +1533,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1575,7 +1575,7 @@ class ItemApi
      */
     public function getPricingTiersAsyncWithHttpInfo($_expand = null)
     {
-        $returnType = '\ultracartv2\models\PricingTiersResponse';
+        $returnType = '\ultracart\v2\models\PricingTiersResponse';
         $request = $this->getPricingTiersRequest($_expand);
 
         return $this->client
@@ -1724,13 +1724,13 @@ class ItemApi
      *
      * Create an item
      *
-     * @param  \ultracartv2\models\Item $item Item to create (required)
+     * @param  \ultracart\v2\models\Item $item Item to create (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ItemResponse
+     * @return \ultracart\v2\models\ItemResponse
      */
     public function insertItem($item, $_expand = null, $_placeholders = null)
     {
@@ -1743,17 +1743,17 @@ class ItemApi
      *
      * Create an item
      *
-     * @param  \ultracartv2\models\Item $item Item to create (required)
+     * @param  \ultracart\v2\models\Item $item Item to create (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertItemWithHttpInfo($item, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemResponse';
+        $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->insertItemRequest($item, $_expand, $_placeholders);
 
         try {
@@ -1805,7 +1805,7 @@ class ItemApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ItemResponse',
+                        '\ultracart\v2\models\ItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1813,7 +1813,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1821,7 +1821,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1829,7 +1829,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1837,7 +1837,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1845,7 +1845,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1860,7 +1860,7 @@ class ItemApi
      *
      * Create an item
      *
-     * @param  \ultracartv2\models\Item $item Item to create (required)
+     * @param  \ultracart\v2\models\Item $item Item to create (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -1882,7 +1882,7 @@ class ItemApi
      *
      * Create an item
      *
-     * @param  \ultracartv2\models\Item $item Item to create (required)
+     * @param  \ultracart\v2\models\Item $item Item to create (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -1891,7 +1891,7 @@ class ItemApi
      */
     public function insertItemAsyncWithHttpInfo($item, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemResponse';
+        $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->insertItemRequest($item, $_expand, $_placeholders);
 
         return $this->client
@@ -1934,7 +1934,7 @@ class ItemApi
     /**
      * Create request for operation 'insertItem'
      *
-     * @param  \ultracartv2\models\Item $item Item to create (required)
+     * @param  \ultracart\v2\models\Item $item Item to create (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -2055,14 +2055,14 @@ class ItemApi
      *
      * Update an item
      *
-     * @param  \ultracartv2\models\Item $item Item to update (required)
+     * @param  \ultracart\v2\models\Item $item Item to update (required)
      * @param  int $merchant_item_oid The item oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ItemResponse
+     * @return \ultracart\v2\models\ItemResponse
      */
     public function updateItem($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
@@ -2075,18 +2075,18 @@ class ItemApi
      *
      * Update an item
      *
-     * @param  \ultracartv2\models\Item $item Item to update (required)
+     * @param  \ultracart\v2\models\Item $item Item to update (required)
      * @param  int $merchant_item_oid The item oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateItemWithHttpInfo($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemResponse';
+        $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->updateItemRequest($item, $merchant_item_oid, $_expand, $_placeholders);
 
         try {
@@ -2138,7 +2138,7 @@ class ItemApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ItemResponse',
+                        '\ultracart\v2\models\ItemResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2146,7 +2146,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2154,7 +2154,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2162,7 +2162,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2170,7 +2170,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2178,7 +2178,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2193,7 +2193,7 @@ class ItemApi
      *
      * Update an item
      *
-     * @param  \ultracartv2\models\Item $item Item to update (required)
+     * @param  \ultracart\v2\models\Item $item Item to update (required)
      * @param  int $merchant_item_oid The item oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -2216,7 +2216,7 @@ class ItemApi
      *
      * Update an item
      *
-     * @param  \ultracartv2\models\Item $item Item to update (required)
+     * @param  \ultracart\v2\models\Item $item Item to update (required)
      * @param  int $merchant_item_oid The item oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -2226,7 +2226,7 @@ class ItemApi
      */
     public function updateItemAsyncWithHttpInfo($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\ItemResponse';
+        $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->updateItemRequest($item, $merchant_item_oid, $_expand, $_placeholders);
 
         return $this->client
@@ -2269,7 +2269,7 @@ class ItemApi
     /**
      * Create request for operation 'updateItem'
      *
-     * @param  \ultracartv2\models\Item $item Item to update (required)
+     * @param  \ultracart\v2\models\Item $item Item to update (required)
      * @param  int $merchant_item_oid The item oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
@@ -2405,14 +2405,14 @@ class ItemApi
      *
      * Update multiple items
      *
-     * @param  \ultracartv2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ItemsResponse
+     * @return \ultracart\v2\models\ItemsResponse
      */
     public function updateItems($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
@@ -2425,18 +2425,18 @@ class ItemApi
      *
      * Update multiple items
      *
-     * @param  \ultracartv2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateItemsWithHttpInfo($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        $returnType = '\ultracartv2\models\ItemsResponse';
+        $returnType = '\ultracart\v2\models\ItemsResponse';
         $request = $this->updateItemsRequest($items_request, $_expand, $_placeholders, $_async);
 
         try {
@@ -2488,7 +2488,7 @@ class ItemApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ItemsResponse',
+                        '\ultracart\v2\models\ItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2496,7 +2496,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2504,7 +2504,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2512,7 +2512,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2520,7 +2520,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2528,7 +2528,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2543,7 +2543,7 @@ class ItemApi
      *
      * Update multiple items
      *
-     * @param  \ultracartv2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2566,7 +2566,7 @@ class ItemApi
      *
      * Update multiple items
      *
-     * @param  \ultracartv2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2576,7 +2576,7 @@ class ItemApi
      */
     public function updateItemsAsyncWithHttpInfo($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        $returnType = '\ultracartv2\models\ItemsResponse';
+        $returnType = '\ultracart\v2\models\ItemsResponse';
         $request = $this->updateItemsRequest($items_request, $_expand, $_placeholders, $_async);
 
         return $this->client
@@ -2619,7 +2619,7 @@ class ItemApi
     /**
      * Create request for operation 'updateItems'
      *
-     * @param  \ultracartv2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2747,9 +2747,9 @@ class ItemApi
      *
      * @param  \SplFileObject $file File to upload (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TempMultimediaResponse
+     * @return \ultracart\v2\models\TempMultimediaResponse
      */
     public function uploadTemporaryMultimedia($file)
     {
@@ -2764,13 +2764,13 @@ class ItemApi
      *
      * @param  \SplFileObject $file File to upload (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TempMultimediaResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TempMultimediaResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadTemporaryMultimediaWithHttpInfo($file)
     {
-        $returnType = '\ultracartv2\models\TempMultimediaResponse';
+        $returnType = '\ultracart\v2\models\TempMultimediaResponse';
         $request = $this->uploadTemporaryMultimediaRequest($file);
 
         try {
@@ -2822,7 +2822,7 @@ class ItemApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TempMultimediaResponse',
+                        '\ultracart\v2\models\TempMultimediaResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2830,7 +2830,7 @@ class ItemApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2838,7 +2838,7 @@ class ItemApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2846,7 +2846,7 @@ class ItemApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2854,7 +2854,7 @@ class ItemApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2862,7 +2862,7 @@ class ItemApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2904,7 +2904,7 @@ class ItemApi
      */
     public function uploadTemporaryMultimediaAsyncWithHttpInfo($file)
     {
-        $returnType = '\ultracartv2\models\TempMultimediaResponse';
+        $returnType = '\ultracart\v2\models\TempMultimediaResponse';
         $request = $this->uploadTemporaryMultimediaRequest($file);
 
         return $this->client

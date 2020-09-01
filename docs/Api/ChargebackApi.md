@@ -1,4 +1,4 @@
-# ultracartv2\ChargebackApi
+# ultracart\v2\ChargebackApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **deleteChargeback**
-> \ultracartv2\models\ChargebackDisputeResponse deleteChargeback($chargeback_dispute_oid)
+> \ultracart\v2\models\ChargebackDisputeResponse deleteChargeback($chargeback_dispute_oid)
 
 Delete a chargeback
 
@@ -24,16 +24,16 @@ Delete a chargeback on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\ChargebackApi(
+$api_instance = new ultracart\v2\api\ChargebackApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\ChargebackDisputeResponse**](../Model/ChargebackDisputeResponse.md)
+[**\ultracart\v2\models\ChargebackDisputeResponse**](../Model/ChargebackDisputeResponse.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getChargebackDispute**
-> \ultracartv2\models\ChargebackDisputeResponse getChargebackDispute($chargeback_dispute_oid, $_expand)
+> \ultracart\v2\models\ChargebackDisputeResponse getChargebackDispute($chargeback_dispute_oid, $_expand)
 
 Retrieve a chargeback
 
@@ -85,16 +85,16 @@ Retrieves a single chargeback using the specified chargeback dispute oid.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\ChargebackApi(
+$api_instance = new ultracart\v2\api\ChargebackApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\ChargebackDisputeResponse**](../Model/ChargebackDisputeResponse.md)
+[**\ultracart\v2\models\ChargebackDisputeResponse**](../Model/ChargebackDisputeResponse.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getChargebackDisputes**
-> \ultracartv2\models\ChargebackDisputesResponse getChargebackDisputes($order_id, $case_number, $status, $expiration_dts_start, $expiration_dts_end, $chargeback_dts_start, $chargeback_dts_end, $_limit, $_offset, $_since, $_sort, $_expand)
+> \ultracart\v2\models\ChargebackDisputesResponse getChargebackDisputes($order_id, $case_number, $status, $expiration_dts_start, $expiration_dts_end, $chargeback_dts_start, $chargeback_dts_end, $_limit, $_offset, $_since, $_sort, $_expand)
 
 Retrieve chargebacks
 
@@ -148,16 +148,16 @@ Retrieves chargebacks from the account.  If no parameters are specified, all cha
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\ChargebackApi(
+$api_instance = new ultracart\v2\api\ChargebackApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\ChargebackDisputesResponse**](../Model/ChargebackDisputesResponse.md)
+[**\ultracart\v2\models\ChargebackDisputesResponse**](../Model/ChargebackDisputesResponse.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **insertChargeback**
-> \ultracartv2\models\ChargebackDisputeResponse insertChargeback($chargeback, $_expand)
+> \ultracart\v2\models\ChargebackDisputeResponse insertChargeback($chargeback, $_expand)
 
 Insert a chargeback
 
@@ -231,23 +231,23 @@ Insert a chargeback on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\ChargebackApi(
+$api_instance = new ultracart\v2\api\ChargebackApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$chargeback = new \ultracartv2\models\ChargebackDispute(); // \ultracartv2\models\ChargebackDispute | Chargeback to insert
+$chargeback = new \ultracart\v2\models\ChargebackDispute(); // \ultracart\v2\models\ChargebackDispute | Chargeback to insert
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -263,12 +263,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **chargeback** | [**\ultracartv2\models\ChargebackDispute**](../Model/ChargebackDispute.md)| Chargeback to insert |
+ **chargeback** | [**\ultracart\v2\models\ChargebackDispute**](../Model/ChargebackDispute.md)| Chargeback to insert |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracartv2\models\ChargebackDisputeResponse**](../Model/ChargebackDisputeResponse.md)
+[**\ultracart\v2\models\ChargebackDisputeResponse**](../Model/ChargebackDisputeResponse.md)
 
 ### Authorization
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateChargeback**
-> \ultracartv2\models\ChargebackDisputeResponse updateChargeback($chargeback, $chargeback_dispute_oid, $_expand)
+> \ultracart\v2\models\ChargebackDisputeResponse updateChargeback($chargeback, $chargeback_dispute_oid, $_expand)
 
 Update a chargeback
 
@@ -294,23 +294,23 @@ Update a chargeback on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\ChargebackApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\ChargebackApi(
+$api_instance = new ultracart\v2\api\ChargebackApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$chargeback = new \ultracartv2\models\ChargebackDispute(); // \ultracartv2\models\ChargebackDispute | Chargeback to update
+$chargeback = new \ultracart\v2\models\ChargebackDispute(); // \ultracart\v2\models\ChargebackDispute | Chargeback to update
 $chargeback_dispute_oid = 56; // int | The chargeback_dispute_oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -327,13 +327,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **chargeback** | [**\ultracartv2\models\ChargebackDispute**](../Model/ChargebackDispute.md)| Chargeback to update |
+ **chargeback** | [**\ultracart\v2\models\ChargebackDispute**](../Model/ChargebackDispute.md)| Chargeback to update |
  **chargeback_dispute_oid** | **int**| The chargeback_dispute_oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracartv2\models\ChargebackDisputeResponse**](../Model/ChargebackDisputeResponse.md)
+[**\ultracart\v2\models\ChargebackDisputeResponse**](../Model/ChargebackDisputeResponse.md)
 
 ### Authorization
 

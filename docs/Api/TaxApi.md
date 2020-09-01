@@ -1,4 +1,4 @@
-# ultracartv2\TaxApi
+# ultracart\v2\TaxApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -47,16 +47,16 @@ Deletes a Self tax provider city.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -64,7 +64,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $city = "city_example"; // string | The city being deleted.
-$tax_city = new \ultracartv2\models\TaxCity(); // \ultracartv2\models\TaxCity | tax city to be deleted
+$tax_city = new \ultracart\v2\models\TaxCity(); // \ultracart\v2\models\TaxCity | tax city to be deleted
 
 try {
     $apiInstance->deleteTaxProviderSelfCity($city, $tax_city);
@@ -79,7 +79,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **city** | **string**| The city being deleted. |
- **tax_city** | [**\ultracartv2\models\TaxCity**](../Model/TaxCity.md)| tax city to be deleted |
+ **tax_city** | [**\ultracart\v2\models\TaxCity**](../Model/TaxCity.md)| tax city to be deleted |
 
 ### Return type
 
@@ -109,16 +109,16 @@ Deletes a Self tax provider country.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -126,7 +126,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $country_code = "country_code_example"; // string | The country code being deleted.
-$tax_country = new \ultracartv2\models\TaxCountry(); // \ultracartv2\models\TaxCountry | tax country to be deleted
+$tax_country = new \ultracart\v2\models\TaxCountry(); // \ultracart\v2\models\TaxCountry | tax country to be deleted
 
 try {
     $apiInstance->deleteTaxProviderSelfCountry($country_code, $tax_country);
@@ -141,7 +141,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **country_code** | **string**| The country code being deleted. |
- **tax_country** | [**\ultracartv2\models\TaxCountry**](../Model/TaxCountry.md)| tax country to be deleted |
+ **tax_country** | [**\ultracart\v2\models\TaxCountry**](../Model/TaxCountry.md)| tax country to be deleted |
 
 ### Return type
 
@@ -171,16 +171,16 @@ Deletes a Self tax provider county.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -188,7 +188,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $county = "county_example"; // string | The county being deleted.
-$tax_county = new \ultracartv2\models\TaxCounty(); // \ultracartv2\models\TaxCounty | tax county to be deleted
+$tax_county = new \ultracart\v2\models\TaxCounty(); // \ultracart\v2\models\TaxCounty | tax county to be deleted
 
 try {
     $apiInstance->deleteTaxProviderSelfCounty($county, $tax_county);
@@ -203,7 +203,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **county** | **string**| The county being deleted. |
- **tax_county** | [**\ultracartv2\models\TaxCounty**](../Model/TaxCounty.md)| tax county to be deleted |
+ **tax_county** | [**\ultracart\v2\models\TaxCounty**](../Model/TaxCounty.md)| tax county to be deleted |
 
 ### Return type
 
@@ -233,16 +233,16 @@ Deletes a Self tax provider postalCode.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -250,7 +250,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $postal_code = "postal_code_example"; // string | The postal code being deleted.
-$tax_postal_code = new \ultracartv2\models\TaxPostalCode(); // \ultracartv2\models\TaxPostalCode | tax postal code to be deleted
+$tax_postal_code = new \ultracart\v2\models\TaxPostalCode(); // \ultracart\v2\models\TaxPostalCode | tax postal code to be deleted
 
 try {
     $apiInstance->deleteTaxProviderSelfPostalCode($postal_code, $tax_postal_code);
@@ -265,7 +265,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **postal_code** | **string**| The postal code being deleted. |
- **tax_postal_code** | [**\ultracartv2\models\TaxPostalCode**](../Model/TaxPostalCode.md)| tax postal code to be deleted |
+ **tax_postal_code** | [**\ultracart\v2\models\TaxPostalCode**](../Model/TaxPostalCode.md)| tax postal code to be deleted |
 
 ### Return type
 
@@ -295,16 +295,16 @@ Deletes a Self tax provider state.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -312,7 +312,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $state_code = "state_code_example"; // string | The state code being deleted.
-$tax_state = new \ultracartv2\models\TaxState(); // \ultracartv2\models\TaxState | tax state to be deleted
+$tax_state = new \ultracart\v2\models\TaxState(); // \ultracart\v2\models\TaxState | tax state to be deleted
 
 try {
     $apiInstance->deleteTaxProviderSelfState($state_code, $tax_state);
@@ -327,7 +327,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **state_code** | **string**| The state code being deleted. |
- **tax_state** | [**\ultracartv2\models\TaxState**](../Model/TaxState.md)| tax state to be deleted |
+ **tax_state** | [**\ultracart\v2\models\TaxState**](../Model/TaxState.md)| tax state to be deleted |
 
 ### Return type
 
@@ -345,7 +345,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderAvalara**
-> \ultracartv2\models\TaxProviderAvalara getTaxProviderAvalara()
+> \ultracart\v2\models\TaxProviderAvalara getTaxProviderAvalara()
 
 Retrieve the Avalara tax provider
 
@@ -357,16 +357,16 @@ Retrieves the Avalara tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -388,7 +388,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderAvalara**](../Model/TaxProviderAvalara.md)
+[**\ultracart\v2\models\TaxProviderAvalara**](../Model/TaxProviderAvalara.md)
 
 ### Authorization
 
@@ -402,7 +402,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderAvalaraCompanies**
-> \ultracartv2\models\TaxProviderAvalaraCompaniesResult getTaxProviderAvalaraCompanies($tax_provider_avalara)
+> \ultracart\v2\models\TaxProviderAvalaraCompaniesResult getTaxProviderAvalaraCompanies($tax_provider_avalara)
 
 Returns Avalara Tax companies configured by the merchant
 
@@ -414,23 +414,23 @@ Returns Avalara Tax companies configured by the merchant
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$tax_provider_avalara = new \ultracartv2\models\TaxProviderAvalara(); // \ultracartv2\models\TaxProviderAvalara | TaxProviderAvalara object
+$tax_provider_avalara = new \ultracart\v2\models\TaxProviderAvalara(); // \ultracart\v2\models\TaxProviderAvalara | TaxProviderAvalara object
 
 try {
     $result = $apiInstance->getTaxProviderAvalaraCompanies($tax_provider_avalara);
@@ -445,11 +445,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tax_provider_avalara** | [**\ultracartv2\models\TaxProviderAvalara**](../Model/TaxProviderAvalara.md)| TaxProviderAvalara object |
+ **tax_provider_avalara** | [**\ultracart\v2\models\TaxProviderAvalara**](../Model/TaxProviderAvalara.md)| TaxProviderAvalara object |
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderAvalaraCompaniesResult**](../Model/TaxProviderAvalaraCompaniesResult.md)
+[**\ultracart\v2\models\TaxProviderAvalaraCompaniesResult**](../Model/TaxProviderAvalaraCompaniesResult.md)
 
 ### Authorization
 
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderAvalaraTest**
-> \ultracartv2\models\TaxProviderTestResult getTaxProviderAvalaraTest()
+> \ultracart\v2\models\TaxProviderTestResult getTaxProviderAvalaraTest()
 
 Attempts to connect to Avalara and returns back the response
 
@@ -475,16 +475,16 @@ Attempts to connect to Avalara and returns back the response.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -506,7 +506,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderTestResult**](../Model/TaxProviderTestResult.md)
+[**\ultracart\v2\models\TaxProviderTestResult**](../Model/TaxProviderTestResult.md)
 
 ### Authorization
 
@@ -520,7 +520,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderSelf**
-> \ultracartv2\models\TaxProviderSelf getTaxProviderSelf()
+> \ultracart\v2\models\TaxProviderSelf getTaxProviderSelf()
 
 Retrieve the Self tax provider
 
@@ -532,16 +532,16 @@ Retrieves the Self tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -563,7 +563,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderSelf**](../Model/TaxProviderSelf.md)
+[**\ultracart\v2\models\TaxProviderSelf**](../Model/TaxProviderSelf.md)
 
 ### Authorization
 
@@ -577,7 +577,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderSelfCountries**
-> \ultracartv2\models\TaxProviderSelfCountriesResponse getTaxProviderSelfCountries()
+> \ultracart\v2\models\TaxProviderSelfCountriesResponse getTaxProviderSelfCountries()
 
 Retrieve the Self tax provider countries
 
@@ -589,16 +589,16 @@ Retrieves the Self tax provider countries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -620,7 +620,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderSelfCountriesResponse**](../Model/TaxProviderSelfCountriesResponse.md)
+[**\ultracart\v2\models\TaxProviderSelfCountriesResponse**](../Model/TaxProviderSelfCountriesResponse.md)
 
 ### Authorization
 
@@ -634,7 +634,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderSelfRegionsByCountryCode**
-> \ultracartv2\models\TaxProviderSelfRegionsResponse getTaxProviderSelfRegionsByCountryCode($country_code)
+> \ultracart\v2\models\TaxProviderSelfRegionsResponse getTaxProviderSelfRegionsByCountryCode($country_code)
 
 Retrieve the Self tax provider regions for a given country code
 
@@ -646,16 +646,16 @@ Retrieves the Self tax provider regions for a given country code.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -681,7 +681,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderSelfRegionsResponse**](../Model/TaxProviderSelfRegionsResponse.md)
+[**\ultracart\v2\models\TaxProviderSelfRegionsResponse**](../Model/TaxProviderSelfRegionsResponse.md)
 
 ### Authorization
 
@@ -695,7 +695,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderSovos**
-> \ultracartv2\models\TaxProviderSovos getTaxProviderSovos()
+> \ultracart\v2\models\TaxProviderSovos getTaxProviderSovos()
 
 Retrieve the Sovos tax provider
 
@@ -707,16 +707,16 @@ Retrieves the Sovos tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -738,7 +738,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderSovos**](../Model/TaxProviderSovos.md)
+[**\ultracart\v2\models\TaxProviderSovos**](../Model/TaxProviderSovos.md)
 
 ### Authorization
 
@@ -752,7 +752,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderSovosTest**
-> \ultracartv2\models\TaxProviderTestResult getTaxProviderSovosTest()
+> \ultracart\v2\models\TaxProviderTestResult getTaxProviderSovosTest()
 
 Attempts to connect to Sovos and returns back the response
 
@@ -764,16 +764,16 @@ Attempts to connect to Sovos and returns back the response.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -795,7 +795,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderTestResult**](../Model/TaxProviderTestResult.md)
+[**\ultracart\v2\models\TaxProviderTestResult**](../Model/TaxProviderTestResult.md)
 
 ### Authorization
 
@@ -809,7 +809,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderTaxJar**
-> \ultracartv2\models\TaxProviderTaxJar getTaxProviderTaxJar()
+> \ultracart\v2\models\TaxProviderTaxJar getTaxProviderTaxJar()
 
 Retrieve the TaxJar tax provider
 
@@ -821,16 +821,16 @@ Retrieves the TaxJar tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -852,7 +852,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderTaxJar**](../Model/TaxProviderTaxJar.md)
+[**\ultracart\v2\models\TaxProviderTaxJar**](../Model/TaxProviderTaxJar.md)
 
 ### Authorization
 
@@ -866,7 +866,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderTaxJarTest**
-> \ultracartv2\models\TaxProviderTestResult getTaxProviderTaxJarTest()
+> \ultracart\v2\models\TaxProviderTestResult getTaxProviderTaxJarTest()
 
 Attempts to connect to TaxJar and returns back the response
 
@@ -878,16 +878,16 @@ Attempts to connect to TaxJar and returns back the response.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -909,7 +909,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderTestResult**](../Model/TaxProviderTestResult.md)
+[**\ultracart\v2\models\TaxProviderTestResult**](../Model/TaxProviderTestResult.md)
 
 ### Authorization
 
@@ -923,7 +923,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviderUltraCart**
-> \ultracartv2\models\TaxProviderUltraCart getTaxProviderUltraCart()
+> \ultracart\v2\models\TaxProviderUltraCart getTaxProviderUltraCart()
 
 Retrieve the UltraCart tax provider
 
@@ -935,16 +935,16 @@ Retrieves the UltraCart tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -966,7 +966,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderUltraCart**](../Model/TaxProviderUltraCart.md)
+[**\ultracart\v2\models\TaxProviderUltraCart**](../Model/TaxProviderUltraCart.md)
 
 ### Authorization
 
@@ -980,7 +980,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxProviders**
-> \ultracartv2\models\TaxProvidersResponse getTaxProviders($_limit, $_offset, $_expand)
+> \ultracart\v2\models\TaxProvidersResponse getTaxProviders($_limit, $_offset, $_expand)
 
 Retrieve tax methods
 
@@ -992,16 +992,16 @@ Retrieves tax methods for this account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1031,7 +1031,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\TaxProvidersResponse**](../Model/TaxProvidersResponse.md)
+[**\ultracart\v2\models\TaxProvidersResponse**](../Model/TaxProvidersResponse.md)
 
 ### Authorization
 
@@ -1045,7 +1045,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setActiveTaxProvider**
-> \ultracartv2\models\TaxProviderActivateResult setActiveTaxProvider($provider_name)
+> \ultracart\v2\models\TaxProviderActivateResult setActiveTaxProvider($provider_name)
 
 Toggle a tax provider to active
 
@@ -1057,16 +1057,16 @@ Toggle a tax provider to active.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1092,7 +1092,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderActivateResult**](../Model/TaxProviderActivateResult.md)
+[**\ultracart\v2\models\TaxProviderActivateResult**](../Model/TaxProviderActivateResult.md)
 
 ### Authorization
 
@@ -1106,7 +1106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderAvalara**
-> \ultracartv2\models\TaxProviderAvalara updateTaxProviderAvalara($tax_provider_avalara)
+> \ultracart\v2\models\TaxProviderAvalara updateTaxProviderAvalara($tax_provider_avalara)
 
 Update the Avalara tax provider
 
@@ -1118,23 +1118,23 @@ Update the Avalara tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$tax_provider_avalara = new \ultracartv2\models\TaxProviderAvalara(); // \ultracartv2\models\TaxProviderAvalara | TaxProviderAvalara object
+$tax_provider_avalara = new \ultracart\v2\models\TaxProviderAvalara(); // \ultracart\v2\models\TaxProviderAvalara | TaxProviderAvalara object
 
 try {
     $result = $apiInstance->updateTaxProviderAvalara($tax_provider_avalara);
@@ -1149,11 +1149,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tax_provider_avalara** | [**\ultracartv2\models\TaxProviderAvalara**](../Model/TaxProviderAvalara.md)| TaxProviderAvalara object |
+ **tax_provider_avalara** | [**\ultracart\v2\models\TaxProviderAvalara**](../Model/TaxProviderAvalara.md)| TaxProviderAvalara object |
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderAvalara**](../Model/TaxProviderAvalara.md)
+[**\ultracart\v2\models\TaxProviderAvalara**](../Model/TaxProviderAvalara.md)
 
 ### Authorization
 
@@ -1167,7 +1167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderSelf**
-> \ultracartv2\models\TaxProviderSelf updateTaxProviderSelf($tax_provider_self)
+> \ultracart\v2\models\TaxProviderSelf updateTaxProviderSelf($tax_provider_self)
 
 Update the Self tax provider
 
@@ -1179,23 +1179,23 @@ Update the Self tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$tax_provider_self = new \ultracartv2\models\TaxProviderSelf(); // \ultracartv2\models\TaxProviderSelf | TaxProviderSelf object
+$tax_provider_self = new \ultracart\v2\models\TaxProviderSelf(); // \ultracart\v2\models\TaxProviderSelf | TaxProviderSelf object
 
 try {
     $result = $apiInstance->updateTaxProviderSelf($tax_provider_self);
@@ -1210,11 +1210,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tax_provider_self** | [**\ultracartv2\models\TaxProviderSelf**](../Model/TaxProviderSelf.md)| TaxProviderSelf object |
+ **tax_provider_self** | [**\ultracart\v2\models\TaxProviderSelf**](../Model/TaxProviderSelf.md)| TaxProviderSelf object |
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderSelf**](../Model/TaxProviderSelf.md)
+[**\ultracart\v2\models\TaxProviderSelf**](../Model/TaxProviderSelf.md)
 
 ### Authorization
 
@@ -1228,7 +1228,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderSelfCity**
-> \ultracartv2\models\TaxCity updateTaxProviderSelfCity($city, $tax_city)
+> \ultracart\v2\models\TaxCity updateTaxProviderSelfCity($city, $tax_city)
 
 Updates a Self tax provider city
 
@@ -1240,16 +1240,16 @@ Updates a Self tax provider city.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1257,7 +1257,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $city = "city_example"; // string | The city being updated.
-$tax_city = new \ultracartv2\models\TaxCity(); // \ultracartv2\models\TaxCity | tax city to be updated
+$tax_city = new \ultracart\v2\models\TaxCity(); // \ultracart\v2\models\TaxCity | tax city to be updated
 
 try {
     $result = $apiInstance->updateTaxProviderSelfCity($city, $tax_city);
@@ -1273,11 +1273,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **city** | **string**| The city being updated. |
- **tax_city** | [**\ultracartv2\models\TaxCity**](../Model/TaxCity.md)| tax city to be updated |
+ **tax_city** | [**\ultracart\v2\models\TaxCity**](../Model/TaxCity.md)| tax city to be updated |
 
 ### Return type
 
-[**\ultracartv2\models\TaxCity**](../Model/TaxCity.md)
+[**\ultracart\v2\models\TaxCity**](../Model/TaxCity.md)
 
 ### Authorization
 
@@ -1291,7 +1291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderSelfCountry**
-> \ultracartv2\models\TaxCountry updateTaxProviderSelfCountry($country_code, $tax_country)
+> \ultracart\v2\models\TaxCountry updateTaxProviderSelfCountry($country_code, $tax_country)
 
 Updates a Self tax provider country
 
@@ -1303,16 +1303,16 @@ Updates a Self tax provider country.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1320,7 +1320,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $country_code = "country_code_example"; // string | The country code being updated.
-$tax_country = new \ultracartv2\models\TaxCountry(); // \ultracartv2\models\TaxCountry | tax country to be updated
+$tax_country = new \ultracart\v2\models\TaxCountry(); // \ultracart\v2\models\TaxCountry | tax country to be updated
 
 try {
     $result = $apiInstance->updateTaxProviderSelfCountry($country_code, $tax_country);
@@ -1336,11 +1336,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **country_code** | **string**| The country code being updated. |
- **tax_country** | [**\ultracartv2\models\TaxCountry**](../Model/TaxCountry.md)| tax country to be updated |
+ **tax_country** | [**\ultracart\v2\models\TaxCountry**](../Model/TaxCountry.md)| tax country to be updated |
 
 ### Return type
 
-[**\ultracartv2\models\TaxCountry**](../Model/TaxCountry.md)
+[**\ultracart\v2\models\TaxCountry**](../Model/TaxCountry.md)
 
 ### Authorization
 
@@ -1354,7 +1354,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderSelfCounty**
-> \ultracartv2\models\TaxCounty updateTaxProviderSelfCounty($county, $tax_county)
+> \ultracart\v2\models\TaxCounty updateTaxProviderSelfCounty($county, $tax_county)
 
 Updates a Self tax provider county
 
@@ -1366,16 +1366,16 @@ Updates a Self tax provider county.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1383,7 +1383,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $county = "county_example"; // string | The county being updated.
-$tax_county = new \ultracartv2\models\TaxCounty(); // \ultracartv2\models\TaxCounty | tax county to be updated
+$tax_county = new \ultracart\v2\models\TaxCounty(); // \ultracart\v2\models\TaxCounty | tax county to be updated
 
 try {
     $result = $apiInstance->updateTaxProviderSelfCounty($county, $tax_county);
@@ -1399,11 +1399,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **county** | **string**| The county being updated. |
- **tax_county** | [**\ultracartv2\models\TaxCounty**](../Model/TaxCounty.md)| tax county to be updated |
+ **tax_county** | [**\ultracart\v2\models\TaxCounty**](../Model/TaxCounty.md)| tax county to be updated |
 
 ### Return type
 
-[**\ultracartv2\models\TaxCounty**](../Model/TaxCounty.md)
+[**\ultracart\v2\models\TaxCounty**](../Model/TaxCounty.md)
 
 ### Authorization
 
@@ -1417,7 +1417,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderSelfPostalCode**
-> \ultracartv2\models\TaxPostalCode updateTaxProviderSelfPostalCode($postal_code, $tax_postal_code)
+> \ultracart\v2\models\TaxPostalCode updateTaxProviderSelfPostalCode($postal_code, $tax_postal_code)
 
 Updates a Self tax provider postalCode
 
@@ -1429,16 +1429,16 @@ Updates a Self tax provider postalCode.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1446,7 +1446,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $postal_code = "postal_code_example"; // string | The postal code being updated.
-$tax_postal_code = new \ultracartv2\models\TaxPostalCode(); // \ultracartv2\models\TaxPostalCode | tax postal code to be updated
+$tax_postal_code = new \ultracart\v2\models\TaxPostalCode(); // \ultracart\v2\models\TaxPostalCode | tax postal code to be updated
 
 try {
     $result = $apiInstance->updateTaxProviderSelfPostalCode($postal_code, $tax_postal_code);
@@ -1462,11 +1462,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **postal_code** | **string**| The postal code being updated. |
- **tax_postal_code** | [**\ultracartv2\models\TaxPostalCode**](../Model/TaxPostalCode.md)| tax postal code to be updated |
+ **tax_postal_code** | [**\ultracart\v2\models\TaxPostalCode**](../Model/TaxPostalCode.md)| tax postal code to be updated |
 
 ### Return type
 
-[**\ultracartv2\models\TaxPostalCode**](../Model/TaxPostalCode.md)
+[**\ultracart\v2\models\TaxPostalCode**](../Model/TaxPostalCode.md)
 
 ### Authorization
 
@@ -1480,7 +1480,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderSelfState**
-> \ultracartv2\models\TaxState updateTaxProviderSelfState($state_code, $tax_state)
+> \ultracart\v2\models\TaxState updateTaxProviderSelfState($state_code, $tax_state)
 
 Updates a Self tax provider state
 
@@ -1492,16 +1492,16 @@ Updates a Self tax provider state.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1509,7 +1509,7 @@ $api_instance = new ultracartv2\api\TaxApi(
 );
 
 $state_code = "state_code_example"; // string | The state code being updated.
-$tax_state = new \ultracartv2\models\TaxState(); // \ultracartv2\models\TaxState | tax state to be updated
+$tax_state = new \ultracart\v2\models\TaxState(); // \ultracart\v2\models\TaxState | tax state to be updated
 
 try {
     $result = $apiInstance->updateTaxProviderSelfState($state_code, $tax_state);
@@ -1525,11 +1525,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **state_code** | **string**| The state code being updated. |
- **tax_state** | [**\ultracartv2\models\TaxState**](../Model/TaxState.md)| tax state to be updated |
+ **tax_state** | [**\ultracart\v2\models\TaxState**](../Model/TaxState.md)| tax state to be updated |
 
 ### Return type
 
-[**\ultracartv2\models\TaxState**](../Model/TaxState.md)
+[**\ultracart\v2\models\TaxState**](../Model/TaxState.md)
 
 ### Authorization
 
@@ -1543,7 +1543,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderSovos**
-> \ultracartv2\models\TaxProviderSovos updateTaxProviderSovos($tax_provider_sovos)
+> \ultracart\v2\models\TaxProviderSovos updateTaxProviderSovos($tax_provider_sovos)
 
 Update the Sovos tax provider
 
@@ -1555,23 +1555,23 @@ Update the Sovos tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$tax_provider_sovos = new \ultracartv2\models\TaxProviderSovos(); // \ultracartv2\models\TaxProviderSovos | TaxProviderSovos object
+$tax_provider_sovos = new \ultracart\v2\models\TaxProviderSovos(); // \ultracart\v2\models\TaxProviderSovos | TaxProviderSovos object
 
 try {
     $result = $apiInstance->updateTaxProviderSovos($tax_provider_sovos);
@@ -1586,11 +1586,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tax_provider_sovos** | [**\ultracartv2\models\TaxProviderSovos**](../Model/TaxProviderSovos.md)| TaxProviderSovos object |
+ **tax_provider_sovos** | [**\ultracart\v2\models\TaxProviderSovos**](../Model/TaxProviderSovos.md)| TaxProviderSovos object |
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderSovos**](../Model/TaxProviderSovos.md)
+[**\ultracart\v2\models\TaxProviderSovos**](../Model/TaxProviderSovos.md)
 
 ### Authorization
 
@@ -1604,7 +1604,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderTaxJar**
-> \ultracartv2\models\TaxProviderTaxJar updateTaxProviderTaxJar($tax_provider_tax_jar)
+> \ultracart\v2\models\TaxProviderTaxJar updateTaxProviderTaxJar($tax_provider_tax_jar)
 
 Update the TaxJar tax provider
 
@@ -1616,23 +1616,23 @@ Update the TaxJar tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$tax_provider_tax_jar = new \ultracartv2\models\TaxProviderTaxJar(); // \ultracartv2\models\TaxProviderTaxJar | TaxProviderTaxJar object
+$tax_provider_tax_jar = new \ultracart\v2\models\TaxProviderTaxJar(); // \ultracart\v2\models\TaxProviderTaxJar | TaxProviderTaxJar object
 
 try {
     $result = $apiInstance->updateTaxProviderTaxJar($tax_provider_tax_jar);
@@ -1647,11 +1647,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tax_provider_tax_jar** | [**\ultracartv2\models\TaxProviderTaxJar**](../Model/TaxProviderTaxJar.md)| TaxProviderTaxJar object |
+ **tax_provider_tax_jar** | [**\ultracart\v2\models\TaxProviderTaxJar**](../Model/TaxProviderTaxJar.md)| TaxProviderTaxJar object |
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderTaxJar**](../Model/TaxProviderTaxJar.md)
+[**\ultracart\v2\models\TaxProviderTaxJar**](../Model/TaxProviderTaxJar.md)
 
 ### Authorization
 
@@ -1665,7 +1665,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxProviderUltraCart**
-> \ultracartv2\models\TaxProviderUltraCart updateTaxProviderUltraCart($tax_provider_ultracart)
+> \ultracart\v2\models\TaxProviderUltraCart updateTaxProviderUltraCart($tax_provider_ultracart)
 
 Update the UltraCart tax provider
 
@@ -1677,23 +1677,23 @@ Update the UltraCart tax provider.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\TaxApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\TaxApi(
+$api_instance = new ultracart\v2\api\TaxApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$tax_provider_ultracart = new \ultracartv2\models\TaxProviderUltraCart(); // \ultracartv2\models\TaxProviderUltraCart | TaxProviderUltraCart object
+$tax_provider_ultracart = new \ultracart\v2\models\TaxProviderUltraCart(); // \ultracart\v2\models\TaxProviderUltraCart | TaxProviderUltraCart object
 
 try {
     $result = $apiInstance->updateTaxProviderUltraCart($tax_provider_ultracart);
@@ -1708,11 +1708,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tax_provider_ultracart** | [**\ultracartv2\models\TaxProviderUltraCart**](../Model/TaxProviderUltraCart.md)| TaxProviderUltraCart object |
+ **tax_provider_ultracart** | [**\ultracart\v2\models\TaxProviderUltraCart**](../Model/TaxProviderUltraCart.md)| TaxProviderUltraCart object |
 
 ### Return type
 
-[**\ultracartv2\models\TaxProviderUltraCart**](../Model/TaxProviderUltraCart.md)
+[**\ultracart\v2\models\TaxProviderUltraCart**](../Model/TaxProviderUltraCart.md)
 
 ### Authorization
 

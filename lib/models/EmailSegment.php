@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailSegment Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -70,7 +70,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'rank_json' => 'string',
         'rebuild_required' => 'bool',
         'storefront_oid' => 'int',
-        'used_by' => '\ultracartv2\models\EmailListSegmentUsedBy[]'
+        'used_by' => '\ultracart\v2\models\EmailListSegmentUsedBy[]'
     ];
 
     /**
@@ -605,7 +605,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
     /**
      * Gets used_by
      *
-     * @return \ultracartv2\models\EmailListSegmentUsedBy[]
+     * @return \ultracart\v2\models\EmailListSegmentUsedBy[]
      */
     public function getUsedBy()
     {
@@ -615,7 +615,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
     /**
      * Sets used_by
      *
-     * @param \ultracartv2\models\EmailListSegmentUsedBy[] $used_by Details on the flows or campaigns that use this list.
+     * @param \ultracart\v2\models\EmailListSegmentUsedBy[] $used_by Details on the flows or campaigns that use this list.
      *
      * @return $this
      */

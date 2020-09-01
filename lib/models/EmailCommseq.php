@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailCommseq Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class EmailCommseq implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'email_communication_sequence_steps' => '\ultracartv2\models\EmailCommseqStep[]',
+        'email_communication_sequence_steps' => '\ultracart\v2\models\EmailCommseqStep[]',
         'email_communication_sequence_uuid' => 'string',
         'merchant_id' => 'string',
         'storefront_oid' => 'int'
@@ -225,7 +225,7 @@ class EmailCommseq implements ModelInterface, ArrayAccess
     /**
      * Gets email_communication_sequence_steps
      *
-     * @return \ultracartv2\models\EmailCommseqStep[]
+     * @return \ultracart\v2\models\EmailCommseqStep[]
      */
     public function getEmailCommunicationSequenceSteps()
     {
@@ -235,7 +235,7 @@ class EmailCommseq implements ModelInterface, ArrayAccess
     /**
      * Sets email_communication_sequence_steps
      *
-     * @param \ultracartv2\models\EmailCommseqStep[] $email_communication_sequence_steps Array of steps
+     * @param \ultracart\v2\models\EmailCommseqStep[] $email_communication_sequence_steps Array of steps
      *
      * @return $this
      */

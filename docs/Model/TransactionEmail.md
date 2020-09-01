@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **handlebar_variables** | **string[]** | Handlebar Variables available for email template | [optional] 
 **invalid** | **bool** | Invalid will be true if the template cannot compile | [optional] 
 **last_modified** | **string** | Last modified timestamp | [optional] 
-**options** | [**\ultracartv2\models\TransactionEmailOption[]**](TransactionEmailOption.md) | Options that help govern how and when this template is used | [optional] 
+**options** | [**\ultracart\v2\models\TransactionEmailOption[]**](TransactionEmailOption.md) | Options that help govern how and when this template is used | [optional] 
 **path** | **string** | directory path where template is stored in file system | [optional] 
 **size** | **string** | Size of file in friendly description | [optional] 
 **store_front_fs_directory_oid** | **int** | Internal identifier used to store and retrieve template from filesystem | [optional] 

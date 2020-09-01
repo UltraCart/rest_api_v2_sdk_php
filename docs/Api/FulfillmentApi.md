@@ -1,4 +1,4 @@
-# ultracartv2\FulfillmentApi
+# ultracart\v2\FulfillmentApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -24,16 +24,16 @@ Acknowledge receipt of orders so that they are removed from the fulfillment queu
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\FulfillmentApi(
+$api_instance = new ultracart\v2\api\FulfillmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -41,7 +41,7 @@ $api_instance = new ultracartv2\api\FulfillmentApi(
 );
 
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
-$order_ids = array(new \ultracartv2\models\string[]()); // string[] | Orders to acknowledge receipt of (limit 100)
+$order_ids = array(new \ultracart\v2\models\string[]()); // string[] | Orders to acknowledge receipt of (limit 100)
 
 try {
     $apiInstance->acknowledgeOrders($distribution_center_code, $order_ids);
@@ -74,7 +74,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDistributionCenterOrders**
-> \ultracartv2\models\OrdersResponse getDistributionCenterOrders($distribution_center_code)
+> \ultracart\v2\models\OrdersResponse getDistributionCenterOrders($distribution_center_code)
 
 Retrieve orders queued up for this distribution center.
 
@@ -86,16 +86,16 @@ Retrieves up to 100 orders that are queued up in this distribution center.  You 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\FulfillmentApi(
+$api_instance = new ultracart\v2\api\FulfillmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDistributionCenters**
-> \ultracartv2\models\DistributionCentersResponse getDistributionCenters()
+> \ultracart\v2\models\DistributionCentersResponse getDistributionCenters()
 
 Retrieve distribution centers
 
@@ -147,16 +147,16 @@ Retrieves the distribution centers that this user has access to.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\FulfillmentApi(
+$api_instance = new ultracart\v2\api\FulfillmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -178,7 +178,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\DistributionCentersResponse**](../Model/DistributionCentersResponse.md)
+[**\ultracart\v2\models\DistributionCentersResponse**](../Model/DistributionCentersResponse.md)
 
 ### Authorization
 
@@ -204,16 +204,16 @@ Store the tracking information and mark the order shipped for this distribution 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\FulfillmentApi(
+$api_instance = new ultracart\v2\api\FulfillmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -221,7 +221,7 @@ $api_instance = new ultracartv2\api\FulfillmentApi(
 );
 
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
-$shipments = array(new \ultracartv2\models\FulfillmentShipment()); // \ultracartv2\models\FulfillmentShipment[] | Orders to mark shipped
+$shipments = array(new \ultracart\v2\models\FulfillmentShipment()); // \ultracart\v2\models\FulfillmentShipment[] | Orders to mark shipped
 
 try {
     $apiInstance->shipOrders($distribution_center_code, $shipments);
@@ -236,7 +236,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **distribution_center_code** | **string**| Distribution center code |
- **shipments** | [**\ultracartv2\models\FulfillmentShipment[]**](../Model/FulfillmentShipment.md)| Orders to mark shipped |
+ **shipments** | [**\ultracart\v2\models\FulfillmentShipment[]**](../Model/FulfillmentShipment.md)| Orders to mark shipped |
 
 ### Return type
 
@@ -266,16 +266,16 @@ Update the inventory for items associated with this distribution center
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\FulfillmentApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\FulfillmentApi(
+$api_instance = new ultracart\v2\api\FulfillmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -283,7 +283,7 @@ $api_instance = new ultracartv2\api\FulfillmentApi(
 );
 
 $distribution_center_code = "distribution_center_code_example"; // string | Distribution center code
-$inventories = array(new \ultracartv2\models\FulfillmentInventory()); // \ultracartv2\models\FulfillmentInventory[] | Inventory updates (limit 500)
+$inventories = array(new \ultracart\v2\models\FulfillmentInventory()); // \ultracart\v2\models\FulfillmentInventory[] | Inventory updates (limit 500)
 
 try {
     $apiInstance->updateInventory($distribution_center_code, $inventories);
@@ -298,7 +298,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **distribution_center_code** | **string**| Distribution center code |
- **inventories** | [**\ultracartv2\models\FulfillmentInventory[]**](../Model/FulfillmentInventory.md)| Inventory updates (limit 500) |
+ **inventories** | [**\ultracart\v2\models\FulfillmentInventory[]**](../Model/FulfillmentInventory.md)| Inventory updates (limit 500) |
 
 ### Return type
 

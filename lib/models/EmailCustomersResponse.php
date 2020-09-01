@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailCustomersResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class EmailCustomersResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'customers' => '\ultracartv2\models\EmailCustomer[]',
+        'customers' => '\ultracart\v2\models\EmailCustomer[]',
         'page_number' => 'int',
         'page_size' => 'int',
         'total_customers' => 'int',
@@ -231,7 +231,7 @@ class EmailCustomersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets customers
      *
-     * @return \ultracartv2\models\EmailCustomer[]
+     * @return \ultracart\v2\models\EmailCustomer[]
      */
     public function getCustomers()
     {
@@ -241,7 +241,7 @@ class EmailCustomersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets customers
      *
-     * @param \ultracartv2\models\EmailCustomer[] $customers Customers on the page
+     * @param \ultracart\v2\models\EmailCustomer[] $customers Customers on the page
      *
      * @return $this
      */

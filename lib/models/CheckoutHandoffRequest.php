@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CheckoutHandoffRequest Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cart' => '\ultracartv2\models\Cart',
+        'cart' => '\ultracart\v2\models\Cart',
         'error_parameter_name' => 'string',
         'error_return_url' => 'string',
         'operation' => 'string',
@@ -278,7 +278,7 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
     /**
      * Gets cart
      *
-     * @return \ultracartv2\models\Cart
+     * @return \ultracart\v2\models\Cart
      */
     public function getCart()
     {
@@ -288,7 +288,7 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
     /**
      * Sets cart
      *
-     * @param \ultracartv2\models\Cart $cart cart
+     * @param \ultracart\v2\models\Cart $cart cart
      *
      * @return $this
      */

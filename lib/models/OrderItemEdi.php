@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderItemEdi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,8 +57,8 @@ class OrderItemEdi implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'identifications' => '\ultracartv2\models\OrderItemEdiIdentification[]',
-        'lots' => '\ultracartv2\models\OrderItemEdiLot[]'
+        'identifications' => '\ultracart\v2\models\OrderItemEdiIdentification[]',
+        'lots' => '\ultracart\v2\models\OrderItemEdiLot[]'
     ];
 
     /**
@@ -213,7 +213,7 @@ class OrderItemEdi implements ModelInterface, ArrayAccess
     /**
      * Gets identifications
      *
-     * @return \ultracartv2\models\OrderItemEdiIdentification[]
+     * @return \ultracart\v2\models\OrderItemEdiIdentification[]
      */
     public function getIdentifications()
     {
@@ -223,7 +223,7 @@ class OrderItemEdi implements ModelInterface, ArrayAccess
     /**
      * Sets identifications
      *
-     * @param \ultracartv2\models\OrderItemEdiIdentification[] $identifications Identification information receives on the EDI purchase order
+     * @param \ultracart\v2\models\OrderItemEdiIdentification[] $identifications Identification information receives on the EDI purchase order
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class OrderItemEdi implements ModelInterface, ArrayAccess
     /**
      * Gets lots
      *
-     * @return \ultracartv2\models\OrderItemEdiLot[]
+     * @return \ultracart\v2\models\OrderItemEdiLot[]
      */
     public function getLots()
     {
@@ -247,7 +247,7 @@ class OrderItemEdi implements ModelInterface, ArrayAccess
     /**
      * Sets lots
      *
-     * @param \ultracartv2\models\OrderItemEdiLot[] $lots Lot information
+     * @param \ultracart\v2\models\OrderItemEdiLot[] $lots Lot information
      *
      * @return $this
      */

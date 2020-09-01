@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **esp_domain_user** | **string** | User of the sending address | [optional] 
 **esp_domain_uuid** | **string** | UUID of the sending domain | [optional] 
 **esp_friendly_name** | **string** | Friendly name of the sending email | [optional] 
-**memberships** | [**\ultracartv2\models\EmailListSegmentMembership[]**](EmailListSegmentMembership.md) | List and segment memberships | [optional] 
+**memberships** | [**\ultracart\v2\models\EmailListSegmentMembership[]**](EmailListSegmentMembership.md) | List and segment memberships | [optional] 
 **merchant_id** | **string** | Merchant ID | [optional] 
 **name** | **string** | Name of email campaign | [optional] 
 **open_rate_formatted** | **string** | Open rate of emails | [optional] 

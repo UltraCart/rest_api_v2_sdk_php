@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemsRequest Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'items' => '\ultracartv2\models\Item[]'
+        'items' => '\ultracart\v2\models\Item[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \ultracartv2\models\Item[]
+     * @return \ultracart\v2\models\Item[]
      */
     public function getItems()
     {
@@ -217,7 +217,7 @@ class ItemsRequest implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \ultracartv2\models\Item[] $items items
+     * @param \ultracart\v2\models\Item[] $items items
      *
      * @return $this
      */

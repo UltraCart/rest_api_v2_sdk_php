@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **image_height** | **int** | Image height | [optional] 
 **image_width** | **int** | Image width | [optional] 
 **is_default** | **bool** | True if the multimedia is the default for this type | [optional] 
-**thumbnails** | [**\ultracartv2\models\CartItemMultimediaThumbnail[]**](CartItemMultimediaThumbnail.md) | Thumbnails of the images | [optional] 
+**thumbnails** | [**\ultracart\v2\models\CartItemMultimediaThumbnail[]**](CartItemMultimediaThumbnail.md) | Thumbnails of the images | [optional] 
 **type** | **string** | Type of multimedia | [optional] 
 **url** | **string** | URL to view multimedia at | [optional] 
 

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemChargeback Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,8 +57,8 @@ class ItemChargeback implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'addendums' => '\ultracartv2\models\ItemChargebackAddendum[]',
-        'adjustment_requests' => '\ultracartv2\models\ItemChargebackAdjustmentRequest[]'
+        'addendums' => '\ultracart\v2\models\ItemChargebackAddendum[]',
+        'adjustment_requests' => '\ultracart\v2\models\ItemChargebackAdjustmentRequest[]'
     ];
 
     /**
@@ -213,7 +213,7 @@ class ItemChargeback implements ModelInterface, ArrayAccess
     /**
      * Gets addendums
      *
-     * @return \ultracartv2\models\ItemChargebackAddendum[]
+     * @return \ultracart\v2\models\ItemChargebackAddendum[]
      */
     public function getAddendums()
     {
@@ -223,7 +223,7 @@ class ItemChargeback implements ModelInterface, ArrayAccess
     /**
      * Sets addendums
      *
-     * @param \ultracartv2\models\ItemChargebackAddendum[] $addendums Addendums
+     * @param \ultracart\v2\models\ItemChargebackAddendum[] $addendums Addendums
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class ItemChargeback implements ModelInterface, ArrayAccess
     /**
      * Gets adjustment_requests
      *
-     * @return \ultracartv2\models\ItemChargebackAdjustmentRequest[]
+     * @return \ultracart\v2\models\ItemChargebackAdjustmentRequest[]
      */
     public function getAdjustmentRequests()
     {
@@ -247,7 +247,7 @@ class ItemChargeback implements ModelInterface, ArrayAccess
     /**
      * Sets adjustment_requests
      *
-     * @param \ultracartv2\models\ItemChargebackAdjustmentRequest[] $adjustment_requests Adjustment requests
+     * @param \ultracart\v2\models\ItemChargebackAdjustmentRequest[] $adjustment_requests Adjustment requests
      *
      * @return $this
      */

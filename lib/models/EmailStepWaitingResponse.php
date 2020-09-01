@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailStepWaitingResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class EmailStepWaitingResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'step_waitings' => '\ultracartv2\models\StepWaiting[]'
+        'step_waitings' => '\ultracart\v2\models\StepWaiting[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class EmailStepWaitingResponse implements ModelInterface, ArrayAccess
     /**
      * Gets step_waitings
      *
-     * @return \ultracartv2\models\StepWaiting[]
+     * @return \ultracart\v2\models\StepWaiting[]
      */
     public function getStepWaitings()
     {
@@ -217,7 +217,7 @@ class EmailStepWaitingResponse implements ModelInterface, ArrayAccess
     /**
      * Sets step_waitings
      *
-     * @param \ultracartv2\models\StepWaiting[] $step_waitings step_waitings
+     * @param \ultracart\v2\models\StepWaiting[] $step_waitings step_waitings
      *
      * @return $this
      */

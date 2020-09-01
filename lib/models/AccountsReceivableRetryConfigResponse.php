@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * AccountsReceivableRetryConfigResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,12 +57,12 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'config' => '\ultracartv2\models\AccountsReceivableRetryConfig',
+        'config' => '\ultracart\v2\models\AccountsReceivableRetryConfig',
         'coupon_codes' => 'string[]',
         'emails' => 'string[]',
-        'error' => '\ultracartv2\models\Error',
+        'error' => '\ultracart\v2\models\Error',
         'has_linked_accounts' => 'bool',
-        'metadata' => '\ultracartv2\models\ResponseMetadata',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool'
     ];
 
@@ -243,7 +243,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     /**
      * Gets config
      *
-     * @return \ultracartv2\models\AccountsReceivableRetryConfig
+     * @return \ultracart\v2\models\AccountsReceivableRetryConfig
      */
     public function getConfig()
     {
@@ -253,7 +253,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     /**
      * Sets config
      *
-     * @param \ultracartv2\models\AccountsReceivableRetryConfig $config config
+     * @param \ultracart\v2\models\AccountsReceivableRetryConfig $config config
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     /**
      * Gets error
      *
-     * @return \ultracartv2\models\Error
+     * @return \ultracart\v2\models\Error
      */
     public function getError()
     {
@@ -325,7 +325,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     /**
      * Sets error
      *
-     * @param \ultracartv2\models\Error $error error
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
@@ -363,7 +363,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     /**
      * Gets metadata
      *
-     * @return \ultracartv2\models\ResponseMetadata
+     * @return \ultracart\v2\models\ResponseMetadata
      */
     public function getMetadata()
     {
@@ -373,7 +373,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     /**
      * Sets metadata
      *
-     * @param \ultracartv2\models\ResponseMetadata $metadata metadata
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */

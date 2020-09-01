@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * AddLibraryItemRequest Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -62,7 +62,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
         'description' => 'string',
         'email_name' => 'string',
         'email_path' => 'string',
-        'screenshots' => '\ultracartv2\models\LibraryItemScreenshot[]',
+        'screenshots' => '\ultracart\v2\models\LibraryItemScreenshot[]',
         'storefront_oid' => 'int',
         'title' => 'string',
         'upsell_offer_oid' => 'int',
@@ -381,7 +381,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     /**
      * Gets screenshots
      *
-     * @return \ultracartv2\models\LibraryItemScreenshot[]
+     * @return \ultracart\v2\models\LibraryItemScreenshot[]
      */
     public function getScreenshots()
     {
@@ -391,7 +391,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets screenshots
      *
-     * @param \ultracartv2\models\LibraryItemScreenshot[] $screenshots Screenshot urls for display
+     * @param \ultracart\v2\models\LibraryItemScreenshot[] $screenshots Screenshot urls for display
      *
      * @return $this
      */

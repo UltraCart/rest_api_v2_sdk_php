@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartSettingsShippingEstimate Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,17 +59,17 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'allow_3rd_party_billing' => 'bool',
         'comment' => 'string',
-        'cost' => '\ultracartv2\models\Currency',
-        'cost_before_discount' => '\ultracartv2\models\Currency',
+        'cost' => '\ultracart\v2\models\Currency',
+        'cost_before_discount' => '\ultracart\v2\models\Currency',
         'default_method' => 'bool',
-        'discount' => '\ultracartv2\models\Currency',
+        'discount' => '\ultracart\v2\models\Currency',
         'discounted' => 'bool',
         'display_name' => 'string',
         'estimated_delivery' => 'string',
         'lift_gate_option' => 'bool',
         'name' => 'string',
-        'tax' => '\ultracartv2\models\Currency',
-        'total_tax' => '\ultracartv2\models\Currency'
+        'tax' => '\ultracart\v2\models\Currency',
+        'total_tax' => '\ultracart\v2\models\Currency'
     ];
 
     /**
@@ -327,7 +327,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Gets cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCost()
     {
@@ -337,7 +337,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Sets cost
      *
-     * @param \ultracartv2\models\Currency $cost cost
+     * @param \ultracart\v2\models\Currency $cost cost
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Gets cost_before_discount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCostBeforeDiscount()
     {
@@ -361,7 +361,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Sets cost_before_discount
      *
-     * @param \ultracartv2\models\Currency $cost_before_discount cost_before_discount
+     * @param \ultracart\v2\models\Currency $cost_before_discount cost_before_discount
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Gets discount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getDiscount()
     {
@@ -409,7 +409,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Sets discount
      *
-     * @param \ultracartv2\models\Currency $discount discount
+     * @param \ultracart\v2\models\Currency $discount discount
      *
      * @return $this
      */
@@ -543,7 +543,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Gets tax
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTax()
     {
@@ -553,7 +553,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Sets tax
      *
-     * @param \ultracartv2\models\Currency $tax tax
+     * @param \ultracart\v2\models\Currency $tax tax
      *
      * @return $this
      */
@@ -567,7 +567,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Gets total_tax
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTotalTax()
     {
@@ -577,7 +577,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     /**
      * Sets total_tax
      *
-     * @param \ultracartv2\models\Currency $total_tax total_tax
+     * @param \ultracart\v2\models\Currency $total_tax total_tax
      *
      * @return $this
      */

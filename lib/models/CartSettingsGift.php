@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartSettingsGift Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,8 +58,8 @@ class CartSettingsGift implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'allow_gifts' => 'bool',
-        'gift_charge' => '\ultracartv2\models\Currency',
-        'gift_wraps' => '\ultracartv2\models\CartSettingsGiftWrap[]',
+        'gift_charge' => '\ultracart\v2\models\Currency',
+        'gift_wraps' => '\ultracart\v2\models\CartSettingsGiftWrap[]',
         'max_message_length' => 'int'
     ];
 
@@ -249,7 +249,7 @@ class CartSettingsGift implements ModelInterface, ArrayAccess
     /**
      * Gets gift_charge
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftCharge()
     {
@@ -259,7 +259,7 @@ class CartSettingsGift implements ModelInterface, ArrayAccess
     /**
      * Sets gift_charge
      *
-     * @param \ultracartv2\models\Currency $gift_charge gift_charge
+     * @param \ultracart\v2\models\Currency $gift_charge gift_charge
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class CartSettingsGift implements ModelInterface, ArrayAccess
     /**
      * Gets gift_wraps
      *
-     * @return \ultracartv2\models\CartSettingsGiftWrap[]
+     * @return \ultracart\v2\models\CartSettingsGiftWrap[]
      */
     public function getGiftWraps()
     {
@@ -283,7 +283,7 @@ class CartSettingsGift implements ModelInterface, ArrayAccess
     /**
      * Sets gift_wraps
      *
-     * @param \ultracartv2\models\CartSettingsGiftWrap[] $gift_wraps The gift wraps available for the customer to select from
+     * @param \ultracart\v2\models\CartSettingsGiftWrap[] $gift_wraps The gift wraps available for the customer to select from
      *
      * @return $this
      */

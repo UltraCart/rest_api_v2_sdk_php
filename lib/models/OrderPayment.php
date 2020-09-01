@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderPayment Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,23 +57,23 @@ class OrderPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'check' => '\ultracartv2\models\OrderPaymentCheck',
-        'credit_card' => '\ultracartv2\models\OrderPaymentCreditCard',
-        'echeck' => '\ultracartv2\models\OrderPaymentECheck',
+        'check' => '\ultracart\v2\models\OrderPaymentCheck',
+        'credit_card' => '\ultracart\v2\models\OrderPaymentCreditCard',
+        'echeck' => '\ultracart\v2\models\OrderPaymentECheck',
         'hold_for_fraud_review' => 'bool',
         'payment_dts' => 'string',
         'payment_method' => 'string',
         'payment_method_accounting_code' => 'string',
         'payment_method_deposit_to_account' => 'string',
         'payment_status' => 'string',
-        'purchase_order' => '\ultracartv2\models\OrderPaymentPurchaseOrder',
+        'purchase_order' => '\ultracart\v2\models\OrderPaymentPurchaseOrder',
         'rotating_transaction_gateway_code' => 'string',
-        'surcharge' => '\ultracartv2\models\Currency',
+        'surcharge' => '\ultracart\v2\models\Currency',
         'surcharge_accounting_code' => 'string',
         'surcharge_transaction_fee' => 'float',
         'surcharge_transaction_percentage' => 'float',
         'test_order' => 'bool',
-        'transactions' => '\ultracartv2\models\OrderPaymentTransaction[]'
+        'transactions' => '\ultracart\v2\models\OrderPaymentTransaction[]'
     ];
 
     /**
@@ -391,7 +391,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Gets check
      *
-     * @return \ultracartv2\models\OrderPaymentCheck
+     * @return \ultracart\v2\models\OrderPaymentCheck
      */
     public function getCheck()
     {
@@ -401,7 +401,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Sets check
      *
-     * @param \ultracartv2\models\OrderPaymentCheck $check check
+     * @param \ultracart\v2\models\OrderPaymentCheck $check check
      *
      * @return $this
      */
@@ -415,7 +415,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Gets credit_card
      *
-     * @return \ultracartv2\models\OrderPaymentCreditCard
+     * @return \ultracart\v2\models\OrderPaymentCreditCard
      */
     public function getCreditCard()
     {
@@ -425,7 +425,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Sets credit_card
      *
-     * @param \ultracartv2\models\OrderPaymentCreditCard $credit_card credit_card
+     * @param \ultracart\v2\models\OrderPaymentCreditCard $credit_card credit_card
      *
      * @return $this
      */
@@ -439,7 +439,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Gets echeck
      *
-     * @return \ultracartv2\models\OrderPaymentECheck
+     * @return \ultracart\v2\models\OrderPaymentECheck
      */
     public function getEcheck()
     {
@@ -449,7 +449,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Sets echeck
      *
-     * @param \ultracartv2\models\OrderPaymentECheck $echeck echeck
+     * @param \ultracart\v2\models\OrderPaymentECheck $echeck echeck
      *
      * @return $this
      */
@@ -625,7 +625,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Gets purchase_order
      *
-     * @return \ultracartv2\models\OrderPaymentPurchaseOrder
+     * @return \ultracart\v2\models\OrderPaymentPurchaseOrder
      */
     public function getPurchaseOrder()
     {
@@ -635,7 +635,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Sets purchase_order
      *
-     * @param \ultracartv2\models\OrderPaymentPurchaseOrder $purchase_order purchase_order
+     * @param \ultracart\v2\models\OrderPaymentPurchaseOrder $purchase_order purchase_order
      *
      * @return $this
      */
@@ -673,7 +673,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Gets surcharge
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getSurcharge()
     {
@@ -683,7 +683,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Sets surcharge
      *
-     * @param \ultracartv2\models\Currency $surcharge surcharge
+     * @param \ultracart\v2\models\Currency $surcharge surcharge
      *
      * @return $this
      */
@@ -793,7 +793,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Gets transactions
      *
-     * @return \ultracartv2\models\OrderPaymentTransaction[]
+     * @return \ultracart\v2\models\OrderPaymentTransaction[]
      */
     public function getTransactions()
     {
@@ -803,7 +803,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     /**
      * Sets transactions
      *
-     * @param \ultracartv2\models\OrderPaymentTransaction[] $transactions Transactions associated with processing this payment
+     * @param \ultracart\v2\models\OrderPaymentTransaction[] $transactions Transactions associated with processing this payment
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemPhysical Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,10 +57,10 @@ class ItemPhysical implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'height' => '\ultracartv2\models\Distance',
-        'length' => '\ultracartv2\models\Distance',
-        'weight' => '\ultracartv2\models\Weight',
-        'width' => '\ultracartv2\models\Distance'
+        'height' => '\ultracart\v2\models\Distance',
+        'length' => '\ultracart\v2\models\Distance',
+        'weight' => '\ultracart\v2\models\Weight',
+        'width' => '\ultracart\v2\models\Distance'
     ];
 
     /**
@@ -225,7 +225,7 @@ class ItemPhysical implements ModelInterface, ArrayAccess
     /**
      * Gets height
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getHeight()
     {
@@ -235,7 +235,7 @@ class ItemPhysical implements ModelInterface, ArrayAccess
     /**
      * Sets height
      *
-     * @param \ultracartv2\models\Distance $height height
+     * @param \ultracart\v2\models\Distance $height height
      *
      * @return $this
      */
@@ -249,7 +249,7 @@ class ItemPhysical implements ModelInterface, ArrayAccess
     /**
      * Gets length
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getLength()
     {
@@ -259,7 +259,7 @@ class ItemPhysical implements ModelInterface, ArrayAccess
     /**
      * Sets length
      *
-     * @param \ultracartv2\models\Distance $length length
+     * @param \ultracart\v2\models\Distance $length length
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class ItemPhysical implements ModelInterface, ArrayAccess
     /**
      * Gets weight
      *
-     * @return \ultracartv2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getWeight()
     {
@@ -283,7 +283,7 @@ class ItemPhysical implements ModelInterface, ArrayAccess
     /**
      * Sets weight
      *
-     * @param \ultracartv2\models\Weight $weight weight
+     * @param \ultracart\v2\models\Weight $weight weight
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class ItemPhysical implements ModelInterface, ArrayAccess
     /**
      * Gets width
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getWidth()
     {
@@ -307,7 +307,7 @@ class ItemPhysical implements ModelInterface, ArrayAccess
     /**
      * Sets width
      *
-     * @param \ultracartv2\models\Distance $width width
+     * @param \ultracart\v2\models\Distance $width width
      *
      * @return $this
      */

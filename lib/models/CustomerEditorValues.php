@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CustomerEditorValues Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,11 +57,11 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'affiliates' => '\ultracartv2\models\CustomerAffiliate[]',
+        'affiliates' => '\ultracart\v2\models\CustomerAffiliate[]',
         'card_exp_months' => 'string[]',
         'card_exp_years' => 'string[]',
         'card_types' => 'string[]',
-        'countries' => '\ultracartv2\models\Country[]',
+        'countries' => '\ultracart\v2\models\Country[]',
         'qb_classes' => 'string[]',
         'sales_rep_codes' => 'string[]',
         'terms' => 'string[]'
@@ -249,7 +249,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     /**
      * Gets affiliates
      *
-     * @return \ultracartv2\models\CustomerAffiliate[]
+     * @return \ultracart\v2\models\CustomerAffiliate[]
      */
     public function getAffiliates()
     {
@@ -259,7 +259,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     /**
      * Sets affiliates
      *
-     * @param \ultracartv2\models\CustomerAffiliate[] $affiliates affiliates
+     * @param \ultracart\v2\models\CustomerAffiliate[] $affiliates affiliates
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     /**
      * Gets countries
      *
-     * @return \ultracartv2\models\Country[]
+     * @return \ultracart\v2\models\Country[]
      */
     public function getCountries()
     {
@@ -355,7 +355,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     /**
      * Sets countries
      *
-     * @param \ultracartv2\models\Country[] $countries countries
+     * @param \ultracart\v2\models\Country[] $countries countries
      *
      * @return $this
      */

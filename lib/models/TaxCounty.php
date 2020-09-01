@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxCounty Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,7 +58,7 @@ class TaxCounty implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accounting_code' => 'string',
-        'cities' => '\ultracartv2\models\TaxCity[]',
+        'cities' => '\ultracart\v2\models\TaxCity[]',
         'county' => 'string',
         'county_oid' => 'int',
         'dont_collect_city' => 'bool',
@@ -285,7 +285,7 @@ class TaxCounty implements ModelInterface, ArrayAccess
     /**
      * Gets cities
      *
-     * @return \ultracartv2\models\TaxCity[]
+     * @return \ultracart\v2\models\TaxCity[]
      */
     public function getCities()
     {
@@ -295,7 +295,7 @@ class TaxCounty implements ModelInterface, ArrayAccess
     /**
      * Sets cities
      *
-     * @param \ultracartv2\models\TaxCity[] $cities Cities within this city
+     * @param \ultracart\v2\models\TaxCity[] $cities Cities within this city
      *
      * @return $this
      */

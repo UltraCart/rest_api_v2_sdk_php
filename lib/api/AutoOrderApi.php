@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * AutoOrderApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -95,9 +95,9 @@ class AutoOrderApi
      * @param  int $auto_order_oid The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AutoOrderResponse
+     * @return \ultracart\v2\models\AutoOrderResponse
      */
     public function getAutoOrder($auto_order_oid, $_expand = null)
     {
@@ -113,13 +113,13 @@ class AutoOrderApi
      * @param  int $auto_order_oid The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAutoOrderWithHttpInfo($auto_order_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrderResponse';
+        $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderRequest($auto_order_oid, $_expand);
 
         try {
@@ -171,7 +171,7 @@ class AutoOrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AutoOrderResponse',
+                        '\ultracart\v2\models\AutoOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -179,7 +179,7 @@ class AutoOrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -187,7 +187,7 @@ class AutoOrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -195,7 +195,7 @@ class AutoOrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -203,7 +203,7 @@ class AutoOrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -211,7 +211,7 @@ class AutoOrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -255,7 +255,7 @@ class AutoOrderApi
      */
     public function getAutoOrderAsyncWithHttpInfo($auto_order_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrderResponse';
+        $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderRequest($auto_order_oid, $_expand);
 
         return $this->client
@@ -422,9 +422,9 @@ class AutoOrderApi
      * @param  string $auto_order_code The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AutoOrderResponse
+     * @return \ultracart\v2\models\AutoOrderResponse
      */
     public function getAutoOrderByCode($auto_order_code, $_expand = null)
     {
@@ -440,13 +440,13 @@ class AutoOrderApi
      * @param  string $auto_order_code The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAutoOrderByCodeWithHttpInfo($auto_order_code, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrderResponse';
+        $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderByCodeRequest($auto_order_code, $_expand);
 
         try {
@@ -498,7 +498,7 @@ class AutoOrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AutoOrderResponse',
+                        '\ultracart\v2\models\AutoOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -506,7 +506,7 @@ class AutoOrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -514,7 +514,7 @@ class AutoOrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -522,7 +522,7 @@ class AutoOrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -530,7 +530,7 @@ class AutoOrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -538,7 +538,7 @@ class AutoOrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -582,7 +582,7 @@ class AutoOrderApi
      */
     public function getAutoOrderByCodeAsyncWithHttpInfo($auto_order_code, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrderResponse';
+        $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderByCodeRequest($auto_order_code, $_expand);
 
         return $this->client
@@ -749,9 +749,9 @@ class AutoOrderApi
      * @param  string $reference_order_id The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AutoOrderResponse
+     * @return \ultracart\v2\models\AutoOrderResponse
      */
     public function getAutoOrderByReferenceOrderId($reference_order_id, $_expand = null)
     {
@@ -767,13 +767,13 @@ class AutoOrderApi
      * @param  string $reference_order_id The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAutoOrderByReferenceOrderIdWithHttpInfo($reference_order_id, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrderResponse';
+        $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderByReferenceOrderIdRequest($reference_order_id, $_expand);
 
         try {
@@ -825,7 +825,7 @@ class AutoOrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AutoOrderResponse',
+                        '\ultracart\v2\models\AutoOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -833,7 +833,7 @@ class AutoOrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -841,7 +841,7 @@ class AutoOrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -849,7 +849,7 @@ class AutoOrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -857,7 +857,7 @@ class AutoOrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -865,7 +865,7 @@ class AutoOrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -909,7 +909,7 @@ class AutoOrderApi
      */
     public function getAutoOrderByReferenceOrderIdAsyncWithHttpInfo($reference_order_id, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrderResponse';
+        $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderByReferenceOrderIdRequest($reference_order_id, $_expand);
 
         return $this->client
@@ -1097,9 +1097,9 @@ class AutoOrderApi
      * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AutoOrdersResponse
+     * @return \ultracart\v2\models\AutoOrdersResponse
      */
     public function getAutoOrders($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
@@ -1136,13 +1136,13 @@ class AutoOrderApi
      * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAutoOrdersWithHttpInfo($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrdersResponse';
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersRequest($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
 
         try {
@@ -1194,7 +1194,7 @@ class AutoOrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AutoOrdersResponse',
+                        '\ultracart\v2\models\AutoOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1202,7 +1202,7 @@ class AutoOrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1210,7 +1210,7 @@ class AutoOrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1218,7 +1218,7 @@ class AutoOrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1226,7 +1226,7 @@ class AutoOrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1234,7 +1234,7 @@ class AutoOrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1320,7 +1320,7 @@ class AutoOrderApi
      */
     public function getAutoOrdersAsyncWithHttpInfo($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrdersResponse';
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersRequest($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
 
         return $this->client
@@ -1579,12 +1579,12 @@ class AutoOrderApi
      *
      * Retrieve auto order batch
      *
-     * @param  \ultracartv2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
+     * @param  \ultracart\v2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AutoOrdersResponse
+     * @return \ultracart\v2\models\AutoOrdersResponse
      */
     public function getAutoOrdersBatch($auto_order_batch, $_expand = null)
     {
@@ -1597,16 +1597,16 @@ class AutoOrderApi
      *
      * Retrieve auto order batch
      *
-     * @param  \ultracartv2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
+     * @param  \ultracart\v2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAutoOrdersBatchWithHttpInfo($auto_order_batch, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrdersResponse';
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersBatchRequest($auto_order_batch, $_expand);
 
         try {
@@ -1658,7 +1658,7 @@ class AutoOrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AutoOrdersResponse',
+                        '\ultracart\v2\models\AutoOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1666,7 +1666,7 @@ class AutoOrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1674,7 +1674,7 @@ class AutoOrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1682,7 +1682,7 @@ class AutoOrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1690,7 +1690,7 @@ class AutoOrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1698,7 +1698,7 @@ class AutoOrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1713,7 +1713,7 @@ class AutoOrderApi
      *
      * Retrieve auto order batch
      *
-     * @param  \ultracartv2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
+     * @param  \ultracart\v2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1734,7 +1734,7 @@ class AutoOrderApi
      *
      * Retrieve auto order batch
      *
-     * @param  \ultracartv2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
+     * @param  \ultracart\v2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1742,7 +1742,7 @@ class AutoOrderApi
      */
     public function getAutoOrdersBatchAsyncWithHttpInfo($auto_order_batch, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrdersResponse';
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersBatchRequest($auto_order_batch, $_expand);
 
         return $this->client
@@ -1785,7 +1785,7 @@ class AutoOrderApi
     /**
      * Create request for operation 'getAutoOrdersBatch'
      *
-     * @param  \ultracartv2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
+     * @param  \ultracart\v2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1901,15 +1901,15 @@ class AutoOrderApi
      *
      * Retrieve auto orders
      *
-     * @param  \ultracartv2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AutoOrdersResponse
+     * @return \ultracart\v2\models\AutoOrdersResponse
      */
     public function getAutoOrdersByQuery($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
@@ -1922,19 +1922,19 @@ class AutoOrderApi
      *
      * Retrieve auto orders
      *
-     * @param  \ultracartv2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAutoOrdersByQueryWithHttpInfo($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrdersResponse';
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersByQueryRequest($auto_order_query, $_limit, $_offset, $_sort, $_expand);
 
         try {
@@ -1986,7 +1986,7 @@ class AutoOrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AutoOrdersResponse',
+                        '\ultracart\v2\models\AutoOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1994,7 +1994,7 @@ class AutoOrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2002,7 +2002,7 @@ class AutoOrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2010,7 +2010,7 @@ class AutoOrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2018,7 +2018,7 @@ class AutoOrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2026,7 +2026,7 @@ class AutoOrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2041,7 +2041,7 @@ class AutoOrderApi
      *
      * Retrieve auto orders
      *
-     * @param  \ultracartv2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -2065,7 +2065,7 @@ class AutoOrderApi
      *
      * Retrieve auto orders
      *
-     * @param  \ultracartv2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -2076,7 +2076,7 @@ class AutoOrderApi
      */
     public function getAutoOrdersByQueryAsyncWithHttpInfo($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrdersResponse';
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersByQueryRequest($auto_order_query, $_limit, $_offset, $_sort, $_expand);
 
         return $this->client
@@ -2119,7 +2119,7 @@ class AutoOrderApi
     /**
      * Create request for operation 'getAutoOrdersByQuery'
      *
-     * @param  \ultracartv2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -2250,13 +2250,13 @@ class AutoOrderApi
      *
      * Update an auto order
      *
-     * @param  \ultracartv2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AutoOrderResponse
+     * @return \ultracart\v2\models\AutoOrderResponse
      */
     public function updateAutoOrder($auto_order, $auto_order_oid, $_expand = null)
     {
@@ -2269,17 +2269,17 @@ class AutoOrderApi
      *
      * Update an auto order
      *
-     * @param  \ultracartv2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateAutoOrderWithHttpInfo($auto_order, $auto_order_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrderResponse';
+        $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->updateAutoOrderRequest($auto_order, $auto_order_oid, $_expand);
 
         try {
@@ -2331,7 +2331,7 @@ class AutoOrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AutoOrderResponse',
+                        '\ultracart\v2\models\AutoOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2339,7 +2339,7 @@ class AutoOrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2347,7 +2347,7 @@ class AutoOrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2355,7 +2355,7 @@ class AutoOrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2363,7 +2363,7 @@ class AutoOrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2371,7 +2371,7 @@ class AutoOrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2386,7 +2386,7 @@ class AutoOrderApi
      *
      * Update an auto order
      *
-     * @param  \ultracartv2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -2408,7 +2408,7 @@ class AutoOrderApi
      *
      * Update an auto order
      *
-     * @param  \ultracartv2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -2417,7 +2417,7 @@ class AutoOrderApi
      */
     public function updateAutoOrderAsyncWithHttpInfo($auto_order, $auto_order_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrderResponse';
+        $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->updateAutoOrderRequest($auto_order, $auto_order_oid, $_expand);
 
         return $this->client
@@ -2460,7 +2460,7 @@ class AutoOrderApi
     /**
      * Create request for operation 'updateAutoOrder'
      *
-     * @param  \ultracartv2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -2591,14 +2591,14 @@ class AutoOrderApi
      *
      * Update multiple auto orders
      *
-     * @param  \ultracartv2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\AutoOrdersResponse
+     * @return \ultracart\v2\models\AutoOrdersResponse
      */
     public function updateAutoOrdersBatch($auto_orders_request, $_expand = null, $_placeholders = null, $_async = null)
     {
@@ -2611,18 +2611,18 @@ class AutoOrderApi
      *
      * Update multiple auto orders
      *
-     * @param  \ultracartv2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateAutoOrdersBatchWithHttpInfo($auto_orders_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrdersResponse';
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->updateAutoOrdersBatchRequest($auto_orders_request, $_expand, $_placeholders, $_async);
 
         try {
@@ -2674,7 +2674,7 @@ class AutoOrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\AutoOrdersResponse',
+                        '\ultracart\v2\models\AutoOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2682,7 +2682,7 @@ class AutoOrderApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2690,7 +2690,7 @@ class AutoOrderApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2698,7 +2698,7 @@ class AutoOrderApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2706,7 +2706,7 @@ class AutoOrderApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2714,7 +2714,7 @@ class AutoOrderApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2729,7 +2729,7 @@ class AutoOrderApi
      *
      * Update multiple auto orders
      *
-     * @param  \ultracartv2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2752,7 +2752,7 @@ class AutoOrderApi
      *
      * Update multiple auto orders
      *
-     * @param  \ultracartv2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -2762,7 +2762,7 @@ class AutoOrderApi
      */
     public function updateAutoOrdersBatchAsyncWithHttpInfo($auto_orders_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        $returnType = '\ultracartv2\models\AutoOrdersResponse';
+        $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->updateAutoOrdersBatchRequest($auto_orders_request, $_expand, $_placeholders, $_async);
 
         return $this->client
@@ -2805,7 +2805,7 @@ class AutoOrderApi
     /**
      * Create request for operation 'updateAutoOrdersBatch'
      *
-     * @param  \ultracartv2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)

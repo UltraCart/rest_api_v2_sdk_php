@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ChargebackDispute Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -73,7 +73,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
         'fax_transaction_id' => 'int',
         'icsid' => 'string',
         'merchant_account_profile_oid' => 'int',
-        'order' => '\ultracartv2\models\Order',
+        'order' => '\ultracart\v2\models\Order',
         'order_id' => 'string',
         'partial_card_number' => 'string',
         'pdf_file_oid' => 'string',
@@ -811,7 +811,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
     /**
      * Gets order
      *
-     * @return \ultracartv2\models\Order
+     * @return \ultracart\v2\models\Order
      */
     public function getOrder()
     {
@@ -821,7 +821,7 @@ class ChargebackDispute implements ModelInterface, ArrayAccess
     /**
      * Sets order
      *
-     * @param \ultracartv2\models\Order $order order
+     * @param \ultracart\v2\models\Order $order order
      *
      * @return $this
      */

@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * CustomerApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -94,9 +94,9 @@ class CustomerApi
      *
      * @param  int $customer_profile_oid The customer_profile_oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CustomerResponse
+     * @return \ultracart\v2\models\CustomerResponse
      */
     public function deleteCustomer($customer_profile_oid)
     {
@@ -111,13 +111,13 @@ class CustomerApi
      *
      * @param  int $customer_profile_oid The customer_profile_oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCustomerWithHttpInfo($customer_profile_oid)
     {
-        $returnType = '\ultracartv2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerResponse';
         $request = $this->deleteCustomerRequest($customer_profile_oid);
 
         try {
@@ -169,7 +169,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CustomerResponse',
+                        '\ultracart\v2\models\CustomerResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -177,7 +177,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -185,7 +185,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -193,7 +193,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -201,7 +201,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -209,7 +209,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -251,7 +251,7 @@ class CustomerApi
      */
     public function deleteCustomerAsyncWithHttpInfo($customer_profile_oid)
     {
-        $returnType = '\ultracartv2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerResponse';
         $request = $this->deleteCustomerRequest($customer_profile_oid);
 
         return $this->client
@@ -413,9 +413,9 @@ class CustomerApi
      * @param  int $customer_profile_oid The customer oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CustomerResponse
+     * @return \ultracart\v2\models\CustomerResponse
      */
     public function getCustomer($customer_profile_oid, $_expand = null)
     {
@@ -431,13 +431,13 @@ class CustomerApi
      * @param  int $customer_profile_oid The customer oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerWithHttpInfo($customer_profile_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerResponse';
         $request = $this->getCustomerRequest($customer_profile_oid, $_expand);
 
         try {
@@ -489,7 +489,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CustomerResponse',
+                        '\ultracart\v2\models\CustomerResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -497,7 +497,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -505,7 +505,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -513,7 +513,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -521,7 +521,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -529,7 +529,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -573,7 +573,7 @@ class CustomerApi
      */
     public function getCustomerAsyncWithHttpInfo($customer_profile_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerResponse';
         $request = $this->getCustomerRequest($customer_profile_oid, $_expand);
 
         return $this->client
@@ -770,9 +770,9 @@ class CustomerApi
      * @param  string $_sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CustomersResponse
+     * @return \ultracart\v2\models\CustomersResponse
      */
     public function getCustomers($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
@@ -818,13 +818,13 @@ class CustomerApi
      * @param  string $_sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomersWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomersResponse';
+        $returnType = '\ultracart\v2\models\CustomersResponse';
         $request = $this->getCustomersRequest($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
 
         try {
@@ -876,7 +876,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CustomersResponse',
+                        '\ultracart\v2\models\CustomersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -884,7 +884,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -892,7 +892,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -900,7 +900,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -908,7 +908,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -916,7 +916,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1020,7 +1020,7 @@ class CustomerApi
      */
     public function getCustomersAsyncWithHttpInfo($email = null, $qb_class = null, $quickbooks_code = null, $last_modified_dts_start = null, $last_modified_dts_end = null, $signup_dts_start = null, $signup_dts_end = null, $billing_first_name = null, $billing_last_name = null, $billing_company = null, $billing_city = null, $billing_state = null, $billing_postal_code = null, $billing_country_code = null, $billing_day_phone = null, $billing_evening_phone = null, $shipping_first_name = null, $shipping_last_name = null, $shipping_company = null, $shipping_city = null, $shipping_state = null, $shipping_postal_code = null, $shipping_country_code = null, $shipping_day_phone = null, $shipping_evening_phone = null, $pricing_tier_oid = null, $pricing_tier_name = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomersResponse';
+        $returnType = '\ultracart\v2\models\CustomersResponse';
         $request = $this->getCustomersRequest($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
 
         return $this->client
@@ -1324,16 +1324,16 @@ class CustomerApi
      *
      * Retrieve customers by query
      *
-     * @param  \ultracartv2\models\CustomerQuery $customer_query Customer query (required)
+     * @param  \ultracart\v2\models\CustomerQuery $customer_query Customer query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
      * @param  string $_sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CustomersResponse
+     * @return \ultracart\v2\models\CustomersResponse
      */
     public function getCustomersByQuery($customer_query, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
@@ -1346,20 +1346,20 @@ class CustomerApi
      *
      * Retrieve customers by query
      *
-     * @param  \ultracartv2\models\CustomerQuery $customer_query Customer query (required)
+     * @param  \ultracart\v2\models\CustomerQuery $customer_query Customer query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
      * @param  string $_sort The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomersByQueryWithHttpInfo($customer_query, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomersResponse';
+        $returnType = '\ultracart\v2\models\CustomersResponse';
         $request = $this->getCustomersByQueryRequest($customer_query, $_limit, $_offset, $_since, $_sort, $_expand);
 
         try {
@@ -1411,7 +1411,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CustomersResponse',
+                        '\ultracart\v2\models\CustomersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1419,7 +1419,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1427,7 +1427,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1435,7 +1435,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1443,7 +1443,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1451,7 +1451,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1466,7 +1466,7 @@ class CustomerApi
      *
      * Retrieve customers by query
      *
-     * @param  \ultracartv2\models\CustomerQuery $customer_query Customer query (required)
+     * @param  \ultracart\v2\models\CustomerQuery $customer_query Customer query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -1491,7 +1491,7 @@ class CustomerApi
      *
      * Retrieve customers by query
      *
-     * @param  \ultracartv2\models\CustomerQuery $customer_query Customer query (required)
+     * @param  \ultracart\v2\models\CustomerQuery $customer_query Customer query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -1503,7 +1503,7 @@ class CustomerApi
      */
     public function getCustomersByQueryAsyncWithHttpInfo($customer_query, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomersResponse';
+        $returnType = '\ultracart\v2\models\CustomersResponse';
         $request = $this->getCustomersByQueryRequest($customer_query, $_limit, $_offset, $_since, $_sort, $_expand);
 
         return $this->client
@@ -1546,7 +1546,7 @@ class CustomerApi
     /**
      * Create request for operation 'getCustomersByQuery'
      *
-     * @param  \ultracartv2\models\CustomerQuery $customer_query Customer query (required)
+     * @param  \ultracart\v2\models\CustomerQuery $customer_query Customer query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch customers that have been created/modified since this date/time. (optional)
@@ -1684,9 +1684,9 @@ class CustomerApi
      *
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\DataTablesServerSideResponse
+     * @return \ultracart\v2\models\DataTablesServerSideResponse
      */
     public function getCustomersForDataTables($_expand = null)
     {
@@ -1701,13 +1701,13 @@ class CustomerApi
      *
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\DataTablesServerSideResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\DataTablesServerSideResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomersForDataTablesWithHttpInfo($_expand = null)
     {
-        $returnType = '\ultracartv2\models\DataTablesServerSideResponse';
+        $returnType = '\ultracart\v2\models\DataTablesServerSideResponse';
         $request = $this->getCustomersForDataTablesRequest($_expand);
 
         try {
@@ -1759,7 +1759,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\DataTablesServerSideResponse',
+                        '\ultracart\v2\models\DataTablesServerSideResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1767,7 +1767,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1775,7 +1775,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1783,7 +1783,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1791,7 +1791,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1799,7 +1799,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1841,7 +1841,7 @@ class CustomerApi
      */
     public function getCustomersForDataTablesAsyncWithHttpInfo($_expand = null)
     {
-        $returnType = '\ultracartv2\models\DataTablesServerSideResponse';
+        $returnType = '\ultracart\v2\models\DataTablesServerSideResponse';
         $request = $this->getCustomersForDataTablesRequest($_expand);
 
         return $this->client
@@ -1991,9 +1991,9 @@ class CustomerApi
      * Retrieve values needed for a customer profile editor
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CustomerEditorValues
+     * @return \ultracart\v2\models\CustomerEditorValues
      */
     public function getEditorValues()
     {
@@ -2007,13 +2007,13 @@ class CustomerApi
      * Retrieve values needed for a customer profile editor
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CustomerEditorValues, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomerEditorValues, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEditorValuesWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\CustomerEditorValues';
+        $returnType = '\ultracart\v2\models\CustomerEditorValues';
         $request = $this->getEditorValuesRequest();
 
         try {
@@ -2065,7 +2065,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CustomerEditorValues',
+                        '\ultracart\v2\models\CustomerEditorValues',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2073,7 +2073,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2081,7 +2081,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2089,7 +2089,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2097,7 +2097,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2105,7 +2105,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2145,7 +2145,7 @@ class CustomerApi
      */
     public function getEditorValuesAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\CustomerEditorValues';
+        $returnType = '\ultracart\v2\models\CustomerEditorValues';
         $request = $this->getEditorValuesRequest();
 
         return $this->client
@@ -2290,9 +2290,9 @@ class CustomerApi
      * Retrieve all email lists across all storefronts
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\EmailListsResponse
+     * @return \ultracart\v2\models\EmailListsResponse
      */
     public function getEmailLists()
     {
@@ -2306,13 +2306,13 @@ class CustomerApi
      * Retrieve all email lists across all storefronts
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\EmailListsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailListsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmailListsWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\EmailListsResponse';
+        $returnType = '\ultracart\v2\models\EmailListsResponse';
         $request = $this->getEmailListsRequest();
 
         try {
@@ -2364,7 +2364,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\EmailListsResponse',
+                        '\ultracart\v2\models\EmailListsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2372,7 +2372,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2380,7 +2380,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2388,7 +2388,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2396,7 +2396,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2404,7 +2404,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2444,7 +2444,7 @@ class CustomerApi
      */
     public function getEmailListsAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\EmailListsResponse';
+        $returnType = '\ultracart\v2\models\EmailListsResponse';
         $request = $this->getEmailListsRequest();
 
         return $this->client
@@ -2588,12 +2588,12 @@ class CustomerApi
      *
      * Insert a customer
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to insert (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CustomerResponse
+     * @return \ultracart\v2\models\CustomerResponse
      */
     public function insertCustomer($customer, $_expand = null)
     {
@@ -2606,16 +2606,16 @@ class CustomerApi
      *
      * Insert a customer
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to insert (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertCustomerWithHttpInfo($customer, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerResponse';
         $request = $this->insertCustomerRequest($customer, $_expand);
 
         try {
@@ -2667,7 +2667,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CustomerResponse',
+                        '\ultracart\v2\models\CustomerResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2675,7 +2675,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2683,7 +2683,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2691,7 +2691,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2699,7 +2699,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2707,7 +2707,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2722,7 +2722,7 @@ class CustomerApi
      *
      * Insert a customer
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to insert (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2743,7 +2743,7 @@ class CustomerApi
      *
      * Insert a customer
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to insert (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2751,7 +2751,7 @@ class CustomerApi
      */
     public function insertCustomerAsyncWithHttpInfo($customer, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerResponse';
         $request = $this->insertCustomerRequest($customer, $_expand);
 
         return $this->client
@@ -2794,7 +2794,7 @@ class CustomerApi
     /**
      * Create request for operation 'insertCustomer'
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to insert (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2910,13 +2910,13 @@ class CustomerApi
      *
      * Update a customer
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to update (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to update (required)
      * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CustomerResponse
+     * @return \ultracart\v2\models\CustomerResponse
      */
     public function updateCustomer($customer, $customer_profile_oid, $_expand = null)
     {
@@ -2929,17 +2929,17 @@ class CustomerApi
      *
      * Update a customer
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to update (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to update (required)
      * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCustomerWithHttpInfo($customer, $customer_profile_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerResponse';
         $request = $this->updateCustomerRequest($customer, $customer_profile_oid, $_expand);
 
         try {
@@ -2991,7 +2991,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CustomerResponse',
+                        '\ultracart\v2\models\CustomerResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2999,7 +2999,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3007,7 +3007,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3015,7 +3015,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3023,7 +3023,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3031,7 +3031,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3046,7 +3046,7 @@ class CustomerApi
      *
      * Update a customer
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to update (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to update (required)
      * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -3068,7 +3068,7 @@ class CustomerApi
      *
      * Update a customer
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to update (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to update (required)
      * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -3077,7 +3077,7 @@ class CustomerApi
      */
     public function updateCustomerAsyncWithHttpInfo($customer, $customer_profile_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CustomerResponse';
+        $returnType = '\ultracart\v2\models\CustomerResponse';
         $request = $this->updateCustomerRequest($customer, $customer_profile_oid, $_expand);
 
         return $this->client
@@ -3120,7 +3120,7 @@ class CustomerApi
     /**
      * Create request for operation 'updateCustomer'
      *
-     * @param  \ultracartv2\models\Customer $customer Customer to update (required)
+     * @param  \ultracart\v2\models\Customer $customer Customer to update (required)
      * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -3252,11 +3252,11 @@ class CustomerApi
      * Update email list subscriptions for a customer
      *
      * @param  int $customer_profile_oid The customer profile oid (required)
-     * @param  \ultracartv2\models\CustomerEmailListChanges $list_changes List changes (required)
+     * @param  \ultracart\v2\models\CustomerEmailListChanges $list_changes List changes (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CustomerEmailListChanges
+     * @return \ultracart\v2\models\CustomerEmailListChanges
      */
     public function updateCustomerEmailLists($customer_profile_oid, $list_changes)
     {
@@ -3270,15 +3270,15 @@ class CustomerApi
      * Update email list subscriptions for a customer
      *
      * @param  int $customer_profile_oid The customer profile oid (required)
-     * @param  \ultracartv2\models\CustomerEmailListChanges $list_changes List changes (required)
+     * @param  \ultracart\v2\models\CustomerEmailListChanges $list_changes List changes (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CustomerEmailListChanges, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CustomerEmailListChanges, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCustomerEmailListsWithHttpInfo($customer_profile_oid, $list_changes)
     {
-        $returnType = '\ultracartv2\models\CustomerEmailListChanges';
+        $returnType = '\ultracart\v2\models\CustomerEmailListChanges';
         $request = $this->updateCustomerEmailListsRequest($customer_profile_oid, $list_changes);
 
         try {
@@ -3330,7 +3330,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CustomerEmailListChanges',
+                        '\ultracart\v2\models\CustomerEmailListChanges',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3338,7 +3338,7 @@ class CustomerApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3346,7 +3346,7 @@ class CustomerApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3354,7 +3354,7 @@ class CustomerApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3362,7 +3362,7 @@ class CustomerApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3370,7 +3370,7 @@ class CustomerApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3386,7 +3386,7 @@ class CustomerApi
      * Update email list subscriptions for a customer
      *
      * @param  int $customer_profile_oid The customer profile oid (required)
-     * @param  \ultracartv2\models\CustomerEmailListChanges $list_changes List changes (required)
+     * @param  \ultracart\v2\models\CustomerEmailListChanges $list_changes List changes (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3407,14 +3407,14 @@ class CustomerApi
      * Update email list subscriptions for a customer
      *
      * @param  int $customer_profile_oid The customer profile oid (required)
-     * @param  \ultracartv2\models\CustomerEmailListChanges $list_changes List changes (required)
+     * @param  \ultracart\v2\models\CustomerEmailListChanges $list_changes List changes (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateCustomerEmailListsAsyncWithHttpInfo($customer_profile_oid, $list_changes)
     {
-        $returnType = '\ultracartv2\models\CustomerEmailListChanges';
+        $returnType = '\ultracart\v2\models\CustomerEmailListChanges';
         $request = $this->updateCustomerEmailListsRequest($customer_profile_oid, $list_changes);
 
         return $this->client
@@ -3458,7 +3458,7 @@ class CustomerApi
      * Create request for operation 'updateCustomerEmailLists'
      *
      * @param  int $customer_profile_oid The customer profile oid (required)
-     * @param  \ultracartv2\models\CustomerEmailListChanges $list_changes List changes (required)
+     * @param  \ultracart\v2\models\CustomerEmailListChanges $list_changes List changes (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

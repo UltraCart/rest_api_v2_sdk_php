@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * WebhookEventCategory Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,7 +60,7 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
         'any_subscribed' => 'bool',
         'available_expansions' => 'string[]',
         'event_category' => 'string',
-        'events' => '\ultracartv2\models\WebhookEventSubscription[]',
+        'events' => '\ultracart\v2\models\WebhookEventSubscription[]',
         'subscribed' => 'bool'
     ];
 
@@ -303,7 +303,7 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
     /**
      * Gets events
      *
-     * @return \ultracartv2\models\WebhookEventSubscription[]
+     * @return \ultracart\v2\models\WebhookEventSubscription[]
      */
     public function getEvents()
     {
@@ -313,7 +313,7 @@ class WebhookEventCategory implements ModelInterface, ArrayAccess
     /**
      * Sets events
      *
-     * @param \ultracartv2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
+     * @param \ultracart\v2\models\WebhookEventSubscription[] $events The events within the category.  Individual subscription flags contained within the child object.
      *
      * @return $this
      */

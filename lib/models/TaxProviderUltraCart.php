@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxProviderUltraCart Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,10 +57,10 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'configuration' => '\ultracartv2\models\UltraCartConfig',
+        'configuration' => '\ultracart\v2\models\UltraCartConfig',
         'description' => 'string',
         'selected' => 'bool',
-        'states' => '\ultracartv2\models\TaxProviderUltraCartState[]',
+        'states' => '\ultracart\v2\models\TaxProviderUltraCartState[]',
         'title' => 'string'
     ];
 
@@ -231,7 +231,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
     /**
      * Gets configuration
      *
-     * @return \ultracartv2\models\UltraCartConfig
+     * @return \ultracart\v2\models\UltraCartConfig
      */
     public function getConfiguration()
     {
@@ -241,7 +241,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
     /**
      * Sets configuration
      *
-     * @param \ultracartv2\models\UltraCartConfig $configuration configuration
+     * @param \ultracart\v2\models\UltraCartConfig $configuration configuration
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
     /**
      * Gets states
      *
-     * @return \ultracartv2\models\TaxProviderUltraCartState[]
+     * @return \ultracart\v2\models\TaxProviderUltraCartState[]
      */
     public function getStates()
     {
@@ -313,7 +313,7 @@ class TaxProviderUltraCart implements ModelInterface, ArrayAccess
     /**
      * Sets states
      *
-     * @param \ultracartv2\models\TaxProviderUltraCartState[] $states States in the union showing their management status
+     * @param \ultracart\v2\models\TaxProviderUltraCartState[] $states States in the union showing their management status
      *
      * @return $this
      */

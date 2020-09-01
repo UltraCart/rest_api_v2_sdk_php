@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * AccountsReceivableRetryStatAccount Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,10 +57,10 @@ class AccountsReceivableRetryStatAccount implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'days' => '\ultracartv2\models\AccountsReceivableRetryStatMetrics[]',
+        'days' => '\ultracart\v2\models\AccountsReceivableRetryStatMetrics[]',
         'merchant_id' => 'string',
-        'overall' => '\ultracartv2\models\AccountsReceivableRetryStatMetrics',
-        'revenue_for_period' => '\ultracartv2\models\AccountsReceivableRetryStatRevenue[]'
+        'overall' => '\ultracart\v2\models\AccountsReceivableRetryStatMetrics',
+        'revenue_for_period' => '\ultracart\v2\models\AccountsReceivableRetryStatRevenue[]'
     ];
 
     /**
@@ -225,7 +225,7 @@ class AccountsReceivableRetryStatAccount implements ModelInterface, ArrayAccess
     /**
      * Gets days
      *
-     * @return \ultracartv2\models\AccountsReceivableRetryStatMetrics[]
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatMetrics[]
      */
     public function getDays()
     {
@@ -235,7 +235,7 @@ class AccountsReceivableRetryStatAccount implements ModelInterface, ArrayAccess
     /**
      * Sets days
      *
-     * @param \ultracartv2\models\AccountsReceivableRetryStatMetrics[] $days days
+     * @param \ultracart\v2\models\AccountsReceivableRetryStatMetrics[] $days days
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class AccountsReceivableRetryStatAccount implements ModelInterface, ArrayAccess
     /**
      * Gets overall
      *
-     * @return \ultracartv2\models\AccountsReceivableRetryStatMetrics
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatMetrics
      */
     public function getOverall()
     {
@@ -283,7 +283,7 @@ class AccountsReceivableRetryStatAccount implements ModelInterface, ArrayAccess
     /**
      * Sets overall
      *
-     * @param \ultracartv2\models\AccountsReceivableRetryStatMetrics $overall overall
+     * @param \ultracart\v2\models\AccountsReceivableRetryStatMetrics $overall overall
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class AccountsReceivableRetryStatAccount implements ModelInterface, ArrayAccess
     /**
      * Gets revenue_for_period
      *
-     * @return \ultracartv2\models\AccountsReceivableRetryStatRevenue[]
+     * @return \ultracart\v2\models\AccountsReceivableRetryStatRevenue[]
      */
     public function getRevenueForPeriod()
     {
@@ -307,7 +307,7 @@ class AccountsReceivableRetryStatAccount implements ModelInterface, ArrayAccess
     /**
      * Sets revenue_for_period
      *
-     * @param \ultracartv2\models\AccountsReceivableRetryStatRevenue[] $revenue_for_period revenue_for_period
+     * @param \ultracart\v2\models\AccountsReceivableRetryStatRevenue[] $revenue_for_period revenue_for_period
      *
      * @return $this
      */

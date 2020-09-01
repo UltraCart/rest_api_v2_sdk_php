@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemOptionValue Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,20 +58,20 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'additional_dimension_application' => 'string',
-        'additional_items' => '\ultracartv2\models\ItemOptionValueAdditionalItem[]',
+        'additional_items' => '\ultracart\v2\models\ItemOptionValueAdditionalItem[]',
         'cost_change' => 'float',
         'default_value' => 'bool',
-        'digital_items' => '\ultracartv2\models\ItemOptionValueDigitalItem[]',
-        'height' => '\ultracartv2\models\Distance',
-        'length' => '\ultracartv2\models\Distance',
+        'digital_items' => '\ultracart\v2\models\ItemOptionValueDigitalItem[]',
+        'height' => '\ultracart\v2\models\Distance',
+        'length' => '\ultracart\v2\models\Distance',
         'merchant_item_multimedia_oid' => 'int',
         'option_value_oid' => 'int',
         'percent_cost_change' => 'float',
         'translated_text_instance_oid' => 'int',
         'value' => 'string',
-        'weight_change' => '\ultracartv2\models\Weight',
+        'weight_change' => '\ultracart\v2\models\Weight',
         'weight_change_percent' => 'float',
-        'width' => '\ultracartv2\models\Distance'
+        'width' => '\ultracart\v2\models\Distance'
     ];
 
     /**
@@ -353,7 +353,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Gets additional_items
      *
-     * @return \ultracartv2\models\ItemOptionValueAdditionalItem[]
+     * @return \ultracart\v2\models\ItemOptionValueAdditionalItem[]
      */
     public function getAdditionalItems()
     {
@@ -363,7 +363,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Sets additional_items
      *
-     * @param \ultracartv2\models\ItemOptionValueAdditionalItem[] $additional_items Additional items to add to the order if this value is selected
+     * @param \ultracart\v2\models\ItemOptionValueAdditionalItem[] $additional_items Additional items to add to the order if this value is selected
      *
      * @return $this
      */
@@ -425,7 +425,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Gets digital_items
      *
-     * @return \ultracartv2\models\ItemOptionValueDigitalItem[]
+     * @return \ultracart\v2\models\ItemOptionValueDigitalItem[]
      */
     public function getDigitalItems()
     {
@@ -435,7 +435,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Sets digital_items
      *
-     * @param \ultracartv2\models\ItemOptionValueDigitalItem[] $digital_items Digital items to allow the customer to download if this option value is selected
+     * @param \ultracart\v2\models\ItemOptionValueDigitalItem[] $digital_items Digital items to allow the customer to download if this option value is selected
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Gets height
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getHeight()
     {
@@ -459,7 +459,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Sets height
      *
-     * @param \ultracartv2\models\Distance $height height
+     * @param \ultracart\v2\models\Distance $height height
      *
      * @return $this
      */
@@ -473,7 +473,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Gets length
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getLength()
     {
@@ -483,7 +483,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Sets length
      *
-     * @param \ultracartv2\models\Distance $length length
+     * @param \ultracart\v2\models\Distance $length length
      *
      * @return $this
      */
@@ -621,7 +621,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Gets weight_change
      *
-     * @return \ultracartv2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getWeightChange()
     {
@@ -631,7 +631,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Sets weight_change
      *
-     * @param \ultracartv2\models\Weight $weight_change weight_change
+     * @param \ultracart\v2\models\Weight $weight_change weight_change
      *
      * @return $this
      */
@@ -669,7 +669,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Gets width
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getWidth()
     {
@@ -679,7 +679,7 @@ class ItemOptionValue implements ModelInterface, ArrayAccess
     /**
      * Sets width
      *
-     * @param \ultracartv2\models\Distance $width width
+     * @param \ultracart\v2\models\Distance $width width
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemEbayMarketPlaceAnalysis Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -63,8 +63,8 @@ class ItemEbayMarketPlaceAnalysis implements ModelInterface, ArrayAccess
         'cogs' => 'float',
         'final_value_fee' => 'float',
         'minimum_advertised_price' => 'float',
-        'other_listings' => '\ultracartv2\models\ItemEbayMarketListing[]',
-        'our_listing' => '\ultracartv2\models\ItemEbayMarketListing',
+        'other_listings' => '\ultracart\v2\models\ItemEbayMarketListing[]',
+        'our_listing' => '\ultracart\v2\models\ItemEbayMarketListing',
         'overhead' => 'float',
         'profit_potential' => 'float'
     ];
@@ -405,7 +405,7 @@ class ItemEbayMarketPlaceAnalysis implements ModelInterface, ArrayAccess
     /**
      * Gets other_listings
      *
-     * @return \ultracartv2\models\ItemEbayMarketListing[]
+     * @return \ultracart\v2\models\ItemEbayMarketListing[]
      */
     public function getOtherListings()
     {
@@ -415,7 +415,7 @@ class ItemEbayMarketPlaceAnalysis implements ModelInterface, ArrayAccess
     /**
      * Sets other_listings
      *
-     * @param \ultracartv2\models\ItemEbayMarketListing[] $other_listings Other listings
+     * @param \ultracart\v2\models\ItemEbayMarketListing[] $other_listings Other listings
      *
      * @return $this
      */
@@ -429,7 +429,7 @@ class ItemEbayMarketPlaceAnalysis implements ModelInterface, ArrayAccess
     /**
      * Gets our_listing
      *
-     * @return \ultracartv2\models\ItemEbayMarketListing
+     * @return \ultracart\v2\models\ItemEbayMarketListing
      */
     public function getOurListing()
     {
@@ -439,7 +439,7 @@ class ItemEbayMarketPlaceAnalysis implements ModelInterface, ArrayAccess
     /**
      * Sets our_listing
      *
-     * @param \ultracartv2\models\ItemEbayMarketListing $our_listing our_listing
+     * @param \ultracart\v2\models\ItemEbayMarketListing $our_listing our_listing
      *
      * @return $this
      */

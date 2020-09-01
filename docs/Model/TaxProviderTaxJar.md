@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configuration** | [**\ultracartv2\models\TaxJarConfig**](TaxJarConfig.md) |  | [optional] 
+**configuration** | [**\ultracart\v2\models\TaxJarConfig**](TaxJarConfig.md) |  | [optional] 
 **description** | **string** | Description | [optional] 
 **selected** | **bool** | Selected | [optional] 
 **title** | **string** | Title | [optional] 

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailDomain Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,7 +58,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'comment' => 'string',
-        'dkim' => '\ultracartv2\models\VerificationRecord[]',
+        'dkim' => '\ultracart\v2\models\VerificationRecord[]',
         'dkim_status' => 'string',
         'domain' => 'string',
         'esp_domain_uuid' => 'string',
@@ -67,7 +67,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'provider' => 'string',
         'start_dkim_dts' => 'string',
         'start_identity_dts' => 'string',
-        'verification' => '\ultracartv2\models\VerificationRecord'
+        'verification' => '\ultracart\v2\models\VerificationRecord'
     ];
 
     /**
@@ -291,7 +291,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
     /**
      * Gets dkim
      *
-     * @return \ultracartv2\models\VerificationRecord[]
+     * @return \ultracart\v2\models\VerificationRecord[]
      */
     public function getDkim()
     {
@@ -301,7 +301,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
     /**
      * Sets dkim
      *
-     * @param \ultracartv2\models\VerificationRecord[] $dkim dkim
+     * @param \ultracart\v2\models\VerificationRecord[] $dkim dkim
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
     /**
      * Gets verification
      *
-     * @return \ultracartv2\models\VerificationRecord
+     * @return \ultracart\v2\models\VerificationRecord
      */
     public function getVerification()
     {
@@ -517,7 +517,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
     /**
      * Sets verification
      *
-     * @param \ultracartv2\models\VerificationRecord $verification verification
+     * @param \ultracart\v2\models\VerificationRecord $verification verification
      *
      * @return $this
      */

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * AffiliateClick Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -64,7 +64,7 @@ class AffiliateClick implements ModelInterface, ArrayAccess
         'ip_address' => 'string',
         'landing_page' => 'string',
         'landing_page_query_string' => 'string',
-        'link' => '\ultracartv2\models\AffiliateLink',
+        'link' => '\ultracart\v2\models\AffiliateLink',
         'referrer' => 'string',
         'referrer_query_string' => 'string',
         'sub_id' => 'string'
@@ -435,7 +435,7 @@ class AffiliateClick implements ModelInterface, ArrayAccess
     /**
      * Gets link
      *
-     * @return \ultracartv2\models\AffiliateLink
+     * @return \ultracart\v2\models\AffiliateLink
      */
     public function getLink()
     {
@@ -445,7 +445,7 @@ class AffiliateClick implements ModelInterface, ArrayAccess
     /**
      * Sets link
      *
-     * @param \ultracartv2\models\AffiliateLink $link link
+     * @param \ultracart\v2\models\AffiliateLink $link link
      *
      * @return $this
      */

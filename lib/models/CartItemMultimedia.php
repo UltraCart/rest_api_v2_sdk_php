@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartItemMultimedia Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -63,7 +63,7 @@ class CartItemMultimedia implements ModelInterface, ArrayAccess
         'image_height' => 'int',
         'image_width' => 'int',
         'is_default' => 'bool',
-        'thumbnails' => '\ultracartv2\models\CartItemMultimediaThumbnail[]',
+        'thumbnails' => '\ultracart\v2\models\CartItemMultimediaThumbnail[]',
         'type' => 'string',
         'url' => 'string'
     ];
@@ -428,7 +428,7 @@ class CartItemMultimedia implements ModelInterface, ArrayAccess
     /**
      * Gets thumbnails
      *
-     * @return \ultracartv2\models\CartItemMultimediaThumbnail[]
+     * @return \ultracart\v2\models\CartItemMultimediaThumbnail[]
      */
     public function getThumbnails()
     {
@@ -438,7 +438,7 @@ class CartItemMultimedia implements ModelInterface, ArrayAccess
     /**
      * Sets thumbnails
      *
-     * @param \ultracartv2\models\CartItemMultimediaThumbnail[] $thumbnails Thumbnails of the images
+     * @param \ultracart\v2\models\CartItemMultimediaThumbnail[] $thumbnails Thumbnails of the images
      *
      * @return $this
      */

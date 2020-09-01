@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **rank_json** | **string** | Rank settings json | [optional] 
 **rebuild_required** | **bool** | True if a rebuild is required because some part of the segment has changed | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
-**used_by** | [**\ultracartv2\models\EmailListSegmentUsedBy[]**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
+**used_by** | [**\ultracart\v2\models\EmailListSegmentUsedBy[]**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

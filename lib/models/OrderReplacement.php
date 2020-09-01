@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderReplacement Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -68,7 +68,7 @@ class OrderReplacement implements ModelInterface, ArrayAccess
         'custom_field7' => 'string',
         'free' => 'bool',
         'immediate_charge' => 'bool',
-        'items' => '\ultracartv2\models\OrderReplacementItem[]',
+        'items' => '\ultracart\v2\models\OrderReplacementItem[]',
         'original_order_id' => 'string',
         'shipping_method' => 'string',
         'skip_payment' => 'bool'
@@ -611,7 +611,7 @@ class OrderReplacement implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \ultracartv2\models\OrderReplacementItem[]
+     * @return \ultracart\v2\models\OrderReplacementItem[]
      */
     public function getItems()
     {
@@ -621,7 +621,7 @@ class OrderReplacement implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \ultracartv2\models\OrderReplacementItem[] $items Items to include in the replacement order
+     * @param \ultracart\v2\models\OrderReplacementItem[] $items Items to include in the replacement order
      *
      * @return $this
      */

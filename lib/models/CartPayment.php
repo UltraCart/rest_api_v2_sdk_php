@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartPayment Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,12 +57,12 @@ class CartPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'affirm' => '\ultracartv2\models\CartPaymentAffirm',
-        'amazon' => '\ultracartv2\models\CartPaymentAmazon',
-        'check' => '\ultracartv2\models\CartPaymentCheck',
-        'credit_card' => '\ultracartv2\models\CartPaymentCreditCard',
+        'affirm' => '\ultracart\v2\models\CartPaymentAffirm',
+        'amazon' => '\ultracart\v2\models\CartPaymentAmazon',
+        'check' => '\ultracart\v2\models\CartPaymentCheck',
+        'credit_card' => '\ultracart\v2\models\CartPaymentCreditCard',
         'payment_method' => 'string',
-        'purchase_order' => '\ultracartv2\models\CartPaymentPurchaseOrder',
+        'purchase_order' => '\ultracart\v2\models\CartPaymentPurchaseOrder',
         'rtg_code' => 'string'
     ];
 
@@ -243,7 +243,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Gets affirm
      *
-     * @return \ultracartv2\models\CartPaymentAffirm
+     * @return \ultracart\v2\models\CartPaymentAffirm
      */
     public function getAffirm()
     {
@@ -253,7 +253,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Sets affirm
      *
-     * @param \ultracartv2\models\CartPaymentAffirm $affirm affirm
+     * @param \ultracart\v2\models\CartPaymentAffirm $affirm affirm
      *
      * @return $this
      */
@@ -267,7 +267,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Gets amazon
      *
-     * @return \ultracartv2\models\CartPaymentAmazon
+     * @return \ultracart\v2\models\CartPaymentAmazon
      */
     public function getAmazon()
     {
@@ -277,7 +277,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Sets amazon
      *
-     * @param \ultracartv2\models\CartPaymentAmazon $amazon amazon
+     * @param \ultracart\v2\models\CartPaymentAmazon $amazon amazon
      *
      * @return $this
      */
@@ -291,7 +291,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Gets check
      *
-     * @return \ultracartv2\models\CartPaymentCheck
+     * @return \ultracart\v2\models\CartPaymentCheck
      */
     public function getCheck()
     {
@@ -301,7 +301,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Sets check
      *
-     * @param \ultracartv2\models\CartPaymentCheck $check check
+     * @param \ultracart\v2\models\CartPaymentCheck $check check
      *
      * @return $this
      */
@@ -315,7 +315,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Gets credit_card
      *
-     * @return \ultracartv2\models\CartPaymentCreditCard
+     * @return \ultracart\v2\models\CartPaymentCreditCard
      */
     public function getCreditCard()
     {
@@ -325,7 +325,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Sets credit_card
      *
-     * @param \ultracartv2\models\CartPaymentCreditCard $credit_card credit_card
+     * @param \ultracart\v2\models\CartPaymentCreditCard $credit_card credit_card
      *
      * @return $this
      */
@@ -363,7 +363,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Gets purchase_order
      *
-     * @return \ultracartv2\models\CartPaymentPurchaseOrder
+     * @return \ultracart\v2\models\CartPaymentPurchaseOrder
      */
     public function getPurchaseOrder()
     {
@@ -373,7 +373,7 @@ class CartPayment implements ModelInterface, ArrayAccess
     /**
      * Sets purchase_order
      *
-     * @param \ultracartv2\models\CartPaymentPurchaseOrder $purchase_order purchase_order
+     * @param \ultracart\v2\models\CartPaymentPurchaseOrder $purchase_order purchase_order
      *
      * @return $this
      */

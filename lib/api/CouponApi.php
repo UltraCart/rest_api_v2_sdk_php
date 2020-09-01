@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * CouponApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -94,9 +94,9 @@ class CouponApi
      *
      * @param  int $coupon_oid The coupon_oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponResponse
+     * @return \ultracart\v2\models\CouponResponse
      */
     public function deleteCoupon($coupon_oid)
     {
@@ -111,13 +111,13 @@ class CouponApi
      *
      * @param  int $coupon_oid The coupon_oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCouponWithHttpInfo($coupon_oid)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->deleteCouponRequest($coupon_oid);
 
         try {
@@ -169,7 +169,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponResponse',
+                        '\ultracart\v2\models\CouponResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -177,7 +177,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -185,7 +185,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -193,7 +193,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -201,7 +201,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -209,7 +209,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -251,7 +251,7 @@ class CouponApi
      */
     public function deleteCouponAsyncWithHttpInfo($coupon_oid)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->deleteCouponRequest($coupon_oid);
 
         return $this->client
@@ -411,11 +411,11 @@ class CouponApi
      * Generates one time codes for a coupon
      *
      * @param  int $coupon_oid The coupon oid to generate codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponCodesResponse
+     * @return \ultracart\v2\models\CouponCodesResponse
      */
     public function generateCouponCodes($coupon_oid, $coupon_codes_request)
     {
@@ -429,15 +429,15 @@ class CouponApi
      * Generates one time codes for a coupon
      *
      * @param  int $coupon_oid The coupon oid to generate codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponCodesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponCodesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateCouponCodesWithHttpInfo($coupon_oid, $coupon_codes_request)
     {
-        $returnType = '\ultracartv2\models\CouponCodesResponse';
+        $returnType = '\ultracart\v2\models\CouponCodesResponse';
         $request = $this->generateCouponCodesRequest($coupon_oid, $coupon_codes_request);
 
         try {
@@ -489,7 +489,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponCodesResponse',
+                        '\ultracart\v2\models\CouponCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -497,7 +497,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -505,7 +505,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -513,7 +513,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -521,7 +521,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -529,7 +529,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -545,7 +545,7 @@ class CouponApi
      * Generates one time codes for a coupon
      *
      * @param  int $coupon_oid The coupon oid to generate codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -566,14 +566,14 @@ class CouponApi
      * Generates one time codes for a coupon
      *
      * @param  int $coupon_oid The coupon oid to generate codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function generateCouponCodesAsyncWithHttpInfo($coupon_oid, $coupon_codes_request)
     {
-        $returnType = '\ultracartv2\models\CouponCodesResponse';
+        $returnType = '\ultracart\v2\models\CouponCodesResponse';
         $request = $this->generateCouponCodesRequest($coupon_oid, $coupon_codes_request);
 
         return $this->client
@@ -617,7 +617,7 @@ class CouponApi
      * Create request for operation 'generateCouponCodes'
      *
      * @param  int $coupon_oid The coupon oid to generate codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -743,11 +743,11 @@ class CouponApi
      * Generates one time codes by merchant code
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponCodesResponse
+     * @return \ultracart\v2\models\CouponCodesResponse
      */
     public function generateOneTimeCodesByMerchantCode($merchant_code, $coupon_codes_request)
     {
@@ -761,15 +761,15 @@ class CouponApi
      * Generates one time codes by merchant code
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponCodesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponCodesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generateOneTimeCodesByMerchantCodeWithHttpInfo($merchant_code, $coupon_codes_request)
     {
-        $returnType = '\ultracartv2\models\CouponCodesResponse';
+        $returnType = '\ultracart\v2\models\CouponCodesResponse';
         $request = $this->generateOneTimeCodesByMerchantCodeRequest($merchant_code, $coupon_codes_request);
 
         try {
@@ -821,7 +821,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponCodesResponse',
+                        '\ultracart\v2\models\CouponCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -829,7 +829,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -837,7 +837,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -845,7 +845,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -853,7 +853,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -861,7 +861,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -877,7 +877,7 @@ class CouponApi
      * Generates one time codes by merchant code
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -898,14 +898,14 @@ class CouponApi
      * Generates one time codes by merchant code
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function generateOneTimeCodesByMerchantCodeAsyncWithHttpInfo($merchant_code, $coupon_codes_request)
     {
-        $returnType = '\ultracartv2\models\CouponCodesResponse';
+        $returnType = '\ultracart\v2\models\CouponCodesResponse';
         $request = $this->generateOneTimeCodesByMerchantCodeRequest($merchant_code, $coupon_codes_request);
 
         return $this->client
@@ -949,7 +949,7 @@ class CouponApi
      * Create request for operation 'generateOneTimeCodesByMerchantCode'
      *
      * @param  string $merchant_code The merchant code to generate one time codes. (required)
-     * @param  \ultracartv2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1077,9 +1077,9 @@ class CouponApi
      * @param  int $coupon_oid The coupon oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponResponse
+     * @return \ultracart\v2\models\CouponResponse
      */
     public function getCoupon($coupon_oid, $_expand = null)
     {
@@ -1095,13 +1095,13 @@ class CouponApi
      * @param  int $coupon_oid The coupon oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCouponWithHttpInfo($coupon_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->getCouponRequest($coupon_oid, $_expand);
 
         try {
@@ -1153,7 +1153,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponResponse',
+                        '\ultracart\v2\models\CouponResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1161,7 +1161,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1169,7 +1169,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1177,7 +1177,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1185,7 +1185,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1193,7 +1193,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1237,7 +1237,7 @@ class CouponApi
      */
     public function getCouponAsyncWithHttpInfo($coupon_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->getCouponRequest($coupon_oid, $_expand);
 
         return $this->client
@@ -1404,9 +1404,9 @@ class CouponApi
      * @param  string $merchant_code The coupon merchant code to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponResponse
+     * @return \ultracart\v2\models\CouponResponse
      */
     public function getCouponByMerchantCode($merchant_code, $_expand = null)
     {
@@ -1422,13 +1422,13 @@ class CouponApi
      * @param  string $merchant_code The coupon merchant code to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCouponByMerchantCodeWithHttpInfo($merchant_code, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->getCouponByMerchantCodeRequest($merchant_code, $_expand);
 
         try {
@@ -1480,7 +1480,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponResponse',
+                        '\ultracart\v2\models\CouponResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1488,7 +1488,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1496,7 +1496,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1504,7 +1504,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1512,7 +1512,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1520,7 +1520,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1564,7 +1564,7 @@ class CouponApi
      */
     public function getCouponByMerchantCodeAsyncWithHttpInfo($merchant_code, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->getCouponByMerchantCodeRequest($merchant_code, $_expand);
 
         return $this->client
@@ -1742,9 +1742,9 @@ class CouponApi
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponsResponse
+     * @return \ultracart\v2\models\CouponsResponse
      */
     public function getCoupons($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
@@ -1771,13 +1771,13 @@ class CouponApi
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCouponsWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponsResponse';
+        $returnType = '\ultracart\v2\models\CouponsResponse';
         $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
 
         try {
@@ -1829,7 +1829,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponsResponse',
+                        '\ultracart\v2\models\CouponsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1837,7 +1837,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1845,7 +1845,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1853,7 +1853,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1861,7 +1861,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1869,7 +1869,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1935,7 +1935,7 @@ class CouponApi
      */
     public function getCouponsAsyncWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponsResponse';
+        $returnType = '\ultracart\v2\models\CouponsResponse';
         $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
 
         return $this->client
@@ -2144,15 +2144,15 @@ class CouponApi
      *
      * Retrieve coupons by query
      *
-     * @param  \ultracartv2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponsResponse
+     * @return \ultracart\v2\models\CouponsResponse
      */
     public function getCouponsByQuery($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
@@ -2165,19 +2165,19 @@ class CouponApi
      *
      * Retrieve coupons by query
      *
-     * @param  \ultracartv2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCouponsByQueryWithHttpInfo($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponsResponse';
+        $returnType = '\ultracart\v2\models\CouponsResponse';
         $request = $this->getCouponsByQueryRequest($coupon_query, $_limit, $_offset, $_sort, $_expand);
 
         try {
@@ -2229,7 +2229,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponsResponse',
+                        '\ultracart\v2\models\CouponsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2237,7 +2237,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2245,7 +2245,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2253,7 +2253,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2261,7 +2261,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2269,7 +2269,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2284,7 +2284,7 @@ class CouponApi
      *
      * Retrieve coupons by query
      *
-     * @param  \ultracartv2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -2308,7 +2308,7 @@ class CouponApi
      *
      * Retrieve coupons by query
      *
-     * @param  \ultracartv2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -2319,7 +2319,7 @@ class CouponApi
      */
     public function getCouponsByQueryAsyncWithHttpInfo($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponsResponse';
+        $returnType = '\ultracart\v2\models\CouponsResponse';
         $request = $this->getCouponsByQueryRequest($coupon_query, $_limit, $_offset, $_sort, $_expand);
 
         return $this->client
@@ -2362,7 +2362,7 @@ class CouponApi
     /**
      * Create request for operation 'getCouponsByQuery'
      *
-     * @param  \ultracartv2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -2494,9 +2494,9 @@ class CouponApi
      * Retrieve values needed for a coupon editor
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponEditorValues
+     * @return \ultracart\v2\models\CouponEditorValues
      */
     public function getEditorValues()
     {
@@ -2510,13 +2510,13 @@ class CouponApi
      * Retrieve values needed for a coupon editor
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponEditorValues, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponEditorValues, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEditorValuesWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\CouponEditorValues';
+        $returnType = '\ultracart\v2\models\CouponEditorValues';
         $request = $this->getEditorValuesRequest();
 
         try {
@@ -2568,7 +2568,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponEditorValues',
+                        '\ultracart\v2\models\CouponEditorValues',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2576,7 +2576,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2584,7 +2584,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2592,7 +2592,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2600,7 +2600,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2608,7 +2608,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2648,7 +2648,7 @@ class CouponApi
      */
     public function getEditorValuesAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\CouponEditorValues';
+        $returnType = '\ultracart\v2\models\CouponEditorValues';
         $request = $this->getEditorValuesRequest();
 
         return $this->client
@@ -2792,12 +2792,12 @@ class CouponApi
      *
      * Insert a coupon
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to insert (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponResponse
+     * @return \ultracart\v2\models\CouponResponse
      */
     public function insertCoupon($coupon, $_expand = null)
     {
@@ -2810,16 +2810,16 @@ class CouponApi
      *
      * Insert a coupon
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to insert (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertCouponWithHttpInfo($coupon, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->insertCouponRequest($coupon, $_expand);
 
         try {
@@ -2871,7 +2871,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponResponse',
+                        '\ultracart\v2\models\CouponResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2879,7 +2879,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2887,7 +2887,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2895,7 +2895,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2903,7 +2903,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2911,7 +2911,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2926,7 +2926,7 @@ class CouponApi
      *
      * Insert a coupon
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to insert (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2947,7 +2947,7 @@ class CouponApi
      *
      * Insert a coupon
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to insert (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2955,7 +2955,7 @@ class CouponApi
      */
     public function insertCouponAsyncWithHttpInfo($coupon, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->insertCouponRequest($coupon, $_expand);
 
         return $this->client
@@ -2998,7 +2998,7 @@ class CouponApi
     /**
      * Create request for operation 'insertCoupon'
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to insert (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -3114,13 +3114,13 @@ class CouponApi
      *
      * Update a coupon
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to update (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
      * @param  int $coupon_oid The coupon_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\CouponResponse
+     * @return \ultracart\v2\models\CouponResponse
      */
     public function updateCoupon($coupon, $coupon_oid, $_expand = null)
     {
@@ -3133,17 +3133,17 @@ class CouponApi
      *
      * Update a coupon
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to update (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
      * @param  int $coupon_oid The coupon_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCouponWithHttpInfo($coupon, $coupon_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->updateCouponRequest($coupon, $coupon_oid, $_expand);
 
         try {
@@ -3195,7 +3195,7 @@ class CouponApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\CouponResponse',
+                        '\ultracart\v2\models\CouponResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3203,7 +3203,7 @@ class CouponApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3211,7 +3211,7 @@ class CouponApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3219,7 +3219,7 @@ class CouponApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3227,7 +3227,7 @@ class CouponApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3235,7 +3235,7 @@ class CouponApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3250,7 +3250,7 @@ class CouponApi
      *
      * Update a coupon
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to update (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
      * @param  int $coupon_oid The coupon_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -3272,7 +3272,7 @@ class CouponApi
      *
      * Update a coupon
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to update (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
      * @param  int $coupon_oid The coupon_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -3281,7 +3281,7 @@ class CouponApi
      */
     public function updateCouponAsyncWithHttpInfo($coupon, $coupon_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\CouponResponse';
+        $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->updateCouponRequest($coupon, $coupon_oid, $_expand);
 
         return $this->client
@@ -3324,7 +3324,7 @@ class CouponApi
     /**
      * Create request for operation 'updateCoupon'
      *
-     * @param  \ultracartv2\models\Coupon $coupon Coupon to update (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
      * @param  int $coupon_oid The coupon_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *

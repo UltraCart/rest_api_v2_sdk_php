@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **status** | **string** | Status of campaign or flow | [optional] 
 **status_dts** | **string** | Status dts of campaign or flow | [optional] 
 **step_uuid** | **string** | Step UUID if the statistics are at the step/email level | [optional] 
-**steps** | [**\ultracartv2\models\EmailStat[]**](EmailStat.md) |  | [optional] 
+**steps** | [**\ultracart\v2\models\EmailStat[]**](EmailStat.md) |  | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 **unsubscribe_count** | **int** | Count of emails classified as unsubscribe | [optional] 
 **unsubscribe_count_formatted** | **string** | Count of emails classified as unsubscribe, formatted | [optional] 

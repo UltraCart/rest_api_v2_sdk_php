@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payload_name** | **string** | Payload name | [optional] 
-**result_set** | [**\ultracartv2\models\ResultSet**](ResultSet.md) |  | [optional] 
+**result_set** | [**\ultracart\v2\models\ResultSet**](ResultSet.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

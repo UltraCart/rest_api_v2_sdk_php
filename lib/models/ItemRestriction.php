@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemRestriction Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,7 +59,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'exclude_coupon' => 'bool',
         'exclude_from_free_promotion' => 'bool',
-        'items' => '\ultracartv2\models\ItemRestrictionItem[]',
+        'items' => '\ultracart\v2\models\ItemRestrictionItem[]',
         'maximum_quantity' => 'int',
         'minimum_quantity' => 'int',
         'multiple_quantity' => 'int',
@@ -297,7 +297,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \ultracartv2\models\ItemRestrictionItem[]
+     * @return \ultracart\v2\models\ItemRestrictionItem[]
      */
     public function getItems()
     {
@@ -307,7 +307,7 @@ class ItemRestriction implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \ultracartv2\models\ItemRestrictionItem[] $items Items
+     * @param \ultracart\v2\models\ItemRestrictionItem[] $items Items
      *
      * @return $this
      */

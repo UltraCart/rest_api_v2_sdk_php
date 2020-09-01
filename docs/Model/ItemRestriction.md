@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exclude_coupon** | **bool** | Exclude coupons | [optional] 
 **exclude_from_free_promotion** | **bool** | Exclude from free promotion | [optional] 
-**items** | [**\ultracartv2\models\ItemRestrictionItem[]**](ItemRestrictionItem.md) | Items | [optional] 
+**items** | [**\ultracart\v2\models\ItemRestrictionItem[]**](ItemRestrictionItem.md) | Items | [optional] 
 **maximum_quantity** | **int** | Maximum quantity | [optional] 
 **minimum_quantity** | **int** | Minimum quantity (defaults to 1) | [optional] 
 **multiple_quantity** | **int** | Multiple of quantity | [optional] 

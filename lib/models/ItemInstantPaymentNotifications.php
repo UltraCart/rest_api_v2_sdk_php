@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemInstantPaymentNotifications Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class ItemInstantPaymentNotifications implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'notifications' => '\ultracartv2\models\ItemInstantPaymentNotification[]'
+        'notifications' => '\ultracart\v2\models\ItemInstantPaymentNotification[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ItemInstantPaymentNotifications implements ModelInterface, ArrayAccess
     /**
      * Gets notifications
      *
-     * @return \ultracartv2\models\ItemInstantPaymentNotification[]
+     * @return \ultracart\v2\models\ItemInstantPaymentNotification[]
      */
     public function getNotifications()
     {
@@ -217,7 +217,7 @@ class ItemInstantPaymentNotifications implements ModelInterface, ArrayAccess
     /**
      * Sets notifications
      *
-     * @param \ultracartv2\models\ItemInstantPaymentNotification[] $notifications Notifications
+     * @param \ultracart\v2\models\ItemInstantPaymentNotification[] $notifications Notifications
      *
      * @return $this
      */

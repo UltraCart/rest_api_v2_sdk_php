@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemKitDefinition Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class ItemKitDefinition implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'components' => '\ultracartv2\models\ItemKitComponent[]'
+        'components' => '\ultracart\v2\models\ItemKitComponent[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class ItemKitDefinition implements ModelInterface, ArrayAccess
     /**
      * Gets components
      *
-     * @return \ultracartv2\models\ItemKitComponent[]
+     * @return \ultracart\v2\models\ItemKitComponent[]
      */
     public function getComponents()
     {
@@ -217,7 +217,7 @@ class ItemKitDefinition implements ModelInterface, ArrayAccess
     /**
      * Sets components
      *
-     * @param \ultracartv2\models\ItemKitComponent[] $components Components
+     * @param \ultracart\v2\models\ItemKitComponent[] $components Components
      *
      * @return $this
      */

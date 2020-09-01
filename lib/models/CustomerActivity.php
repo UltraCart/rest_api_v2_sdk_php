@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CustomerActivity Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,10 +57,10 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'activities' => '\ultracartv2\models\Activity[]',
-        'memberships' => '\ultracartv2\models\ListSegmentMembership[]',
-        'metrics' => '\ultracartv2\models\Metric[]',
-        'properties_list' => '\ultracartv2\models\Property[]'
+        'activities' => '\ultracart\v2\models\Activity[]',
+        'memberships' => '\ultracart\v2\models\ListSegmentMembership[]',
+        'metrics' => '\ultracart\v2\models\Metric[]',
+        'properties_list' => '\ultracart\v2\models\Property[]'
     ];
 
     /**
@@ -225,7 +225,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     /**
      * Gets activities
      *
-     * @return \ultracartv2\models\Activity[]
+     * @return \ultracart\v2\models\Activity[]
      */
     public function getActivities()
     {
@@ -235,7 +235,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     /**
      * Sets activities
      *
-     * @param \ultracartv2\models\Activity[] $activities activities
+     * @param \ultracart\v2\models\Activity[] $activities activities
      *
      * @return $this
      */
@@ -249,7 +249,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     /**
      * Gets memberships
      *
-     * @return \ultracartv2\models\ListSegmentMembership[]
+     * @return \ultracart\v2\models\ListSegmentMembership[]
      */
     public function getMemberships()
     {
@@ -259,7 +259,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     /**
      * Sets memberships
      *
-     * @param \ultracartv2\models\ListSegmentMembership[] $memberships memberships
+     * @param \ultracart\v2\models\ListSegmentMembership[] $memberships memberships
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     /**
      * Gets metrics
      *
-     * @return \ultracartv2\models\Metric[]
+     * @return \ultracart\v2\models\Metric[]
      */
     public function getMetrics()
     {
@@ -283,7 +283,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     /**
      * Sets metrics
      *
-     * @param \ultracartv2\models\Metric[] $metrics metrics
+     * @param \ultracart\v2\models\Metric[] $metrics metrics
      *
      * @return $this
      */
@@ -297,7 +297,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     /**
      * Gets properties_list
      *
-     * @return \ultracartv2\models\Property[]
+     * @return \ultracart\v2\models\Property[]
      */
     public function getPropertiesList()
     {
@@ -307,7 +307,7 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     /**
      * Sets properties_list
      *
-     * @param \ultracartv2\models\Property[] $properties_list properties_list
+     * @param \ultracart\v2\models\Property[] $properties_list properties_list
      *
      * @return $this
      */

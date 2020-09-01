@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * Experiment Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -73,7 +73,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'storefront_experiment_oid' => 'int',
         'storefront_oid' => 'int',
         'uri' => 'string',
-        'variations' => '\ultracartv2\models\ExperimentVariation[]'
+        'variations' => '\ultracart\v2\models\ExperimentVariation[]'
     ];
 
     /**
@@ -721,7 +721,7 @@ class Experiment implements ModelInterface, ArrayAccess
     /**
      * Gets variations
      *
-     * @return \ultracartv2\models\ExperimentVariation[]
+     * @return \ultracart\v2\models\ExperimentVariation[]
      */
     public function getVariations()
     {
@@ -731,7 +731,7 @@ class Experiment implements ModelInterface, ArrayAccess
     /**
      * Sets variations
      *
-     * @param \ultracartv2\models\ExperimentVariation[] $variations Variations being tested in the experiment
+     * @param \ultracart\v2\models\ExperimentVariation[] $variations Variations being tested in the experiment
      *
      * @return $this
      */

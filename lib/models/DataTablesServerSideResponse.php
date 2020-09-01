@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * DataTablesServerSideResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\ultracartv2\models\Customer[]',
+        'data' => '\ultracart\v2\models\Customer[]',
         'draw' => 'int',
         'records_filtered' => 'int',
         'records_total' => 'int'
@@ -225,7 +225,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \ultracartv2\models\Customer[]
+     * @return \ultracart\v2\models\Customer[]
      */
     public function getData()
     {
@@ -235,7 +235,7 @@ class DataTablesServerSideResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \ultracartv2\models\Customer[] $data data
+     * @param \ultracart\v2\models\Customer[] $data data
      *
      * @return $this
      */

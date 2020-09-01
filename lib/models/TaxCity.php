@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxCity Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -63,7 +63,7 @@ class TaxCity implements ModelInterface, ArrayAccess
         'county_oid' => 'int',
         'dont_collect_city' => 'bool',
         'dont_collect_postal_code' => 'bool',
-        'postal_codes' => '\ultracartv2\models\TaxPostalCode[]',
+        'postal_codes' => '\ultracart\v2\models\TaxPostalCode[]',
         'tax_rate' => 'float',
         'tax_rate_formatted' => 'string'
     ];
@@ -399,7 +399,7 @@ class TaxCity implements ModelInterface, ArrayAccess
     /**
      * Gets postal_codes
      *
-     * @return \ultracartv2\models\TaxPostalCode[]
+     * @return \ultracart\v2\models\TaxPostalCode[]
      */
     public function getPostalCodes()
     {
@@ -409,7 +409,7 @@ class TaxCity implements ModelInterface, ArrayAccess
     /**
      * Sets postal_codes
      *
-     * @param \ultracartv2\models\TaxPostalCode[] $postal_codes Postal Codes within this city
+     * @param \ultracart\v2\models\TaxPostalCode[] $postal_codes Postal Codes within this city
      *
      * @return $this
      */

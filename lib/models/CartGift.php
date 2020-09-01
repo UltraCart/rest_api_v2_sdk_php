@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartGift Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,10 +58,10 @@ class CartGift implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'gift' => 'bool',
-        'gift_charge' => '\ultracartv2\models\Currency',
+        'gift_charge' => '\ultracart\v2\models\Currency',
         'gift_email' => 'string',
         'gift_message' => 'string',
-        'gift_wrap_cost' => '\ultracartv2\models\Currency',
+        'gift_wrap_cost' => '\ultracart\v2\models\Currency',
         'gift_wrap_title' => 'string'
     ];
 
@@ -273,7 +273,7 @@ class CartGift implements ModelInterface, ArrayAccess
     /**
      * Gets gift_charge
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftCharge()
     {
@@ -283,7 +283,7 @@ class CartGift implements ModelInterface, ArrayAccess
     /**
      * Sets gift_charge
      *
-     * @param \ultracartv2\models\Currency $gift_charge gift_charge
+     * @param \ultracart\v2\models\Currency $gift_charge gift_charge
      *
      * @return $this
      */
@@ -353,7 +353,7 @@ class CartGift implements ModelInterface, ArrayAccess
     /**
      * Gets gift_wrap_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getGiftWrapCost()
     {
@@ -363,7 +363,7 @@ class CartGift implements ModelInterface, ArrayAccess
     /**
      * Sets gift_wrap_cost
      *
-     * @param \ultracartv2\models\Currency $gift_wrap_cost gift_wrap_cost
+     * @param \ultracart\v2\models\Currency $gift_wrap_cost gift_wrap_cost
      *
      * @return $this
      */

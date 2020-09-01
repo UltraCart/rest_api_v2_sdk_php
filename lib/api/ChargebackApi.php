@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * ChargebackApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -94,9 +94,9 @@ class ChargebackApi
      *
      * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ChargebackDisputeResponse
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
      */
     public function deleteChargeback($chargeback_dispute_oid)
     {
@@ -111,13 +111,13 @@ class ChargebackApi
      *
      * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteChargebackWithHttpInfo($chargeback_dispute_oid)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputeResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->deleteChargebackRequest($chargeback_dispute_oid);
 
         try {
@@ -169,7 +169,7 @@ class ChargebackApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ChargebackDisputeResponse',
+                        '\ultracart\v2\models\ChargebackDisputeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -177,7 +177,7 @@ class ChargebackApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -185,7 +185,7 @@ class ChargebackApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -193,7 +193,7 @@ class ChargebackApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -201,7 +201,7 @@ class ChargebackApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -209,7 +209,7 @@ class ChargebackApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -251,7 +251,7 @@ class ChargebackApi
      */
     public function deleteChargebackAsyncWithHttpInfo($chargeback_dispute_oid)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputeResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->deleteChargebackRequest($chargeback_dispute_oid);
 
         return $this->client
@@ -413,9 +413,9 @@ class ChargebackApi
      * @param  int $chargeback_dispute_oid The chargeback dispute oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ChargebackDisputeResponse
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
      */
     public function getChargebackDispute($chargeback_dispute_oid, $_expand = null)
     {
@@ -431,13 +431,13 @@ class ChargebackApi
      * @param  int $chargeback_dispute_oid The chargeback dispute oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getChargebackDisputeWithHttpInfo($chargeback_dispute_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputeResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->getChargebackDisputeRequest($chargeback_dispute_oid, $_expand);
 
         try {
@@ -489,7 +489,7 @@ class ChargebackApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ChargebackDisputeResponse',
+                        '\ultracart\v2\models\ChargebackDisputeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -497,7 +497,7 @@ class ChargebackApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -505,7 +505,7 @@ class ChargebackApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -513,7 +513,7 @@ class ChargebackApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -521,7 +521,7 @@ class ChargebackApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -529,7 +529,7 @@ class ChargebackApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -573,7 +573,7 @@ class ChargebackApi
      */
     public function getChargebackDisputeAsyncWithHttpInfo($chargeback_dispute_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputeResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->getChargebackDisputeRequest($chargeback_dispute_oid, $_expand);
 
         return $this->client
@@ -750,9 +750,9 @@ class ChargebackApi
      * @param  string $_sort The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ChargebackDisputesResponse
+     * @return \ultracart\v2\models\ChargebackDisputesResponse
      */
     public function getChargebackDisputes($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
@@ -778,13 +778,13 @@ class ChargebackApi
      * @param  string $_sort The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ChargebackDisputesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ChargebackDisputesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getChargebackDisputesWithHttpInfo($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputesResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputesResponse';
         $request = $this->getChargebackDisputesRequest($order_id, $case_number, $status, $expiration_dts_start, $expiration_dts_end, $chargeback_dts_start, $chargeback_dts_end, $_limit, $_offset, $_since, $_sort, $_expand);
 
         try {
@@ -836,7 +836,7 @@ class ChargebackApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ChargebackDisputesResponse',
+                        '\ultracart\v2\models\ChargebackDisputesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -844,7 +844,7 @@ class ChargebackApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -852,7 +852,7 @@ class ChargebackApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -860,7 +860,7 @@ class ChargebackApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -868,7 +868,7 @@ class ChargebackApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -876,7 +876,7 @@ class ChargebackApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -940,7 +940,7 @@ class ChargebackApi
      */
     public function getChargebackDisputesAsyncWithHttpInfo($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputesResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputesResponse';
         $request = $this->getChargebackDisputesRequest($order_id, $case_number, $status, $expiration_dts_start, $expiration_dts_end, $chargeback_dts_start, $chargeback_dts_end, $_limit, $_offset, $_since, $_sort, $_expand);
 
         return $this->client
@@ -1144,12 +1144,12 @@ class ChargebackApi
      *
      * Insert a chargeback
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ChargebackDisputeResponse
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
      */
     public function insertChargeback($chargeback, $_expand = null)
     {
@@ -1162,16 +1162,16 @@ class ChargebackApi
      *
      * Insert a chargeback
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertChargebackWithHttpInfo($chargeback, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputeResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->insertChargebackRequest($chargeback, $_expand);
 
         try {
@@ -1223,7 +1223,7 @@ class ChargebackApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ChargebackDisputeResponse',
+                        '\ultracart\v2\models\ChargebackDisputeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1231,7 +1231,7 @@ class ChargebackApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1239,7 +1239,7 @@ class ChargebackApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1247,7 +1247,7 @@ class ChargebackApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1255,7 +1255,7 @@ class ChargebackApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1263,7 +1263,7 @@ class ChargebackApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1278,7 +1278,7 @@ class ChargebackApi
      *
      * Insert a chargeback
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -1299,7 +1299,7 @@ class ChargebackApi
      *
      * Insert a chargeback
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -1307,7 +1307,7 @@ class ChargebackApi
      */
     public function insertChargebackAsyncWithHttpInfo($chargeback, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputeResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->insertChargebackRequest($chargeback, $_expand);
 
         return $this->client
@@ -1350,7 +1350,7 @@ class ChargebackApi
     /**
      * Create request for operation 'insertChargeback'
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -1466,13 +1466,13 @@ class ChargebackApi
      *
      * Update a chargeback
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
      * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\ChargebackDisputeResponse
+     * @return \ultracart\v2\models\ChargebackDisputeResponse
      */
     public function updateChargeback($chargeback, $chargeback_dispute_oid, $_expand = null)
     {
@@ -1485,17 +1485,17 @@ class ChargebackApi
      *
      * Update a chargeback
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
      * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateChargebackWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputeResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->updateChargebackRequest($chargeback, $chargeback_dispute_oid, $_expand);
 
         try {
@@ -1547,7 +1547,7 @@ class ChargebackApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ChargebackDisputeResponse',
+                        '\ultracart\v2\models\ChargebackDisputeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1555,7 +1555,7 @@ class ChargebackApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1563,7 +1563,7 @@ class ChargebackApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1571,7 +1571,7 @@ class ChargebackApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1579,7 +1579,7 @@ class ChargebackApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1587,7 +1587,7 @@ class ChargebackApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1602,7 +1602,7 @@ class ChargebackApi
      *
      * Update a chargeback
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
      * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -1624,7 +1624,7 @@ class ChargebackApi
      *
      * Update a chargeback
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
      * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
@@ -1633,7 +1633,7 @@ class ChargebackApi
      */
     public function updateChargebackAsyncWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand = null)
     {
-        $returnType = '\ultracartv2\models\ChargebackDisputeResponse';
+        $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->updateChargebackRequest($chargeback, $chargeback_dispute_oid, $_expand);
 
         return $this->client
@@ -1676,7 +1676,7 @@ class ChargebackApi
     /**
      * Create request for operation 'updateChargeback'
      *
-     * @param  \ultracartv2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
      * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *

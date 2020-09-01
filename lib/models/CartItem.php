@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartItem Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,34 +57,34 @@ class CartItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'arbitrary_unit_cost' => '\ultracartv2\models\Currency',
-        'attributes' => '\ultracartv2\models\CartItemAttribute[]',
+        'arbitrary_unit_cost' => '\ultracart\v2\models\Currency',
+        'attributes' => '\ultracart\v2\models\CartItemAttribute[]',
         'auto_order_schedule' => 'string',
         'default_image_url' => 'string',
         'default_thumbnail_url' => 'string',
         'description' => 'string',
-        'discount' => '\ultracartv2\models\Currency',
+        'discount' => '\ultracart\v2\models\Currency',
         'extended_description' => 'string',
         'item_id' => 'string',
         'item_oid' => 'int',
         'kit' => 'bool',
-        'kit_component_options' => '\ultracartv2\models\CartKitComponentOption[]',
-        'manufacturer_suggested_retail_price' => '\ultracartv2\models\Currency',
+        'kit_component_options' => '\ultracart\v2\models\CartKitComponentOption[]',
+        'manufacturer_suggested_retail_price' => '\ultracart\v2\models\Currency',
         'maximum_quantity' => 'float',
         'minimum_quantity' => 'float',
-        'multimedia' => '\ultracartv2\models\CartItemMultimedia[]',
-        'options' => '\ultracartv2\models\CartItemOption[]',
-        'phsyical' => '\ultracartv2\models\CartItemPhysical',
+        'multimedia' => '\ultracart\v2\models\CartItemMultimedia[]',
+        'options' => '\ultracart\v2\models\CartItemOption[]',
+        'phsyical' => '\ultracart\v2\models\CartItemPhysical',
         'position' => 'int',
         'preorder' => 'bool',
         'quantity' => 'float',
         'schedules' => 'string[]',
-        'total_cost' => '\ultracartv2\models\Currency',
-        'total_cost_with_discount' => '\ultracartv2\models\Currency',
-        'unit_cost' => '\ultracartv2\models\Currency',
-        'unit_cost_with_discount' => '\ultracartv2\models\Currency',
+        'total_cost' => '\ultracart\v2\models\Currency',
+        'total_cost_with_discount' => '\ultracart\v2\models\Currency',
+        'unit_cost' => '\ultracart\v2\models\Currency',
+        'unit_cost_with_discount' => '\ultracart\v2\models\Currency',
         'upsell' => 'bool',
-        'variations' => '\ultracartv2\models\CartItemVariationSelection[]',
+        'variations' => '\ultracart\v2\models\CartItemVariationSelection[]',
         'view_url' => 'string'
     ];
 
@@ -375,7 +375,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets arbitrary_unit_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getArbitraryUnitCost()
     {
@@ -385,7 +385,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets arbitrary_unit_cost
      *
-     * @param \ultracartv2\models\Currency $arbitrary_unit_cost arbitrary_unit_cost
+     * @param \ultracart\v2\models\Currency $arbitrary_unit_cost arbitrary_unit_cost
      *
      * @return $this
      */
@@ -399,7 +399,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets attributes
      *
-     * @return \ultracartv2\models\CartItemAttribute[]
+     * @return \ultracart\v2\models\CartItemAttribute[]
      */
     public function getAttributes()
     {
@@ -409,7 +409,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param \ultracartv2\models\CartItemAttribute[] $attributes Attributes
+     * @param \ultracart\v2\models\CartItemAttribute[] $attributes Attributes
      *
      * @return $this
      */
@@ -519,7 +519,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets discount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getDiscount()
     {
@@ -529,7 +529,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets discount
      *
-     * @param \ultracartv2\models\Currency $discount discount
+     * @param \ultracart\v2\models\Currency $discount discount
      *
      * @return $this
      */
@@ -639,7 +639,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets kit_component_options
      *
-     * @return \ultracartv2\models\CartKitComponentOption[]
+     * @return \ultracart\v2\models\CartKitComponentOption[]
      */
     public function getKitComponentOptions()
     {
@@ -649,7 +649,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets kit_component_options
      *
-     * @param \ultracartv2\models\CartKitComponentOption[] $kit_component_options Options associated with the kit components
+     * @param \ultracart\v2\models\CartKitComponentOption[] $kit_component_options Options associated with the kit components
      *
      * @return $this
      */
@@ -663,7 +663,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets manufacturer_suggested_retail_price
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getManufacturerSuggestedRetailPrice()
     {
@@ -673,7 +673,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets manufacturer_suggested_retail_price
      *
-     * @param \ultracartv2\models\Currency $manufacturer_suggested_retail_price manufacturer_suggested_retail_price
+     * @param \ultracart\v2\models\Currency $manufacturer_suggested_retail_price manufacturer_suggested_retail_price
      *
      * @return $this
      */
@@ -735,7 +735,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets multimedia
      *
-     * @return \ultracartv2\models\CartItemMultimedia[]
+     * @return \ultracart\v2\models\CartItemMultimedia[]
      */
     public function getMultimedia()
     {
@@ -745,7 +745,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets multimedia
      *
-     * @param \ultracartv2\models\CartItemMultimedia[] $multimedia Multimedia
+     * @param \ultracart\v2\models\CartItemMultimedia[] $multimedia Multimedia
      *
      * @return $this
      */
@@ -759,7 +759,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \ultracartv2\models\CartItemOption[]
+     * @return \ultracart\v2\models\CartItemOption[]
      */
     public function getOptions()
     {
@@ -769,7 +769,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \ultracartv2\models\CartItemOption[] $options Options
+     * @param \ultracart\v2\models\CartItemOption[] $options Options
      *
      * @return $this
      */
@@ -783,7 +783,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets phsyical
      *
-     * @return \ultracartv2\models\CartItemPhysical
+     * @return \ultracart\v2\models\CartItemPhysical
      */
     public function getPhsyical()
     {
@@ -793,7 +793,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets phsyical
      *
-     * @param \ultracartv2\models\CartItemPhysical $phsyical phsyical
+     * @param \ultracart\v2\models\CartItemPhysical $phsyical phsyical
      *
      * @return $this
      */
@@ -903,7 +903,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets total_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTotalCost()
     {
@@ -913,7 +913,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets total_cost
      *
-     * @param \ultracartv2\models\Currency $total_cost total_cost
+     * @param \ultracart\v2\models\Currency $total_cost total_cost
      *
      * @return $this
      */
@@ -927,7 +927,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets total_cost_with_discount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTotalCostWithDiscount()
     {
@@ -937,7 +937,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets total_cost_with_discount
      *
-     * @param \ultracartv2\models\Currency $total_cost_with_discount total_cost_with_discount
+     * @param \ultracart\v2\models\Currency $total_cost_with_discount total_cost_with_discount
      *
      * @return $this
      */
@@ -951,7 +951,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets unit_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getUnitCost()
     {
@@ -961,7 +961,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets unit_cost
      *
-     * @param \ultracartv2\models\Currency $unit_cost unit_cost
+     * @param \ultracart\v2\models\Currency $unit_cost unit_cost
      *
      * @return $this
      */
@@ -975,7 +975,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets unit_cost_with_discount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getUnitCostWithDiscount()
     {
@@ -985,7 +985,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets unit_cost_with_discount
      *
-     * @param \ultracartv2\models\Currency $unit_cost_with_discount unit_cost_with_discount
+     * @param \ultracart\v2\models\Currency $unit_cost_with_discount unit_cost_with_discount
      *
      * @return $this
      */
@@ -1023,7 +1023,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Gets variations
      *
-     * @return \ultracartv2\models\CartItemVariationSelection[]
+     * @return \ultracart\v2\models\CartItemVariationSelection[]
      */
     public function getVariations()
     {
@@ -1033,7 +1033,7 @@ class CartItem implements ModelInterface, ArrayAccess
     /**
      * Sets variations
      *
-     * @param \ultracartv2\models\CartItemVariationSelection[] $variations Variations
+     * @param \ultracart\v2\models\CartItemVariationSelection[] $variations Variations
      *
      * @return $this
      */

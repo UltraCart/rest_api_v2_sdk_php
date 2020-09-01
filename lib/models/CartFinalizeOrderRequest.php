@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartFinalizeOrderRequest Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,8 +57,8 @@ class CartFinalizeOrderRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'cart' => '\ultracartv2\models\Cart',
-        'options' => '\ultracartv2\models\CartFinalizeOrderRequestOptions'
+        'cart' => '\ultracart\v2\models\Cart',
+        'options' => '\ultracart\v2\models\CartFinalizeOrderRequestOptions'
     ];
 
     /**
@@ -213,7 +213,7 @@ class CartFinalizeOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Gets cart
      *
-     * @return \ultracartv2\models\Cart
+     * @return \ultracart\v2\models\Cart
      */
     public function getCart()
     {
@@ -223,7 +223,7 @@ class CartFinalizeOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets cart
      *
-     * @param \ultracartv2\models\Cart $cart cart
+     * @param \ultracart\v2\models\Cart $cart cart
      *
      * @return $this
      */
@@ -237,7 +237,7 @@ class CartFinalizeOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \ultracartv2\models\CartFinalizeOrderRequestOptions
+     * @return \ultracart\v2\models\CartFinalizeOrderRequestOptions
      */
     public function getOptions()
     {
@@ -247,7 +247,7 @@ class CartFinalizeOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \ultracartv2\models\CartFinalizeOrderRequestOptions $options options
+     * @param \ultracart\v2\models\CartFinalizeOrderRequestOptions $options options
      *
      * @return $this
      */

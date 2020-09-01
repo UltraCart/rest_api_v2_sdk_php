@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * Coupon Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,57 +59,57 @@ class Coupon implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'affiliate_oid' => 'int',
         'allow_multiple_one_time_codes' => 'bool',
-        'amount_off_items' => '\ultracartv2\models\CouponAmountOffItems',
-        'amount_off_shipping' => '\ultracartv2\models\CouponAmountOffShipping',
-        'amount_off_shipping_with_items_purchase' => '\ultracartv2\models\CouponAmountOffShippingWithItemsPurchase',
-        'amount_off_subtotal' => '\ultracartv2\models\CouponAmountOffSubtotal',
-        'amount_off_subtotal_and_free_shipping' => '\ultracartv2\models\CouponAmountOffSubtotalFreeShippingWithPurchase',
-        'amount_off_subtotal_and_shipping' => '\ultracartv2\models\CouponAmountOffSubtotalAndShipping',
-        'amount_off_subtotal_with_block_purchase' => '\ultracartv2\models\CouponAmountOffSubtotalWithBlockPurchase',
-        'amount_off_subtotal_with_items_purchase' => '\ultracartv2\models\CouponAmountOffSubtotalWithItemsPurchase',
-        'automatically_apply_coupon_codes' => '\ultracartv2\models\CouponAutomaticallyApplyCouponCodes',
+        'amount_off_items' => '\ultracart\v2\models\CouponAmountOffItems',
+        'amount_off_shipping' => '\ultracart\v2\models\CouponAmountOffShipping',
+        'amount_off_shipping_with_items_purchase' => '\ultracart\v2\models\CouponAmountOffShippingWithItemsPurchase',
+        'amount_off_subtotal' => '\ultracart\v2\models\CouponAmountOffSubtotal',
+        'amount_off_subtotal_and_free_shipping' => '\ultracart\v2\models\CouponAmountOffSubtotalFreeShippingWithPurchase',
+        'amount_off_subtotal_and_shipping' => '\ultracart\v2\models\CouponAmountOffSubtotalAndShipping',
+        'amount_off_subtotal_with_block_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase',
+        'amount_off_subtotal_with_items_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase',
+        'automatically_apply_coupon_codes' => '\ultracart\v2\models\CouponAutomaticallyApplyCouponCodes',
         'calculated_description' => 'string',
         'can_be_used_with_other_coupons' => 'bool',
         'coupon_oid' => 'int',
         'coupon_type' => 'string',
         'description' => 'string',
-        'discount_item_with_item_purchase' => '\ultracartv2\models\CouponDiscountItemWithItemPurchase',
-        'discount_items' => '\ultracartv2\models\CouponDiscountItems',
+        'discount_item_with_item_purchase' => '\ultracart\v2\models\CouponDiscountItemWithItemPurchase',
+        'discount_items' => '\ultracart\v2\models\CouponDiscountItems',
         'expiration_dts' => 'string',
-        'free_item_and_shipping_with_subtotal' => '\ultracartv2\models\CouponFreeItemAndShippingWithSubtotal',
-        'free_item_with_item_purchase' => '\ultracartv2\models\CouponFreeItemWithItemPurchase',
-        'free_item_with_subtotal' => '\ultracartv2\models\CouponFreeItemWithSubtotal',
-        'free_items_with_item_purchase' => '\ultracartv2\models\CouponFreeItemsWithItemPurchase',
-        'free_items_with_mixmatch_purchase' => '\ultracartv2\models\CouponFreeItemsWithMixMatchPurchase',
-        'free_shipping' => '\ultracartv2\models\CouponFreeShipping',
-        'free_shipping_specific_items' => '\ultracartv2\models\CouponFreeShippingSpecificItems',
-        'free_shipping_with_items_purchase' => '\ultracartv2\models\CouponFreeShippingWithItemsPurchase',
-        'free_shipping_with_subtotal' => '\ultracartv2\models\CouponFreeShippingWithSubtotal',
+        'free_item_and_shipping_with_subtotal' => '\ultracart\v2\models\CouponFreeItemAndShippingWithSubtotal',
+        'free_item_with_item_purchase' => '\ultracart\v2\models\CouponFreeItemWithItemPurchase',
+        'free_item_with_subtotal' => '\ultracart\v2\models\CouponFreeItemWithSubtotal',
+        'free_items_with_item_purchase' => '\ultracart\v2\models\CouponFreeItemsWithItemPurchase',
+        'free_items_with_mixmatch_purchase' => '\ultracart\v2\models\CouponFreeItemsWithMixMatchPurchase',
+        'free_shipping' => '\ultracart\v2\models\CouponFreeShipping',
+        'free_shipping_specific_items' => '\ultracart\v2\models\CouponFreeShippingSpecificItems',
+        'free_shipping_with_items_purchase' => '\ultracart\v2\models\CouponFreeShippingWithItemsPurchase',
+        'free_shipping_with_subtotal' => '\ultracart\v2\models\CouponFreeShippingWithSubtotal',
         'merchant_code' => 'string',
         'merchant_notes' => 'string',
-        'multiple_amounts_off_items' => '\ultracartv2\models\CouponMultipleAmountsOffItems',
-        'no_discount' => '\ultracartv2\models\CouponNoDiscount',
-        'percent_off_item_with_items_quantity_purchase' => '\ultracartv2\models\CouponPercentOffItemWithItemsQuantityPurchase',
-        'percent_off_items' => '\ultracartv2\models\CouponPercentOffItems',
-        'percent_off_items_and_free_shipping' => '\ultracartv2\models\CouponPercentOffItemsAndFreeShipping',
-        'percent_off_items_with_items_purchase' => '\ultracartv2\models\CouponPercentOffItemsWithItemsPurchase',
-        'percent_off_retail_price_items' => '\ultracartv2\models\CouponPercentOffRetailPriceItems',
-        'percent_off_shipping' => '\ultracartv2\models\CouponPercentOffShipping',
-        'percent_off_subtotal' => '\ultracartv2\models\CouponPercentOffSubtotal',
-        'percent_off_subtotal_and_free_shipping' => '\ultracartv2\models\CouponPercentOffSubtotalAndFreeShipping',
-        'percent_off_subtotal_limit' => '\ultracartv2\models\CouponPercentOffSubtotalLimit',
-        'percent_off_subtotal_with_items_purchase' => '\ultracartv2\models\CouponPercentOffSubtotalWithItemsPurchase',
-        'percent_off_subtotal_with_subtotal' => '\ultracartv2\models\CouponPercentOffSubtotalWithSubtotal',
+        'multiple_amounts_off_items' => '\ultracart\v2\models\CouponMultipleAmountsOffItems',
+        'no_discount' => '\ultracart\v2\models\CouponNoDiscount',
+        'percent_off_item_with_items_quantity_purchase' => '\ultracart\v2\models\CouponPercentOffItemWithItemsQuantityPurchase',
+        'percent_off_items' => '\ultracart\v2\models\CouponPercentOffItems',
+        'percent_off_items_and_free_shipping' => '\ultracart\v2\models\CouponPercentOffItemsAndFreeShipping',
+        'percent_off_items_with_items_purchase' => '\ultracart\v2\models\CouponPercentOffItemsWithItemsPurchase',
+        'percent_off_retail_price_items' => '\ultracart\v2\models\CouponPercentOffRetailPriceItems',
+        'percent_off_shipping' => '\ultracart\v2\models\CouponPercentOffShipping',
+        'percent_off_subtotal' => '\ultracart\v2\models\CouponPercentOffSubtotal',
+        'percent_off_subtotal_and_free_shipping' => '\ultracart\v2\models\CouponPercentOffSubtotalAndFreeShipping',
+        'percent_off_subtotal_limit' => '\ultracart\v2\models\CouponPercentOffSubtotalLimit',
+        'percent_off_subtotal_with_items_purchase' => '\ultracart\v2\models\CouponPercentOffSubtotalWithItemsPurchase',
+        'percent_off_subtotal_with_subtotal' => '\ultracart\v2\models\CouponPercentOffSubtotalWithSubtotal',
         'quickbooks_code' => 'string',
         'restrict_by_postal_codes' => 'string[]',
-        'restrict_by_screen_branding_theme_codes' => '\ultracartv2\models\CouponRestriction[]',
-        'restrict_by_storefronts' => '\ultracartv2\models\CouponRestriction[]',
+        'restrict_by_screen_branding_theme_codes' => '\ultracart\v2\models\CouponRestriction[]',
+        'restrict_by_storefronts' => '\ultracart\v2\models\CouponRestriction[]',
         'start_dts' => 'string',
-        'tiered_amount_off_item' => '\ultracartv2\models\CouponTieredAmountOffItem',
-        'tiered_amount_off_subtotal' => '\ultracartv2\models\CouponTieredAmountOffSubtotal',
-        'tiered_percent_off_items' => '\ultracartv2\models\CouponTieredPercentOffItems',
-        'tiered_percent_off_shipping' => '\ultracartv2\models\CouponTieredPercentOffShipping',
-        'tiered_percent_off_subtotal' => '\ultracartv2\models\CouponTieredPercentOffSubtotal',
+        'tiered_amount_off_item' => '\ultracart\v2\models\CouponTieredAmountOffItem',
+        'tiered_amount_off_subtotal' => '\ultracart\v2\models\CouponTieredAmountOffSubtotal',
+        'tiered_percent_off_items' => '\ultracart\v2\models\CouponTieredPercentOffItems',
+        'tiered_percent_off_shipping' => '\ultracart\v2\models\CouponTieredPercentOffShipping',
+        'tiered_percent_off_subtotal' => '\ultracart\v2\models\CouponTieredPercentOffSubtotal',
         'usable_by' => 'string'
     ];
 
@@ -597,7 +597,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets amount_off_items
      *
-     * @return \ultracartv2\models\CouponAmountOffItems
+     * @return \ultracart\v2\models\CouponAmountOffItems
      */
     public function getAmountOffItems()
     {
@@ -607,7 +607,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off_items
      *
-     * @param \ultracartv2\models\CouponAmountOffItems $amount_off_items amount_off_items
+     * @param \ultracart\v2\models\CouponAmountOffItems $amount_off_items amount_off_items
      *
      * @return $this
      */
@@ -621,7 +621,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets amount_off_shipping
      *
-     * @return \ultracartv2\models\CouponAmountOffShipping
+     * @return \ultracart\v2\models\CouponAmountOffShipping
      */
     public function getAmountOffShipping()
     {
@@ -631,7 +631,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off_shipping
      *
-     * @param \ultracartv2\models\CouponAmountOffShipping $amount_off_shipping amount_off_shipping
+     * @param \ultracart\v2\models\CouponAmountOffShipping $amount_off_shipping amount_off_shipping
      *
      * @return $this
      */
@@ -645,7 +645,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets amount_off_shipping_with_items_purchase
      *
-     * @return \ultracartv2\models\CouponAmountOffShippingWithItemsPurchase
+     * @return \ultracart\v2\models\CouponAmountOffShippingWithItemsPurchase
      */
     public function getAmountOffShippingWithItemsPurchase()
     {
@@ -655,7 +655,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off_shipping_with_items_purchase
      *
-     * @param \ultracartv2\models\CouponAmountOffShippingWithItemsPurchase $amount_off_shipping_with_items_purchase amount_off_shipping_with_items_purchase
+     * @param \ultracart\v2\models\CouponAmountOffShippingWithItemsPurchase $amount_off_shipping_with_items_purchase amount_off_shipping_with_items_purchase
      *
      * @return $this
      */
@@ -669,7 +669,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets amount_off_subtotal
      *
-     * @return \ultracartv2\models\CouponAmountOffSubtotal
+     * @return \ultracart\v2\models\CouponAmountOffSubtotal
      */
     public function getAmountOffSubtotal()
     {
@@ -679,7 +679,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off_subtotal
      *
-     * @param \ultracartv2\models\CouponAmountOffSubtotal $amount_off_subtotal amount_off_subtotal
+     * @param \ultracart\v2\models\CouponAmountOffSubtotal $amount_off_subtotal amount_off_subtotal
      *
      * @return $this
      */
@@ -693,7 +693,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets amount_off_subtotal_and_free_shipping
      *
-     * @return \ultracartv2\models\CouponAmountOffSubtotalFreeShippingWithPurchase
+     * @return \ultracart\v2\models\CouponAmountOffSubtotalFreeShippingWithPurchase
      */
     public function getAmountOffSubtotalAndFreeShipping()
     {
@@ -703,7 +703,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off_subtotal_and_free_shipping
      *
-     * @param \ultracartv2\models\CouponAmountOffSubtotalFreeShippingWithPurchase $amount_off_subtotal_and_free_shipping amount_off_subtotal_and_free_shipping
+     * @param \ultracart\v2\models\CouponAmountOffSubtotalFreeShippingWithPurchase $amount_off_subtotal_and_free_shipping amount_off_subtotal_and_free_shipping
      *
      * @return $this
      */
@@ -717,7 +717,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets amount_off_subtotal_and_shipping
      *
-     * @return \ultracartv2\models\CouponAmountOffSubtotalAndShipping
+     * @return \ultracart\v2\models\CouponAmountOffSubtotalAndShipping
      */
     public function getAmountOffSubtotalAndShipping()
     {
@@ -727,7 +727,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off_subtotal_and_shipping
      *
-     * @param \ultracartv2\models\CouponAmountOffSubtotalAndShipping $amount_off_subtotal_and_shipping amount_off_subtotal_and_shipping
+     * @param \ultracart\v2\models\CouponAmountOffSubtotalAndShipping $amount_off_subtotal_and_shipping amount_off_subtotal_and_shipping
      *
      * @return $this
      */
@@ -741,7 +741,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets amount_off_subtotal_with_block_purchase
      *
-     * @return \ultracartv2\models\CouponAmountOffSubtotalWithBlockPurchase
+     * @return \ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase
      */
     public function getAmountOffSubtotalWithBlockPurchase()
     {
@@ -751,7 +751,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off_subtotal_with_block_purchase
      *
-     * @param \ultracartv2\models\CouponAmountOffSubtotalWithBlockPurchase $amount_off_subtotal_with_block_purchase amount_off_subtotal_with_block_purchase
+     * @param \ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase $amount_off_subtotal_with_block_purchase amount_off_subtotal_with_block_purchase
      *
      * @return $this
      */
@@ -765,7 +765,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets amount_off_subtotal_with_items_purchase
      *
-     * @return \ultracartv2\models\CouponAmountOffSubtotalWithItemsPurchase
+     * @return \ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase
      */
     public function getAmountOffSubtotalWithItemsPurchase()
     {
@@ -775,7 +775,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets amount_off_subtotal_with_items_purchase
      *
-     * @param \ultracartv2\models\CouponAmountOffSubtotalWithItemsPurchase $amount_off_subtotal_with_items_purchase amount_off_subtotal_with_items_purchase
+     * @param \ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase $amount_off_subtotal_with_items_purchase amount_off_subtotal_with_items_purchase
      *
      * @return $this
      */
@@ -789,7 +789,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets automatically_apply_coupon_codes
      *
-     * @return \ultracartv2\models\CouponAutomaticallyApplyCouponCodes
+     * @return \ultracart\v2\models\CouponAutomaticallyApplyCouponCodes
      */
     public function getAutomaticallyApplyCouponCodes()
     {
@@ -799,7 +799,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets automatically_apply_coupon_codes
      *
-     * @param \ultracartv2\models\CouponAutomaticallyApplyCouponCodes $automatically_apply_coupon_codes automatically_apply_coupon_codes
+     * @param \ultracart\v2\models\CouponAutomaticallyApplyCouponCodes $automatically_apply_coupon_codes automatically_apply_coupon_codes
      *
      * @return $this
      */
@@ -941,7 +941,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets discount_item_with_item_purchase
      *
-     * @return \ultracartv2\models\CouponDiscountItemWithItemPurchase
+     * @return \ultracart\v2\models\CouponDiscountItemWithItemPurchase
      */
     public function getDiscountItemWithItemPurchase()
     {
@@ -951,7 +951,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets discount_item_with_item_purchase
      *
-     * @param \ultracartv2\models\CouponDiscountItemWithItemPurchase $discount_item_with_item_purchase discount_item_with_item_purchase
+     * @param \ultracart\v2\models\CouponDiscountItemWithItemPurchase $discount_item_with_item_purchase discount_item_with_item_purchase
      *
      * @return $this
      */
@@ -965,7 +965,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets discount_items
      *
-     * @return \ultracartv2\models\CouponDiscountItems
+     * @return \ultracart\v2\models\CouponDiscountItems
      */
     public function getDiscountItems()
     {
@@ -975,7 +975,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets discount_items
      *
-     * @param \ultracartv2\models\CouponDiscountItems $discount_items discount_items
+     * @param \ultracart\v2\models\CouponDiscountItems $discount_items discount_items
      *
      * @return $this
      */
@@ -1013,7 +1013,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_item_and_shipping_with_subtotal
      *
-     * @return \ultracartv2\models\CouponFreeItemAndShippingWithSubtotal
+     * @return \ultracart\v2\models\CouponFreeItemAndShippingWithSubtotal
      */
     public function getFreeItemAndShippingWithSubtotal()
     {
@@ -1023,7 +1023,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_item_and_shipping_with_subtotal
      *
-     * @param \ultracartv2\models\CouponFreeItemAndShippingWithSubtotal $free_item_and_shipping_with_subtotal free_item_and_shipping_with_subtotal
+     * @param \ultracart\v2\models\CouponFreeItemAndShippingWithSubtotal $free_item_and_shipping_with_subtotal free_item_and_shipping_with_subtotal
      *
      * @return $this
      */
@@ -1037,7 +1037,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_item_with_item_purchase
      *
-     * @return \ultracartv2\models\CouponFreeItemWithItemPurchase
+     * @return \ultracart\v2\models\CouponFreeItemWithItemPurchase
      */
     public function getFreeItemWithItemPurchase()
     {
@@ -1047,7 +1047,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_item_with_item_purchase
      *
-     * @param \ultracartv2\models\CouponFreeItemWithItemPurchase $free_item_with_item_purchase free_item_with_item_purchase
+     * @param \ultracart\v2\models\CouponFreeItemWithItemPurchase $free_item_with_item_purchase free_item_with_item_purchase
      *
      * @return $this
      */
@@ -1061,7 +1061,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_item_with_subtotal
      *
-     * @return \ultracartv2\models\CouponFreeItemWithSubtotal
+     * @return \ultracart\v2\models\CouponFreeItemWithSubtotal
      */
     public function getFreeItemWithSubtotal()
     {
@@ -1071,7 +1071,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_item_with_subtotal
      *
-     * @param \ultracartv2\models\CouponFreeItemWithSubtotal $free_item_with_subtotal free_item_with_subtotal
+     * @param \ultracart\v2\models\CouponFreeItemWithSubtotal $free_item_with_subtotal free_item_with_subtotal
      *
      * @return $this
      */
@@ -1085,7 +1085,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_items_with_item_purchase
      *
-     * @return \ultracartv2\models\CouponFreeItemsWithItemPurchase
+     * @return \ultracart\v2\models\CouponFreeItemsWithItemPurchase
      */
     public function getFreeItemsWithItemPurchase()
     {
@@ -1095,7 +1095,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_items_with_item_purchase
      *
-     * @param \ultracartv2\models\CouponFreeItemsWithItemPurchase $free_items_with_item_purchase free_items_with_item_purchase
+     * @param \ultracart\v2\models\CouponFreeItemsWithItemPurchase $free_items_with_item_purchase free_items_with_item_purchase
      *
      * @return $this
      */
@@ -1109,7 +1109,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_items_with_mixmatch_purchase
      *
-     * @return \ultracartv2\models\CouponFreeItemsWithMixMatchPurchase
+     * @return \ultracart\v2\models\CouponFreeItemsWithMixMatchPurchase
      */
     public function getFreeItemsWithMixmatchPurchase()
     {
@@ -1119,7 +1119,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_items_with_mixmatch_purchase
      *
-     * @param \ultracartv2\models\CouponFreeItemsWithMixMatchPurchase $free_items_with_mixmatch_purchase free_items_with_mixmatch_purchase
+     * @param \ultracart\v2\models\CouponFreeItemsWithMixMatchPurchase $free_items_with_mixmatch_purchase free_items_with_mixmatch_purchase
      *
      * @return $this
      */
@@ -1133,7 +1133,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_shipping
      *
-     * @return \ultracartv2\models\CouponFreeShipping
+     * @return \ultracart\v2\models\CouponFreeShipping
      */
     public function getFreeShipping()
     {
@@ -1143,7 +1143,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_shipping
      *
-     * @param \ultracartv2\models\CouponFreeShipping $free_shipping free_shipping
+     * @param \ultracart\v2\models\CouponFreeShipping $free_shipping free_shipping
      *
      * @return $this
      */
@@ -1157,7 +1157,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_shipping_specific_items
      *
-     * @return \ultracartv2\models\CouponFreeShippingSpecificItems
+     * @return \ultracart\v2\models\CouponFreeShippingSpecificItems
      */
     public function getFreeShippingSpecificItems()
     {
@@ -1167,7 +1167,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_shipping_specific_items
      *
-     * @param \ultracartv2\models\CouponFreeShippingSpecificItems $free_shipping_specific_items free_shipping_specific_items
+     * @param \ultracart\v2\models\CouponFreeShippingSpecificItems $free_shipping_specific_items free_shipping_specific_items
      *
      * @return $this
      */
@@ -1181,7 +1181,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_shipping_with_items_purchase
      *
-     * @return \ultracartv2\models\CouponFreeShippingWithItemsPurchase
+     * @return \ultracart\v2\models\CouponFreeShippingWithItemsPurchase
      */
     public function getFreeShippingWithItemsPurchase()
     {
@@ -1191,7 +1191,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_shipping_with_items_purchase
      *
-     * @param \ultracartv2\models\CouponFreeShippingWithItemsPurchase $free_shipping_with_items_purchase free_shipping_with_items_purchase
+     * @param \ultracart\v2\models\CouponFreeShippingWithItemsPurchase $free_shipping_with_items_purchase free_shipping_with_items_purchase
      *
      * @return $this
      */
@@ -1205,7 +1205,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets free_shipping_with_subtotal
      *
-     * @return \ultracartv2\models\CouponFreeShippingWithSubtotal
+     * @return \ultracart\v2\models\CouponFreeShippingWithSubtotal
      */
     public function getFreeShippingWithSubtotal()
     {
@@ -1215,7 +1215,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets free_shipping_with_subtotal
      *
-     * @param \ultracartv2\models\CouponFreeShippingWithSubtotal $free_shipping_with_subtotal free_shipping_with_subtotal
+     * @param \ultracart\v2\models\CouponFreeShippingWithSubtotal $free_shipping_with_subtotal free_shipping_with_subtotal
      *
      * @return $this
      */
@@ -1285,7 +1285,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets multiple_amounts_off_items
      *
-     * @return \ultracartv2\models\CouponMultipleAmountsOffItems
+     * @return \ultracart\v2\models\CouponMultipleAmountsOffItems
      */
     public function getMultipleAmountsOffItems()
     {
@@ -1295,7 +1295,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets multiple_amounts_off_items
      *
-     * @param \ultracartv2\models\CouponMultipleAmountsOffItems $multiple_amounts_off_items multiple_amounts_off_items
+     * @param \ultracart\v2\models\CouponMultipleAmountsOffItems $multiple_amounts_off_items multiple_amounts_off_items
      *
      * @return $this
      */
@@ -1309,7 +1309,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets no_discount
      *
-     * @return \ultracartv2\models\CouponNoDiscount
+     * @return \ultracart\v2\models\CouponNoDiscount
      */
     public function getNoDiscount()
     {
@@ -1319,7 +1319,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets no_discount
      *
-     * @param \ultracartv2\models\CouponNoDiscount $no_discount no_discount
+     * @param \ultracart\v2\models\CouponNoDiscount $no_discount no_discount
      *
      * @return $this
      */
@@ -1333,7 +1333,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_item_with_items_quantity_purchase
      *
-     * @return \ultracartv2\models\CouponPercentOffItemWithItemsQuantityPurchase
+     * @return \ultracart\v2\models\CouponPercentOffItemWithItemsQuantityPurchase
      */
     public function getPercentOffItemWithItemsQuantityPurchase()
     {
@@ -1343,7 +1343,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_item_with_items_quantity_purchase
      *
-     * @param \ultracartv2\models\CouponPercentOffItemWithItemsQuantityPurchase $percent_off_item_with_items_quantity_purchase percent_off_item_with_items_quantity_purchase
+     * @param \ultracart\v2\models\CouponPercentOffItemWithItemsQuantityPurchase $percent_off_item_with_items_quantity_purchase percent_off_item_with_items_quantity_purchase
      *
      * @return $this
      */
@@ -1357,7 +1357,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_items
      *
-     * @return \ultracartv2\models\CouponPercentOffItems
+     * @return \ultracart\v2\models\CouponPercentOffItems
      */
     public function getPercentOffItems()
     {
@@ -1367,7 +1367,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_items
      *
-     * @param \ultracartv2\models\CouponPercentOffItems $percent_off_items percent_off_items
+     * @param \ultracart\v2\models\CouponPercentOffItems $percent_off_items percent_off_items
      *
      * @return $this
      */
@@ -1381,7 +1381,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_items_and_free_shipping
      *
-     * @return \ultracartv2\models\CouponPercentOffItemsAndFreeShipping
+     * @return \ultracart\v2\models\CouponPercentOffItemsAndFreeShipping
      */
     public function getPercentOffItemsAndFreeShipping()
     {
@@ -1391,7 +1391,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_items_and_free_shipping
      *
-     * @param \ultracartv2\models\CouponPercentOffItemsAndFreeShipping $percent_off_items_and_free_shipping percent_off_items_and_free_shipping
+     * @param \ultracart\v2\models\CouponPercentOffItemsAndFreeShipping $percent_off_items_and_free_shipping percent_off_items_and_free_shipping
      *
      * @return $this
      */
@@ -1405,7 +1405,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_items_with_items_purchase
      *
-     * @return \ultracartv2\models\CouponPercentOffItemsWithItemsPurchase
+     * @return \ultracart\v2\models\CouponPercentOffItemsWithItemsPurchase
      */
     public function getPercentOffItemsWithItemsPurchase()
     {
@@ -1415,7 +1415,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_items_with_items_purchase
      *
-     * @param \ultracartv2\models\CouponPercentOffItemsWithItemsPurchase $percent_off_items_with_items_purchase percent_off_items_with_items_purchase
+     * @param \ultracart\v2\models\CouponPercentOffItemsWithItemsPurchase $percent_off_items_with_items_purchase percent_off_items_with_items_purchase
      *
      * @return $this
      */
@@ -1429,7 +1429,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_retail_price_items
      *
-     * @return \ultracartv2\models\CouponPercentOffRetailPriceItems
+     * @return \ultracart\v2\models\CouponPercentOffRetailPriceItems
      */
     public function getPercentOffRetailPriceItems()
     {
@@ -1439,7 +1439,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_retail_price_items
      *
-     * @param \ultracartv2\models\CouponPercentOffRetailPriceItems $percent_off_retail_price_items percent_off_retail_price_items
+     * @param \ultracart\v2\models\CouponPercentOffRetailPriceItems $percent_off_retail_price_items percent_off_retail_price_items
      *
      * @return $this
      */
@@ -1453,7 +1453,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_shipping
      *
-     * @return \ultracartv2\models\CouponPercentOffShipping
+     * @return \ultracart\v2\models\CouponPercentOffShipping
      */
     public function getPercentOffShipping()
     {
@@ -1463,7 +1463,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_shipping
      *
-     * @param \ultracartv2\models\CouponPercentOffShipping $percent_off_shipping percent_off_shipping
+     * @param \ultracart\v2\models\CouponPercentOffShipping $percent_off_shipping percent_off_shipping
      *
      * @return $this
      */
@@ -1477,7 +1477,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_subtotal
      *
-     * @return \ultracartv2\models\CouponPercentOffSubtotal
+     * @return \ultracart\v2\models\CouponPercentOffSubtotal
      */
     public function getPercentOffSubtotal()
     {
@@ -1487,7 +1487,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_subtotal
      *
-     * @param \ultracartv2\models\CouponPercentOffSubtotal $percent_off_subtotal percent_off_subtotal
+     * @param \ultracart\v2\models\CouponPercentOffSubtotal $percent_off_subtotal percent_off_subtotal
      *
      * @return $this
      */
@@ -1501,7 +1501,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_subtotal_and_free_shipping
      *
-     * @return \ultracartv2\models\CouponPercentOffSubtotalAndFreeShipping
+     * @return \ultracart\v2\models\CouponPercentOffSubtotalAndFreeShipping
      */
     public function getPercentOffSubtotalAndFreeShipping()
     {
@@ -1511,7 +1511,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_subtotal_and_free_shipping
      *
-     * @param \ultracartv2\models\CouponPercentOffSubtotalAndFreeShipping $percent_off_subtotal_and_free_shipping percent_off_subtotal_and_free_shipping
+     * @param \ultracart\v2\models\CouponPercentOffSubtotalAndFreeShipping $percent_off_subtotal_and_free_shipping percent_off_subtotal_and_free_shipping
      *
      * @return $this
      */
@@ -1525,7 +1525,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_subtotal_limit
      *
-     * @return \ultracartv2\models\CouponPercentOffSubtotalLimit
+     * @return \ultracart\v2\models\CouponPercentOffSubtotalLimit
      */
     public function getPercentOffSubtotalLimit()
     {
@@ -1535,7 +1535,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_subtotal_limit
      *
-     * @param \ultracartv2\models\CouponPercentOffSubtotalLimit $percent_off_subtotal_limit percent_off_subtotal_limit
+     * @param \ultracart\v2\models\CouponPercentOffSubtotalLimit $percent_off_subtotal_limit percent_off_subtotal_limit
      *
      * @return $this
      */
@@ -1549,7 +1549,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_subtotal_with_items_purchase
      *
-     * @return \ultracartv2\models\CouponPercentOffSubtotalWithItemsPurchase
+     * @return \ultracart\v2\models\CouponPercentOffSubtotalWithItemsPurchase
      */
     public function getPercentOffSubtotalWithItemsPurchase()
     {
@@ -1559,7 +1559,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_subtotal_with_items_purchase
      *
-     * @param \ultracartv2\models\CouponPercentOffSubtotalWithItemsPurchase $percent_off_subtotal_with_items_purchase percent_off_subtotal_with_items_purchase
+     * @param \ultracart\v2\models\CouponPercentOffSubtotalWithItemsPurchase $percent_off_subtotal_with_items_purchase percent_off_subtotal_with_items_purchase
      *
      * @return $this
      */
@@ -1573,7 +1573,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets percent_off_subtotal_with_subtotal
      *
-     * @return \ultracartv2\models\CouponPercentOffSubtotalWithSubtotal
+     * @return \ultracart\v2\models\CouponPercentOffSubtotalWithSubtotal
      */
     public function getPercentOffSubtotalWithSubtotal()
     {
@@ -1583,7 +1583,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets percent_off_subtotal_with_subtotal
      *
-     * @param \ultracartv2\models\CouponPercentOffSubtotalWithSubtotal $percent_off_subtotal_with_subtotal percent_off_subtotal_with_subtotal
+     * @param \ultracart\v2\models\CouponPercentOffSubtotalWithSubtotal $percent_off_subtotal_with_subtotal percent_off_subtotal_with_subtotal
      *
      * @return $this
      */
@@ -1649,7 +1649,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets restrict_by_screen_branding_theme_codes
      *
-     * @return \ultracartv2\models\CouponRestriction[]
+     * @return \ultracart\v2\models\CouponRestriction[]
      */
     public function getRestrictByScreenBrandingThemeCodes()
     {
@@ -1659,7 +1659,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets restrict_by_screen_branding_theme_codes
      *
-     * @param \ultracartv2\models\CouponRestriction[] $restrict_by_screen_branding_theme_codes Optional list of legacy screen branding theme codes to limit coupon use to only those themes.
+     * @param \ultracart\v2\models\CouponRestriction[] $restrict_by_screen_branding_theme_codes Optional list of legacy screen branding theme codes to limit coupon use to only those themes.
      *
      * @return $this
      */
@@ -1673,7 +1673,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets restrict_by_storefronts
      *
-     * @return \ultracartv2\models\CouponRestriction[]
+     * @return \ultracart\v2\models\CouponRestriction[]
      */
     public function getRestrictByStorefronts()
     {
@@ -1683,7 +1683,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets restrict_by_storefronts
      *
-     * @param \ultracartv2\models\CouponRestriction[] $restrict_by_storefronts Optional list of storefronts to limit coupon use to only those storefronts.
+     * @param \ultracart\v2\models\CouponRestriction[] $restrict_by_storefronts Optional list of storefronts to limit coupon use to only those storefronts.
      *
      * @return $this
      */
@@ -1721,7 +1721,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets tiered_amount_off_item
      *
-     * @return \ultracartv2\models\CouponTieredAmountOffItem
+     * @return \ultracart\v2\models\CouponTieredAmountOffItem
      */
     public function getTieredAmountOffItem()
     {
@@ -1731,7 +1731,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets tiered_amount_off_item
      *
-     * @param \ultracartv2\models\CouponTieredAmountOffItem $tiered_amount_off_item tiered_amount_off_item
+     * @param \ultracart\v2\models\CouponTieredAmountOffItem $tiered_amount_off_item tiered_amount_off_item
      *
      * @return $this
      */
@@ -1745,7 +1745,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets tiered_amount_off_subtotal
      *
-     * @return \ultracartv2\models\CouponTieredAmountOffSubtotal
+     * @return \ultracart\v2\models\CouponTieredAmountOffSubtotal
      */
     public function getTieredAmountOffSubtotal()
     {
@@ -1755,7 +1755,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets tiered_amount_off_subtotal
      *
-     * @param \ultracartv2\models\CouponTieredAmountOffSubtotal $tiered_amount_off_subtotal tiered_amount_off_subtotal
+     * @param \ultracart\v2\models\CouponTieredAmountOffSubtotal $tiered_amount_off_subtotal tiered_amount_off_subtotal
      *
      * @return $this
      */
@@ -1769,7 +1769,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets tiered_percent_off_items
      *
-     * @return \ultracartv2\models\CouponTieredPercentOffItems
+     * @return \ultracart\v2\models\CouponTieredPercentOffItems
      */
     public function getTieredPercentOffItems()
     {
@@ -1779,7 +1779,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets tiered_percent_off_items
      *
-     * @param \ultracartv2\models\CouponTieredPercentOffItems $tiered_percent_off_items tiered_percent_off_items
+     * @param \ultracart\v2\models\CouponTieredPercentOffItems $tiered_percent_off_items tiered_percent_off_items
      *
      * @return $this
      */
@@ -1793,7 +1793,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets tiered_percent_off_shipping
      *
-     * @return \ultracartv2\models\CouponTieredPercentOffShipping
+     * @return \ultracart\v2\models\CouponTieredPercentOffShipping
      */
     public function getTieredPercentOffShipping()
     {
@@ -1803,7 +1803,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets tiered_percent_off_shipping
      *
-     * @param \ultracartv2\models\CouponTieredPercentOffShipping $tiered_percent_off_shipping tiered_percent_off_shipping
+     * @param \ultracart\v2\models\CouponTieredPercentOffShipping $tiered_percent_off_shipping tiered_percent_off_shipping
      *
      * @return $this
      */
@@ -1817,7 +1817,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Gets tiered_percent_off_subtotal
      *
-     * @return \ultracartv2\models\CouponTieredPercentOffSubtotal
+     * @return \ultracart\v2\models\CouponTieredPercentOffSubtotal
      */
     public function getTieredPercentOffSubtotal()
     {
@@ -1827,7 +1827,7 @@ class Coupon implements ModelInterface, ArrayAccess
     /**
      * Sets tiered_percent_off_subtotal
      *
-     * @param \ultracartv2\models\CouponTieredPercentOffSubtotal $tiered_percent_off_subtotal tiered_percent_off_subtotal
+     * @param \ultracart\v2\models\CouponTieredPercentOffSubtotal $tiered_percent_off_subtotal tiered_percent_off_subtotal
      *
      * @return $this
      */

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **orphan** | **bool** | True if the multimedia is an orphan of the active StoreFront themes | [optional] 
 **placeholder** | **bool** | True if the object is a place holder that can be populated | [optional] 
 **temp_multimedia_oid** | **int** | Temporary multimedia object identifier assigned if uploading new multimedia | [optional] 
-**thumbnails** | [**\ultracartv2\models\ItemContentMultimediaThumbnail[]**](ItemContentMultimediaThumbnail.md) | Thumbnails of this image | [optional] 
+**thumbnails** | [**\ultracart\v2\models\ItemContentMultimediaThumbnail[]**](ItemContentMultimediaThumbnail.md) | Thumbnails of this image | [optional] 
 **type** | **string** | Type of file | [optional] 
 **url** | **string** | URL to download file (on new multimedia record this can be a URL for UltraCart to fetch) | [optional] 
 **width** | **int** | Width of the image | [optional] 

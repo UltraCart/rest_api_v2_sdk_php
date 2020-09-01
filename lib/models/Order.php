@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * Order Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,40 +57,40 @@ class Order implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'affiliates' => '\ultracartv2\models\OrderAffiliate[]',
-        'auto_order' => '\ultracartv2\models\OrderAutoOrder',
-        'billing' => '\ultracartv2\models\OrderBilling',
-        'buysafe' => '\ultracartv2\models\OrderBuysafe',
-        'channel_partner' => '\ultracartv2\models\OrderChannelPartner',
-        'checkout' => '\ultracartv2\models\OrderCheckout',
-        'coupons' => '\ultracartv2\models\OrderCoupon[]',
+        'affiliates' => '\ultracart\v2\models\OrderAffiliate[]',
+        'auto_order' => '\ultracart\v2\models\OrderAutoOrder',
+        'billing' => '\ultracart\v2\models\OrderBilling',
+        'buysafe' => '\ultracart\v2\models\OrderBuysafe',
+        'channel_partner' => '\ultracart\v2\models\OrderChannelPartner',
+        'checkout' => '\ultracart\v2\models\OrderCheckout',
+        'coupons' => '\ultracart\v2\models\OrderCoupon[]',
         'creation_dts' => 'string',
         'currency_code' => 'string',
         'current_stage' => 'string',
-        'customer_profile' => '\ultracartv2\models\Customer',
-        'digital_order' => '\ultracartv2\models\OrderDigitalOrder',
-        'edi' => '\ultracartv2\models\OrderEdi',
+        'customer_profile' => '\ultracart\v2\models\Customer',
+        'digital_order' => '\ultracart\v2\models\OrderDigitalOrder',
+        'edi' => '\ultracart\v2\models\OrderEdi',
         'exchange_rate' => 'float',
-        'fraud_score' => '\ultracartv2\models\OrderFraudScore',
-        'gift' => '\ultracartv2\models\OrderGift',
-        'gift_certificate' => '\ultracartv2\models\OrderGiftCertificate',
-        'internal' => '\ultracartv2\models\OrderInternal',
-        'items' => '\ultracartv2\models\OrderItem[]',
+        'fraud_score' => '\ultracart\v2\models\OrderFraudScore',
+        'gift' => '\ultracart\v2\models\OrderGift',
+        'gift_certificate' => '\ultracart\v2\models\OrderGiftCertificate',
+        'internal' => '\ultracart\v2\models\OrderInternal',
+        'items' => '\ultracart\v2\models\OrderItem[]',
         'language_iso_code' => 'string',
-        'linked_shipment' => '\ultracartv2\models\OrderLinkedShipment',
-        'marketing' => '\ultracartv2\models\OrderMarketing',
+        'linked_shipment' => '\ultracart\v2\models\OrderLinkedShipment',
+        'marketing' => '\ultracart\v2\models\OrderMarketing',
         'merchant_id' => 'string',
         'order_id' => 'string',
-        'payment' => '\ultracartv2\models\OrderPayment',
-        'properties' => '\ultracartv2\models\OrderProperty[]',
-        'quote' => '\ultracartv2\models\OrderQuote',
+        'payment' => '\ultracart\v2\models\OrderPayment',
+        'properties' => '\ultracart\v2\models\OrderProperty[]',
+        'quote' => '\ultracart\v2\models\OrderQuote',
         'refund_dts' => 'string',
         'reject_dts' => 'string',
-        'salesforce' => '\ultracartv2\models\OrderSalesforce',
-        'shipping' => '\ultracartv2\models\OrderShipping',
-        'summary' => '\ultracartv2\models\OrderSummary',
-        'tags' => '\ultracartv2\models\OrderTag[]',
-        'taxes' => '\ultracartv2\models\OrderTaxes'
+        'salesforce' => '\ultracart\v2\models\OrderSalesforce',
+        'shipping' => '\ultracart\v2\models\OrderShipping',
+        'summary' => '\ultracart\v2\models\OrderSummary',
+        'tags' => '\ultracart\v2\models\OrderTag[]',
+        'taxes' => '\ultracart\v2\models\OrderTaxes'
     ];
 
     /**
@@ -452,7 +452,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets affiliates
      *
-     * @return \ultracartv2\models\OrderAffiliate[]
+     * @return \ultracart\v2\models\OrderAffiliate[]
      */
     public function getAffiliates()
     {
@@ -462,7 +462,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets affiliates
      *
-     * @param \ultracartv2\models\OrderAffiliate[] $affiliates Affiliates if any were associated with the order.  The first one in the array sent the order and each subsequent affiliate is the recruiter that earns a downline commission.
+     * @param \ultracart\v2\models\OrderAffiliate[] $affiliates Affiliates if any were associated with the order.  The first one in the array sent the order and each subsequent affiliate is the recruiter that earns a downline commission.
      *
      * @return $this
      */
@@ -476,7 +476,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets auto_order
      *
-     * @return \ultracartv2\models\OrderAutoOrder
+     * @return \ultracart\v2\models\OrderAutoOrder
      */
     public function getAutoOrder()
     {
@@ -486,7 +486,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets auto_order
      *
-     * @param \ultracartv2\models\OrderAutoOrder $auto_order auto_order
+     * @param \ultracart\v2\models\OrderAutoOrder $auto_order auto_order
      *
      * @return $this
      */
@@ -500,7 +500,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets billing
      *
-     * @return \ultracartv2\models\OrderBilling
+     * @return \ultracart\v2\models\OrderBilling
      */
     public function getBilling()
     {
@@ -510,7 +510,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets billing
      *
-     * @param \ultracartv2\models\OrderBilling $billing billing
+     * @param \ultracart\v2\models\OrderBilling $billing billing
      *
      * @return $this
      */
@@ -524,7 +524,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets buysafe
      *
-     * @return \ultracartv2\models\OrderBuysafe
+     * @return \ultracart\v2\models\OrderBuysafe
      */
     public function getBuysafe()
     {
@@ -534,7 +534,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets buysafe
      *
-     * @param \ultracartv2\models\OrderBuysafe $buysafe buysafe
+     * @param \ultracart\v2\models\OrderBuysafe $buysafe buysafe
      *
      * @return $this
      */
@@ -548,7 +548,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets channel_partner
      *
-     * @return \ultracartv2\models\OrderChannelPartner
+     * @return \ultracart\v2\models\OrderChannelPartner
      */
     public function getChannelPartner()
     {
@@ -558,7 +558,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets channel_partner
      *
-     * @param \ultracartv2\models\OrderChannelPartner $channel_partner channel_partner
+     * @param \ultracart\v2\models\OrderChannelPartner $channel_partner channel_partner
      *
      * @return $this
      */
@@ -572,7 +572,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets checkout
      *
-     * @return \ultracartv2\models\OrderCheckout
+     * @return \ultracart\v2\models\OrderCheckout
      */
     public function getCheckout()
     {
@@ -582,7 +582,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets checkout
      *
-     * @param \ultracartv2\models\OrderCheckout $checkout checkout
+     * @param \ultracart\v2\models\OrderCheckout $checkout checkout
      *
      * @return $this
      */
@@ -596,7 +596,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets coupons
      *
-     * @return \ultracartv2\models\OrderCoupon[]
+     * @return \ultracart\v2\models\OrderCoupon[]
      */
     public function getCoupons()
     {
@@ -606,7 +606,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets coupons
      *
-     * @param \ultracartv2\models\OrderCoupon[] $coupons Coupons
+     * @param \ultracart\v2\models\OrderCoupon[] $coupons Coupons
      *
      * @return $this
      */
@@ -705,7 +705,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets customer_profile
      *
-     * @return \ultracartv2\models\Customer
+     * @return \ultracart\v2\models\Customer
      */
     public function getCustomerProfile()
     {
@@ -715,7 +715,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets customer_profile
      *
-     * @param \ultracartv2\models\Customer $customer_profile customer_profile
+     * @param \ultracart\v2\models\Customer $customer_profile customer_profile
      *
      * @return $this
      */
@@ -729,7 +729,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets digital_order
      *
-     * @return \ultracartv2\models\OrderDigitalOrder
+     * @return \ultracart\v2\models\OrderDigitalOrder
      */
     public function getDigitalOrder()
     {
@@ -739,7 +739,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets digital_order
      *
-     * @param \ultracartv2\models\OrderDigitalOrder $digital_order digital_order
+     * @param \ultracart\v2\models\OrderDigitalOrder $digital_order digital_order
      *
      * @return $this
      */
@@ -753,7 +753,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets edi
      *
-     * @return \ultracartv2\models\OrderEdi
+     * @return \ultracart\v2\models\OrderEdi
      */
     public function getEdi()
     {
@@ -763,7 +763,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets edi
      *
-     * @param \ultracartv2\models\OrderEdi $edi edi
+     * @param \ultracart\v2\models\OrderEdi $edi edi
      *
      * @return $this
      */
@@ -801,7 +801,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets fraud_score
      *
-     * @return \ultracartv2\models\OrderFraudScore
+     * @return \ultracart\v2\models\OrderFraudScore
      */
     public function getFraudScore()
     {
@@ -811,7 +811,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets fraud_score
      *
-     * @param \ultracartv2\models\OrderFraudScore $fraud_score fraud_score
+     * @param \ultracart\v2\models\OrderFraudScore $fraud_score fraud_score
      *
      * @return $this
      */
@@ -825,7 +825,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets gift
      *
-     * @return \ultracartv2\models\OrderGift
+     * @return \ultracart\v2\models\OrderGift
      */
     public function getGift()
     {
@@ -835,7 +835,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets gift
      *
-     * @param \ultracartv2\models\OrderGift $gift gift
+     * @param \ultracart\v2\models\OrderGift $gift gift
      *
      * @return $this
      */
@@ -849,7 +849,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets gift_certificate
      *
-     * @return \ultracartv2\models\OrderGiftCertificate
+     * @return \ultracart\v2\models\OrderGiftCertificate
      */
     public function getGiftCertificate()
     {
@@ -859,7 +859,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets gift_certificate
      *
-     * @param \ultracartv2\models\OrderGiftCertificate $gift_certificate gift_certificate
+     * @param \ultracart\v2\models\OrderGiftCertificate $gift_certificate gift_certificate
      *
      * @return $this
      */
@@ -873,7 +873,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets internal
      *
-     * @return \ultracartv2\models\OrderInternal
+     * @return \ultracart\v2\models\OrderInternal
      */
     public function getInternal()
     {
@@ -883,7 +883,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets internal
      *
-     * @param \ultracartv2\models\OrderInternal $internal internal
+     * @param \ultracart\v2\models\OrderInternal $internal internal
      *
      * @return $this
      */
@@ -897,7 +897,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \ultracartv2\models\OrderItem[]
+     * @return \ultracart\v2\models\OrderItem[]
      */
     public function getItems()
     {
@@ -907,7 +907,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \ultracartv2\models\OrderItem[] $items Items
+     * @param \ultracart\v2\models\OrderItem[] $items Items
      *
      * @return $this
      */
@@ -949,7 +949,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets linked_shipment
      *
-     * @return \ultracartv2\models\OrderLinkedShipment
+     * @return \ultracart\v2\models\OrderLinkedShipment
      */
     public function getLinkedShipment()
     {
@@ -959,7 +959,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets linked_shipment
      *
-     * @param \ultracartv2\models\OrderLinkedShipment $linked_shipment linked_shipment
+     * @param \ultracart\v2\models\OrderLinkedShipment $linked_shipment linked_shipment
      *
      * @return $this
      */
@@ -973,7 +973,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets marketing
      *
-     * @return \ultracartv2\models\OrderMarketing
+     * @return \ultracart\v2\models\OrderMarketing
      */
     public function getMarketing()
     {
@@ -983,7 +983,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets marketing
      *
-     * @param \ultracartv2\models\OrderMarketing $marketing marketing
+     * @param \ultracart\v2\models\OrderMarketing $marketing marketing
      *
      * @return $this
      */
@@ -1045,7 +1045,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets payment
      *
-     * @return \ultracartv2\models\OrderPayment
+     * @return \ultracart\v2\models\OrderPayment
      */
     public function getPayment()
     {
@@ -1055,7 +1055,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets payment
      *
-     * @param \ultracartv2\models\OrderPayment $payment payment
+     * @param \ultracart\v2\models\OrderPayment $payment payment
      *
      * @return $this
      */
@@ -1069,7 +1069,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets properties
      *
-     * @return \ultracartv2\models\OrderProperty[]
+     * @return \ultracart\v2\models\OrderProperty[]
      */
     public function getProperties()
     {
@@ -1079,7 +1079,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets properties
      *
-     * @param \ultracartv2\models\OrderProperty[] $properties Properties, available only through update, not through insert due to the nature of how properties are handled internally
+     * @param \ultracart\v2\models\OrderProperty[] $properties Properties, available only through update, not through insert due to the nature of how properties are handled internally
      *
      * @return $this
      */
@@ -1093,7 +1093,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets quote
      *
-     * @return \ultracartv2\models\OrderQuote
+     * @return \ultracart\v2\models\OrderQuote
      */
     public function getQuote()
     {
@@ -1103,7 +1103,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets quote
      *
-     * @param \ultracartv2\models\OrderQuote $quote quote
+     * @param \ultracart\v2\models\OrderQuote $quote quote
      *
      * @return $this
      */
@@ -1165,7 +1165,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets salesforce
      *
-     * @return \ultracartv2\models\OrderSalesforce
+     * @return \ultracart\v2\models\OrderSalesforce
      */
     public function getSalesforce()
     {
@@ -1175,7 +1175,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets salesforce
      *
-     * @param \ultracartv2\models\OrderSalesforce $salesforce salesforce
+     * @param \ultracart\v2\models\OrderSalesforce $salesforce salesforce
      *
      * @return $this
      */
@@ -1189,7 +1189,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets shipping
      *
-     * @return \ultracartv2\models\OrderShipping
+     * @return \ultracart\v2\models\OrderShipping
      */
     public function getShipping()
     {
@@ -1199,7 +1199,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets shipping
      *
-     * @param \ultracartv2\models\OrderShipping $shipping shipping
+     * @param \ultracart\v2\models\OrderShipping $shipping shipping
      *
      * @return $this
      */
@@ -1213,7 +1213,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets summary
      *
-     * @return \ultracartv2\models\OrderSummary
+     * @return \ultracart\v2\models\OrderSummary
      */
     public function getSummary()
     {
@@ -1223,7 +1223,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets summary
      *
-     * @param \ultracartv2\models\OrderSummary $summary summary
+     * @param \ultracart\v2\models\OrderSummary $summary summary
      *
      * @return $this
      */
@@ -1237,7 +1237,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \ultracartv2\models\OrderTag[]
+     * @return \ultracart\v2\models\OrderTag[]
      */
     public function getTags()
     {
@@ -1247,7 +1247,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \ultracartv2\models\OrderTag[] $tags tags, available only through update, not through insert due to the nature of how tags are handled internally
+     * @param \ultracart\v2\models\OrderTag[] $tags tags, available only through update, not through insert due to the nature of how tags are handled internally
      *
      * @return $this
      */
@@ -1261,7 +1261,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets taxes
      *
-     * @return \ultracartv2\models\OrderTaxes
+     * @return \ultracart\v2\models\OrderTaxes
      */
     public function getTaxes()
     {
@@ -1271,7 +1271,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets taxes
      *
-     * @param \ultracartv2\models\OrderTaxes $taxes taxes
+     * @param \ultracart\v2\models\OrderTaxes $taxes taxes
      *
      * @return $this
      */

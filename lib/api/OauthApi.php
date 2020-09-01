@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * OauthApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -98,9 +98,9 @@ class OauthApi
      * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OauthTokenResponse
+     * @return \ultracart\v2\models\OauthTokenResponse
      */
     public function oauthAccessToken($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
@@ -119,13 +119,13 @@ class OauthApi
      * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
      * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OauthTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OauthTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
-        $returnType = '\ultracartv2\models\OauthTokenResponse';
+        $returnType = '\ultracart\v2\models\OauthTokenResponse';
         $request = $this->oauthAccessTokenRequest($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
 
         try {
@@ -177,7 +177,7 @@ class OauthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OauthTokenResponse',
+                        '\ultracart\v2\models\OauthTokenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -185,7 +185,7 @@ class OauthApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -193,7 +193,7 @@ class OauthApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -243,7 +243,7 @@ class OauthApi
      */
     public function oauthAccessTokenAsyncWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
-        $returnType = '\ultracartv2\models\OauthTokenResponse';
+        $returnType = '\ultracart\v2\models\OauthTokenResponse';
         $request = $this->oauthAccessTokenRequest($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
 
         return $this->client
@@ -432,9 +432,9 @@ class OauthApi
      * @param  string $client_id The OAuth application client_id. (required)
      * @param  string $token The OAuth access token that is to be revoked.. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\OauthRevokeSuccessResponse
+     * @return \ultracart\v2\models\OauthRevokeSuccessResponse
      */
     public function oauthRevoke($client_id, $token)
     {
@@ -450,13 +450,13 @@ class OauthApi
      * @param  string $client_id The OAuth application client_id. (required)
      * @param  string $token The OAuth access token that is to be revoked.. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\OauthRevokeSuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OauthRevokeSuccessResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function oauthRevokeWithHttpInfo($client_id, $token)
     {
-        $returnType = '\ultracartv2\models\OauthRevokeSuccessResponse';
+        $returnType = '\ultracart\v2\models\OauthRevokeSuccessResponse';
         $request = $this->oauthRevokeRequest($client_id, $token);
 
         try {
@@ -508,7 +508,7 @@ class OauthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\OauthRevokeSuccessResponse',
+                        '\ultracart\v2\models\OauthRevokeSuccessResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -516,7 +516,7 @@ class OauthApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -524,7 +524,7 @@ class OauthApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -568,7 +568,7 @@ class OauthApi
      */
     public function oauthRevokeAsyncWithHttpInfo($client_id, $token)
     {
-        $returnType = '\ultracartv2\models\OauthRevokeSuccessResponse';
+        $returnType = '\ultracart\v2\models\OauthRevokeSuccessResponse';
         $request = $this->oauthRevokeRequest($client_id, $token);
 
         return $this->client

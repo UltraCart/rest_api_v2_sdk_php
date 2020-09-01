@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderBuysafe Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,9 +58,9 @@ class OrderBuysafe implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'buysafe_bond_available' => 'bool',
-        'buysafe_bond_cost' => '\ultracartv2\models\Currency',
+        'buysafe_bond_cost' => '\ultracart\v2\models\Currency',
         'buysafe_bond_free' => 'bool',
-        'buysafe_bond_refunded' => '\ultracartv2\models\Currency',
+        'buysafe_bond_refunded' => '\ultracart\v2\models\Currency',
         'buysafe_bond_wanted' => 'bool',
         'buysafe_shopping_cart_id' => 'string'
     ];
@@ -261,7 +261,7 @@ class OrderBuysafe implements ModelInterface, ArrayAccess
     /**
      * Gets buysafe_bond_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getBuysafeBondCost()
     {
@@ -271,7 +271,7 @@ class OrderBuysafe implements ModelInterface, ArrayAccess
     /**
      * Sets buysafe_bond_cost
      *
-     * @param \ultracartv2\models\Currency $buysafe_bond_cost buysafe_bond_cost
+     * @param \ultracart\v2\models\Currency $buysafe_bond_cost buysafe_bond_cost
      *
      * @return $this
      */
@@ -309,7 +309,7 @@ class OrderBuysafe implements ModelInterface, ArrayAccess
     /**
      * Gets buysafe_bond_refunded
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getBuysafeBondRefunded()
     {
@@ -319,7 +319,7 @@ class OrderBuysafe implements ModelInterface, ArrayAccess
     /**
      * Sets buysafe_bond_refunded
      *
-     * @param \ultracartv2\models\Currency $buysafe_bond_refunded buysafe_bond_refunded
+     * @param \ultracart\v2\models\Currency $buysafe_bond_refunded buysafe_bond_refunded
      *
      * @return $this
      */

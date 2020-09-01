@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailOrder Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,7 +60,7 @@ class EmailOrder implements ModelInterface, ArrayAccess
         'email' => 'string',
         'order_dts' => 'string',
         'order_id' => 'string',
-        'total' => '\ultracartv2\models\Currency'
+        'total' => '\ultracart\v2\models\Currency'
     ];
 
     /**
@@ -297,7 +297,7 @@ class EmailOrder implements ModelInterface, ArrayAccess
     /**
      * Gets total
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTotal()
     {
@@ -307,7 +307,7 @@ class EmailOrder implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param \ultracartv2\models\Currency $total total
+     * @param \ultracart\v2\models\Currency $total total
      *
      * @return $this
      */

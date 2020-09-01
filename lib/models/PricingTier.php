@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * PricingTier Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -61,7 +61,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'allow_cod' => 'bool',
         'allow_purchase_order' => 'bool',
         'allow_quote_request' => 'bool',
-        'approval_notification' => '\ultracartv2\models\PricingTierNotification',
+        'approval_notification' => '\ultracart\v2\models\PricingTierNotification',
         'auto_approve_cod' => 'bool',
         'auto_approve_purchase_order' => 'bool',
         'default_on_wholesale_signup' => 'bool',
@@ -83,7 +83,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'not_valid_when_coupon_present' => 'bool',
         'pricing_tier_oid' => 'int',
         'realtime_percentage_discount' => 'float',
-        'signup_notification' => '\ultracartv2\models\PricingTierNotification',
+        'signup_notification' => '\ultracart\v2\models\PricingTierNotification',
         'suppress_buysafe' => 'bool',
         'suppress_mailing_list' => 'bool',
         'tax_exempt' => 'bool',
@@ -487,7 +487,7 @@ class PricingTier implements ModelInterface, ArrayAccess
     /**
      * Gets approval_notification
      *
-     * @return \ultracartv2\models\PricingTierNotification
+     * @return \ultracart\v2\models\PricingTierNotification
      */
     public function getApprovalNotification()
     {
@@ -497,7 +497,7 @@ class PricingTier implements ModelInterface, ArrayAccess
     /**
      * Sets approval_notification
      *
-     * @param \ultracartv2\models\PricingTierNotification $approval_notification approval_notification
+     * @param \ultracart\v2\models\PricingTierNotification $approval_notification approval_notification
      *
      * @return $this
      */
@@ -1019,7 +1019,7 @@ class PricingTier implements ModelInterface, ArrayAccess
     /**
      * Gets signup_notification
      *
-     * @return \ultracartv2\models\PricingTierNotification
+     * @return \ultracart\v2\models\PricingTierNotification
      */
     public function getSignupNotification()
     {
@@ -1029,7 +1029,7 @@ class PricingTier implements ModelInterface, ArrayAccess
     /**
      * Sets signup_notification
      *
-     * @param \ultracartv2\models\PricingTierNotification $signup_notification signup_notification
+     * @param \ultracart\v2\models\PricingTierNotification $signup_notification signup_notification
      *
      * @return $this
      */

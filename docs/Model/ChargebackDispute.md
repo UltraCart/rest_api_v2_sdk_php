@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **fax_transaction_id** | **int** | Fax transaction id | [optional] 
 **icsid** | **string** | icsid | [optional] 
 **merchant_account_profile_oid** | **int** | Merchant account profile oid | [optional] 
-**order** | [**\ultracartv2\models\Order**](Order.md) |  | [optional] 
+**order** | [**\ultracart\v2\models\Order**](Order.md) |  | [optional] 
 **order_id** | **string** | Order Id | [optional] 
 **partial_card_number** | **string** | Partial card number | [optional] 
 **pdf_file_oid** | **string** | PDF file oid | [optional] 

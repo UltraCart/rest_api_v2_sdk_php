@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderPaymentTransaction Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'details' => '\ultracartv2\models\OrderPaymentTransactionDetail[]',
+        'details' => '\ultracart\v2\models\OrderPaymentTransactionDetail[]',
         'successful' => 'bool',
         'transaction_gateway' => 'string',
         'transaction_timestamp' => 'string'
@@ -225,7 +225,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets details
      *
-     * @return \ultracartv2\models\OrderPaymentTransactionDetail[]
+     * @return \ultracart\v2\models\OrderPaymentTransactionDetail[]
      */
     public function getDetails()
     {
@@ -235,7 +235,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets details
      *
-     * @param \ultracartv2\models\OrderPaymentTransactionDetail[] $details Details
+     * @param \ultracart\v2\models\OrderPaymentTransactionDetail[] $details Details
      *
      * @return $this
      */

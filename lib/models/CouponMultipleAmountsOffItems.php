@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CouponMultipleAmountsOffItems Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class CouponMultipleAmountsOffItems implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'discounts' => '\ultracartv2\models\CouponTierItemDiscount[]',
+        'discounts' => '\ultracart\v2\models\CouponTierItemDiscount[]',
         'limit' => 'int'
     ];
 
@@ -213,7 +213,7 @@ class CouponMultipleAmountsOffItems implements ModelInterface, ArrayAccess
     /**
      * Gets discounts
      *
-     * @return \ultracartv2\models\CouponTierItemDiscount[]
+     * @return \ultracart\v2\models\CouponTierItemDiscount[]
      */
     public function getDiscounts()
     {
@@ -223,7 +223,7 @@ class CouponMultipleAmountsOffItems implements ModelInterface, ArrayAccess
     /**
      * Sets discounts
      *
-     * @param \ultracartv2\models\CouponTierItemDiscount[] $discounts A list of item discounts.
+     * @param \ultracart\v2\models\CouponTierItemDiscount[] $discounts A list of item discounts.
      *
      * @return $this
      */

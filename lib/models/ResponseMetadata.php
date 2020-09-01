@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ResponseMetadata Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,7 +58,7 @@ class ResponseMetadata implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'payload_name' => 'string',
-        'result_set' => '\ultracartv2\models\ResultSet'
+        'result_set' => '\ultracart\v2\models\ResultSet'
     ];
 
     /**
@@ -237,7 +237,7 @@ class ResponseMetadata implements ModelInterface, ArrayAccess
     /**
      * Gets result_set
      *
-     * @return \ultracartv2\models\ResultSet
+     * @return \ultracart\v2\models\ResultSet
      */
     public function getResultSet()
     {
@@ -247,7 +247,7 @@ class ResponseMetadata implements ModelInterface, ArrayAccess
     /**
      * Sets result_set
      *
-     * @param \ultracartv2\models\ResultSet $result_set result_set
+     * @param \ultracart\v2\models\ResultSet $result_set result_set
      *
      * @return $this
      */

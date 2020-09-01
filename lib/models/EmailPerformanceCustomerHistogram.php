@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailPerformanceCustomerHistogram Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class EmailPerformanceCustomerHistogram implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'periods' => '\ultracartv2\models\EmailPerformanceCustomerHistogramPeriod[]'
+        'periods' => '\ultracart\v2\models\EmailPerformanceCustomerHistogramPeriod[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class EmailPerformanceCustomerHistogram implements ModelInterface, ArrayAccess
     /**
      * Gets periods
      *
-     * @return \ultracartv2\models\EmailPerformanceCustomerHistogramPeriod[]
+     * @return \ultracart\v2\models\EmailPerformanceCustomerHistogramPeriod[]
      */
     public function getPeriods()
     {
@@ -217,7 +217,7 @@ class EmailPerformanceCustomerHistogram implements ModelInterface, ArrayAccess
     /**
      * Sets periods
      *
-     * @param \ultracartv2\models\EmailPerformanceCustomerHistogramPeriod[] $periods Periods (newest to oldest)
+     * @param \ultracart\v2\models\EmailPerformanceCustomerHistogramPeriod[] $periods Periods (newest to oldest)
      *
      * @return $this
      */

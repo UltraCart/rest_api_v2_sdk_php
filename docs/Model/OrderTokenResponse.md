@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | [**\ultracartv2\models\Error**](Error.md) |  | [optional] 
-**metadata** | [**\ultracartv2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
+**metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **order_token** | **string** | An order token that securely represents an order id | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 

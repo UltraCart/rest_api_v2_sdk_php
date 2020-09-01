@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **storefront_experiment_oid** | **int** | Storefront Experiment Oid | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
 **uri** | **string** | URI the experiment was started on | [optional] 
-**variations** | [**\ultracartv2\models\ExperimentVariation[]**](ExperimentVariation.md) | Variations being tested in the experiment | [optional] 
+**variations** | [**\ultracart\v2\models\ExperimentVariation[]**](ExperimentVariation.md) | Variations being tested in the experiment | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

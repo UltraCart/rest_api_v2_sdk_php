@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CheckoutStateProvinceResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class CheckoutStateProvinceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'state_provinces' => '\ultracartv2\models\StateProvince[]'
+        'state_provinces' => '\ultracart\v2\models\StateProvince[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CheckoutStateProvinceResponse implements ModelInterface, ArrayAccess
     /**
      * Gets state_provinces
      *
-     * @return \ultracartv2\models\StateProvince[]
+     * @return \ultracart\v2\models\StateProvince[]
      */
     public function getStateProvinces()
     {
@@ -217,7 +217,7 @@ class CheckoutStateProvinceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets state_provinces
      *
-     * @param \ultracartv2\models\StateProvince[] $state_provinces state_provinces
+     * @param \ultracart\v2\models\StateProvince[] $state_provinces state_provinces
      *
      * @return $this
      */

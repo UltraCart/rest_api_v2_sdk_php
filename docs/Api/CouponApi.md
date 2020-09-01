@@ -1,4 +1,4 @@
-# ultracartv2\CouponApi
+# ultracart\v2\CouponApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **deleteCoupon**
-> \ultracartv2\models\CouponResponse deleteCoupon($coupon_oid)
+> \ultracart\v2\models\CouponResponse deleteCoupon($coupon_oid)
 
 Delete a coupon
 
@@ -29,16 +29,16 @@ Delete a coupon on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\CouponResponse**](../Model/CouponResponse.md)
+[**\ultracart\v2\models\CouponResponse**](../Model/CouponResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generateCouponCodes**
-> \ultracartv2\models\CouponCodesResponse generateCouponCodes($coupon_oid, $coupon_codes_request)
+> \ultracart\v2\models\CouponCodesResponse generateCouponCodes($coupon_oid, $coupon_codes_request)
 
 Generates one time codes for a coupon
 
@@ -90,16 +90,16 @@ Generate one time codes for a coupon
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -107,7 +107,7 @@ $api_instance = new ultracartv2\api\CouponApi(
 );
 
 $coupon_oid = 56; // int | The coupon oid to generate codes.
-$coupon_codes_request = new \ultracartv2\models\CouponCodesRequest(); // \ultracartv2\models\CouponCodesRequest | Coupon code generation parameters
+$coupon_codes_request = new \ultracart\v2\models\CouponCodesRequest(); // \ultracart\v2\models\CouponCodesRequest | Coupon code generation parameters
 
 try {
     $result = $apiInstance->generateCouponCodes($coupon_oid, $coupon_codes_request);
@@ -123,11 +123,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **coupon_oid** | **int**| The coupon oid to generate codes. |
- **coupon_codes_request** | [**\ultracartv2\models\CouponCodesRequest**](../Model/CouponCodesRequest.md)| Coupon code generation parameters |
+ **coupon_codes_request** | [**\ultracart\v2\models\CouponCodesRequest**](../Model/CouponCodesRequest.md)| Coupon code generation parameters |
 
 ### Return type
 
-[**\ultracartv2\models\CouponCodesResponse**](../Model/CouponCodesResponse.md)
+[**\ultracart\v2\models\CouponCodesResponse**](../Model/CouponCodesResponse.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generateOneTimeCodesByMerchantCode**
-> \ultracartv2\models\CouponCodesResponse generateOneTimeCodesByMerchantCode($merchant_code, $coupon_codes_request)
+> \ultracart\v2\models\CouponCodesResponse generateOneTimeCodesByMerchantCode($merchant_code, $coupon_codes_request)
 
 Generates one time codes by merchant code
 
@@ -153,16 +153,16 @@ Generate one time codes by merchant code
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -170,7 +170,7 @@ $api_instance = new ultracartv2\api\CouponApi(
 );
 
 $merchant_code = "merchant_code_example"; // string | The merchant code to generate one time codes.
-$coupon_codes_request = new \ultracartv2\models\CouponCodesRequest(); // \ultracartv2\models\CouponCodesRequest | Coupon code generation parameters
+$coupon_codes_request = new \ultracart\v2\models\CouponCodesRequest(); // \ultracart\v2\models\CouponCodesRequest | Coupon code generation parameters
 
 try {
     $result = $apiInstance->generateOneTimeCodesByMerchantCode($merchant_code, $coupon_codes_request);
@@ -186,11 +186,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchant_code** | **string**| The merchant code to generate one time codes. |
- **coupon_codes_request** | [**\ultracartv2\models\CouponCodesRequest**](../Model/CouponCodesRequest.md)| Coupon code generation parameters |
+ **coupon_codes_request** | [**\ultracart\v2\models\CouponCodesRequest**](../Model/CouponCodesRequest.md)| Coupon code generation parameters |
 
 ### Return type
 
-[**\ultracartv2\models\CouponCodesResponse**](../Model/CouponCodesResponse.md)
+[**\ultracart\v2\models\CouponCodesResponse**](../Model/CouponCodesResponse.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCoupon**
-> \ultracartv2\models\CouponResponse getCoupon($coupon_oid, $_expand)
+> \ultracart\v2\models\CouponResponse getCoupon($coupon_oid, $_expand)
 
 Retrieve a coupon
 
@@ -216,16 +216,16 @@ Retrieves a single coupon using the specified coupon profile oid.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\CouponResponse**](../Model/CouponResponse.md)
+[**\ultracart\v2\models\CouponResponse**](../Model/CouponResponse.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCouponByMerchantCode**
-> \ultracartv2\models\CouponResponse getCouponByMerchantCode($merchant_code, $_expand)
+> \ultracart\v2\models\CouponResponse getCouponByMerchantCode($merchant_code, $_expand)
 
 Retrieve a coupon by merchant code
 
@@ -279,16 +279,16 @@ Retrieves a single coupon using the specified merchant code.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\CouponResponse**](../Model/CouponResponse.md)
+[**\ultracart\v2\models\CouponResponse**](../Model/CouponResponse.md)
 
 ### Authorization
 
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCoupons**
-> \ultracartv2\models\CouponsResponse getCoupons($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand)
+> \ultracart\v2\models\CouponsResponse getCoupons($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve coupons
 
@@ -342,16 +342,16 @@ Retrieves coupons for this account.  If no parameters are specified, all coupons
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\CouponsResponse**](../Model/CouponsResponse.md)
+[**\ultracart\v2\models\CouponsResponse**](../Model/CouponsResponse.md)
 
 ### Authorization
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCouponsByQuery**
-> \ultracartv2\models\CouponsResponse getCouponsByQuery($coupon_query, $_limit, $_offset, $_sort, $_expand)
+> \ultracart\v2\models\CouponsResponse getCouponsByQuery($coupon_query, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve coupons by query
 
@@ -427,23 +427,23 @@ Retrieves coupons from the account.  If no parameters are specified, all coupons
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$coupon_query = new \ultracartv2\models\CouponQuery(); // \ultracartv2\models\CouponQuery | Coupon query
+$coupon_query = new \ultracart\v2\models\CouponQuery(); // \ultracart\v2\models\CouponQuery | Coupon query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_sort = "_sort_example"; // string | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
@@ -462,7 +462,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coupon_query** | [**\ultracartv2\models\CouponQuery**](../Model/CouponQuery.md)| Coupon query |
+ **coupon_query** | [**\ultracart\v2\models\CouponQuery**](../Model/CouponQuery.md)| Coupon query |
  **_limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_sort** | **string**| The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracartv2\models\CouponsResponse**](../Model/CouponsResponse.md)
+[**\ultracart\v2\models\CouponsResponse**](../Model/CouponsResponse.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEditorValues**
-> \ultracartv2\models\CouponEditorValues getEditorValues()
+> \ultracart\v2\models\CouponEditorValues getEditorValues()
 
 Retrieve values needed for a coupon editor
 
@@ -496,16 +496,16 @@ Retrieve values needed for a coupon editor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -527,7 +527,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracartv2\models\CouponEditorValues**](../Model/CouponEditorValues.md)
+[**\ultracart\v2\models\CouponEditorValues**](../Model/CouponEditorValues.md)
 
 ### Authorization
 
@@ -541,7 +541,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **insertCoupon**
-> \ultracartv2\models\CouponResponse insertCoupon($coupon, $_expand)
+> \ultracart\v2\models\CouponResponse insertCoupon($coupon, $_expand)
 
 Insert a coupon
 
@@ -553,23 +553,23 @@ Insert a coupon on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$coupon = new \ultracartv2\models\Coupon(); // \ultracartv2\models\Coupon | Coupon to insert
+$coupon = new \ultracart\v2\models\Coupon(); // \ultracart\v2\models\Coupon | Coupon to insert
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -585,12 +585,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coupon** | [**\ultracartv2\models\Coupon**](../Model/Coupon.md)| Coupon to insert |
+ **coupon** | [**\ultracart\v2\models\Coupon**](../Model/Coupon.md)| Coupon to insert |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracartv2\models\CouponResponse**](../Model/CouponResponse.md)
+[**\ultracart\v2\models\CouponResponse**](../Model/CouponResponse.md)
 
 ### Authorization
 
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCoupon**
-> \ultracartv2\models\CouponResponse updateCoupon($coupon, $coupon_oid, $_expand)
+> \ultracart\v2\models\CouponResponse updateCoupon($coupon, $coupon_oid, $_expand)
 
 Update a coupon
 
@@ -616,23 +616,23 @@ Update a coupon on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracartv2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
 
 Alternative method:
-$api_instance = new ultracartv2\api\CouponApi(
+$api_instance = new ultracart\v2\api\CouponApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 
-$coupon = new \ultracartv2\models\Coupon(); // \ultracartv2\models\Coupon | Coupon to update
+$coupon = new \ultracart\v2\models\Coupon(); // \ultracart\v2\models\Coupon | Coupon to update
 $coupon_oid = 56; // int | The coupon_oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
@@ -649,13 +649,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coupon** | [**\ultracartv2\models\Coupon**](../Model/Coupon.md)| Coupon to update |
+ **coupon** | [**\ultracart\v2\models\Coupon**](../Model/Coupon.md)| Coupon to update |
  **coupon_oid** | **int**| The coupon_oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracartv2\models\CouponResponse**](../Model/CouponResponse.md)
+[**\ultracart\v2\models\CouponResponse**](../Model/CouponResponse.md)
 
 ### Authorization
 

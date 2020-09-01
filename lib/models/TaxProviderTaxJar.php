@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxProviderTaxJar Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class TaxProviderTaxJar implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'configuration' => '\ultracartv2\models\TaxJarConfig',
+        'configuration' => '\ultracart\v2\models\TaxJarConfig',
         'description' => 'string',
         'selected' => 'bool',
         'title' => 'string'
@@ -225,7 +225,7 @@ class TaxProviderTaxJar implements ModelInterface, ArrayAccess
     /**
      * Gets configuration
      *
-     * @return \ultracartv2\models\TaxJarConfig
+     * @return \ultracart\v2\models\TaxJarConfig
      */
     public function getConfiguration()
     {
@@ -235,7 +235,7 @@ class TaxProviderTaxJar implements ModelInterface, ArrayAccess
     /**
      * Sets configuration
      *
-     * @param \ultracartv2\models\TaxJarConfig $configuration configuration
+     * @param \ultracart\v2\models\TaxJarConfig $configuration configuration
      *
      * @return $this
      */

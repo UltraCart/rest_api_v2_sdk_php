@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderAutoOrder Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -69,11 +69,11 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
         'disabled_dts' => 'string',
         'enabled' => 'bool',
         'failure_reason' => 'string',
-        'items' => '\ultracartv2\models\AutoOrderItem[]',
+        'items' => '\ultracart\v2\models\AutoOrderItem[]',
         'next_attempt' => 'string',
         'original_order_id' => 'string',
         'override_affiliate_id' => 'int',
-        'rebill_orders' => '\ultracartv2\models\Order[]',
+        'rebill_orders' => '\ultracart\v2\models\Order[]',
         'rotating_transaction_gateway_code' => 'string',
         'status' => 'string'
     ];
@@ -628,7 +628,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \ultracartv2\models\AutoOrderItem[]
+     * @return \ultracart\v2\models\AutoOrderItem[]
      */
     public function getItems()
     {
@@ -638,7 +638,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \ultracartv2\models\AutoOrderItem[] $items The items that are setup to rebill
+     * @param \ultracart\v2\models\AutoOrderItem[] $items The items that are setup to rebill
      *
      * @return $this
      */
@@ -724,7 +724,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
     /**
      * Gets rebill_orders
      *
-     * @return \ultracartv2\models\Order[]
+     * @return \ultracart\v2\models\Order[]
      */
     public function getRebillOrders()
     {
@@ -734,7 +734,7 @@ class OrderAutoOrder implements ModelInterface, ArrayAccess
     /**
      * Sets rebill_orders
      *
-     * @param \ultracartv2\models\Order[] $rebill_orders Rebill orders that have taken place on this auto order
+     * @param \ultracart\v2\models\Order[] $rebill_orders Rebill orders that have taken place on this auto order
      *
      * @return $this
      */

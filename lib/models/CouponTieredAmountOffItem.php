@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CouponTieredAmountOffItem Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,7 +59,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'item' => 'string',
         'limit' => 'float',
-        'tiers' => '\ultracartv2\models\CouponTierQuantityAmount[]'
+        'tiers' => '\ultracart\v2\models\CouponTierQuantityAmount[]'
     ];
 
     /**
@@ -267,7 +267,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
     /**
      * Gets tiers
      *
-     * @return \ultracartv2\models\CouponTierQuantityAmount[]
+     * @return \ultracart\v2\models\CouponTierQuantityAmount[]
      */
     public function getTiers()
     {
@@ -277,7 +277,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
     /**
      * Sets tiers
      *
-     * @param \ultracartv2\models\CouponTierQuantityAmount[] $tiers A list of discount tiers.
+     * @param \ultracart\v2\models\CouponTierQuantityAmount[] $tiers A list of discount tiers.
      *
      * @return $this
      */

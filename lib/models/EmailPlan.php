@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailPlan Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -60,7 +60,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
         'additional_customers' => 'int',
         'additional_emails' => 'int',
         'allow_list_import' => 'bool',
-        'customer_tiers' => '\ultracartv2\models\EmailPlanAdditional[]',
+        'customer_tiers' => '\ultracart\v2\models\EmailPlanAdditional[]',
         'initial_sending_limits' => 'int',
         'plan_customers' => 'int',
         'plan_emails' => 'int',
@@ -363,7 +363,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     /**
      * Gets customer_tiers
      *
-     * @return \ultracartv2\models\EmailPlanAdditional[]
+     * @return \ultracart\v2\models\EmailPlanAdditional[]
      */
     public function getCustomerTiers()
     {
@@ -373,7 +373,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     /**
      * Sets customer_tiers
      *
-     * @param \ultracartv2\models\EmailPlanAdditional[] $customer_tiers customer_tiers
+     * @param \ultracart\v2\models\EmailPlanAdditional[] $customer_tiers customer_tiers
      *
      * @return $this
      */

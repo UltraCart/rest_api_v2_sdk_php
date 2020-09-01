@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemContent Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,14 +57,14 @@ class ItemContent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'assignments' => '\ultracartv2\models\ItemContentAssignment[]',
-        'attributes' => '\ultracartv2\models\ItemContentAttribute[]',
+        'assignments' => '\ultracart\v2\models\ItemContentAssignment[]',
+        'attributes' => '\ultracart\v2\models\ItemContentAttribute[]',
         'custom_thank_you_url' => 'string',
         'exclude_from_search' => 'bool',
         'exclude_from_top_sellers' => 'bool',
         'extended_description' => 'string',
         'extended_description_translated_text_instance_oid' => 'int',
-        'multimedia' => '\ultracartv2\models\ItemContentMultimedia[]',
+        'multimedia' => '\ultracart\v2\models\ItemContentMultimedia[]',
         'new_item' => 'bool',
         'new_item_end' => 'string',
         'new_item_start' => 'string',
@@ -277,7 +277,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     /**
      * Gets assignments
      *
-     * @return \ultracartv2\models\ItemContentAssignment[]
+     * @return \ultracart\v2\models\ItemContentAssignment[]
      */
     public function getAssignments()
     {
@@ -287,7 +287,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     /**
      * Sets assignments
      *
-     * @param \ultracartv2\models\ItemContentAssignment[] $assignments StoreFront assignments
+     * @param \ultracart\v2\models\ItemContentAssignment[] $assignments StoreFront assignments
      *
      * @return $this
      */
@@ -301,7 +301,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     /**
      * Gets attributes
      *
-     * @return \ultracartv2\models\ItemContentAttribute[]
+     * @return \ultracart\v2\models\ItemContentAttribute[]
      */
     public function getAttributes()
     {
@@ -311,7 +311,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     /**
      * Sets attributes
      *
-     * @param \ultracartv2\models\ItemContentAttribute[] $attributes StoreFront attributes
+     * @param \ultracart\v2\models\ItemContentAttribute[] $attributes StoreFront attributes
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     /**
      * Gets multimedia
      *
-     * @return \ultracartv2\models\ItemContentMultimedia[]
+     * @return \ultracart\v2\models\ItemContentMultimedia[]
      */
     public function getMultimedia()
     {
@@ -459,7 +459,7 @@ class ItemContent implements ModelInterface, ArrayAccess
     /**
      * Sets multimedia
      *
-     * @param \ultracartv2\models\ItemContentMultimedia[] $multimedia Multimedia
+     * @param \ultracart\v2\models\ItemContentMultimedia[] $multimedia Multimedia
      *
      * @return $this
      */

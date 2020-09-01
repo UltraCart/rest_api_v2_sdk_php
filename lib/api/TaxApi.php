@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * TaxApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -93,9 +93,9 @@ class TaxApi
      * Deletes a Self tax provider city
      *
      * @param  string $city The city being deleted. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -110,9 +110,9 @@ class TaxApi
      * Deletes a Self tax provider city
      *
      * @param  string $city The city being deleted. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -156,7 +156,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -164,7 +164,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -172,7 +172,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -180,7 +180,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -188,7 +188,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -204,7 +204,7 @@ class TaxApi
      * Deletes a Self tax provider city
      *
      * @param  string $city The city being deleted. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -225,7 +225,7 @@ class TaxApi
      * Deletes a Self tax provider city
      *
      * @param  string $city The city being deleted. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -262,7 +262,7 @@ class TaxApi
      * Create request for operation 'deleteTaxProviderSelfCity'
      *
      * @param  string $city The city being deleted. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -388,9 +388,9 @@ class TaxApi
      * Deletes a Self tax provider country
      *
      * @param  string $country_code The country code being deleted. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -405,9 +405,9 @@ class TaxApi
      * Deletes a Self tax provider country
      *
      * @param  string $country_code The country code being deleted. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -451,7 +451,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -459,7 +459,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -467,7 +467,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -475,7 +475,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -483,7 +483,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -499,7 +499,7 @@ class TaxApi
      * Deletes a Self tax provider country
      *
      * @param  string $country_code The country code being deleted. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -520,7 +520,7 @@ class TaxApi
      * Deletes a Self tax provider country
      *
      * @param  string $country_code The country code being deleted. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -557,7 +557,7 @@ class TaxApi
      * Create request for operation 'deleteTaxProviderSelfCountry'
      *
      * @param  string $country_code The country code being deleted. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -683,9 +683,9 @@ class TaxApi
      * Deletes a Self tax provider county
      *
      * @param  string $county The county being deleted. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -700,9 +700,9 @@ class TaxApi
      * Deletes a Self tax provider county
      *
      * @param  string $county The county being deleted. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -746,7 +746,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -754,7 +754,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -762,7 +762,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -770,7 +770,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -778,7 +778,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -794,7 +794,7 @@ class TaxApi
      * Deletes a Self tax provider county
      *
      * @param  string $county The county being deleted. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -815,7 +815,7 @@ class TaxApi
      * Deletes a Self tax provider county
      *
      * @param  string $county The county being deleted. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -852,7 +852,7 @@ class TaxApi
      * Create request for operation 'deleteTaxProviderSelfCounty'
      *
      * @param  string $county The county being deleted. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be deleted (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -978,9 +978,9 @@ class TaxApi
      * Deletes a Self tax provider postalCode
      *
      * @param  string $postal_code The postal code being deleted. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -995,9 +995,9 @@ class TaxApi
      * Deletes a Self tax provider postalCode
      *
      * @param  string $postal_code The postal code being deleted. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1041,7 +1041,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1049,7 +1049,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1057,7 +1057,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1065,7 +1065,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1073,7 +1073,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1089,7 +1089,7 @@ class TaxApi
      * Deletes a Self tax provider postalCode
      *
      * @param  string $postal_code The postal code being deleted. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1110,7 +1110,7 @@ class TaxApi
      * Deletes a Self tax provider postalCode
      *
      * @param  string $postal_code The postal code being deleted. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1147,7 +1147,7 @@ class TaxApi
      * Create request for operation 'deleteTaxProviderSelfPostalCode'
      *
      * @param  string $postal_code The postal code being deleted. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1273,9 +1273,9 @@ class TaxApi
      * Deletes a Self tax provider state
      *
      * @param  string $state_code The state code being deleted. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be deleted (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1290,9 +1290,9 @@ class TaxApi
      * Deletes a Self tax provider state
      *
      * @param  string $state_code The state code being deleted. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be deleted (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be deleted (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1336,7 +1336,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1344,7 +1344,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1352,7 +1352,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1360,7 +1360,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1368,7 +1368,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1384,7 +1384,7 @@ class TaxApi
      * Deletes a Self tax provider state
      *
      * @param  string $state_code The state code being deleted. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be deleted (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1405,7 +1405,7 @@ class TaxApi
      * Deletes a Self tax provider state
      *
      * @param  string $state_code The state code being deleted. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be deleted (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1442,7 +1442,7 @@ class TaxApi
      * Create request for operation 'deleteTaxProviderSelfState'
      *
      * @param  string $state_code The state code being deleted. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be deleted (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be deleted (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1568,9 +1568,9 @@ class TaxApi
      * Retrieve the Avalara tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderAvalara
+     * @return \ultracart\v2\models\TaxProviderAvalara
      */
     public function getTaxProviderAvalara()
     {
@@ -1584,13 +1584,13 @@ class TaxApi
      * Retrieve the Avalara tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderAvalara, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderAvalara, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderAvalaraWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderAvalara';
+        $returnType = '\ultracart\v2\models\TaxProviderAvalara';
         $request = $this->getTaxProviderAvalaraRequest();
 
         try {
@@ -1642,7 +1642,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderAvalara',
+                        '\ultracart\v2\models\TaxProviderAvalara',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1650,7 +1650,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1658,7 +1658,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1666,7 +1666,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1674,7 +1674,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1682,7 +1682,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1722,7 +1722,7 @@ class TaxApi
      */
     public function getTaxProviderAvalaraAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderAvalara';
+        $returnType = '\ultracart\v2\models\TaxProviderAvalara';
         $request = $this->getTaxProviderAvalaraRequest();
 
         return $this->client
@@ -1866,11 +1866,11 @@ class TaxApi
      *
      * Returns Avalara Tax companies configured by the merchant
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderAvalaraCompaniesResult
+     * @return \ultracart\v2\models\TaxProviderAvalaraCompaniesResult
      */
     public function getTaxProviderAvalaraCompanies($tax_provider_avalara)
     {
@@ -1883,15 +1883,15 @@ class TaxApi
      *
      * Returns Avalara Tax companies configured by the merchant
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderAvalaraCompaniesResult, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderAvalaraCompaniesResult, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderAvalaraCompaniesWithHttpInfo($tax_provider_avalara)
     {
-        $returnType = '\ultracartv2\models\TaxProviderAvalaraCompaniesResult';
+        $returnType = '\ultracart\v2\models\TaxProviderAvalaraCompaniesResult';
         $request = $this->getTaxProviderAvalaraCompaniesRequest($tax_provider_avalara);
 
         try {
@@ -1943,7 +1943,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderAvalaraCompaniesResult',
+                        '\ultracart\v2\models\TaxProviderAvalaraCompaniesResult',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1951,7 +1951,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1959,7 +1959,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1967,7 +1967,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1975,7 +1975,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1983,7 +1983,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1998,7 +1998,7 @@ class TaxApi
      *
      * Returns Avalara Tax companies configured by the merchant
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2018,14 +2018,14 @@ class TaxApi
      *
      * Returns Avalara Tax companies configured by the merchant
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getTaxProviderAvalaraCompaniesAsyncWithHttpInfo($tax_provider_avalara)
     {
-        $returnType = '\ultracartv2\models\TaxProviderAvalaraCompaniesResult';
+        $returnType = '\ultracart\v2\models\TaxProviderAvalaraCompaniesResult';
         $request = $this->getTaxProviderAvalaraCompaniesRequest($tax_provider_avalara);
 
         return $this->client
@@ -2068,7 +2068,7 @@ class TaxApi
     /**
      * Create request for operation 'getTaxProviderAvalaraCompanies'
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2180,9 +2180,9 @@ class TaxApi
      * Attempts to connect to Avalara and returns back the response
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderTestResult
+     * @return \ultracart\v2\models\TaxProviderTestResult
      */
     public function getTaxProviderAvalaraTest()
     {
@@ -2196,13 +2196,13 @@ class TaxApi
      * Attempts to connect to Avalara and returns back the response
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderAvalaraTestWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderTestResult';
+        $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderAvalaraTestRequest();
 
         try {
@@ -2254,7 +2254,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderTestResult',
+                        '\ultracart\v2\models\TaxProviderTestResult',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2262,7 +2262,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2270,7 +2270,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2278,7 +2278,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2286,7 +2286,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2294,7 +2294,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2334,7 +2334,7 @@ class TaxApi
      */
     public function getTaxProviderAvalaraTestAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderTestResult';
+        $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderAvalaraTestRequest();
 
         return $this->client
@@ -2479,9 +2479,9 @@ class TaxApi
      * Retrieve the Self tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderSelf
+     * @return \ultracart\v2\models\TaxProviderSelf
      */
     public function getTaxProviderSelf()
     {
@@ -2495,13 +2495,13 @@ class TaxApi
      * Retrieve the Self tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderSelf, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderSelf, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderSelfWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderSelf';
+        $returnType = '\ultracart\v2\models\TaxProviderSelf';
         $request = $this->getTaxProviderSelfRequest();
 
         try {
@@ -2553,7 +2553,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderSelf',
+                        '\ultracart\v2\models\TaxProviderSelf',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2561,7 +2561,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2569,7 +2569,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2577,7 +2577,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2585,7 +2585,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2593,7 +2593,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2633,7 +2633,7 @@ class TaxApi
      */
     public function getTaxProviderSelfAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderSelf';
+        $returnType = '\ultracart\v2\models\TaxProviderSelf';
         $request = $this->getTaxProviderSelfRequest();
 
         return $this->client
@@ -2778,9 +2778,9 @@ class TaxApi
      * Retrieve the Self tax provider countries
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderSelfCountriesResponse
+     * @return \ultracart\v2\models\TaxProviderSelfCountriesResponse
      */
     public function getTaxProviderSelfCountries()
     {
@@ -2794,13 +2794,13 @@ class TaxApi
      * Retrieve the Self tax provider countries
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderSelfCountriesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderSelfCountriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderSelfCountriesWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderSelfCountriesResponse';
+        $returnType = '\ultracart\v2\models\TaxProviderSelfCountriesResponse';
         $request = $this->getTaxProviderSelfCountriesRequest();
 
         try {
@@ -2852,7 +2852,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderSelfCountriesResponse',
+                        '\ultracart\v2\models\TaxProviderSelfCountriesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2860,7 +2860,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2868,7 +2868,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2876,7 +2876,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2884,7 +2884,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2892,7 +2892,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2932,7 +2932,7 @@ class TaxApi
      */
     public function getTaxProviderSelfCountriesAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderSelfCountriesResponse';
+        $returnType = '\ultracart\v2\models\TaxProviderSelfCountriesResponse';
         $request = $this->getTaxProviderSelfCountriesRequest();
 
         return $this->client
@@ -3078,9 +3078,9 @@ class TaxApi
      *
      * @param  string $country_code The country code regions desired. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderSelfRegionsResponse
+     * @return \ultracart\v2\models\TaxProviderSelfRegionsResponse
      */
     public function getTaxProviderSelfRegionsByCountryCode($country_code)
     {
@@ -3095,13 +3095,13 @@ class TaxApi
      *
      * @param  string $country_code The country code regions desired. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderSelfRegionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderSelfRegionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderSelfRegionsByCountryCodeWithHttpInfo($country_code)
     {
-        $returnType = '\ultracartv2\models\TaxProviderSelfRegionsResponse';
+        $returnType = '\ultracart\v2\models\TaxProviderSelfRegionsResponse';
         $request = $this->getTaxProviderSelfRegionsByCountryCodeRequest($country_code);
 
         try {
@@ -3153,7 +3153,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderSelfRegionsResponse',
+                        '\ultracart\v2\models\TaxProviderSelfRegionsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3161,7 +3161,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3169,7 +3169,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3177,7 +3177,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3185,7 +3185,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3193,7 +3193,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3235,7 +3235,7 @@ class TaxApi
      */
     public function getTaxProviderSelfRegionsByCountryCodeAsyncWithHttpInfo($country_code)
     {
-        $returnType = '\ultracartv2\models\TaxProviderSelfRegionsResponse';
+        $returnType = '\ultracart\v2\models\TaxProviderSelfRegionsResponse';
         $request = $this->getTaxProviderSelfRegionsByCountryCodeRequest($country_code);
 
         return $this->client
@@ -3395,9 +3395,9 @@ class TaxApi
      * Retrieve the Sovos tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderSovos
+     * @return \ultracart\v2\models\TaxProviderSovos
      */
     public function getTaxProviderSovos()
     {
@@ -3411,13 +3411,13 @@ class TaxApi
      * Retrieve the Sovos tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderSovos, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderSovos, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderSovosWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderSovos';
+        $returnType = '\ultracart\v2\models\TaxProviderSovos';
         $request = $this->getTaxProviderSovosRequest();
 
         try {
@@ -3469,7 +3469,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderSovos',
+                        '\ultracart\v2\models\TaxProviderSovos',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3477,7 +3477,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3485,7 +3485,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3493,7 +3493,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3501,7 +3501,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3509,7 +3509,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3549,7 +3549,7 @@ class TaxApi
      */
     public function getTaxProviderSovosAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderSovos';
+        $returnType = '\ultracart\v2\models\TaxProviderSovos';
         $request = $this->getTaxProviderSovosRequest();
 
         return $this->client
@@ -3694,9 +3694,9 @@ class TaxApi
      * Attempts to connect to Sovos and returns back the response
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderTestResult
+     * @return \ultracart\v2\models\TaxProviderTestResult
      */
     public function getTaxProviderSovosTest()
     {
@@ -3710,13 +3710,13 @@ class TaxApi
      * Attempts to connect to Sovos and returns back the response
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderSovosTestWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderTestResult';
+        $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderSovosTestRequest();
 
         try {
@@ -3768,7 +3768,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderTestResult',
+                        '\ultracart\v2\models\TaxProviderTestResult',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3776,7 +3776,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3784,7 +3784,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3792,7 +3792,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3800,7 +3800,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3808,7 +3808,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3848,7 +3848,7 @@ class TaxApi
      */
     public function getTaxProviderSovosTestAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderTestResult';
+        $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderSovosTestRequest();
 
         return $this->client
@@ -3993,9 +3993,9 @@ class TaxApi
      * Retrieve the TaxJar tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderTaxJar
+     * @return \ultracart\v2\models\TaxProviderTaxJar
      */
     public function getTaxProviderTaxJar()
     {
@@ -4009,13 +4009,13 @@ class TaxApi
      * Retrieve the TaxJar tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderTaxJar, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderTaxJar, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderTaxJarWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderTaxJar';
+        $returnType = '\ultracart\v2\models\TaxProviderTaxJar';
         $request = $this->getTaxProviderTaxJarRequest();
 
         try {
@@ -4067,7 +4067,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderTaxJar',
+                        '\ultracart\v2\models\TaxProviderTaxJar',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4075,7 +4075,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4083,7 +4083,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4091,7 +4091,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4099,7 +4099,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4107,7 +4107,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4147,7 +4147,7 @@ class TaxApi
      */
     public function getTaxProviderTaxJarAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderTaxJar';
+        $returnType = '\ultracart\v2\models\TaxProviderTaxJar';
         $request = $this->getTaxProviderTaxJarRequest();
 
         return $this->client
@@ -4292,9 +4292,9 @@ class TaxApi
      * Attempts to connect to TaxJar and returns back the response
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderTestResult
+     * @return \ultracart\v2\models\TaxProviderTestResult
      */
     public function getTaxProviderTaxJarTest()
     {
@@ -4308,13 +4308,13 @@ class TaxApi
      * Attempts to connect to TaxJar and returns back the response
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderTaxJarTestWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderTestResult';
+        $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderTaxJarTestRequest();
 
         try {
@@ -4366,7 +4366,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderTestResult',
+                        '\ultracart\v2\models\TaxProviderTestResult',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4374,7 +4374,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4382,7 +4382,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4390,7 +4390,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4398,7 +4398,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4406,7 +4406,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4446,7 +4446,7 @@ class TaxApi
      */
     public function getTaxProviderTaxJarTestAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderTestResult';
+        $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderTaxJarTestRequest();
 
         return $this->client
@@ -4591,9 +4591,9 @@ class TaxApi
      * Retrieve the UltraCart tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderUltraCart
+     * @return \ultracart\v2\models\TaxProviderUltraCart
      */
     public function getTaxProviderUltraCart()
     {
@@ -4607,13 +4607,13 @@ class TaxApi
      * Retrieve the UltraCart tax provider
      *
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderUltraCart, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderUltraCart, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProviderUltraCartWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderUltraCart';
+        $returnType = '\ultracart\v2\models\TaxProviderUltraCart';
         $request = $this->getTaxProviderUltraCartRequest();
 
         try {
@@ -4665,7 +4665,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderUltraCart',
+                        '\ultracart\v2\models\TaxProviderUltraCart',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4673,7 +4673,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4681,7 +4681,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4689,7 +4689,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4697,7 +4697,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4705,7 +4705,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4745,7 +4745,7 @@ class TaxApi
      */
     public function getTaxProviderUltraCartAsyncWithHttpInfo()
     {
-        $returnType = '\ultracartv2\models\TaxProviderUltraCart';
+        $returnType = '\ultracart\v2\models\TaxProviderUltraCart';
         $request = $this->getTaxProviderUltraCartRequest();
 
         return $this->client
@@ -4893,9 +4893,9 @@ class TaxApi
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProvidersResponse
+     * @return \ultracart\v2\models\TaxProvidersResponse
      */
     public function getTaxProviders($_limit = '100', $_offset = '0', $_expand = null)
     {
@@ -4912,13 +4912,13 @@ class TaxApi
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProvidersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProvidersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxProvidersWithHttpInfo($_limit = '100', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracartv2\models\TaxProvidersResponse';
+        $returnType = '\ultracart\v2\models\TaxProvidersResponse';
         $request = $this->getTaxProvidersRequest($_limit, $_offset, $_expand);
 
         try {
@@ -4970,7 +4970,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProvidersResponse',
+                        '\ultracart\v2\models\TaxProvidersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4978,7 +4978,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4986,7 +4986,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4994,7 +4994,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5002,7 +5002,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5010,7 +5010,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5056,7 +5056,7 @@ class TaxApi
      */
     public function getTaxProvidersAsyncWithHttpInfo($_limit = '100', $_offset = '0', $_expand = null)
     {
-        $returnType = '\ultracartv2\models\TaxProvidersResponse';
+        $returnType = '\ultracart\v2\models\TaxProvidersResponse';
         $request = $this->getTaxProvidersRequest($_limit, $_offset, $_expand);
 
         return $this->client
@@ -5217,9 +5217,9 @@ class TaxApi
      *
      * @param  string $provider_name The tax provider to set active. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderActivateResult
+     * @return \ultracart\v2\models\TaxProviderActivateResult
      */
     public function setActiveTaxProvider($provider_name)
     {
@@ -5234,13 +5234,13 @@ class TaxApi
      *
      * @param  string $provider_name The tax provider to set active. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderActivateResult, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderActivateResult, HTTP status code, HTTP response headers (array of strings)
      */
     public function setActiveTaxProviderWithHttpInfo($provider_name)
     {
-        $returnType = '\ultracartv2\models\TaxProviderActivateResult';
+        $returnType = '\ultracart\v2\models\TaxProviderActivateResult';
         $request = $this->setActiveTaxProviderRequest($provider_name);
 
         try {
@@ -5292,7 +5292,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderActivateResult',
+                        '\ultracart\v2\models\TaxProviderActivateResult',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5300,7 +5300,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5308,7 +5308,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5316,7 +5316,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5324,7 +5324,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5332,7 +5332,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5374,7 +5374,7 @@ class TaxApi
      */
     public function setActiveTaxProviderAsyncWithHttpInfo($provider_name)
     {
-        $returnType = '\ultracartv2\models\TaxProviderActivateResult';
+        $returnType = '\ultracart\v2\models\TaxProviderActivateResult';
         $request = $this->setActiveTaxProviderRequest($provider_name);
 
         return $this->client
@@ -5533,11 +5533,11 @@ class TaxApi
      *
      * Update the Avalara tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderAvalara
+     * @return \ultracart\v2\models\TaxProviderAvalara
      */
     public function updateTaxProviderAvalara($tax_provider_avalara)
     {
@@ -5550,15 +5550,15 @@ class TaxApi
      *
      * Update the Avalara tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderAvalara, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderAvalara, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderAvalaraWithHttpInfo($tax_provider_avalara)
     {
-        $returnType = '\ultracartv2\models\TaxProviderAvalara';
+        $returnType = '\ultracart\v2\models\TaxProviderAvalara';
         $request = $this->updateTaxProviderAvalaraRequest($tax_provider_avalara);
 
         try {
@@ -5610,7 +5610,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderAvalara',
+                        '\ultracart\v2\models\TaxProviderAvalara',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5618,7 +5618,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5626,7 +5626,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5634,7 +5634,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5642,7 +5642,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5650,7 +5650,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5665,7 +5665,7 @@ class TaxApi
      *
      * Update the Avalara tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5685,14 +5685,14 @@ class TaxApi
      *
      * Update the Avalara tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderAvalaraAsyncWithHttpInfo($tax_provider_avalara)
     {
-        $returnType = '\ultracartv2\models\TaxProviderAvalara';
+        $returnType = '\ultracart\v2\models\TaxProviderAvalara';
         $request = $this->updateTaxProviderAvalaraRequest($tax_provider_avalara);
 
         return $this->client
@@ -5735,7 +5735,7 @@ class TaxApi
     /**
      * Create request for operation 'updateTaxProviderAvalara'
      *
-     * @param  \ultracartv2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5846,11 +5846,11 @@ class TaxApi
      *
      * Update the Self tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
+     * @param  \ultracart\v2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderSelf
+     * @return \ultracart\v2\models\TaxProviderSelf
      */
     public function updateTaxProviderSelf($tax_provider_self)
     {
@@ -5863,15 +5863,15 @@ class TaxApi
      *
      * Update the Self tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
+     * @param  \ultracart\v2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderSelf, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderSelf, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderSelfWithHttpInfo($tax_provider_self)
     {
-        $returnType = '\ultracartv2\models\TaxProviderSelf';
+        $returnType = '\ultracart\v2\models\TaxProviderSelf';
         $request = $this->updateTaxProviderSelfRequest($tax_provider_self);
 
         try {
@@ -5923,7 +5923,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderSelf',
+                        '\ultracart\v2\models\TaxProviderSelf',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5931,7 +5931,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5939,7 +5939,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5947,7 +5947,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5955,7 +5955,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5963,7 +5963,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5978,7 +5978,7 @@ class TaxApi
      *
      * Update the Self tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
+     * @param  \ultracart\v2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5998,14 +5998,14 @@ class TaxApi
      *
      * Update the Self tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
+     * @param  \ultracart\v2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderSelfAsyncWithHttpInfo($tax_provider_self)
     {
-        $returnType = '\ultracartv2\models\TaxProviderSelf';
+        $returnType = '\ultracart\v2\models\TaxProviderSelf';
         $request = $this->updateTaxProviderSelfRequest($tax_provider_self);
 
         return $this->client
@@ -6048,7 +6048,7 @@ class TaxApi
     /**
      * Create request for operation 'updateTaxProviderSelf'
      *
-     * @param  \ultracartv2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
+     * @param  \ultracart\v2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6160,11 +6160,11 @@ class TaxApi
      * Updates a Self tax provider city
      *
      * @param  string $city The city being updated. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be updated (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxCity
+     * @return \ultracart\v2\models\TaxCity
      */
     public function updateTaxProviderSelfCity($city, $tax_city)
     {
@@ -6178,15 +6178,15 @@ class TaxApi
      * Updates a Self tax provider city
      *
      * @param  string $city The city being updated. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be updated (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxCity, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxCity, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderSelfCityWithHttpInfo($city, $tax_city)
     {
-        $returnType = '\ultracartv2\models\TaxCity';
+        $returnType = '\ultracart\v2\models\TaxCity';
         $request = $this->updateTaxProviderSelfCityRequest($city, $tax_city);
 
         try {
@@ -6238,7 +6238,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxCity',
+                        '\ultracart\v2\models\TaxCity',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6246,7 +6246,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6254,7 +6254,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6262,7 +6262,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6270,7 +6270,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6278,7 +6278,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6294,7 +6294,7 @@ class TaxApi
      * Updates a Self tax provider city
      *
      * @param  string $city The city being updated. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be updated (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6315,14 +6315,14 @@ class TaxApi
      * Updates a Self tax provider city
      *
      * @param  string $city The city being updated. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be updated (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderSelfCityAsyncWithHttpInfo($city, $tax_city)
     {
-        $returnType = '\ultracartv2\models\TaxCity';
+        $returnType = '\ultracart\v2\models\TaxCity';
         $request = $this->updateTaxProviderSelfCityRequest($city, $tax_city);
 
         return $this->client
@@ -6366,7 +6366,7 @@ class TaxApi
      * Create request for operation 'updateTaxProviderSelfCity'
      *
      * @param  string $city The city being updated. (required)
-     * @param  \ultracartv2\models\TaxCity $tax_city tax city to be updated (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6492,11 +6492,11 @@ class TaxApi
      * Updates a Self tax provider country
      *
      * @param  string $country_code The country code being updated. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be updated (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxCountry
+     * @return \ultracart\v2\models\TaxCountry
      */
     public function updateTaxProviderSelfCountry($country_code, $tax_country)
     {
@@ -6510,15 +6510,15 @@ class TaxApi
      * Updates a Self tax provider country
      *
      * @param  string $country_code The country code being updated. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be updated (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxCountry, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxCountry, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderSelfCountryWithHttpInfo($country_code, $tax_country)
     {
-        $returnType = '\ultracartv2\models\TaxCountry';
+        $returnType = '\ultracart\v2\models\TaxCountry';
         $request = $this->updateTaxProviderSelfCountryRequest($country_code, $tax_country);
 
         try {
@@ -6570,7 +6570,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxCountry',
+                        '\ultracart\v2\models\TaxCountry',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6578,7 +6578,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6586,7 +6586,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6594,7 +6594,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6602,7 +6602,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6610,7 +6610,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6626,7 +6626,7 @@ class TaxApi
      * Updates a Self tax provider country
      *
      * @param  string $country_code The country code being updated. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be updated (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6647,14 +6647,14 @@ class TaxApi
      * Updates a Self tax provider country
      *
      * @param  string $country_code The country code being updated. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be updated (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderSelfCountryAsyncWithHttpInfo($country_code, $tax_country)
     {
-        $returnType = '\ultracartv2\models\TaxCountry';
+        $returnType = '\ultracart\v2\models\TaxCountry';
         $request = $this->updateTaxProviderSelfCountryRequest($country_code, $tax_country);
 
         return $this->client
@@ -6698,7 +6698,7 @@ class TaxApi
      * Create request for operation 'updateTaxProviderSelfCountry'
      *
      * @param  string $country_code The country code being updated. (required)
-     * @param  \ultracartv2\models\TaxCountry $tax_country tax country to be updated (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6824,11 +6824,11 @@ class TaxApi
      * Updates a Self tax provider county
      *
      * @param  string $county The county being updated. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be updated (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxCounty
+     * @return \ultracart\v2\models\TaxCounty
      */
     public function updateTaxProviderSelfCounty($county, $tax_county)
     {
@@ -6842,15 +6842,15 @@ class TaxApi
      * Updates a Self tax provider county
      *
      * @param  string $county The county being updated. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be updated (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxCounty, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxCounty, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderSelfCountyWithHttpInfo($county, $tax_county)
     {
-        $returnType = '\ultracartv2\models\TaxCounty';
+        $returnType = '\ultracart\v2\models\TaxCounty';
         $request = $this->updateTaxProviderSelfCountyRequest($county, $tax_county);
 
         try {
@@ -6902,7 +6902,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxCounty',
+                        '\ultracart\v2\models\TaxCounty',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6910,7 +6910,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6918,7 +6918,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6926,7 +6926,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6934,7 +6934,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6942,7 +6942,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6958,7 +6958,7 @@ class TaxApi
      * Updates a Self tax provider county
      *
      * @param  string $county The county being updated. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be updated (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6979,14 +6979,14 @@ class TaxApi
      * Updates a Self tax provider county
      *
      * @param  string $county The county being updated. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be updated (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderSelfCountyAsyncWithHttpInfo($county, $tax_county)
     {
-        $returnType = '\ultracartv2\models\TaxCounty';
+        $returnType = '\ultracart\v2\models\TaxCounty';
         $request = $this->updateTaxProviderSelfCountyRequest($county, $tax_county);
 
         return $this->client
@@ -7030,7 +7030,7 @@ class TaxApi
      * Create request for operation 'updateTaxProviderSelfCounty'
      *
      * @param  string $county The county being updated. (required)
-     * @param  \ultracartv2\models\TaxCounty $tax_county tax county to be updated (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7156,11 +7156,11 @@ class TaxApi
      * Updates a Self tax provider postalCode
      *
      * @param  string $postal_code The postal code being updated. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxPostalCode
+     * @return \ultracart\v2\models\TaxPostalCode
      */
     public function updateTaxProviderSelfPostalCode($postal_code, $tax_postal_code)
     {
@@ -7174,15 +7174,15 @@ class TaxApi
      * Updates a Self tax provider postalCode
      *
      * @param  string $postal_code The postal code being updated. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxPostalCode, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxPostalCode, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderSelfPostalCodeWithHttpInfo($postal_code, $tax_postal_code)
     {
-        $returnType = '\ultracartv2\models\TaxPostalCode';
+        $returnType = '\ultracart\v2\models\TaxPostalCode';
         $request = $this->updateTaxProviderSelfPostalCodeRequest($postal_code, $tax_postal_code);
 
         try {
@@ -7234,7 +7234,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxPostalCode',
+                        '\ultracart\v2\models\TaxPostalCode',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7242,7 +7242,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7250,7 +7250,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7258,7 +7258,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7266,7 +7266,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7274,7 +7274,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7290,7 +7290,7 @@ class TaxApi
      * Updates a Self tax provider postalCode
      *
      * @param  string $postal_code The postal code being updated. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7311,14 +7311,14 @@ class TaxApi
      * Updates a Self tax provider postalCode
      *
      * @param  string $postal_code The postal code being updated. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderSelfPostalCodeAsyncWithHttpInfo($postal_code, $tax_postal_code)
     {
-        $returnType = '\ultracartv2\models\TaxPostalCode';
+        $returnType = '\ultracart\v2\models\TaxPostalCode';
         $request = $this->updateTaxProviderSelfPostalCodeRequest($postal_code, $tax_postal_code);
 
         return $this->client
@@ -7362,7 +7362,7 @@ class TaxApi
      * Create request for operation 'updateTaxProviderSelfPostalCode'
      *
      * @param  string $postal_code The postal code being updated. (required)
-     * @param  \ultracartv2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7488,11 +7488,11 @@ class TaxApi
      * Updates a Self tax provider state
      *
      * @param  string $state_code The state code being updated. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be updated (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxState
+     * @return \ultracart\v2\models\TaxState
      */
     public function updateTaxProviderSelfState($state_code, $tax_state)
     {
@@ -7506,15 +7506,15 @@ class TaxApi
      * Updates a Self tax provider state
      *
      * @param  string $state_code The state code being updated. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be updated (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be updated (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxState, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxState, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderSelfStateWithHttpInfo($state_code, $tax_state)
     {
-        $returnType = '\ultracartv2\models\TaxState';
+        $returnType = '\ultracart\v2\models\TaxState';
         $request = $this->updateTaxProviderSelfStateRequest($state_code, $tax_state);
 
         try {
@@ -7566,7 +7566,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxState',
+                        '\ultracart\v2\models\TaxState',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7574,7 +7574,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7582,7 +7582,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7590,7 +7590,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7598,7 +7598,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7606,7 +7606,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7622,7 +7622,7 @@ class TaxApi
      * Updates a Self tax provider state
      *
      * @param  string $state_code The state code being updated. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be updated (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7643,14 +7643,14 @@ class TaxApi
      * Updates a Self tax provider state
      *
      * @param  string $state_code The state code being updated. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be updated (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderSelfStateAsyncWithHttpInfo($state_code, $tax_state)
     {
-        $returnType = '\ultracartv2\models\TaxState';
+        $returnType = '\ultracart\v2\models\TaxState';
         $request = $this->updateTaxProviderSelfStateRequest($state_code, $tax_state);
 
         return $this->client
@@ -7694,7 +7694,7 @@ class TaxApi
      * Create request for operation 'updateTaxProviderSelfState'
      *
      * @param  string $state_code The state code being updated. (required)
-     * @param  \ultracartv2\models\TaxState $tax_state tax state to be updated (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be updated (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7819,11 +7819,11 @@ class TaxApi
      *
      * Update the Sovos tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
+     * @param  \ultracart\v2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderSovos
+     * @return \ultracart\v2\models\TaxProviderSovos
      */
     public function updateTaxProviderSovos($tax_provider_sovos)
     {
@@ -7836,15 +7836,15 @@ class TaxApi
      *
      * Update the Sovos tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
+     * @param  \ultracart\v2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderSovos, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderSovos, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderSovosWithHttpInfo($tax_provider_sovos)
     {
-        $returnType = '\ultracartv2\models\TaxProviderSovos';
+        $returnType = '\ultracart\v2\models\TaxProviderSovos';
         $request = $this->updateTaxProviderSovosRequest($tax_provider_sovos);
 
         try {
@@ -7896,7 +7896,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderSovos',
+                        '\ultracart\v2\models\TaxProviderSovos',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7904,7 +7904,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7912,7 +7912,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7920,7 +7920,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7928,7 +7928,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7936,7 +7936,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7951,7 +7951,7 @@ class TaxApi
      *
      * Update the Sovos tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
+     * @param  \ultracart\v2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7971,14 +7971,14 @@ class TaxApi
      *
      * Update the Sovos tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
+     * @param  \ultracart\v2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderSovosAsyncWithHttpInfo($tax_provider_sovos)
     {
-        $returnType = '\ultracartv2\models\TaxProviderSovos';
+        $returnType = '\ultracart\v2\models\TaxProviderSovos';
         $request = $this->updateTaxProviderSovosRequest($tax_provider_sovos);
 
         return $this->client
@@ -8021,7 +8021,7 @@ class TaxApi
     /**
      * Create request for operation 'updateTaxProviderSovos'
      *
-     * @param  \ultracartv2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
+     * @param  \ultracart\v2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8132,11 +8132,11 @@ class TaxApi
      *
      * Update the TaxJar tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
+     * @param  \ultracart\v2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderTaxJar
+     * @return \ultracart\v2\models\TaxProviderTaxJar
      */
     public function updateTaxProviderTaxJar($tax_provider_tax_jar)
     {
@@ -8149,15 +8149,15 @@ class TaxApi
      *
      * Update the TaxJar tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
+     * @param  \ultracart\v2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderTaxJar, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderTaxJar, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderTaxJarWithHttpInfo($tax_provider_tax_jar)
     {
-        $returnType = '\ultracartv2\models\TaxProviderTaxJar';
+        $returnType = '\ultracart\v2\models\TaxProviderTaxJar';
         $request = $this->updateTaxProviderTaxJarRequest($tax_provider_tax_jar);
 
         try {
@@ -8209,7 +8209,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderTaxJar',
+                        '\ultracart\v2\models\TaxProviderTaxJar',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8217,7 +8217,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8225,7 +8225,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8233,7 +8233,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8241,7 +8241,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8249,7 +8249,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8264,7 +8264,7 @@ class TaxApi
      *
      * Update the TaxJar tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
+     * @param  \ultracart\v2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8284,14 +8284,14 @@ class TaxApi
      *
      * Update the TaxJar tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
+     * @param  \ultracart\v2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderTaxJarAsyncWithHttpInfo($tax_provider_tax_jar)
     {
-        $returnType = '\ultracartv2\models\TaxProviderTaxJar';
+        $returnType = '\ultracart\v2\models\TaxProviderTaxJar';
         $request = $this->updateTaxProviderTaxJarRequest($tax_provider_tax_jar);
 
         return $this->client
@@ -8334,7 +8334,7 @@ class TaxApi
     /**
      * Create request for operation 'updateTaxProviderTaxJar'
      *
-     * @param  \ultracartv2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
+     * @param  \ultracart\v2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8445,11 +8445,11 @@ class TaxApi
      *
      * Update the UltraCart tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
+     * @param  \ultracart\v2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\TaxProviderUltraCart
+     * @return \ultracart\v2\models\TaxProviderUltraCart
      */
     public function updateTaxProviderUltraCart($tax_provider_ultracart)
     {
@@ -8462,15 +8462,15 @@ class TaxApi
      *
      * Update the UltraCart tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
+     * @param  \ultracart\v2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\TaxProviderUltraCart, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\TaxProviderUltraCart, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxProviderUltraCartWithHttpInfo($tax_provider_ultracart)
     {
-        $returnType = '\ultracartv2\models\TaxProviderUltraCart';
+        $returnType = '\ultracart\v2\models\TaxProviderUltraCart';
         $request = $this->updateTaxProviderUltraCartRequest($tax_provider_ultracart);
 
         try {
@@ -8522,7 +8522,7 @@ class TaxApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\TaxProviderUltraCart',
+                        '\ultracart\v2\models\TaxProviderUltraCart',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8530,7 +8530,7 @@ class TaxApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8538,7 +8538,7 @@ class TaxApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8546,7 +8546,7 @@ class TaxApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8554,7 +8554,7 @@ class TaxApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8562,7 +8562,7 @@ class TaxApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8577,7 +8577,7 @@ class TaxApi
      *
      * Update the UltraCart tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
+     * @param  \ultracart\v2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8597,14 +8597,14 @@ class TaxApi
      *
      * Update the UltraCart tax provider
      *
-     * @param  \ultracartv2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
+     * @param  \ultracart\v2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateTaxProviderUltraCartAsyncWithHttpInfo($tax_provider_ultracart)
     {
-        $returnType = '\ultracartv2\models\TaxProviderUltraCart';
+        $returnType = '\ultracart\v2\models\TaxProviderUltraCart';
         $request = $this->updateTaxProviderUltraCartRequest($tax_provider_ultracart);
 
         return $this->client
@@ -8647,7 +8647,7 @@ class TaxApi
     /**
      * Create request for operation 'updateTaxProviderUltraCart'
      *
-     * @param  \ultracartv2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
+     * @param  \ultracart\v2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

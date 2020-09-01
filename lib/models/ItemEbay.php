@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemEbay Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,7 +59,7 @@ class ItemEbay implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'active' => 'bool',
         'category_id' => 'int',
-        'category_specifics' => '\ultracartv2\models\ItemEbayCategorySpecific[]',
+        'category_specifics' => '\ultracart\v2\models\ItemEbayCategorySpecific[]',
         'condition_description' => 'string',
         'condition_id' => 'int',
         'consecutive_failures' => 'int',
@@ -97,7 +97,7 @@ class ItemEbay implements ModelInterface, ArrayAccess
         'listing_price' => 'float',
         'listing_price_override' => 'float',
         'listing_type' => 'string',
-        'marketplace_analysis' => '\ultracartv2\models\ItemEbayMarketPlaceAnalysis',
+        'marketplace_analysis' => '\ultracart\v2\models\ItemEbayMarketPlaceAnalysis',
         'marketplace_analysis_perform' => 'bool',
         'marketplace_final_value_fee_percentage' => 'float',
         'marketplace_last_check_dts' => 'string',
@@ -663,7 +663,7 @@ class ItemEbay implements ModelInterface, ArrayAccess
     /**
      * Gets category_specifics
      *
-     * @return \ultracartv2\models\ItemEbayCategorySpecific[]
+     * @return \ultracart\v2\models\ItemEbayCategorySpecific[]
      */
     public function getCategorySpecifics()
     {
@@ -673,7 +673,7 @@ class ItemEbay implements ModelInterface, ArrayAccess
     /**
      * Sets category_specifics
      *
-     * @param \ultracartv2\models\ItemEbayCategorySpecific[] $category_specifics Answers to category specific questions
+     * @param \ultracart\v2\models\ItemEbayCategorySpecific[] $category_specifics Answers to category specific questions
      *
      * @return $this
      */
@@ -1575,7 +1575,7 @@ class ItemEbay implements ModelInterface, ArrayAccess
     /**
      * Gets marketplace_analysis
      *
-     * @return \ultracartv2\models\ItemEbayMarketPlaceAnalysis
+     * @return \ultracart\v2\models\ItemEbayMarketPlaceAnalysis
      */
     public function getMarketplaceAnalysis()
     {
@@ -1585,7 +1585,7 @@ class ItemEbay implements ModelInterface, ArrayAccess
     /**
      * Sets marketplace_analysis
      *
-     * @param \ultracartv2\models\ItemEbayMarketPlaceAnalysis $marketplace_analysis marketplace_analysis
+     * @param \ultracart\v2\models\ItemEbayMarketPlaceAnalysis $marketplace_analysis marketplace_analysis
      *
      * @return $this
      */

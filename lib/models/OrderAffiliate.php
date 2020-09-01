@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderAffiliate Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,7 +58,7 @@ class OrderAffiliate implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'affiliate_oid' => 'int',
-        'ledger_entries' => '\ultracartv2\models\OrderAffiliateLedger[]',
+        'ledger_entries' => '\ultracart\v2\models\OrderAffiliateLedger[]',
         'sub_id' => 'string'
     ];
 
@@ -243,7 +243,7 @@ class OrderAffiliate implements ModelInterface, ArrayAccess
     /**
      * Gets ledger_entries
      *
-     * @return \ultracartv2\models\OrderAffiliateLedger[]
+     * @return \ultracart\v2\models\OrderAffiliateLedger[]
      */
     public function getLedgerEntries()
     {
@@ -253,7 +253,7 @@ class OrderAffiliate implements ModelInterface, ArrayAccess
     /**
      * Sets ledger_entries
      *
-     * @param \ultracartv2\models\OrderAffiliateLedger[] $ledger_entries Ledger entries associated with all the commissions earned on this order
+     * @param \ultracart\v2\models\OrderAffiliateLedger[] $ledger_entries Ledger entries associated with all the commissions earned on this order
      *
      * @return $this
      */

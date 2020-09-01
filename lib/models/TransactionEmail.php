@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TransactionEmail Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -67,7 +67,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'handlebar_variables' => 'string[]',
         'invalid' => 'bool',
         'last_modified' => 'string',
-        'options' => '\ultracartv2\models\TransactionEmailOption[]',
+        'options' => '\ultracart\v2\models\TransactionEmailOption[]',
         'path' => 'string',
         'size' => 'string',
         'store_front_fs_directory_oid' => 'int',
@@ -555,7 +555,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \ultracartv2\models\TransactionEmailOption[]
+     * @return \ultracart\v2\models\TransactionEmailOption[]
      */
     public function getOptions()
     {
@@ -565,7 +565,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \ultracartv2\models\TransactionEmailOption[] $options Options that help govern how and when this template is used
+     * @param \ultracart\v2\models\TransactionEmailOption[] $options Options that help govern how and when this template is used
      *
      * @return $this
      */

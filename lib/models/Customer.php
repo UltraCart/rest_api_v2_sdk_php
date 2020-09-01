@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * Customer Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,21 +57,21 @@ class Customer implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'activity' => '\ultracartv2\models\CustomerActivity',
+        'activity' => '\ultracart\v2\models\CustomerActivity',
         'affiliate_oid' => 'int',
         'allow_3rd_party_billing' => 'bool',
         'allow_cod' => 'bool',
         'allow_purchase_order' => 'bool',
         'allow_quote_request' => 'bool',
         'allow_selection_of_address_type' => 'bool',
-        'attachments' => '\ultracartv2\models\CustomerAttachment[]',
+        'attachments' => '\ultracart\v2\models\CustomerAttachment[]',
         'auto_approve_cod' => 'bool',
         'auto_approve_purchase_order' => 'bool',
         'automatic_merchant_notes' => 'string',
-        'billing' => '\ultracartv2\models\CustomerBilling[]',
+        'billing' => '\ultracart\v2\models\CustomerBilling[]',
         'business_notes' => 'string',
-        'cards' => '\ultracartv2\models\CustomerCard[]',
-        'cc_emails' => '\ultracartv2\models\CustomerEmail[]',
+        'cards' => '\ultracart\v2\models\CustomerCard[]',
+        'cc_emails' => '\ultracart\v2\models\CustomerEmail[]',
         'customer_profile_oid' => 'int',
         'dhl_account_number' => 'string',
         'dhl_duty_account_number' => 'string',
@@ -82,32 +82,32 @@ class Customer implements ModelInterface, ArrayAccess
         'free_shipping_minimum' => 'float',
         'last_modified_by' => 'string',
         'last_modified_dts' => 'string',
-        'loyalty' => '\ultracartv2\models\CustomerLoyalty',
+        'loyalty' => '\ultracart\v2\models\CustomerLoyalty',
         'maximum_item_count' => 'int',
         'minimum_item_count' => 'int',
         'minimum_subtotal' => 'float',
         'no_coupons' => 'bool',
         'no_free_shipping' => 'bool',
         'no_realtime_charge' => 'bool',
-        'orders' => '\ultracartv2\models\Order[]',
-        'orders_summary' => '\ultracartv2\models\CustomerOrdersSummary',
+        'orders' => '\ultracart\v2\models\Order[]',
+        'orders_summary' => '\ultracart\v2\models\CustomerOrdersSummary',
         'password' => 'string',
-        'pricing_tiers' => '\ultracartv2\models\CustomerPricingTier[]',
-        'privacy' => '\ultracartv2\models\CustomerPrivacy',
+        'pricing_tiers' => '\ultracart\v2\models\CustomerPricingTier[]',
+        'privacy' => '\ultracart\v2\models\CustomerPrivacy',
         'qb_class' => 'string',
         'qb_code' => 'string',
-        'quotes' => '\ultracartv2\models\Order[]',
-        'quotes_summary' => '\ultracartv2\models\CustomerQuotesSummary',
+        'quotes' => '\ultracart\v2\models\Order[]',
+        'quotes_summary' => '\ultracart\v2\models\CustomerQuotesSummary',
         'referral_source' => 'string',
-        'reviewer' => '\ultracartv2\models\CustomerReviewer',
+        'reviewer' => '\ultracart\v2\models\CustomerReviewer',
         'sales_rep_code' => 'string',
         'send_signup_notification' => 'bool',
-        'shipping' => '\ultracartv2\models\CustomerShipping[]',
+        'shipping' => '\ultracart\v2\models\CustomerShipping[]',
         'signup_dts' => 'string',
-        'software_entitlements' => '\ultracartv2\models\CustomerSoftwareEntitlement[]',
+        'software_entitlements' => '\ultracart\v2\models\CustomerSoftwareEntitlement[]',
         'suppress_buysafe' => 'bool',
-        'tags' => '\ultracartv2\models\CustomerTag[]',
-        'tax_codes' => '\ultracartv2\models\CustomerTaxCodes',
+        'tags' => '\ultracart\v2\models\CustomerTag[]',
+        'tax_codes' => '\ultracart\v2\models\CustomerTaxCodes',
         'tax_exempt' => 'bool',
         'tax_id' => 'string',
         'terms' => 'string',
@@ -593,7 +593,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets activity
      *
-     * @return \ultracartv2\models\CustomerActivity
+     * @return \ultracart\v2\models\CustomerActivity
      */
     public function getActivity()
     {
@@ -603,7 +603,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets activity
      *
-     * @param \ultracartv2\models\CustomerActivity $activity activity
+     * @param \ultracart\v2\models\CustomerActivity $activity activity
      *
      * @return $this
      */
@@ -761,7 +761,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets attachments
      *
-     * @return \ultracartv2\models\CustomerAttachment[]
+     * @return \ultracart\v2\models\CustomerAttachment[]
      */
     public function getAttachments()
     {
@@ -771,7 +771,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets attachments
      *
-     * @param \ultracartv2\models\CustomerAttachment[] $attachments Attachments
+     * @param \ultracart\v2\models\CustomerAttachment[] $attachments Attachments
      *
      * @return $this
      */
@@ -857,7 +857,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets billing
      *
-     * @return \ultracartv2\models\CustomerBilling[]
+     * @return \ultracart\v2\models\CustomerBilling[]
      */
     public function getBilling()
     {
@@ -867,7 +867,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets billing
      *
-     * @param \ultracartv2\models\CustomerBilling[] $billing Billing addresses for this customer
+     * @param \ultracart\v2\models\CustomerBilling[] $billing Billing addresses for this customer
      *
      * @return $this
      */
@@ -909,7 +909,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets cards
      *
-     * @return \ultracartv2\models\CustomerCard[]
+     * @return \ultracart\v2\models\CustomerCard[]
      */
     public function getCards()
     {
@@ -919,7 +919,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets cards
      *
-     * @param \ultracartv2\models\CustomerCard[] $cards Credit Cards for this customer
+     * @param \ultracart\v2\models\CustomerCard[] $cards Credit Cards for this customer
      *
      * @return $this
      */
@@ -933,7 +933,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets cc_emails
      *
-     * @return \ultracartv2\models\CustomerEmail[]
+     * @return \ultracart\v2\models\CustomerEmail[]
      */
     public function getCcEmails()
     {
@@ -943,7 +943,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets cc_emails
      *
-     * @param \ultracartv2\models\CustomerEmail[] $cc_emails Additional emails to CC notification
+     * @param \ultracart\v2\models\CustomerEmail[] $cc_emails Additional emails to CC notification
      *
      * @return $this
      */
@@ -1213,7 +1213,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets loyalty
      *
-     * @return \ultracartv2\models\CustomerLoyalty
+     * @return \ultracart\v2\models\CustomerLoyalty
      */
     public function getLoyalty()
     {
@@ -1223,7 +1223,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets loyalty
      *
-     * @param \ultracartv2\models\CustomerLoyalty $loyalty loyalty
+     * @param \ultracart\v2\models\CustomerLoyalty $loyalty loyalty
      *
      * @return $this
      */
@@ -1381,7 +1381,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets orders
      *
-     * @return \ultracartv2\models\Order[]
+     * @return \ultracart\v2\models\Order[]
      */
     public function getOrders()
     {
@@ -1391,7 +1391,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets orders
      *
-     * @param \ultracartv2\models\Order[] $orders Orders associated with this customer profile
+     * @param \ultracart\v2\models\Order[] $orders Orders associated with this customer profile
      *
      * @return $this
      */
@@ -1405,7 +1405,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets orders_summary
      *
-     * @return \ultracartv2\models\CustomerOrdersSummary
+     * @return \ultracart\v2\models\CustomerOrdersSummary
      */
     public function getOrdersSummary()
     {
@@ -1415,7 +1415,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets orders_summary
      *
-     * @param \ultracartv2\models\CustomerOrdersSummary $orders_summary orders_summary
+     * @param \ultracart\v2\models\CustomerOrdersSummary $orders_summary orders_summary
      *
      * @return $this
      */
@@ -1457,7 +1457,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets pricing_tiers
      *
-     * @return \ultracartv2\models\CustomerPricingTier[]
+     * @return \ultracart\v2\models\CustomerPricingTier[]
      */
     public function getPricingTiers()
     {
@@ -1467,7 +1467,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets pricing_tiers
      *
-     * @param \ultracartv2\models\CustomerPricingTier[] $pricing_tiers Pricing tiers for this customer
+     * @param \ultracart\v2\models\CustomerPricingTier[] $pricing_tiers Pricing tiers for this customer
      *
      * @return $this
      */
@@ -1481,7 +1481,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets privacy
      *
-     * @return \ultracartv2\models\CustomerPrivacy
+     * @return \ultracart\v2\models\CustomerPrivacy
      */
     public function getPrivacy()
     {
@@ -1491,7 +1491,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets privacy
      *
-     * @param \ultracartv2\models\CustomerPrivacy $privacy privacy
+     * @param \ultracart\v2\models\CustomerPrivacy $privacy privacy
      *
      * @return $this
      */
@@ -1553,7 +1553,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets quotes
      *
-     * @return \ultracartv2\models\Order[]
+     * @return \ultracart\v2\models\Order[]
      */
     public function getQuotes()
     {
@@ -1563,7 +1563,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets quotes
      *
-     * @param \ultracartv2\models\Order[] $quotes Quotes associated with this customer profile
+     * @param \ultracart\v2\models\Order[] $quotes Quotes associated with this customer profile
      *
      * @return $this
      */
@@ -1577,7 +1577,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets quotes_summary
      *
-     * @return \ultracartv2\models\CustomerQuotesSummary
+     * @return \ultracart\v2\models\CustomerQuotesSummary
      */
     public function getQuotesSummary()
     {
@@ -1587,7 +1587,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets quotes_summary
      *
-     * @param \ultracartv2\models\CustomerQuotesSummary $quotes_summary quotes_summary
+     * @param \ultracart\v2\models\CustomerQuotesSummary $quotes_summary quotes_summary
      *
      * @return $this
      */
@@ -1629,7 +1629,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets reviewer
      *
-     * @return \ultracartv2\models\CustomerReviewer
+     * @return \ultracart\v2\models\CustomerReviewer
      */
     public function getReviewer()
     {
@@ -1639,7 +1639,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets reviewer
      *
-     * @param \ultracartv2\models\CustomerReviewer $reviewer reviewer
+     * @param \ultracart\v2\models\CustomerReviewer $reviewer reviewer
      *
      * @return $this
      */
@@ -1705,7 +1705,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets shipping
      *
-     * @return \ultracartv2\models\CustomerShipping[]
+     * @return \ultracart\v2\models\CustomerShipping[]
      */
     public function getShipping()
     {
@@ -1715,7 +1715,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets shipping
      *
-     * @param \ultracartv2\models\CustomerShipping[] $shipping Shipping addresses for this customer
+     * @param \ultracart\v2\models\CustomerShipping[] $shipping Shipping addresses for this customer
      *
      * @return $this
      */
@@ -1753,7 +1753,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets software_entitlements
      *
-     * @return \ultracartv2\models\CustomerSoftwareEntitlement[]
+     * @return \ultracart\v2\models\CustomerSoftwareEntitlement[]
      */
     public function getSoftwareEntitlements()
     {
@@ -1763,7 +1763,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets software_entitlements
      *
-     * @param \ultracartv2\models\CustomerSoftwareEntitlement[] $software_entitlements Software entitlements owned by this customer
+     * @param \ultracart\v2\models\CustomerSoftwareEntitlement[] $software_entitlements Software entitlements owned by this customer
      *
      * @return $this
      */
@@ -1801,7 +1801,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \ultracartv2\models\CustomerTag[]
+     * @return \ultracart\v2\models\CustomerTag[]
      */
     public function getTags()
     {
@@ -1811,7 +1811,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \ultracartv2\models\CustomerTag[] $tags Tags for this customer
+     * @param \ultracart\v2\models\CustomerTag[] $tags Tags for this customer
      *
      * @return $this
      */
@@ -1825,7 +1825,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Gets tax_codes
      *
-     * @return \ultracartv2\models\CustomerTaxCodes
+     * @return \ultracart\v2\models\CustomerTaxCodes
      */
     public function getTaxCodes()
     {
@@ -1835,7 +1835,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets tax_codes
      *
-     * @param \ultracartv2\models\CustomerTaxCodes $tax_codes tax_codes
+     * @param \ultracart\v2\models\CustomerTaxCodes $tax_codes tax_codes
      *
      * @return $this
      */

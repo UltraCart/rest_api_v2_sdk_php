@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * TaxState Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -58,7 +58,7 @@ class TaxState implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accounting_code' => 'string',
-        'counties' => '\ultracartv2\models\TaxCounty[]',
+        'counties' => '\ultracart\v2\models\TaxCounty[]',
         'country_oid' => 'int',
         'dont_collect_city' => 'bool',
         'dont_collect_county' => 'bool',
@@ -315,7 +315,7 @@ class TaxState implements ModelInterface, ArrayAccess
     /**
      * Gets counties
      *
-     * @return \ultracartv2\models\TaxCounty[]
+     * @return \ultracart\v2\models\TaxCounty[]
      */
     public function getCounties()
     {
@@ -325,7 +325,7 @@ class TaxState implements ModelInterface, ArrayAccess
     /**
      * Sets counties
      *
-     * @param \ultracartv2\models\TaxCounty[] $counties Counties within this state
+     * @param \ultracart\v2\models\TaxCounty[] $counties Counties within this state
      *
      * @return $this
      */

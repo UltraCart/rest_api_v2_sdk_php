@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailSegmentsResponse Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,9 +57,9 @@ class EmailSegmentsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\ultracartv2\models\Error',
-        'metadata' => '\ultracartv2\models\ResponseMetadata',
-        'segments' => '\ultracartv2\models\EmailSegment[]',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'segments' => '\ultracart\v2\models\EmailSegment[]',
         'success' => 'bool'
     ];
 
@@ -225,7 +225,7 @@ class EmailSegmentsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets error
      *
-     * @return \ultracartv2\models\Error
+     * @return \ultracart\v2\models\Error
      */
     public function getError()
     {
@@ -235,7 +235,7 @@ class EmailSegmentsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets error
      *
-     * @param \ultracartv2\models\Error $error error
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
@@ -249,7 +249,7 @@ class EmailSegmentsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets metadata
      *
-     * @return \ultracartv2\models\ResponseMetadata
+     * @return \ultracart\v2\models\ResponseMetadata
      */
     public function getMetadata()
     {
@@ -259,7 +259,7 @@ class EmailSegmentsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets metadata
      *
-     * @param \ultracartv2\models\ResponseMetadata $metadata metadata
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
@@ -273,7 +273,7 @@ class EmailSegmentsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets segments
      *
-     * @return \ultracartv2\models\EmailSegment[]
+     * @return \ultracart\v2\models\EmailSegment[]
      */
     public function getSegments()
     {
@@ -283,7 +283,7 @@ class EmailSegmentsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets segments
      *
-     * @param \ultracartv2\models\EmailSegment[] $segments segments
+     * @param \ultracart\v2\models\EmailSegment[] $segments segments
      *
      * @return $this
      */

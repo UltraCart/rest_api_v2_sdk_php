@@ -912,6 +912,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.21 | 09/01/2020 | break fix in php sdk due to bad namespace |
 | 3.0.20 | 09/01/2020 | Added OrderApi.processPayment method |
 | 3.0.19 | 08/28/2020 | Code Library development: added kraken parameters for thumbnail image generation. |
 | 3.0.17 | 08/26/2020 | cont. development work on Code Library |

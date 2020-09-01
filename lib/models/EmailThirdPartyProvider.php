@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * EmailThirdPartyProvider Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,7 +59,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'connect_url' => 'string',
         'list_count' => 'int',
-        'lists' => '\ultracartv2\models\EmailThirdPartyList[]',
+        'lists' => '\ultracart\v2\models\EmailThirdPartyList[]',
         'logo_url' => 'string',
         'name' => 'string'
     ];
@@ -279,7 +279,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
     /**
      * Gets lists
      *
-     * @return \ultracartv2\models\EmailThirdPartyList[]
+     * @return \ultracart\v2\models\EmailThirdPartyList[]
      */
     public function getLists()
     {
@@ -289,7 +289,7 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
     /**
      * Sets lists
      *
-     * @param \ultracartv2\models\EmailThirdPartyList[] $lists lists
+     * @param \ultracart\v2\models\EmailThirdPartyList[] $lists lists
      *
      * @return $this
      */

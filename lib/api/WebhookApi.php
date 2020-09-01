@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\api;
+namespace ultracart\v2\api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use ultracartv2\ApiException;
-use ultracartv2\Configuration;
-use ultracartv2\HeaderSelector;
-use ultracartv2\ObjectSerializer;
+use ultracart\v2\ApiException;
+use ultracart\v2\Configuration;
+use ultracart\v2\HeaderSelector;
+use ultracart\v2\ObjectSerializer;
 
 /**
  * WebhookApi Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -94,7 +94,7 @@ class WebhookApi
      *
      * @param  int $webhook_oid The webhook oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -110,7 +110,7 @@ class WebhookApi
      *
      * @param  int $webhook_oid The webhook oid to delete. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -154,7 +154,7 @@ class WebhookApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -162,7 +162,7 @@ class WebhookApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -170,7 +170,7 @@ class WebhookApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -178,7 +178,7 @@ class WebhookApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -186,7 +186,7 @@ class WebhookApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -373,11 +373,11 @@ class WebhookApi
      *
      * Delete a webhook by URL
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to delete (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to delete (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\WebhookResponse
+     * @return \ultracart\v2\models\WebhookResponse
      */
     public function deleteWebhookByUrl($webhook)
     {
@@ -390,15 +390,15 @@ class WebhookApi
      *
      * Delete a webhook by URL
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to delete (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to delete (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteWebhookByUrlWithHttpInfo($webhook)
     {
-        $returnType = '\ultracartv2\models\WebhookResponse';
+        $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->deleteWebhookByUrlRequest($webhook);
 
         try {
@@ -450,7 +450,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\WebhookResponse',
+                        '\ultracart\v2\models\WebhookResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -458,7 +458,7 @@ class WebhookApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -466,7 +466,7 @@ class WebhookApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -474,7 +474,7 @@ class WebhookApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -482,7 +482,7 @@ class WebhookApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -490,7 +490,7 @@ class WebhookApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -505,7 +505,7 @@ class WebhookApi
      *
      * Delete a webhook by URL
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to delete (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -525,14 +525,14 @@ class WebhookApi
      *
      * Delete a webhook by URL
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to delete (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function deleteWebhookByUrlAsyncWithHttpInfo($webhook)
     {
-        $returnType = '\ultracartv2\models\WebhookResponse';
+        $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->deleteWebhookByUrlRequest($webhook);
 
         return $this->client
@@ -575,7 +575,7 @@ class WebhookApi
     /**
      * Create request for operation 'deleteWebhookByUrl'
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to delete (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -689,9 +689,9 @@ class WebhookApi
      * @param  int $webhook_oid The webhook oid that owns the log. (required)
      * @param  string $request_id The request id associated with the log to view. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\WebhookLogResponse
+     * @return \ultracart\v2\models\WebhookLogResponse
      */
     public function getWebhookLog($webhook_oid, $request_id)
     {
@@ -707,13 +707,13 @@ class WebhookApi
      * @param  int $webhook_oid The webhook oid that owns the log. (required)
      * @param  string $request_id The request id associated with the log to view. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\WebhookLogResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookLogResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookLogWithHttpInfo($webhook_oid, $request_id)
     {
-        $returnType = '\ultracartv2\models\WebhookLogResponse';
+        $returnType = '\ultracart\v2\models\WebhookLogResponse';
         $request = $this->getWebhookLogRequest($webhook_oid, $request_id);
 
         try {
@@ -765,7 +765,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\WebhookLogResponse',
+                        '\ultracart\v2\models\WebhookLogResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -773,7 +773,7 @@ class WebhookApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -781,7 +781,7 @@ class WebhookApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -789,7 +789,7 @@ class WebhookApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -797,7 +797,7 @@ class WebhookApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -805,7 +805,7 @@ class WebhookApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -849,7 +849,7 @@ class WebhookApi
      */
     public function getWebhookLogAsyncWithHttpInfo($webhook_oid, $request_id)
     {
-        $returnType = '\ultracartv2\models\WebhookLogResponse';
+        $returnType = '\ultracart\v2\models\WebhookLogResponse';
         $request = $this->getWebhookLogRequest($webhook_oid, $request_id);
 
         return $this->client
@@ -1028,9 +1028,9 @@ class WebhookApi
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\WebhookLogSummariesResponse
+     * @return \ultracart\v2\models\WebhookLogSummariesResponse
      */
     public function getWebhookLogSummaries($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
@@ -1048,13 +1048,13 @@ class WebhookApi
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\WebhookLogSummariesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookLogSummariesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookLogSummariesWithHttpInfo($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
-        $returnType = '\ultracartv2\models\WebhookLogSummariesResponse';
+        $returnType = '\ultracart\v2\models\WebhookLogSummariesResponse';
         $request = $this->getWebhookLogSummariesRequest($webhook_oid, $_limit, $_offset, $_since);
 
         try {
@@ -1106,7 +1106,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\WebhookLogSummariesResponse',
+                        '\ultracart\v2\models\WebhookLogSummariesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1114,7 +1114,7 @@ class WebhookApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1122,7 +1122,7 @@ class WebhookApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1130,7 +1130,7 @@ class WebhookApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1138,7 +1138,7 @@ class WebhookApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1146,7 +1146,7 @@ class WebhookApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1194,7 +1194,7 @@ class WebhookApi
      */
     public function getWebhookLogSummariesAsyncWithHttpInfo($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
-        $returnType = '\ultracartv2\models\WebhookLogSummariesResponse';
+        $returnType = '\ultracart\v2\models\WebhookLogSummariesResponse';
         $request = $this->getWebhookLogSummariesRequest($webhook_oid, $_limit, $_offset, $_since);
 
         return $this->client
@@ -1373,9 +1373,9 @@ class WebhookApi
      * @param  string $_sort The sort order of the webhooks.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\WebhooksResponse
+     * @return \ultracart\v2\models\WebhooksResponse
      */
     public function getWebhooks($_limit = '100', $_offset = '0', $_sort = null, $_placeholders = null)
     {
@@ -1393,13 +1393,13 @@ class WebhookApi
      * @param  string $_sort The sort order of the webhooks.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhooksWithHttpInfo($_limit = '100', $_offset = '0', $_sort = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\WebhooksResponse';
+        $returnType = '\ultracart\v2\models\WebhooksResponse';
         $request = $this->getWebhooksRequest($_limit, $_offset, $_sort, $_placeholders);
 
         try {
@@ -1451,7 +1451,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\WebhooksResponse',
+                        '\ultracart\v2\models\WebhooksResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1459,7 +1459,7 @@ class WebhookApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1467,7 +1467,7 @@ class WebhookApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1475,7 +1475,7 @@ class WebhookApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1483,7 +1483,7 @@ class WebhookApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1491,7 +1491,7 @@ class WebhookApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1539,7 +1539,7 @@ class WebhookApi
      */
     public function getWebhooksAsyncWithHttpInfo($_limit = '100', $_offset = '0', $_sort = null, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\WebhooksResponse';
+        $returnType = '\ultracart\v2\models\WebhooksResponse';
         $request = $this->getWebhooksRequest($_limit, $_offset, $_sort, $_placeholders);
 
         return $this->client
@@ -1703,12 +1703,12 @@ class WebhookApi
      *
      * Add a webhook
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to create (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to create (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\WebhookResponse
+     * @return \ultracart\v2\models\WebhookResponse
      */
     public function insertWebhook($webhook, $_placeholders = null)
     {
@@ -1721,16 +1721,16 @@ class WebhookApi
      *
      * Add a webhook
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to create (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to create (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertWebhookWithHttpInfo($webhook, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\WebhookResponse';
+        $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->insertWebhookRequest($webhook, $_placeholders);
 
         try {
@@ -1782,7 +1782,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\WebhookResponse',
+                        '\ultracart\v2\models\WebhookResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1790,7 +1790,7 @@ class WebhookApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1798,7 +1798,7 @@ class WebhookApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1806,7 +1806,7 @@ class WebhookApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1814,7 +1814,7 @@ class WebhookApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1822,7 +1822,7 @@ class WebhookApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1837,7 +1837,7 @@ class WebhookApi
      *
      * Add a webhook
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to create (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to create (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1858,7 +1858,7 @@ class WebhookApi
      *
      * Add a webhook
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to create (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to create (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1866,7 +1866,7 @@ class WebhookApi
      */
     public function insertWebhookAsyncWithHttpInfo($webhook, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\WebhookResponse';
+        $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->insertWebhookRequest($webhook, $_placeholders);
 
         return $this->client
@@ -1909,7 +1909,7 @@ class WebhookApi
     /**
      * Create request for operation 'insertWebhook'
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to create (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to create (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2028,9 +2028,9 @@ class WebhookApi
      * @param  int $webhook_oid The webhook oid that is receiving the reflowed events. (required)
      * @param  string $event_name The event to reflow. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\WebhookSampleRequestResponse
+     * @return \ultracart\v2\models\WebhookSampleRequestResponse
      */
     public function resendEvent($webhook_oid, $event_name)
     {
@@ -2046,13 +2046,13 @@ class WebhookApi
      * @param  int $webhook_oid The webhook oid that is receiving the reflowed events. (required)
      * @param  string $event_name The event to reflow. (required)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\WebhookSampleRequestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookSampleRequestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resendEventWithHttpInfo($webhook_oid, $event_name)
     {
-        $returnType = '\ultracartv2\models\WebhookSampleRequestResponse';
+        $returnType = '\ultracart\v2\models\WebhookSampleRequestResponse';
         $request = $this->resendEventRequest($webhook_oid, $event_name);
 
         try {
@@ -2104,7 +2104,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\WebhookSampleRequestResponse',
+                        '\ultracart\v2\models\WebhookSampleRequestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2112,7 +2112,7 @@ class WebhookApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2120,7 +2120,7 @@ class WebhookApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2128,7 +2128,7 @@ class WebhookApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2136,7 +2136,7 @@ class WebhookApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2144,7 +2144,7 @@ class WebhookApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2188,7 +2188,7 @@ class WebhookApi
      */
     public function resendEventAsyncWithHttpInfo($webhook_oid, $event_name)
     {
-        $returnType = '\ultracartv2\models\WebhookSampleRequestResponse';
+        $returnType = '\ultracart\v2\models\WebhookSampleRequestResponse';
         $request = $this->resendEventRequest($webhook_oid, $event_name);
 
         return $this->client
@@ -2362,13 +2362,13 @@ class WebhookApi
      *
      * Update a webhook
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to update (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to update (required)
      * @param  int $webhook_oid The webhook oid to update. (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracartv2\models\WebhookResponse
+     * @return \ultracart\v2\models\WebhookResponse
      */
     public function updateWebhook($webhook, $webhook_oid, $_placeholders = null)
     {
@@ -2381,17 +2381,17 @@ class WebhookApi
      *
      * Update a webhook
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to update (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to update (required)
      * @param  int $webhook_oid The webhook oid to update. (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
-     * @throws \ultracartv2\ApiException on non-2xx response
+     * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracartv2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateWebhookWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\WebhookResponse';
+        $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->updateWebhookRequest($webhook, $webhook_oid, $_placeholders);
 
         try {
@@ -2443,7 +2443,7 @@ class WebhookApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\WebhookResponse',
+                        '\ultracart\v2\models\WebhookResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2451,7 +2451,7 @@ class WebhookApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2459,7 +2459,7 @@ class WebhookApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2467,7 +2467,7 @@ class WebhookApi
                 case 410:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2475,7 +2475,7 @@ class WebhookApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2483,7 +2483,7 @@ class WebhookApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracartv2\models\ErrorResponse',
+                        '\ultracart\v2\models\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2498,7 +2498,7 @@ class WebhookApi
      *
      * Update a webhook
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to update (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to update (required)
      * @param  int $webhook_oid The webhook oid to update. (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -2520,7 +2520,7 @@ class WebhookApi
      *
      * Update a webhook
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to update (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to update (required)
      * @param  int $webhook_oid The webhook oid to update. (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -2529,7 +2529,7 @@ class WebhookApi
      */
     public function updateWebhookAsyncWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
     {
-        $returnType = '\ultracartv2\models\WebhookResponse';
+        $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->updateWebhookRequest($webhook, $webhook_oid, $_placeholders);
 
         return $this->client
@@ -2572,7 +2572,7 @@ class WebhookApi
     /**
      * Create request for operation 'updateWebhook'
      *
-     * @param  \ultracartv2\models\Webhook $webhook Webhook to update (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to update (required)
      * @param  int $webhook_oid The webhook oid to update. (required)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *

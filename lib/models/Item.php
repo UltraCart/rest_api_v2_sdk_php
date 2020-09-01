@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * Item Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,56 +57,56 @@ class Item implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accounting' => '\ultracartv2\models\ItemAccounting',
-        'amember' => '\ultracartv2\models\ItemAmember',
-        'auto_order' => '\ultracartv2\models\ItemAutoOrder',
-        'ccbill' => '\ultracartv2\models\ItemCCBill',
-        'channel_partner_mappings' => '\ultracartv2\models\ItemChannelPartnerMapping[]',
-        'chargeback' => '\ultracartv2\models\ItemChargeback',
-        'checkout' => '\ultracartv2\models\ItemCheckout',
-        'content' => '\ultracartv2\models\ItemContent',
+        'accounting' => '\ultracart\v2\models\ItemAccounting',
+        'amember' => '\ultracart\v2\models\ItemAmember',
+        'auto_order' => '\ultracart\v2\models\ItemAutoOrder',
+        'ccbill' => '\ultracart\v2\models\ItemCCBill',
+        'channel_partner_mappings' => '\ultracart\v2\models\ItemChannelPartnerMapping[]',
+        'chargeback' => '\ultracart\v2\models\ItemChargeback',
+        'checkout' => '\ultracart\v2\models\ItemCheckout',
+        'content' => '\ultracart\v2\models\ItemContent',
         'creation_dts' => 'string',
         'description' => 'string',
         'description_translated_text_instance_oid' => 'int',
-        'digital_delivery' => '\ultracartv2\models\ItemDigitalDelivery',
-        'ebay' => '\ultracartv2\models\ItemEbay',
-        'email_notifications' => '\ultracartv2\models\ItemEmailNotifications',
-        'enrollment123' => '\ultracartv2\models\ItemEnrollment123',
-        'gift_certificate' => '\ultracartv2\models\ItemGiftCertificate',
-        'google_product_search' => '\ultracartv2\models\ItemGoogleProductSearch',
-        'identifiers' => '\ultracartv2\models\ItemIdentifiers',
+        'digital_delivery' => '\ultracart\v2\models\ItemDigitalDelivery',
+        'ebay' => '\ultracart\v2\models\ItemEbay',
+        'email_notifications' => '\ultracart\v2\models\ItemEmailNotifications',
+        'enrollment123' => '\ultracart\v2\models\ItemEnrollment123',
+        'gift_certificate' => '\ultracart\v2\models\ItemGiftCertificate',
+        'google_product_search' => '\ultracart\v2\models\ItemGoogleProductSearch',
+        'identifiers' => '\ultracart\v2\models\ItemIdentifiers',
         'inactive' => 'bool',
-        'instant_payment_notifications' => '\ultracartv2\models\ItemInstantPaymentNotifications',
-        'internal' => '\ultracartv2\models\ItemInternal',
+        'instant_payment_notifications' => '\ultracart\v2\models\ItemInstantPaymentNotifications',
+        'internal' => '\ultracart\v2\models\ItemInternal',
         'kit' => 'bool',
         'kit_component_only' => 'bool',
-        'kit_definition' => '\ultracartv2\models\ItemKitDefinition',
+        'kit_definition' => '\ultracart\v2\models\ItemKitDefinition',
         'last_modified_dts' => 'string',
         'merchant_id' => 'string',
         'merchant_item_id' => 'string',
         'merchant_item_oid' => 'int',
-        'options' => '\ultracartv2\models\ItemOption[]',
+        'options' => '\ultracart\v2\models\ItemOption[]',
         'parent_category_id' => 'int',
         'parent_category_path' => 'string',
-        'payment_processing' => '\ultracartv2\models\ItemPaymentProcessing',
-        'physical' => '\ultracartv2\models\ItemPhysical',
-        'pricing' => '\ultracartv2\models\ItemPricing',
-        'properties' => '\ultracartv2\models\ItemProperty[]',
-        'realtime_pricing' => '\ultracartv2\models\ItemRealtimePricing',
+        'payment_processing' => '\ultracart\v2\models\ItemPaymentProcessing',
+        'physical' => '\ultracart\v2\models\ItemPhysical',
+        'pricing' => '\ultracart\v2\models\ItemPricing',
+        'properties' => '\ultracart\v2\models\ItemProperty[]',
+        'realtime_pricing' => '\ultracart\v2\models\ItemRealtimePricing',
         'recommend_replenishment_days' => 'int',
-        'related' => '\ultracartv2\models\ItemRelated',
-        'reporting' => '\ultracartv2\models\ItemReporting',
-        'restriction' => '\ultracartv2\models\ItemRestriction',
-        'revguard' => '\ultracartv2\models\ItemRevguard',
-        'reviews' => '\ultracartv2\models\ItemReviews',
-        'salesforce' => '\ultracartv2\models\ItemSalesforce',
-        'shipping' => '\ultracartv2\models\ItemShipping',
-        'tags' => '\ultracartv2\models\ItemTags',
-        'tax' => '\ultracartv2\models\ItemTax',
-        'third_party_email_marketing' => '\ultracartv2\models\ItemThirdPartyEmailMarketing[]',
-        'variant_items' => '\ultracartv2\models\ItemVariantItem[]',
-        'variations' => '\ultracartv2\models\ItemVariation[]',
-        'wishlist_member' => '\ultracartv2\models\ItemWishlistMember'
+        'related' => '\ultracart\v2\models\ItemRelated',
+        'reporting' => '\ultracart\v2\models\ItemReporting',
+        'restriction' => '\ultracart\v2\models\ItemRestriction',
+        'revguard' => '\ultracart\v2\models\ItemRevguard',
+        'reviews' => '\ultracart\v2\models\ItemReviews',
+        'salesforce' => '\ultracart\v2\models\ItemSalesforce',
+        'shipping' => '\ultracart\v2\models\ItemShipping',
+        'tags' => '\ultracart\v2\models\ItemTags',
+        'tax' => '\ultracart\v2\models\ItemTax',
+        'third_party_email_marketing' => '\ultracart\v2\models\ItemThirdPartyEmailMarketing[]',
+        'variant_items' => '\ultracart\v2\models\ItemVariantItem[]',
+        'variations' => '\ultracart\v2\models\ItemVariation[]',
+        'wishlist_member' => '\ultracart\v2\models\ItemWishlistMember'
     ];
 
     /**
@@ -513,7 +513,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets accounting
      *
-     * @return \ultracartv2\models\ItemAccounting
+     * @return \ultracart\v2\models\ItemAccounting
      */
     public function getAccounting()
     {
@@ -523,7 +523,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets accounting
      *
-     * @param \ultracartv2\models\ItemAccounting $accounting accounting
+     * @param \ultracart\v2\models\ItemAccounting $accounting accounting
      *
      * @return $this
      */
@@ -537,7 +537,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets amember
      *
-     * @return \ultracartv2\models\ItemAmember
+     * @return \ultracart\v2\models\ItemAmember
      */
     public function getAmember()
     {
@@ -547,7 +547,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets amember
      *
-     * @param \ultracartv2\models\ItemAmember $amember amember
+     * @param \ultracart\v2\models\ItemAmember $amember amember
      *
      * @return $this
      */
@@ -561,7 +561,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets auto_order
      *
-     * @return \ultracartv2\models\ItemAutoOrder
+     * @return \ultracart\v2\models\ItemAutoOrder
      */
     public function getAutoOrder()
     {
@@ -571,7 +571,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets auto_order
      *
-     * @param \ultracartv2\models\ItemAutoOrder $auto_order auto_order
+     * @param \ultracart\v2\models\ItemAutoOrder $auto_order auto_order
      *
      * @return $this
      */
@@ -585,7 +585,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets ccbill
      *
-     * @return \ultracartv2\models\ItemCCBill
+     * @return \ultracart\v2\models\ItemCCBill
      */
     public function getCcbill()
     {
@@ -595,7 +595,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets ccbill
      *
-     * @param \ultracartv2\models\ItemCCBill $ccbill ccbill
+     * @param \ultracart\v2\models\ItemCCBill $ccbill ccbill
      *
      * @return $this
      */
@@ -609,7 +609,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets channel_partner_mappings
      *
-     * @return \ultracartv2\models\ItemChannelPartnerMapping[]
+     * @return \ultracart\v2\models\ItemChannelPartnerMapping[]
      */
     public function getChannelPartnerMappings()
     {
@@ -619,7 +619,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets channel_partner_mappings
      *
-     * @param \ultracartv2\models\ItemChannelPartnerMapping[] $channel_partner_mappings Channel Partner Item Mapping
+     * @param \ultracart\v2\models\ItemChannelPartnerMapping[] $channel_partner_mappings Channel Partner Item Mapping
      *
      * @return $this
      */
@@ -633,7 +633,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets chargeback
      *
-     * @return \ultracartv2\models\ItemChargeback
+     * @return \ultracart\v2\models\ItemChargeback
      */
     public function getChargeback()
     {
@@ -643,7 +643,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets chargeback
      *
-     * @param \ultracartv2\models\ItemChargeback $chargeback chargeback
+     * @param \ultracart\v2\models\ItemChargeback $chargeback chargeback
      *
      * @return $this
      */
@@ -657,7 +657,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets checkout
      *
-     * @return \ultracartv2\models\ItemCheckout
+     * @return \ultracart\v2\models\ItemCheckout
      */
     public function getCheckout()
     {
@@ -667,7 +667,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets checkout
      *
-     * @param \ultracartv2\models\ItemCheckout $checkout checkout
+     * @param \ultracart\v2\models\ItemCheckout $checkout checkout
      *
      * @return $this
      */
@@ -681,7 +681,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets content
      *
-     * @return \ultracartv2\models\ItemContent
+     * @return \ultracart\v2\models\ItemContent
      */
     public function getContent()
     {
@@ -691,7 +691,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets content
      *
-     * @param \ultracartv2\models\ItemContent $content content
+     * @param \ultracart\v2\models\ItemContent $content content
      *
      * @return $this
      */
@@ -781,7 +781,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets digital_delivery
      *
-     * @return \ultracartv2\models\ItemDigitalDelivery
+     * @return \ultracart\v2\models\ItemDigitalDelivery
      */
     public function getDigitalDelivery()
     {
@@ -791,7 +791,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets digital_delivery
      *
-     * @param \ultracartv2\models\ItemDigitalDelivery $digital_delivery digital_delivery
+     * @param \ultracart\v2\models\ItemDigitalDelivery $digital_delivery digital_delivery
      *
      * @return $this
      */
@@ -805,7 +805,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets ebay
      *
-     * @return \ultracartv2\models\ItemEbay
+     * @return \ultracart\v2\models\ItemEbay
      */
     public function getEbay()
     {
@@ -815,7 +815,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets ebay
      *
-     * @param \ultracartv2\models\ItemEbay $ebay ebay
+     * @param \ultracart\v2\models\ItemEbay $ebay ebay
      *
      * @return $this
      */
@@ -829,7 +829,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets email_notifications
      *
-     * @return \ultracartv2\models\ItemEmailNotifications
+     * @return \ultracart\v2\models\ItemEmailNotifications
      */
     public function getEmailNotifications()
     {
@@ -839,7 +839,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets email_notifications
      *
-     * @param \ultracartv2\models\ItemEmailNotifications $email_notifications email_notifications
+     * @param \ultracart\v2\models\ItemEmailNotifications $email_notifications email_notifications
      *
      * @return $this
      */
@@ -853,7 +853,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets enrollment123
      *
-     * @return \ultracartv2\models\ItemEnrollment123
+     * @return \ultracart\v2\models\ItemEnrollment123
      */
     public function getEnrollment123()
     {
@@ -863,7 +863,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets enrollment123
      *
-     * @param \ultracartv2\models\ItemEnrollment123 $enrollment123 enrollment123
+     * @param \ultracart\v2\models\ItemEnrollment123 $enrollment123 enrollment123
      *
      * @return $this
      */
@@ -877,7 +877,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets gift_certificate
      *
-     * @return \ultracartv2\models\ItemGiftCertificate
+     * @return \ultracart\v2\models\ItemGiftCertificate
      */
     public function getGiftCertificate()
     {
@@ -887,7 +887,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets gift_certificate
      *
-     * @param \ultracartv2\models\ItemGiftCertificate $gift_certificate gift_certificate
+     * @param \ultracart\v2\models\ItemGiftCertificate $gift_certificate gift_certificate
      *
      * @return $this
      */
@@ -901,7 +901,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets google_product_search
      *
-     * @return \ultracartv2\models\ItemGoogleProductSearch
+     * @return \ultracart\v2\models\ItemGoogleProductSearch
      */
     public function getGoogleProductSearch()
     {
@@ -911,7 +911,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets google_product_search
      *
-     * @param \ultracartv2\models\ItemGoogleProductSearch $google_product_search google_product_search
+     * @param \ultracart\v2\models\ItemGoogleProductSearch $google_product_search google_product_search
      *
      * @return $this
      */
@@ -925,7 +925,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets identifiers
      *
-     * @return \ultracartv2\models\ItemIdentifiers
+     * @return \ultracart\v2\models\ItemIdentifiers
      */
     public function getIdentifiers()
     {
@@ -935,7 +935,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets identifiers
      *
-     * @param \ultracartv2\models\ItemIdentifiers $identifiers identifiers
+     * @param \ultracart\v2\models\ItemIdentifiers $identifiers identifiers
      *
      * @return $this
      */
@@ -973,7 +973,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets instant_payment_notifications
      *
-     * @return \ultracartv2\models\ItemInstantPaymentNotifications
+     * @return \ultracart\v2\models\ItemInstantPaymentNotifications
      */
     public function getInstantPaymentNotifications()
     {
@@ -983,7 +983,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets instant_payment_notifications
      *
-     * @param \ultracartv2\models\ItemInstantPaymentNotifications $instant_payment_notifications instant_payment_notifications
+     * @param \ultracart\v2\models\ItemInstantPaymentNotifications $instant_payment_notifications instant_payment_notifications
      *
      * @return $this
      */
@@ -997,7 +997,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets internal
      *
-     * @return \ultracartv2\models\ItemInternal
+     * @return \ultracart\v2\models\ItemInternal
      */
     public function getInternal()
     {
@@ -1007,7 +1007,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets internal
      *
-     * @param \ultracartv2\models\ItemInternal $internal internal
+     * @param \ultracart\v2\models\ItemInternal $internal internal
      *
      * @return $this
      */
@@ -1069,7 +1069,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets kit_definition
      *
-     * @return \ultracartv2\models\ItemKitDefinition
+     * @return \ultracart\v2\models\ItemKitDefinition
      */
     public function getKitDefinition()
     {
@@ -1079,7 +1079,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets kit_definition
      *
-     * @param \ultracartv2\models\ItemKitDefinition $kit_definition kit_definition
+     * @param \ultracart\v2\models\ItemKitDefinition $kit_definition kit_definition
      *
      * @return $this
      */
@@ -1197,7 +1197,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \ultracartv2\models\ItemOption[]
+     * @return \ultracart\v2\models\ItemOption[]
      */
     public function getOptions()
     {
@@ -1207,7 +1207,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \ultracartv2\models\ItemOption[] $options Options
+     * @param \ultracart\v2\models\ItemOption[] $options Options
      *
      * @return $this
      */
@@ -1269,7 +1269,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets payment_processing
      *
-     * @return \ultracartv2\models\ItemPaymentProcessing
+     * @return \ultracart\v2\models\ItemPaymentProcessing
      */
     public function getPaymentProcessing()
     {
@@ -1279,7 +1279,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets payment_processing
      *
-     * @param \ultracartv2\models\ItemPaymentProcessing $payment_processing payment_processing
+     * @param \ultracart\v2\models\ItemPaymentProcessing $payment_processing payment_processing
      *
      * @return $this
      */
@@ -1293,7 +1293,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets physical
      *
-     * @return \ultracartv2\models\ItemPhysical
+     * @return \ultracart\v2\models\ItemPhysical
      */
     public function getPhysical()
     {
@@ -1303,7 +1303,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets physical
      *
-     * @param \ultracartv2\models\ItemPhysical $physical physical
+     * @param \ultracart\v2\models\ItemPhysical $physical physical
      *
      * @return $this
      */
@@ -1317,7 +1317,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets pricing
      *
-     * @return \ultracartv2\models\ItemPricing
+     * @return \ultracart\v2\models\ItemPricing
      */
     public function getPricing()
     {
@@ -1327,7 +1327,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets pricing
      *
-     * @param \ultracartv2\models\ItemPricing $pricing pricing
+     * @param \ultracart\v2\models\ItemPricing $pricing pricing
      *
      * @return $this
      */
@@ -1341,7 +1341,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets properties
      *
-     * @return \ultracartv2\models\ItemProperty[]
+     * @return \ultracart\v2\models\ItemProperty[]
      */
     public function getProperties()
     {
@@ -1351,7 +1351,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets properties
      *
-     * @param \ultracartv2\models\ItemProperty[] $properties Properties
+     * @param \ultracart\v2\models\ItemProperty[] $properties Properties
      *
      * @return $this
      */
@@ -1365,7 +1365,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets realtime_pricing
      *
-     * @return \ultracartv2\models\ItemRealtimePricing
+     * @return \ultracart\v2\models\ItemRealtimePricing
      */
     public function getRealtimePricing()
     {
@@ -1375,7 +1375,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets realtime_pricing
      *
-     * @param \ultracartv2\models\ItemRealtimePricing $realtime_pricing realtime_pricing
+     * @param \ultracart\v2\models\ItemRealtimePricing $realtime_pricing realtime_pricing
      *
      * @return $this
      */
@@ -1413,7 +1413,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets related
      *
-     * @return \ultracartv2\models\ItemRelated
+     * @return \ultracart\v2\models\ItemRelated
      */
     public function getRelated()
     {
@@ -1423,7 +1423,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets related
      *
-     * @param \ultracartv2\models\ItemRelated $related related
+     * @param \ultracart\v2\models\ItemRelated $related related
      *
      * @return $this
      */
@@ -1437,7 +1437,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets reporting
      *
-     * @return \ultracartv2\models\ItemReporting
+     * @return \ultracart\v2\models\ItemReporting
      */
     public function getReporting()
     {
@@ -1447,7 +1447,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets reporting
      *
-     * @param \ultracartv2\models\ItemReporting $reporting reporting
+     * @param \ultracart\v2\models\ItemReporting $reporting reporting
      *
      * @return $this
      */
@@ -1461,7 +1461,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets restriction
      *
-     * @return \ultracartv2\models\ItemRestriction
+     * @return \ultracart\v2\models\ItemRestriction
      */
     public function getRestriction()
     {
@@ -1471,7 +1471,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets restriction
      *
-     * @param \ultracartv2\models\ItemRestriction $restriction restriction
+     * @param \ultracart\v2\models\ItemRestriction $restriction restriction
      *
      * @return $this
      */
@@ -1485,7 +1485,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets revguard
      *
-     * @return \ultracartv2\models\ItemRevguard
+     * @return \ultracart\v2\models\ItemRevguard
      */
     public function getRevguard()
     {
@@ -1495,7 +1495,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets revguard
      *
-     * @param \ultracartv2\models\ItemRevguard $revguard revguard
+     * @param \ultracart\v2\models\ItemRevguard $revguard revguard
      *
      * @return $this
      */
@@ -1509,7 +1509,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets reviews
      *
-     * @return \ultracartv2\models\ItemReviews
+     * @return \ultracart\v2\models\ItemReviews
      */
     public function getReviews()
     {
@@ -1519,7 +1519,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets reviews
      *
-     * @param \ultracartv2\models\ItemReviews $reviews reviews
+     * @param \ultracart\v2\models\ItemReviews $reviews reviews
      *
      * @return $this
      */
@@ -1533,7 +1533,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets salesforce
      *
-     * @return \ultracartv2\models\ItemSalesforce
+     * @return \ultracart\v2\models\ItemSalesforce
      */
     public function getSalesforce()
     {
@@ -1543,7 +1543,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets salesforce
      *
-     * @param \ultracartv2\models\ItemSalesforce $salesforce salesforce
+     * @param \ultracart\v2\models\ItemSalesforce $salesforce salesforce
      *
      * @return $this
      */
@@ -1557,7 +1557,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets shipping
      *
-     * @return \ultracartv2\models\ItemShipping
+     * @return \ultracart\v2\models\ItemShipping
      */
     public function getShipping()
     {
@@ -1567,7 +1567,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets shipping
      *
-     * @param \ultracartv2\models\ItemShipping $shipping shipping
+     * @param \ultracart\v2\models\ItemShipping $shipping shipping
      *
      * @return $this
      */
@@ -1581,7 +1581,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \ultracartv2\models\ItemTags
+     * @return \ultracart\v2\models\ItemTags
      */
     public function getTags()
     {
@@ -1591,7 +1591,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \ultracartv2\models\ItemTags $tags tags
+     * @param \ultracart\v2\models\ItemTags $tags tags
      *
      * @return $this
      */
@@ -1605,7 +1605,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets tax
      *
-     * @return \ultracartv2\models\ItemTax
+     * @return \ultracart\v2\models\ItemTax
      */
     public function getTax()
     {
@@ -1615,7 +1615,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets tax
      *
-     * @param \ultracartv2\models\ItemTax $tax tax
+     * @param \ultracart\v2\models\ItemTax $tax tax
      *
      * @return $this
      */
@@ -1629,7 +1629,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets third_party_email_marketing
      *
-     * @return \ultracartv2\models\ItemThirdPartyEmailMarketing[]
+     * @return \ultracart\v2\models\ItemThirdPartyEmailMarketing[]
      */
     public function getThirdPartyEmailMarketing()
     {
@@ -1639,7 +1639,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets third_party_email_marketing
      *
-     * @param \ultracartv2\models\ItemThirdPartyEmailMarketing[] $third_party_email_marketing 3rd Party Email Marketing
+     * @param \ultracart\v2\models\ItemThirdPartyEmailMarketing[] $third_party_email_marketing 3rd Party Email Marketing
      *
      * @return $this
      */
@@ -1653,7 +1653,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets variant_items
      *
-     * @return \ultracartv2\models\ItemVariantItem[]
+     * @return \ultracart\v2\models\ItemVariantItem[]
      */
     public function getVariantItems()
     {
@@ -1663,7 +1663,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets variant_items
      *
-     * @param \ultracartv2\models\ItemVariantItem[] $variant_items Variant Items
+     * @param \ultracart\v2\models\ItemVariantItem[] $variant_items Variant Items
      *
      * @return $this
      */
@@ -1677,7 +1677,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets variations
      *
-     * @return \ultracartv2\models\ItemVariation[]
+     * @return \ultracart\v2\models\ItemVariation[]
      */
     public function getVariations()
     {
@@ -1687,7 +1687,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets variations
      *
-     * @param \ultracartv2\models\ItemVariation[] $variations Variations
+     * @param \ultracart\v2\models\ItemVariation[] $variations Variations
      *
      * @return $this
      */
@@ -1701,7 +1701,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets wishlist_member
      *
-     * @return \ultracartv2\models\ItemWishlistMember
+     * @return \ultracart\v2\models\ItemWishlistMember
      */
     public function getWishlistMember()
     {
@@ -1711,7 +1711,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets wishlist_member
      *
-     * @param \ultracartv2\models\ItemWishlistMember $wishlist_member wishlist_member
+     * @param \ultracart\v2\models\ItemWishlistMember $wishlist_member wishlist_member
      *
      * @return $this
      */

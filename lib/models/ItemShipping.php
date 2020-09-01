@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * ItemShipping Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -61,7 +61,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'amazon_fba' => 'bool',
         'case_inner_packs' => 'int',
         'case_units' => 'int',
-        'cases' => '\ultracartv2\models\ItemShippingCase[]',
+        'cases' => '\ultracart\v2\models\ItemShippingCase[]',
         'collect_serial_numbers' => 'bool',
         'country_code_of_origin' => 'string',
         'customs_description' => 'string',
@@ -73,9 +73,9 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'delivery_on_thursday' => 'bool',
         'delivery_on_tuesday' => 'bool',
         'delivery_on_wednesday' => 'bool',
-        'destination_markups' => '\ultracartv2\models\ItemShippingDestinationMarkup[]',
-        'destination_restrictions' => '\ultracartv2\models\ItemShippingDestinationRestriction[]',
-        'distribution_centers' => '\ultracartv2\models\ItemShippingDistributionCenter[]',
+        'destination_markups' => '\ultracart\v2\models\ItemShippingDestinationMarkup[]',
+        'destination_restrictions' => '\ultracart\v2\models\ItemShippingDestinationRestriction[]',
+        'distribution_centers' => '\ultracart\v2\models\ItemShippingDistributionCenter[]',
         'eta' => 'string',
         'free_shipping' => 'bool',
         'freight_class' => 'string',
@@ -83,9 +83,9 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'made_to_order' => 'bool',
         'made_to_order_lead_time' => 'int',
         'max_days_time_in_transit' => 'int',
-        'methods' => '\ultracartv2\models\ItemShippingMethod[]',
+        'methods' => '\ultracart\v2\models\ItemShippingMethod[]',
         'no_shipping_discount' => 'bool',
-        'package_requirements' => '\ultracartv2\models\ItemShippingPackageRequirement[]',
+        'package_requirements' => '\ultracart\v2\models\ItemShippingPackageRequirement[]',
         'perishable_class_name' => 'string',
         'perishable_class_oid' => 'int',
         'preorder' => 'bool',
@@ -98,11 +98,11 @@ class ItemShipping implements ModelInterface, ArrayAccess
         'restrict_shipment_on_tuesday' => 'bool',
         'restrict_shipment_on_wednesday' => 'bool',
         'ship_separately' => 'bool',
-        'ship_separately_additional_weight' => '\ultracartv2\models\Weight',
-        'ship_separately_height' => '\ultracartv2\models\Distance',
-        'ship_separately_length' => '\ultracartv2\models\Distance',
+        'ship_separately_additional_weight' => '\ultracart\v2\models\Weight',
+        'ship_separately_height' => '\ultracart\v2\models\Distance',
+        'ship_separately_length' => '\ultracart\v2\models\Distance',
         'ship_separately_package_special_type' => 'string',
-        'ship_separately_width' => '\ultracartv2\models\Distance',
+        'ship_separately_width' => '\ultracart\v2\models\Distance',
         'special_product_type' => 'string',
         'track_inventory' => 'bool'
     ];
@@ -589,7 +589,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets cases
      *
-     * @return \ultracartv2\models\ItemShippingCase[]
+     * @return \ultracart\v2\models\ItemShippingCase[]
      */
     public function getCases()
     {
@@ -599,7 +599,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets cases
      *
-     * @param \ultracartv2\models\ItemShippingCase[] $cases Cases
+     * @param \ultracart\v2\models\ItemShippingCase[] $cases Cases
      *
      * @return $this
      */
@@ -881,7 +881,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets destination_markups
      *
-     * @return \ultracartv2\models\ItemShippingDestinationMarkup[]
+     * @return \ultracart\v2\models\ItemShippingDestinationMarkup[]
      */
     public function getDestinationMarkups()
     {
@@ -891,7 +891,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets destination_markups
      *
-     * @param \ultracartv2\models\ItemShippingDestinationMarkup[] $destination_markups Destination markups
+     * @param \ultracart\v2\models\ItemShippingDestinationMarkup[] $destination_markups Destination markups
      *
      * @return $this
      */
@@ -905,7 +905,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets destination_restrictions
      *
-     * @return \ultracartv2\models\ItemShippingDestinationRestriction[]
+     * @return \ultracart\v2\models\ItemShippingDestinationRestriction[]
      */
     public function getDestinationRestrictions()
     {
@@ -915,7 +915,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets destination_restrictions
      *
-     * @param \ultracartv2\models\ItemShippingDestinationRestriction[] $destination_restrictions Destination restrictions
+     * @param \ultracart\v2\models\ItemShippingDestinationRestriction[] $destination_restrictions Destination restrictions
      *
      * @return $this
      */
@@ -929,7 +929,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets distribution_centers
      *
-     * @return \ultracartv2\models\ItemShippingDistributionCenter[]
+     * @return \ultracart\v2\models\ItemShippingDistributionCenter[]
      */
     public function getDistributionCenters()
     {
@@ -939,7 +939,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets distribution_centers
      *
-     * @param \ultracartv2\models\ItemShippingDistributionCenter[] $distribution_centers Distribution centers
+     * @param \ultracart\v2\models\ItemShippingDistributionCenter[] $distribution_centers Distribution centers
      *
      * @return $this
      */
@@ -1121,7 +1121,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets methods
      *
-     * @return \ultracartv2\models\ItemShippingMethod[]
+     * @return \ultracart\v2\models\ItemShippingMethod[]
      */
     public function getMethods()
     {
@@ -1131,7 +1131,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets methods
      *
-     * @param \ultracartv2\models\ItemShippingMethod[] $methods Methods
+     * @param \ultracart\v2\models\ItemShippingMethod[] $methods Methods
      *
      * @return $this
      */
@@ -1169,7 +1169,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets package_requirements
      *
-     * @return \ultracartv2\models\ItemShippingPackageRequirement[]
+     * @return \ultracart\v2\models\ItemShippingPackageRequirement[]
      */
     public function getPackageRequirements()
     {
@@ -1179,7 +1179,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets package_requirements
      *
-     * @param \ultracartv2\models\ItemShippingPackageRequirement[] $package_requirements Package requirements
+     * @param \ultracart\v2\models\ItemShippingPackageRequirement[] $package_requirements Package requirements
      *
      * @return $this
      */
@@ -1481,7 +1481,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets ship_separately_additional_weight
      *
-     * @return \ultracartv2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getShipSeparatelyAdditionalWeight()
     {
@@ -1491,7 +1491,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets ship_separately_additional_weight
      *
-     * @param \ultracartv2\models\Weight $ship_separately_additional_weight ship_separately_additional_weight
+     * @param \ultracart\v2\models\Weight $ship_separately_additional_weight ship_separately_additional_weight
      *
      * @return $this
      */
@@ -1505,7 +1505,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets ship_separately_height
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getShipSeparatelyHeight()
     {
@@ -1515,7 +1515,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets ship_separately_height
      *
-     * @param \ultracartv2\models\Distance $ship_separately_height ship_separately_height
+     * @param \ultracart\v2\models\Distance $ship_separately_height ship_separately_height
      *
      * @return $this
      */
@@ -1529,7 +1529,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets ship_separately_length
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getShipSeparatelyLength()
     {
@@ -1539,7 +1539,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets ship_separately_length
      *
-     * @param \ultracartv2\models\Distance $ship_separately_length ship_separately_length
+     * @param \ultracart\v2\models\Distance $ship_separately_length ship_separately_length
      *
      * @return $this
      */
@@ -1577,7 +1577,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Gets ship_separately_width
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getShipSeparatelyWidth()
     {
@@ -1587,7 +1587,7 @@ class ItemShipping implements ModelInterface, ArrayAccess
     /**
      * Sets ship_separately_width
      *
-     * @param \ultracartv2\models\Distance $ship_separately_width ship_separately_width
+     * @param \ultracart\v2\models\Distance $ship_separately_width ship_separately_width
      *
      * @return $this
      */

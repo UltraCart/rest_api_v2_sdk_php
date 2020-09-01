@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * OrderItem Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -59,41 +59,41 @@ class OrderItem implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'accounting_code' => 'string',
         'activation_codes' => 'string[]',
-        'arbitrary_unit_cost' => '\ultracartv2\models\Currency',
+        'arbitrary_unit_cost' => '\ultracart\v2\models\Currency',
         'auto_order_last_rebill_dts' => 'string',
         'auto_order_schedule' => 'string',
         'barcode' => 'string',
         'channel_partner_item_id' => 'string',
         'cogs' => 'float',
         'component_unit_value' => 'float',
-        'cost' => '\ultracartv2\models\Currency',
+        'cost' => '\ultracart\v2\models\Currency',
         'country_code_of_origin' => 'string',
         'customs_description' => 'string',
         'description' => 'string',
-        'discount' => '\ultracartv2\models\Currency',
+        'discount' => '\ultracart\v2\models\Currency',
         'discount_quantity' => 'float',
-        'discount_shipping_weight' => '\ultracartv2\models\Weight',
+        'discount_shipping_weight' => '\ultracart\v2\models\Weight',
         'distribution_center_code' => 'string',
-        'edi' => '\ultracartv2\models\OrderItemEdi',
+        'edi' => '\ultracart\v2\models\OrderItemEdi',
         'exclude_coupon' => 'bool',
         'free_shipping' => 'bool',
         'hazmat' => 'bool',
-        'height' => '\ultracartv2\models\Distance',
+        'height' => '\ultracart\v2\models\Distance',
         'item_reference_oid' => 'int',
         'kit' => 'bool',
         'kit_component' => 'bool',
-        'length' => '\ultracartv2\models\Distance',
+        'length' => '\ultracart\v2\models\Distance',
         'manufacturer_sku' => 'string',
         'max_days_time_in_transit' => 'int',
         'merchant_item_id' => 'string',
         'mix_and_match_group_name' => 'string',
         'mix_and_match_group_oid' => 'int',
         'no_shipping_discount' => 'bool',
-        'options' => '\ultracartv2\models\OrderItemOption[]',
+        'options' => '\ultracart\v2\models\OrderItemOption[]',
         'packed_by_user' => 'string',
         'perishable_class' => 'string',
         'pricing_tier_name' => 'string',
-        'properties' => '\ultracartv2\models\OrderItemProperty[]',
+        'properties' => '\ultracart\v2\models\OrderItemProperty[]',
         'quantity' => 'float',
         'quantity_refunded' => 'float',
         'quickbooks_class' => 'string',
@@ -101,16 +101,16 @@ class OrderItem implements ModelInterface, ArrayAccess
         'shipped_by_user' => 'string',
         'shipped_dts' => 'string',
         'special_product_type' => 'string',
-        'tags' => '\ultracartv2\models\OrderItemTag[]',
+        'tags' => '\ultracart\v2\models\OrderItemTag[]',
         'tax_free' => 'bool',
-        'taxable_cost' => '\ultracartv2\models\Currency',
-        'total_cost_with_discount' => '\ultracartv2\models\Currency',
-        'total_refunded' => '\ultracartv2\models\Currency',
+        'taxable_cost' => '\ultracart\v2\models\Currency',
+        'total_cost_with_discount' => '\ultracart\v2\models\Currency',
+        'total_refunded' => '\ultracart\v2\models\Currency',
         'transmitted_to_distribution_center_dts' => 'string',
-        'unit_cost_with_discount' => '\ultracartv2\models\Currency',
+        'unit_cost_with_discount' => '\ultracart\v2\models\Currency',
         'upsell' => 'bool',
-        'weight' => '\ultracartv2\models\Weight',
-        'width' => '\ultracartv2\models\Distance'
+        'weight' => '\ultracart\v2\models\Weight',
+        'width' => '\ultracart\v2\models\Distance'
     ];
 
     /**
@@ -597,7 +597,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets arbitrary_unit_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getArbitraryUnitCost()
     {
@@ -607,7 +607,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets arbitrary_unit_cost
      *
-     * @param \ultracartv2\models\Currency $arbitrary_unit_cost arbitrary_unit_cost
+     * @param \ultracart\v2\models\Currency $arbitrary_unit_cost arbitrary_unit_cost
      *
      * @return $this
      */
@@ -769,7 +769,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getCost()
     {
@@ -779,7 +779,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets cost
      *
-     * @param \ultracartv2\models\Currency $cost cost
+     * @param \ultracart\v2\models\Currency $cost cost
      *
      * @return $this
      */
@@ -873,7 +873,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets discount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getDiscount()
     {
@@ -883,7 +883,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets discount
      *
-     * @param \ultracartv2\models\Currency $discount discount
+     * @param \ultracart\v2\models\Currency $discount discount
      *
      * @return $this
      */
@@ -921,7 +921,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets discount_shipping_weight
      *
-     * @return \ultracartv2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getDiscountShippingWeight()
     {
@@ -931,7 +931,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets discount_shipping_weight
      *
-     * @param \ultracartv2\models\Weight $discount_shipping_weight discount_shipping_weight
+     * @param \ultracart\v2\models\Weight $discount_shipping_weight discount_shipping_weight
      *
      * @return $this
      */
@@ -969,7 +969,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets edi
      *
-     * @return \ultracartv2\models\OrderItemEdi
+     * @return \ultracart\v2\models\OrderItemEdi
      */
     public function getEdi()
     {
@@ -979,7 +979,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets edi
      *
-     * @param \ultracartv2\models\OrderItemEdi $edi edi
+     * @param \ultracart\v2\models\OrderItemEdi $edi edi
      *
      * @return $this
      */
@@ -1065,7 +1065,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets height
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getHeight()
     {
@@ -1075,7 +1075,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets height
      *
-     * @param \ultracartv2\models\Distance $height height
+     * @param \ultracart\v2\models\Distance $height height
      *
      * @return $this
      */
@@ -1161,7 +1161,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets length
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getLength()
     {
@@ -1171,7 +1171,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets length
      *
-     * @param \ultracartv2\models\Distance $length length
+     * @param \ultracart\v2\models\Distance $length length
      *
      * @return $this
      */
@@ -1333,7 +1333,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \ultracartv2\models\OrderItemOption[]
+     * @return \ultracart\v2\models\OrderItemOption[]
      */
     public function getOptions()
     {
@@ -1343,7 +1343,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \ultracartv2\models\OrderItemOption[] $options Options
+     * @param \ultracart\v2\models\OrderItemOption[] $options Options
      *
      * @return $this
      */
@@ -1433,7 +1433,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets properties
      *
-     * @return \ultracartv2\models\OrderItemProperty[]
+     * @return \ultracart\v2\models\OrderItemProperty[]
      */
     public function getProperties()
     {
@@ -1443,7 +1443,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets properties
      *
-     * @param \ultracartv2\models\OrderItemProperty[] $properties Properties
+     * @param \ultracart\v2\models\OrderItemProperty[] $properties Properties
      *
      * @return $this
      */
@@ -1629,7 +1629,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets tags
      *
-     * @return \ultracartv2\models\OrderItemTag[]
+     * @return \ultracart\v2\models\OrderItemTag[]
      */
     public function getTags()
     {
@@ -1639,7 +1639,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets tags
      *
-     * @param \ultracartv2\models\OrderItemTag[] $tags Tags
+     * @param \ultracart\v2\models\OrderItemTag[] $tags Tags
      *
      * @return $this
      */
@@ -1677,7 +1677,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets taxable_cost
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTaxableCost()
     {
@@ -1687,7 +1687,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets taxable_cost
      *
-     * @param \ultracartv2\models\Currency $taxable_cost taxable_cost
+     * @param \ultracart\v2\models\Currency $taxable_cost taxable_cost
      *
      * @return $this
      */
@@ -1701,7 +1701,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets total_cost_with_discount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTotalCostWithDiscount()
     {
@@ -1711,7 +1711,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets total_cost_with_discount
      *
-     * @param \ultracartv2\models\Currency $total_cost_with_discount total_cost_with_discount
+     * @param \ultracart\v2\models\Currency $total_cost_with_discount total_cost_with_discount
      *
      * @return $this
      */
@@ -1725,7 +1725,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets total_refunded
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getTotalRefunded()
     {
@@ -1735,7 +1735,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets total_refunded
      *
-     * @param \ultracartv2\models\Currency $total_refunded total_refunded
+     * @param \ultracart\v2\models\Currency $total_refunded total_refunded
      *
      * @return $this
      */
@@ -1773,7 +1773,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets unit_cost_with_discount
      *
-     * @return \ultracartv2\models\Currency
+     * @return \ultracart\v2\models\Currency
      */
     public function getUnitCostWithDiscount()
     {
@@ -1783,7 +1783,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets unit_cost_with_discount
      *
-     * @param \ultracartv2\models\Currency $unit_cost_with_discount unit_cost_with_discount
+     * @param \ultracart\v2\models\Currency $unit_cost_with_discount unit_cost_with_discount
      *
      * @return $this
      */
@@ -1821,7 +1821,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets weight
      *
-     * @return \ultracartv2\models\Weight
+     * @return \ultracart\v2\models\Weight
      */
     public function getWeight()
     {
@@ -1831,7 +1831,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets weight
      *
-     * @param \ultracartv2\models\Weight $weight weight
+     * @param \ultracart\v2\models\Weight $weight weight
      *
      * @return $this
      */
@@ -1845,7 +1845,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets width
      *
-     * @return \ultracartv2\models\Distance
+     * @return \ultracart\v2\models\Distance
      */
     public function getWidth()
     {
@@ -1855,7 +1855,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets width
      *
-     * @param \ultracartv2\models\Distance $width width
+     * @param \ultracart\v2\models\Distance $width width
      *
      * @return $this
      */

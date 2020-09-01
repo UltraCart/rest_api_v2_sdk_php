@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * AffiliateLedger Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -61,10 +61,10 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
         'affiliate_link_oid' => 'int',
         'affiliate_oid' => 'int',
         'assigned_by_user' => 'string',
-        'click' => '\ultracartv2\models\AffiliateClick',
+        'click' => '\ultracart\v2\models\AffiliateClick',
         'item_id' => 'string',
-        'link' => '\ultracartv2\models\AffiliateLink',
-        'order' => '\ultracartv2\models\Order',
+        'link' => '\ultracart\v2\models\AffiliateLink',
+        'order' => '\ultracart\v2\models\Order',
         'order_id' => 'string',
         'original_transaction_dts' => 'string',
         'sub_id' => 'string',
@@ -436,7 +436,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Gets click
      *
-     * @return \ultracartv2\models\AffiliateClick
+     * @return \ultracart\v2\models\AffiliateClick
      */
     public function getClick()
     {
@@ -446,7 +446,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Sets click
      *
-     * @param \ultracartv2\models\AffiliateClick $click click
+     * @param \ultracart\v2\models\AffiliateClick $click click
      *
      * @return $this
      */
@@ -484,7 +484,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Gets link
      *
-     * @return \ultracartv2\models\AffiliateLink
+     * @return \ultracart\v2\models\AffiliateLink
      */
     public function getLink()
     {
@@ -494,7 +494,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Sets link
      *
-     * @param \ultracartv2\models\AffiliateLink $link link
+     * @param \ultracart\v2\models\AffiliateLink $link link
      *
      * @return $this
      */
@@ -508,7 +508,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Gets order
      *
-     * @return \ultracartv2\models\Order
+     * @return \ultracart\v2\models\Order
      */
     public function getOrder()
     {
@@ -518,7 +518,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Sets order
      *
-     * @param \ultracartv2\models\Order $order order
+     * @param \ultracart\v2\models\Order $order order
      *
      * @return $this
      */

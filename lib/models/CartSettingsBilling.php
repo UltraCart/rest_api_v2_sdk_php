@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace ultracartv2\models;
+namespace ultracart\v2\models;
 
 use \ArrayAccess;
-use \ultracartv2\ObjectSerializer;
+use \ultracart\v2\ObjectSerializer;
 
 /**
  * CartSettingsBilling Class Doc Comment
  *
  * @category Class
- * @package  ultracartv2
+ * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -57,7 +57,7 @@ class CartSettingsBilling implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'provinces' => '\ultracartv2\models\CartSettingsProvince[]'
+        'provinces' => '\ultracart\v2\models\CartSettingsProvince[]'
     ];
 
     /**
@@ -207,7 +207,7 @@ class CartSettingsBilling implements ModelInterface, ArrayAccess
     /**
      * Gets provinces
      *
-     * @return \ultracartv2\models\CartSettingsProvince[]
+     * @return \ultracart\v2\models\CartSettingsProvince[]
      */
     public function getProvinces()
     {
@@ -217,7 +217,7 @@ class CartSettingsBilling implements ModelInterface, ArrayAccess
     /**
      * Sets provinces
      *
-     * @param \ultracartv2\models\CartSettingsProvince[] $provinces Provinces
+     * @param \ultracart\v2\models\CartSettingsProvince[] $provinces Provinces
      *
      * @return $this
      */
