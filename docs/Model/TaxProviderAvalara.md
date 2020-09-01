@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configuration** | [**\ultracart\v2\models\AvalaraConfig**](AvalaraConfig.md) |  | [optional] 
+**configuration** | [**\ultracartv2\models\AvalaraConfig**](AvalaraConfig.md) |  | [optional] 
 **description** | **string** | Description | [optional] 
 **selected** | **bool** | Selected | [optional] 
 **title** | **string** | Title | [optional] 

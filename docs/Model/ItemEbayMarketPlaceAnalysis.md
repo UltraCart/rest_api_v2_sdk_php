@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **cogs** | **float** | Cost of goods sold | [optional] 
 **final_value_fee** | **float** | Final value fee | [optional] 
 **minimum_advertised_price** | **float** | Minimum advertised price | [optional] 
-**other_listings** | [**\ultracart\v2\models\ItemEbayMarketListing[]**](ItemEbayMarketListing.md) | Other listings | [optional] 
-**our_listing** | [**\ultracart\v2\models\ItemEbayMarketListing**](ItemEbayMarketListing.md) |  | [optional] 
+**other_listings** | [**\ultracartv2\models\ItemEbayMarketListing[]**](ItemEbayMarketListing.md) | Other listings | [optional] 
+**our_listing** | [**\ultracartv2\models\ItemEbayMarketListing**](ItemEbayMarketListing.md) |  | [optional] 
 **overhead** | **float** | Overhead | [optional] 
 **profit_potential** | **float** | Profit potential | [optional] 
 

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
+**cost** | [**\ultracartv2\models\Currency**](Currency.md) |  | [optional] 
 **title** | **string** | Title of the gift wrap | [optional] 
 **url** | **string** | URL for the sample of the gift wrap | [optional] 
 

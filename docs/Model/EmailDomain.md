@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **string** |  | [optional] 
-**dkim** | [**\ultracart\v2\models\VerificationRecord[]**](VerificationRecord.md) |  | [optional] 
+**dkim** | [**\ultracartv2\models\VerificationRecord[]**](VerificationRecord.md) |  | [optional] 
 **dkim_status** | **string** |  | [optional] 
 **domain** | **string** |  | [optional] 
 **esp_domain_uuid** | **string** |  | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **provider** | **string** |  | [optional] 
 **start_dkim_dts** | **string** |  | [optional] 
 **start_identity_dts** | **string** |  | [optional] 
-**verification** | [**\ultracart\v2\models\VerificationRecord**](VerificationRecord.md) |  | [optional] 
+**verification** | [**\ultracartv2\models\VerificationRecord**](VerificationRecord.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

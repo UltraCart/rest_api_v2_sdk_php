@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **arbitrary_schedule_days** | **int** | If the schedule is arbitrary, then this is the number of days | [optional] 
 **arbitrary_unit_cost** | **float** | Arbitrary unit cost used to override the regular item cost | [optional] 
-**arbitrary_unit_cost_schedules** | [**\ultracart\v2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]**](ItemAutoOrderStepArbitraryUnitCostSchedule.md) | Arbitrary unit costs schedules for more advanced discounting by rebill attempt | [optional] 
-**grandfather_pricing** | [**\ultracart\v2\models\ItemAutoOrderStepGrandfatherPricing[]**](ItemAutoOrderStepGrandfatherPricing.md) | Grand-father pricing configuration if the rebill schedule has changed over time | [optional] 
+**arbitrary_unit_cost_schedules** | [**\ultracartv2\models\ItemAutoOrderStepArbitraryUnitCostSchedule[]**](ItemAutoOrderStepArbitraryUnitCostSchedule.md) | Arbitrary unit costs schedules for more advanced discounting by rebill attempt | [optional] 
+**grandfather_pricing** | [**\ultracartv2\models\ItemAutoOrderStepGrandfatherPricing[]**](ItemAutoOrderStepGrandfatherPricing.md) | Grand-father pricing configuration if the rebill schedule has changed over time | [optional] 
 **managed_by** | **string** | Managed by (defaults to UltraCart) | [optional] 
 **pause_days** | **int** | Number of days to pause | [optional] 
 **pause_until_date** | **string** | Wait for this step to happen until the specified date | [optional] 

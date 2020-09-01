@@ -1,4 +1,4 @@
-# ultracart\v2\OauthApi
+# ultracartv2\OauthApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **oauthAccessToken**
-> \ultracart\v2\models\OauthTokenResponse oauthAccessToken($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
+> \ultracartv2\models\OauthTokenResponse oauthAccessToken($client_id, $grant_type, $code, $redirect_uri, $refresh_token)
 
 Exchange authorization code for access token.
 
@@ -21,17 +21,26 @@ The final leg in the OAuth process which exchanges the specified access token fo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\OauthApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $client_id = "client_id_example"; // string | The OAuth application client_id.
 $grant_type = "grant_type_example"; // string | Type of grant
 $code = "code_example"; // string | Authorization code received back from the browser redirect
@@ -39,7 +48,7 @@ $redirect_uri = "redirect_uri_example"; // string | The URI that you redirect th
 $refresh_token = "refresh_token_example"; // string | The refresh token received during the original grant_type=authorization_code that can be used to return a new access token
 
 try {
-    $result = $api_instance->oauthAccessToken($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
+    $result = $apiInstance->oauthAccessToken($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OauthApi->oauthAccessToken: ', $e->getMessage(), PHP_EOL;
@@ -59,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\OauthTokenResponse**](../Model/OauthTokenResponse.md)
+[**\ultracartv2\models\OauthTokenResponse**](../Model/OauthTokenResponse.md)
 
 ### Authorization
 
@@ -73,7 +82,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **oauthRevoke**
-> \ultracart\v2\models\OauthRevokeSuccessResponse oauthRevoke($client_id, $token)
+> \ultracartv2\models\OauthRevokeSuccessResponse oauthRevoke($client_id, $token)
 
 Revoke this OAuth application.
 
@@ -85,22 +94,31 @@ Revokes the OAuth application associated with the specified client_id and token.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\OauthApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $client_id = "client_id_example"; // string | The OAuth application client_id.
 $token = "token_example"; // string | The OAuth access token that is to be revoked..
 
 try {
-    $result = $api_instance->oauthRevoke($client_id, $token);
+    $result = $apiInstance->oauthRevoke($client_id, $token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OauthApi->oauthRevoke: ', $e->getMessage(), PHP_EOL;
@@ -117,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\OauthRevokeSuccessResponse**](../Model/OauthRevokeSuccessResponse.md)
+[**\ultracartv2\models\OauthRevokeSuccessResponse**](../Model/OauthRevokeSuccessResponse.md)
 
 ### Authorization
 

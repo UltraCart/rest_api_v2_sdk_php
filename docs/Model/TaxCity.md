@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **county_oid** | **int** | Tax record object identifier used internally by database | [optional] 
 **dont_collect_city** | **bool** | Flag instructing engine to not collect city tax for this city | [optional] 
 **dont_collect_postal_code** | **bool** | Flag instructing engine to not collect postal code tax for this city | [optional] 
-**postal_codes** | [**\ultracart\v2\models\TaxPostalCode[]**](TaxPostalCode.md) | Postal Codes within this city | [optional] 
+**postal_codes** | [**\ultracartv2\models\TaxPostalCode[]**](TaxPostalCode.md) | Postal Codes within this city | [optional] 
 **tax_rate** | **float** | Tax Rate | [optional] 
 **tax_rate_formatted** | **string** | Tax rate formatted | [optional] 
 

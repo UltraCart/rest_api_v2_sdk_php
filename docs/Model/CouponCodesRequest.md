@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
+**error** | [**\ultracartv2\models\Error**](Error.md) |  | [optional] 
 **expiration_dts** | **string** | Expiration Date | [optional] 
 **expiration_seconds** | **int** | Expiration seconds | [optional] 
-**metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**metadata** | [**\ultracartv2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **quantity** | **int** | Quantity | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 

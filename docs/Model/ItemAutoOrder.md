@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **cancel_other_auto_orders** | **bool** | True if other auto orders for this customer should be canceled when this item is ordered | [optional] 
 **free_shipping_auto_order** | **bool** | True if the customer should be given free shipping | [optional] 
 **refund_other_auto_orders** | **bool** | True if other auto orders for this customer should refunded if this item is refunded. | [optional] 
-**steps** | [**\ultracart\v2\models\ItemAutoOrderStep[]**](ItemAutoOrderStep.md) | The rebill steps if this auto order is an upsell | [optional] 
+**steps** | [**\ultracartv2\models\ItemAutoOrderStep[]**](ItemAutoOrderStep.md) | The rebill steps if this auto order is an upsell | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

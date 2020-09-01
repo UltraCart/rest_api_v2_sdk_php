@@ -1,4 +1,4 @@
-# ultracart\v2\CustomerApi
+# ultracartv2\CustomerApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **deleteCustomer**
-> \ultracart\v2\models\CustomerResponse deleteCustomer($customer_profile_oid)
+> \ultracartv2\models\CustomerResponse deleteCustomer($customer_profile_oid)
 
 Delete a customer
 
@@ -29,17 +29,26 @@ Delete a customer on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $customer_profile_oid = 56; // int | The customer_profile_oid to delete.
 
 try {
-    $result = $api_instance->deleteCustomer($customer_profile_oid);
+    $result = $apiInstance->deleteCustomer($customer_profile_oid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->deleteCustomer: ', $e->getMessage(), PHP_EOL;
@@ -55,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+[**\ultracartv2\models\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 
@@ -69,7 +78,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomer**
-> \ultracart\v2\models\CustomerResponse getCustomer($customer_profile_oid, $_expand)
+> \ultracartv2\models\CustomerResponse getCustomer($customer_profile_oid, $_expand)
 
 Retrieve a customer
 
@@ -81,18 +90,27 @@ Retrieves a single customer using the specified customer profile oid.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $customer_profile_oid = 56; // int | The customer oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getCustomer($customer_profile_oid, $_expand);
+    $result = $apiInstance->getCustomer($customer_profile_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->getCustomer: ', $e->getMessage(), PHP_EOL;
@@ -109,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+[**\ultracartv2\models\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 
@@ -123,7 +141,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomers**
-> \ultracart\v2\models\CustomersResponse getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand)
+> \ultracartv2\models\CustomersResponse getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand)
 
 Retrieve customers
 
@@ -135,13 +153,22 @@ Retrieves customers from the account.  If no parameters are specified, all custo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $email = "email_example"; // string | Email
 $qb_class = "qb_class_example"; // string | Quickbooks class
 $quickbooks_code = "quickbooks_code_example"; // string | Quickbooks code
@@ -176,7 +203,7 @@ $_sort = "_sort_example"; // string | The sort order of the customers.  See Sort
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
+    $result = $apiInstance->getCustomers($email, $qb_class, $quickbooks_code, $last_modified_dts_start, $last_modified_dts_end, $signup_dts_start, $signup_dts_end, $billing_first_name, $billing_last_name, $billing_company, $billing_city, $billing_state, $billing_postal_code, $billing_country_code, $billing_day_phone, $billing_evening_phone, $shipping_first_name, $shipping_last_name, $shipping_company, $shipping_city, $shipping_state, $shipping_postal_code, $shipping_country_code, $shipping_day_phone, $shipping_evening_phone, $pricing_tier_oid, $pricing_tier_name, $_limit, $_offset, $_since, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->getCustomers: ', $e->getMessage(), PHP_EOL;
@@ -223,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomersResponse**](../Model/CustomersResponse.md)
+[**\ultracartv2\models\CustomersResponse**](../Model/CustomersResponse.md)
 
 ### Authorization
 
@@ -237,7 +264,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomersByQuery**
-> \ultracart\v2\models\CustomersResponse getCustomersByQuery($customer_query, $_limit, $_offset, $_since, $_sort, $_expand)
+> \ultracartv2\models\CustomersResponse getCustomersByQuery($customer_query, $_limit, $_offset, $_since, $_sort, $_expand)
 
 Retrieve customers by query
 
@@ -249,14 +276,23 @@ Retrieves customers from the account.  If no parameters are specified, all custo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
-$customer_query = new \ultracart\v2\models\CustomerQuery(); // \ultracart\v2\models\CustomerQuery | Customer query
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$customer_query = new \ultracartv2\models\CustomerQuery(); // \ultracartv2\models\CustomerQuery | Customer query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_since = "_since_example"; // string | Fetch customers that have been created/modified since this date/time.
@@ -264,7 +300,7 @@ $_sort = "_sort_example"; // string | The sort order of the customers.  See Sort
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getCustomersByQuery($customer_query, $_limit, $_offset, $_since, $_sort, $_expand);
+    $result = $apiInstance->getCustomersByQuery($customer_query, $_limit, $_offset, $_since, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->getCustomersByQuery: ', $e->getMessage(), PHP_EOL;
@@ -276,7 +312,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_query** | [**\ultracart\v2\models\CustomerQuery**](../Model/CustomerQuery.md)| Customer query |
+ **customer_query** | [**\ultracartv2\models\CustomerQuery**](../Model/CustomerQuery.md)| Customer query |
  **_limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_since** | **string**| Fetch customers that have been created/modified since this date/time. | [optional]
@@ -285,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomersResponse**](../Model/CustomersResponse.md)
+[**\ultracartv2\models\CustomersResponse**](../Model/CustomersResponse.md)
 
 ### Authorization
 
@@ -299,7 +335,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomersForDataTables**
-> \ultracart\v2\models\DataTablesServerSideResponse getCustomersForDataTables($_expand)
+> \ultracartv2\models\DataTablesServerSideResponse getCustomersForDataTables($_expand)
 
 Retrieve customers for DataTables plugin
 
@@ -311,17 +347,26 @@ Retrieves customers from the account.  If no searches are specified, all custome
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getCustomersForDataTables($_expand);
+    $result = $apiInstance->getCustomersForDataTables($_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->getCustomersForDataTables: ', $e->getMessage(), PHP_EOL;
@@ -337,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\DataTablesServerSideResponse**](../Model/DataTablesServerSideResponse.md)
+[**\ultracartv2\models\DataTablesServerSideResponse**](../Model/DataTablesServerSideResponse.md)
 
 ### Authorization
 
@@ -351,7 +396,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEditorValues**
-> \ultracart\v2\models\CustomerEditorValues getEditorValues()
+> \ultracartv2\models\CustomerEditorValues getEditorValues()
 
 Retrieve values needed for a customer profile editor
 
@@ -363,16 +408,25 @@ Retrieve values needed for a customer profile editor.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 
 try {
-    $result = $api_instance->getEditorValues();
+    $result = $apiInstance->getEditorValues();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->getEditorValues: ', $e->getMessage(), PHP_EOL;
@@ -385,7 +439,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerEditorValues**](../Model/CustomerEditorValues.md)
+[**\ultracartv2\models\CustomerEditorValues**](../Model/CustomerEditorValues.md)
 
 ### Authorization
 
@@ -399,7 +453,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEmailLists**
-> \ultracart\v2\models\EmailListsResponse getEmailLists()
+> \ultracartv2\models\EmailListsResponse getEmailLists()
 
 Retrieve all email lists across all storefronts
 
@@ -411,16 +465,25 @@ Retrieve all email lists across all storefronts
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 
 try {
-    $result = $api_instance->getEmailLists();
+    $result = $apiInstance->getEmailLists();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->getEmailLists: ', $e->getMessage(), PHP_EOL;
@@ -433,7 +496,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\EmailListsResponse**](../Model/EmailListsResponse.md)
+[**\ultracartv2\models\EmailListsResponse**](../Model/EmailListsResponse.md)
 
 ### Authorization
 
@@ -447,7 +510,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **insertCustomer**
-> \ultracart\v2\models\CustomerResponse insertCustomer($customer, $_expand)
+> \ultracartv2\models\CustomerResponse insertCustomer($customer, $_expand)
 
 Insert a customer
 
@@ -459,18 +522,27 @@ Insert a customer on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
-$customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to insert
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$customer = new \ultracartv2\models\Customer(); // \ultracartv2\models\Customer | Customer to insert
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->insertCustomer($customer, $_expand);
+    $result = $apiInstance->insertCustomer($customer, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->insertCustomer: ', $e->getMessage(), PHP_EOL;
@@ -482,12 +554,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer** | [**\ultracart\v2\models\Customer**](../Model/Customer.md)| Customer to insert |
+ **customer** | [**\ultracartv2\models\Customer**](../Model/Customer.md)| Customer to insert |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+[**\ultracartv2\models\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 
@@ -501,7 +573,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomer**
-> \ultracart\v2\models\CustomerResponse updateCustomer($customer, $customer_profile_oid, $_expand)
+> \ultracartv2\models\CustomerResponse updateCustomer($customer, $customer_profile_oid, $_expand)
 
 Update a customer
 
@@ -513,19 +585,28 @@ Update a customer on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
-$customer = new \ultracart\v2\models\Customer(); // \ultracart\v2\models\Customer | Customer to update
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$customer = new \ultracartv2\models\Customer(); // \ultracartv2\models\Customer | Customer to update
 $customer_profile_oid = 56; // int | The customer_profile_oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->updateCustomer($customer, $customer_profile_oid, $_expand);
+    $result = $apiInstance->updateCustomer($customer, $customer_profile_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->updateCustomer: ', $e->getMessage(), PHP_EOL;
@@ -537,13 +618,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer** | [**\ultracart\v2\models\Customer**](../Model/Customer.md)| Customer to update |
+ **customer** | [**\ultracartv2\models\Customer**](../Model/Customer.md)| Customer to update |
  **customer_profile_oid** | **int**| The customer_profile_oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+[**\ultracartv2\models\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 
@@ -557,7 +638,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomerEmailLists**
-> \ultracart\v2\models\CustomerEmailListChanges updateCustomerEmailLists($customer_profile_oid, $list_changes)
+> \ultracartv2\models\CustomerEmailListChanges updateCustomerEmailLists($customer_profile_oid, $list_changes)
 
 Update email list subscriptions for a customer
 
@@ -569,18 +650,27 @@ Update email list subscriptions for a customer
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CustomerApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CustomerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $customer_profile_oid = 56; // int | The customer profile oid
-$list_changes = new \ultracart\v2\models\CustomerEmailListChanges(); // \ultracart\v2\models\CustomerEmailListChanges | List changes
+$list_changes = new \ultracartv2\models\CustomerEmailListChanges(); // \ultracartv2\models\CustomerEmailListChanges | List changes
 
 try {
-    $result = $api_instance->updateCustomerEmailLists($customer_profile_oid, $list_changes);
+    $result = $apiInstance->updateCustomerEmailLists($customer_profile_oid, $list_changes);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->updateCustomerEmailLists: ', $e->getMessage(), PHP_EOL;
@@ -593,11 +683,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_profile_oid** | **int**| The customer profile oid |
- **list_changes** | [**\ultracart\v2\models\CustomerEmailListChanges**](../Model/CustomerEmailListChanges.md)| List changes |
+ **list_changes** | [**\ultracartv2\models\CustomerEmailListChanges**](../Model/CustomerEmailListChanges.md)| List changes |
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerEmailListChanges**](../Model/CustomerEmailListChanges.md)
+[**\ultracartv2\models\CustomerEmailListChanges**](../Model/CustomerEmailListChanges.md)
 
 ### Authorization
 

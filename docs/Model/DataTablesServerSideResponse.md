@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\ultracart\v2\models\Customer[]**](Customer.md) |  | [optional] 
+**data** | [**\ultracartv2\models\Customer[]**](Customer.md) |  | [optional] 
 **draw** | **int** |  | [optional] 
 **records_filtered** | **int** |  | [optional] 
 **records_total** | **int** |  | [optional] 

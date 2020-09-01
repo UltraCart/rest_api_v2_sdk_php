@@ -1,4 +1,4 @@
-# ultracart\v2\CheckoutApi
+# ultracartv2\CheckoutApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**login**](CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
 [**logout**](CheckoutApi.md#logout) | **POST** /checkout/cart/profile/logout | Profile logout
 [**register**](CheckoutApi.md#register) | **POST** /checkout/cart/profile/register | Profile registration
+[**registerAffiliateClick**](CheckoutApi.md#registerAffiliateClick) | **POST** /checkout/affiliateClick/register | Register affiliate click
 [**relatedItemsForCart**](CheckoutApi.md#relatedItemsForCart) | **POST** /checkout/related_items | Related items
 [**relatedItemsForItem**](CheckoutApi.md#relatedItemsForItem) | **POST** /checkout/relatedItems/{item_id} | Related items (specific item)
 [**setupBrowserKey**](CheckoutApi.md#setupBrowserKey) | **PUT** /checkout/browser_key | Setup Browser Application
@@ -24,7 +25,7 @@ Method | HTTP request | Description
 
 
 # **cityState**
-> \ultracart\v2\models\CityStateZip cityState($cart)
+> \ultracartv2\models\CityStateZip cityState($cart)
 
 City/State for Zip
 
@@ -36,21 +37,30 @@ Look up the city and state for the shipping zip code.  Useful for building an au
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$cart = new \ultracartv2\models\Cart(); // \ultracartv2\models\Cart | Cart
 
 try {
-    $result = $api_instance->cityState($cart);
+    $result = $apiInstance->cityState($cart);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->cityState: ', $e->getMessage(), PHP_EOL;
@@ -62,11 +72,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
+ **cart** | [**\ultracartv2\models\Cart**](../Model/Cart.md)| Cart |
 
 ### Return type
 
-[**\ultracart\v2\models\CityStateZip**](../Model/CityStateZip.md)
+[**\ultracartv2\models\CityStateZip**](../Model/CityStateZip.md)
 
 ### Authorization
 
@@ -80,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **finalizeOrder**
-> \ultracart\v2\models\CartFinalizeOrderResponse finalizeOrder($finalize_request)
+> \ultracartv2\models\CartFinalizeOrderResponse finalizeOrder($finalize_request)
 
 Finalize Order
 
@@ -92,17 +102,26 @@ Finalize the cart into an order.  This method can not be called with browser key
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$finalize_request = new \ultracart\v2\models\CartFinalizeOrderRequest(); // \ultracart\v2\models\CartFinalizeOrderRequest | Finalize request
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$finalize_request = new \ultracartv2\models\CartFinalizeOrderRequest(); // \ultracartv2\models\CartFinalizeOrderRequest | Finalize request
 
 try {
-    $result = $api_instance->finalizeOrder($finalize_request);
+    $result = $apiInstance->finalizeOrder($finalize_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->finalizeOrder: ', $e->getMessage(), PHP_EOL;
@@ -114,11 +133,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **finalize_request** | [**\ultracart\v2\models\CartFinalizeOrderRequest**](../Model/CartFinalizeOrderRequest.md)| Finalize request |
+ **finalize_request** | [**\ultracartv2\models\CartFinalizeOrderRequest**](../Model/CartFinalizeOrderRequest.md)| Finalize request |
 
 ### Return type
 
-[**\ultracart\v2\models\CartFinalizeOrderResponse**](../Model/CartFinalizeOrderResponse.md)
+[**\ultracartv2\models\CartFinalizeOrderResponse**](../Model/CartFinalizeOrderResponse.md)
 
 ### Authorization
 
@@ -132,7 +151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAffirmCheckout**
-> \ultracart\v2\models\CartAffirmCheckoutResponse getAffirmCheckout($cart_id)
+> \ultracartv2\models\CartAffirmCheckoutResponse getAffirmCheckout($cart_id)
 
 Get affirm checkout (by cart id)
 
@@ -144,21 +163,30 @@ Get a Affirm checkout object for the specified cart_id parameter.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $cart_id = "cart_id_example"; // string | Cart ID to retrieve
 
 try {
-    $result = $api_instance->getAffirmCheckout($cart_id);
+    $result = $apiInstance->getAffirmCheckout($cart_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->getAffirmCheckout: ', $e->getMessage(), PHP_EOL;
@@ -174,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CartAffirmCheckoutResponse**](../Model/CartAffirmCheckoutResponse.md)
+[**\ultracartv2\models\CartAffirmCheckoutResponse**](../Model/CartAffirmCheckoutResponse.md)
 
 ### Authorization
 
@@ -188,7 +216,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAllowedCountries**
-> \ultracart\v2\models\CheckoutAllowedCountriesResponse getAllowedCountries()
+> \ultracartv2\models\CheckoutAllowedCountriesResponse getAllowedCountries()
 
 Allowed countries
 
@@ -200,20 +228,29 @@ Lookup the allowed countries for this merchant id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 
 try {
-    $result = $api_instance->getAllowedCountries();
+    $result = $apiInstance->getAllowedCountries();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->getAllowedCountries: ', $e->getMessage(), PHP_EOL;
@@ -226,7 +263,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\CheckoutAllowedCountriesResponse**](../Model/CheckoutAllowedCountriesResponse.md)
+[**\ultracartv2\models\CheckoutAllowedCountriesResponse**](../Model/CheckoutAllowedCountriesResponse.md)
 
 ### Authorization
 
@@ -240,7 +277,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCart**
-> \ultracart\v2\models\CartResponse getCart($_expand)
+> \ultracartv2\models\CartResponse getCart($_expand)
 
 Get cart
 
@@ -252,21 +289,30 @@ If the cookie is set on the browser making the request then it will return their
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getCart($_expand);
+    $result = $apiInstance->getCart($_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->getCart: ', $e->getMessage(), PHP_EOL;
@@ -282,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracartv2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -296,7 +342,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCartByCartId**
-> \ultracart\v2\models\CartResponse getCartByCartId($cart_id, $_expand)
+> \ultracartv2\models\CartResponse getCartByCartId($cart_id, $_expand)
 
 Get cart (by cart id)
 
@@ -308,22 +354,31 @@ Get a cart specified by the cart_id parameter.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $cart_id = "cart_id_example"; // string | Cart ID to retrieve
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getCartByCartId($cart_id, $_expand);
+    $result = $apiInstance->getCartByCartId($cart_id, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->getCartByCartId: ', $e->getMessage(), PHP_EOL;
@@ -340,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracartv2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -354,7 +409,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCartByReturnCode**
-> \ultracart\v2\models\CartResponse getCartByReturnCode($return_code, $_expand)
+> \ultracartv2\models\CartResponse getCartByReturnCode($return_code, $_expand)
 
 Get cart (by return code)
 
@@ -366,22 +421,31 @@ Get a cart specified by the return code parameter.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $return_code = "return_code_example"; // string | Return code to lookup cart ID by
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getCartByReturnCode($return_code, $_expand);
+    $result = $apiInstance->getCartByReturnCode($return_code, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->getCartByReturnCode: ', $e->getMessage(), PHP_EOL;
@@ -398,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracartv2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -412,7 +476,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getStateProvincesForCountry**
-> \ultracart\v2\models\CheckoutStateProvinceResponse getStateProvincesForCountry($country_code)
+> \ultracartv2\models\CheckoutStateProvinceResponse getStateProvincesForCountry($country_code)
 
 Get state/province list for a country code
 
@@ -424,21 +488,30 @@ Lookup a state/province list for a given country code
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $country_code = "country_code_example"; // string | Two letter ISO country code
 
 try {
-    $result = $api_instance->getStateProvincesForCountry($country_code);
+    $result = $apiInstance->getStateProvincesForCountry($country_code);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->getStateProvincesForCountry: ', $e->getMessage(), PHP_EOL;
@@ -454,7 +527,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CheckoutStateProvinceResponse**](../Model/CheckoutStateProvinceResponse.md)
+[**\ultracartv2\models\CheckoutStateProvinceResponse**](../Model/CheckoutStateProvinceResponse.md)
 
 ### Authorization
 
@@ -468,7 +541,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **handoffCart**
-> \ultracart\v2\models\CheckoutHandoffResponse handoffCart($handoff_request, $_expand)
+> \ultracartv2\models\CheckoutHandoffResponse handoffCart($handoff_request, $_expand)
 
 Handoff cart
 
@@ -480,22 +553,31 @@ Handoff the browser to UltraCart for view cart on StoreFront, transfer to PayPal
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$handoff_request = new \ultracart\v2\models\CheckoutHandoffRequest(); // \ultracart\v2\models\CheckoutHandoffRequest | Handoff request
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$handoff_request = new \ultracartv2\models\CheckoutHandoffRequest(); // \ultracartv2\models\CheckoutHandoffRequest | Handoff request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->handoffCart($handoff_request, $_expand);
+    $result = $apiInstance->handoffCart($handoff_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->handoffCart: ', $e->getMessage(), PHP_EOL;
@@ -507,12 +589,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **handoff_request** | [**\ultracart\v2\models\CheckoutHandoffRequest**](../Model/CheckoutHandoffRequest.md)| Handoff request |
+ **handoff_request** | [**\ultracartv2\models\CheckoutHandoffRequest**](../Model/CheckoutHandoffRequest.md)| Handoff request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CheckoutHandoffResponse**](../Model/CheckoutHandoffResponse.md)
+[**\ultracartv2\models\CheckoutHandoffResponse**](../Model/CheckoutHandoffResponse.md)
 
 ### Authorization
 
@@ -526,7 +608,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **login**
-> \ultracart\v2\models\CartProfileLoginResponse login($login_request, $_expand)
+> \ultracartv2\models\CartProfileLoginResponse login($login_request, $_expand)
 
 Profile login
 
@@ -538,22 +620,31 @@ Login in to the customer profile specified by cart.billing.email and password
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$login_request = new \ultracart\v2\models\CartProfileLoginRequest(); // \ultracart\v2\models\CartProfileLoginRequest | Login request
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$login_request = new \ultracartv2\models\CartProfileLoginRequest(); // \ultracartv2\models\CartProfileLoginRequest | Login request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->login($login_request, $_expand);
+    $result = $apiInstance->login($login_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->login: ', $e->getMessage(), PHP_EOL;
@@ -565,12 +656,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **login_request** | [**\ultracart\v2\models\CartProfileLoginRequest**](../Model/CartProfileLoginRequest.md)| Login request |
+ **login_request** | [**\ultracartv2\models\CartProfileLoginRequest**](../Model/CartProfileLoginRequest.md)| Login request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CartProfileLoginResponse**](../Model/CartProfileLoginResponse.md)
+[**\ultracartv2\models\CartProfileLoginResponse**](../Model/CartProfileLoginResponse.md)
 
 ### Authorization
 
@@ -584,7 +675,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **logout**
-> \ultracart\v2\models\CartResponse logout($cart, $_expand)
+> \ultracartv2\models\CartResponse logout($cart, $_expand)
 
 Profile logout
 
@@ -596,22 +687,31 @@ Log the cart out of the current profile.  No error will occur if they are not lo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$cart = new \ultracartv2\models\Cart(); // \ultracartv2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->logout($cart, $_expand);
+    $result = $apiInstance->logout($cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->logout: ', $e->getMessage(), PHP_EOL;
@@ -623,12 +723,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
+ **cart** | [**\ultracartv2\models\Cart**](../Model/Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracartv2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -642,7 +742,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **register**
-> \ultracart\v2\models\CartProfileRegisterResponse register($register_request, $_expand)
+> \ultracartv2\models\CartProfileRegisterResponse register($register_request, $_expand)
 
 Profile registration
 
@@ -654,22 +754,31 @@ Register a new customer profile.  Requires the cart.billing object to be populat
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$register_request = new \ultracart\v2\models\CartProfileRegisterRequest(); // \ultracart\v2\models\CartProfileRegisterRequest | Register request
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$register_request = new \ultracartv2\models\CartProfileRegisterRequest(); // \ultracartv2\models\CartProfileRegisterRequest | Register request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->register($register_request, $_expand);
+    $result = $apiInstance->register($register_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->register: ', $e->getMessage(), PHP_EOL;
@@ -681,12 +790,79 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **register_request** | [**\ultracart\v2\models\CartProfileRegisterRequest**](../Model/CartProfileRegisterRequest.md)| Register request |
+ **register_request** | [**\ultracartv2\models\CartProfileRegisterRequest**](../Model/CartProfileRegisterRequest.md)| Register request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CartProfileRegisterResponse**](../Model/CartProfileRegisterResponse.md)
+[**\ultracartv2\models\CartProfileRegisterResponse**](../Model/CartProfileRegisterResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **registerAffiliateClick**
+> \ultracartv2\models\CheckoutHandoffResponse registerAffiliateClick($register_affiliate_click_request, $_expand)
+
+Register affiliate click
+
+Register an affiliate click.  Used by custom checkouts that are completely API based and do not perform checkout handoff.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: ultraCartBrowserApiKey
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$register_affiliate_click_request = new \ultracartv2\models\RegisterAffiliateClickRequest(); // \ultracartv2\models\RegisterAffiliateClickRequest | Register affiliate click request
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $apiInstance->registerAffiliateClick($register_affiliate_click_request, $_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CheckoutApi->registerAffiliateClick: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **register_affiliate_click_request** | [**\ultracartv2\models\RegisterAffiliateClickRequest**](../Model/RegisterAffiliateClickRequest.md)| Register affiliate click request |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracartv2\models\CheckoutHandoffResponse**](../Model/CheckoutHandoffResponse.md)
 
 ### Authorization
 
@@ -700,7 +876,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **relatedItemsForCart**
-> \ultracart\v2\models\ItemsResponse relatedItemsForCart($cart, $_expand)
+> \ultracartv2\models\ItemsResponse relatedItemsForCart($cart, $_expand)
 
 Related items
 
@@ -712,22 +888,31 @@ Retrieve all the related items for the cart contents.  Expansion is limited to c
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$cart = new \ultracartv2\models\Cart(); // \ultracartv2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
 
 try {
-    $result = $api_instance->relatedItemsForCart($cart, $_expand);
+    $result = $apiInstance->relatedItemsForCart($cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->relatedItemsForCart: ', $e->getMessage(), PHP_EOL;
@@ -739,12 +924,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
+ **cart** | [**\ultracartv2\models\Cart**](../Model/Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+[**\ultracartv2\models\ItemsResponse**](../Model/ItemsResponse.md)
 
 ### Authorization
 
@@ -758,7 +943,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **relatedItemsForItem**
-> \ultracart\v2\models\ItemsResponse relatedItemsForItem($item_id, $cart, $_expand)
+> \ultracartv2\models\ItemsResponse relatedItemsForItem($item_id, $cart, $_expand)
 
 Related items (specific item)
 
@@ -770,23 +955,32 @@ Retrieve all the related items for the cart contents.  Expansion is limited to c
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $item_id = "item_id_example"; // string | Item ID to retrieve related items for
-$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+$cart = new \ultracartv2\models\Cart(); // \ultracartv2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See item resource documentation for examples
 
 try {
-    $result = $api_instance->relatedItemsForItem($item_id, $cart, $_expand);
+    $result = $apiInstance->relatedItemsForItem($item_id, $cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->relatedItemsForItem: ', $e->getMessage(), PHP_EOL;
@@ -799,12 +993,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **item_id** | **string**| Item ID to retrieve related items for |
- **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
+ **cart** | [**\ultracartv2\models\Cart**](../Model/Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See item resource documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+[**\ultracartv2\models\ItemsResponse**](../Model/ItemsResponse.md)
 
 ### Authorization
 
@@ -818,7 +1012,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setupBrowserKey**
-> \ultracart\v2\models\CheckoutSetupBrowserKeyResponse setupBrowserKey($browser_key_request)
+> \ultracartv2\models\CheckoutSetupBrowserKeyResponse setupBrowserKey($browser_key_request)
 
 Setup Browser Application
 
@@ -830,17 +1024,26 @@ Setup a browser key authenticated application with checkout permissions.  This R
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$browser_key_request = new \ultracart\v2\models\CheckoutSetupBrowserKeyRequest(); // \ultracart\v2\models\CheckoutSetupBrowserKeyRequest | Setup browser key request
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$browser_key_request = new \ultracartv2\models\CheckoutSetupBrowserKeyRequest(); // \ultracartv2\models\CheckoutSetupBrowserKeyRequest | Setup browser key request
 
 try {
-    $result = $api_instance->setupBrowserKey($browser_key_request);
+    $result = $apiInstance->setupBrowserKey($browser_key_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->setupBrowserKey: ', $e->getMessage(), PHP_EOL;
@@ -852,11 +1055,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **browser_key_request** | [**\ultracart\v2\models\CheckoutSetupBrowserKeyRequest**](../Model/CheckoutSetupBrowserKeyRequest.md)| Setup browser key request |
+ **browser_key_request** | [**\ultracartv2\models\CheckoutSetupBrowserKeyRequest**](../Model/CheckoutSetupBrowserKeyRequest.md)| Setup browser key request |
 
 ### Return type
 
-[**\ultracart\v2\models\CheckoutSetupBrowserKeyResponse**](../Model/CheckoutSetupBrowserKeyResponse.md)
+[**\ultracartv2\models\CheckoutSetupBrowserKeyResponse**](../Model/CheckoutSetupBrowserKeyResponse.md)
 
 ### Authorization
 
@@ -870,7 +1073,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCart**
-> \ultracart\v2\models\CartResponse updateCart($cart, $_expand)
+> \ultracartv2\models\CartResponse updateCart($cart, $_expand)
 
 Update cart
 
@@ -882,22 +1085,31 @@ Update the cart.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$cart = new \ultracart\v2\models\Cart(); // \ultracart\v2\models\Cart | Cart
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$cart = new \ultracartv2\models\Cart(); // \ultracartv2\models\Cart | Cart
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->updateCart($cart, $_expand);
+    $result = $apiInstance->updateCart($cart, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->updateCart: ', $e->getMessage(), PHP_EOL;
@@ -909,12 +1121,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cart** | [**\ultracart\v2\models\Cart**](../Model/Cart.md)| Cart |
+ **cart** | [**\ultracartv2\models\Cart**](../Model/Cart.md)| Cart |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CartResponse**](../Model/CartResponse.md)
+[**\ultracartv2\models\CartResponse**](../Model/CartResponse.md)
 
 ### Authorization
 
@@ -928,7 +1140,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **validateCart**
-> \ultracart\v2\models\CartValidationResponse validateCart($validation_request, $_expand)
+> \ultracartv2\models\CartValidationResponse validateCart($validation_request, $_expand)
 
 Validate
 
@@ -940,22 +1152,31 @@ Validate the cart for errors.  Specific checks can be passed and multiple valida
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: ultraCartBrowserApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
-$validation_request = new \ultracart\v2\models\CartValidationRequest(); // \ultracart\v2\models\CartValidationRequest | Validation request
+$api_instance = new ultracartv2\api\CheckoutApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\CheckoutApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$validation_request = new \ultracartv2\models\CartValidationRequest(); // \ultracartv2\models\CartValidationRequest | Validation request
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->validateCart($validation_request, $_expand);
+    $result = $apiInstance->validateCart($validation_request, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CheckoutApi->validateCart: ', $e->getMessage(), PHP_EOL;
@@ -967,12 +1188,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **validation_request** | [**\ultracart\v2\models\CartValidationRequest**](../Model/CartValidationRequest.md)| Validation request |
+ **validation_request** | [**\ultracartv2\models\CartValidationRequest**](../Model/CartValidationRequest.md)| Validation request |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\CartValidationResponse**](../Model/CartValidationResponse.md)
+[**\ultracartv2\models\CartValidationResponse**](../Model/CartValidationResponse.md)
 
 ### Authorization
 

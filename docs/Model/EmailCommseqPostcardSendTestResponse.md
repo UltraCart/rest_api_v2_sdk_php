@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **back_thumbnail** | **string** |  | [optional] 
-**error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
+**error** | [**\ultracartv2\models\Error**](Error.md) |  | [optional] 
 **front_thumbnail** | **string** |  | [optional] 
-**metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**metadata** | [**\ultracartv2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **rendered_pdf** | **string** |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 

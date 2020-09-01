@@ -1,4 +1,4 @@
-# ultracart\v2\AutoOrderApi
+# ultracartv2\AutoOrderApi
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **getAutoOrder**
-> \ultracart\v2\models\AutoOrderResponse getAutoOrder($auto_order_oid, $_expand)
+> \ultracartv2\models\AutoOrderResponse getAutoOrder($auto_order_oid, $_expand)
 
 Retrieve an auto order
 
@@ -27,18 +27,27 @@ Retrieves a single auto order using the specified auto order oid.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\AutoOrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $auto_order_oid = 56; // int | The auto order oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getAutoOrder($auto_order_oid, $_expand);
+    $result = $apiInstance->getAutoOrder($auto_order_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->getAutoOrder: ', $e->getMessage(), PHP_EOL;
@@ -55,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+[**\ultracartv2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
 
 ### Authorization
 
@@ -69,7 +78,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAutoOrderByCode**
-> \ultracart\v2\models\AutoOrderResponse getAutoOrderByCode($auto_order_code, $_expand)
+> \ultracartv2\models\AutoOrderResponse getAutoOrderByCode($auto_order_code, $_expand)
 
 Retrieve an auto order
 
@@ -81,18 +90,27 @@ Retrieves a single auto order using the specified reference (original) order id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\AutoOrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $auto_order_code = "auto_order_code_example"; // string | The auto order oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getAutoOrderByCode($auto_order_code, $_expand);
+    $result = $apiInstance->getAutoOrderByCode($auto_order_code, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->getAutoOrderByCode: ', $e->getMessage(), PHP_EOL;
@@ -109,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+[**\ultracartv2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
 
 ### Authorization
 
@@ -123,7 +141,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAutoOrderByReferenceOrderId**
-> \ultracart\v2\models\AutoOrderResponse getAutoOrderByReferenceOrderId($reference_order_id, $_expand)
+> \ultracartv2\models\AutoOrderResponse getAutoOrderByReferenceOrderId($reference_order_id, $_expand)
 
 Retrieve an auto order
 
@@ -135,18 +153,27 @@ Retrieves a single auto order using the specified reference (original) order id.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\AutoOrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $reference_order_id = "reference_order_id_example"; // string | The auto order oid to retrieve.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getAutoOrderByReferenceOrderId($reference_order_id, $_expand);
+    $result = $apiInstance->getAutoOrderByReferenceOrderId($reference_order_id, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->getAutoOrderByReferenceOrderId: ', $e->getMessage(), PHP_EOL;
@@ -163,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+[**\ultracartv2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
 
 ### Authorization
 
@@ -177,7 +204,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAutoOrders**
-> \ultracart\v2\models\AutoOrdersResponse getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand)
+> \ultracartv2\models\AutoOrdersResponse getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand)
 
 Retrieve auto orders
 
@@ -189,13 +216,22 @@ Retrieves auto orders from the account.  If no parameters are specified, all aut
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+$api_instance = new ultracartv2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\AutoOrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
 $auto_order_code = "auto_order_code_example"; // string | Auto order code
 $original_order_id = "original_order_id_example"; // string | Original order id
 $first_name = "first_name_example"; // string | First name
@@ -221,7 +257,7 @@ $_sort = "_sort_example"; // string | The sort order of the auto orders.  See So
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
+    $result = $apiInstance->getAutoOrders($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->getAutoOrders: ', $e->getMessage(), PHP_EOL;
@@ -259,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
+[**\ultracartv2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
 
 ### Authorization
 
@@ -273,7 +309,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAutoOrdersBatch**
-> \ultracart\v2\models\AutoOrdersResponse getAutoOrdersBatch($auto_order_batch, $_expand)
+> \ultracartv2\models\AutoOrdersResponse getAutoOrdersBatch($auto_order_batch, $_expand)
 
 Retrieve auto order batch
 
@@ -285,18 +321,27 @@ Retrieves a group of auto orders from the account based on an array of auto orde
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
-$auto_order_batch = new \ultracart\v2\models\AutoOrderQueryBatch(); // \ultracart\v2\models\AutoOrderQueryBatch | Auto order batch
+$api_instance = new ultracartv2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\AutoOrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$auto_order_batch = new \ultracartv2\models\AutoOrderQueryBatch(); // \ultracartv2\models\AutoOrderQueryBatch | Auto order batch
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.
 
 try {
-    $result = $api_instance->getAutoOrdersBatch($auto_order_batch, $_expand);
+    $result = $apiInstance->getAutoOrdersBatch($auto_order_batch, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->getAutoOrdersBatch: ', $e->getMessage(), PHP_EOL;
@@ -308,12 +353,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_order_batch** | [**\ultracart\v2\models\AutoOrderQueryBatch**](../Model/AutoOrderQueryBatch.md)| Auto order batch |
+ **auto_order_batch** | [**\ultracartv2\models\AutoOrderQueryBatch**](../Model/AutoOrderQueryBatch.md)| Auto order batch |
  **_expand** | **string**| The object expansion to perform on the result. | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
+[**\ultracartv2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
 
 ### Authorization
 
@@ -327,7 +372,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAutoOrdersByQuery**
-> \ultracart\v2\models\AutoOrdersResponse getAutoOrdersByQuery($auto_order_query, $_limit, $_offset, $_sort, $_expand)
+> \ultracartv2\models\AutoOrdersResponse getAutoOrdersByQuery($auto_order_query, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve auto orders
 
@@ -339,21 +384,30 @@ Retrieves a group of auto orders from the account based on a query object.  You 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
-$auto_order_query = new \ultracart\v2\models\AutoOrderQuery(); // \ultracart\v2\models\AutoOrderQuery | Auto order query
+$api_instance = new ultracartv2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\AutoOrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$auto_order_query = new \ultracartv2\models\AutoOrderQuery(); // \ultracartv2\models\AutoOrderQuery | Auto order query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_sort = "_sort_example"; // string | The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.
 
 try {
-    $result = $api_instance->getAutoOrdersByQuery($auto_order_query, $_limit, $_offset, $_sort, $_expand);
+    $result = $apiInstance->getAutoOrdersByQuery($auto_order_query, $_limit, $_offset, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->getAutoOrdersByQuery: ', $e->getMessage(), PHP_EOL;
@@ -365,7 +419,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_order_query** | [**\ultracart\v2\models\AutoOrderQuery**](../Model/AutoOrderQuery.md)| Auto order query |
+ **auto_order_query** | [**\ultracartv2\models\AutoOrderQuery**](../Model/AutoOrderQuery.md)| Auto order query |
  **_limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_sort** | **string**| The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
@@ -373,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
+[**\ultracartv2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
 
 ### Authorization
 
@@ -387,7 +441,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAutoOrder**
-> \ultracart\v2\models\AutoOrderResponse updateAutoOrder($auto_order, $auto_order_oid, $_expand)
+> \ultracartv2\models\AutoOrderResponse updateAutoOrder($auto_order, $auto_order_oid, $_expand)
 
 Update an auto order
 
@@ -399,19 +453,28 @@ Update an auto order on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
-$auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto order to update
+$api_instance = new ultracartv2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\AutoOrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$auto_order = new \ultracartv2\models\AutoOrder(); // \ultracartv2\models\AutoOrder | Auto order to update
 $auto_order_oid = 56; // int | The auto order oid to update.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $api_instance->updateAutoOrder($auto_order, $auto_order_oid, $_expand);
+    $result = $apiInstance->updateAutoOrder($auto_order, $auto_order_oid, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->updateAutoOrder: ', $e->getMessage(), PHP_EOL;
@@ -423,13 +486,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to update |
+ **auto_order** | [**\ultracartv2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to update |
  **auto_order_oid** | **int**| The auto order oid to update. |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
+[**\ultracartv2\models\AutoOrderResponse**](../Model/AutoOrderResponse.md)
 
 ### Authorization
 
@@ -443,7 +506,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAutoOrdersBatch**
-> \ultracart\v2\models\AutoOrdersResponse updateAutoOrdersBatch($auto_orders_request, $_expand, $_placeholders, $_async)
+> \ultracartv2\models\AutoOrdersResponse updateAutoOrdersBatch($auto_orders_request, $_expand, $_placeholders, $_async)
 
 Update multiple auto orders
 
@@ -455,20 +518,29 @@ Update multiple auto orders on the UltraCart account.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: ultraCartOauth
-ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure API key authorization: ultraCartSimpleApiKey
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+$config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+// $config = ultracartv2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
 
-$api_instance = new ultracart\v2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
-$auto_orders_request = new \ultracart\v2\models\AutoOrdersRequest(); // \ultracart\v2\models\AutoOrdersRequest | Auto orders to update (synchronous maximum 20 / asynchronous maximum 100)
+$api_instance = new ultracartv2\api\AutoOrderApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracartv2\api\AutoOrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$auto_orders_request = new \ultracartv2\models\AutoOrdersRequest(); // \ultracartv2\models\AutoOrdersRequest | Auto orders to update (synchronous maximum 20 / asynchronous maximum 100)
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 $_async = true; // bool | True if the operation should be run async.  No result returned
 
 try {
-    $result = $api_instance->updateAutoOrdersBatch($auto_orders_request, $_expand, $_placeholders, $_async);
+    $result = $apiInstance->updateAutoOrdersBatch($auto_orders_request, $_expand, $_placeholders, $_async);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->updateAutoOrdersBatch: ', $e->getMessage(), PHP_EOL;
@@ -480,14 +552,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auto_orders_request** | [**\ultracart\v2\models\AutoOrdersRequest**](../Model/AutoOrdersRequest.md)| Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) |
+ **auto_orders_request** | [**\ultracartv2\models\AutoOrdersRequest**](../Model/AutoOrdersRequest.md)| Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
  **_async** | **bool**| True if the operation should be run async.  No result returned | [optional]
 
 ### Return type
 
-[**\ultracart\v2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
+[**\ultracartv2\models\AutoOrdersResponse**](../Model/AutoOrdersResponse.md)
 
 ### Authorization
 

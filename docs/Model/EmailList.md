@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **public_description** | **string** | Description of list shown to customer. | [optional] 
 **public_list** | **bool** | True if this list is public | [optional] 
 **storefront_oid** | **int** | Storefront oid | [optional] 
-**used_by** | [**\ultracart\v2\models\EmailListSegmentUsedBy[]**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
+**used_by** | [**\ultracartv2\models\EmailListSegmentUsedBy[]**](EmailListSegmentUsedBy.md) | Details on the flows or campaigns that use this list. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

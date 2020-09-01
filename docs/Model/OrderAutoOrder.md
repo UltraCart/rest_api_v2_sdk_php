@@ -15,11 +15,11 @@ Name | Type | Description | Notes
 **disabled_dts** | **string** | The date/time the auto order was disabled due to failed rebills | [optional] 
 **enabled** | **bool** | True if this auto order is enabled | [optional] 
 **failure_reason** | **string** | The reason this auto order failed during the last rebill attempt | [optional] 
-**items** | [**\ultracart\v2\models\AutoOrderItem[]**](AutoOrderItem.md) | The items that are setup to rebill | [optional] 
+**items** | [**\ultracartv2\models\AutoOrderItem[]**](AutoOrderItem.md) | The items that are setup to rebill | [optional] 
 **next_attempt** | **string** | The next time that the auto order will be attempted for processing | [optional] 
 **original_order_id** | **string** | The original order id that this auto order is associated with. | [optional] 
 **override_affiliate_id** | **int** | Override the affiliate id given credit for rebills of this auto order | [optional] 
-**rebill_orders** | [**\ultracart\v2\models\Order[]**](Order.md) | Rebill orders that have taken place on this auto order | [optional] 
+**rebill_orders** | [**\ultracartv2\models\Order[]**](Order.md) | Rebill orders that have taken place on this auto order | [optional] 
 **rotating_transaction_gateway_code** | **string** | The RTG code associated with this order for future rebills | [optional] 
 **status** | **string** | The status of the auto order | [optional] 
 

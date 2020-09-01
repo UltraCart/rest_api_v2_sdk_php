@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
-**metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**error** | [**\ultracartv2\models\Error**](Error.md) |  | [optional] 
+**metadata** | [**\ultracartv2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **token** | **string** |  | [optional] 
 

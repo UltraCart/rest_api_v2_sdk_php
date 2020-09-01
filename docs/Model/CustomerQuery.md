@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**all_tags** | **string[]** | All tags the customer must have | [optional] 
+**any_tags** | **string[]** | Any of these tags the customer must have | [optional] 
 **billing_city** | **string** | Billing city | [optional] 
 **billing_company** | **string** | Billing company | [optional] 
 **billing_country_code** | **string** | Billing country code | [optional] 
