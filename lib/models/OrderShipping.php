@@ -83,6 +83,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'special_instructions' => 'string',
         'state_region' => 'string',
         'title' => 'string',
+        'tracking_number_details' => '\ultracart\v2\models\OrderTrackingNumberDetails[]',
         'tracking_numbers' => 'string[]',
         'weight' => '\ultracart\v2\models\Weight'
     ];
@@ -119,6 +120,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'special_instructions' => null,
         'state_region' => null,
         'title' => null,
+        'tracking_number_details' => null,
         'tracking_numbers' => null,
         'weight' => null
     ];
@@ -176,6 +178,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'special_instructions' => 'special_instructions',
         'state_region' => 'state_region',
         'title' => 'title',
+        'tracking_number_details' => 'tracking_number_details',
         'tracking_numbers' => 'tracking_numbers',
         'weight' => 'weight'
     ];
@@ -212,6 +215,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'special_instructions' => 'setSpecialInstructions',
         'state_region' => 'setStateRegion',
         'title' => 'setTitle',
+        'tracking_number_details' => 'setTrackingNumberDetails',
         'tracking_numbers' => 'setTrackingNumbers',
         'weight' => 'setWeight'
     ];
@@ -248,6 +252,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'special_instructions' => 'getSpecialInstructions',
         'state_region' => 'getStateRegion',
         'title' => 'getTitle',
+        'tracking_number_details' => 'getTrackingNumberDetails',
         'tracking_numbers' => 'getTrackingNumbers',
         'weight' => 'getWeight'
     ];
@@ -338,6 +343,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         $this->container['special_instructions'] = isset($data['special_instructions']) ? $data['special_instructions'] : null;
         $this->container['state_region'] = isset($data['state_region']) ? $data['state_region'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['tracking_number_details'] = isset($data['tracking_number_details']) ? $data['tracking_number_details'] : null;
         $this->container['tracking_numbers'] = isset($data['tracking_numbers']) ? $data['tracking_numbers'] : null;
         $this->container['weight'] = isset($data['weight']) ? $data['weight'] : null;
     }
@@ -1114,6 +1120,30 @@ class OrderShipping implements ModelInterface, ArrayAccess
         }
 
         $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_number_details
+     *
+     * @return \ultracart\v2\models\OrderTrackingNumberDetails[]
+     */
+    public function getTrackingNumberDetails()
+    {
+        return $this->container['tracking_number_details'];
+    }
+
+    /**
+     * Sets tracking_number_details
+     *
+     * @param \ultracart\v2\models\OrderTrackingNumberDetails[] $tracking_number_details Tracking number details (Available for 1 year after shipment starting 8/1/2020)
+     *
+     * @return $this
+     */
+    public function setTrackingNumberDetails($tracking_number_details)
+    {
+        $this->container['tracking_number_details'] = $tracking_number_details;
 
         return $this;
     }

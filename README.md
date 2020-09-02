@@ -792,6 +792,8 @@ Class | Method | HTTP request | Description
  - [OrderTag](docs/Model/OrderTag.md)
  - [OrderTaxes](docs/Model/OrderTaxes.md)
  - [OrderTokenResponse](docs/Model/OrderTokenResponse.md)
+ - [OrderTrackingNumberDetail](docs/Model/OrderTrackingNumberDetail.md)
+ - [OrderTrackingNumberDetails](docs/Model/OrderTrackingNumberDetails.md)
  - [OrdersResponse](docs/Model/OrdersResponse.md)
  - [PricingTier](docs/Model/PricingTier.md)
  - [PricingTierNotification](docs/Model/PricingTierNotification.md)
@@ -912,6 +914,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.22 | 09/02/2020 | Order object - added tracking details |
 | 3.0.21 | 09/01/2020 | break fix in php sdk due to bad namespace |
 | 3.0.20 | 09/01/2020 | Added OrderApi.processPayment method |
 | 3.0.19 | 08/28/2020 | Code Library development: added kraken parameters for thumbnail image generation. |
