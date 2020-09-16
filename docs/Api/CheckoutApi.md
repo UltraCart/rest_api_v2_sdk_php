@@ -809,7 +809,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **registerAffiliateClick**
-> \ultracart\v2\models\CheckoutHandoffResponse registerAffiliateClick($register_affiliate_click_request, $_expand)
+> \ultracart\v2\models\RegisterAffiliateClickResponse registerAffiliateClick($register_affiliate_click_request, $_expand)
 
 Register affiliate click
 
@@ -862,7 +862,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CheckoutHandoffResponse**](../Model/CheckoutHandoffResponse.md)
+[**\ultracart\v2\models\RegisterAffiliateClickResponse**](../Model/RegisterAffiliateClickResponse.md)
 
 ### Authorization
 

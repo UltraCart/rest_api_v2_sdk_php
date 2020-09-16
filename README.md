@@ -199,6 +199,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/Api/ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/Api/OauthApi.md#oauthaccesstoken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/Api/OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
+*OrderApi* | [**adjustOrderTotal**](docs/Api/OrderApi.md#adjustordertotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
 *OrderApi* | [**cancelOrder**](docs/Api/OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**format**](docs/Api/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
@@ -800,6 +801,7 @@ Class | Method | HTTP request | Description
  - [PricingTiersResponse](docs/Model/PricingTiersResponse.md)
  - [Property](docs/Model/Property.md)
  - [RegisterAffiliateClickRequest](docs/Model/RegisterAffiliateClickRequest.md)
+ - [RegisterAffiliateClickResponse](docs/Model/RegisterAffiliateClickResponse.md)
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
  - [ScreenshotsResponse](docs/Model/ScreenshotsResponse.md)
@@ -914,6 +916,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.25 | 09/16/2020 | New method: OrderApi.adjustOrderTotal |
+| 3.0.24 | 09/10/2020 | Bugfix: incorrect response type on CheckoutAPI.registerAffiliateClick |
+| 3.0.23 | 09/02/2020 | Added flag to email plan object.  allow_tracking_emails |
 | 3.0.22 | 09/02/2020 | Order object - added tracking details |
 | 3.0.21 | 09/01/2020 | break fix in php sdk due to bad namespace |
 | 3.0.20 | 09/01/2020 | Added OrderApi.processPayment method |

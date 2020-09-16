@@ -3963,7 +3963,7 @@ class CheckoutApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\CheckoutHandoffResponse
+     * @return \ultracart\v2\models\RegisterAffiliateClickResponse
      */
     public function registerAffiliateClick($register_affiliate_click_request, $_expand = null)
     {
@@ -3981,11 +3981,11 @@ class CheckoutApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\CheckoutHandoffResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RegisterAffiliateClickResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function registerAffiliateClickWithHttpInfo($register_affiliate_click_request, $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\CheckoutHandoffResponse';
+        $returnType = '\ultracart\v2\models\RegisterAffiliateClickResponse';
         $request = $this->registerAffiliateClickRequest($register_affiliate_click_request, $_expand);
 
         try {
@@ -4037,7 +4037,7 @@ class CheckoutApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\CheckoutHandoffResponse',
+                        '\ultracart\v2\models\RegisterAffiliateClickResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4121,7 +4121,7 @@ class CheckoutApi
      */
     public function registerAffiliateClickAsyncWithHttpInfo($register_affiliate_click_request, $_expand = null)
     {
-        $returnType = '\ultracart\v2\models\CheckoutHandoffResponse';
+        $returnType = '\ultracart\v2\models\RegisterAffiliateClickResponse';
         $request = $this->registerAffiliateClickRequest($register_affiliate_click_request, $_expand);
 
         return $this->client

@@ -1137,7 +1137,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
     /**
      * Sets tracking_number_details
      *
-     * @param \ultracart\v2\models\OrderTrackingNumberDetails[] $tracking_number_details Tracking number details (Available for 1 year after shipment starting 8/1/2020)
+     * @param \ultracart\v2\models\OrderTrackingNumberDetails[] $tracking_number_details Tracking number details
      *
      * @return $this
      */

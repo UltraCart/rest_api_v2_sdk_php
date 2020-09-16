@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **special_instructions** | **string** | Special instructions from the customer regarding shipping | [optional] 
 **state_region** | **string** | State | [optional] 
 **title** | **string** | Title | [optional] 
-**tracking_number_details** | [**\ultracart\v2\models\OrderTrackingNumberDetails[]**](OrderTrackingNumberDetails.md) | Tracking number details (Available for 1 year after shipment starting 8/1/2020) | [optional] 
+**tracking_number_details** | [**\ultracart\v2\models\OrderTrackingNumberDetails[]**](OrderTrackingNumberDetails.md) | Tracking number details | [optional] 
 **tracking_numbers** | **string[]** | Tracking numbers | [optional] 
 **weight** | [**\ultracart\v2\models\Weight**](Weight.md) |  | [optional] 
 
