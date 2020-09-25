@@ -68,6 +68,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'ip_address' => 'string',
         'return_code' => 'string',
         'screen_branding_theme_code' => 'string',
+        'storefront_host_name' => 'string',
         'user_agent' => 'string'
     ];
 
@@ -88,6 +89,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'ip_address' => null,
         'return_code' => null,
         'screen_branding_theme_code' => null,
+        'storefront_host_name' => null,
         'user_agent' => null
     ];
 
@@ -129,6 +131,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'ip_address' => 'ip_address',
         'return_code' => 'return_code',
         'screen_branding_theme_code' => 'screen_branding_theme_code',
+        'storefront_host_name' => 'storefront_host_name',
         'user_agent' => 'user_agent'
     ];
 
@@ -149,6 +152,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'ip_address' => 'setIpAddress',
         'return_code' => 'setReturnCode',
         'screen_branding_theme_code' => 'setScreenBrandingThemeCode',
+        'storefront_host_name' => 'setStorefrontHostName',
         'user_agent' => 'setUserAgent'
     ];
 
@@ -169,6 +173,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'ip_address' => 'getIpAddress',
         'return_code' => 'getReturnCode',
         'screen_branding_theme_code' => 'getScreenBrandingThemeCode',
+        'storefront_host_name' => 'getStorefrontHostName',
         'user_agent' => 'getUserAgent'
     ];
 
@@ -243,6 +248,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
         $this->container['return_code'] = isset($data['return_code']) ? $data['return_code'] : null;
         $this->container['screen_branding_theme_code'] = isset($data['screen_branding_theme_code']) ? $data['screen_branding_theme_code'] : null;
+        $this->container['storefront_host_name'] = isset($data['storefront_host_name']) ? $data['storefront_host_name'] : null;
         $this->container['user_agent'] = isset($data['user_agent']) ? $data['user_agent'] : null;
     }
 
@@ -602,6 +608,30 @@ class CartCheckout implements ModelInterface, ArrayAccess
         }
 
         $this->container['screen_branding_theme_code'] = $screen_branding_theme_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets storefront_host_name
+     *
+     * @return string
+     */
+    public function getStorefrontHostName()
+    {
+        return $this->container['storefront_host_name'];
+    }
+
+    /**
+     * Sets storefront_host_name
+     *
+     * @param string $storefront_host_name StoreFront Host Name
+     *
+     * @return $this
+     */
+    public function setStorefrontHostName($storefront_host_name)
+    {
+        $this->container['storefront_host_name'] = $storefront_host_name;
 
         return $this;
     }

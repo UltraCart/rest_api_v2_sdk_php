@@ -60,7 +60,8 @@ class EmailFlowsResponse implements ModelInterface, ArrayAccess
         'error' => '\ultracart\v2\models\Error',
         'flows' => '\ultracart\v2\models\EmailFlow[]',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool'
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -72,7 +73,8 @@ class EmailFlowsResponse implements ModelInterface, ArrayAccess
         'error' => null,
         'flows' => null,
         'metadata' => null,
-        'success' => null
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class EmailFlowsResponse implements ModelInterface, ArrayAccess
         'error' => 'error',
         'flows' => 'flows',
         'metadata' => 'metadata',
-        'success' => 'success'
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -117,7 +120,8 @@ class EmailFlowsResponse implements ModelInterface, ArrayAccess
         'error' => 'setError',
         'flows' => 'setFlows',
         'metadata' => 'setMetadata',
-        'success' => 'setSuccess'
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -129,7 +133,8 @@ class EmailFlowsResponse implements ModelInterface, ArrayAccess
         'error' => 'getError',
         'flows' => 'getFlows',
         'metadata' => 'getMetadata',
-        'success' => 'getSuccess'
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -196,6 +201,7 @@ class EmailFlowsResponse implements ModelInterface, ArrayAccess
         $this->container['flows'] = isset($data['flows']) ? $data['flows'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class EmailFlowsResponse implements ModelInterface, ArrayAccess
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

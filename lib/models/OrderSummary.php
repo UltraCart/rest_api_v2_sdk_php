@@ -57,6 +57,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'actual_fulfillment' => '\ultracart\v2\models\Currency',
+        'actual_shipping' => '\ultracart\v2\models\Currency',
         'arbitrary_shipping_handling_total' => '\ultracart\v2\models\Currency',
         'other_refunded' => '\ultracart\v2\models\Currency',
         'shipping_handling_refunded' => '\ultracart\v2\models\Currency',
@@ -80,6 +82,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'actual_fulfillment' => null,
+        'actual_shipping' => null,
         'arbitrary_shipping_handling_total' => null,
         'other_refunded' => null,
         'shipping_handling_refunded' => null,
@@ -124,6 +128,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'actual_fulfillment' => 'actual_fulfillment',
+        'actual_shipping' => 'actual_shipping',
         'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
         'other_refunded' => 'other_refunded',
         'shipping_handling_refunded' => 'shipping_handling_refunded',
@@ -147,6 +153,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'actual_fulfillment' => 'setActualFulfillment',
+        'actual_shipping' => 'setActualShipping',
         'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
         'other_refunded' => 'setOtherRefunded',
         'shipping_handling_refunded' => 'setShippingHandlingRefunded',
@@ -170,6 +178,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'actual_fulfillment' => 'getActualFulfillment',
+        'actual_shipping' => 'getActualShipping',
         'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
         'other_refunded' => 'getOtherRefunded',
         'shipping_handling_refunded' => 'getShippingHandlingRefunded',
@@ -247,6 +257,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['actual_fulfillment'] = isset($data['actual_fulfillment']) ? $data['actual_fulfillment'] : null;
+        $this->container['actual_shipping'] = isset($data['actual_shipping']) ? $data['actual_shipping'] : null;
         $this->container['arbitrary_shipping_handling_total'] = isset($data['arbitrary_shipping_handling_total']) ? $data['arbitrary_shipping_handling_total'] : null;
         $this->container['other_refunded'] = isset($data['other_refunded']) ? $data['other_refunded'] : null;
         $this->container['shipping_handling_refunded'] = isset($data['shipping_handling_refunded']) ? $data['shipping_handling_refunded'] : null;
@@ -287,6 +299,54 @@ class OrderSummary implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets actual_fulfillment
+     *
+     * @return \ultracart\v2\models\Currency
+     */
+    public function getActualFulfillment()
+    {
+        return $this->container['actual_fulfillment'];
+    }
+
+    /**
+     * Sets actual_fulfillment
+     *
+     * @param \ultracart\v2\models\Currency $actual_fulfillment actual_fulfillment
+     *
+     * @return $this
+     */
+    public function setActualFulfillment($actual_fulfillment)
+    {
+        $this->container['actual_fulfillment'] = $actual_fulfillment;
+
+        return $this;
+    }
+
+    /**
+     * Gets actual_shipping
+     *
+     * @return \ultracart\v2\models\Currency
+     */
+    public function getActualShipping()
+    {
+        return $this->container['actual_shipping'];
+    }
+
+    /**
+     * Sets actual_shipping
+     *
+     * @param \ultracart\v2\models\Currency $actual_shipping actual_shipping
+     *
+     * @return $this
+     */
+    public function setActualShipping($actual_shipping)
+    {
+        $this->container['actual_shipping'] = $actual_shipping;
+
+        return $this;
+    }
 
     /**
      * Gets arbitrary_shipping_handling_total

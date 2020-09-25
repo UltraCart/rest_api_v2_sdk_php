@@ -66,6 +66,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'name' => 'string',
         'notes' => 'string',
         'objective' => 'string',
+        'objective_parameter' => 'string',
         'optimization_type' => 'string',
         'session_count' => 'int',
         'start_dts' => 'string',
@@ -91,6 +92,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'name' => null,
         'notes' => null,
         'objective' => null,
+        'objective_parameter' => null,
         'optimization_type' => null,
         'session_count' => 'int32',
         'start_dts' => 'dateTime',
@@ -137,6 +139,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'name' => 'name',
         'notes' => 'notes',
         'objective' => 'objective',
+        'objective_parameter' => 'objective_parameter',
         'optimization_type' => 'optimization_type',
         'session_count' => 'session_count',
         'start_dts' => 'start_dts',
@@ -162,6 +165,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'notes' => 'setNotes',
         'objective' => 'setObjective',
+        'objective_parameter' => 'setObjectiveParameter',
         'optimization_type' => 'setOptimizationType',
         'session_count' => 'setSessionCount',
         'start_dts' => 'setStartDts',
@@ -187,6 +191,7 @@ class Experiment implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'notes' => 'getNotes',
         'objective' => 'getObjective',
+        'objective_parameter' => 'getObjectiveParameter',
         'optimization_type' => 'getOptimizationType',
         'session_count' => 'getSessionCount',
         'start_dts' => 'getStartDts',
@@ -283,6 +288,7 @@ class Experiment implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
         $this->container['objective'] = isset($data['objective']) ? $data['objective'] : null;
+        $this->container['objective_parameter'] = isset($data['objective_parameter']) ? $data['objective_parameter'] : null;
         $this->container['optimization_type'] = isset($data['optimization_type']) ? $data['optimization_type'] : null;
         $this->container['session_count'] = isset($data['session_count']) ? $data['session_count'] : null;
         $this->container['start_dts'] = isset($data['start_dts']) ? $data['start_dts'] : null;
@@ -537,6 +543,30 @@ class Experiment implements ModelInterface, ArrayAccess
     public function setObjective($objective)
     {
         $this->container['objective'] = $objective;
+
+        return $this;
+    }
+
+    /**
+     * Gets objective_parameter
+     *
+     * @return string
+     */
+    public function getObjectiveParameter()
+    {
+        return $this->container['objective_parameter'];
+    }
+
+    /**
+     * Sets objective_parameter
+     *
+     * @param string $objective_parameter Objective parameter (such as event name) that is being optimized
+     *
+     * @return $this
+     */
+    public function setObjectiveParameter($objective_parameter)
+    {
+        $this->container['objective_parameter'] = $objective_parameter;
 
         return $this;
     }

@@ -64,7 +64,8 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
         'storefront_oid' => 'int',
         'success' => 'bool',
         'title' => 'string',
-        'uuid' => 'string'
+        'uuid' => 'string',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -80,7 +81,8 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
         'storefront_oid' => 'int32',
         'success' => null,
         'title' => null,
-        'uuid' => null
+        'uuid' => null,
+        'warning' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
         'storefront_oid' => 'storefront_oid',
         'success' => 'success',
         'title' => 'title',
-        'uuid' => 'uuid'
+        'uuid' => 'uuid',
+        'warning' => 'warning'
     ];
 
     /**
@@ -133,7 +136,8 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
         'storefront_oid' => 'setStorefrontOid',
         'success' => 'setSuccess',
         'title' => 'setTitle',
-        'uuid' => 'setUuid'
+        'uuid' => 'setUuid',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -149,7 +153,8 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
         'storefront_oid' => 'getStorefrontOid',
         'success' => 'getSuccess',
         'title' => 'getTitle',
-        'uuid' => 'getUuid'
+        'uuid' => 'getUuid',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -220,6 +225,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -434,6 +440,30 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     public function setUuid($uuid)
     {
         $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

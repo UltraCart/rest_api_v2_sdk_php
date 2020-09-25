@@ -64,6 +64,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'bounce_count' => 'int',
         'conversion_rate' => 'float',
         'duration_seconds_sum' => 'int',
+        'event_count' => 'int',
         'initiate_checkout_count' => 'int',
         'order_count' => 'int',
         'original_traffic_percentage' => 'float',
@@ -90,6 +91,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'bounce_count' => 'int32',
         'conversion_rate' => null,
         'duration_seconds_sum' => 'int64',
+        'event_count' => 'int32',
         'initiate_checkout_count' => 'int32',
         'order_count' => 'int32',
         'original_traffic_percentage' => null,
@@ -137,6 +139,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'bounce_count' => 'bounce_count',
         'conversion_rate' => 'conversion_rate',
         'duration_seconds_sum' => 'duration_seconds_sum',
+        'event_count' => 'event_count',
         'initiate_checkout_count' => 'initiate_checkout_count',
         'order_count' => 'order_count',
         'original_traffic_percentage' => 'original_traffic_percentage',
@@ -163,6 +166,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'bounce_count' => 'setBounceCount',
         'conversion_rate' => 'setConversionRate',
         'duration_seconds_sum' => 'setDurationSecondsSum',
+        'event_count' => 'setEventCount',
         'initiate_checkout_count' => 'setInitiateCheckoutCount',
         'order_count' => 'setOrderCount',
         'original_traffic_percentage' => 'setOriginalTrafficPercentage',
@@ -189,6 +193,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'bounce_count' => 'getBounceCount',
         'conversion_rate' => 'getConversionRate',
         'duration_seconds_sum' => 'getDurationSecondsSum',
+        'event_count' => 'getEventCount',
         'initiate_checkout_count' => 'getInitiateCheckoutCount',
         'order_count' => 'getOrderCount',
         'original_traffic_percentage' => 'getOriginalTrafficPercentage',
@@ -269,6 +274,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         $this->container['bounce_count'] = isset($data['bounce_count']) ? $data['bounce_count'] : null;
         $this->container['conversion_rate'] = isset($data['conversion_rate']) ? $data['conversion_rate'] : null;
         $this->container['duration_seconds_sum'] = isset($data['duration_seconds_sum']) ? $data['duration_seconds_sum'] : null;
+        $this->container['event_count'] = isset($data['event_count']) ? $data['event_count'] : null;
         $this->container['initiate_checkout_count'] = isset($data['initiate_checkout_count']) ? $data['initiate_checkout_count'] : null;
         $this->container['order_count'] = isset($data['order_count']) ? $data['order_count'] : null;
         $this->container['original_traffic_percentage'] = isset($data['original_traffic_percentage']) ? $data['original_traffic_percentage'] : null;
@@ -470,6 +476,30 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     public function setDurationSecondsSum($duration_seconds_sum)
     {
         $this->container['duration_seconds_sum'] = $duration_seconds_sum;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_count
+     *
+     * @return int
+     */
+    public function getEventCount()
+    {
+        return $this->container['event_count'];
+    }
+
+    /**
+     * Sets event_count
+     *
+     * @param int $event_count Total event ocunt for this variation
+     *
+     * @return $this
+     */
+    public function setEventCount($event_count)
+    {
+        $this->container['event_count'] = $event_count;
 
         return $this;
     }

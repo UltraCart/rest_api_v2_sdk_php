@@ -61,7 +61,8 @@ class AccountsReceivableRetryStatsResponse implements ModelInterface, ArrayAcces
         'linked_accounts' => '\ultracart\v2\models\AccountsReceivableRetryStatAccount[]',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'overall' => '\ultracart\v2\models\AccountsReceivableRetryStatAccount',
-        'success' => 'bool'
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -74,7 +75,8 @@ class AccountsReceivableRetryStatsResponse implements ModelInterface, ArrayAcces
         'linked_accounts' => null,
         'metadata' => null,
         'overall' => null,
-        'success' => null
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class AccountsReceivableRetryStatsResponse implements ModelInterface, ArrayAcces
         'linked_accounts' => 'linked_accounts',
         'metadata' => 'metadata',
         'overall' => 'overall',
-        'success' => 'success'
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -121,7 +124,8 @@ class AccountsReceivableRetryStatsResponse implements ModelInterface, ArrayAcces
         'linked_accounts' => 'setLinkedAccounts',
         'metadata' => 'setMetadata',
         'overall' => 'setOverall',
-        'success' => 'setSuccess'
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -134,7 +138,8 @@ class AccountsReceivableRetryStatsResponse implements ModelInterface, ArrayAcces
         'linked_accounts' => 'getLinkedAccounts',
         'metadata' => 'getMetadata',
         'overall' => 'getOverall',
-        'success' => 'getSuccess'
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -202,6 +207,7 @@ class AccountsReceivableRetryStatsResponse implements ModelInterface, ArrayAcces
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['overall'] = isset($data['overall']) ? $data['overall'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -344,6 +350,30 @@ class AccountsReceivableRetryStatsResponse implements ModelInterface, ArrayAcces
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

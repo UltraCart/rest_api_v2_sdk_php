@@ -61,7 +61,8 @@ class GeocodeResponse implements ModelInterface, ArrayAccess
         'latitude' => 'float',
         'longitude' => 'float',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool'
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -74,7 +75,8 @@ class GeocodeResponse implements ModelInterface, ArrayAccess
         'latitude' => null,
         'longitude' => null,
         'metadata' => null,
-        'success' => null
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class GeocodeResponse implements ModelInterface, ArrayAccess
         'latitude' => 'latitude',
         'longitude' => 'longitude',
         'metadata' => 'metadata',
-        'success' => 'success'
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -121,7 +124,8 @@ class GeocodeResponse implements ModelInterface, ArrayAccess
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude',
         'metadata' => 'setMetadata',
-        'success' => 'setSuccess'
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -134,7 +138,8 @@ class GeocodeResponse implements ModelInterface, ArrayAccess
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude',
         'metadata' => 'getMetadata',
-        'success' => 'getSuccess'
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -202,6 +207,7 @@ class GeocodeResponse implements ModelInterface, ArrayAccess
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -344,6 +350,30 @@ class GeocodeResponse implements ModelInterface, ArrayAccess
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

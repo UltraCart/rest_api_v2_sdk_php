@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **taxjar** | [**\ultracart\v2\models\TaxProviderTaxJar**](TaxProviderTaxJar.md) |  | [optional] 
 **ultracart** | [**\ultracart\v2\models\TaxProviderUltraCart**](TaxProviderUltraCart.md) |  | [optional] 
+**warning** | [**\ultracart\v2\models\Warning**](Warning.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

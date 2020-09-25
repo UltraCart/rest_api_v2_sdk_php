@@ -62,7 +62,8 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess
         'expiration_seconds' => 'int',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'quantity' => 'int',
-        'success' => 'bool'
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -76,7 +77,8 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess
         'expiration_seconds' => 'int32',
         'metadata' => null,
         'quantity' => 'int32',
-        'success' => null
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess
         'expiration_seconds' => 'expiration_seconds',
         'metadata' => 'metadata',
         'quantity' => 'quantity',
-        'success' => 'success'
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -125,7 +128,8 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess
         'expiration_seconds' => 'setExpirationSeconds',
         'metadata' => 'setMetadata',
         'quantity' => 'setQuantity',
-        'success' => 'setSuccess'
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -139,7 +143,8 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess
         'expiration_seconds' => 'getExpirationSeconds',
         'metadata' => 'getMetadata',
         'quantity' => 'getQuantity',
-        'success' => 'getSuccess'
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -208,6 +213,7 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -374,6 +380,30 @@ class CouponCodesRequest implements ModelInterface, ArrayAccess
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

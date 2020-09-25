@@ -63,7 +63,8 @@ class EmailSegmentDownloadPrepareResponse implements ModelInterface, ArrayAccess
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'percentage_complete' => 'float',
         'proceed' => 'bool',
-        'success' => 'bool'
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -78,7 +79,8 @@ class EmailSegmentDownloadPrepareResponse implements ModelInterface, ArrayAccess
         'metadata' => null,
         'percentage_complete' => null,
         'proceed' => null,
-        'success' => null
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class EmailSegmentDownloadPrepareResponse implements ModelInterface, ArrayAccess
         'metadata' => 'metadata',
         'percentage_complete' => 'percentage_complete',
         'proceed' => 'proceed',
-        'success' => 'success'
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -129,7 +132,8 @@ class EmailSegmentDownloadPrepareResponse implements ModelInterface, ArrayAccess
         'metadata' => 'setMetadata',
         'percentage_complete' => 'setPercentageComplete',
         'proceed' => 'setProceed',
-        'success' => 'setSuccess'
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -144,7 +148,8 @@ class EmailSegmentDownloadPrepareResponse implements ModelInterface, ArrayAccess
         'metadata' => 'getMetadata',
         'percentage_complete' => 'getPercentageComplete',
         'proceed' => 'getProceed',
-        'success' => 'getSuccess'
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -214,6 +219,7 @@ class EmailSegmentDownloadPrepareResponse implements ModelInterface, ArrayAccess
         $this->container['percentage_complete'] = isset($data['percentage_complete']) ? $data['percentage_complete'] : null;
         $this->container['proceed'] = isset($data['proceed']) ? $data['proceed'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -404,6 +410,30 @@ class EmailSegmentDownloadPrepareResponse implements ModelInterface, ArrayAccess
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

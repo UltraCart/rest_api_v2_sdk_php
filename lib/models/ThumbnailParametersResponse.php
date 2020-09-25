@@ -60,7 +60,8 @@ class ThumbnailParametersResponse implements ModelInterface, ArrayAccess
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
-        'thumbnail_url_suffix' => 'string'
+        'thumbnail_url_suffix' => 'string',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -72,7 +73,8 @@ class ThumbnailParametersResponse implements ModelInterface, ArrayAccess
         'error' => null,
         'metadata' => null,
         'success' => null,
-        'thumbnail_url_suffix' => null
+        'thumbnail_url_suffix' => null,
+        'warning' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class ThumbnailParametersResponse implements ModelInterface, ArrayAccess
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
-        'thumbnail_url_suffix' => 'thumbnail_url_suffix'
+        'thumbnail_url_suffix' => 'thumbnail_url_suffix',
+        'warning' => 'warning'
     ];
 
     /**
@@ -117,7 +120,8 @@ class ThumbnailParametersResponse implements ModelInterface, ArrayAccess
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
-        'thumbnail_url_suffix' => 'setThumbnailUrlSuffix'
+        'thumbnail_url_suffix' => 'setThumbnailUrlSuffix',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -129,7 +133,8 @@ class ThumbnailParametersResponse implements ModelInterface, ArrayAccess
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
-        'thumbnail_url_suffix' => 'getThumbnailUrlSuffix'
+        'thumbnail_url_suffix' => 'getThumbnailUrlSuffix',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -196,6 +201,7 @@ class ThumbnailParametersResponse implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['thumbnail_url_suffix'] = isset($data['thumbnail_url_suffix']) ? $data['thumbnail_url_suffix'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class ThumbnailParametersResponse implements ModelInterface, ArrayAccess
     public function setThumbnailUrlSuffix($thumbnail_url_suffix)
     {
         $this->container['thumbnail_url_suffix'] = $thumbnail_url_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

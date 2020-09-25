@@ -840,6 +840,7 @@ Class | Method | HTTP request | Description
  - [TransactionEmailResponse](docs/Model/TransactionEmailResponse.md)
  - [UltraCartConfig](docs/Model/UltraCartConfig.md)
  - [VerificationRecord](docs/Model/VerificationRecord.md)
+ - [Warning](docs/Model/Warning.md)
  - [Webhook](docs/Model/Webhook.md)
  - [WebhookEventCategory](docs/Model/WebhookEventCategory.md)
  - [WebhookEventSubscription](docs/Model/WebhookEventSubscription.md)
@@ -916,6 +917,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.26 | 09/25/2020 | Expose actual shipping and fulfillment costs in the order summary object |
 | 3.0.25 | 09/16/2020 | New method: OrderApi.adjustOrderTotal |
 | 3.0.24 | 09/10/2020 | Bugfix: incorrect response type on CheckoutAPI.registerAffiliateClick |
 | 3.0.23 | 09/02/2020 | Added flag to email plan object.  allow_tracking_emails |

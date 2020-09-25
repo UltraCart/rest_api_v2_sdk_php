@@ -60,7 +60,8 @@ class LookupResponse implements ModelInterface, ArrayAccess
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
-        'values' => '\ultracart\v2\models\KeyValue[]'
+        'values' => '\ultracart\v2\models\KeyValue[]',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -72,7 +73,8 @@ class LookupResponse implements ModelInterface, ArrayAccess
         'error' => null,
         'metadata' => null,
         'success' => null,
-        'values' => null
+        'values' => null,
+        'warning' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class LookupResponse implements ModelInterface, ArrayAccess
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
-        'values' => 'values'
+        'values' => 'values',
+        'warning' => 'warning'
     ];
 
     /**
@@ -117,7 +120,8 @@ class LookupResponse implements ModelInterface, ArrayAccess
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
-        'values' => 'setValues'
+        'values' => 'setValues',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -129,7 +133,8 @@ class LookupResponse implements ModelInterface, ArrayAccess
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
-        'values' => 'getValues'
+        'values' => 'getValues',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -196,6 +201,7 @@ class LookupResponse implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['values'] = isset($data['values']) ? $data['values'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class LookupResponse implements ModelInterface, ArrayAccess
     public function setValues($values)
     {
         $this->container['values'] = $values;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

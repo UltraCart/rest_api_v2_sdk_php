@@ -60,6 +60,7 @@ class WebhooksResponse implements ModelInterface, ArrayAccess
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning',
         'webhooks' => '\ultracart\v2\models\Webhook[]'
     ];
 
@@ -72,6 +73,7 @@ class WebhooksResponse implements ModelInterface, ArrayAccess
         'error' => null,
         'metadata' => null,
         'success' => null,
+        'warning' => null,
         'webhooks' => null
     ];
 
@@ -105,6 +107,7 @@ class WebhooksResponse implements ModelInterface, ArrayAccess
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
+        'warning' => 'warning',
         'webhooks' => 'webhooks'
     ];
 
@@ -117,6 +120,7 @@ class WebhooksResponse implements ModelInterface, ArrayAccess
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
+        'warning' => 'setWarning',
         'webhooks' => 'setWebhooks'
     ];
 
@@ -129,6 +133,7 @@ class WebhooksResponse implements ModelInterface, ArrayAccess
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
+        'warning' => 'getWarning',
         'webhooks' => 'getWebhooks'
     ];
 
@@ -195,6 +200,7 @@ class WebhooksResponse implements ModelInterface, ArrayAccess
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
         $this->container['webhooks'] = isset($data['webhooks']) ? $data['webhooks'] : null;
     }
 
@@ -290,6 +296,30 @@ class WebhooksResponse implements ModelInterface, ArrayAccess
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

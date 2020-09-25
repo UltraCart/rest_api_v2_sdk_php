@@ -63,7 +63,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
         'error' => '\ultracart\v2\models\Error',
         'has_linked_accounts' => 'bool',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool'
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -78,7 +79,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
         'error' => null,
         'has_linked_accounts' => null,
         'metadata' => null,
-        'success' => null
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
         'error' => 'error',
         'has_linked_accounts' => 'has_linked_accounts',
         'metadata' => 'metadata',
-        'success' => 'success'
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -129,7 +132,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
         'error' => 'setError',
         'has_linked_accounts' => 'setHasLinkedAccounts',
         'metadata' => 'setMetadata',
-        'success' => 'setSuccess'
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -144,7 +148,8 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
         'error' => 'getError',
         'has_linked_accounts' => 'getHasLinkedAccounts',
         'metadata' => 'getMetadata',
-        'success' => 'getSuccess'
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -214,6 +219,7 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
         $this->container['has_linked_accounts'] = isset($data['has_linked_accounts']) ? $data['has_linked_accounts'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -404,6 +410,30 @@ class AccountsReceivableRetryConfigResponse implements ModelInterface, ArrayAcce
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

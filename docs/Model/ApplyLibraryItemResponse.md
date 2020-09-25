@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **title** | **string** | title of library item, usually the name of the flow or campaign, or description of cjson | [optional] 
 **uuid** | **string** | UUID of communication flow or campaign if this library item was a campaign or flow | [optional] 
+**warning** | [**\ultracart\v2\models\Warning**](Warning.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

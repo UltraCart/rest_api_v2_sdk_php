@@ -60,7 +60,8 @@ class EmailTemplatesResponse implements ModelInterface, ArrayAccess
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
-        'templates' => '\ultracart\v2\models\EmailTemplate[]'
+        'templates' => '\ultracart\v2\models\EmailTemplate[]',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -72,7 +73,8 @@ class EmailTemplatesResponse implements ModelInterface, ArrayAccess
         'error' => null,
         'metadata' => null,
         'success' => null,
-        'templates' => null
+        'templates' => null,
+        'warning' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class EmailTemplatesResponse implements ModelInterface, ArrayAccess
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
-        'templates' => 'templates'
+        'templates' => 'templates',
+        'warning' => 'warning'
     ];
 
     /**
@@ -117,7 +120,8 @@ class EmailTemplatesResponse implements ModelInterface, ArrayAccess
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
-        'templates' => 'setTemplates'
+        'templates' => 'setTemplates',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -129,7 +133,8 @@ class EmailTemplatesResponse implements ModelInterface, ArrayAccess
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
-        'templates' => 'getTemplates'
+        'templates' => 'getTemplates',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -196,6 +201,7 @@ class EmailTemplatesResponse implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['templates'] = isset($data['templates']) ? $data['templates'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class EmailTemplatesResponse implements ModelInterface, ArrayAccess
     public function setTemplates($templates)
     {
         $this->container['templates'] = $templates;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

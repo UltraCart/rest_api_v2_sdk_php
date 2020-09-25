@@ -60,7 +60,8 @@ class EmailEditorTokenResponse implements ModelInterface, ArrayAccess
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
-        'token' => 'string'
+        'token' => 'string',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -72,7 +73,8 @@ class EmailEditorTokenResponse implements ModelInterface, ArrayAccess
         'error' => null,
         'metadata' => null,
         'success' => null,
-        'token' => null
+        'token' => null,
+        'warning' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class EmailEditorTokenResponse implements ModelInterface, ArrayAccess
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
-        'token' => 'token'
+        'token' => 'token',
+        'warning' => 'warning'
     ];
 
     /**
@@ -117,7 +120,8 @@ class EmailEditorTokenResponse implements ModelInterface, ArrayAccess
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
-        'token' => 'setToken'
+        'token' => 'setToken',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -129,7 +133,8 @@ class EmailEditorTokenResponse implements ModelInterface, ArrayAccess
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
-        'token' => 'getToken'
+        'token' => 'getToken',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -196,6 +201,7 @@ class EmailEditorTokenResponse implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['token'] = isset($data['token']) ? $data['token'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class EmailEditorTokenResponse implements ModelInterface, ArrayAccess
     public function setToken($token)
     {
         $this->container['token'] = $token;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

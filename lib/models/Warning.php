@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailThirdPartyProvidersResponse
+ * Warning
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailThirdPartyProvidersResponse Class Doc Comment
+ * Warning Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
+class Warning implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailThirdPartyProvidersResponse';
+    protected static $swaggerModelName = 'Warning';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\ultracart\v2\models\Error',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'providers' => '\ultracart\v2\models\EmailThirdPartyProvider[]',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'more_info' => 'string',
+        'warning_message' => 'string'
     ];
 
     /**
@@ -70,11 +67,8 @@ class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error' => null,
-        'metadata' => null,
-        'providers' => null,
-        'success' => null,
-        'warning' => null
+        'more_info' => null,
+        'warning_message' => null
     ];
 
     /**
@@ -104,11 +98,8 @@ class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'metadata' => 'metadata',
-        'providers' => 'providers',
-        'success' => 'success',
-        'warning' => 'warning'
+        'more_info' => 'more_info',
+        'warning_message' => 'warning_message'
     ];
 
     /**
@@ -117,11 +108,8 @@ class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'metadata' => 'setMetadata',
-        'providers' => 'setProviders',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'more_info' => 'setMoreInfo',
+        'warning_message' => 'setWarningMessage'
     ];
 
     /**
@@ -130,11 +118,8 @@ class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'metadata' => 'getMetadata',
-        'providers' => 'getProviders',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'more_info' => 'getMoreInfo',
+        'warning_message' => 'getWarningMessage'
     ];
 
     /**
@@ -197,11 +182,8 @@ class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
-        $this->container['providers'] = isset($data['providers']) ? $data['providers'] : null;
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
-        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
+        $this->container['more_info'] = isset($data['more_info']) ? $data['more_info'] : null;
+        $this->container['warning_message'] = isset($data['warning_message']) ? $data['warning_message'] : null;
     }
 
     /**
@@ -229,121 +211,49 @@ class EmailThirdPartyProvidersResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets more_info
      *
-     * @return \ultracart\v2\models\Error
+     * @return string
      */
-    public function getError()
+    public function getMoreInfo()
     {
-        return $this->container['error'];
+        return $this->container['more_info'];
     }
 
     /**
-     * Sets error
+     * Sets more_info
      *
-     * @param \ultracart\v2\models\Error $error error
+     * @param string $more_info Additional information often a link to additional documentation
      *
      * @return $this
      */
-    public function setError($error)
+    public function setMoreInfo($more_info)
     {
-        $this->container['error'] = $error;
+        $this->container['more_info'] = $more_info;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets warning_message
      *
-     * @return \ultracart\v2\models\ResponseMetadata
+     * @return string
      */
-    public function getMetadata()
+    public function getWarningMessage()
     {
-        return $this->container['metadata'];
+        return $this->container['warning_message'];
     }
 
     /**
-     * Sets metadata
+     * Sets warning_message
      *
-     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     * @param string $warning_message A technical message meant to be read by a developer
      *
      * @return $this
      */
-    public function setMetadata($metadata)
+    public function setWarningMessage($warning_message)
     {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets providers
-     *
-     * @return \ultracart\v2\models\EmailThirdPartyProvider[]
-     */
-    public function getProviders()
-    {
-        return $this->container['providers'];
-    }
-
-    /**
-     * Sets providers
-     *
-     * @param \ultracart\v2\models\EmailThirdPartyProvider[] $providers providers
-     *
-     * @return $this
-     */
-    public function setProviders($providers)
-    {
-        $this->container['providers'] = $providers;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool $success Indicates if API call was successful
-     *
-     * @return $this
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning $warning warning
-     *
-     * @return $this
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['warning_message'] = $warning_message;
 
         return $this;
     }

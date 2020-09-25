@@ -60,7 +60,8 @@ class TempMultimediaResponse implements ModelInterface, ArrayAccess
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
-        'temp_multimedia' => '\ultracart\v2\models\TempMultimedia'
+        'temp_multimedia' => '\ultracart\v2\models\TempMultimedia',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -72,7 +73,8 @@ class TempMultimediaResponse implements ModelInterface, ArrayAccess
         'error' => null,
         'metadata' => null,
         'success' => null,
-        'temp_multimedia' => null
+        'temp_multimedia' => null,
+        'warning' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class TempMultimediaResponse implements ModelInterface, ArrayAccess
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
-        'temp_multimedia' => 'temp_multimedia'
+        'temp_multimedia' => 'temp_multimedia',
+        'warning' => 'warning'
     ];
 
     /**
@@ -117,7 +120,8 @@ class TempMultimediaResponse implements ModelInterface, ArrayAccess
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
-        'temp_multimedia' => 'setTempMultimedia'
+        'temp_multimedia' => 'setTempMultimedia',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -129,7 +133,8 @@ class TempMultimediaResponse implements ModelInterface, ArrayAccess
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
-        'temp_multimedia' => 'getTempMultimedia'
+        'temp_multimedia' => 'getTempMultimedia',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -196,6 +201,7 @@ class TempMultimediaResponse implements ModelInterface, ArrayAccess
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['temp_multimedia'] = isset($data['temp_multimedia']) ? $data['temp_multimedia'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class TempMultimediaResponse implements ModelInterface, ArrayAccess
     public function setTempMultimedia($temp_multimedia)
     {
         $this->container['temp_multimedia'] = $temp_multimedia;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

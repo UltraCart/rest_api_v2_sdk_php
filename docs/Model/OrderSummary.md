@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**actual_fulfillment** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
+**actual_shipping** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **arbitrary_shipping_handling_total** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **other_refunded** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **shipping_handling_refunded** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 

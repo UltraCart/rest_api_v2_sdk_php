@@ -64,7 +64,8 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
         'sovos' => '\ultracart\v2\models\TaxProviderSovos',
         'success' => 'bool',
         'taxjar' => '\ultracart\v2\models\TaxProviderTaxJar',
-        'ultracart' => '\ultracart\v2\models\TaxProviderUltraCart'
+        'ultracart' => '\ultracart\v2\models\TaxProviderUltraCart',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -80,7 +81,8 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
         'sovos' => null,
         'success' => null,
         'taxjar' => null,
-        'ultracart' => null
+        'ultracart' => null,
+        'warning' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
         'sovos' => 'sovos',
         'success' => 'success',
         'taxjar' => 'taxjar',
-        'ultracart' => 'ultracart'
+        'ultracart' => 'ultracart',
+        'warning' => 'warning'
     ];
 
     /**
@@ -133,7 +136,8 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
         'sovos' => 'setSovos',
         'success' => 'setSuccess',
         'taxjar' => 'setTaxjar',
-        'ultracart' => 'setUltracart'
+        'ultracart' => 'setUltracart',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -149,7 +153,8 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
         'sovos' => 'getSovos',
         'success' => 'getSuccess',
         'taxjar' => 'getTaxjar',
-        'ultracart' => 'getUltracart'
+        'ultracart' => 'getUltracart',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -220,6 +225,7 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['taxjar'] = isset($data['taxjar']) ? $data['taxjar'] : null;
         $this->container['ultracart'] = isset($data['ultracart']) ? $data['ultracart'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -434,6 +440,30 @@ class TaxProvidersResponse implements ModelInterface, ArrayAccess
     public function setUltracart($ultracart)
     {
         $this->container['ultracart'] = $ultracart;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }
