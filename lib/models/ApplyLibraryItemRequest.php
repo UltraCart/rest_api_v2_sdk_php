@@ -1,6 +1,6 @@
 <?php
 /**
- * CouponFreeItemsWithItemPurchase
+ * ApplyLibraryItemRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CouponFreeItemsWithItemPurchase Class Doc Comment
+ * ApplyLibraryItemRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
+class ApplyLibraryItemRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CouponFreeItemsWithItemPurchase';
+    protected static $swaggerModelName = 'ApplyLibraryItemRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,9 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'free_item' => 'string',
-        'free_quantity' => 'int',
-        'limit' => 'int',
-        'match_required_purchase_item_to_free_item' => 'bool',
-        'required_purchase_item' => 'string',
-        'required_purchase_quantity' => 'int'
+        'email_uuid' => 'string',
+        'library_item_oid' => 'int',
+        'storefront_oid' => 'int'
     ];
 
     /**
@@ -71,12 +68,9 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'free_item' => null,
-        'free_quantity' => 'int32',
-        'limit' => 'int32',
-        'match_required_purchase_item_to_free_item' => null,
-        'required_purchase_item' => null,
-        'required_purchase_quantity' => 'int32'
+        'email_uuid' => null,
+        'library_item_oid' => 'int32',
+        'storefront_oid' => 'int32'
     ];
 
     /**
@@ -106,12 +100,9 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'free_item' => 'free_item',
-        'free_quantity' => 'free_quantity',
-        'limit' => 'limit',
-        'match_required_purchase_item_to_free_item' => 'match_required_purchase_item_to_free_item',
-        'required_purchase_item' => 'required_purchase_item',
-        'required_purchase_quantity' => 'required_purchase_quantity'
+        'email_uuid' => 'email_uuid',
+        'library_item_oid' => 'library_item_oid',
+        'storefront_oid' => 'storefront_oid'
     ];
 
     /**
@@ -120,12 +111,9 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'free_item' => 'setFreeItem',
-        'free_quantity' => 'setFreeQuantity',
-        'limit' => 'setLimit',
-        'match_required_purchase_item_to_free_item' => 'setMatchRequiredPurchaseItemToFreeItem',
-        'required_purchase_item' => 'setRequiredPurchaseItem',
-        'required_purchase_quantity' => 'setRequiredPurchaseQuantity'
+        'email_uuid' => 'setEmailUuid',
+        'library_item_oid' => 'setLibraryItemOid',
+        'storefront_oid' => 'setStorefrontOid'
     ];
 
     /**
@@ -134,12 +122,9 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'free_item' => 'getFreeItem',
-        'free_quantity' => 'getFreeQuantity',
-        'limit' => 'getLimit',
-        'match_required_purchase_item_to_free_item' => 'getMatchRequiredPurchaseItemToFreeItem',
-        'required_purchase_item' => 'getRequiredPurchaseItem',
-        'required_purchase_quantity' => 'getRequiredPurchaseQuantity'
+        'email_uuid' => 'getEmailUuid',
+        'library_item_oid' => 'getLibraryItemOid',
+        'storefront_oid' => 'getStorefrontOid'
     ];
 
     /**
@@ -202,12 +187,9 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['free_item'] = isset($data['free_item']) ? $data['free_item'] : null;
-        $this->container['free_quantity'] = isset($data['free_quantity']) ? $data['free_quantity'] : null;
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['match_required_purchase_item_to_free_item'] = isset($data['match_required_purchase_item_to_free_item']) ? $data['match_required_purchase_item_to_free_item'] : null;
-        $this->container['required_purchase_item'] = isset($data['required_purchase_item']) ? $data['required_purchase_item'] : null;
-        $this->container['required_purchase_quantity'] = isset($data['required_purchase_quantity']) ? $data['required_purchase_quantity'] : null;
+        $this->container['email_uuid'] = isset($data['email_uuid']) ? $data['email_uuid'] : null;
+        $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
+        $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
     }
 
     /**
@@ -235,145 +217,73 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets free_item
+     * Gets email_uuid
      *
      * @return string
      */
-    public function getFreeItem()
+    public function getEmailUuid()
     {
-        return $this->container['free_item'];
+        return $this->container['email_uuid'];
     }
 
     /**
-     * Sets free_item
+     * Sets email_uuid
      *
-     * @param string $free_item The item id of the free item that will be received when the required mix and match group quantity is purchased.
+     * @param string $email_uuid Normal emails are applied to an existing email object, so when requesting a library item to be applied to an email, supply the email uuid.  This is only for normal emails.  Transactional emails do not have a uuid.
      *
      * @return $this
      */
-    public function setFreeItem($free_item)
+    public function setEmailUuid($email_uuid)
     {
-        $this->container['free_item'] = $free_item;
+        $this->container['email_uuid'] = $email_uuid;
 
         return $this;
     }
 
     /**
-     * Gets free_quantity
+     * Gets library_item_oid
      *
      * @return int
      */
-    public function getFreeQuantity()
+    public function getLibraryItemOid()
     {
-        return $this->container['free_quantity'];
+        return $this->container['library_item_oid'];
     }
 
     /**
-     * Sets free_quantity
+     * Sets library_item_oid
      *
-     * @param int $free_quantity The quantity of free item that will be received.
+     * @param int $library_item_oid Library item oid that you wish to apply to the given StoreFront
      *
      * @return $this
      */
-    public function setFreeQuantity($free_quantity)
+    public function setLibraryItemOid($library_item_oid)
     {
-        $this->container['free_quantity'] = $free_quantity;
+        $this->container['library_item_oid'] = $library_item_oid;
 
         return $this;
     }
 
     /**
-     * Gets limit
+     * Gets storefront_oid
      *
      * @return int
      */
-    public function getLimit()
+    public function getStorefrontOid()
     {
-        return $this->container['limit'];
+        return $this->container['storefront_oid'];
     }
 
     /**
-     * Sets limit
+     * Sets storefront_oid
      *
-     * @param int $limit The limit of free items that may be received when purchasing multiple items
+     * @param int $storefront_oid StoreFront oid where content originates necessary for tracking down relative assets
      *
      * @return $this
      */
-    public function setLimit($limit)
+    public function setStorefrontOid($storefront_oid)
     {
-        $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets match_required_purchase_item_to_free_item
-     *
-     * @return bool
-     */
-    public function getMatchRequiredPurchaseItemToFreeItem()
-    {
-        return $this->container['match_required_purchase_item_to_free_item'];
-    }
-
-    /**
-     * Sets match_required_purchase_item_to_free_item
-     *
-     * @param bool $match_required_purchase_item_to_free_item If true then the free item is matched 1:1 with the free item in the list.
-     *
-     * @return $this
-     */
-    public function setMatchRequiredPurchaseItemToFreeItem($match_required_purchase_item_to_free_item)
-    {
-        $this->container['match_required_purchase_item_to_free_item'] = $match_required_purchase_item_to_free_item;
-
-        return $this;
-    }
-
-    /**
-     * Gets required_purchase_item
-     *
-     * @return string
-     */
-    public function getRequiredPurchaseItem()
-    {
-        return $this->container['required_purchase_item'];
-    }
-
-    /**
-     * Sets required_purchase_item
-     *
-     * @param string $required_purchase_item Required item that must be purchased for coupon to be valid
-     *
-     * @return $this
-     */
-    public function setRequiredPurchaseItem($required_purchase_item)
-    {
-        $this->container['required_purchase_item'] = $required_purchase_item;
-
-        return $this;
-    }
-
-    /**
-     * Gets required_purchase_quantity
-     *
-     * @return int
-     */
-    public function getRequiredPurchaseQuantity()
-    {
-        return $this->container['required_purchase_quantity'];
-    }
-
-    /**
-     * Sets required_purchase_quantity
-     *
-     * @param int $required_purchase_quantity Required quantity of mix and match group items that must be purchased for coupon to be valid
-     *
-     * @return $this
-     */
-    public function setRequiredPurchaseQuantity($required_purchase_quantity)
-    {
-        $this->container['required_purchase_quantity'] = $required_purchase_quantity;
+        $this->container['storefront_oid'] = $storefront_oid;
 
         return $this;
     }

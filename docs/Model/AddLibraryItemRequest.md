@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **storefront_oid** | **int** | StoreFront oid where content originates necessary for tracking down relative assets | [optional] 
 **title** | **string** | title of library item, usually the name of the flow or campaign, or description of cjson | [optional] 
 **upsell_offer_oid** | **int** | Required if content_type is upsell. This is object identifier of a StoreFront Upsell Offer. | [optional] 
-**uuid** | **string** | UUID of communication flow or campaign, null if this item is neither | [optional] 
+**uuid** | **string** | UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

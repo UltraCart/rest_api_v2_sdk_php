@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addToLibrary**](StorefrontApi.md#addToLibrary) | **POST** /storefront/code_library | Add to library
-[**applyToStoreFront**](StorefrontApi.md#applyToStoreFront) | **POST** /storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid} | Apply library item to storefront.
+[**applyToStoreFront**](StorefrontApi.md#applyToStoreFront) | **POST** /storefront/code_library/apply | Apply library item to storefront.
 [**archiveEmailList**](StorefrontApi.md#archiveEmailList) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
 [**archiveEmailSegment**](StorefrontApi.md#archiveEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
 [**backPopulateEmailFlow**](StorefrontApi.md#backPopulateEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/backfill | Back populate email flow
@@ -149,7 +149,7 @@ $api_instance = new ultracart\v2\api\StorefrontApi(
     $config
 );
 
-$add_library_request = new \ultracart\v2\models\AddLibraryItemRequest(); // \ultracart\v2\models\AddLibraryItemRequest | New library item
+$add_library_request = new \ultracart\v2\models\AddLibraryItemRequest(); // \ultracart\v2\models\AddLibraryItemRequest | New library item request
 
 try {
     $result = $apiInstance->addToLibrary($add_library_request);
@@ -164,7 +164,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **add_library_request** | [**\ultracart\v2\models\AddLibraryItemRequest**](../Model/AddLibraryItemRequest.md)| New library item |
+ **add_library_request** | [**\ultracart\v2\models\AddLibraryItemRequest**](../Model/AddLibraryItemRequest.md)| New library item request |
 
 ### Return type
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **applyToStoreFront**
-> \ultracart\v2\models\ApplyLibraryItemResponse applyToStoreFront($library_item_oid, $storefront_oid)
+> \ultracart\v2\models\ApplyLibraryItemResponse applyToStoreFront($apply_library_request)
 
 Apply library item to storefront.
 
@@ -212,11 +212,10 @@ $api_instance = new ultracart\v2\api\StorefrontApi(
     $config
 );
 
-$library_item_oid = 56; // int | 
-$storefront_oid = 56; // int | 
+$apply_library_request = new \ultracart\v2\models\ApplyLibraryItemRequest(); // \ultracart\v2\models\ApplyLibraryItemRequest | New library item
 
 try {
-    $result = $apiInstance->applyToStoreFront($library_item_oid, $storefront_oid);
+    $result = $apiInstance->applyToStoreFront($apply_library_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StorefrontApi->applyToStoreFront: ', $e->getMessage(), PHP_EOL;
@@ -228,8 +227,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **library_item_oid** | **int**|  |
- **storefront_oid** | **int**|  |
+ **apply_library_request** | [**\ultracart\v2\models\ApplyLibraryItemRequest**](../Model/ApplyLibraryItemRequest.md)| New library item |
 
 ### Return type
 

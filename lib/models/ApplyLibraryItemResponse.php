@@ -59,6 +59,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'cjson' => 'string',
         'content_type' => 'string',
+        'email_template_vm_path' => 'string',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'storefront_oid' => 'int',
@@ -76,6 +77,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'cjson' => null,
         'content_type' => null,
+        'email_template_vm_path' => null,
         'error' => null,
         'metadata' => null,
         'storefront_oid' => 'int32',
@@ -114,6 +116,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'cjson' => 'cjson',
         'content_type' => 'content_type',
+        'email_template_vm_path' => 'email_template_vm_path',
         'error' => 'error',
         'metadata' => 'metadata',
         'storefront_oid' => 'storefront_oid',
@@ -131,6 +134,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'cjson' => 'setCjson',
         'content_type' => 'setContentType',
+        'email_template_vm_path' => 'setEmailTemplateVmPath',
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'storefront_oid' => 'setStorefrontOid',
@@ -148,6 +152,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'cjson' => 'getCjson',
         'content_type' => 'getContentType',
+        'email_template_vm_path' => 'getEmailTemplateVmPath',
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'storefront_oid' => 'getStorefrontOid',
@@ -219,6 +224,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     {
         $this->container['cjson'] = isset($data['cjson']) ? $data['cjson'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
+        $this->container['email_template_vm_path'] = isset($data['email_template_vm_path']) ? $data['email_template_vm_path'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
@@ -265,7 +271,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     /**
      * Sets cjson
      *
-     * @param string $cjson Cjson from library item, only populated if this library item was a cjson snippet
+     * @param string $cjson Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional)
      *
      * @return $this
      */
@@ -289,13 +295,37 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     /**
      * Sets content_type
      *
-     * @param string $content_type flow, campaign, cjson, or upsell
+     * @param string $content_type flow, campaign, cjson, upsell, transactional_email or email
      *
      * @return $this
      */
     public function setContentType($content_type)
     {
         $this->container['content_type'] = $content_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_template_vm_path
+     *
+     * @return string
+     */
+    public function getEmailTemplateVmPath()
+    {
+        return $this->container['email_template_vm_path'];
+    }
+
+    /**
+     * Sets email_template_vm_path
+     *
+     * @param string $email_template_vm_path If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI.
+     *
+     * @return $this
+     */
+    public function setEmailTemplateVmPath($email_template_vm_path)
+    {
+        $this->container['email_template_vm_path'] = $email_template_vm_path;
 
         return $this;
     }
@@ -433,7 +463,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     /**
      * Sets uuid
      *
-     * @param string $uuid UUID of communication flow or campaign if this library item was a campaign or flow
+     * @param string $uuid UUID of marketing email or communication flow/campaign if this library item was an email, campaign or flow
      *
      * @return $this
      */

@@ -92,7 +92,7 @@ class StorefrontApi
      *
      * Add to library
      *
-     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item request (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -109,7 +109,7 @@ class StorefrontApi
      *
      * Add to library
      *
-     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item request (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -224,7 +224,7 @@ class StorefrontApi
      *
      * Add to library
      *
-     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -244,7 +244,7 @@ class StorefrontApi
      *
      * Add to library
      *
-     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -294,7 +294,7 @@ class StorefrontApi
     /**
      * Create request for operation 'addToLibrary'
      *
-     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -410,16 +410,15 @@ class StorefrontApi
      *
      * Apply library item to storefront.
      *
-     * @param  int $library_item_oid library_item_oid (required)
-     * @param  int $storefront_oid storefront_oid (required)
+     * @param  \ultracart\v2\models\ApplyLibraryItemRequest $apply_library_request New library item (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\ApplyLibraryItemResponse
      */
-    public function applyToStoreFront($library_item_oid, $storefront_oid)
+    public function applyToStoreFront($apply_library_request)
     {
-        list($response) = $this->applyToStoreFrontWithHttpInfo($library_item_oid, $storefront_oid);
+        list($response) = $this->applyToStoreFrontWithHttpInfo($apply_library_request);
         return $response;
     }
 
@@ -428,17 +427,16 @@ class StorefrontApi
      *
      * Apply library item to storefront.
      *
-     * @param  int $library_item_oid (required)
-     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ApplyLibraryItemRequest $apply_library_request New library item (required)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ApplyLibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function applyToStoreFrontWithHttpInfo($library_item_oid, $storefront_oid)
+    public function applyToStoreFrontWithHttpInfo($apply_library_request)
     {
         $returnType = '\ultracart\v2\models\ApplyLibraryItemResponse';
-        $request = $this->applyToStoreFrontRequest($library_item_oid, $storefront_oid);
+        $request = $this->applyToStoreFrontRequest($apply_library_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -544,15 +542,14 @@ class StorefrontApi
      *
      * Apply library item to storefront.
      *
-     * @param  int $library_item_oid (required)
-     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ApplyLibraryItemRequest $apply_library_request New library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applyToStoreFrontAsync($library_item_oid, $storefront_oid)
+    public function applyToStoreFrontAsync($apply_library_request)
     {
-        return $this->applyToStoreFrontAsyncWithHttpInfo($library_item_oid, $storefront_oid)
+        return $this->applyToStoreFrontAsyncWithHttpInfo($apply_library_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -565,16 +562,15 @@ class StorefrontApi
      *
      * Apply library item to storefront.
      *
-     * @param  int $library_item_oid (required)
-     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ApplyLibraryItemRequest $apply_library_request New library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applyToStoreFrontAsyncWithHttpInfo($library_item_oid, $storefront_oid)
+    public function applyToStoreFrontAsyncWithHttpInfo($apply_library_request)
     {
         $returnType = '\ultracart\v2\models\ApplyLibraryItemResponse';
-        $request = $this->applyToStoreFrontRequest($library_item_oid, $storefront_oid);
+        $request = $this->applyToStoreFrontRequest($apply_library_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -616,28 +612,21 @@ class StorefrontApi
     /**
      * Create request for operation 'applyToStoreFront'
      *
-     * @param  int $library_item_oid (required)
-     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ApplyLibraryItemRequest $apply_library_request New library item (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function applyToStoreFrontRequest($library_item_oid, $storefront_oid)
+    protected function applyToStoreFrontRequest($apply_library_request)
     {
-        // verify the required parameter 'library_item_oid' is set
-        if ($library_item_oid === null || (is_array($library_item_oid) && count($library_item_oid) === 0)) {
+        // verify the required parameter 'apply_library_request' is set
+        if ($apply_library_request === null || (is_array($apply_library_request) && count($apply_library_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $library_item_oid when calling applyToStoreFront'
-            );
-        }
-        // verify the required parameter 'storefront_oid' is set
-        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $storefront_oid when calling applyToStoreFront'
+                'Missing the required parameter $apply_library_request when calling applyToStoreFront'
             );
         }
 
-        $resourcePath = '/storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid}';
+        $resourcePath = '/storefront/code_library/apply';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -645,25 +634,12 @@ class StorefrontApi
         $multipart = false;
 
 
-        // path params
-        if ($library_item_oid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'library_item_oid' . '}',
-                ObjectSerializer::toPathValue($library_item_oid),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($storefront_oid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'storefront_oid' . '}',
-                ObjectSerializer::toPathValue($storefront_oid),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;
+        if (isset($apply_library_request)) {
+            $_tempBody = $apply_library_request;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(

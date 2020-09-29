@@ -220,7 +220,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#updateaccountsreceivableretryconfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
 *StorefrontApi* | [**addToLibrary**](docs/Api/StorefrontApi.md#addtolibrary) | **POST** /storefront/code_library | Add to library
-*StorefrontApi* | [**applyToStoreFront**](docs/Api/StorefrontApi.md#applytostorefront) | **POST** /storefront/code_library/{library_item_oid}/applyToStoreFront/{storefront_oid} | Apply library item to storefront.
+*StorefrontApi* | [**applyToStoreFront**](docs/Api/StorefrontApi.md#applytostorefront) | **POST** /storefront/code_library/apply | Apply library item to storefront.
 *StorefrontApi* | [**archiveEmailList**](docs/Api/StorefrontApi.md#archiveemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
 *StorefrontApi* | [**archiveEmailSegment**](docs/Api/StorefrontApi.md#archiveemailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/archive | Archive email segment
 *StorefrontApi* | [**backPopulateEmailFlow**](docs/Api/StorefrontApi.md#backpopulateemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/backfill | Back populate email flow
@@ -388,6 +388,7 @@ Class | Method | HTTP request | Description
  - [AffiliateLedgersResponse](docs/Model/AffiliateLedgersResponse.md)
  - [AffiliateLink](docs/Model/AffiliateLink.md)
  - [ApiUserApplicationProfile](docs/Model/ApiUserApplicationProfile.md)
+ - [ApplyLibraryItemRequest](docs/Model/ApplyLibraryItemRequest.md)
  - [ApplyLibraryItemResponse](docs/Model/ApplyLibraryItemResponse.md)
  - [AutoOrder](docs/Model/AutoOrder.md)
  - [AutoOrderItem](docs/Model/AutoOrderItem.md)
@@ -917,6 +918,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.28 | 09/29/2020 | new boolean field on coupon: free item with purchase of another item |
+| 3.0.27 | 09/29/2020 | Refactored the code library applyToStoreFront to provide support for marketing emails |
 | 3.0.26 | 09/25/2020 | Expose actual shipping and fulfillment costs in the order summary object |
 | 3.0.25 | 09/16/2020 | New method: OrderApi.adjustOrderTotal |
 | 3.0.24 | 09/10/2020 | Bugfix: incorrect response type on CheckoutAPI.registerAffiliateClick |
