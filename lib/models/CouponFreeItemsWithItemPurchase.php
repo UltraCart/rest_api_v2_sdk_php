@@ -60,7 +60,6 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
         'free_item' => 'string',
         'free_quantity' => 'int',
         'limit' => 'int',
-        'match_required_purchase_item_to_free_item' => 'bool',
         'required_purchase_item' => 'string',
         'required_purchase_quantity' => 'int'
     ];
@@ -74,7 +73,6 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
         'free_item' => null,
         'free_quantity' => 'int32',
         'limit' => 'int32',
-        'match_required_purchase_item_to_free_item' => null,
         'required_purchase_item' => null,
         'required_purchase_quantity' => 'int32'
     ];
@@ -109,7 +107,6 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
         'free_item' => 'free_item',
         'free_quantity' => 'free_quantity',
         'limit' => 'limit',
-        'match_required_purchase_item_to_free_item' => 'match_required_purchase_item_to_free_item',
         'required_purchase_item' => 'required_purchase_item',
         'required_purchase_quantity' => 'required_purchase_quantity'
     ];
@@ -123,7 +120,6 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
         'free_item' => 'setFreeItem',
         'free_quantity' => 'setFreeQuantity',
         'limit' => 'setLimit',
-        'match_required_purchase_item_to_free_item' => 'setMatchRequiredPurchaseItemToFreeItem',
         'required_purchase_item' => 'setRequiredPurchaseItem',
         'required_purchase_quantity' => 'setRequiredPurchaseQuantity'
     ];
@@ -137,7 +133,6 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
         'free_item' => 'getFreeItem',
         'free_quantity' => 'getFreeQuantity',
         'limit' => 'getLimit',
-        'match_required_purchase_item_to_free_item' => 'getMatchRequiredPurchaseItemToFreeItem',
         'required_purchase_item' => 'getRequiredPurchaseItem',
         'required_purchase_quantity' => 'getRequiredPurchaseQuantity'
     ];
@@ -205,7 +200,6 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
         $this->container['free_item'] = isset($data['free_item']) ? $data['free_item'] : null;
         $this->container['free_quantity'] = isset($data['free_quantity']) ? $data['free_quantity'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
-        $this->container['match_required_purchase_item_to_free_item'] = isset($data['match_required_purchase_item_to_free_item']) ? $data['match_required_purchase_item_to_free_item'] : null;
         $this->container['required_purchase_item'] = isset($data['required_purchase_item']) ? $data['required_purchase_item'] : null;
         $this->container['required_purchase_quantity'] = isset($data['required_purchase_quantity']) ? $data['required_purchase_quantity'] : null;
     }
@@ -302,30 +296,6 @@ class CouponFreeItemsWithItemPurchase implements ModelInterface, ArrayAccess
     public function setLimit($limit)
     {
         $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets match_required_purchase_item_to_free_item
-     *
-     * @return bool
-     */
-    public function getMatchRequiredPurchaseItemToFreeItem()
-    {
-        return $this->container['match_required_purchase_item_to_free_item'];
-    }
-
-    /**
-     * Sets match_required_purchase_item_to_free_item
-     *
-     * @param bool $match_required_purchase_item_to_free_item If true then the free item is matched 1:1 with the free item in the list.
-     *
-     * @return $this
-     */
-    public function setMatchRequiredPurchaseItemToFreeItem($match_required_purchase_item_to_free_item)
-    {
-        $this->container['match_required_purchase_item_to_free_item'] = $match_required_purchase_item_to_free_item;
 
         return $this;
     }

@@ -897,6 +897,8 @@ Class | Method | HTTP request | Description
  - **webhook_write**: Allows you to write webhook information.
  - **ultrabooks_read**: 1 of 2 required to use UltraBooks
  - **ultrabooks_write**: 2 of 2 required to use UltraBooks
+ - **user_read**: Allows you to read user information.
+ - **user_write**: Allows you to write user information.
 
 ## ultraCartSimpleApiKey
 
@@ -918,6 +920,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.29 | 09/29/2020 | new boolean field on coupon: bug fix |
 | 3.0.28 | 09/29/2020 | new boolean field on coupon: free item with purchase of another item |
 | 3.0.27 | 09/29/2020 | Refactored the code library applyToStoreFront to provide support for marketing emails |
 | 3.0.26 | 09/25/2020 | Expose actual shipping and fulfillment costs in the order summary object |
