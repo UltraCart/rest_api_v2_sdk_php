@@ -66,6 +66,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_template_vm_path' => 'string',
         'filter_profile_equation_json' => 'string',
         'individually_render' => 'bool',
+        'library_item_oid' => 'int',
         'merchant_id' => 'string',
         'pending_review' => 'bool',
         'preview_text' => 'string',
@@ -97,6 +98,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_template_vm_path' => null,
         'filter_profile_equation_json' => null,
         'individually_render' => null,
+        'library_item_oid' => 'int32',
         'merchant_id' => null,
         'pending_review' => null,
         'preview_text' => null,
@@ -149,6 +151,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_template_vm_path' => 'email_template_vm_path',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'individually_render' => 'individually_render',
+        'library_item_oid' => 'library_item_oid',
         'merchant_id' => 'merchant_id',
         'pending_review' => 'pending_review',
         'preview_text' => 'preview_text',
@@ -180,6 +183,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_template_vm_path' => 'setEmailTemplateVmPath',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'individually_render' => 'setIndividuallyRender',
+        'library_item_oid' => 'setLibraryItemOid',
         'merchant_id' => 'setMerchantId',
         'pending_review' => 'setPendingReview',
         'preview_text' => 'setPreviewText',
@@ -211,6 +215,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'email_template_vm_path' => 'getEmailTemplateVmPath',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'individually_render' => 'getIndividuallyRender',
+        'library_item_oid' => 'getLibraryItemOid',
         'merchant_id' => 'getMerchantId',
         'pending_review' => 'getPendingReview',
         'preview_text' => 'getPreviewText',
@@ -296,6 +301,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         $this->container['email_template_vm_path'] = isset($data['email_template_vm_path']) ? $data['email_template_vm_path'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['individually_render'] = isset($data['individually_render']) ? $data['individually_render'] : null;
+        $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['pending_review'] = isset($data['pending_review']) ? $data['pending_review'] : null;
         $this->container['preview_text'] = isset($data['preview_text']) ? $data['preview_text'] : null;
@@ -548,6 +554,30 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
     public function setIndividuallyRender($individually_render)
     {
         $this->container['individually_render'] = $individually_render;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_item_oid
+     *
+     * @return int
+     */
+    public function getLibraryItemOid()
+    {
+        return $this->container['library_item_oid'];
+    }
+
+    /**
+     * Sets library_item_oid
+     *
+     * @param int $library_item_oid If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+     *
+     * @return $this
+     */
+    public function setLibraryItemOid($library_item_oid)
+    {
+        $this->container['library_item_oid'] = $library_item_oid;
 
         return $this;
     }

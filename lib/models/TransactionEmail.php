@@ -67,6 +67,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'handlebar_variables' => 'string[]',
         'invalid' => 'bool',
         'last_modified' => 'string',
+        'library_item_oid' => 'int',
         'options' => '\ultracart\v2\models\TransactionEmailOption[]',
         'path' => 'string',
         'size' => 'string',
@@ -94,6 +95,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'handlebar_variables' => null,
         'invalid' => null,
         'last_modified' => 'dateTime',
+        'library_item_oid' => 'int32',
         'options' => null,
         'path' => null,
         'size' => null,
@@ -142,6 +144,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'handlebar_variables' => 'handlebar_variables',
         'invalid' => 'invalid',
         'last_modified' => 'last_modified',
+        'library_item_oid' => 'library_item_oid',
         'options' => 'options',
         'path' => 'path',
         'size' => 'size',
@@ -169,6 +172,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'handlebar_variables' => 'setHandlebarVariables',
         'invalid' => 'setInvalid',
         'last_modified' => 'setLastModified',
+        'library_item_oid' => 'setLibraryItemOid',
         'options' => 'setOptions',
         'path' => 'setPath',
         'size' => 'setSize',
@@ -196,6 +200,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         'handlebar_variables' => 'getHandlebarVariables',
         'invalid' => 'getInvalid',
         'last_modified' => 'getLastModified',
+        'library_item_oid' => 'getLibraryItemOid',
         'options' => 'getOptions',
         'path' => 'getPath',
         'size' => 'getSize',
@@ -277,6 +282,7 @@ class TransactionEmail implements ModelInterface, ArrayAccess
         $this->container['handlebar_variables'] = isset($data['handlebar_variables']) ? $data['handlebar_variables'] : null;
         $this->container['invalid'] = isset($data['invalid']) ? $data['invalid'] : null;
         $this->container['last_modified'] = isset($data['last_modified']) ? $data['last_modified'] : null;
+        $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
@@ -548,6 +554,30 @@ class TransactionEmail implements ModelInterface, ArrayAccess
     public function setLastModified($last_modified)
     {
         $this->container['last_modified'] = $last_modified;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_item_oid
+     *
+     * @return int
+     */
+    public function getLibraryItemOid()
+    {
+        return $this->container['library_item_oid'];
+    }
+
+    /**
+     * Sets library_item_oid
+     *
+     * @param int $library_item_oid If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+     *
+     * @return $this
+     */
+    public function setLibraryItemOid($library_item_oid)
+    {
+        $this->container['library_item_oid'] = $library_item_oid;
 
         return $this;
     }

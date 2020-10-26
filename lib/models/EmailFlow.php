@@ -70,6 +70,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'esp_domain_uuid' => 'string',
         'esp_friendly_name' => 'string',
         'filter_profile_equation_json' => 'string',
+        'library_item_oid' => 'int',
         'merchant_id' => 'string',
         'name' => 'string',
         'open_rate_formatted' => 'string',
@@ -102,6 +103,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'esp_domain_uuid' => null,
         'esp_friendly_name' => null,
         'filter_profile_equation_json' => null,
+        'library_item_oid' => 'int32',
         'merchant_id' => null,
         'name' => null,
         'open_rate_formatted' => null,
@@ -155,6 +157,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'esp_domain_uuid' => 'esp_domain_uuid',
         'esp_friendly_name' => 'esp_friendly_name',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
+        'library_item_oid' => 'library_item_oid',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
         'open_rate_formatted' => 'open_rate_formatted',
@@ -187,6 +190,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'esp_domain_uuid' => 'setEspDomainUuid',
         'esp_friendly_name' => 'setEspFriendlyName',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
+        'library_item_oid' => 'setLibraryItemOid',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
         'open_rate_formatted' => 'setOpenRateFormatted',
@@ -219,6 +223,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'esp_domain_uuid' => 'getEspDomainUuid',
         'esp_friendly_name' => 'getEspFriendlyName',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
+        'library_item_oid' => 'getLibraryItemOid',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
         'open_rate_formatted' => 'getOpenRateFormatted',
@@ -305,6 +310,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
         $this->container['esp_friendly_name'] = isset($data['esp_friendly_name']) ? $data['esp_friendly_name'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
+        $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['open_rate_formatted'] = isset($data['open_rate_formatted']) ? $data['open_rate_formatted'] : null;
@@ -654,6 +660,30 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function setFilterProfileEquationJson($filter_profile_equation_json)
     {
         $this->container['filter_profile_equation_json'] = $filter_profile_equation_json;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_item_oid
+     *
+     * @return int
+     */
+    public function getLibraryItemOid()
+    {
+        return $this->container['library_item_oid'];
+    }
+
+    /**
+     * Sets library_item_oid
+     *
+     * @param int $library_item_oid If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+     *
+     * @return $this
+     */
+    public function setLibraryItemOid($library_item_oid)
+    {
+        $this->container['library_item_oid'] = $library_item_oid;
 
         return $this;
     }

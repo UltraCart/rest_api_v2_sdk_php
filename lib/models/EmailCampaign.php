@@ -66,6 +66,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'esp_domain_user' => 'string',
         'esp_domain_uuid' => 'string',
         'esp_friendly_name' => 'string',
+        'library_item_oid' => 'int',
         'memberships' => '\ultracart\v2\models\EmailListSegmentMembership[]',
         'merchant_id' => 'string',
         'name' => 'string',
@@ -94,6 +95,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'esp_domain_user' => null,
         'esp_domain_uuid' => null,
         'esp_friendly_name' => null,
+        'library_item_oid' => 'int32',
         'memberships' => null,
         'merchant_id' => null,
         'name' => null,
@@ -143,6 +145,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'esp_domain_user' => 'esp_domain_user',
         'esp_domain_uuid' => 'esp_domain_uuid',
         'esp_friendly_name' => 'esp_friendly_name',
+        'library_item_oid' => 'library_item_oid',
         'memberships' => 'memberships',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
@@ -171,6 +174,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'esp_domain_user' => 'setEspDomainUser',
         'esp_domain_uuid' => 'setEspDomainUuid',
         'esp_friendly_name' => 'setEspFriendlyName',
+        'library_item_oid' => 'setLibraryItemOid',
         'memberships' => 'setMemberships',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
@@ -199,6 +203,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'esp_domain_user' => 'getEspDomainUser',
         'esp_domain_uuid' => 'getEspDomainUuid',
         'esp_friendly_name' => 'getEspFriendlyName',
+        'library_item_oid' => 'getLibraryItemOid',
         'memberships' => 'getMemberships',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
@@ -281,6 +286,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
         $this->container['esp_friendly_name'] = isset($data['esp_friendly_name']) ? $data['esp_friendly_name'] : null;
+        $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
         $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -534,6 +540,30 @@ class EmailCampaign implements ModelInterface, ArrayAccess
     public function setEspFriendlyName($esp_friendly_name)
     {
         $this->container['esp_friendly_name'] = $esp_friendly_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets library_item_oid
+     *
+     * @return int
+     */
+    public function getLibraryItemOid()
+    {
+        return $this->container['library_item_oid'];
+    }
+
+    /**
+     * Sets library_item_oid
+     *
+     * @param int $library_item_oid If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated.
+     *
+     * @return $this
+     */
+    public function setLibraryItemOid($library_item_oid)
+    {
+        $this->container['library_item_oid'] = $library_item_oid;
 
         return $this;
     }

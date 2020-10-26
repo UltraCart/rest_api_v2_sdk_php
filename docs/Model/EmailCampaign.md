@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **esp_domain_user** | **string** | User of the sending address | [optional] 
 **esp_domain_uuid** | **string** | UUID of the sending domain | [optional] 
 **esp_friendly_name** | **string** | Friendly name of the sending email | [optional] 
+**library_item_oid** | **int** | If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated. | [optional] 
 **memberships** | [**\ultracart\v2\models\EmailListSegmentMembership[]**](EmailListSegmentMembership.md) | List and segment memberships | [optional] 
 **merchant_id** | **string** | Merchant ID | [optional] 
 **name** | **string** | Name of email campaign | [optional] 

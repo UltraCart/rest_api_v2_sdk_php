@@ -308,10 +308,12 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**releaseEmailCommseqStepWaiting**](docs/Api/StorefrontApi.md#releaseemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting/{commseq_step_uuid} | Release email communication sequence customers waiting at the specified step
 *StorefrontApi* | [**review**](docs/Api/StorefrontApi.md#review) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/review | Request a review of an email
 *StorefrontApi* | [**search**](docs/Api/StorefrontApi.md#search) | **GET** /storefront/search | Searches for all matching values
+*StorefrontApi* | [**search2**](docs/Api/StorefrontApi.md#search2) | **POST** /storefront/search | Searches for all matching values (using POST)
 *StorefrontApi* | [**searchEmailListCustomers**](docs/Api/StorefrontApi.md#searchemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/search | Search email list customers
 *StorefrontApi* | [**searchEmailSegmentCustomers**](docs/Api/StorefrontApi.md#searchemailsegmentcustomers) | **GET** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/search | Search email segment customers
 *StorefrontApi* | [**searchLibraryItems**](docs/Api/StorefrontApi.md#searchlibraryitems) | **POST** /storefront/code_library/search | Retrieve library items
 *StorefrontApi* | [**searchPublishedItems**](docs/Api/StorefrontApi.md#searchpublisheditems) | **POST** /storefront/code_library/search_published | Retrieve library items
+*StorefrontApi* | [**searchReviewItems**](docs/Api/StorefrontApi.md#searchreviewitems) | **POST** /storefront/code_library/search_review | Retrieve library items needing review or rejected
 *StorefrontApi* | [**searchSharedItems**](docs/Api/StorefrontApi.md#searchshareditems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 *StorefrontApi* | [**sendEmailTest**](docs/Api/StorefrontApi.md#sendemailtest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**sendPostcardTest**](docs/Api/StorefrontApi.md#sendpostcardtest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
@@ -359,6 +361,17 @@ Class | Method | HTTP request | Description
 *TaxApi* | [**updateTaxProviderSovos**](docs/Api/TaxApi.md#updatetaxprovidersovos) | **POST** /tax/providers/sovos | Update the Sovos tax provider
 *TaxApi* | [**updateTaxProviderTaxJar**](docs/Api/TaxApi.md#updatetaxprovidertaxjar) | **POST** /tax/providers/taxjar | Update the TaxJar tax provider
 *TaxApi* | [**updateTaxProviderUltraCart**](docs/Api/TaxApi.md#updatetaxproviderultracart) | **POST** /tax/providers/ultracart | Update the UltraCart tax provider
+*UserApi* | [**deleteGroup**](docs/Api/UserApi.md#deletegroup) | **DELETE** /user/groups/{group_oid} | Delete a group
+*UserApi* | [**deleteUser**](docs/Api/UserApi.md#deleteuser) | **DELETE** /user/users/{user_id} | Delete a user
+*UserApi* | [**getGroup**](docs/Api/UserApi.md#getgroup) | **GET** /user/groups/{group_oid} | Retrieve a group
+*UserApi* | [**getGroups**](docs/Api/UserApi.md#getgroups) | **GET** /user/groups | Get groups
+*UserApi* | [**getUser**](docs/Api/UserApi.md#getuser) | **GET** /user/users/{user_id} | Retrieve a user
+*UserApi* | [**getUserLogins**](docs/Api/UserApi.md#getuserlogins) | **GET** /user/users/{user_id}/logins | Retrieve a user&#39;s login history
+*UserApi* | [**getUsers**](docs/Api/UserApi.md#getusers) | **GET** /user/users | Get users
+*UserApi* | [**insertGroup**](docs/Api/UserApi.md#insertgroup) | **POST** /user/groups | Insert a group
+*UserApi* | [**insertUser**](docs/Api/UserApi.md#insertuser) | **POST** /user/users | Insert a user
+*UserApi* | [**updateGroup**](docs/Api/UserApi.md#updategroup) | **PUT** /user/groups/{group_oid} | Update a group
+*UserApi* | [**updateUser**](docs/Api/UserApi.md#updateuser) | **PUT** /user/users/{user_id} | Update a user
 *WebhookApi* | [**deleteWebhook**](docs/Api/WebhookApi.md#deletewebhook) | **DELETE** /webhook/webhooks/{webhookOid} | Delete a webhook
 *WebhookApi* | [**deleteWebhookByUrl**](docs/Api/WebhookApi.md#deletewebhookbyurl) | **DELETE** /webhook/webhooks | Delete a webhook by URL
 *WebhookApi* | [**getWebhookLog**](docs/Api/WebhookApi.md#getwebhooklog) | **GET** /webhook/webhooks/{webhookOid}/logs/{requestId} | Retrieve an individual log
@@ -652,6 +665,10 @@ Class | Method | HTTP request | Description
  - [FulfillmentShipment](docs/Model/FulfillmentShipment.md)
  - [GeocodeRequest](docs/Model/GeocodeRequest.md)
  - [GeocodeResponse](docs/Model/GeocodeResponse.md)
+ - [Group](docs/Model/Group.md)
+ - [GroupResponse](docs/Model/GroupResponse.md)
+ - [GroupUserMembership](docs/Model/GroupUserMembership.md)
+ - [GroupsResponse](docs/Model/GroupsResponse.md)
  - [HTTPHeader](docs/Model/HTTPHeader.md)
  - [Item](docs/Model/Item.md)
  - [ItemAccounting](docs/Model/ItemAccounting.md)
@@ -737,9 +754,12 @@ Class | Method | HTTP request | Description
  - [LibraryItemResponse](docs/Model/LibraryItemResponse.md)
  - [LibraryItemScreenshot](docs/Model/LibraryItemScreenshot.md)
  - [LibraryItemsResponse](docs/Model/LibraryItemsResponse.md)
+ - [LinkedAccount](docs/Model/LinkedAccount.md)
  - [ListSegmentMembership](docs/Model/ListSegmentMembership.md)
+ - [LookupRequest](docs/Model/LookupRequest.md)
  - [LookupResponse](docs/Model/LookupResponse.md)
  - [Metric](docs/Model/Metric.md)
+ - [Notification](docs/Model/Notification.md)
  - [OauthRevokeSuccessResponse](docs/Model/OauthRevokeSuccessResponse.md)
  - [OauthTokenResponse](docs/Model/OauthTokenResponse.md)
  - [Order](docs/Model/Order.md)
@@ -797,6 +817,7 @@ Class | Method | HTTP request | Description
  - [OrderTrackingNumberDetail](docs/Model/OrderTrackingNumberDetail.md)
  - [OrderTrackingNumberDetails](docs/Model/OrderTrackingNumberDetails.md)
  - [OrdersResponse](docs/Model/OrdersResponse.md)
+ - [Permission](docs/Model/Permission.md)
  - [PricingTier](docs/Model/PricingTier.md)
  - [PricingTierNotification](docs/Model/PricingTierNotification.md)
  - [PricingTiersResponse](docs/Model/PricingTiersResponse.md)
@@ -840,6 +861,12 @@ Class | Method | HTTP request | Description
  - [TransactionEmailOption](docs/Model/TransactionEmailOption.md)
  - [TransactionEmailResponse](docs/Model/TransactionEmailResponse.md)
  - [UltraCartConfig](docs/Model/UltraCartConfig.md)
+ - [User](docs/Model/User.md)
+ - [UserGroupMembership](docs/Model/UserGroupMembership.md)
+ - [UserLogin](docs/Model/UserLogin.md)
+ - [UserLoginsResponse](docs/Model/UserLoginsResponse.md)
+ - [UserResponse](docs/Model/UserResponse.md)
+ - [UsersResponse](docs/Model/UsersResponse.md)
  - [VerificationRecord](docs/Model/VerificationRecord.md)
  - [Warning](docs/Model/Warning.md)
  - [Webhook](docs/Model/Webhook.md)
@@ -920,6 +947,11 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.34 | 10/26/2020 | UserAPI initial release |
+| 3.0.33 | 10/23/2020 | Added library_item_oid to StoreFront Communications email object for upcoming code library |
+| 3.0.32 | 10/21/2020 | Added new StoreFrontApi.search method that takes a POST instead of a GET |
+| 3.0.31 | 10/16/2020 | more dev work on code library (internal) |
+| 3.0.30 | 10/08/2020 | development work on code library (internal), first version of UserAPI.  The UserAPI is not live yet. |
 | 3.0.29 | 09/29/2020 | new boolean field on coupon: bug fix |
 | 3.0.28 | 09/29/2020 | new boolean field on coupon: free item with purchase of another item |
 | 3.0.27 | 09/29/2020 | Refactored the code library applyToStoreFront to provide support for marketing emails |

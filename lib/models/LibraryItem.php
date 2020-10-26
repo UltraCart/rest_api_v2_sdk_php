@@ -65,6 +65,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'industries' => 'string[]',
         'library_item_oid' => 'int',
         'merchant_id' => 'string',
+        'my_purchased_version' => 'int',
+        'original_object_id' => 'string',
         'price' => 'float',
         'price_formatted' => 'string',
         'published' => 'bool',
@@ -73,6 +75,10 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'purchased' => 'bool',
         'purchased_from_library_item_oid' => 'int',
         'purchased_version' => 'int',
+        'rejected' => 'bool',
+        'rejected_reason' => 'string',
+        'reviewed' => 'bool',
+        'reviewed_dts' => 'object',
         'screenshots' => '\ultracart\v2\models\LibraryItemScreenshot[]',
         'share_with_accounts' => '\ultracart\v2\models\LibraryItemAccount[]',
         'share_with_other_emails' => '\ultracart\v2\models\LibraryItemEmail[]',
@@ -100,6 +106,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'industries' => null,
         'library_item_oid' => 'int32',
         'merchant_id' => null,
+        'my_purchased_version' => 'int32',
+        'original_object_id' => null,
         'price' => null,
         'price_formatted' => null,
         'published' => null,
@@ -108,6 +116,10 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'purchased' => null,
         'purchased_from_library_item_oid' => 'int32',
         'purchased_version' => 'int32',
+        'rejected' => null,
+        'rejected_reason' => null,
+        'reviewed' => null,
+        'reviewed_dts' => null,
         'screenshots' => null,
         'share_with_accounts' => null,
         'share_with_other_emails' => null,
@@ -156,6 +168,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'industries' => 'industries',
         'library_item_oid' => 'library_item_oid',
         'merchant_id' => 'merchant_id',
+        'my_purchased_version' => 'my_purchased_version',
+        'original_object_id' => 'original_object_id',
         'price' => 'price',
         'price_formatted' => 'price_formatted',
         'published' => 'published',
@@ -164,6 +178,10 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'purchased' => 'purchased',
         'purchased_from_library_item_oid' => 'purchased_from_library_item_oid',
         'purchased_version' => 'purchased_version',
+        'rejected' => 'rejected',
+        'rejected_reason' => 'rejected_reason',
+        'reviewed' => 'reviewed',
+        'reviewed_dts' => 'reviewed_dts',
         'screenshots' => 'screenshots',
         'share_with_accounts' => 'share_with_accounts',
         'share_with_other_emails' => 'share_with_other_emails',
@@ -191,6 +209,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'industries' => 'setIndustries',
         'library_item_oid' => 'setLibraryItemOid',
         'merchant_id' => 'setMerchantId',
+        'my_purchased_version' => 'setMyPurchasedVersion',
+        'original_object_id' => 'setOriginalObjectId',
         'price' => 'setPrice',
         'price_formatted' => 'setPriceFormatted',
         'published' => 'setPublished',
@@ -199,6 +219,10 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'purchased' => 'setPurchased',
         'purchased_from_library_item_oid' => 'setPurchasedFromLibraryItemOid',
         'purchased_version' => 'setPurchasedVersion',
+        'rejected' => 'setRejected',
+        'rejected_reason' => 'setRejectedReason',
+        'reviewed' => 'setReviewed',
+        'reviewed_dts' => 'setReviewedDts',
         'screenshots' => 'setScreenshots',
         'share_with_accounts' => 'setShareWithAccounts',
         'share_with_other_emails' => 'setShareWithOtherEmails',
@@ -226,6 +250,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'industries' => 'getIndustries',
         'library_item_oid' => 'getLibraryItemOid',
         'merchant_id' => 'getMerchantId',
+        'my_purchased_version' => 'getMyPurchasedVersion',
+        'original_object_id' => 'getOriginalObjectId',
         'price' => 'getPrice',
         'price_formatted' => 'getPriceFormatted',
         'published' => 'getPublished',
@@ -234,6 +260,10 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'purchased' => 'getPurchased',
         'purchased_from_library_item_oid' => 'getPurchasedFromLibraryItemOid',
         'purchased_version' => 'getPurchasedVersion',
+        'rejected' => 'getRejected',
+        'rejected_reason' => 'getRejectedReason',
+        'reviewed' => 'getReviewed',
+        'reviewed_dts' => 'getReviewedDts',
         'screenshots' => 'getScreenshots',
         'share_with_accounts' => 'getShareWithAccounts',
         'share_with_other_emails' => 'getShareWithOtherEmails',
@@ -315,6 +345,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         $this->container['industries'] = isset($data['industries']) ? $data['industries'] : null;
         $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['my_purchased_version'] = isset($data['my_purchased_version']) ? $data['my_purchased_version'] : null;
+        $this->container['original_object_id'] = isset($data['original_object_id']) ? $data['original_object_id'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['price_formatted'] = isset($data['price_formatted']) ? $data['price_formatted'] : null;
         $this->container['published'] = isset($data['published']) ? $data['published'] : null;
@@ -323,6 +355,10 @@ class LibraryItem implements ModelInterface, ArrayAccess
         $this->container['purchased'] = isset($data['purchased']) ? $data['purchased'] : null;
         $this->container['purchased_from_library_item_oid'] = isset($data['purchased_from_library_item_oid']) ? $data['purchased_from_library_item_oid'] : null;
         $this->container['purchased_version'] = isset($data['purchased_version']) ? $data['purchased_version'] : null;
+        $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
+        $this->container['rejected_reason'] = isset($data['rejected_reason']) ? $data['rejected_reason'] : null;
+        $this->container['reviewed'] = isset($data['reviewed']) ? $data['reviewed'] : null;
+        $this->container['reviewed_dts'] = isset($data['reviewed_dts']) ? $data['reviewed_dts'] : null;
         $this->container['screenshots'] = isset($data['screenshots']) ? $data['screenshots'] : null;
         $this->container['share_with_accounts'] = isset($data['share_with_accounts']) ? $data['share_with_accounts'] : null;
         $this->container['share_with_other_emails'] = isset($data['share_with_other_emails']) ? $data['share_with_other_emails'] : null;
@@ -553,6 +589,54 @@ class LibraryItem implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets my_purchased_version
+     *
+     * @return int
+     */
+    public function getMyPurchasedVersion()
+    {
+        return $this->container['my_purchased_version'];
+    }
+
+    /**
+     * Sets my_purchased_version
+     *
+     * @param int $my_purchased_version If this is a public item and the merchant has already purchased it, this is their version.  If not yet purchased, this will be zero.  This value will only be populated during a searchPublicItems() call.
+     *
+     * @return $this
+     */
+    public function setMyPurchasedVersion($my_purchased_version)
+    {
+        $this->container['my_purchased_version'] = $my_purchased_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_object_id
+     *
+     * @return string
+     */
+    public function getOriginalObjectId()
+    {
+        return $this->container['original_object_id'];
+    }
+
+    /**
+     * Sets original_object_id
+     *
+     * @param string $original_object_id This id points to the original object that was added to the library. For flows and campaigns, this is a uuid string.  For upsells, it is an oid integer.  For transactional_emails, it is an email name.
+     *
+     * @return $this
+     */
+    public function setOriginalObjectId($original_object_id)
+    {
+        $this->container['original_object_id'] = $original_object_id;
+
+        return $this;
+    }
+
+    /**
      * Gets price
      *
      * @return float
@@ -740,6 +824,102 @@ class LibraryItem implements ModelInterface, ArrayAccess
     public function setPurchasedVersion($purchased_version)
     {
         $this->container['purchased_version'] = $purchased_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejected
+     *
+     * @return bool
+     */
+    public function getRejected()
+    {
+        return $this->container['rejected'];
+    }
+
+    /**
+     * Sets rejected
+     *
+     * @param bool $rejected Any published library reviewed by UltraCart staff for malicious or inappropriate content will have this flag set to true.  This is always false for non-published items
+     *
+     * @return $this
+     */
+    public function setRejected($rejected)
+    {
+        $this->container['rejected'] = $rejected;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejected_reason
+     *
+     * @return string
+     */
+    public function getRejectedReason()
+    {
+        return $this->container['rejected_reason'];
+    }
+
+    /**
+     * Sets rejected_reason
+     *
+     * @param string $rejected_reason Any rejected published item will have this field populated with the reason.
+     *
+     * @return $this
+     */
+    public function setRejectedReason($rejected_reason)
+    {
+        $this->container['rejected_reason'] = $rejected_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets reviewed
+     *
+     * @return bool
+     */
+    public function getReviewed()
+    {
+        return $this->container['reviewed'];
+    }
+
+    /**
+     * Sets reviewed
+     *
+     * @param bool $reviewed Any published library items must be reviewed by UltraCart staff for malicious content.  This flag shows the status of that review.  This is always false for non-published items
+     *
+     * @return $this
+     */
+    public function setReviewed($reviewed)
+    {
+        $this->container['reviewed'] = $reviewed;
+
+        return $this;
+    }
+
+    /**
+     * Gets reviewed_dts
+     *
+     * @return object
+     */
+    public function getReviewedDts()
+    {
+        return $this->container['reviewed_dts'];
+    }
+
+    /**
+     * Sets reviewed_dts
+     *
+     * @param object $reviewed_dts This is the timestamp for a published items formal review by UltraCart staff for malicious content.
+     *
+     * @return $this
+     */
+    public function setReviewedDts($reviewed_dts)
+    {
+        $this->container['reviewed_dts'] = $reviewed_dts;
 
         return $this;
     }

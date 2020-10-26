@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **esp_domain_uuid** | **string** | UUID of sending domain | [optional] 
 **esp_friendly_name** | **string** | Friendly name of the sending email | [optional] 
 **filter_profile_equation_json** | **string** | File profile equation json | [optional] 
+**library_item_oid** | **int** | If this item was ever added to the Code Library, this is the oid for that library item, or 0 if never added before.  This value is used to determine if a library item should be inserted or updated. | [optional] 
 **merchant_id** | **string** | Merchant ID | [optional] 
 **name** | **string** | Name of email flow | [optional] 
 **open_rate_formatted** | **string** | Open rate of emails, formatted | [optional] 
