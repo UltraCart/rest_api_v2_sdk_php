@@ -947,6 +947,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.36 | 11/03/2020 | Added missing constant for pre-order stage |
 | 3.0.34 | 10/26/2020 | UserAPI initial release |
 | 3.0.33 | 10/23/2020 | Added library_item_oid to StoreFront Communications email object for upcoming code library |
 | 3.0.32 | 10/21/2020 | Added new StoreFrontApi.search method that takes a POST instead of a GET |

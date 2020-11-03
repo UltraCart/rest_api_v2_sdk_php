@@ -333,6 +333,7 @@ class Order implements ModelInterface, ArrayAccess
     const CURRENT_STAGE_QUOTE_SENT = 'Quote Sent';
     const CURRENT_STAGE_LEAST_COST_ROUTING = 'Least Cost Routing';
     const CURRENT_STAGE_UNKNOWN = 'Unknown';
+    const CURRENT_STAGE_PRE_ORDERED = 'Pre-ordered';
     
 
     
@@ -354,6 +355,7 @@ class Order implements ModelInterface, ArrayAccess
             self::CURRENT_STAGE_QUOTE_SENT,
             self::CURRENT_STAGE_LEAST_COST_ROUTING,
             self::CURRENT_STAGE_UNKNOWN,
+            self::CURRENT_STAGE_PRE_ORDERED,
         ];
     }
     

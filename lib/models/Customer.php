@@ -1787,7 +1787,7 @@ class Customer implements ModelInterface, ArrayAccess
     /**
      * Sets suppress_buysafe
      *
-     * @param bool $suppress_buysafe Suppress buySAFE
+     * @param bool $suppress_buysafe Suppress buySAFE (deprecated)
      *
      * @return $this
      */

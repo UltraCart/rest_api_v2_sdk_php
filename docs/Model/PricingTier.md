@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **pricing_tier_oid** | **int** | Pricing Tier Oid | [optional] 
 **realtime_percentage_discount** | **float** | Realtime percentage discount | [optional] 
 **signup_notification** | [**\ultracart\v2\models\PricingTierNotification**](PricingTierNotification.md) |  | [optional] 
-**suppress_buysafe** | **bool** | Suppress buySAFE | [optional] 
+**suppress_buysafe** | **bool** | Suppress buySAFE (deprecated) | [optional] 
 **suppress_mailing_list** | **bool** | Suppress mailing list | [optional] 
 **tax_exempt** | **bool** | Tax Exempt | [optional] 
 **track_separately** | **bool** | Track separately | [optional] 

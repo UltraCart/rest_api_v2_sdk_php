@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 **shipping** | [**\ultracart\v2\models\CustomerShipping[]**](CustomerShipping.md) | Shipping addresses for this customer | [optional] 
 **signup_dts** | **string** | Signup date | [optional] 
 **software_entitlements** | [**\ultracart\v2\models\CustomerSoftwareEntitlement[]**](CustomerSoftwareEntitlement.md) | Software entitlements owned by this customer | [optional] 
-**suppress_buysafe** | **bool** | Suppress buySAFE | [optional] 
+**suppress_buysafe** | **bool** | Suppress buySAFE (deprecated) | [optional] 
 **tags** | [**\ultracart\v2\models\CustomerTag[]**](CustomerTag.md) | Tags for this customer | [optional] 
 **tax_codes** | [**\ultracart\v2\models\CustomerTaxCodes**](CustomerTaxCodes.md) |  | [optional] 
 **tax_exempt** | **bool** | True if the customer is tax exempt | [optional] 

@@ -233,7 +233,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     /**
      * Sets suppress_buysafe
      *
-     * @param bool $suppress_buysafe True to suppress buySAFE
+     * @param bool $suppress_buysafe True to suppress buySAFE (deprecated)
      *
      * @return $this
      */

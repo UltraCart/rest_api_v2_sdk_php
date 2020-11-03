@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **price** | **float** | The price of the published item.  Null for any private library items. | [optional] 
 **price_formatted** | **string** | The formatted price of the published item.  Null for any private library items. | [optional] 
 **published** | **bool** | True if this library item is a published item (not source) | [optional] 
+**published_dts** | **object** | The timestamp of the last published version | [optional] 
 **published_from_library_item_oid** | **int** | The source item used to publish this item.  This allows for comparisons between source and published | [optional] 
 **published_version** | **int** | The source version when this item was published.  This allows for out-of-date alerts to be shown when there is a difference between source and published | [optional] 
 **purchased** | **bool** | True if this library item has been purchased | [optional] 

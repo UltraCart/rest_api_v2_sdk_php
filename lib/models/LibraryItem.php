@@ -70,6 +70,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'price' => 'float',
         'price_formatted' => 'string',
         'published' => 'bool',
+        'published_dts' => 'object',
         'published_from_library_item_oid' => 'int',
         'published_version' => 'int',
         'purchased' => 'bool',
@@ -111,6 +112,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'price' => null,
         'price_formatted' => null,
         'published' => null,
+        'published_dts' => null,
         'published_from_library_item_oid' => 'int32',
         'published_version' => 'int32',
         'purchased' => null,
@@ -173,6 +175,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'price' => 'price',
         'price_formatted' => 'price_formatted',
         'published' => 'published',
+        'published_dts' => 'published_dts',
         'published_from_library_item_oid' => 'published_from_library_item_oid',
         'published_version' => 'published_version',
         'purchased' => 'purchased',
@@ -214,6 +217,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'price' => 'setPrice',
         'price_formatted' => 'setPriceFormatted',
         'published' => 'setPublished',
+        'published_dts' => 'setPublishedDts',
         'published_from_library_item_oid' => 'setPublishedFromLibraryItemOid',
         'published_version' => 'setPublishedVersion',
         'purchased' => 'setPurchased',
@@ -255,6 +259,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'price' => 'getPrice',
         'price_formatted' => 'getPriceFormatted',
         'published' => 'getPublished',
+        'published_dts' => 'getPublishedDts',
         'published_from_library_item_oid' => 'getPublishedFromLibraryItemOid',
         'published_version' => 'getPublishedVersion',
         'purchased' => 'getPurchased',
@@ -350,6 +355,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['price_formatted'] = isset($data['price_formatted']) ? $data['price_formatted'] : null;
         $this->container['published'] = isset($data['published']) ? $data['published'] : null;
+        $this->container['published_dts'] = isset($data['published_dts']) ? $data['published_dts'] : null;
         $this->container['published_from_library_item_oid'] = isset($data['published_from_library_item_oid']) ? $data['published_from_library_item_oid'] : null;
         $this->container['published_version'] = isset($data['published_version']) ? $data['published_version'] : null;
         $this->container['purchased'] = isset($data['purchased']) ? $data['purchased'] : null;
@@ -704,6 +710,30 @@ class LibraryItem implements ModelInterface, ArrayAccess
     public function setPublished($published)
     {
         $this->container['published'] = $published;
+
+        return $this;
+    }
+
+    /**
+     * Gets published_dts
+     *
+     * @return object
+     */
+    public function getPublishedDts()
+    {
+        return $this->container['published_dts'];
+    }
+
+    /**
+     * Sets published_dts
+     *
+     * @param object $published_dts The timestamp of the last published version
+     *
+     * @return $this
+     */
+    public function setPublishedDts($published_dts)
+    {
+        $this->container['published_dts'] = $published_dts;
 
         return $this;
     }
