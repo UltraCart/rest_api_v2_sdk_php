@@ -61,7 +61,11 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'list_count' => 'int',
         'lists' => '\ultracart\v2\models\EmailThirdPartyList[]',
         'logo_url' => 'string',
-        'name' => 'string'
+        'name' => 'string',
+        'supports_add_tags' => 'bool',
+        'supports_list_subscribe' => 'bool',
+        'supports_list_unsubscribe' => 'bool',
+        'supports_remove_tags' => 'bool'
     ];
 
     /**
@@ -74,7 +78,11 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'list_count' => 'int32',
         'lists' => null,
         'logo_url' => null,
-        'name' => null
+        'name' => null,
+        'supports_add_tags' => null,
+        'supports_list_subscribe' => null,
+        'supports_list_unsubscribe' => null,
+        'supports_remove_tags' => null
     ];
 
     /**
@@ -108,7 +116,11 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'list_count' => 'list_count',
         'lists' => 'lists',
         'logo_url' => 'logo_url',
-        'name' => 'name'
+        'name' => 'name',
+        'supports_add_tags' => 'supports_add_tags',
+        'supports_list_subscribe' => 'supports_list_subscribe',
+        'supports_list_unsubscribe' => 'supports_list_unsubscribe',
+        'supports_remove_tags' => 'supports_remove_tags'
     ];
 
     /**
@@ -121,7 +133,11 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'list_count' => 'setListCount',
         'lists' => 'setLists',
         'logo_url' => 'setLogoUrl',
-        'name' => 'setName'
+        'name' => 'setName',
+        'supports_add_tags' => 'setSupportsAddTags',
+        'supports_list_subscribe' => 'setSupportsListSubscribe',
+        'supports_list_unsubscribe' => 'setSupportsListUnsubscribe',
+        'supports_remove_tags' => 'setSupportsRemoveTags'
     ];
 
     /**
@@ -134,7 +150,11 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'list_count' => 'getListCount',
         'lists' => 'getLists',
         'logo_url' => 'getLogoUrl',
-        'name' => 'getName'
+        'name' => 'getName',
+        'supports_add_tags' => 'getSupportsAddTags',
+        'supports_list_subscribe' => 'getSupportsListSubscribe',
+        'supports_list_unsubscribe' => 'getSupportsListUnsubscribe',
+        'supports_remove_tags' => 'getSupportsRemoveTags'
     ];
 
     /**
@@ -202,6 +222,10 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         $this->container['lists'] = isset($data['lists']) ? $data['lists'] : null;
         $this->container['logo_url'] = isset($data['logo_url']) ? $data['logo_url'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['supports_add_tags'] = isset($data['supports_add_tags']) ? $data['supports_add_tags'] : null;
+        $this->container['supports_list_subscribe'] = isset($data['supports_list_subscribe']) ? $data['supports_list_subscribe'] : null;
+        $this->container['supports_list_unsubscribe'] = isset($data['supports_list_unsubscribe']) ? $data['supports_list_unsubscribe'] : null;
+        $this->container['supports_remove_tags'] = isset($data['supports_remove_tags']) ? $data['supports_remove_tags'] : null;
     }
 
     /**
@@ -344,6 +368,102 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets supports_add_tags
+     *
+     * @return bool
+     */
+    public function getSupportsAddTags()
+    {
+        return $this->container['supports_add_tags'];
+    }
+
+    /**
+     * Sets supports_add_tags
+     *
+     * @param bool $supports_add_tags True if this provider can support adding tags
+     *
+     * @return $this
+     */
+    public function setSupportsAddTags($supports_add_tags)
+    {
+        $this->container['supports_add_tags'] = $supports_add_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets supports_list_subscribe
+     *
+     * @return bool
+     */
+    public function getSupportsListSubscribe()
+    {
+        return $this->container['supports_list_subscribe'];
+    }
+
+    /**
+     * Sets supports_list_subscribe
+     *
+     * @param bool $supports_list_subscribe True if this provider can support list subscribe
+     *
+     * @return $this
+     */
+    public function setSupportsListSubscribe($supports_list_subscribe)
+    {
+        $this->container['supports_list_subscribe'] = $supports_list_subscribe;
+
+        return $this;
+    }
+
+    /**
+     * Gets supports_list_unsubscribe
+     *
+     * @return bool
+     */
+    public function getSupportsListUnsubscribe()
+    {
+        return $this->container['supports_list_unsubscribe'];
+    }
+
+    /**
+     * Sets supports_list_unsubscribe
+     *
+     * @param bool $supports_list_unsubscribe True if this provider can support list unsubscribe
+     *
+     * @return $this
+     */
+    public function setSupportsListUnsubscribe($supports_list_unsubscribe)
+    {
+        $this->container['supports_list_unsubscribe'] = $supports_list_unsubscribe;
+
+        return $this;
+    }
+
+    /**
+     * Gets supports_remove_tags
+     *
+     * @return bool
+     */
+    public function getSupportsRemoveTags()
+    {
+        return $this->container['supports_remove_tags'];
+    }
+
+    /**
+     * Sets supports_remove_tags
+     *
+     * @param bool $supports_remove_tags True if this provider can support remove tags
+     *
+     * @return $this
+     */
+    public function setSupportsRemoveTags($supports_remove_tags)
+    {
+        $this->container['supports_remove_tags'] = $supports_remove_tags;
 
         return $this;
     }

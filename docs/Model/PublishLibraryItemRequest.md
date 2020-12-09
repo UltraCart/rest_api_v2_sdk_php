@@ -1,10 +1,9 @@
-# CouponEditorValues
+# PublishLibraryItemRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**coupon_types** | **string[]** | coupon_types | [optional] 
-**coupon_types_for_display** | [**\ultracart\v2\models\CouponType[]**](CouponType.md) | coupon_types_for_display | [optional] 
+**release_notes** | **string** | Release notes for this release version. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

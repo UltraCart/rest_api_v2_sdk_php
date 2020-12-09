@@ -1,6 +1,6 @@
 <?php
 /**
- * UserGroupMembership
+ * CouponDeletesRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * UserGroupMembership Class Doc Comment
+ * CouponDeletesRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserGroupMembership implements ModelInterface, ArrayAccess
+class CouponDeletesRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UserGroupMembership';
+    protected static $swaggerModelName = 'CouponDeletesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,8 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'group_oid' => 'int',
-        'member' => 'bool',
-        'name' => 'string'
+        'coupon_codes' => 'string[]',
+        'coupon_oids' => 'int[]'
     ];
 
     /**
@@ -68,9 +67,8 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'group_oid' => 'int32',
-        'member' => null,
-        'name' => null
+        'coupon_codes' => null,
+        'coupon_oids' => null
     ];
 
     /**
@@ -100,9 +98,8 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_oid' => 'group_oid',
-        'member' => 'member',
-        'name' => 'name'
+        'coupon_codes' => 'coupon_codes',
+        'coupon_oids' => 'coupon_oids'
     ];
 
     /**
@@ -111,9 +108,8 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'group_oid' => 'setGroupOid',
-        'member' => 'setMember',
-        'name' => 'setName'
+        'coupon_codes' => 'setCouponCodes',
+        'coupon_oids' => 'setCouponOids'
     ];
 
     /**
@@ -122,9 +118,8 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'group_oid' => 'getGroupOid',
-        'member' => 'getMember',
-        'name' => 'getName'
+        'coupon_codes' => 'getCouponCodes',
+        'coupon_oids' => 'getCouponOids'
     ];
 
     /**
@@ -187,9 +182,8 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['group_oid'] = isset($data['group_oid']) ? $data['group_oid'] : null;
-        $this->container['member'] = isset($data['member']) ? $data['member'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['coupon_codes'] = isset($data['coupon_codes']) ? $data['coupon_codes'] : null;
+        $this->container['coupon_oids'] = isset($data['coupon_oids']) ? $data['coupon_oids'] : null;
     }
 
     /**
@@ -217,73 +211,49 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets group_oid
+     * Gets coupon_codes
      *
-     * @return int
+     * @return string[]
      */
-    public function getGroupOid()
+    public function getCouponCodes()
     {
-        return $this->container['group_oid'];
+        return $this->container['coupon_codes'];
     }
 
     /**
-     * Sets group_oid
+     * Sets coupon_codes
      *
-     * @param int $group_oid The unique object identifier (oid for short) for this group
+     * @param string[] $coupon_codes Coupon codes
      *
      * @return $this
      */
-    public function setGroupOid($group_oid)
+    public function setCouponCodes($coupon_codes)
     {
-        $this->container['group_oid'] = $group_oid;
+        $this->container['coupon_codes'] = $coupon_codes;
 
         return $this;
     }
 
     /**
-     * Gets member
+     * Gets coupon_oids
      *
-     * @return bool
+     * @return int[]
      */
-    public function getMember()
+    public function getCouponOids()
     {
-        return $this->container['member'];
+        return $this->container['coupon_oids'];
     }
 
     /**
-     * Sets member
+     * Sets coupon_oids
      *
-     * @param bool $member True if this user is a member of the group.
+     * @param int[] $coupon_oids Coupon oids
      *
      * @return $this
      */
-    public function setMember($member)
+    public function setCouponOids($coupon_oids)
     {
-        $this->container['member'] = $member;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name The name of this group.
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
+        $this->container['coupon_oids'] = $coupon_oids;
 
         return $this;
     }

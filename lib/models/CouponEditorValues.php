@@ -57,7 +57,8 @@ class CouponEditorValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'coupon_types' => 'string[]'
+        'coupon_types' => 'string[]',
+        'coupon_types_for_display' => '\ultracart\v2\models\CouponType[]'
     ];
 
     /**
@@ -66,7 +67,8 @@ class CouponEditorValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'coupon_types' => null
+        'coupon_types' => null,
+        'coupon_types_for_display' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class CouponEditorValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'coupon_types' => 'coupon_types'
+        'coupon_types' => 'coupon_types',
+        'coupon_types_for_display' => 'coupon_types_for_display'
     ];
 
     /**
@@ -105,7 +108,8 @@ class CouponEditorValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'coupon_types' => 'setCouponTypes'
+        'coupon_types' => 'setCouponTypes',
+        'coupon_types_for_display' => 'setCouponTypesForDisplay'
     ];
 
     /**
@@ -114,7 +118,8 @@ class CouponEditorValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'coupon_types' => 'getCouponTypes'
+        'coupon_types' => 'getCouponTypes',
+        'coupon_types_for_display' => 'getCouponTypesForDisplay'
     ];
 
     /**
@@ -178,6 +183,7 @@ class CouponEditorValues implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['coupon_types'] = isset($data['coupon_types']) ? $data['coupon_types'] : null;
+        $this->container['coupon_types_for_display'] = isset($data['coupon_types_for_display']) ? $data['coupon_types_for_display'] : null;
     }
 
     /**
@@ -224,6 +230,30 @@ class CouponEditorValues implements ModelInterface, ArrayAccess
     public function setCouponTypes($coupon_types)
     {
         $this->container['coupon_types'] = $coupon_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets coupon_types_for_display
+     *
+     * @return \ultracart\v2\models\CouponType[]
+     */
+    public function getCouponTypesForDisplay()
+    {
+        return $this->container['coupon_types_for_display'];
+    }
+
+    /**
+     * Sets coupon_types_for_display
+     *
+     * @param \ultracart\v2\models\CouponType[] $coupon_types_for_display coupon_types_for_display
+     *
+     * @return $this
+     */
+    public function setCouponTypesForDisplay($coupon_types_for_display)
+    {
+        $this->container['coupon_types_for_display'] = $coupon_types_for_display;
 
         return $this;
     }

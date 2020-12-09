@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerTaxCodes
+ * LibraryItemPublishedMeta
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomerTaxCodes Class Doc Comment
+ * LibraryItemPublishedMeta Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerTaxCodes implements ModelInterface, ArrayAccess
+class LibraryItemPublishedMeta implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CustomerTaxCodes implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomerTaxCodes';
+    protected static $swaggerModelName = 'LibraryItemPublishedMeta';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,13 @@ class CustomerTaxCodes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'avalara_customer_code' => 'string',
-        'avalara_entity_use_code' => 'string',
-        'sovos_customer_code' => 'string',
-        'taxjar_customer_id' => 'string',
-        'taxjar_exemption_type' => 'string'
+        'count_of_versions' => 'int',
+        'library_item_published_oid' => 'int',
+        'library_item_review_oid' => 'int',
+        'rejected' => 'bool',
+        'rejected_reason' => 'string',
+        'release_version' => 'int',
+        'under_review' => 'bool'
     ];
 
     /**
@@ -70,11 +72,13 @@ class CustomerTaxCodes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'avalara_customer_code' => null,
-        'avalara_entity_use_code' => null,
-        'sovos_customer_code' => null,
-        'taxjar_customer_id' => null,
-        'taxjar_exemption_type' => null
+        'count_of_versions' => 'int32',
+        'library_item_published_oid' => 'int32',
+        'library_item_review_oid' => 'int32',
+        'rejected' => null,
+        'rejected_reason' => null,
+        'release_version' => 'int32',
+        'under_review' => null
     ];
 
     /**
@@ -104,11 +108,13 @@ class CustomerTaxCodes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'avalara_customer_code' => 'avalara_customer_code',
-        'avalara_entity_use_code' => 'avalara_entity_use_code',
-        'sovos_customer_code' => 'sovos_customer_code',
-        'taxjar_customer_id' => 'taxjar_customer_id',
-        'taxjar_exemption_type' => 'taxjar_exemption_type'
+        'count_of_versions' => 'count_of_versions',
+        'library_item_published_oid' => 'library_item_published_oid',
+        'library_item_review_oid' => 'library_item_review_oid',
+        'rejected' => 'rejected',
+        'rejected_reason' => 'rejected_reason',
+        'release_version' => 'release_version',
+        'under_review' => 'under_review'
     ];
 
     /**
@@ -117,11 +123,13 @@ class CustomerTaxCodes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'avalara_customer_code' => 'setAvalaraCustomerCode',
-        'avalara_entity_use_code' => 'setAvalaraEntityUseCode',
-        'sovos_customer_code' => 'setSovosCustomerCode',
-        'taxjar_customer_id' => 'setTaxjarCustomerId',
-        'taxjar_exemption_type' => 'setTaxjarExemptionType'
+        'count_of_versions' => 'setCountOfVersions',
+        'library_item_published_oid' => 'setLibraryItemPublishedOid',
+        'library_item_review_oid' => 'setLibraryItemReviewOid',
+        'rejected' => 'setRejected',
+        'rejected_reason' => 'setRejectedReason',
+        'release_version' => 'setReleaseVersion',
+        'under_review' => 'setUnderReview'
     ];
 
     /**
@@ -130,11 +138,13 @@ class CustomerTaxCodes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'avalara_customer_code' => 'getAvalaraCustomerCode',
-        'avalara_entity_use_code' => 'getAvalaraEntityUseCode',
-        'sovos_customer_code' => 'getSovosCustomerCode',
-        'taxjar_customer_id' => 'getTaxjarCustomerId',
-        'taxjar_exemption_type' => 'getTaxjarExemptionType'
+        'count_of_versions' => 'getCountOfVersions',
+        'library_item_published_oid' => 'getLibraryItemPublishedOid',
+        'library_item_review_oid' => 'getLibraryItemReviewOid',
+        'rejected' => 'getRejected',
+        'rejected_reason' => 'getRejectedReason',
+        'release_version' => 'getReleaseVersion',
+        'under_review' => 'getUnderReview'
     ];
 
     /**
@@ -197,11 +207,13 @@ class CustomerTaxCodes implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['avalara_customer_code'] = isset($data['avalara_customer_code']) ? $data['avalara_customer_code'] : null;
-        $this->container['avalara_entity_use_code'] = isset($data['avalara_entity_use_code']) ? $data['avalara_entity_use_code'] : null;
-        $this->container['sovos_customer_code'] = isset($data['sovos_customer_code']) ? $data['sovos_customer_code'] : null;
-        $this->container['taxjar_customer_id'] = isset($data['taxjar_customer_id']) ? $data['taxjar_customer_id'] : null;
-        $this->container['taxjar_exemption_type'] = isset($data['taxjar_exemption_type']) ? $data['taxjar_exemption_type'] : null;
+        $this->container['count_of_versions'] = isset($data['count_of_versions']) ? $data['count_of_versions'] : null;
+        $this->container['library_item_published_oid'] = isset($data['library_item_published_oid']) ? $data['library_item_published_oid'] : null;
+        $this->container['library_item_review_oid'] = isset($data['library_item_review_oid']) ? $data['library_item_review_oid'] : null;
+        $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
+        $this->container['rejected_reason'] = isset($data['rejected_reason']) ? $data['rejected_reason'] : null;
+        $this->container['release_version'] = isset($data['release_version']) ? $data['release_version'] : null;
+        $this->container['under_review'] = isset($data['under_review']) ? $data['under_review'] : null;
     }
 
     /**
@@ -229,121 +241,169 @@ class CustomerTaxCodes implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets avalara_customer_code
+     * Gets count_of_versions
      *
-     * @return string
+     * @return int
      */
-    public function getAvalaraCustomerCode()
+    public function getCountOfVersions()
     {
-        return $this->container['avalara_customer_code'];
+        return $this->container['count_of_versions'];
     }
 
     /**
-     * Sets avalara_customer_code
+     * Sets count_of_versions
      *
-     * @param string $avalara_customer_code Avalara customer code
+     * @param int $count_of_versions The number of published versions a source item has, or zero if this item is not a source or is private
      *
      * @return $this
      */
-    public function setAvalaraCustomerCode($avalara_customer_code)
+    public function setCountOfVersions($count_of_versions)
     {
-        $this->container['avalara_customer_code'] = $avalara_customer_code;
+        $this->container['count_of_versions'] = $count_of_versions;
 
         return $this;
     }
 
     /**
-     * Gets avalara_entity_use_code
+     * Gets library_item_published_oid
      *
-     * @return string
+     * @return int
      */
-    public function getAvalaraEntityUseCode()
+    public function getLibraryItemPublishedOid()
     {
-        return $this->container['avalara_entity_use_code'];
+        return $this->container['library_item_published_oid'];
     }
 
     /**
-     * Sets avalara_entity_use_code
+     * Sets library_item_published_oid
      *
-     * @param string $avalara_entity_use_code Avalara entity use code
+     * @param int $library_item_published_oid The oid pointing to the most recent published version, or zero if this is not a published source item.
      *
      * @return $this
      */
-    public function setAvalaraEntityUseCode($avalara_entity_use_code)
+    public function setLibraryItemPublishedOid($library_item_published_oid)
     {
-        $this->container['avalara_entity_use_code'] = $avalara_entity_use_code;
+        $this->container['library_item_published_oid'] = $library_item_published_oid;
 
         return $this;
     }
 
     /**
-     * Gets sovos_customer_code
+     * Gets library_item_review_oid
      *
-     * @return string
+     * @return int
      */
-    public function getSovosCustomerCode()
+    public function getLibraryItemReviewOid()
     {
-        return $this->container['sovos_customer_code'];
+        return $this->container['library_item_review_oid'];
     }
 
     /**
-     * Sets sovos_customer_code
+     * Sets library_item_review_oid
      *
-     * @param string $sovos_customer_code Sovos customer code
+     * @param int $library_item_review_oid The oid pointing to the review data if this is a source library item and currently under review
      *
      * @return $this
      */
-    public function setSovosCustomerCode($sovos_customer_code)
+    public function setLibraryItemReviewOid($library_item_review_oid)
     {
-        $this->container['sovos_customer_code'] = $sovos_customer_code;
+        $this->container['library_item_review_oid'] = $library_item_review_oid;
 
         return $this;
     }
 
     /**
-     * Gets taxjar_customer_id
+     * Gets rejected
      *
-     * @return string
+     * @return bool
      */
-    public function getTaxjarCustomerId()
+    public function getRejected()
     {
-        return $this->container['taxjar_customer_id'];
+        return $this->container['rejected'];
     }
 
     /**
-     * Sets taxjar_customer_id
+     * Sets rejected
      *
-     * @param string $taxjar_customer_id TaxJar customer id
+     * @param bool $rejected True if this is a source item and is under review and was rejected.
      *
      * @return $this
      */
-    public function setTaxjarCustomerId($taxjar_customer_id)
+    public function setRejected($rejected)
     {
-        $this->container['taxjar_customer_id'] = $taxjar_customer_id;
+        $this->container['rejected'] = $rejected;
 
         return $this;
     }
 
     /**
-     * Gets taxjar_exemption_type
+     * Gets rejected_reason
      *
      * @return string
      */
-    public function getTaxjarExemptionType()
+    public function getRejectedReason()
     {
-        return $this->container['taxjar_exemption_type'];
+        return $this->container['rejected_reason'];
     }
 
     /**
-     * Sets taxjar_exemption_type
+     * Sets rejected_reason
      *
-     * @param string $taxjar_exemption_type TaxJar exemption type
+     * @param string $rejected_reason The reason for rejection if this item is a source item, is under review, and was rejected.  For all other cases, this value will be null or missing.
      *
      * @return $this
      */
-    public function setTaxjarExemptionType($taxjar_exemption_type)
+    public function setRejectedReason($rejected_reason)
     {
-        $this->container['taxjar_exemption_type'] = $taxjar_exemption_type;
+        $this->container['rejected_reason'] = $rejected_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets release_version
+     *
+     * @return int
+     */
+    public function getReleaseVersion()
+    {
+        return $this->container['release_version'];
+    }
+
+    /**
+     * Sets release_version
+     *
+     * @param int $release_version If this library item is a source item and it is published, this is the most recent release version number
+     *
+     * @return $this
+     */
+    public function setReleaseVersion($release_version)
+    {
+        $this->container['release_version'] = $release_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets under_review
+     *
+     * @return bool
+     */
+    public function getUnderReview()
+    {
+        return $this->container['under_review'];
+    }
+
+    /**
+     * Sets under_review
+     *
+     * @param bool $under_review True if this library item is a source item and is currently under review
+     *
+     * @return $this
+     */
+    public function setUnderReview($under_review)
+    {
+        $this->container['under_review'] = $under_review;
 
         return $this;
     }

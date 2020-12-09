@@ -1,6 +1,6 @@
 <?php
 /**
- * UserGroupMembership
+ * CouponType
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * UserGroupMembership Class Doc Comment
+ * CouponType Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserGroupMembership implements ModelInterface, ArrayAccess
+class CouponType implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UserGroupMembership';
+    protected static $swaggerModelName = 'CouponType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'group_oid' => 'int',
-        'member' => 'bool',
+        'localized' => 'string',
         'name' => 'string'
     ];
 
@@ -68,8 +67,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'group_oid' => 'int32',
-        'member' => null,
+        'localized' => null,
         'name' => null
     ];
 
@@ -100,8 +98,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_oid' => 'group_oid',
-        'member' => 'member',
+        'localized' => 'localized',
         'name' => 'name'
     ];
 
@@ -111,8 +108,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'group_oid' => 'setGroupOid',
-        'member' => 'setMember',
+        'localized' => 'setLocalized',
         'name' => 'setName'
     ];
 
@@ -122,8 +118,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'group_oid' => 'getGroupOid',
-        'member' => 'getMember',
+        'localized' => 'getLocalized',
         'name' => 'getName'
     ];
 
@@ -187,8 +182,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['group_oid'] = isset($data['group_oid']) ? $data['group_oid'] : null;
-        $this->container['member'] = isset($data['member']) ? $data['member'] : null;
+        $this->container['localized'] = isset($data['localized']) ? $data['localized'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
@@ -217,49 +211,25 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets group_oid
+     * Gets localized
      *
-     * @return int
+     * @return string
      */
-    public function getGroupOid()
+    public function getLocalized()
     {
-        return $this->container['group_oid'];
+        return $this->container['localized'];
     }
 
     /**
-     * Sets group_oid
+     * Sets localized
      *
-     * @param int $group_oid The unique object identifier (oid for short) for this group
+     * @param string $localized A friendly display of the coupon type suitable for human reading
      *
      * @return $this
      */
-    public function setGroupOid($group_oid)
+    public function setLocalized($localized)
     {
-        $this->container['group_oid'] = $group_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets member
-     *
-     * @return bool
-     */
-    public function getMember()
-    {
-        return $this->container['member'];
-    }
-
-    /**
-     * Sets member
-     *
-     * @param bool $member True if this user is a member of the group.
-     *
-     * @return $this
-     */
-    public function setMember($member)
-    {
-        $this->container['member'] = $member;
+        $this->container['localized'] = $localized;
 
         return $this;
     }
@@ -277,7 +247,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name of this group.
+     * @param string $name The name of the coupon type
      *
      * @return $this
      */

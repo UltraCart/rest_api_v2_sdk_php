@@ -164,6 +164,8 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**updateCart**](docs/Api/CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
+*CouponApi* | [**deleteCouponsByCode**](docs/Api/CouponApi.md#deletecouponsbycode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
+*CouponApi* | [**deleteCouponsByOid**](docs/Api/CouponApi.md#deletecouponsbyoid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
 *CouponApi* | [**generateCouponCodes**](docs/Api/CouponApi.md#generatecouponcodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
 *CouponApi* | [**generateOneTimeCodesByMerchantCode**](docs/Api/CouponApi.md#generateonetimecodesbymerchantcode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes by merchant code
 *CouponApi* | [**getCoupon**](docs/Api/CouponApi.md#getcoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
@@ -173,6 +175,7 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**getEditorValues**](docs/Api/CouponApi.md#geteditorvalues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
 *CouponApi* | [**insertCoupon**](docs/Api/CouponApi.md#insertcoupon) | **POST** /coupon/coupons | Insert a coupon
 *CouponApi* | [**updateCoupon**](docs/Api/CouponApi.md#updatecoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
+*CouponApi* | [**uploadCouponCodes**](docs/Api/CouponApi.md#uploadcouponcodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
 *CustomerApi* | [**deleteCustomer**](docs/Api/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/Api/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomers**](docs/Api/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
@@ -235,6 +238,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/Api/StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
 *StorefrontApi* | [**deleteLibraryItem**](docs/Api/StorefrontApi.md#deletelibraryitem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
+*StorefrontApi* | [**deleteLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#deletelibraryitempublishedversions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
 *StorefrontApi* | [**duplicateLibraryItem**](docs/Api/StorefrontApi.md#duplicatelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 *StorefrontApi* | [**geocodeAddress**](docs/Api/StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
 *StorefrontApi* | [**getCountries**](docs/Api/StorefrontApi.md#getcountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
@@ -290,6 +294,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getHistogramPropertyValues**](docs/Api/StorefrontApi.md#gethistogrampropertyvalues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
 *StorefrontApi* | [**getLibraryFilterValues**](docs/Api/StorefrontApi.md#getlibraryfiltervalues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
 *StorefrontApi* | [**getLibraryItem**](docs/Api/StorefrontApi.md#getlibraryitem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
+*StorefrontApi* | [**getLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#getlibraryitempublishedversions) | **GET** /storefront/code_library/{library_item_oid}/published_versions | Get all published versions for a library item.
 *StorefrontApi* | [**getThumbnailParameters**](docs/Api/StorefrontApi.md#getthumbnailparameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 *StorefrontApi* | [**getTransactionEmail**](docs/Api/StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -498,6 +503,7 @@ Class | Method | HTTP request | Description
  - [CouponAutomaticallyApplyCouponCodes](docs/Model/CouponAutomaticallyApplyCouponCodes.md)
  - [CouponCodesRequest](docs/Model/CouponCodesRequest.md)
  - [CouponCodesResponse](docs/Model/CouponCodesResponse.md)
+ - [CouponDeletesRequest](docs/Model/CouponDeletesRequest.md)
  - [CouponDiscountItemWithItemPurchase](docs/Model/CouponDiscountItemWithItemPurchase.md)
  - [CouponDiscountItems](docs/Model/CouponDiscountItems.md)
  - [CouponEditorValues](docs/Model/CouponEditorValues.md)
@@ -536,6 +542,7 @@ Class | Method | HTTP request | Description
  - [CouponTieredPercentOffItems](docs/Model/CouponTieredPercentOffItems.md)
  - [CouponTieredPercentOffShipping](docs/Model/CouponTieredPercentOffShipping.md)
  - [CouponTieredPercentOffSubtotal](docs/Model/CouponTieredPercentOffSubtotal.md)
+ - [CouponType](docs/Model/CouponType.md)
  - [CouponsResponse](docs/Model/CouponsResponse.md)
  - [Currency](docs/Model/Currency.md)
  - [Customer](docs/Model/Customer.md)
@@ -751,6 +758,7 @@ Class | Method | HTTP request | Description
  - [LibraryItemAccount](docs/Model/LibraryItemAccount.md)
  - [LibraryItemAsset](docs/Model/LibraryItemAsset.md)
  - [LibraryItemEmail](docs/Model/LibraryItemEmail.md)
+ - [LibraryItemPublishedMeta](docs/Model/LibraryItemPublishedMeta.md)
  - [LibraryItemQuery](docs/Model/LibraryItemQuery.md)
  - [LibraryItemResponse](docs/Model/LibraryItemResponse.md)
  - [LibraryItemScreenshot](docs/Model/LibraryItemScreenshot.md)
@@ -823,6 +831,7 @@ Class | Method | HTTP request | Description
  - [PricingTierNotification](docs/Model/PricingTierNotification.md)
  - [PricingTiersResponse](docs/Model/PricingTiersResponse.md)
  - [Property](docs/Model/Property.md)
+ - [PublishLibraryItemRequest](docs/Model/PublishLibraryItemRequest.md)
  - [RegisterAffiliateClickRequest](docs/Model/RegisterAffiliateClickRequest.md)
  - [RegisterAffiliateClickResponse](docs/Model/RegisterAffiliateClickResponse.md)
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
@@ -862,6 +871,8 @@ Class | Method | HTTP request | Description
  - [TransactionEmailOption](docs/Model/TransactionEmailOption.md)
  - [TransactionEmailResponse](docs/Model/TransactionEmailResponse.md)
  - [UltraCartConfig](docs/Model/UltraCartConfig.md)
+ - [UploadCouponCodesRequest](docs/Model/UploadCouponCodesRequest.md)
+ - [UploadCouponCodesResponse](docs/Model/UploadCouponCodesResponse.md)
  - [User](docs/Model/User.md)
  - [UserGroupMembership](docs/Model/UserGroupMembership.md)
  - [UserLogin](docs/Model/UserLogin.md)
@@ -948,6 +959,14 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.51 | 12/09/2020 | UserAPI: internal bug preventing proper usage of user group creation |
+| 3.0.45 | 12/03/2020 | CouponAPI: added partial searches to getCoupon params, added deleteCoupons method, fixed bugs |
+| 3.0.44 | 12/03/2020 | Code library updates, intended for internal use |
+| 3.0.43 | 12/02/2020 | Added fields to code library to handle versions of published items |
+| 3.0.42 | 12/02/2020 | Added display values to CouponApi.getEditorValues to make type dropdowns easy |
+| 3.0.41 | 11/17/2020 | New modify cart step option for StoreFront communications |
+| 3.0.39 | 11/12/2020 | Added Customer.tax_codes.taxjar_exemption_type |
+| 3.0.38 | 11/09/2020 | Added TaxProviderTaxJar.configuration.send_outside_nexus flag |
 | 3.0.37 | 11/06/2020 | Added transactional email screenshots for code library |
 | 3.0.36 | 11/03/2020 | Added missing constant for pre-order stage |
 | 3.0.34 | 10/26/2020 | UserAPI initial release |

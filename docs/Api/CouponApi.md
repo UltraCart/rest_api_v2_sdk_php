@@ -5,6 +5,8 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteCoupon**](CouponApi.md#deleteCoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
+[**deleteCouponsByCode**](CouponApi.md#deleteCouponsByCode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
+[**deleteCouponsByOid**](CouponApi.md#deleteCouponsByOid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
 [**generateCouponCodes**](CouponApi.md#generateCouponCodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
 [**generateOneTimeCodesByMerchantCode**](CouponApi.md#generateOneTimeCodesByMerchantCode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes by merchant code
 [**getCoupon**](CouponApi.md#getCoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
@@ -14,10 +16,11 @@ Method | HTTP request | Description
 [**getEditorValues**](CouponApi.md#getEditorValues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
 [**insertCoupon**](CouponApi.md#insertCoupon) | **POST** /coupon/coupons | Insert a coupon
 [**updateCoupon**](CouponApi.md#updateCoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
+[**uploadCouponCodes**](CouponApi.md#uploadCouponCodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
 
 
 # **deleteCoupon**
-> \ultracart\v2\models\CouponResponse deleteCoupon($coupon_oid)
+> deleteCoupon($coupon_oid)
 
 Delete a coupon
 
@@ -48,8 +51,7 @@ $api_instance = new ultracart\v2\api\CouponApi(
 $coupon_oid = 56; // int | The coupon_oid to delete.
 
 try {
-    $result = $apiInstance->deleteCoupon($coupon_oid);
-    print_r($result);
+    $apiInstance->deleteCoupon($coupon_oid);
 } catch (Exception $e) {
     echo 'Exception when calling CouponApi->deleteCoupon: ', $e->getMessage(), PHP_EOL;
 }
@@ -64,7 +66,127 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CouponResponse**](../Model/CouponResponse.md)
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deleteCouponsByCode**
+> deleteCouponsByCode($coupon_delete_request)
+
+Deletes multiple coupons
+
+Delete coupons on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracart\v2\api\CouponApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$coupon_delete_request = new \ultracart\v2\models\CouponDeletesRequest(); // \ultracart\v2\models\CouponDeletesRequest | Coupon oids to delete
+
+try {
+    $apiInstance->deleteCouponsByCode($coupon_delete_request);
+} catch (Exception $e) {
+    echo 'Exception when calling CouponApi->deleteCouponsByCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coupon_delete_request** | [**\ultracart\v2\models\CouponDeletesRequest**](../Model/CouponDeletesRequest.md)| Coupon oids to delete |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deleteCouponsByOid**
+> deleteCouponsByOid($coupon_delete_request)
+
+Deletes multiple coupons
+
+Delete coupons on the UltraCart account.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracart\v2\api\CouponApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$coupon_delete_request = new \ultracart\v2\models\CouponDeletesRequest(); // \ultracart\v2\models\CouponDeletesRequest | Coupon oids to delete
+
+try {
+    $apiInstance->deleteCouponsByOid($coupon_delete_request);
+} catch (Exception $e) {
+    echo 'Exception when calling CouponApi->deleteCouponsByOid: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coupon_delete_request** | [**\ultracart\v2\models\CouponDeletesRequest**](../Model/CouponDeletesRequest.md)| Coupon oids to delete |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -656,6 +778,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\CouponResponse**](../Model/CouponResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **uploadCouponCodes**
+> \ultracart\v2\models\UploadCouponCodesResponse uploadCouponCodes($coupon_oid, $upload_coupon_codes_request)
+
+Upload one-time codes for a coupon
+
+Upload one-time codes for a coupon
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+$api_instance = new ultracart\v2\api\CouponApi(new \Http\Adapter\Guzzle6\Client());
+
+Alternative method:
+$api_instance = new ultracart\v2\api\CouponApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$coupon_oid = 56; // int | The coupon oid to associate with the provided one-time codes.
+$upload_coupon_codes_request = new \ultracart\v2\models\UploadCouponCodesRequest(); // \ultracart\v2\models\UploadCouponCodesRequest | One-time coupon codes
+
+try {
+    $result = $apiInstance->uploadCouponCodes($coupon_oid, $upload_coupon_codes_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CouponApi->uploadCouponCodes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coupon_oid** | **int**| The coupon oid to associate with the provided one-time codes. |
+ **upload_coupon_codes_request** | [**\ultracart\v2\models\UploadCouponCodesRequest**](../Model/UploadCouponCodesRequest.md)| One-time coupon codes |
+
+### Return type
+
+[**\ultracart\v2\models\UploadCouponCodesResponse**](../Model/UploadCouponCodesResponse.md)
 
 ### Authorization
 

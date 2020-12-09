@@ -60,6 +60,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'active' => 'bool',
         'api_key' => 'string',
         'estimate_only' => 'bool',
+        'send_outside_nexus' => 'bool',
         'send_test_orders' => 'bool',
         'use_distribution_center_from' => 'bool'
     ];
@@ -73,6 +74,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'active' => null,
         'api_key' => null,
         'estimate_only' => null,
+        'send_outside_nexus' => null,
         'send_test_orders' => null,
         'use_distribution_center_from' => null
     ];
@@ -107,6 +109,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'active' => 'active',
         'api_key' => 'api_key',
         'estimate_only' => 'estimate_only',
+        'send_outside_nexus' => 'send_outside_nexus',
         'send_test_orders' => 'send_test_orders',
         'use_distribution_center_from' => 'use_distribution_center_from'
     ];
@@ -120,6 +123,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'active' => 'setActive',
         'api_key' => 'setApiKey',
         'estimate_only' => 'setEstimateOnly',
+        'send_outside_nexus' => 'setSendOutsideNexus',
         'send_test_orders' => 'setSendTestOrders',
         'use_distribution_center_from' => 'setUseDistributionCenterFrom'
     ];
@@ -133,6 +137,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'active' => 'getActive',
         'api_key' => 'getApiKey',
         'estimate_only' => 'getEstimateOnly',
+        'send_outside_nexus' => 'getSendOutsideNexus',
         'send_test_orders' => 'getSendTestOrders',
         'use_distribution_center_from' => 'getUseDistributionCenterFrom'
     ];
@@ -200,6 +205,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;
         $this->container['estimate_only'] = isset($data['estimate_only']) ? $data['estimate_only'] : null;
+        $this->container['send_outside_nexus'] = isset($data['send_outside_nexus']) ? $data['send_outside_nexus'] : null;
         $this->container['send_test_orders'] = isset($data['send_test_orders']) ? $data['send_test_orders'] : null;
         $this->container['use_distribution_center_from'] = isset($data['use_distribution_center_from']) ? $data['use_distribution_center_from'] : null;
     }
@@ -296,6 +302,30 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     public function setEstimateOnly($estimate_only)
     {
         $this->container['estimate_only'] = $estimate_only;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_outside_nexus
+     *
+     * @return bool
+     */
+    public function getSendOutsideNexus()
+    {
+        return $this->container['send_outside_nexus'];
+    }
+
+    /**
+     * Sets send_outside_nexus
+     *
+     * @param bool $send_outside_nexus Send orders outside your nexus TaxJar.  The default is to not transmit outside orders to TaxJar to reduce API calls.  However, this will prevent TaxJar from dynamically creating new Nexus when thresholds are exceeded for a state.
+     *
+     * @return $this
+     */
+    public function setSendOutsideNexus($send_outside_nexus)
+    {
+        $this->container['send_outside_nexus'] = $send_outside_nexus;
 
         return $this;
     }

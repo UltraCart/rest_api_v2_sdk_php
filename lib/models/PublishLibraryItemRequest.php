@@ -1,6 +1,6 @@
 <?php
 /**
- * UserGroupMembership
+ * PublishLibraryItemRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * UserGroupMembership Class Doc Comment
+ * PublishLibraryItemRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserGroupMembership implements ModelInterface, ArrayAccess
+class PublishLibraryItemRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UserGroupMembership';
+    protected static $swaggerModelName = 'PublishLibraryItemRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'group_oid' => 'int',
-        'member' => 'bool',
-        'name' => 'string'
+        'release_notes' => 'string'
     ];
 
     /**
@@ -68,9 +66,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'group_oid' => 'int32',
-        'member' => null,
-        'name' => null
+        'release_notes' => null
     ];
 
     /**
@@ -100,9 +96,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_oid' => 'group_oid',
-        'member' => 'member',
-        'name' => 'name'
+        'release_notes' => 'release_notes'
     ];
 
     /**
@@ -111,9 +105,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'group_oid' => 'setGroupOid',
-        'member' => 'setMember',
-        'name' => 'setName'
+        'release_notes' => 'setReleaseNotes'
     ];
 
     /**
@@ -122,9 +114,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'group_oid' => 'getGroupOid',
-        'member' => 'getMember',
-        'name' => 'getName'
+        'release_notes' => 'getReleaseNotes'
     ];
 
     /**
@@ -187,9 +177,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['group_oid'] = isset($data['group_oid']) ? $data['group_oid'] : null;
-        $this->container['member'] = isset($data['member']) ? $data['member'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['release_notes'] = isset($data['release_notes']) ? $data['release_notes'] : null;
     }
 
     /**
@@ -217,73 +205,25 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets group_oid
-     *
-     * @return int
-     */
-    public function getGroupOid()
-    {
-        return $this->container['group_oid'];
-    }
-
-    /**
-     * Sets group_oid
-     *
-     * @param int $group_oid The unique object identifier (oid for short) for this group
-     *
-     * @return $this
-     */
-    public function setGroupOid($group_oid)
-    {
-        $this->container['group_oid'] = $group_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets member
-     *
-     * @return bool
-     */
-    public function getMember()
-    {
-        return $this->container['member'];
-    }
-
-    /**
-     * Sets member
-     *
-     * @param bool $member True if this user is a member of the group.
-     *
-     * @return $this
-     */
-    public function setMember($member)
-    {
-        $this->container['member'] = $member;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
+     * Gets release_notes
      *
      * @return string
      */
-    public function getName()
+    public function getReleaseNotes()
     {
-        return $this->container['name'];
+        return $this->container['release_notes'];
     }
 
     /**
-     * Sets name
+     * Sets release_notes
      *
-     * @param string $name The name of this group.
+     * @param string $release_notes Release notes for this release version.
      *
      * @return $this
      */
-    public function setName($name)
+    public function setReleaseNotes($release_notes)
     {
-        $this->container['name'] = $name;
+        $this->container['release_notes'] = $release_notes;
 
         return $this;
     }

@@ -72,12 +72,15 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published' => 'bool',
         'published_dts' => 'object',
         'published_from_library_item_oid' => 'int',
+        'published_meta' => '\ultracart\v2\models\LibraryItemPublishedMeta',
         'published_version' => 'int',
         'purchased' => 'bool',
         'purchased_from_library_item_oid' => 'int',
         'purchased_version' => 'int',
         'rejected' => 'bool',
         'rejected_reason' => 'string',
+        'release_notes' => 'string',
+        'release_version' => 'int',
         'reviewed' => 'bool',
         'reviewed_dts' => 'object',
         'screenshots' => '\ultracart\v2\models\LibraryItemScreenshot[]',
@@ -90,7 +93,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'style' => 'string',
         'times_purchased' => 'int',
         'title' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'under_review' => 'bool'
     ];
 
     /**
@@ -114,12 +118,15 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published' => null,
         'published_dts' => null,
         'published_from_library_item_oid' => 'int32',
+        'published_meta' => null,
         'published_version' => 'int32',
         'purchased' => null,
         'purchased_from_library_item_oid' => 'int32',
         'purchased_version' => 'int32',
         'rejected' => null,
         'rejected_reason' => null,
+        'release_notes' => null,
+        'release_version' => 'int32',
         'reviewed' => null,
         'reviewed_dts' => null,
         'screenshots' => null,
@@ -132,7 +139,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'style' => null,
         'times_purchased' => 'int32',
         'title' => null,
-        'type' => null
+        'type' => null,
+        'under_review' => null
     ];
 
     /**
@@ -177,12 +185,15 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published' => 'published',
         'published_dts' => 'published_dts',
         'published_from_library_item_oid' => 'published_from_library_item_oid',
+        'published_meta' => 'published_meta',
         'published_version' => 'published_version',
         'purchased' => 'purchased',
         'purchased_from_library_item_oid' => 'purchased_from_library_item_oid',
         'purchased_version' => 'purchased_version',
         'rejected' => 'rejected',
         'rejected_reason' => 'rejected_reason',
+        'release_notes' => 'release_notes',
+        'release_version' => 'release_version',
         'reviewed' => 'reviewed',
         'reviewed_dts' => 'reviewed_dts',
         'screenshots' => 'screenshots',
@@ -195,7 +206,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'style' => 'style',
         'times_purchased' => 'times_purchased',
         'title' => 'title',
-        'type' => 'type'
+        'type' => 'type',
+        'under_review' => 'under_review'
     ];
 
     /**
@@ -219,12 +231,15 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published' => 'setPublished',
         'published_dts' => 'setPublishedDts',
         'published_from_library_item_oid' => 'setPublishedFromLibraryItemOid',
+        'published_meta' => 'setPublishedMeta',
         'published_version' => 'setPublishedVersion',
         'purchased' => 'setPurchased',
         'purchased_from_library_item_oid' => 'setPurchasedFromLibraryItemOid',
         'purchased_version' => 'setPurchasedVersion',
         'rejected' => 'setRejected',
         'rejected_reason' => 'setRejectedReason',
+        'release_notes' => 'setReleaseNotes',
+        'release_version' => 'setReleaseVersion',
         'reviewed' => 'setReviewed',
         'reviewed_dts' => 'setReviewedDts',
         'screenshots' => 'setScreenshots',
@@ -237,7 +252,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'style' => 'setStyle',
         'times_purchased' => 'setTimesPurchased',
         'title' => 'setTitle',
-        'type' => 'setType'
+        'type' => 'setType',
+        'under_review' => 'setUnderReview'
     ];
 
     /**
@@ -261,12 +277,15 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published' => 'getPublished',
         'published_dts' => 'getPublishedDts',
         'published_from_library_item_oid' => 'getPublishedFromLibraryItemOid',
+        'published_meta' => 'getPublishedMeta',
         'published_version' => 'getPublishedVersion',
         'purchased' => 'getPurchased',
         'purchased_from_library_item_oid' => 'getPurchasedFromLibraryItemOid',
         'purchased_version' => 'getPurchasedVersion',
         'rejected' => 'getRejected',
         'rejected_reason' => 'getRejectedReason',
+        'release_notes' => 'getReleaseNotes',
+        'release_version' => 'getReleaseVersion',
         'reviewed' => 'getReviewed',
         'reviewed_dts' => 'getReviewedDts',
         'screenshots' => 'getScreenshots',
@@ -279,7 +298,8 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'style' => 'getStyle',
         'times_purchased' => 'getTimesPurchased',
         'title' => 'getTitle',
-        'type' => 'getType'
+        'type' => 'getType',
+        'under_review' => 'getUnderReview'
     ];
 
     /**
@@ -357,12 +377,15 @@ class LibraryItem implements ModelInterface, ArrayAccess
         $this->container['published'] = isset($data['published']) ? $data['published'] : null;
         $this->container['published_dts'] = isset($data['published_dts']) ? $data['published_dts'] : null;
         $this->container['published_from_library_item_oid'] = isset($data['published_from_library_item_oid']) ? $data['published_from_library_item_oid'] : null;
+        $this->container['published_meta'] = isset($data['published_meta']) ? $data['published_meta'] : null;
         $this->container['published_version'] = isset($data['published_version']) ? $data['published_version'] : null;
         $this->container['purchased'] = isset($data['purchased']) ? $data['purchased'] : null;
         $this->container['purchased_from_library_item_oid'] = isset($data['purchased_from_library_item_oid']) ? $data['purchased_from_library_item_oid'] : null;
         $this->container['purchased_version'] = isset($data['purchased_version']) ? $data['purchased_version'] : null;
         $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
         $this->container['rejected_reason'] = isset($data['rejected_reason']) ? $data['rejected_reason'] : null;
+        $this->container['release_notes'] = isset($data['release_notes']) ? $data['release_notes'] : null;
+        $this->container['release_version'] = isset($data['release_version']) ? $data['release_version'] : null;
         $this->container['reviewed'] = isset($data['reviewed']) ? $data['reviewed'] : null;
         $this->container['reviewed_dts'] = isset($data['reviewed_dts']) ? $data['reviewed_dts'] : null;
         $this->container['screenshots'] = isset($data['screenshots']) ? $data['screenshots'] : null;
@@ -376,6 +399,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         $this->container['times_purchased'] = isset($data['times_purchased']) ? $data['times_purchased'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['under_review'] = isset($data['under_review']) ? $data['under_review'] : null;
     }
 
     /**
@@ -763,6 +787,30 @@ class LibraryItem implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets published_meta
+     *
+     * @return \ultracart\v2\models\LibraryItemPublishedMeta
+     */
+    public function getPublishedMeta()
+    {
+        return $this->container['published_meta'];
+    }
+
+    /**
+     * Sets published_meta
+     *
+     * @param \ultracart\v2\models\LibraryItemPublishedMeta $published_meta published_meta
+     *
+     * @return $this
+     */
+    public function setPublishedMeta($published_meta)
+    {
+        $this->container['published_meta'] = $published_meta;
+
+        return $this;
+    }
+
+    /**
      * Gets published_version
      *
      * @return int
@@ -902,6 +950,54 @@ class LibraryItem implements ModelInterface, ArrayAccess
     public function setRejectedReason($rejected_reason)
     {
         $this->container['rejected_reason'] = $rejected_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets release_notes
+     *
+     * @return string
+     */
+    public function getReleaseNotes()
+    {
+        return $this->container['release_notes'];
+    }
+
+    /**
+     * Sets release_notes
+     *
+     * @param string $release_notes Release notes specific to each published version and only appearing on public items.
+     *
+     * @return $this
+     */
+    public function setReleaseNotes($release_notes)
+    {
+        $this->container['release_notes'] = $release_notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets release_version
+     *
+     * @return int
+     */
+    public function getReleaseVersion()
+    {
+        return $this->container['release_version'];
+    }
+
+    /**
+     * Sets release_version
+     *
+     * @param int $release_version This counter records how many times a library item has been published.  This is used to show version history.
+     *
+     * @return $this
+     */
+    public function setReleaseVersion($release_version)
+    {
+        $this->container['release_version'] = $release_version;
 
         return $this;
     }
@@ -1214,6 +1310,30 @@ class LibraryItem implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets under_review
+     *
+     * @return bool
+     */
+    public function getUnderReview()
+    {
+        return $this->container['under_review'];
+    }
+
+    /**
+     * Sets under_review
+     *
+     * @param bool $under_review True if this library item was published but is awaiting review from UltraCart staff.
+     *
+     * @return $this
+     */
+    public function setUnderReview($under_review)
+    {
+        $this->container['under_review'] = $under_review;
 
         return $this;
     }

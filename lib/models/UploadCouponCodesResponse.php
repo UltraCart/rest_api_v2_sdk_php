@@ -1,6 +1,6 @@
 <?php
 /**
- * UserGroupMembership
+ * UploadCouponCodesResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * UserGroupMembership Class Doc Comment
+ * UploadCouponCodesResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserGroupMembership implements ModelInterface, ArrayAccess
+class UploadCouponCodesResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UserGroupMembership';
+    protected static $swaggerModelName = 'UploadCouponCodesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,13 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'group_oid' => 'int',
-        'member' => 'bool',
-        'name' => 'string'
+        'duplicate_codes' => 'string[]',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'rejected_codes' => 'string[]',
+        'success' => 'bool',
+        'uploaded_codes' => 'string[]',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -68,9 +72,13 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'group_oid' => 'int32',
-        'member' => null,
-        'name' => null
+        'duplicate_codes' => null,
+        'error' => null,
+        'metadata' => null,
+        'rejected_codes' => null,
+        'success' => null,
+        'uploaded_codes' => null,
+        'warning' => null
     ];
 
     /**
@@ -100,9 +108,13 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_oid' => 'group_oid',
-        'member' => 'member',
-        'name' => 'name'
+        'duplicate_codes' => 'duplicate_codes',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'rejected_codes' => 'rejected_codes',
+        'success' => 'success',
+        'uploaded_codes' => 'uploaded_codes',
+        'warning' => 'warning'
     ];
 
     /**
@@ -111,9 +123,13 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'group_oid' => 'setGroupOid',
-        'member' => 'setMember',
-        'name' => 'setName'
+        'duplicate_codes' => 'setDuplicateCodes',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'rejected_codes' => 'setRejectedCodes',
+        'success' => 'setSuccess',
+        'uploaded_codes' => 'setUploadedCodes',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -122,9 +138,13 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'group_oid' => 'getGroupOid',
-        'member' => 'getMember',
-        'name' => 'getName'
+        'duplicate_codes' => 'getDuplicateCodes',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'rejected_codes' => 'getRejectedCodes',
+        'success' => 'getSuccess',
+        'uploaded_codes' => 'getUploadedCodes',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -187,9 +207,13 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['group_oid'] = isset($data['group_oid']) ? $data['group_oid'] : null;
-        $this->container['member'] = isset($data['member']) ? $data['member'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['duplicate_codes'] = isset($data['duplicate_codes']) ? $data['duplicate_codes'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['rejected_codes'] = isset($data['rejected_codes']) ? $data['rejected_codes'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['uploaded_codes'] = isset($data['uploaded_codes']) ? $data['uploaded_codes'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -217,73 +241,169 @@ class UserGroupMembership implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets group_oid
+     * Gets duplicate_codes
      *
-     * @return int
+     * @return string[]
      */
-    public function getGroupOid()
+    public function getDuplicateCodes()
     {
-        return $this->container['group_oid'];
+        return $this->container['duplicate_codes'];
     }
 
     /**
-     * Sets group_oid
+     * Sets duplicate_codes
      *
-     * @param int $group_oid The unique object identifier (oid for short) for this group
+     * @param string[] $duplicate_codes Duplicate codes
      *
      * @return $this
      */
-    public function setGroupOid($group_oid)
+    public function setDuplicateCodes($duplicate_codes)
     {
-        $this->container['group_oid'] = $group_oid;
+        $this->container['duplicate_codes'] = $duplicate_codes;
 
         return $this;
     }
 
     /**
-     * Gets member
+     * Gets error
+     *
+     * @return \ultracart\v2\models\Error
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param \ultracart\v2\models\Error $error error
+     *
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejected_codes
+     *
+     * @return string[]
+     */
+    public function getRejectedCodes()
+    {
+        return $this->container['rejected_codes'];
+    }
+
+    /**
+     * Sets rejected_codes
+     *
+     * @param string[] $rejected_codes Rejected codes
+     *
+     * @return $this
+     */
+    public function setRejectedCodes($rejected_codes)
+    {
+        $this->container['rejected_codes'] = $rejected_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
      *
      * @return bool
      */
-    public function getMember()
+    public function getSuccess()
     {
-        return $this->container['member'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets member
+     * Sets success
      *
-     * @param bool $member True if this user is a member of the group.
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setMember($member)
+    public function setSuccess($success)
     {
-        $this->container['member'] = $member;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets uploaded_codes
      *
-     * @return string
+     * @return string[]
      */
-    public function getName()
+    public function getUploadedCodes()
     {
-        return $this->container['name'];
+        return $this->container['uploaded_codes'];
     }
 
     /**
-     * Sets name
+     * Sets uploaded_codes
      *
-     * @param string $name The name of this group.
+     * @param string[] $uploaded_codes Uploaded codes
      *
      * @return $this
      */
-    public function setName($name)
+    public function setUploadedCodes($uploaded_codes)
     {
-        $this->container['name'] = $name;
+        $this->container['uploaded_codes'] = $uploaded_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }
