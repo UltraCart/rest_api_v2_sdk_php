@@ -198,6 +198,7 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
     const OPERATION_PAY_PAL_CREDIT = 'payPalCredit';
     const OPERATION_VIEW = 'view';
     const OPERATION_AFFIRM = 'affirm';
+    const OPERATION_SEZZLE = 'sezzle';
     
 
     
@@ -214,6 +215,7 @@ class CheckoutHandoffRequest implements ModelInterface, ArrayAccess
             self::OPERATION_PAY_PAL_CREDIT,
             self::OPERATION_VIEW,
             self::OPERATION_AFFIRM,
+            self::OPERATION_SEZZLE,
         ];
     }
     

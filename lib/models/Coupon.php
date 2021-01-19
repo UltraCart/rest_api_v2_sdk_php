@@ -68,6 +68,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_with_block_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase',
         'automatically_apply_coupon_codes' => '\ultracart\v2\models\CouponAutomaticallyApplyCouponCodes',
+        'buy_one_get_one' => '\ultracart\v2\models\CouponBuyOneGetOneLimit',
         'calculated_description' => 'string',
         'can_be_used_with_other_coupons' => 'bool',
         'coupon_oid' => 'int',
@@ -105,6 +106,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_screen_branding_theme_codes' => '\ultracart\v2\models\CouponRestriction[]',
         'restrict_by_storefronts' => '\ultracart\v2\models\CouponRestriction[]',
         'start_dts' => 'string',
+        'super_coupon' => 'bool',
         'tiered_amount_off_item' => '\ultracart\v2\models\CouponTieredAmountOffItem',
         'tiered_amount_off_subtotal' => '\ultracart\v2\models\CouponTieredAmountOffSubtotal',
         'tiered_percent_off_items' => '\ultracart\v2\models\CouponTieredPercentOffItems',
@@ -130,6 +132,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_with_block_purchase' => null,
         'amount_off_subtotal_with_items_purchase' => null,
         'automatically_apply_coupon_codes' => null,
+        'buy_one_get_one' => null,
         'calculated_description' => null,
         'can_be_used_with_other_coupons' => null,
         'coupon_oid' => 'int32',
@@ -167,6 +170,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_screen_branding_theme_codes' => null,
         'restrict_by_storefronts' => null,
         'start_dts' => 'dateTime',
+        'super_coupon' => null,
         'tiered_amount_off_item' => null,
         'tiered_amount_off_subtotal' => null,
         'tiered_percent_off_items' => null,
@@ -213,6 +217,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_with_block_purchase' => 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase' => 'amount_off_subtotal_with_items_purchase',
         'automatically_apply_coupon_codes' => 'automatically_apply_coupon_codes',
+        'buy_one_get_one' => 'buy_one_get_one',
         'calculated_description' => 'calculated_description',
         'can_be_used_with_other_coupons' => 'can_be_used_with_other_coupons',
         'coupon_oid' => 'coupon_oid',
@@ -250,6 +255,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_screen_branding_theme_codes' => 'restrict_by_screen_branding_theme_codes',
         'restrict_by_storefronts' => 'restrict_by_storefronts',
         'start_dts' => 'start_dts',
+        'super_coupon' => 'super_coupon',
         'tiered_amount_off_item' => 'tiered_amount_off_item',
         'tiered_amount_off_subtotal' => 'tiered_amount_off_subtotal',
         'tiered_percent_off_items' => 'tiered_percent_off_items',
@@ -275,6 +281,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_with_block_purchase' => 'setAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => 'setAmountOffSubtotalWithItemsPurchase',
         'automatically_apply_coupon_codes' => 'setAutomaticallyApplyCouponCodes',
+        'buy_one_get_one' => 'setBuyOneGetOne',
         'calculated_description' => 'setCalculatedDescription',
         'can_be_used_with_other_coupons' => 'setCanBeUsedWithOtherCoupons',
         'coupon_oid' => 'setCouponOid',
@@ -312,6 +319,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_screen_branding_theme_codes' => 'setRestrictByScreenBrandingThemeCodes',
         'restrict_by_storefronts' => 'setRestrictByStorefronts',
         'start_dts' => 'setStartDts',
+        'super_coupon' => 'setSuperCoupon',
         'tiered_amount_off_item' => 'setTieredAmountOffItem',
         'tiered_amount_off_subtotal' => 'setTieredAmountOffSubtotal',
         'tiered_percent_off_items' => 'setTieredPercentOffItems',
@@ -337,6 +345,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_with_block_purchase' => 'getAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => 'getAmountOffSubtotalWithItemsPurchase',
         'automatically_apply_coupon_codes' => 'getAutomaticallyApplyCouponCodes',
+        'buy_one_get_one' => 'getBuyOneGetOne',
         'calculated_description' => 'getCalculatedDescription',
         'can_be_used_with_other_coupons' => 'getCanBeUsedWithOtherCoupons',
         'coupon_oid' => 'getCouponOid',
@@ -374,6 +383,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_screen_branding_theme_codes' => 'getRestrictByScreenBrandingThemeCodes',
         'restrict_by_storefronts' => 'getRestrictByStorefronts',
         'start_dts' => 'getStartDts',
+        'super_coupon' => 'getSuperCoupon',
         'tiered_amount_off_item' => 'getTieredAmountOffItem',
         'tiered_amount_off_subtotal' => 'getTieredAmountOffSubtotal',
         'tiered_percent_off_items' => 'getTieredPercentOffItems',
@@ -453,6 +463,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['amount_off_subtotal_with_block_purchase'] = isset($data['amount_off_subtotal_with_block_purchase']) ? $data['amount_off_subtotal_with_block_purchase'] : null;
         $this->container['amount_off_subtotal_with_items_purchase'] = isset($data['amount_off_subtotal_with_items_purchase']) ? $data['amount_off_subtotal_with_items_purchase'] : null;
         $this->container['automatically_apply_coupon_codes'] = isset($data['automatically_apply_coupon_codes']) ? $data['automatically_apply_coupon_codes'] : null;
+        $this->container['buy_one_get_one'] = isset($data['buy_one_get_one']) ? $data['buy_one_get_one'] : null;
         $this->container['calculated_description'] = isset($data['calculated_description']) ? $data['calculated_description'] : null;
         $this->container['can_be_used_with_other_coupons'] = isset($data['can_be_used_with_other_coupons']) ? $data['can_be_used_with_other_coupons'] : null;
         $this->container['coupon_oid'] = isset($data['coupon_oid']) ? $data['coupon_oid'] : null;
@@ -490,6 +501,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['restrict_by_screen_branding_theme_codes'] = isset($data['restrict_by_screen_branding_theme_codes']) ? $data['restrict_by_screen_branding_theme_codes'] : null;
         $this->container['restrict_by_storefronts'] = isset($data['restrict_by_storefronts']) ? $data['restrict_by_storefronts'] : null;
         $this->container['start_dts'] = isset($data['start_dts']) ? $data['start_dts'] : null;
+        $this->container['super_coupon'] = isset($data['super_coupon']) ? $data['super_coupon'] : null;
         $this->container['tiered_amount_off_item'] = isset($data['tiered_amount_off_item']) ? $data['tiered_amount_off_item'] : null;
         $this->container['tiered_amount_off_subtotal'] = isset($data['tiered_amount_off_subtotal']) ? $data['tiered_amount_off_subtotal'] : null;
         $this->container['tiered_percent_off_items'] = isset($data['tiered_percent_off_items']) ? $data['tiered_percent_off_items'] : null;
@@ -806,6 +818,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setAutomaticallyApplyCouponCodes($automatically_apply_coupon_codes)
     {
         $this->container['automatically_apply_coupon_codes'] = $automatically_apply_coupon_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets buy_one_get_one
+     *
+     * @return \ultracart\v2\models\CouponBuyOneGetOneLimit
+     */
+    public function getBuyOneGetOne()
+    {
+        return $this->container['buy_one_get_one'];
+    }
+
+    /**
+     * Sets buy_one_get_one
+     *
+     * @param \ultracart\v2\models\CouponBuyOneGetOneLimit $buy_one_get_one buy_one_get_one
+     *
+     * @return $this
+     */
+    public function setBuyOneGetOne($buy_one_get_one)
+    {
+        $this->container['buy_one_get_one'] = $buy_one_get_one;
 
         return $this;
     }
@@ -1714,6 +1750,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setStartDts($start_dts)
     {
         $this->container['start_dts'] = $start_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets super_coupon
+     *
+     * @return bool
+     */
+    public function getSuperCoupon()
+    {
+        return $this->container['super_coupon'];
+    }
+
+    /**
+     * Sets super_coupon
+     *
+     * @param bool $super_coupon If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration
+     *
+     * @return $this
+     */
+    public function setSuperCoupon($super_coupon)
+    {
+        $this->container['super_coupon'] = $super_coupon;
 
         return $this;
     }

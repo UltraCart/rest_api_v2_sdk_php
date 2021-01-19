@@ -105,6 +105,7 @@ class AutoOrderApi
         return $response;
     }
 
+
     /**
      * Operation getAutoOrderWithHttpInfo
      *
@@ -119,6 +120,26 @@ class AutoOrderApi
      */
     public function getAutoOrderWithHttpInfo($auto_order_oid, $_expand = null)
     {
+        list($response) = $this->getAutoOrderWithHttpInfoRetry(true ,   $auto_order_oid,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAutoOrderWithHttpInfoRetry
+     *
+     * Retrieve an auto order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $auto_order_oid The auto order oid to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoOrderWithHttpInfoRetry($retry ,  $auto_order_oid,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderRequest($auto_order_oid, $_expand);
 
@@ -127,26 +148,25 @@ class AutoOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAutoOrderWithHttpInfoRetry(false ,   $auto_order_oid,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -432,6 +452,7 @@ class AutoOrderApi
         return $response;
     }
 
+
     /**
      * Operation getAutoOrderByCodeWithHttpInfo
      *
@@ -446,6 +467,26 @@ class AutoOrderApi
      */
     public function getAutoOrderByCodeWithHttpInfo($auto_order_code, $_expand = null)
     {
+        list($response) = $this->getAutoOrderByCodeWithHttpInfoRetry(true ,   $auto_order_code,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAutoOrderByCodeWithHttpInfoRetry
+     *
+     * Retrieve an auto order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $auto_order_code The auto order oid to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoOrderByCodeWithHttpInfoRetry($retry ,  $auto_order_code,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderByCodeRequest($auto_order_code, $_expand);
 
@@ -454,26 +495,25 @@ class AutoOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAutoOrderByCodeWithHttpInfoRetry(false ,   $auto_order_code,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -759,6 +799,7 @@ class AutoOrderApi
         return $response;
     }
 
+
     /**
      * Operation getAutoOrderByReferenceOrderIdWithHttpInfo
      *
@@ -773,6 +814,26 @@ class AutoOrderApi
      */
     public function getAutoOrderByReferenceOrderIdWithHttpInfo($reference_order_id, $_expand = null)
     {
+        list($response) = $this->getAutoOrderByReferenceOrderIdWithHttpInfoRetry(true ,   $reference_order_id,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAutoOrderByReferenceOrderIdWithHttpInfoRetry
+     *
+     * Retrieve an auto order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $reference_order_id The auto order oid to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoOrderByReferenceOrderIdWithHttpInfoRetry($retry ,  $reference_order_id,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->getAutoOrderByReferenceOrderIdRequest($reference_order_id, $_expand);
 
@@ -781,26 +842,25 @@ class AutoOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAutoOrderByReferenceOrderIdWithHttpInfoRetry(false ,   $reference_order_id,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1107,6 +1167,7 @@ class AutoOrderApi
         return $response;
     }
 
+
     /**
      * Operation getAutoOrdersWithHttpInfo
      *
@@ -1142,6 +1203,47 @@ class AutoOrderApi
      */
     public function getAutoOrdersWithHttpInfo($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
+        list($response) = $this->getAutoOrdersWithHttpInfoRetry(true ,   $auto_order_code,   $original_order_id,   $first_name,   $last_name,   $company,   $city,   $state,   $postal_code,   $country_code,   $phone,   $email,   $original_order_date_begin,   $original_order_date_end,   $next_shipment_date_begin,   $next_shipment_date_end,   $card_type,   $item_id,   $status,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAutoOrdersWithHttpInfoRetry
+     *
+     * Retrieve auto orders
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $auto_order_code Auto order code (optional)
+     * @param  string $original_order_id Original order id (optional)
+     * @param  string $first_name First name (optional)
+     * @param  string $last_name Last name (optional)
+     * @param  string $company Company (optional)
+     * @param  string $city City (optional)
+     * @param  string $state State (optional)
+     * @param  string $postal_code Postal code (optional)
+     * @param  string $country_code Country code (ISO-3166 two letter) (optional)
+     * @param  string $phone Phone (optional)
+     * @param  string $email Email (optional)
+     * @param  string $original_order_date_begin Original order date begin (optional)
+     * @param  string $original_order_date_end Original order date end (optional)
+     * @param  string $next_shipment_date_begin Next shipment date begin (optional)
+     * @param  string $next_shipment_date_end Next shipment date end (optional)
+     * @param  string $card_type Card type (optional)
+     * @param  string $item_id Item ID (optional)
+     * @param  string $status Status (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch auto orders that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoOrdersWithHttpInfoRetry($retry ,  $auto_order_code = null,  $original_order_id = null,  $first_name = null,  $last_name = null,  $company = null,  $city = null,  $state = null,  $postal_code = null,  $country_code = null,  $phone = null,  $email = null,  $original_order_date_begin = null,  $original_order_date_end = null,  $next_shipment_date_begin = null,  $next_shipment_date_end = null,  $card_type = null,  $item_id = null,  $status = null,  $_limit = '100',  $_offset = '0',  $_since = null,  $_sort = null,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersRequest($auto_order_code, $original_order_id, $first_name, $last_name, $company, $city, $state, $postal_code, $country_code, $phone, $email, $original_order_date_begin, $original_order_date_end, $next_shipment_date_begin, $next_shipment_date_end, $card_type, $item_id, $status, $_limit, $_offset, $_since, $_sort, $_expand);
 
@@ -1150,26 +1252,25 @@ class AutoOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAutoOrdersWithHttpInfoRetry(false ,   $auto_order_code,   $original_order_id,   $first_name,   $last_name,   $company,   $city,   $state,   $postal_code,   $country_code,   $phone,   $email,   $original_order_date_begin,   $original_order_date_end,   $next_shipment_date_begin,   $next_shipment_date_end,   $card_type,   $item_id,   $status,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1592,6 +1693,7 @@ class AutoOrderApi
         return $response;
     }
 
+
     /**
      * Operation getAutoOrdersBatchWithHttpInfo
      *
@@ -1606,6 +1708,26 @@ class AutoOrderApi
      */
     public function getAutoOrdersBatchWithHttpInfo($auto_order_batch, $_expand = null)
     {
+        list($response) = $this->getAutoOrdersBatchWithHttpInfoRetry(true ,   $auto_order_batch,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAutoOrdersBatchWithHttpInfoRetry
+     *
+     * Retrieve auto order batch
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\AutoOrderQueryBatch $auto_order_batch Auto order batch (required)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoOrdersBatchWithHttpInfoRetry($retry ,  $auto_order_batch,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersBatchRequest($auto_order_batch, $_expand);
 
@@ -1614,26 +1736,25 @@ class AutoOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAutoOrdersBatchWithHttpInfoRetry(false ,   $auto_order_batch,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1917,6 +2038,7 @@ class AutoOrderApi
         return $response;
     }
 
+
     /**
      * Operation getAutoOrdersByQueryWithHttpInfo
      *
@@ -1934,6 +2056,29 @@ class AutoOrderApi
      */
     public function getAutoOrdersByQueryWithHttpInfo($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
+        list($response) = $this->getAutoOrdersByQueryWithHttpInfoRetry(true ,   $auto_order_query,   $_limit,   $_offset,   $_sort,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAutoOrdersByQueryWithHttpInfoRetry
+     *
+     * Retrieve auto orders
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the auto orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoOrdersByQueryWithHttpInfoRetry($retry ,  $auto_order_query,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->getAutoOrdersByQueryRequest($auto_order_query, $_limit, $_offset, $_sort, $_expand);
 
@@ -1942,26 +2087,25 @@ class AutoOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAutoOrdersByQueryWithHttpInfoRetry(false ,   $auto_order_query,   $_limit,   $_offset,   $_sort,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2264,6 +2408,7 @@ class AutoOrderApi
         return $response;
     }
 
+
     /**
      * Operation updateAutoOrderWithHttpInfo
      *
@@ -2279,6 +2424,27 @@ class AutoOrderApi
      */
     public function updateAutoOrderWithHttpInfo($auto_order, $auto_order_oid, $_expand = null)
     {
+        list($response) = $this->updateAutoOrderWithHttpInfoRetry(true ,   $auto_order,   $auto_order_oid,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateAutoOrderWithHttpInfoRetry
+     *
+     * Update an auto order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  int $auto_order_oid The auto order oid to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAutoOrderWithHttpInfoRetry($retry ,  $auto_order,  $auto_order_oid,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AutoOrderResponse';
         $request = $this->updateAutoOrderRequest($auto_order, $auto_order_oid, $_expand);
 
@@ -2287,26 +2453,25 @@ class AutoOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateAutoOrderWithHttpInfoRetry(false ,   $auto_order,   $auto_order_oid,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2606,6 +2771,7 @@ class AutoOrderApi
         return $response;
     }
 
+
     /**
      * Operation updateAutoOrdersBatchWithHttpInfo
      *
@@ -2622,6 +2788,28 @@ class AutoOrderApi
      */
     public function updateAutoOrdersBatchWithHttpInfo($auto_orders_request, $_expand = null, $_placeholders = null, $_async = null)
     {
+        list($response) = $this->updateAutoOrdersBatchWithHttpInfoRetry(true ,   $auto_orders_request,   $_expand,   $_placeholders,   $_async);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateAutoOrdersBatchWithHttpInfoRetry
+     *
+     * Update multiple auto orders
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\AutoOrdersRequest $auto_orders_request Auto orders to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param  bool $_async True if the operation should be run async.  No result returned (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AutoOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAutoOrdersBatchWithHttpInfoRetry($retry ,  $auto_orders_request,  $_expand = null,  $_placeholders = null,  $_async = null)
+    {
         $returnType = '\ultracart\v2\models\AutoOrdersResponse';
         $request = $this->updateAutoOrdersBatchRequest($auto_orders_request, $_expand, $_placeholders, $_async);
 
@@ -2630,26 +2818,25 @@ class AutoOrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateAutoOrdersBatchWithHttpInfoRetry(false ,   $auto_orders_request,   $_expand,   $_placeholders,   $_async);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

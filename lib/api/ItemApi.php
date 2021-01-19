@@ -103,6 +103,7 @@ class ItemApi
         $this->deleteItemWithHttpInfo($merchant_item_oid);
     }
 
+
     /**
      * Operation deleteItemWithHttpInfo
      *
@@ -116,6 +117,24 @@ class ItemApi
      */
     public function deleteItemWithHttpInfo($merchant_item_oid)
     {
+        $this->deleteItemWithHttpInfoRetry(true ,   $merchant_item_oid);
+    }
+
+
+    /**
+     * Operation deleteItemWithHttpInfoRetry
+     *
+     * Delete an item
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $merchant_item_oid The item oid to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteItemWithHttpInfoRetry($retry ,  $merchant_item_oid)
+    {
         $returnType = '';
         $request = $this->deleteItemRequest($merchant_item_oid);
 
@@ -124,26 +143,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteItemWithHttpInfoRetry(false ,   $merchant_item_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -387,6 +405,7 @@ class ItemApi
         return $response;
     }
 
+
     /**
      * Operation getItemWithHttpInfo
      *
@@ -402,6 +421,27 @@ class ItemApi
      */
     public function getItemWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
+        list($response) = $this->getItemWithHttpInfoRetry(true ,   $merchant_item_oid,   $_expand,   $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation getItemWithHttpInfoRetry
+     *
+     * Retrieve an item
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $merchant_item_oid The item oid to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getItemWithHttpInfoRetry($retry ,  $merchant_item_oid,  $_expand = null,  $_placeholders = null)
+    {
         $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->getItemRequest($merchant_item_oid, $_expand, $_placeholders);
 
@@ -410,26 +450,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getItemWithHttpInfoRetry(false ,   $merchant_item_oid,   $_expand,   $_placeholders);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -723,6 +762,7 @@ class ItemApi
         return $response;
     }
 
+
     /**
      * Operation getItemByMerchantItemIdWithHttpInfo
      *
@@ -738,6 +778,27 @@ class ItemApi
      */
     public function getItemByMerchantItemIdWithHttpInfo($merchant_item_id, $_expand = null, $_placeholders = null)
     {
+        list($response) = $this->getItemByMerchantItemIdWithHttpInfoRetry(true ,   $merchant_item_id,   $_expand,   $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation getItemByMerchantItemIdWithHttpInfoRetry
+     *
+     * Retrieve an item by item id
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $merchant_item_id The item id to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getItemByMerchantItemIdWithHttpInfoRetry($retry ,  $merchant_item_id,  $_expand = null,  $_placeholders = null)
+    {
         $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->getItemByMerchantItemIdRequest($merchant_item_id, $_expand, $_placeholders);
 
@@ -746,26 +807,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getItemByMerchantItemIdWithHttpInfoRetry(false ,   $merchant_item_id,   $_expand,   $_placeholders);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1064,6 +1124,7 @@ class ItemApi
         return $response;
     }
 
+
     /**
      * Operation getItemsWithHttpInfo
      *
@@ -1084,6 +1145,32 @@ class ItemApi
      */
     public function getItemsWithHttpInfo($parent_category_id = null, $parent_category_path = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
+        list($response) = $this->getItemsWithHttpInfoRetry(true ,   $parent_category_id,   $parent_category_path,   $_limit,   $_offset,   $_since,   $_sort,   $_expand,   $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation getItemsWithHttpInfoRetry
+     *
+     * Retrieve items
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $parent_category_id The parent category object id to retrieve items for.  Unspecified means all items on the account.  0 &#x3D; root (optional)
+     * @param  string $parent_category_path The parent category path to retrieve items for.  Unspecified means all items on the account.  / &#x3D; root (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getItemsWithHttpInfoRetry($retry ,  $parent_category_id = null,  $parent_category_path = null,  $_limit = '100',  $_offset = '0',  $_since = null,  $_sort = null,  $_expand = null,  $_placeholders = null)
+    {
         $returnType = '\ultracart\v2\models\ItemsResponse';
         $request = $this->getItemsRequest($parent_category_id, $parent_category_path, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
 
@@ -1092,26 +1179,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getItemsWithHttpInfoRetry(false ,   $parent_category_id,   $parent_category_path,   $_limit,   $_offset,   $_since,   $_sort,   $_expand,   $_placeholders);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1428,6 +1514,7 @@ class ItemApi
         return $response;
     }
 
+
     /**
      * Operation getPricingTiersWithHttpInfo
      *
@@ -1441,6 +1528,25 @@ class ItemApi
      */
     public function getPricingTiersWithHttpInfo($_expand = null)
     {
+        list($response) = $this->getPricingTiersWithHttpInfoRetry(true ,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getPricingTiersWithHttpInfoRetry
+     *
+     * Retrieve pricing tiers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\PricingTiersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPricingTiersWithHttpInfoRetry($retry ,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\PricingTiersResponse';
         $request = $this->getPricingTiersRequest($_expand);
 
@@ -1449,26 +1555,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPricingTiersWithHttpInfoRetry(false ,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1738,6 +1843,7 @@ class ItemApi
         return $response;
     }
 
+
     /**
      * Operation insertItemWithHttpInfo
      *
@@ -1753,6 +1859,27 @@ class ItemApi
      */
     public function insertItemWithHttpInfo($item, $_expand = null, $_placeholders = null)
     {
+        list($response) = $this->insertItemWithHttpInfoRetry(true ,   $item,   $_expand,   $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertItemWithHttpInfoRetry
+     *
+     * Create an item
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Item $item Item to create (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertItemWithHttpInfoRetry($retry ,  $item,  $_expand = null,  $_placeholders = null)
+    {
         $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->insertItemRequest($item, $_expand, $_placeholders);
 
@@ -1761,26 +1888,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertItemWithHttpInfoRetry(false ,   $item,   $_expand,   $_placeholders);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2070,6 +2196,7 @@ class ItemApi
         return $response;
     }
 
+
     /**
      * Operation updateItemWithHttpInfo
      *
@@ -2086,6 +2213,28 @@ class ItemApi
      */
     public function updateItemWithHttpInfo($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
+        list($response) = $this->updateItemWithHttpInfoRetry(true ,   $item,   $merchant_item_oid,   $_expand,   $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateItemWithHttpInfoRetry
+     *
+     * Update an item
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Item $item Item to update (required)
+     * @param  int $merchant_item_oid The item oid to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateItemWithHttpInfoRetry($retry ,  $item,  $merchant_item_oid,  $_expand = null,  $_placeholders = null)
+    {
         $returnType = '\ultracart\v2\models\ItemResponse';
         $request = $this->updateItemRequest($item, $merchant_item_oid, $_expand, $_placeholders);
 
@@ -2094,26 +2243,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateItemWithHttpInfoRetry(false ,   $item,   $merchant_item_oid,   $_expand,   $_placeholders);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2420,6 +2568,7 @@ class ItemApi
         return $response;
     }
 
+
     /**
      * Operation updateItemsWithHttpInfo
      *
@@ -2436,6 +2585,28 @@ class ItemApi
      */
     public function updateItemsWithHttpInfo($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
+        list($response) = $this->updateItemsWithHttpInfoRetry(true ,   $items_request,   $_expand,   $_placeholders,   $_async);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateItemsWithHttpInfoRetry
+     *
+     * Update multiple items
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ItemsRequest $items_request Items to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     * @param  bool $_async True if the operation should be run async.  No result returned (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateItemsWithHttpInfoRetry($retry ,  $items_request,  $_expand = null,  $_placeholders = null,  $_async = null)
+    {
         $returnType = '\ultracart\v2\models\ItemsResponse';
         $request = $this->updateItemsRequest($items_request, $_expand, $_placeholders, $_async);
 
@@ -2444,26 +2615,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateItemsWithHttpInfoRetry(false ,   $items_request,   $_expand,   $_placeholders,   $_async);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2757,6 +2927,7 @@ class ItemApi
         return $response;
     }
 
+
     /**
      * Operation uploadTemporaryMultimediaWithHttpInfo
      *
@@ -2770,6 +2941,25 @@ class ItemApi
      */
     public function uploadTemporaryMultimediaWithHttpInfo($file)
     {
+        list($response) = $this->uploadTemporaryMultimediaWithHttpInfoRetry(true ,   $file);
+        return $response;
+    }
+
+
+    /**
+     * Operation uploadTemporaryMultimediaWithHttpInfoRetry
+     *
+     * Upload an image to the temporary multimedia.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \SplFileObject $file File to upload (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TempMultimediaResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function uploadTemporaryMultimediaWithHttpInfoRetry($retry ,  $file)
+    {
         $returnType = '\ultracart\v2\models\TempMultimediaResponse';
         $request = $this->uploadTemporaryMultimediaRequest($file);
 
@@ -2778,26 +2968,25 @@ class ItemApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->uploadTemporaryMultimediaWithHttpInfoRetry(false ,   $file);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

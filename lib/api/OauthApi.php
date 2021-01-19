@@ -108,6 +108,7 @@ class OauthApi
         return $response;
     }
 
+
     /**
      * Operation oauthAccessTokenWithHttpInfo
      *
@@ -125,6 +126,29 @@ class OauthApi
      */
     public function oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
+        list($response) = $this->oauthAccessTokenWithHttpInfoRetry(true ,   $client_id,   $grant_type,   $code,   $redirect_uri,   $refresh_token);
+        return $response;
+    }
+
+
+    /**
+     * Operation oauthAccessTokenWithHttpInfoRetry
+     *
+     * Exchange authorization code for access token.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $client_id The OAuth application client_id. (required)
+     * @param  string $grant_type Type of grant (required)
+     * @param  string $code Authorization code received back from the browser redirect (optional)
+     * @param  string $redirect_uri The URI that you redirect the browser to to start the authorization process (optional)
+     * @param  string $refresh_token The refresh token received during the original grant_type&#x3D;authorization_code that can be used to return a new access token (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OauthTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function oauthAccessTokenWithHttpInfoRetry($retry ,  $client_id,  $grant_type,  $code = null,  $redirect_uri = null,  $refresh_token = null)
+    {
         $returnType = '\ultracart\v2\models\OauthTokenResponse';
         $request = $this->oauthAccessTokenRequest($client_id, $grant_type, $code, $redirect_uri, $refresh_token);
 
@@ -133,26 +157,25 @@ class OauthApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->oauthAccessTokenWithHttpInfoRetry(false ,   $client_id,   $grant_type,   $code,   $redirect_uri,   $refresh_token);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -442,6 +465,7 @@ class OauthApi
         return $response;
     }
 
+
     /**
      * Operation oauthRevokeWithHttpInfo
      *
@@ -456,6 +480,26 @@ class OauthApi
      */
     public function oauthRevokeWithHttpInfo($client_id, $token)
     {
+        list($response) = $this->oauthRevokeWithHttpInfoRetry(true ,   $client_id,   $token);
+        return $response;
+    }
+
+
+    /**
+     * Operation oauthRevokeWithHttpInfoRetry
+     *
+     * Revoke this OAuth application.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $client_id The OAuth application client_id. (required)
+     * @param  string $token The OAuth access token that is to be revoked.. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OauthRevokeSuccessResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function oauthRevokeWithHttpInfoRetry($retry ,  $client_id,  $token)
+    {
         $returnType = '\ultracart\v2\models\OauthRevokeSuccessResponse';
         $request = $this->oauthRevokeRequest($client_id, $token);
 
@@ -464,26 +508,25 @@ class OauthApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->oauthRevokeWithHttpInfoRetry(false ,   $client_id,   $token);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

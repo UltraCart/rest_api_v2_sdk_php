@@ -107,6 +107,7 @@ class AffiliateApi
         return $response;
     }
 
+
     /**
      * Operation getClicksByQueryWithHttpInfo
      *
@@ -123,6 +124,28 @@ class AffiliateApi
      */
     public function getClicksByQueryWithHttpInfo($click_query, $_limit = '10000', $_offset = '0', $_expand = null)
     {
+        list($response) = $this->getClicksByQueryWithHttpInfoRetry(true ,   $click_query,   $_limit,   $_offset,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getClicksByQueryWithHttpInfoRetry
+     *
+     * Retrieve clicks
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\AffiliateClickQuery $click_query Click query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AffiliateClicksResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getClicksByQueryWithHttpInfoRetry($retry ,  $click_query,  $_limit = '10000',  $_offset = '0',  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AffiliateClicksResponse';
         $request = $this->getClicksByQueryRequest($click_query, $_limit, $_offset, $_expand);
 
@@ -131,26 +154,25 @@ class AffiliateApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getClicksByQueryWithHttpInfoRetry(false ,   $click_query,   $_limit,   $_offset,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -447,6 +469,7 @@ class AffiliateApi
         return $response;
     }
 
+
     /**
      * Operation getLedgersByQueryWithHttpInfo
      *
@@ -463,6 +486,28 @@ class AffiliateApi
      */
     public function getLedgersByQueryWithHttpInfo($ledger_query, $_limit = '100', $_offset = '0', $_expand = null)
     {
+        list($response) = $this->getLedgersByQueryWithHttpInfoRetry(true ,   $ledger_query,   $_limit,   $_offset,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getLedgersByQueryWithHttpInfoRetry
+     *
+     * Retrieve ledger entries
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\AffiliateLedgerQuery $ledger_query Ledger query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_expand The object expansion to perform on the result.  Only option is link. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AffiliateLedgersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLedgersByQueryWithHttpInfoRetry($retry ,  $ledger_query,  $_limit = '100',  $_offset = '0',  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\AffiliateLedgersResponse';
         $request = $this->getLedgersByQueryRequest($ledger_query, $_limit, $_offset, $_expand);
 
@@ -471,26 +516,25 @@ class AffiliateApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getLedgersByQueryWithHttpInfoRetry(false ,   $ledger_query,   $_limit,   $_offset,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

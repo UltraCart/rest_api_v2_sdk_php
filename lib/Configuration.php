@@ -62,6 +62,15 @@ class Configuration
      */
     protected $accessToken = '';
 
+
+    /**
+     * Max Retry seconds (seconds).  Max amount of time to wait for retry when rate limit is exceeded.
+     *
+     * @var int
+     */
+    protected $maxRetrySeconds = 20;
+
+
     /**
      * Username for HTTP basic authentication
      *
@@ -182,6 +191,24 @@ class Configuration
     {
         $this->accessToken = $accessToken;
         return $this;
+    }
+
+    /**
+     * Sets the max retry seconds
+     *
+     * @param int $maxRetrySeconds maximum time to wait for a retry if rate limit is exceeded.
+     *
+     * @return $this
+     */
+    public function setMaxRetrySeconds($maxRetrySeconds)
+    {
+        $this->maxRetrySeconds = $maxRetrySeconds;
+        return $this;
+    }
+
+    public function getMaxRetrySeconds()
+    {
+      return $this->maxRetrySeconds;
     }
 
     /**

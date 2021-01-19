@@ -2,17 +2,17 @@
     "name": "ultracart/rest_api_v2_sdk_php",
     "description": "",
     "keywords": [
-        "swagger",
+        "ultracart",
         "php",
         "sdk",
         "api"
     ],
-    "homepage": "http://swagger.io",
-    "license": "proprietary",
+    "homepage": "https://www.ultracart.com",
+    "license": "MIT License",
     "authors": [
         {
-            "name": "Swagger and contributors",
-            "homepage": "https://github.com/swagger-api/swagger-codegen"
+            "name": "UltraCart",
+            "homepage": "https://www.ultracart.com"
         }
     ],
     "require": {

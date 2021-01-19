@@ -103,6 +103,7 @@ class CouponApi
         $this->deleteCouponWithHttpInfo($coupon_oid);
     }
 
+
     /**
      * Operation deleteCouponWithHttpInfo
      *
@@ -116,6 +117,24 @@ class CouponApi
      */
     public function deleteCouponWithHttpInfo($coupon_oid)
     {
+        $this->deleteCouponWithHttpInfoRetry(true ,   $coupon_oid);
+    }
+
+
+    /**
+     * Operation deleteCouponWithHttpInfoRetry
+     *
+     * Delete a coupon
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $coupon_oid The coupon_oid to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCouponWithHttpInfoRetry($retry ,  $coupon_oid)
+    {
         $returnType = '';
         $request = $this->deleteCouponRequest($coupon_oid);
 
@@ -124,26 +143,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteCouponWithHttpInfoRetry(false ,   $coupon_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -384,6 +402,7 @@ class CouponApi
         $this->deleteCouponsByCodeWithHttpInfo($coupon_delete_request);
     }
 
+
     /**
      * Operation deleteCouponsByCodeWithHttpInfo
      *
@@ -397,6 +416,24 @@ class CouponApi
      */
     public function deleteCouponsByCodeWithHttpInfo($coupon_delete_request)
     {
+        $this->deleteCouponsByCodeWithHttpInfoRetry(true ,   $coupon_delete_request);
+    }
+
+
+    /**
+     * Operation deleteCouponsByCodeWithHttpInfoRetry
+     *
+     * Deletes multiple coupons
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CouponDeletesRequest $coupon_delete_request Coupon oids to delete (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCouponsByCodeWithHttpInfoRetry($retry ,  $coupon_delete_request)
+    {
         $returnType = '';
         $request = $this->deleteCouponsByCodeRequest($coupon_delete_request);
 
@@ -405,26 +442,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteCouponsByCodeWithHttpInfoRetry(false ,   $coupon_delete_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -660,6 +696,7 @@ class CouponApi
         $this->deleteCouponsByOidWithHttpInfo($coupon_delete_request);
     }
 
+
     /**
      * Operation deleteCouponsByOidWithHttpInfo
      *
@@ -673,6 +710,24 @@ class CouponApi
      */
     public function deleteCouponsByOidWithHttpInfo($coupon_delete_request)
     {
+        $this->deleteCouponsByOidWithHttpInfoRetry(true ,   $coupon_delete_request);
+    }
+
+
+    /**
+     * Operation deleteCouponsByOidWithHttpInfoRetry
+     *
+     * Deletes multiple coupons
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CouponDeletesRequest $coupon_delete_request Coupon oids to delete (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteCouponsByOidWithHttpInfoRetry($retry ,  $coupon_delete_request)
+    {
         $returnType = '';
         $request = $this->deleteCouponsByOidRequest($coupon_delete_request);
 
@@ -681,26 +736,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteCouponsByOidWithHttpInfoRetry(false ,   $coupon_delete_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -938,6 +992,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation generateCouponCodesWithHttpInfo
      *
@@ -952,6 +1007,26 @@ class CouponApi
      */
     public function generateCouponCodesWithHttpInfo($coupon_oid, $coupon_codes_request)
     {
+        list($response) = $this->generateCouponCodesWithHttpInfoRetry(true ,   $coupon_oid,   $coupon_codes_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation generateCouponCodesWithHttpInfoRetry
+     *
+     * Generates one time codes for a coupon
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $coupon_oid The coupon oid to generate codes. (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponCodesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateCouponCodesWithHttpInfoRetry($retry ,  $coupon_oid,  $coupon_codes_request)
+    {
         $returnType = '\ultracart\v2\models\CouponCodesResponse';
         $request = $this->generateCouponCodesRequest($coupon_oid, $coupon_codes_request);
 
@@ -960,26 +1035,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->generateCouponCodesWithHttpInfoRetry(false ,   $coupon_oid,   $coupon_codes_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1270,6 +1344,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation generateOneTimeCodesByMerchantCodeWithHttpInfo
      *
@@ -1284,6 +1359,26 @@ class CouponApi
      */
     public function generateOneTimeCodesByMerchantCodeWithHttpInfo($merchant_code, $coupon_codes_request)
     {
+        list($response) = $this->generateOneTimeCodesByMerchantCodeWithHttpInfoRetry(true ,   $merchant_code,   $coupon_codes_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation generateOneTimeCodesByMerchantCodeWithHttpInfoRetry
+     *
+     * Generates one time codes by merchant code
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $merchant_code The merchant code to generate one time codes. (required)
+     * @param  \ultracart\v2\models\CouponCodesRequest $coupon_codes_request Coupon code generation parameters (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponCodesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateOneTimeCodesByMerchantCodeWithHttpInfoRetry($retry ,  $merchant_code,  $coupon_codes_request)
+    {
         $returnType = '\ultracart\v2\models\CouponCodesResponse';
         $request = $this->generateOneTimeCodesByMerchantCodeRequest($merchant_code, $coupon_codes_request);
 
@@ -1292,26 +1387,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->generateOneTimeCodesByMerchantCodeWithHttpInfoRetry(false ,   $merchant_code,   $coupon_codes_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1585,6 +1679,323 @@ class CouponApi
     }
 
     /**
+     * Operation getAutoApply
+     *
+     * Retrieve auto apply rules and conditions
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CouponAutoApplyConditions
+     */
+    public function getAutoApply()
+    {
+        list($response) = $this->getAutoApplyWithHttpInfo();
+        return $response;
+    }
+
+
+    /**
+     * Operation getAutoApplyWithHttpInfo
+     *
+     * Retrieve auto apply rules and conditions
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponAutoApplyConditions, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoApplyWithHttpInfo()
+    {
+        list($response) = $this->getAutoApplyWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getAutoApplyWithHttpInfoRetry
+     *
+     * Retrieve auto apply rules and conditions
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponAutoApplyConditions, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAutoApplyWithHttpInfoRetry($retry )
+    {
+        $returnType = '\ultracart\v2\models\CouponAutoApplyConditions';
+        $request = $this->getAutoApplyRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAutoApplyWithHttpInfoRetry(false );
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CouponAutoApplyConditions',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAutoApplyAsync
+     *
+     * Retrieve auto apply rules and conditions
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAutoApplyAsync()
+    {
+        return $this->getAutoApplyAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAutoApplyAsyncWithHttpInfo
+     *
+     * Retrieve auto apply rules and conditions
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAutoApplyAsyncWithHttpInfo()
+    {
+        $returnType = '\ultracart\v2\models\CouponAutoApplyConditions';
+        $request = $this->getAutoApplyRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAutoApply'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAutoApplyRequest()
+    {
+
+        $resourcePath = '/coupon/auto_apply';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getCoupon
      *
      * Retrieve a coupon
@@ -1602,6 +2013,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation getCouponWithHttpInfo
      *
@@ -1616,6 +2028,26 @@ class CouponApi
      */
     public function getCouponWithHttpInfo($coupon_oid, $_expand = null)
     {
+        list($response) = $this->getCouponWithHttpInfoRetry(true ,   $coupon_oid,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCouponWithHttpInfoRetry
+     *
+     * Retrieve a coupon
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $coupon_oid The coupon oid to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCouponWithHttpInfoRetry($retry ,  $coupon_oid,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->getCouponRequest($coupon_oid, $_expand);
 
@@ -1624,26 +2056,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCouponWithHttpInfoRetry(false ,   $coupon_oid,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1929,6 +2360,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation getCouponByMerchantCodeWithHttpInfo
      *
@@ -1943,6 +2375,26 @@ class CouponApi
      */
     public function getCouponByMerchantCodeWithHttpInfo($merchant_code, $_expand = null)
     {
+        list($response) = $this->getCouponByMerchantCodeWithHttpInfoRetry(true ,   $merchant_code,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCouponByMerchantCodeWithHttpInfoRetry
+     *
+     * Retrieve a coupon by merchant code
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $merchant_code The coupon merchant code to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCouponByMerchantCodeWithHttpInfoRetry($retry ,  $merchant_code,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->getCouponByMerchantCodeRequest($merchant_code, $_expand);
 
@@ -1951,26 +2403,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCouponByMerchantCodeWithHttpInfoRetry(false ,   $merchant_code,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2267,6 +2718,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation getCouponsWithHttpInfo
      *
@@ -2292,6 +2744,37 @@ class CouponApi
      */
     public function getCouponsWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
+        list($response) = $this->getCouponsWithHttpInfoRetry(true ,   $merchant_code,   $description,   $coupon_type,   $start_date_begin,   $start_date_end,   $expiration_date_begin,   $expiration_date_end,   $affiliate_oid,   $exclude_expired,   $_limit,   $_offset,   $_sort,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCouponsWithHttpInfoRetry
+     *
+     * Retrieve coupons
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $merchant_code Merchant code (optional)
+     * @param  string $description Description (optional)
+     * @param  string $coupon_type Coupon type (optional)
+     * @param  string $start_date_begin Start date begin (optional)
+     * @param  string $start_date_end Start date end (optional)
+     * @param  string $expiration_date_begin Expiration date begin (optional)
+     * @param  string $expiration_date_end Expiration date end (optional)
+     * @param  int $affiliate_oid Affiliate oid (optional)
+     * @param  bool $exclude_expired Exclude expired (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCouponsWithHttpInfoRetry($retry ,  $merchant_code = null,  $description = null,  $coupon_type = null,  $start_date_begin = null,  $start_date_end = null,  $expiration_date_begin = null,  $expiration_date_end = null,  $affiliate_oid = null,  $exclude_expired = null,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CouponsResponse';
         $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
 
@@ -2300,26 +2783,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCouponsWithHttpInfoRetry(false ,   $merchant_code,   $description,   $coupon_type,   $start_date_begin,   $start_date_end,   $expiration_date_begin,   $expiration_date_end,   $affiliate_oid,   $exclude_expired,   $_limit,   $_offset,   $_sort,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2675,6 +3157,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation getCouponsByQueryWithHttpInfo
      *
@@ -2692,6 +3175,29 @@ class CouponApi
      */
     public function getCouponsByQueryWithHttpInfo($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
+        list($response) = $this->getCouponsByQueryWithHttpInfoRetry(true ,   $coupon_query,   $_limit,   $_offset,   $_sort,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCouponsByQueryWithHttpInfoRetry
+     *
+     * Retrieve coupons by query
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CouponQuery $coupon_query Coupon query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCouponsByQueryWithHttpInfoRetry($retry ,  $coupon_query,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CouponsResponse';
         $request = $this->getCouponsByQueryRequest($coupon_query, $_limit, $_offset, $_sort, $_expand);
 
@@ -2700,26 +3206,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCouponsByQueryWithHttpInfoRetry(false ,   $coupon_query,   $_limit,   $_offset,   $_sort,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3019,6 +3524,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation getEditorValuesWithHttpInfo
      *
@@ -3031,6 +3537,24 @@ class CouponApi
      */
     public function getEditorValuesWithHttpInfo()
     {
+        list($response) = $this->getEditorValuesWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getEditorValuesWithHttpInfoRetry
+     *
+     * Retrieve values needed for a coupon editor
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponEditorValues, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEditorValuesWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\CouponEditorValues';
         $request = $this->getEditorValuesRequest();
 
@@ -3039,26 +3563,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEditorValuesWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3320,6 +3843,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation insertCouponWithHttpInfo
      *
@@ -3334,6 +3858,26 @@ class CouponApi
      */
     public function insertCouponWithHttpInfo($coupon, $_expand = null)
     {
+        list($response) = $this->insertCouponWithHttpInfoRetry(true ,   $coupon,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertCouponWithHttpInfoRetry
+     *
+     * Insert a coupon
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to insert (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertCouponWithHttpInfoRetry($retry ,  $coupon,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->insertCouponRequest($coupon, $_expand);
 
@@ -3342,26 +3886,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertCouponWithHttpInfoRetry(false ,   $coupon,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3625,6 +4168,637 @@ class CouponApi
     }
 
     /**
+     * Operation searchItems
+     *
+     * Searches for items to display within a coupon editor and assign to coupons
+     *
+     * @param  string $s s (optional)
+     * @param  int $m m (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CouponItemSearchResultsResponse
+     */
+    public function searchItems($s = null, $m = null)
+    {
+        list($response) = $this->searchItemsWithHttpInfo($s, $m);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchItemsWithHttpInfo
+     *
+     * Searches for items to display within a coupon editor and assign to coupons
+     *
+     * @param  string $s (optional)
+     * @param  int $m (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponItemSearchResultsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchItemsWithHttpInfo($s = null, $m = null)
+    {
+        list($response) = $this->searchItemsWithHttpInfoRetry(true ,   $s,   $m);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchItemsWithHttpInfoRetry
+     *
+     * Searches for items to display within a coupon editor and assign to coupons
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $s (optional)
+     * @param  int $m (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponItemSearchResultsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchItemsWithHttpInfoRetry($retry ,  $s = null,  $m = null)
+    {
+        $returnType = '\ultracart\v2\models\CouponItemSearchResultsResponse';
+        $request = $this->searchItemsRequest($s, $m);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->searchItemsWithHttpInfoRetry(false ,   $s,   $m);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CouponItemSearchResultsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation searchItemsAsync
+     *
+     * Searches for items to display within a coupon editor and assign to coupons
+     *
+     * @param  string $s (optional)
+     * @param  int $m (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchItemsAsync($s = null, $m = null)
+    {
+        return $this->searchItemsAsyncWithHttpInfo($s, $m)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation searchItemsAsyncWithHttpInfo
+     *
+     * Searches for items to display within a coupon editor and assign to coupons
+     *
+     * @param  string $s (optional)
+     * @param  int $m (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchItemsAsyncWithHttpInfo($s = null, $m = null)
+    {
+        $returnType = '\ultracart\v2\models\CouponItemSearchResultsResponse';
+        $request = $this->searchItemsRequest($s, $m);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'searchItems'
+     *
+     * @param  string $s (optional)
+     * @param  int $m (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function searchItemsRequest($s = null, $m = null)
+    {
+
+        $resourcePath = '/coupon/searchItems';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($s !== null) {
+            $queryParams['s'] = ObjectSerializer::toQueryValue($s);
+        }
+        // query params
+        if ($m !== null) {
+            $queryParams['m'] = ObjectSerializer::toQueryValue($m);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateAutoApply
+     *
+     * Update auto apply rules and conditions
+     *
+     * @param  \ultracart\v2\models\CouponAutoApplyConditions $conditions Conditions (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateAutoApply($conditions)
+    {
+        $this->updateAutoApplyWithHttpInfo($conditions);
+    }
+
+
+    /**
+     * Operation updateAutoApplyWithHttpInfo
+     *
+     * Update auto apply rules and conditions
+     *
+     * @param  \ultracart\v2\models\CouponAutoApplyConditions $conditions Conditions (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAutoApplyWithHttpInfo($conditions)
+    {
+        $this->updateAutoApplyWithHttpInfoRetry(true ,   $conditions);
+    }
+
+
+    /**
+     * Operation updateAutoApplyWithHttpInfoRetry
+     *
+     * Update auto apply rules and conditions
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CouponAutoApplyConditions $conditions Conditions (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAutoApplyWithHttpInfoRetry($retry ,  $conditions)
+    {
+        $returnType = '';
+        $request = $this->updateAutoApplyRequest($conditions);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateAutoApplyWithHttpInfoRetry(false ,   $conditions);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAutoApplyAsync
+     *
+     * Update auto apply rules and conditions
+     *
+     * @param  \ultracart\v2\models\CouponAutoApplyConditions $conditions Conditions (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAutoApplyAsync($conditions)
+    {
+        return $this->updateAutoApplyAsyncWithHttpInfo($conditions)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateAutoApplyAsyncWithHttpInfo
+     *
+     * Update auto apply rules and conditions
+     *
+     * @param  \ultracart\v2\models\CouponAutoApplyConditions $conditions Conditions (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAutoApplyAsyncWithHttpInfo($conditions)
+    {
+        $returnType = '';
+        $request = $this->updateAutoApplyRequest($conditions);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateAutoApply'
+     *
+     * @param  \ultracart\v2\models\CouponAutoApplyConditions $conditions Conditions (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateAutoApplyRequest($conditions)
+    {
+        // verify the required parameter 'conditions' is set
+        if ($conditions === null || (is_array($conditions) && count($conditions) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conditions when calling updateAutoApply'
+            );
+        }
+
+        $resourcePath = '/coupon/auto_apply';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($conditions)) {
+            $_tempBody = $conditions;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateCoupon
      *
      * Update a coupon
@@ -3643,6 +4817,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation updateCouponWithHttpInfo
      *
@@ -3658,6 +4833,27 @@ class CouponApi
      */
     public function updateCouponWithHttpInfo($coupon, $coupon_oid, $_expand = null)
     {
+        list($response) = $this->updateCouponWithHttpInfoRetry(true ,   $coupon,   $coupon_oid,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateCouponWithHttpInfoRetry
+     *
+     * Update a coupon
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Coupon $coupon Coupon to update (required)
+     * @param  int $coupon_oid The coupon_oid to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CouponResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCouponWithHttpInfoRetry($retry ,  $coupon,  $coupon_oid,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CouponResponse';
         $request = $this->updateCouponRequest($coupon, $coupon_oid, $_expand);
 
@@ -3666,26 +4862,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateCouponWithHttpInfoRetry(false ,   $coupon,   $coupon_oid,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3983,6 +5178,7 @@ class CouponApi
         return $response;
     }
 
+
     /**
      * Operation uploadCouponCodesWithHttpInfo
      *
@@ -3997,6 +5193,26 @@ class CouponApi
      */
     public function uploadCouponCodesWithHttpInfo($coupon_oid, $upload_coupon_codes_request)
     {
+        list($response) = $this->uploadCouponCodesWithHttpInfoRetry(true ,   $coupon_oid,   $upload_coupon_codes_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation uploadCouponCodesWithHttpInfoRetry
+     *
+     * Upload one-time codes for a coupon
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $coupon_oid The coupon oid to associate with the provided one-time codes. (required)
+     * @param  \ultracart\v2\models\UploadCouponCodesRequest $upload_coupon_codes_request One-time coupon codes (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\UploadCouponCodesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function uploadCouponCodesWithHttpInfoRetry($retry ,  $coupon_oid,  $upload_coupon_codes_request)
+    {
         $returnType = '\ultracart\v2\models\UploadCouponCodesResponse';
         $request = $this->uploadCouponCodesRequest($coupon_oid, $upload_coupon_codes_request);
 
@@ -4005,26 +5221,25 @@ class CouponApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->uploadCouponCodesWithHttpInfoRetry(false ,   $coupon_oid,   $upload_coupon_codes_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

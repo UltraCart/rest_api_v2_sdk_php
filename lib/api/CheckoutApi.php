@@ -104,6 +104,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation cityStateWithHttpInfo
      *
@@ -117,6 +118,25 @@ class CheckoutApi
      */
     public function cityStateWithHttpInfo($cart)
     {
+        list($response) = $this->cityStateWithHttpInfoRetry(true ,   $cart);
+        return $response;
+    }
+
+
+    /**
+     * Operation cityStateWithHttpInfoRetry
+     *
+     * City/State for Zip
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Cart $cart Cart (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CityStateZip, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cityStateWithHttpInfoRetry($retry ,  $cart)
+    {
         $returnType = '\ultracart\v2\models\CityStateZip';
         $request = $this->cityStateRequest($cart);
 
@@ -125,26 +145,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->cityStateWithHttpInfoRetry(false ,   $cart);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -422,6 +441,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation finalizeOrderWithHttpInfo
      *
@@ -435,6 +455,25 @@ class CheckoutApi
      */
     public function finalizeOrderWithHttpInfo($finalize_request)
     {
+        list($response) = $this->finalizeOrderWithHttpInfoRetry(true ,   $finalize_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation finalizeOrderWithHttpInfoRetry
+     *
+     * Finalize Order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CartFinalizeOrderRequest $finalize_request Finalize request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartFinalizeOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function finalizeOrderWithHttpInfoRetry($retry ,  $finalize_request)
+    {
         $returnType = '\ultracart\v2\models\CartFinalizeOrderResponse';
         $request = $this->finalizeOrderRequest($finalize_request);
 
@@ -443,26 +482,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->finalizeOrderWithHttpInfoRetry(false ,   $finalize_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -735,6 +773,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation getAffirmCheckoutWithHttpInfo
      *
@@ -748,6 +787,25 @@ class CheckoutApi
      */
     public function getAffirmCheckoutWithHttpInfo($cart_id)
     {
+        list($response) = $this->getAffirmCheckoutWithHttpInfoRetry(true ,   $cart_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAffirmCheckoutWithHttpInfoRetry
+     *
+     * Get affirm checkout (by cart id)
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $cart_id Cart ID to retrieve (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartAffirmCheckoutResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAffirmCheckoutWithHttpInfoRetry($retry ,  $cart_id)
+    {
         $returnType = '\ultracart\v2\models\CartAffirmCheckoutResponse';
         $request = $this->getAffirmCheckoutRequest($cart_id);
 
@@ -756,26 +814,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAffirmCheckoutWithHttpInfoRetry(false ,   $cart_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1057,6 +1114,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation getAllowedCountriesWithHttpInfo
      *
@@ -1069,6 +1127,24 @@ class CheckoutApi
      */
     public function getAllowedCountriesWithHttpInfo()
     {
+        list($response) = $this->getAllowedCountriesWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getAllowedCountriesWithHttpInfoRetry
+     *
+     * Allowed countries
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CheckoutAllowedCountriesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAllowedCountriesWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\CheckoutAllowedCountriesResponse';
         $request = $this->getAllowedCountriesRequest();
 
@@ -1077,26 +1153,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAllowedCountriesWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1362,6 +1437,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation getCartWithHttpInfo
      *
@@ -1375,6 +1451,25 @@ class CheckoutApi
      */
     public function getCartWithHttpInfo($_expand = null)
     {
+        list($response) = $this->getCartWithHttpInfoRetry(true ,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCartWithHttpInfoRetry
+     *
+     * Get cart
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCartWithHttpInfoRetry($retry ,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CartResponse';
         $request = $this->getCartRequest($_expand);
 
@@ -1383,26 +1478,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCartWithHttpInfoRetry(false ,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1676,6 +1770,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation getCartByCartIdWithHttpInfo
      *
@@ -1690,6 +1785,26 @@ class CheckoutApi
      */
     public function getCartByCartIdWithHttpInfo($cart_id, $_expand = null)
     {
+        list($response) = $this->getCartByCartIdWithHttpInfoRetry(true ,   $cart_id,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCartByCartIdWithHttpInfoRetry
+     *
+     * Get cart (by cart id)
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $cart_id Cart ID to retrieve (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCartByCartIdWithHttpInfoRetry($retry ,  $cart_id,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CartResponse';
         $request = $this->getCartByCartIdRequest($cart_id, $_expand);
 
@@ -1698,26 +1813,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCartByCartIdWithHttpInfoRetry(false ,   $cart_id,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2008,6 +2122,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation getCartByReturnCodeWithHttpInfo
      *
@@ -2022,6 +2137,26 @@ class CheckoutApi
      */
     public function getCartByReturnCodeWithHttpInfo($return_code, $_expand = null)
     {
+        list($response) = $this->getCartByReturnCodeWithHttpInfoRetry(true ,   $return_code,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCartByReturnCodeWithHttpInfoRetry
+     *
+     * Get cart (by return code)
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $return_code Return code to lookup cart ID by (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCartByReturnCodeWithHttpInfoRetry($retry ,  $return_code,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CartResponse';
         $request = $this->getCartByReturnCodeRequest($return_code, $_expand);
 
@@ -2030,26 +2165,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCartByReturnCodeWithHttpInfoRetry(false ,   $return_code,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2339,6 +2473,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation getStateProvincesForCountryWithHttpInfo
      *
@@ -2352,6 +2487,25 @@ class CheckoutApi
      */
     public function getStateProvincesForCountryWithHttpInfo($country_code)
     {
+        list($response) = $this->getStateProvincesForCountryWithHttpInfoRetry(true ,   $country_code);
+        return $response;
+    }
+
+
+    /**
+     * Operation getStateProvincesForCountryWithHttpInfoRetry
+     *
+     * Get state/province list for a country code
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $country_code Two letter ISO country code (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CheckoutStateProvinceResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getStateProvincesForCountryWithHttpInfoRetry($retry ,  $country_code)
+    {
         $returnType = '\ultracart\v2\models\CheckoutStateProvinceResponse';
         $request = $this->getStateProvincesForCountryRequest($country_code);
 
@@ -2360,26 +2514,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getStateProvincesForCountryWithHttpInfoRetry(false ,   $country_code);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2663,6 +2816,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation handoffCartWithHttpInfo
      *
@@ -2677,6 +2831,26 @@ class CheckoutApi
      */
     public function handoffCartWithHttpInfo($handoff_request, $_expand = null)
     {
+        list($response) = $this->handoffCartWithHttpInfoRetry(true ,   $handoff_request,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation handoffCartWithHttpInfoRetry
+     *
+     * Handoff cart
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CheckoutHandoffRequest $handoff_request Handoff request (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CheckoutHandoffResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function handoffCartWithHttpInfoRetry($retry ,  $handoff_request,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CheckoutHandoffResponse';
         $request = $this->handoffCartRequest($handoff_request, $_expand);
 
@@ -2685,26 +2859,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->handoffCartWithHttpInfoRetry(false ,   $handoff_request,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2990,6 +3163,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation loginWithHttpInfo
      *
@@ -3004,6 +3178,26 @@ class CheckoutApi
      */
     public function loginWithHttpInfo($login_request, $_expand = null)
     {
+        list($response) = $this->loginWithHttpInfoRetry(true ,   $login_request,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation loginWithHttpInfoRetry
+     *
+     * Profile login
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CartProfileLoginRequest $login_request Login request (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartProfileLoginResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function loginWithHttpInfoRetry($retry ,  $login_request,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CartProfileLoginResponse';
         $request = $this->loginRequest($login_request, $_expand);
 
@@ -3012,26 +3206,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->loginWithHttpInfoRetry(false ,   $login_request,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3317,6 +3510,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation logoutWithHttpInfo
      *
@@ -3331,6 +3525,26 @@ class CheckoutApi
      */
     public function logoutWithHttpInfo($cart, $_expand = null)
     {
+        list($response) = $this->logoutWithHttpInfoRetry(true ,   $cart,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation logoutWithHttpInfoRetry
+     *
+     * Profile logout
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Cart $cart Cart (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function logoutWithHttpInfoRetry($retry ,  $cart,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CartResponse';
         $request = $this->logoutRequest($cart, $_expand);
 
@@ -3339,26 +3553,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->logoutWithHttpInfoRetry(false ,   $cart,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3644,6 +3857,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation registerWithHttpInfo
      *
@@ -3658,6 +3872,26 @@ class CheckoutApi
      */
     public function registerWithHttpInfo($register_request, $_expand = null)
     {
+        list($response) = $this->registerWithHttpInfoRetry(true ,   $register_request,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation registerWithHttpInfoRetry
+     *
+     * Profile registration
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CartProfileRegisterRequest $register_request Register request (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartProfileRegisterResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function registerWithHttpInfoRetry($retry ,  $register_request,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CartProfileRegisterResponse';
         $request = $this->registerRequest($register_request, $_expand);
 
@@ -3666,26 +3900,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->registerWithHttpInfoRetry(false ,   $register_request,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3971,6 +4204,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation registerAffiliateClickWithHttpInfo
      *
@@ -3985,6 +4219,26 @@ class CheckoutApi
      */
     public function registerAffiliateClickWithHttpInfo($register_affiliate_click_request, $_expand = null)
     {
+        list($response) = $this->registerAffiliateClickWithHttpInfoRetry(true ,   $register_affiliate_click_request,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation registerAffiliateClickWithHttpInfoRetry
+     *
+     * Register affiliate click
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\RegisterAffiliateClickRequest $register_affiliate_click_request Register affiliate click request (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\RegisterAffiliateClickResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function registerAffiliateClickWithHttpInfoRetry($retry ,  $register_affiliate_click_request,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\RegisterAffiliateClickResponse';
         $request = $this->registerAffiliateClickRequest($register_affiliate_click_request, $_expand);
 
@@ -3993,26 +4247,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->registerAffiliateClickWithHttpInfoRetry(false ,   $register_affiliate_click_request,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4298,6 +4551,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation relatedItemsForCartWithHttpInfo
      *
@@ -4312,6 +4566,26 @@ class CheckoutApi
      */
     public function relatedItemsForCartWithHttpInfo($cart, $_expand = null)
     {
+        list($response) = $this->relatedItemsForCartWithHttpInfoRetry(true ,   $cart,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation relatedItemsForCartWithHttpInfoRetry
+     *
+     * Related items
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Cart $cart Cart (required)
+     * @param  string $_expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function relatedItemsForCartWithHttpInfoRetry($retry ,  $cart,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\ItemsResponse';
         $request = $this->relatedItemsForCartRequest($cart, $_expand);
 
@@ -4320,26 +4594,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->relatedItemsForCartWithHttpInfoRetry(false ,   $cart,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4626,6 +4899,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation relatedItemsForItemWithHttpInfo
      *
@@ -4641,6 +4915,27 @@ class CheckoutApi
      */
     public function relatedItemsForItemWithHttpInfo($item_id, $cart, $_expand = null)
     {
+        list($response) = $this->relatedItemsForItemWithHttpInfoRetry(true ,   $item_id,   $cart,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation relatedItemsForItemWithHttpInfoRetry
+     *
+     * Related items (specific item)
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $item_id Item ID to retrieve related items for (required)
+     * @param  \ultracart\v2\models\Cart $cart Cart (required)
+     * @param  string $_expand The object expansion to perform on the result.  See item resource documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function relatedItemsForItemWithHttpInfoRetry($retry ,  $item_id,  $cart,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\ItemsResponse';
         $request = $this->relatedItemsForItemRequest($item_id, $cart, $_expand);
 
@@ -4649,26 +4944,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->relatedItemsForItemWithHttpInfoRetry(false ,   $item_id,   $cart,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4970,6 +5264,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation setupBrowserKeyWithHttpInfo
      *
@@ -4983,6 +5278,25 @@ class CheckoutApi
      */
     public function setupBrowserKeyWithHttpInfo($browser_key_request)
     {
+        list($response) = $this->setupBrowserKeyWithHttpInfoRetry(true ,   $browser_key_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation setupBrowserKeyWithHttpInfoRetry
+     *
+     * Setup Browser Application
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CheckoutSetupBrowserKeyRequest $browser_key_request Setup browser key request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CheckoutSetupBrowserKeyResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setupBrowserKeyWithHttpInfoRetry($retry ,  $browser_key_request)
+    {
         $returnType = '\ultracart\v2\models\CheckoutSetupBrowserKeyResponse';
         $request = $this->setupBrowserKeyRequest($browser_key_request);
 
@@ -4991,26 +5305,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->setupBrowserKeyWithHttpInfoRetry(false ,   $browser_key_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5284,6 +5597,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation updateCartWithHttpInfo
      *
@@ -5298,6 +5612,26 @@ class CheckoutApi
      */
     public function updateCartWithHttpInfo($cart, $_expand = null)
     {
+        list($response) = $this->updateCartWithHttpInfoRetry(true ,   $cart,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateCartWithHttpInfoRetry
+     *
+     * Update cart
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Cart $cart Cart (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCartWithHttpInfoRetry($retry ,  $cart,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CartResponse';
         $request = $this->updateCartRequest($cart, $_expand);
 
@@ -5306,26 +5640,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateCartWithHttpInfoRetry(false ,   $cart,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5611,6 +5944,7 @@ class CheckoutApi
         return $response;
     }
 
+
     /**
      * Operation validateCartWithHttpInfo
      *
@@ -5625,6 +5959,26 @@ class CheckoutApi
      */
     public function validateCartWithHttpInfo($validation_request, $_expand = null)
     {
+        list($response) = $this->validateCartWithHttpInfoRetry(true ,   $validation_request,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation validateCartWithHttpInfoRetry
+     *
+     * Validate
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\CartValidationRequest $validation_request Validation request (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CartValidationResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function validateCartWithHttpInfoRetry($retry ,  $validation_request,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\CartValidationResponse';
         $request = $this->validateCartRequest($validation_request, $_expand);
 
@@ -5633,26 +5987,25 @@ class CheckoutApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->validateCartWithHttpInfoRetry(false ,   $validation_request,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

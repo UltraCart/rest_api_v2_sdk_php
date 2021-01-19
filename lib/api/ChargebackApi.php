@@ -104,6 +104,7 @@ class ChargebackApi
         return $response;
     }
 
+
     /**
      * Operation deleteChargebackWithHttpInfo
      *
@@ -117,6 +118,25 @@ class ChargebackApi
      */
     public function deleteChargebackWithHttpInfo($chargeback_dispute_oid)
     {
+        list($response) = $this->deleteChargebackWithHttpInfoRetry(true ,   $chargeback_dispute_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation deleteChargebackWithHttpInfoRetry
+     *
+     * Delete a chargeback
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteChargebackWithHttpInfoRetry($retry ,  $chargeback_dispute_oid)
+    {
         $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->deleteChargebackRequest($chargeback_dispute_oid);
 
@@ -125,26 +145,25 @@ class ChargebackApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteChargebackWithHttpInfoRetry(false ,   $chargeback_dispute_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -423,6 +442,7 @@ class ChargebackApi
         return $response;
     }
 
+
     /**
      * Operation getChargebackDisputeWithHttpInfo
      *
@@ -437,6 +457,26 @@ class ChargebackApi
      */
     public function getChargebackDisputeWithHttpInfo($chargeback_dispute_oid, $_expand = null)
     {
+        list($response) = $this->getChargebackDisputeWithHttpInfoRetry(true ,   $chargeback_dispute_oid,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getChargebackDisputeWithHttpInfoRetry
+     *
+     * Retrieve a chargeback
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $chargeback_dispute_oid The chargeback dispute oid to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getChargebackDisputeWithHttpInfoRetry($retry ,  $chargeback_dispute_oid,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->getChargebackDisputeRequest($chargeback_dispute_oid, $_expand);
 
@@ -445,26 +485,25 @@ class ChargebackApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getChargebackDisputeWithHttpInfoRetry(false ,   $chargeback_dispute_oid,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -760,6 +799,7 @@ class ChargebackApi
         return $response;
     }
 
+
     /**
      * Operation getChargebackDisputesWithHttpInfo
      *
@@ -784,6 +824,36 @@ class ChargebackApi
      */
     public function getChargebackDisputesWithHttpInfo($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
+        list($response) = $this->getChargebackDisputesWithHttpInfoRetry(true ,   $order_id,   $case_number,   $status,   $expiration_dts_start,   $expiration_dts_end,   $chargeback_dts_start,   $chargeback_dts_end,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getChargebackDisputesWithHttpInfoRetry
+     *
+     * Retrieve chargebacks
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id Order Id (optional)
+     * @param  string $case_number Case number (optional)
+     * @param  string $status Status (optional)
+     * @param  string $expiration_dts_start Expiration dts start (optional)
+     * @param  string $expiration_dts_end Expiration dts end (optional)
+     * @param  string $chargeback_dts_start Chargeback dts start (optional)
+     * @param  string $chargeback_dts_end Chargeback dts end (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch chargebacks that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the chargebacks.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ChargebackDisputesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getChargebackDisputesWithHttpInfoRetry($retry ,  $order_id = null,  $case_number = null,  $status = null,  $expiration_dts_start = null,  $expiration_dts_end = null,  $chargeback_dts_start = null,  $chargeback_dts_end = null,  $_limit = '100',  $_offset = '0',  $_since = null,  $_sort = null,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\ChargebackDisputesResponse';
         $request = $this->getChargebackDisputesRequest($order_id, $case_number, $status, $expiration_dts_start, $expiration_dts_end, $chargeback_dts_start, $chargeback_dts_end, $_limit, $_offset, $_since, $_sort, $_expand);
 
@@ -792,26 +862,25 @@ class ChargebackApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getChargebackDisputesWithHttpInfoRetry(false ,   $order_id,   $case_number,   $status,   $expiration_dts_start,   $expiration_dts_end,   $chargeback_dts_start,   $chargeback_dts_end,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1157,6 +1226,7 @@ class ChargebackApi
         return $response;
     }
 
+
     /**
      * Operation insertChargebackWithHttpInfo
      *
@@ -1171,6 +1241,26 @@ class ChargebackApi
      */
     public function insertChargebackWithHttpInfo($chargeback, $_expand = null)
     {
+        list($response) = $this->insertChargebackWithHttpInfoRetry(true ,   $chargeback,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertChargebackWithHttpInfoRetry
+     *
+     * Insert a chargeback
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to insert (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertChargebackWithHttpInfoRetry($retry ,  $chargeback,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->insertChargebackRequest($chargeback, $_expand);
 
@@ -1179,26 +1269,25 @@ class ChargebackApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertChargebackWithHttpInfoRetry(false ,   $chargeback,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1480,6 +1569,7 @@ class ChargebackApi
         return $response;
     }
 
+
     /**
      * Operation updateChargebackWithHttpInfo
      *
@@ -1495,6 +1585,27 @@ class ChargebackApi
      */
     public function updateChargebackWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand = null)
     {
+        list($response) = $this->updateChargebackWithHttpInfoRetry(true ,   $chargeback,   $chargeback_dispute_oid,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateChargebackWithHttpInfoRetry
+     *
+     * Update a chargeback
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ChargebackDispute $chargeback Chargeback to update (required)
+     * @param  int $chargeback_dispute_oid The chargeback_dispute_oid to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ChargebackDisputeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateChargebackWithHttpInfoRetry($retry ,  $chargeback,  $chargeback_dispute_oid,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\ChargebackDisputeResponse';
         $request = $this->updateChargebackRequest($chargeback, $chargeback_dispute_oid, $_expand);
 
@@ -1503,26 +1614,25 @@ class ChargebackApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateChargebackWithHttpInfoRetry(false ,   $chargeback,   $chargeback_dispute_oid,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

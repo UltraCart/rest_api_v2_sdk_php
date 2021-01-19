@@ -76,6 +76,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published_version' => 'int',
         'purchased' => 'bool',
         'purchased_from_library_item_oid' => 'int',
+        'purchased_meta' => '\ultracart\v2\models\LibraryItemPurchasedMeta',
         'purchased_version' => 'int',
         'rejected' => 'bool',
         'rejected_reason' => 'string',
@@ -122,6 +123,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published_version' => 'int32',
         'purchased' => null,
         'purchased_from_library_item_oid' => 'int32',
+        'purchased_meta' => null,
         'purchased_version' => 'int32',
         'rejected' => null,
         'rejected_reason' => null,
@@ -189,6 +191,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published_version' => 'published_version',
         'purchased' => 'purchased',
         'purchased_from_library_item_oid' => 'purchased_from_library_item_oid',
+        'purchased_meta' => 'purchased_meta',
         'purchased_version' => 'purchased_version',
         'rejected' => 'rejected',
         'rejected_reason' => 'rejected_reason',
@@ -235,6 +238,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published_version' => 'setPublishedVersion',
         'purchased' => 'setPurchased',
         'purchased_from_library_item_oid' => 'setPurchasedFromLibraryItemOid',
+        'purchased_meta' => 'setPurchasedMeta',
         'purchased_version' => 'setPurchasedVersion',
         'rejected' => 'setRejected',
         'rejected_reason' => 'setRejectedReason',
@@ -281,6 +285,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         'published_version' => 'getPublishedVersion',
         'purchased' => 'getPurchased',
         'purchased_from_library_item_oid' => 'getPurchasedFromLibraryItemOid',
+        'purchased_meta' => 'getPurchasedMeta',
         'purchased_version' => 'getPurchasedVersion',
         'rejected' => 'getRejected',
         'rejected_reason' => 'getRejectedReason',
@@ -381,6 +386,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
         $this->container['published_version'] = isset($data['published_version']) ? $data['published_version'] : null;
         $this->container['purchased'] = isset($data['purchased']) ? $data['purchased'] : null;
         $this->container['purchased_from_library_item_oid'] = isset($data['purchased_from_library_item_oid']) ? $data['purchased_from_library_item_oid'] : null;
+        $this->container['purchased_meta'] = isset($data['purchased_meta']) ? $data['purchased_meta'] : null;
         $this->container['purchased_version'] = isset($data['purchased_version']) ? $data['purchased_version'] : null;
         $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
         $this->container['rejected_reason'] = isset($data['rejected_reason']) ? $data['rejected_reason'] : null;
@@ -878,6 +884,30 @@ class LibraryItem implements ModelInterface, ArrayAccess
     public function setPurchasedFromLibraryItemOid($purchased_from_library_item_oid)
     {
         $this->container['purchased_from_library_item_oid'] = $purchased_from_library_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets purchased_meta
+     *
+     * @return \ultracart\v2\models\LibraryItemPurchasedMeta
+     */
+    public function getPurchasedMeta()
+    {
+        return $this->container['purchased_meta'];
+    }
+
+    /**
+     * Sets purchased_meta
+     *
+     * @param \ultracart\v2\models\LibraryItemPurchasedMeta $purchased_meta purchased_meta
+     *
+     * @return $this
+     */
+    public function setPurchasedMeta($purchased_meta)
+    {
+        $this->container['purchased_meta'] = $purchased_meta;
 
         return $this;
     }

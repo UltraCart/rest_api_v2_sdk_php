@@ -105,6 +105,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation adjustOrderTotalWithHttpInfo
      *
@@ -119,6 +120,26 @@ class OrderApi
      */
     public function adjustOrderTotalWithHttpInfo($order_id, $desired_total)
     {
+        list($response) = $this->adjustOrderTotalWithHttpInfoRetry(true ,   $order_id,   $desired_total);
+        return $response;
+    }
+
+
+    /**
+     * Operation adjustOrderTotalWithHttpInfoRetry
+     *
+     * Adjusts an order total
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to cancel. (required)
+     * @param  string $desired_total The desired total with no formatting. example 123.45 (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function adjustOrderTotalWithHttpInfoRetry($retry ,  $order_id,  $desired_total)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->adjustOrderTotalRequest($order_id, $desired_total);
 
@@ -127,26 +148,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->adjustOrderTotalWithHttpInfoRetry(false ,   $order_id,   $desired_total);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -441,6 +461,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation cancelOrderWithHttpInfo
      *
@@ -454,6 +475,25 @@ class OrderApi
      */
     public function cancelOrderWithHttpInfo($order_id)
     {
+        list($response) = $this->cancelOrderWithHttpInfoRetry(true ,   $order_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation cancelOrderWithHttpInfoRetry
+     *
+     * Cancel an order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to cancel. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cancelOrderWithHttpInfoRetry($retry ,  $order_id)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->cancelOrderRequest($order_id);
 
@@ -462,26 +502,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->cancelOrderWithHttpInfoRetry(false ,   $order_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -758,6 +797,7 @@ class OrderApi
         $this->deleteOrderWithHttpInfo($order_id);
     }
 
+
     /**
      * Operation deleteOrderWithHttpInfo
      *
@@ -771,6 +811,24 @@ class OrderApi
      */
     public function deleteOrderWithHttpInfo($order_id)
     {
+        $this->deleteOrderWithHttpInfoRetry(true ,   $order_id);
+    }
+
+
+    /**
+     * Operation deleteOrderWithHttpInfoRetry
+     *
+     * Delete an order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteOrderWithHttpInfoRetry($retry ,  $order_id)
+    {
         $returnType = '';
         $request = $this->deleteOrderRequest($order_id);
 
@@ -779,26 +837,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteOrderWithHttpInfoRetry(false ,   $order_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1041,6 +1098,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation formatWithHttpInfo
      *
@@ -1055,6 +1113,26 @@ class OrderApi
      */
     public function formatWithHttpInfo($order_id, $format_options)
     {
+        list($response) = $this->formatWithHttpInfoRetry(true ,   $order_id,   $format_options);
+        return $response;
+    }
+
+
+    /**
+     * Operation formatWithHttpInfoRetry
+     *
+     * Format order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to format (required)
+     * @param  \ultracart\v2\models\OrderFormat $format_options Format options (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderFormatResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function formatWithHttpInfoRetry($retry ,  $order_id,  $format_options)
+    {
         $returnType = '\ultracart\v2\models\OrderFormatResponse';
         $request = $this->formatRequest($order_id, $format_options);
 
@@ -1063,26 +1141,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->formatWithHttpInfoRetry(false ,   $order_id,   $format_options);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1372,6 +1449,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation generateOrderTokenWithHttpInfo
      *
@@ -1385,6 +1463,25 @@ class OrderApi
      */
     public function generateOrderTokenWithHttpInfo($order_id)
     {
+        list($response) = $this->generateOrderTokenWithHttpInfoRetry(true ,   $order_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation generateOrderTokenWithHttpInfoRetry
+     *
+     * Generate an order token for a given order id
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to generate a token for. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function generateOrderTokenWithHttpInfoRetry($retry ,  $order_id)
+    {
         $returnType = '\ultracart\v2\models\OrderTokenResponse';
         $request = $this->generateOrderTokenRequest($order_id);
 
@@ -1393,26 +1490,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->generateOrderTokenWithHttpInfoRetry(false ,   $order_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1689,6 +1785,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation getAccountsReceivableRetryConfigWithHttpInfo
      *
@@ -1701,6 +1798,24 @@ class OrderApi
      */
     public function getAccountsReceivableRetryConfigWithHttpInfo()
     {
+        list($response) = $this->getAccountsReceivableRetryConfigWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getAccountsReceivableRetryConfigWithHttpInfoRetry
+     *
+     * Retrieve A/R Retry Configuration
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AccountsReceivableRetryConfigResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAccountsReceivableRetryConfigWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\AccountsReceivableRetryConfigResponse';
         $request = $this->getAccountsReceivableRetryConfigRequest();
 
@@ -1709,26 +1824,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAccountsReceivableRetryConfigWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1990,6 +2104,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation getAccountsReceivableRetryStatsWithHttpInfo
      *
@@ -2004,6 +2119,26 @@ class OrderApi
      */
     public function getAccountsReceivableRetryStatsWithHttpInfo($from = null, $to = null)
     {
+        list($response) = $this->getAccountsReceivableRetryStatsWithHttpInfoRetry(true ,   $from,   $to);
+        return $response;
+    }
+
+
+    /**
+     * Operation getAccountsReceivableRetryStatsWithHttpInfoRetry
+     *
+     * Retrieve A/R Retry Statistics
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $from (optional)
+     * @param  string $to (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\AccountsReceivableRetryStatsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAccountsReceivableRetryStatsWithHttpInfoRetry($retry ,  $from = null,  $to = null)
+    {
         $returnType = '\ultracart\v2\models\AccountsReceivableRetryStatsResponse';
         $request = $this->getAccountsReceivableRetryStatsRequest($from, $to);
 
@@ -2012,26 +2147,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getAccountsReceivableRetryStatsWithHttpInfoRetry(false ,   $from,   $to);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2307,6 +2441,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation getOrderWithHttpInfo
      *
@@ -2321,6 +2456,26 @@ class OrderApi
      */
     public function getOrderWithHttpInfo($order_id, $_expand = null)
     {
+        list($response) = $this->getOrderWithHttpInfoRetry(true ,   $order_id,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getOrderWithHttpInfoRetry
+     *
+     * Retrieve an order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to retrieve. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getOrderWithHttpInfoRetry($retry ,  $order_id,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->getOrderRequest($order_id, $_expand);
 
@@ -2329,26 +2484,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getOrderWithHttpInfoRetry(false ,   $order_id,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2634,6 +2788,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation getOrderByTokenWithHttpInfo
      *
@@ -2648,6 +2803,26 @@ class OrderApi
      */
     public function getOrderByTokenWithHttpInfo($order_by_token_query, $_expand = null)
     {
+        list($response) = $this->getOrderByTokenWithHttpInfoRetry(true ,   $order_by_token_query,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getOrderByTokenWithHttpInfoRetry
+     *
+     * Retrieve an order using a token
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\OrderByTokenQuery $order_by_token_query Order by token query (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getOrderByTokenWithHttpInfoRetry($retry ,  $order_by_token_query,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->getOrderByTokenRequest($order_by_token_query, $_expand);
 
@@ -2656,26 +2831,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getOrderByTokenWithHttpInfoRetry(false ,   $order_by_token_query,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2988,6 +3162,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation getOrdersWithHttpInfo
      *
@@ -3034,6 +3209,58 @@ class OrderApi
      */
     public function getOrdersWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
+        list($response) = $this->getOrdersWithHttpInfoRetry(true ,   $order_id,   $payment_method,   $company,   $first_name,   $last_name,   $city,   $state_region,   $postal_code,   $country_code,   $phone,   $email,   $cc_email,   $total,   $screen_branding_theme_code,   $storefront_host_name,   $creation_date_begin,   $creation_date_end,   $payment_date_begin,   $payment_date_end,   $shipment_date_begin,   $shipment_date_end,   $rma,   $purchase_order_number,   $item_id,   $current_stage,   $channel_partner_code,   $channel_partner_order_id,   $customer_profile_oid,   $refund_date_begin,   $refund_date_end,   $_limit,   $_offset,   $_sort,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getOrdersWithHttpInfoRetry
+     *
+     * Retrieve orders
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id Order Id (optional)
+     * @param  string $payment_method Payment Method (optional)
+     * @param  string $company Company (optional)
+     * @param  string $first_name First Name (optional)
+     * @param  string $last_name Last Name (optional)
+     * @param  string $city City (optional)
+     * @param  string $state_region State/Region (optional)
+     * @param  string $postal_code Postal Code (optional)
+     * @param  string $country_code Country Code (ISO-3166 two letter) (optional)
+     * @param  string $phone Phone (optional)
+     * @param  string $email Email (optional)
+     * @param  string $cc_email CC Email (optional)
+     * @param  float $total Total (optional)
+     * @param  string $screen_branding_theme_code Screen Branding Theme Code (optional)
+     * @param  string $storefront_host_name StoreFront Host Name (optional)
+     * @param  string $creation_date_begin Creation Date Begin (optional)
+     * @param  string $creation_date_end Creation Date End (optional)
+     * @param  string $payment_date_begin Payment Date Begin (optional)
+     * @param  string $payment_date_end Payment Date End (optional)
+     * @param  string $shipment_date_begin Shipment Date Begin (optional)
+     * @param  string $shipment_date_end Shipment Date End (optional)
+     * @param  string $rma RMA (optional)
+     * @param  string $purchase_order_number Purchase Order Number (optional)
+     * @param  string $item_id Item Id (optional)
+     * @param  string $current_stage Current Stage (optional)
+     * @param  string $channel_partner_code Channel Partner Code (optional)
+     * @param  string $channel_partner_order_id Channel Partner Order ID (optional)
+     * @param  int $customer_profile_oid (optional)
+     * @param  string $refund_date_begin (optional)
+     * @param  string $refund_date_end (optional)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getOrdersWithHttpInfoRetry($retry ,  $order_id = null,  $payment_method = null,  $company = null,  $first_name = null,  $last_name = null,  $city = null,  $state_region = null,  $postal_code = null,  $country_code = null,  $phone = null,  $email = null,  $cc_email = null,  $total = null,  $screen_branding_theme_code = null,  $storefront_host_name = null,  $creation_date_begin = null,  $creation_date_end = null,  $payment_date_begin = null,  $payment_date_end = null,  $shipment_date_begin = null,  $shipment_date_end = null,  $rma = null,  $purchase_order_number = null,  $item_id = null,  $current_stage = null,  $channel_partner_code = null,  $channel_partner_order_id = null,  $customer_profile_oid = null,  $refund_date_begin = null,  $refund_date_end = null,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $_limit, $_offset, $_sort, $_expand);
 
@@ -3042,26 +3269,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getOrdersWithHttpInfoRetry(false ,   $order_id,   $payment_method,   $company,   $first_name,   $last_name,   $city,   $state_region,   $postal_code,   $country_code,   $phone,   $email,   $cc_email,   $total,   $screen_branding_theme_code,   $storefront_host_name,   $creation_date_begin,   $creation_date_end,   $payment_date_begin,   $payment_date_end,   $shipment_date_begin,   $shipment_date_end,   $rma,   $purchase_order_number,   $item_id,   $current_stage,   $channel_partner_code,   $channel_partner_order_id,   $customer_profile_oid,   $refund_date_begin,   $refund_date_end,   $_limit,   $_offset,   $_sort,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3561,6 +3787,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation getOrdersBatchWithHttpInfo
      *
@@ -3575,6 +3802,26 @@ class OrderApi
      */
     public function getOrdersBatchWithHttpInfo($order_batch, $_expand = null)
     {
+        list($response) = $this->getOrdersBatchWithHttpInfoRetry(true ,   $order_batch,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getOrdersBatchWithHttpInfoRetry
+     *
+     * Retrieve order batch
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\OrderQueryBatch $order_batch Order batch (required)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getOrdersBatchWithHttpInfoRetry($retry ,  $order_batch,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersBatchRequest($order_batch, $_expand);
 
@@ -3583,26 +3830,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getOrdersBatchWithHttpInfoRetry(false ,   $order_batch,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3886,6 +4132,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation getOrdersByQueryWithHttpInfo
      *
@@ -3903,6 +4150,29 @@ class OrderApi
      */
     public function getOrdersByQueryWithHttpInfo($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
+        list($response) = $this->getOrdersByQueryWithHttpInfoRetry(true ,   $order_query,   $_limit,   $_offset,   $_sort,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getOrdersByQueryWithHttpInfoRetry
+     *
+     * Retrieve orders
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getOrdersByQueryWithHttpInfoRetry($retry ,  $order_query,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getOrdersByQueryRequest($order_query, $_limit, $_offset, $_sort, $_expand);
 
@@ -3911,26 +4181,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getOrdersByQueryWithHttpInfoRetry(false ,   $order_query,   $_limit,   $_offset,   $_sort,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4232,6 +4501,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation insertOrderWithHttpInfo
      *
@@ -4246,6 +4516,26 @@ class OrderApi
      */
     public function insertOrderWithHttpInfo($order, $_expand = null)
     {
+        list($response) = $this->insertOrderWithHttpInfoRetry(true ,   $order,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertOrderWithHttpInfoRetry
+     *
+     * Insert an order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Order $order Order to insert (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertOrderWithHttpInfoRetry($retry ,  $order,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->insertOrderRequest($order, $_expand);
 
@@ -4254,26 +4544,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertOrderWithHttpInfoRetry(false ,   $order,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4554,6 +4843,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation processPaymentWithHttpInfo
      *
@@ -4568,6 +4858,26 @@ class OrderApi
      */
     public function processPaymentWithHttpInfo($order_id, $process_payment_request)
     {
+        list($response) = $this->processPaymentWithHttpInfoRetry(true ,   $order_id,   $process_payment_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation processPaymentWithHttpInfoRetry
+     *
+     * Process payment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to process payment on (required)
+     * @param  \ultracart\v2\models\OrderProcessPaymentRequest $process_payment_request Process payment parameters (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderProcessPaymentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function processPaymentWithHttpInfoRetry($retry ,  $order_id,  $process_payment_request)
+    {
         $returnType = '\ultracart\v2\models\OrderProcessPaymentResponse';
         $request = $this->processPaymentRequest($order_id, $process_payment_request);
 
@@ -4576,26 +4886,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->processPaymentWithHttpInfoRetry(false ,   $order_id,   $process_payment_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4892,6 +5201,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation refundOrderWithHttpInfo
      *
@@ -4912,6 +5222,32 @@ class OrderApi
      */
     public function refundOrderWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
+        list($response) = $this->refundOrderWithHttpInfoRetry(true ,   $order,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation refundOrderWithHttpInfoRetry
+     *
+     * Refund an order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Order $order Order to refund (required)
+     * @param  string $order_id The order id to refund. (required)
+     * @param  bool $reject_after_refund Reject order after refund (optional, default to false)
+     * @param  bool $skip_customer_notification Skip customer email notification (optional, default to false)
+     * @param  bool $auto_order_cancel Cancel associated auto orders (optional, default to false)
+     * @param  bool $manual_refund Consider a manual refund done externally (optional, default to false)
+     * @param  bool $reverse_affiliate_transactions Reverse affiliate transactions (optional, default to true)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function refundOrderWithHttpInfoRetry($retry ,  $order,  $order_id,  $reject_after_refund = 'false',  $skip_customer_notification = 'false',  $auto_order_cancel = 'false',  $manual_refund = 'false',  $reverse_affiliate_transactions = 'true',  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->refundOrderRequest($order, $order_id, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
 
@@ -4920,26 +5256,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->refundOrderWithHttpInfoRetry(false ,   $order,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5272,6 +5607,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation replacementWithHttpInfo
      *
@@ -5286,6 +5622,26 @@ class OrderApi
      */
     public function replacementWithHttpInfo($order_id, $replacement)
     {
+        list($response) = $this->replacementWithHttpInfoRetry(true ,   $order_id,   $replacement);
+        return $response;
+    }
+
+
+    /**
+     * Operation replacementWithHttpInfoRetry
+     *
+     * Replacement order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to generate a replacement for. (required)
+     * @param  \ultracart\v2\models\OrderReplacement $replacement Replacement order details (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderReplacementResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function replacementWithHttpInfoRetry($retry ,  $order_id,  $replacement)
+    {
         $returnType = '\ultracart\v2\models\OrderReplacementResponse';
         $request = $this->replacementRequest($order_id, $replacement);
 
@@ -5294,26 +5650,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->replacementWithHttpInfoRetry(false ,   $order_id,   $replacement);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5603,6 +5958,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation resendReceiptWithHttpInfo
      *
@@ -5616,6 +5972,25 @@ class OrderApi
      */
     public function resendReceiptWithHttpInfo($order_id)
     {
+        list($response) = $this->resendReceiptWithHttpInfoRetry(true ,   $order_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation resendReceiptWithHttpInfoRetry
+     *
+     * Resend receipt
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to resend the receipt for. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function resendReceiptWithHttpInfoRetry($retry ,  $order_id)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->resendReceiptRequest($order_id);
 
@@ -5624,26 +5999,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->resendReceiptWithHttpInfoRetry(false ,   $order_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5921,6 +6295,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation resendShipmentConfirmationWithHttpInfo
      *
@@ -5934,6 +6309,25 @@ class OrderApi
      */
     public function resendShipmentConfirmationWithHttpInfo($order_id)
     {
+        list($response) = $this->resendShipmentConfirmationWithHttpInfoRetry(true ,   $order_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation resendShipmentConfirmationWithHttpInfoRetry
+     *
+     * Resend shipment confirmation
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $order_id The order id to resend the shipment notification for. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function resendShipmentConfirmationWithHttpInfoRetry($retry ,  $order_id)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->resendShipmentConfirmationRequest($order_id);
 
@@ -5942,26 +6336,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->resendShipmentConfirmationWithHttpInfoRetry(false ,   $order_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -6239,6 +6632,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation updateAccountsReceivableRetryConfigWithHttpInfo
      *
@@ -6252,6 +6646,25 @@ class OrderApi
      */
     public function updateAccountsReceivableRetryConfigWithHttpInfo($retry_config)
     {
+        list($response) = $this->updateAccountsReceivableRetryConfigWithHttpInfoRetry(true ,   $retry_config);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateAccountsReceivableRetryConfigWithHttpInfoRetry
+     *
+     * Update A/R Retry Configuration
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\AccountsReceivableRetryConfig $retry_config AccountsReceivableRetryConfig object (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAccountsReceivableRetryConfigWithHttpInfoRetry($retry ,  $retry_config)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->updateAccountsReceivableRetryConfigRequest($retry_config);
 
@@ -6260,26 +6673,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateAccountsReceivableRetryConfigWithHttpInfoRetry(false ,   $retry_config);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -6554,6 +6966,7 @@ class OrderApi
         return $response;
     }
 
+
     /**
      * Operation updateOrderWithHttpInfo
      *
@@ -6569,6 +6982,27 @@ class OrderApi
      */
     public function updateOrderWithHttpInfo($order, $order_id, $_expand = null)
     {
+        list($response) = $this->updateOrderWithHttpInfoRetry(true ,   $order,   $order_id,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateOrderWithHttpInfoRetry
+     *
+     * Update an order
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Order $order Order to update (required)
+     * @param  string $order_id The order id to update. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateOrderWithHttpInfoRetry($retry ,  $order,  $order_id,  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\OrderResponse';
         $request = $this->updateOrderRequest($order, $order_id, $_expand);
 
@@ -6577,26 +7011,25 @@ class OrderApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateOrderWithHttpInfoRetry(false ,   $order,   $order_id,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

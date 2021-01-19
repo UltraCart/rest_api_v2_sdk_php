@@ -104,6 +104,7 @@ class FulfillmentApi
         $this->acknowledgeOrdersWithHttpInfo($distribution_center_code, $order_ids);
     }
 
+
     /**
      * Operation acknowledgeOrdersWithHttpInfo
      *
@@ -118,6 +119,25 @@ class FulfillmentApi
      */
     public function acknowledgeOrdersWithHttpInfo($distribution_center_code, $order_ids)
     {
+        $this->acknowledgeOrdersWithHttpInfoRetry(true ,   $distribution_center_code,   $order_ids);
+    }
+
+
+    /**
+     * Operation acknowledgeOrdersWithHttpInfoRetry
+     *
+     * Acknowledge receipt of orders.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $distribution_center_code Distribution center code (required)
+     * @param  string[] $order_ids Orders to acknowledge receipt of (limit 100) (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function acknowledgeOrdersWithHttpInfoRetry($retry ,  $distribution_center_code,  $order_ids)
+    {
         $returnType = '';
         $request = $this->acknowledgeOrdersRequest($distribution_center_code, $order_ids);
 
@@ -126,26 +146,25 @@ class FulfillmentApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->acknowledgeOrdersWithHttpInfoRetry(false ,   $distribution_center_code,   $order_ids);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -399,6 +418,7 @@ class FulfillmentApi
         return $response;
     }
 
+
     /**
      * Operation getDistributionCenterOrdersWithHttpInfo
      *
@@ -412,6 +432,25 @@ class FulfillmentApi
      */
     public function getDistributionCenterOrdersWithHttpInfo($distribution_center_code)
     {
+        list($response) = $this->getDistributionCenterOrdersWithHttpInfoRetry(true ,   $distribution_center_code);
+        return $response;
+    }
+
+
+    /**
+     * Operation getDistributionCenterOrdersWithHttpInfoRetry
+     *
+     * Retrieve orders queued up for this distribution center.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $distribution_center_code Distribution center code (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDistributionCenterOrdersWithHttpInfoRetry($retry ,  $distribution_center_code)
+    {
         $returnType = '\ultracart\v2\models\OrdersResponse';
         $request = $this->getDistributionCenterOrdersRequest($distribution_center_code);
 
@@ -420,26 +459,25 @@ class FulfillmentApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getDistributionCenterOrdersWithHttpInfoRetry(false ,   $distribution_center_code);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -716,6 +754,7 @@ class FulfillmentApi
         return $response;
     }
 
+
     /**
      * Operation getDistributionCentersWithHttpInfo
      *
@@ -728,6 +767,24 @@ class FulfillmentApi
      */
     public function getDistributionCentersWithHttpInfo()
     {
+        list($response) = $this->getDistributionCentersWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getDistributionCentersWithHttpInfoRetry
+     *
+     * Retrieve distribution centers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\DistributionCentersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDistributionCentersWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\DistributionCentersResponse';
         $request = $this->getDistributionCentersRequest();
 
@@ -736,26 +793,25 @@ class FulfillmentApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getDistributionCentersWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1016,6 +1072,7 @@ class FulfillmentApi
         $this->shipOrdersWithHttpInfo($distribution_center_code, $shipments);
     }
 
+
     /**
      * Operation shipOrdersWithHttpInfo
      *
@@ -1030,6 +1087,25 @@ class FulfillmentApi
      */
     public function shipOrdersWithHttpInfo($distribution_center_code, $shipments)
     {
+        $this->shipOrdersWithHttpInfoRetry(true ,   $distribution_center_code,   $shipments);
+    }
+
+
+    /**
+     * Operation shipOrdersWithHttpInfoRetry
+     *
+     * Mark orders as shipped
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $distribution_center_code Distribution center code (required)
+     * @param  \ultracart\v2\models\FulfillmentShipment[] $shipments Orders to mark shipped (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function shipOrdersWithHttpInfoRetry($retry ,  $distribution_center_code,  $shipments)
+    {
         $returnType = '';
         $request = $this->shipOrdersRequest($distribution_center_code, $shipments);
 
@@ -1038,26 +1114,25 @@ class FulfillmentApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->shipOrdersWithHttpInfoRetry(false ,   $distribution_center_code,   $shipments);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1311,6 +1386,7 @@ class FulfillmentApi
         $this->updateInventoryWithHttpInfo($distribution_center_code, $inventories);
     }
 
+
     /**
      * Operation updateInventoryWithHttpInfo
      *
@@ -1325,6 +1401,25 @@ class FulfillmentApi
      */
     public function updateInventoryWithHttpInfo($distribution_center_code, $inventories)
     {
+        $this->updateInventoryWithHttpInfoRetry(true ,   $distribution_center_code,   $inventories);
+    }
+
+
+    /**
+     * Operation updateInventoryWithHttpInfoRetry
+     *
+     * Update inventory
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $distribution_center_code Distribution center code (required)
+     * @param  \ultracart\v2\models\FulfillmentInventory[] $inventories Inventory updates (limit 500) (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateInventoryWithHttpInfoRetry($retry ,  $distribution_center_code,  $inventories)
+    {
         $returnType = '';
         $request = $this->updateInventoryRequest($distribution_center_code, $inventories);
 
@@ -1333,26 +1428,25 @@ class FulfillmentApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateInventoryWithHttpInfoRetry(false ,   $distribution_center_code,   $inventories);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

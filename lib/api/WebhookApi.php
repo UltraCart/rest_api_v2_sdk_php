@@ -103,6 +103,7 @@ class WebhookApi
         $this->deleteWebhookWithHttpInfo($webhook_oid);
     }
 
+
     /**
      * Operation deleteWebhookWithHttpInfo
      *
@@ -116,6 +117,24 @@ class WebhookApi
      */
     public function deleteWebhookWithHttpInfo($webhook_oid)
     {
+        $this->deleteWebhookWithHttpInfoRetry(true ,   $webhook_oid);
+    }
+
+
+    /**
+     * Operation deleteWebhookWithHttpInfoRetry
+     *
+     * Delete a webhook
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $webhook_oid The webhook oid to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteWebhookWithHttpInfoRetry($retry ,  $webhook_oid)
+    {
         $returnType = '';
         $request = $this->deleteWebhookRequest($webhook_oid);
 
@@ -124,26 +143,25 @@ class WebhookApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteWebhookWithHttpInfoRetry(false ,   $webhook_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -385,6 +403,7 @@ class WebhookApi
         return $response;
     }
 
+
     /**
      * Operation deleteWebhookByUrlWithHttpInfo
      *
@@ -398,6 +417,25 @@ class WebhookApi
      */
     public function deleteWebhookByUrlWithHttpInfo($webhook)
     {
+        list($response) = $this->deleteWebhookByUrlWithHttpInfoRetry(true ,   $webhook);
+        return $response;
+    }
+
+
+    /**
+     * Operation deleteWebhookByUrlWithHttpInfoRetry
+     *
+     * Delete a webhook by URL
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to delete (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteWebhookByUrlWithHttpInfoRetry($retry ,  $webhook)
+    {
         $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->deleteWebhookByUrlRequest($webhook);
 
@@ -406,26 +444,25 @@ class WebhookApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteWebhookByUrlWithHttpInfoRetry(false ,   $webhook);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -699,6 +736,7 @@ class WebhookApi
         return $response;
     }
 
+
     /**
      * Operation getWebhookLogWithHttpInfo
      *
@@ -713,6 +751,26 @@ class WebhookApi
      */
     public function getWebhookLogWithHttpInfo($webhook_oid, $request_id)
     {
+        list($response) = $this->getWebhookLogWithHttpInfoRetry(true ,   $webhook_oid,   $request_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation getWebhookLogWithHttpInfoRetry
+     *
+     * Retrieve an individual log
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $webhook_oid The webhook oid that owns the log. (required)
+     * @param  string $request_id The request id associated with the log to view. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\WebhookLogResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebhookLogWithHttpInfoRetry($retry ,  $webhook_oid,  $request_id)
+    {
         $returnType = '\ultracart\v2\models\WebhookLogResponse';
         $request = $this->getWebhookLogRequest($webhook_oid, $request_id);
 
@@ -721,26 +779,25 @@ class WebhookApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getWebhookLogWithHttpInfoRetry(false ,   $webhook_oid,   $request_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1038,6 +1095,7 @@ class WebhookApi
         return $response;
     }
 
+
     /**
      * Operation getWebhookLogSummariesWithHttpInfo
      *
@@ -1054,6 +1112,28 @@ class WebhookApi
      */
     public function getWebhookLogSummariesWithHttpInfo($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
+        list($response) = $this->getWebhookLogSummariesWithHttpInfoRetry(true ,   $webhook_oid,   $_limit,   $_offset,   $_since);
+        return $response;
+    }
+
+
+    /**
+     * Operation getWebhookLogSummariesWithHttpInfoRetry
+     *
+     * Retrieve the log summaries
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $webhook_oid The webhook oid to retrieve log summaries for. (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch log summaries that have been delivered since this date/time. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\WebhookLogSummariesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebhookLogSummariesWithHttpInfoRetry($retry ,  $webhook_oid,  $_limit = '100',  $_offset = '0',  $_since = null)
+    {
         $returnType = '\ultracart\v2\models\WebhookLogSummariesResponse';
         $request = $this->getWebhookLogSummariesRequest($webhook_oid, $_limit, $_offset, $_since);
 
@@ -1062,26 +1142,25 @@ class WebhookApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getWebhookLogSummariesWithHttpInfoRetry(false ,   $webhook_oid,   $_limit,   $_offset,   $_since);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1383,6 +1462,7 @@ class WebhookApi
         return $response;
     }
 
+
     /**
      * Operation getWebhooksWithHttpInfo
      *
@@ -1399,6 +1479,28 @@ class WebhookApi
      */
     public function getWebhooksWithHttpInfo($_limit = '100', $_offset = '0', $_sort = null, $_placeholders = null)
     {
+        list($response) = $this->getWebhooksWithHttpInfoRetry(true ,   $_limit,   $_offset,   $_sort,   $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation getWebhooksWithHttpInfoRetry
+     *
+     * Retrieve webhooks
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the webhooks.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\WebhooksResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebhooksWithHttpInfoRetry($retry ,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_placeholders = null)
+    {
         $returnType = '\ultracart\v2\models\WebhooksResponse';
         $request = $this->getWebhooksRequest($_limit, $_offset, $_sort, $_placeholders);
 
@@ -1407,26 +1509,25 @@ class WebhookApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getWebhooksWithHttpInfoRetry(false ,   $_limit,   $_offset,   $_sort,   $_placeholders);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1716,6 +1817,7 @@ class WebhookApi
         return $response;
     }
 
+
     /**
      * Operation insertWebhookWithHttpInfo
      *
@@ -1730,6 +1832,26 @@ class WebhookApi
      */
     public function insertWebhookWithHttpInfo($webhook, $_placeholders = null)
     {
+        list($response) = $this->insertWebhookWithHttpInfoRetry(true ,   $webhook,   $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertWebhookWithHttpInfoRetry
+     *
+     * Add a webhook
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to create (required)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertWebhookWithHttpInfoRetry($retry ,  $webhook,  $_placeholders = null)
+    {
         $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->insertWebhookRequest($webhook, $_placeholders);
 
@@ -1738,26 +1860,25 @@ class WebhookApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertWebhookWithHttpInfoRetry(false ,   $webhook,   $_placeholders);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2038,6 +2159,7 @@ class WebhookApi
         return $response;
     }
 
+
     /**
      * Operation resendEventWithHttpInfo
      *
@@ -2052,6 +2174,26 @@ class WebhookApi
      */
     public function resendEventWithHttpInfo($webhook_oid, $event_name)
     {
+        list($response) = $this->resendEventWithHttpInfoRetry(true ,   $webhook_oid,   $event_name);
+        return $response;
+    }
+
+
+    /**
+     * Operation resendEventWithHttpInfoRetry
+     *
+     * Resend events to the webhook endpoint.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $webhook_oid The webhook oid that is receiving the reflowed events. (required)
+     * @param  string $event_name The event to reflow. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\WebhookSampleRequestResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function resendEventWithHttpInfoRetry($retry ,  $webhook_oid,  $event_name)
+    {
         $returnType = '\ultracart\v2\models\WebhookSampleRequestResponse';
         $request = $this->resendEventRequest($webhook_oid, $event_name);
 
@@ -2060,26 +2202,25 @@ class WebhookApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->resendEventWithHttpInfoRetry(false ,   $webhook_oid,   $event_name);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2376,6 +2517,7 @@ class WebhookApi
         return $response;
     }
 
+
     /**
      * Operation updateWebhookWithHttpInfo
      *
@@ -2391,6 +2533,27 @@ class WebhookApi
      */
     public function updateWebhookWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
     {
+        list($response) = $this->updateWebhookWithHttpInfoRetry(true ,   $webhook,   $webhook_oid,   $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateWebhookWithHttpInfoRetry
+     *
+     * Update a webhook
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Webhook $webhook Webhook to update (required)
+     * @param  int $webhook_oid The webhook oid to update. (required)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\WebhookResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateWebhookWithHttpInfoRetry($retry ,  $webhook,  $webhook_oid,  $_placeholders = null)
+    {
         $returnType = '\ultracart\v2\models\WebhookResponse';
         $request = $this->updateWebhookRequest($webhook, $webhook_oid, $_placeholders);
 
@@ -2399,26 +2562,25 @@ class WebhookApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateWebhookWithHttpInfoRetry(false ,   $webhook,   $webhook_oid,   $_placeholders);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

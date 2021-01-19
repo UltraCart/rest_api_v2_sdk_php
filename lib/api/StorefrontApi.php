@@ -104,6 +104,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation addToLibraryWithHttpInfo
      *
@@ -117,6 +118,25 @@ class StorefrontApi
      */
     public function addToLibraryWithHttpInfo($add_library_request)
     {
+        list($response) = $this->addToLibraryWithHttpInfoRetry(true ,   $add_library_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation addToLibraryWithHttpInfoRetry
+     *
+     * Add to library
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\AddLibraryItemRequest $add_library_request New library item request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addToLibraryWithHttpInfoRetry($retry ,  $add_library_request)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->addToLibraryRequest($add_library_request);
 
@@ -125,26 +145,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->addToLibraryWithHttpInfoRetry(false ,   $add_library_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -422,6 +441,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation applyToStoreFrontWithHttpInfo
      *
@@ -435,6 +455,25 @@ class StorefrontApi
      */
     public function applyToStoreFrontWithHttpInfo($apply_library_request)
     {
+        list($response) = $this->applyToStoreFrontWithHttpInfoRetry(true ,   $apply_library_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation applyToStoreFrontWithHttpInfoRetry
+     *
+     * Apply library item to storefront.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ApplyLibraryItemRequest $apply_library_request New library item (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ApplyLibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function applyToStoreFrontWithHttpInfoRetry($retry ,  $apply_library_request)
+    {
         $returnType = '\ultracart\v2\models\ApplyLibraryItemResponse';
         $request = $this->applyToStoreFrontRequest($apply_library_request);
 
@@ -443,26 +482,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->applyToStoreFrontWithHttpInfoRetry(false ,   $apply_library_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -741,6 +779,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation archiveEmailListWithHttpInfo
      *
@@ -755,6 +794,26 @@ class StorefrontApi
      */
     public function archiveEmailListWithHttpInfo($storefront_oid, $email_list_uuid)
     {
+        list($response) = $this->archiveEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation archiveEmailListWithHttpInfoRetry
+     *
+     * Archive email list
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListArchiveResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function archiveEmailListWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailListArchiveResponse';
         $request = $this->archiveEmailListRequest($storefront_oid, $email_list_uuid);
 
@@ -763,26 +822,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->archiveEmailListWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1083,6 +1141,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation archiveEmailSegmentWithHttpInfo
      *
@@ -1097,6 +1156,26 @@ class StorefrontApi
      */
     public function archiveEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
+        list($response) = $this->archiveEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation archiveEmailSegmentWithHttpInfoRetry
+     *
+     * Archive email segment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_segment_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentArchiveResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function archiveEmailSegmentWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentArchiveResponse';
         $request = $this->archiveEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
@@ -1105,26 +1184,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->archiveEmailSegmentWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1426,6 +1504,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation backPopulateEmailFlowWithHttpInfo
      *
@@ -1441,6 +1520,27 @@ class StorefrontApi
      */
     public function backPopulateEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $back_populate_request)
     {
+        list($response) = $this->backPopulateEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $back_populate_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation backPopulateEmailFlowWithHttpInfoRetry
+     *
+     * Back populate email flow
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_flow_uuid (required)
+     * @param  \ultracart\v2\models\EmailFlowBackPopulateRequest $back_populate_request The request to back populate (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailFlowBackPopulateResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function backPopulateEmailFlowWithHttpInfoRetry($retry ,  $storefront_oid,  $email_flow_uuid,  $back_populate_request)
+    {
         $returnType = '\ultracart\v2\models\EmailFlowBackPopulateResponse';
         $request = $this->backPopulateEmailFlowRequest($storefront_oid, $email_flow_uuid, $back_populate_request);
 
@@ -1449,26 +1549,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->backPopulateEmailFlowWithHttpInfoRetry(false ,   $storefront_oid,   $email_flow_uuid,   $back_populate_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1782,6 +1881,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation checkDownloadEmailSegmentWithHttpInfo
      *
@@ -1797,6 +1897,27 @@ class StorefrontApi
      */
     public function checkDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
     {
+        list($response) = $this->checkDownloadEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_segment_rebuild_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation checkDownloadEmailSegmentWithHttpInfoRetry
+     *
+     * Check download of email segment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_segment_uuid (required)
+     * @param  string $email_segment_rebuild_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentDownloadPrepareResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function checkDownloadEmailSegmentWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment_uuid,  $email_segment_rebuild_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
         $request = $this->checkDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid);
 
@@ -1805,26 +1926,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->checkDownloadEmailSegmentWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment_uuid,   $email_segment_rebuild_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2143,6 +2263,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation cloneEmailCampaignWithHttpInfo
      *
@@ -2158,6 +2279,27 @@ class StorefrontApi
      */
     public function cloneEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
+        list($response) = $this->cloneEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid,   $target_storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation cloneEmailCampaignWithHttpInfoRetry
+     *
+     * Clone email campaign
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_campaign_uuid (required)
+     * @param  int $target_storefront_oid (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloneEmailCampaignWithHttpInfoRetry($retry ,  $storefront_oid,  $email_campaign_uuid,  $target_storefront_oid = null)
+    {
         $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->cloneEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $target_storefront_oid);
 
@@ -2166,26 +2308,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->cloneEmailCampaignWithHttpInfoRetry(false ,   $storefront_oid,   $email_campaign_uuid,   $target_storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2494,6 +2635,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation cloneEmailFlowWithHttpInfo
      *
@@ -2509,6 +2651,27 @@ class StorefrontApi
      */
     public function cloneEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
+        list($response) = $this->cloneEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $target_storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation cloneEmailFlowWithHttpInfoRetry
+     *
+     * Clone email flow
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_flow_uuid (required)
+     * @param  int $target_storefront_oid (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function cloneEmailFlowWithHttpInfoRetry($retry ,  $storefront_oid,  $email_flow_uuid,  $target_storefront_oid = null)
+    {
         $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->cloneEmailFlowRequest($storefront_oid, $email_flow_uuid, $target_storefront_oid);
 
@@ -2517,26 +2680,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->cloneEmailFlowWithHttpInfoRetry(false ,   $storefront_oid,   $email_flow_uuid,   $target_storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2843,6 +3005,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation createEmailSendingDomainWithHttpInfo
      *
@@ -2856,6 +3019,25 @@ class StorefrontApi
      */
     public function createEmailSendingDomainWithHttpInfo($domain)
     {
+        list($response) = $this->createEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
+        return $response;
+    }
+
+
+    /**
+     * Operation createEmailSendingDomainWithHttpInfoRetry
+     *
+     * Create email campaign
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $domain (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createEmailSendingDomainWithHttpInfoRetry($retry ,  $domain)
+    {
         $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->createEmailSendingDomainRequest($domain);
 
@@ -2864,26 +3046,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->createEmailSendingDomainWithHttpInfoRetry(false ,   $domain);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3166,6 +3347,7 @@ class StorefrontApi
         $this->deleteEmailCommseqStatWithHttpInfo($storefront_oid, $commseq_uuid);
     }
 
+
     /**
      * Operation deleteEmailCommseqStatWithHttpInfo
      *
@@ -3180,6 +3362,25 @@ class StorefrontApi
      */
     public function deleteEmailCommseqStatWithHttpInfo($storefront_oid, $commseq_uuid)
     {
+        $this->deleteEmailCommseqStatWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid);
+    }
+
+
+    /**
+     * Operation deleteEmailCommseqStatWithHttpInfoRetry
+     *
+     * Delete communication sequence stats
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteEmailCommseqStatWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid)
+    {
         $returnType = '';
         $request = $this->deleteEmailCommseqStatRequest($storefront_oid, $commseq_uuid);
 
@@ -3188,26 +3389,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteEmailCommseqStatWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3472,6 +3672,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation deleteEmailEmailWithHttpInfo
      *
@@ -3486,6 +3687,26 @@ class StorefrontApi
      */
     public function deleteEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid)
     {
+        list($response) = $this->deleteEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation deleteEmailEmailWithHttpInfoRetry
+     *
+     * Delete email email
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_email_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteEmailEmailWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_email_uuid)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailEmailRequest($storefront_oid, $commseq_email_uuid);
 
@@ -3494,26 +3715,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteEmailEmailWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_email_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3815,6 +4035,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation deleteEmailListCustomerWithHttpInfo
      *
@@ -3830,6 +4051,27 @@ class StorefrontApi
      */
     public function deleteEmailListCustomerWithHttpInfo($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
+        list($response) = $this->deleteEmailListCustomerWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_customer_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation deleteEmailListCustomerWithHttpInfoRetry
+     *
+     * Delete email list customer
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_uuid (required)
+     * @param  string $email_customer_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteEmailListCustomerWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_uuid,  $email_customer_uuid)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailListCustomerRequest($storefront_oid, $email_list_uuid, $email_customer_uuid);
 
@@ -3838,26 +4080,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteEmailListCustomerWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_uuid,   $email_customer_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4175,6 +4416,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation deleteEmailPostcardWithHttpInfo
      *
@@ -4189,6 +4431,26 @@ class StorefrontApi
      */
     public function deleteEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid)
     {
+        list($response) = $this->deleteEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation deleteEmailPostcardWithHttpInfoRetry
+     *
+     * Delete email postcard
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_postcard_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteEmailPostcardWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_postcard_uuid)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid);
 
@@ -4197,26 +4459,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteEmailPostcardWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_postcard_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4516,6 +4777,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation deleteEmailSendingDomainWithHttpInfo
      *
@@ -4529,6 +4791,25 @@ class StorefrontApi
      */
     public function deleteEmailSendingDomainWithHttpInfo($domain)
     {
+        list($response) = $this->deleteEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
+        return $response;
+    }
+
+
+    /**
+     * Operation deleteEmailSendingDomainWithHttpInfoRetry
+     *
+     * delete email campaign
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $domain (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteEmailSendingDomainWithHttpInfoRetry($retry ,  $domain)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->deleteEmailSendingDomainRequest($domain);
 
@@ -4537,26 +4818,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteEmailSendingDomainWithHttpInfoRetry(false ,   $domain);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4839,6 +5119,7 @@ class StorefrontApi
         $this->deleteExperimentWithHttpInfo($storefront_oid, $storefront_experiment_oid);
     }
 
+
     /**
      * Operation deleteExperimentWithHttpInfo
      *
@@ -4853,6 +5134,25 @@ class StorefrontApi
      */
     public function deleteExperimentWithHttpInfo($storefront_oid, $storefront_experiment_oid)
     {
+        $this->deleteExperimentWithHttpInfoRetry(true ,   $storefront_oid,   $storefront_experiment_oid);
+    }
+
+
+    /**
+     * Operation deleteExperimentWithHttpInfoRetry
+     *
+     * Delete experiment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $storefront_experiment_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteExperimentWithHttpInfoRetry($retry ,  $storefront_oid,  $storefront_experiment_oid)
+    {
         $returnType = '';
         $request = $this->deleteExperimentRequest($storefront_oid, $storefront_experiment_oid);
 
@@ -4861,26 +5161,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteExperimentWithHttpInfoRetry(false ,   $storefront_oid,   $storefront_experiment_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5143,6 +5442,7 @@ class StorefrontApi
         $this->deleteLibraryItemWithHttpInfo($library_item_oid);
     }
 
+
     /**
      * Operation deleteLibraryItemWithHttpInfo
      *
@@ -5156,6 +5456,24 @@ class StorefrontApi
      */
     public function deleteLibraryItemWithHttpInfo($library_item_oid)
     {
+        $this->deleteLibraryItemWithHttpInfoRetry(true ,   $library_item_oid);
+    }
+
+
+    /**
+     * Operation deleteLibraryItemWithHttpInfoRetry
+     *
+     * Delete library item
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $library_item_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteLibraryItemWithHttpInfoRetry($retry ,  $library_item_oid)
+    {
         $returnType = '';
         $request = $this->deleteLibraryItemRequest($library_item_oid);
 
@@ -5164,26 +5482,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteLibraryItemWithHttpInfoRetry(false ,   $library_item_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5429,6 +5746,7 @@ class StorefrontApi
         $this->deleteLibraryItemPublishedVersionsWithHttpInfo($library_item_oid);
     }
 
+
     /**
      * Operation deleteLibraryItemPublishedVersionsWithHttpInfo
      *
@@ -5442,6 +5760,24 @@ class StorefrontApi
      */
     public function deleteLibraryItemPublishedVersionsWithHttpInfo($library_item_oid)
     {
+        $this->deleteLibraryItemPublishedVersionsWithHttpInfoRetry(true ,   $library_item_oid);
+    }
+
+
+    /**
+     * Operation deleteLibraryItemPublishedVersionsWithHttpInfoRetry
+     *
+     * Delete all published versions for a library item, including anything in review.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $library_item_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteLibraryItemPublishedVersionsWithHttpInfoRetry($retry ,  $library_item_oid)
+    {
         $returnType = '';
         $request = $this->deleteLibraryItemPublishedVersionsRequest($library_item_oid);
 
@@ -5450,26 +5786,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteLibraryItemPublishedVersionsWithHttpInfoRetry(false ,   $library_item_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5716,6 +6051,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation duplicateLibraryItemWithHttpInfo
      *
@@ -5729,6 +6065,25 @@ class StorefrontApi
      */
     public function duplicateLibraryItemWithHttpInfo($library_item_oid)
     {
+        list($response) = $this->duplicateLibraryItemWithHttpInfoRetry(true ,   $library_item_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation duplicateLibraryItemWithHttpInfoRetry
+     *
+     * Duplicate library item.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $library_item_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function duplicateLibraryItemWithHttpInfoRetry($retry ,  $library_item_oid)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->duplicateLibraryItemRequest($library_item_oid);
 
@@ -5737,26 +6092,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->duplicateLibraryItemWithHttpInfoRetry(false ,   $library_item_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -6040,6 +6394,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation geocodeAddressWithHttpInfo
      *
@@ -6054,6 +6409,26 @@ class StorefrontApi
      */
     public function geocodeAddressWithHttpInfo($storefront_oid, $geocode_request)
     {
+        list($response) = $this->geocodeAddressWithHttpInfoRetry(true ,   $storefront_oid,   $geocode_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation geocodeAddressWithHttpInfoRetry
+     *
+     * Obtain lat/long for an address
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\GeocodeRequest $geocode_request geocode request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\GeocodeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function geocodeAddressWithHttpInfoRetry($retry ,  $storefront_oid,  $geocode_request)
+    {
         $returnType = '\ultracart\v2\models\GeocodeResponse';
         $request = $this->geocodeAddressRequest($storefront_oid, $geocode_request);
 
@@ -6062,26 +6437,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->geocodeAddressWithHttpInfoRetry(false ,   $storefront_oid,   $geocode_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -6376,6 +6750,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getCountriesWithHttpInfo
      *
@@ -6389,6 +6764,25 @@ class StorefrontApi
      */
     public function getCountriesWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getCountriesWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCountriesWithHttpInfoRetry
+     *
+     * Get countries
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CountriesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCountriesWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\CountriesResponse';
         $request = $this->getCountriesRequest($storefront_oid);
 
@@ -6397,26 +6791,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCountriesWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -6699,6 +7092,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEditorTokenWithHttpInfo
      *
@@ -6712,6 +7106,25 @@ class StorefrontApi
      */
     public function getEditorTokenWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEditorTokenWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEditorTokenWithHttpInfoRetry
+     *
+     * Gets editor token
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailEditorTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEditorTokenWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailEditorTokenResponse';
         $request = $this->getEditorTokenRequest($storefront_oid);
 
@@ -6720,26 +7133,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEditorTokenWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -7022,6 +7434,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailBaseTemplatesWithHttpInfo
      *
@@ -7035,6 +7448,25 @@ class StorefrontApi
      */
     public function getEmailBaseTemplatesWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailBaseTemplatesWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailBaseTemplatesWithHttpInfoRetry
+     *
+     * Get email communication base templates
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailBaseTemplateListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailBaseTemplatesWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailBaseTemplateListResponse';
         $request = $this->getEmailBaseTemplatesRequest($storefront_oid);
 
@@ -7043,26 +7475,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailBaseTemplatesWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -7346,6 +7777,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCampaignWithHttpInfo
      *
@@ -7360,6 +7792,26 @@ class StorefrontApi
      */
     public function getEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
+        list($response) = $this->getEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCampaignWithHttpInfoRetry
+     *
+     * Get email campaign
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_campaign_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCampaignWithHttpInfoRetry($retry ,  $storefront_oid,  $email_campaign_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->getEmailCampaignRequest($storefront_oid, $email_campaign_uuid);
 
@@ -7368,26 +7820,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCampaignWithHttpInfoRetry(false ,   $storefront_oid,   $email_campaign_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -7688,6 +8139,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCampaignScreenshotsWithHttpInfo
      *
@@ -7702,6 +8154,26 @@ class StorefrontApi
      */
     public function getEmailCampaignScreenshotsWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
+        list($response) = $this->getEmailCampaignScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCampaignScreenshotsWithHttpInfoRetry
+     *
+     * Get email campaign screenshots
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_campaign_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ScreenshotsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCampaignScreenshotsWithHttpInfoRetry($retry ,  $storefront_oid,  $email_campaign_uuid)
+    {
         $returnType = '\ultracart\v2\models\ScreenshotsResponse';
         $request = $this->getEmailCampaignScreenshotsRequest($storefront_oid, $email_campaign_uuid);
 
@@ -7710,26 +8182,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCampaignScreenshotsWithHttpInfoRetry(false ,   $storefront_oid,   $email_campaign_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -8029,6 +8500,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCampaignsWithHttpInfo
      *
@@ -8042,6 +8514,25 @@ class StorefrontApi
      */
     public function getEmailCampaignsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailCampaignsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCampaignsWithHttpInfoRetry
+     *
+     * Get email campaigns
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCampaignsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCampaignsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailCampaignsResponse';
         $request = $this->getEmailCampaignsRequest($storefront_oid);
 
@@ -8050,26 +8541,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCampaignsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -8353,6 +8843,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCampaignsWithStatsWithHttpInfo
      *
@@ -8367,6 +8858,26 @@ class StorefrontApi
      */
     public function getEmailCampaignsWithStatsWithHttpInfo($storefront_oid, $stat_days)
     {
+        list($response) = $this->getEmailCampaignsWithStatsWithHttpInfoRetry(true ,   $storefront_oid,   $stat_days);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCampaignsWithStatsWithHttpInfoRetry
+     *
+     * Get email campaigns with stats
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $stat_days (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCampaignsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCampaignsWithStatsWithHttpInfoRetry($retry ,  $storefront_oid,  $stat_days)
+    {
         $returnType = '\ultracart\v2\models\EmailCampaignsResponse';
         $request = $this->getEmailCampaignsWithStatsRequest($storefront_oid, $stat_days);
 
@@ -8375,26 +8886,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCampaignsWithStatsWithHttpInfoRetry(false ,   $storefront_oid,   $stat_days);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -8695,6 +9205,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCommseqWithHttpInfo
      *
@@ -8709,6 +9220,26 @@ class StorefrontApi
      */
     public function getEmailCommseqWithHttpInfo($storefront_oid, $commseq_uuid)
     {
+        list($response) = $this->getEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCommseqWithHttpInfoRetry
+     *
+     * Get email commseq
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCommseqWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->getEmailCommseqRequest($storefront_oid, $commseq_uuid);
 
@@ -8717,26 +9248,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCommseqWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -9038,6 +9568,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCommseqEmailStatsWithHttpInfo
      *
@@ -9053,6 +9584,27 @@ class StorefrontApi
      */
     public function getEmailCommseqEmailStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
+        list($response) = $this->getEmailCommseqEmailStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCommseqEmailStatsWithHttpInfoRetry
+     *
+     * Get email communication sequence emails stats
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  \ultracart\v2\models\EmailStatSummaryRequest $stats_request StatsRequest (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailStatSummaryResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCommseqEmailStatsWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid,  $stats_request)
+    {
         $returnType = '\ultracart\v2\models\EmailStatSummaryResponse';
         $request = $this->getEmailCommseqEmailStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
@@ -9061,26 +9613,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCommseqEmailStatsWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $stats_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -9394,6 +9945,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCommseqPostcardStatsWithHttpInfo
      *
@@ -9409,6 +9961,27 @@ class StorefrontApi
      */
     public function getEmailCommseqPostcardStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
+        list($response) = $this->getEmailCommseqPostcardStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCommseqPostcardStatsWithHttpInfoRetry
+     *
+     * Get email communication sequence postcard stats
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  \ultracart\v2\models\EmailStatPostcardSummaryRequest $stats_request StatsRequest (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailStatPostcardSummaryResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCommseqPostcardStatsWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid,  $stats_request)
+    {
         $returnType = '\ultracart\v2\models\EmailStatPostcardSummaryResponse';
         $request = $this->getEmailCommseqPostcardStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
@@ -9417,26 +9990,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCommseqPostcardStatsWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $stats_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -9749,6 +10321,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCommseqStatOverallWithHttpInfo
      *
@@ -9763,6 +10336,26 @@ class StorefrontApi
      */
     public function getEmailCommseqStatOverallWithHttpInfo($storefront_oid, $commseq_uuid)
     {
+        list($response) = $this->getEmailCommseqStatOverallWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCommseqStatOverallWithHttpInfoRetry
+     *
+     * Get communication sequence stats overall
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqStatResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCommseqStatOverallWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqStatResponse';
         $request = $this->getEmailCommseqStatOverallRequest($storefront_oid, $commseq_uuid);
 
@@ -9771,26 +10364,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCommseqStatOverallWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -10092,6 +10684,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCommseqStepStatsWithHttpInfo
      *
@@ -10107,6 +10700,27 @@ class StorefrontApi
      */
     public function getEmailCommseqStepStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
+        list($response) = $this->getEmailCommseqStepStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCommseqStepStatsWithHttpInfoRetry
+     *
+     * Get email communication sequence step stats
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  \ultracart\v2\models\EmailStepStatRequest $stats_request StatsRequest (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailStepStatResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCommseqStepStatsWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid,  $stats_request)
+    {
         $returnType = '\ultracart\v2\models\EmailStepStatResponse';
         $request = $this->getEmailCommseqStepStatsRequest($storefront_oid, $commseq_uuid, $stats_request);
 
@@ -10115,26 +10729,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCommseqStepStatsWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $stats_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -10448,6 +11061,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCommseqStepWaitingWithHttpInfo
      *
@@ -10463,6 +11077,27 @@ class StorefrontApi
      */
     public function getEmailCommseqStepWaitingWithHttpInfo($storefront_oid, $commseq_uuid, $waiting_request)
     {
+        list($response) = $this->getEmailCommseqStepWaitingWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $waiting_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCommseqStepWaitingWithHttpInfoRetry
+     *
+     * Get email communication sequence customers waiting at each requested step
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  \ultracart\v2\models\EmailStepWaitingRequest $waiting_request WaitingRequest (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailStepWaitingResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCommseqStepWaitingWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid,  $waiting_request)
+    {
         $returnType = '\ultracart\v2\models\EmailStepWaitingResponse';
         $request = $this->getEmailCommseqStepWaitingRequest($storefront_oid, $commseq_uuid, $waiting_request);
 
@@ -10471,26 +11106,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCommseqStepWaitingWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $waiting_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -10802,6 +11436,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCommseqsWithHttpInfo
      *
@@ -10815,6 +11450,25 @@ class StorefrontApi
      */
     public function getEmailCommseqsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailCommseqsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCommseqsWithHttpInfoRetry
+     *
+     * Get email commseqs
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCommseqsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqsResponse';
         $request = $this->getEmailCommseqsRequest($storefront_oid);
 
@@ -10823,26 +11477,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCommseqsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -11126,6 +11779,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCustomerEditorUrlWithHttpInfo
      *
@@ -11140,6 +11794,26 @@ class StorefrontApi
      */
     public function getEmailCustomerEditorUrlWithHttpInfo($storefront_oid, $email_customer_uuid)
     {
+        list($response) = $this->getEmailCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_customer_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCustomerEditorUrlWithHttpInfoRetry
+     *
+     * Get customers editor URL
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_customer_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCustomerEditorUrlWithHttpInfoRetry($retry ,  $storefront_oid,  $email_customer_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailCustomerEditorUrlRequest($storefront_oid, $email_customer_uuid);
 
@@ -11148,26 +11822,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCustomerEditorUrlWithHttpInfoRetry(false ,   $storefront_oid,   $email_customer_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -11470,6 +12143,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailCustomersWithHttpInfo
      *
@@ -11486,6 +12160,28 @@ class StorefrontApi
      */
     public function getEmailCustomersWithHttpInfo($storefront_oid, $page_number = null, $page_size = null, $search_email_prefix = null)
     {
+        list($response) = $this->getEmailCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $page_number,   $page_size,   $search_email_prefix);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailCustomersWithHttpInfoRetry
+     *
+     * Get email customers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $page_number (optional)
+     * @param  int $page_size (optional)
+     * @param  string $search_email_prefix (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailCustomersWithHttpInfoRetry($retry ,  $storefront_oid,  $page_number = null,  $page_size = null,  $search_email_prefix = null)
+    {
         $returnType = '\ultracart\v2\models\EmailCustomersResponse';
         $request = $this->getEmailCustomersRequest($storefront_oid, $page_number, $page_size, $search_email_prefix);
 
@@ -11494,26 +12190,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailCustomersWithHttpInfoRetry(false ,   $storefront_oid,   $page_number,   $page_size,   $search_email_prefix);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -11818,6 +12513,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailDashboardActivityWithHttpInfo
      *
@@ -11832,6 +12528,26 @@ class StorefrontApi
      */
     public function getEmailDashboardActivityWithHttpInfo($storefront_oid, $last_records = null)
     {
+        list($response) = $this->getEmailDashboardActivityWithHttpInfoRetry(true ,   $storefront_oid,   $last_records);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailDashboardActivityWithHttpInfoRetry
+     *
+     * Get email dashboard activity
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $last_records (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailDashboardActivityResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailDashboardActivityWithHttpInfoRetry($retry ,  $storefront_oid,  $last_records = null)
+    {
         $returnType = '\ultracart\v2\models\EmailDashboardActivityResponse';
         $request = $this->getEmailDashboardActivityRequest($storefront_oid, $last_records);
 
@@ -11840,26 +12556,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailDashboardActivityWithHttpInfoRetry(false ,   $storefront_oid,   $last_records);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -12150,6 +12865,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailDashboardStatsWithHttpInfo
      *
@@ -12164,6 +12880,26 @@ class StorefrontApi
      */
     public function getEmailDashboardStatsWithHttpInfo($storefront_oid, $days = null)
     {
+        list($response) = $this->getEmailDashboardStatsWithHttpInfoRetry(true ,   $storefront_oid,   $days);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailDashboardStatsWithHttpInfoRetry
+     *
+     * Get dashboard stats
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $days (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailDashboardStatsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailDashboardStatsWithHttpInfoRetry($retry ,  $storefront_oid,  $days = null)
+    {
         $returnType = '\ultracart\v2\models\EmailDashboardStatsResponse';
         $request = $this->getEmailDashboardStatsRequest($storefront_oid, $days);
 
@@ -12172,26 +12908,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailDashboardStatsWithHttpInfoRetry(false ,   $storefront_oid,   $days);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -12482,6 +13217,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailEmailWithHttpInfo
      *
@@ -12496,6 +13232,26 @@ class StorefrontApi
      */
     public function getEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid)
     {
+        list($response) = $this->getEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailEmailWithHttpInfoRetry
+     *
+     * Get email email
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_email_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailEmailWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_email_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->getEmailEmailRequest($storefront_oid, $commseq_email_uuid);
 
@@ -12504,26 +13260,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailEmailWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_email_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -12827,6 +13582,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailEmailClicksWithHttpInfo
      *
@@ -12844,6 +13600,29 @@ class StorefrontApi
      */
     public function getEmailEmailClicksWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
+        list($response) = $this->getEmailEmailClicksWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $commseq_email_uuid,   $days);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailEmailClicksWithHttpInfoRetry
+     *
+     * Get email email clicks
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  string $commseq_step_uuid (required)
+     * @param  string $commseq_email_uuid (required)
+     * @param  int $days (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailClicksResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailEmailClicksWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid,  $commseq_step_uuid,  $commseq_email_uuid,  $days = null)
+    {
         $returnType = '\ultracart\v2\models\EmailClicksResponse';
         $request = $this->getEmailEmailClicksRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days);
 
@@ -12852,26 +13631,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailEmailClicksWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $commseq_email_uuid,   $days);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -13214,6 +13992,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailEmailCustomerEditorUrlWithHttpInfo
      *
@@ -13229,6 +14008,27 @@ class StorefrontApi
      */
     public function getEmailEmailCustomerEditorUrlWithHttpInfo($storefront_oid, $commseq_email_uuid, $order_id)
     {
+        list($response) = $this->getEmailEmailCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $order_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailEmailCustomerEditorUrlWithHttpInfoRetry
+     *
+     * Get email order customer editor url
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_email_uuid (required)
+     * @param  string $order_id (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailEmailCustomerEditorUrlWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_email_uuid,  $order_id)
+    {
         $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailEmailCustomerEditorUrlRequest($storefront_oid, $commseq_email_uuid, $order_id);
 
@@ -13237,26 +14037,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailEmailCustomerEditorUrlWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_email_uuid,   $order_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -13577,6 +14376,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailEmailOrdersWithHttpInfo
      *
@@ -13594,6 +14394,29 @@ class StorefrontApi
      */
     public function getEmailEmailOrdersWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
+        list($response) = $this->getEmailEmailOrdersWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $commseq_email_uuid,   $days);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailEmailOrdersWithHttpInfoRetry
+     *
+     * Get email email orders
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  string $commseq_step_uuid (required)
+     * @param  string $commseq_email_uuid (required)
+     * @param  int $days (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailEmailOrdersWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid,  $commseq_step_uuid,  $commseq_email_uuid,  $days = null)
+    {
         $returnType = '\ultracart\v2\models\EmailOrdersResponse';
         $request = $this->getEmailEmailOrdersRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days);
 
@@ -13602,26 +14425,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailEmailOrdersWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $commseq_email_uuid,   $days);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -13962,6 +14784,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailEmailsWithHttpInfo
      *
@@ -13975,6 +14798,25 @@ class StorefrontApi
      */
     public function getEmailEmailsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailEmailsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailEmailsWithHttpInfoRetry
+     *
+     * Get email emails
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqEmailsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailEmailsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqEmailsResponse';
         $request = $this->getEmailEmailsRequest($storefront_oid);
 
@@ -13983,26 +14825,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailEmailsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -14286,6 +15127,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailEmailsMultipleWithHttpInfo
      *
@@ -14300,6 +15142,26 @@ class StorefrontApi
      */
     public function getEmailEmailsMultipleWithHttpInfo($storefront_oid, $email_commseq_emails_request)
     {
+        list($response) = $this->getEmailEmailsMultipleWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_emails_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailEmailsMultipleWithHttpInfoRetry
+     *
+     * Get email emails multiple
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailsRequest $email_commseq_emails_request Request of email uuids (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqEmailsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailEmailsMultipleWithHttpInfoRetry($retry ,  $storefront_oid,  $email_commseq_emails_request)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqEmailsResponse';
         $request = $this->getEmailEmailsMultipleRequest($storefront_oid, $email_commseq_emails_request);
 
@@ -14308,26 +15170,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailEmailsMultipleWithHttpInfoRetry(false ,   $storefront_oid,   $email_commseq_emails_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -14623,6 +15484,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailFlowWithHttpInfo
      *
@@ -14637,6 +15499,26 @@ class StorefrontApi
      */
     public function getEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid)
     {
+        list($response) = $this->getEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailFlowWithHttpInfoRetry
+     *
+     * Get email flow
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_flow_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailFlowWithHttpInfoRetry($retry ,  $storefront_oid,  $email_flow_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->getEmailFlowRequest($storefront_oid, $email_flow_uuid);
 
@@ -14645,26 +15527,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailFlowWithHttpInfoRetry(false ,   $storefront_oid,   $email_flow_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -14965,6 +15846,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailFlowScreenshotsWithHttpInfo
      *
@@ -14979,6 +15861,26 @@ class StorefrontApi
      */
     public function getEmailFlowScreenshotsWithHttpInfo($storefront_oid, $email_flow_uuid)
     {
+        list($response) = $this->getEmailFlowScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailFlowScreenshotsWithHttpInfoRetry
+     *
+     * Get email flow screenshots
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_flow_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ScreenshotsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailFlowScreenshotsWithHttpInfoRetry($retry ,  $storefront_oid,  $email_flow_uuid)
+    {
         $returnType = '\ultracart\v2\models\ScreenshotsResponse';
         $request = $this->getEmailFlowScreenshotsRequest($storefront_oid, $email_flow_uuid);
 
@@ -14987,26 +15889,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailFlowScreenshotsWithHttpInfoRetry(false ,   $storefront_oid,   $email_flow_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -15306,6 +16207,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailFlowsWithHttpInfo
      *
@@ -15319,6 +16221,25 @@ class StorefrontApi
      */
     public function getEmailFlowsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailFlowsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailFlowsWithHttpInfoRetry
+     *
+     * Get email flows
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailFlowsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailFlowsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailFlowsResponse';
         $request = $this->getEmailFlowsRequest($storefront_oid);
 
@@ -15327,26 +16248,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailFlowsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -15628,6 +16548,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailGlobalSettingsWithHttpInfo
      *
@@ -15640,6 +16561,24 @@ class StorefrontApi
      */
     public function getEmailGlobalSettingsWithHttpInfo()
     {
+        list($response) = $this->getEmailGlobalSettingsWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailGlobalSettingsWithHttpInfoRetry
+     *
+     * Get email globalsettings
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailGlobalSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailGlobalSettingsWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\EmailGlobalSettingsResponse';
         $request = $this->getEmailGlobalSettingsRequest();
 
@@ -15648,26 +16587,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailGlobalSettingsWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -15934,6 +16872,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailListWithHttpInfo
      *
@@ -15948,6 +16887,26 @@ class StorefrontApi
      */
     public function getEmailListWithHttpInfo($storefront_oid, $email_list_uuid)
     {
+        list($response) = $this->getEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailListWithHttpInfoRetry
+     *
+     * Get email list
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailListWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->getEmailListRequest($storefront_oid, $email_list_uuid);
 
@@ -15956,26 +16915,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailListWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -16277,6 +17235,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailListCustomerEditorUrlWithHttpInfo
      *
@@ -16292,6 +17251,27 @@ class StorefrontApi
      */
     public function getEmailListCustomerEditorUrlWithHttpInfo($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
+        list($response) = $this->getEmailListCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_customer_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailListCustomerEditorUrlWithHttpInfoRetry
+     *
+     * Get email list customer editor url
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_uuid (required)
+     * @param  string $email_customer_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailListCustomerEditorUrlWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_uuid,  $email_customer_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailListCustomerEditorUrlRequest($storefront_oid, $email_list_uuid, $email_customer_uuid);
 
@@ -16300,26 +17280,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailListCustomerEditorUrlWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_uuid,   $email_customer_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -16639,6 +17618,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailListCustomersWithHttpInfo
      *
@@ -16655,6 +17635,28 @@ class StorefrontApi
      */
     public function getEmailListCustomersWithHttpInfo($storefront_oid, $email_list_uuid, $page_number = null, $page_size = null)
     {
+        list($response) = $this->getEmailListCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $page_number,   $page_size);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailListCustomersWithHttpInfoRetry
+     *
+     * Get email list customers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_uuid (required)
+     * @param  int $page_number (optional)
+     * @param  int $page_size (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailListCustomersWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_uuid,  $page_number = null,  $page_size = null)
+    {
         $returnType = '\ultracart\v2\models\EmailListCustomersResponse';
         $request = $this->getEmailListCustomersRequest($storefront_oid, $email_list_uuid, $page_number, $page_size);
 
@@ -16663,26 +17665,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailListCustomersWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_uuid,   $page_number,   $page_size);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -16996,6 +17997,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailListsWithHttpInfo
      *
@@ -17009,6 +18011,25 @@ class StorefrontApi
      */
     public function getEmailListsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailListsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailListsWithHttpInfoRetry
+     *
+     * Get email lists
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailListsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailListsResponse';
         $request = $this->getEmailListsRequest($storefront_oid);
 
@@ -17017,26 +18038,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailListsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -17319,6 +18339,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailPerformanceWithHttpInfo
      *
@@ -17332,6 +18353,25 @@ class StorefrontApi
      */
     public function getEmailPerformanceWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailPerformanceWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailPerformanceWithHttpInfoRetry
+     *
+     * Get email performance
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailPerformanceResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailPerformanceWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailPerformanceResponse';
         $request = $this->getEmailPerformanceRequest($storefront_oid);
 
@@ -17340,26 +18380,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailPerformanceWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -17642,6 +18681,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailPlanWithHttpInfo
      *
@@ -17655,6 +18695,25 @@ class StorefrontApi
      */
     public function getEmailPlanWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailPlanWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailPlanWithHttpInfoRetry
+     *
+     * Get email plan
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailPlanResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailPlanWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailPlanResponse';
         $request = $this->getEmailPlanRequest($storefront_oid);
 
@@ -17663,26 +18722,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailPlanWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -17966,6 +19024,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailPostcardWithHttpInfo
      *
@@ -17980,6 +19039,26 @@ class StorefrontApi
      */
     public function getEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid)
     {
+        list($response) = $this->getEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailPostcardWithHttpInfoRetry
+     *
+     * Get email postcard
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_postcard_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailPostcardWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_postcard_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->getEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid);
 
@@ -17988,26 +19067,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailPostcardWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_postcard_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -18307,6 +19385,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailPostcardsWithHttpInfo
      *
@@ -18320,6 +19399,25 @@ class StorefrontApi
      */
     public function getEmailPostcardsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailPostcardsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailPostcardsWithHttpInfoRetry
+     *
+     * Get email postcards
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailPostcardsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqPostcardsResponse';
         $request = $this->getEmailPostcardsRequest($storefront_oid);
 
@@ -18328,26 +19426,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailPostcardsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -18631,6 +19728,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailPostcardsMultipleWithHttpInfo
      *
@@ -18645,6 +19743,26 @@ class StorefrontApi
      */
     public function getEmailPostcardsMultipleWithHttpInfo($storefront_oid, $email_commseq_postcards_request)
     {
+        list($response) = $this->getEmailPostcardsMultipleWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_postcards_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailPostcardsMultipleWithHttpInfoRetry
+     *
+     * Get email postcards multiple
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardsRequest $email_commseq_postcards_request Request of postcard uuids (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailPostcardsMultipleWithHttpInfoRetry($retry ,  $storefront_oid,  $email_commseq_postcards_request)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqPostcardsResponse';
         $request = $this->getEmailPostcardsMultipleRequest($storefront_oid, $email_commseq_postcards_request);
 
@@ -18653,26 +19771,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailPostcardsMultipleWithHttpInfoRetry(false ,   $storefront_oid,   $email_commseq_postcards_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -18968,6 +20085,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailSegmentWithHttpInfo
      *
@@ -18982,6 +20100,26 @@ class StorefrontApi
      */
     public function getEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
+        list($response) = $this->getEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailSegmentWithHttpInfoRetry
+     *
+     * Get email segment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_segment_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailSegmentWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->getEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
@@ -18990,26 +20128,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailSegmentWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -19311,6 +20448,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailSegmentCustomerEditorUrlWithHttpInfo
      *
@@ -19326,6 +20464,27 @@ class StorefrontApi
      */
     public function getEmailSegmentCustomerEditorUrlWithHttpInfo($storefront_oid, $email_segment_uuid, $email_customer_uuid)
     {
+        list($response) = $this->getEmailSegmentCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_customer_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailSegmentCustomerEditorUrlWithHttpInfoRetry
+     *
+     * Get email segment customers editor URL
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_segment_uuid (required)
+     * @param  string $email_customer_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCustomerEditorUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailSegmentCustomerEditorUrlWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment_uuid,  $email_customer_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailCustomerEditorUrlResponse';
         $request = $this->getEmailSegmentCustomerEditorUrlRequest($storefront_oid, $email_segment_uuid, $email_customer_uuid);
 
@@ -19334,26 +20493,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailSegmentCustomerEditorUrlWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment_uuid,   $email_customer_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -19673,6 +20831,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailSegmentCustomersWithHttpInfo
      *
@@ -19689,6 +20848,28 @@ class StorefrontApi
      */
     public function getEmailSegmentCustomersWithHttpInfo($storefront_oid, $email_segment_uuid, $page_number = null, $page_size = null)
     {
+        list($response) = $this->getEmailSegmentCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $page_number,   $page_size);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailSegmentCustomersWithHttpInfoRetry
+     *
+     * Get email segment customers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_segment_uuid (required)
+     * @param  int $page_number (optional)
+     * @param  int $page_size (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailSegmentCustomersWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment_uuid,  $page_number = null,  $page_size = null)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentCustomersResponse';
         $request = $this->getEmailSegmentCustomersRequest($storefront_oid, $email_segment_uuid, $page_number, $page_size);
 
@@ -19697,26 +20878,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailSegmentCustomersWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment_uuid,   $page_number,   $page_size);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -20030,6 +21210,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailSegmentsWithHttpInfo
      *
@@ -20043,6 +21224,25 @@ class StorefrontApi
      */
     public function getEmailSegmentsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailSegmentsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailSegmentsWithHttpInfoRetry
+     *
+     * Get email segments
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailSegmentsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentsResponse';
         $request = $this->getEmailSegmentsRequest($storefront_oid);
 
@@ -20051,26 +21251,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailSegmentsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -20353,6 +21552,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailSendingDomainWithHttpInfo
      *
@@ -20366,6 +21566,25 @@ class StorefrontApi
      */
     public function getEmailSendingDomainWithHttpInfo($domain)
     {
+        list($response) = $this->getEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailSendingDomainWithHttpInfoRetry
+     *
+     * Get email sending domain
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $domain (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailSendingDomainWithHttpInfoRetry($retry ,  $domain)
+    {
         $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->getEmailSendingDomainRequest($domain);
 
@@ -20374,26 +21593,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailSendingDomainWithHttpInfoRetry(false ,   $domain);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -20676,6 +21894,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailSendingDomainStatusWithHttpInfo
      *
@@ -20689,6 +21908,25 @@ class StorefrontApi
      */
     public function getEmailSendingDomainStatusWithHttpInfo($domain)
     {
+        list($response) = $this->getEmailSendingDomainStatusWithHttpInfoRetry(true ,   $domain);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailSendingDomainStatusWithHttpInfoRetry
+     *
+     * Get email sending domain status
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $domain (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSendingDomainResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailSendingDomainStatusWithHttpInfoRetry($retry ,  $domain)
+    {
         $returnType = '\ultracart\v2\models\EmailSendingDomainResponse';
         $request = $this->getEmailSendingDomainStatusRequest($domain);
 
@@ -20697,26 +21935,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailSendingDomainStatusWithHttpInfoRetry(false ,   $domain);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -20998,6 +22235,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailSendingDomainsWithHttpInfo
      *
@@ -21010,6 +22248,24 @@ class StorefrontApi
      */
     public function getEmailSendingDomainsWithHttpInfo()
     {
+        list($response) = $this->getEmailSendingDomainsWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailSendingDomainsWithHttpInfoRetry
+     *
+     * Get email sending domains
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSendingDomainsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailSendingDomainsWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\EmailSendingDomainsResponse';
         $request = $this->getEmailSendingDomainsRequest();
 
@@ -21018,26 +22274,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailSendingDomainsWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -21303,6 +22558,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailSettingsWithHttpInfo
      *
@@ -21316,6 +22572,25 @@ class StorefrontApi
      */
     public function getEmailSettingsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailSettingsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailSettingsWithHttpInfoRetry
+     *
+     * Get email settings
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailSettingsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailSettingsResponse';
         $request = $this->getEmailSettingsRequest($storefront_oid);
 
@@ -21324,26 +22599,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailSettingsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -21627,6 +22901,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailTemplateWithHttpInfo
      *
@@ -21641,6 +22916,26 @@ class StorefrontApi
      */
     public function getEmailTemplateWithHttpInfo($storefront_oid, $email_template_oid)
     {
+        list($response) = $this->getEmailTemplateWithHttpInfoRetry(true ,   $storefront_oid,   $email_template_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailTemplateWithHttpInfoRetry
+     *
+     * Get email template
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $email_template_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailTemplate, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailTemplateWithHttpInfoRetry($retry ,  $storefront_oid,  $email_template_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailTemplate';
         $request = $this->getEmailTemplateRequest($storefront_oid, $email_template_oid);
 
@@ -21649,26 +22944,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailTemplateWithHttpInfoRetry(false ,   $storefront_oid,   $email_template_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -21969,6 +23263,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailTemplatesWithHttpInfo
      *
@@ -21983,6 +23278,26 @@ class StorefrontApi
      */
     public function getEmailTemplatesWithHttpInfo($storefront_oid, $trigger_type = null)
     {
+        list($response) = $this->getEmailTemplatesWithHttpInfoRetry(true ,   $storefront_oid,   $trigger_type);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailTemplatesWithHttpInfoRetry
+     *
+     * Get email templates
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $trigger_type (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailTemplatesWithHttpInfoRetry($retry ,  $storefront_oid,  $trigger_type = null)
+    {
         $returnType = '\ultracart\v2\models\EmailTemplatesResponse';
         $request = $this->getEmailTemplatesRequest($storefront_oid, $trigger_type);
 
@@ -21991,26 +23306,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailTemplatesWithHttpInfoRetry(false ,   $storefront_oid,   $trigger_type);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -22300,6 +23614,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getEmailThirdPartyProvidersWithHttpInfo
      *
@@ -22313,6 +23628,25 @@ class StorefrontApi
      */
     public function getEmailThirdPartyProvidersWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getEmailThirdPartyProvidersWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailThirdPartyProvidersWithHttpInfoRetry
+     *
+     * Get a list of third party email providers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailThirdPartyProvidersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailThirdPartyProvidersWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\EmailThirdPartyProvidersResponse';
         $request = $this->getEmailThirdPartyProvidersRequest($storefront_oid);
 
@@ -22321,26 +23655,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailThirdPartyProvidersWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -22623,6 +23956,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getExperimentsWithHttpInfo
      *
@@ -22636,6 +23970,25 @@ class StorefrontApi
      */
     public function getExperimentsWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getExperimentsWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getExperimentsWithHttpInfoRetry
+     *
+     * Get experiments
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ExperimentsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getExperimentsWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\ExperimentsResponse';
         $request = $this->getExperimentsRequest($storefront_oid);
 
@@ -22644,26 +23997,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getExperimentsWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -22947,6 +24299,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getHistogramPropertyNamesWithHttpInfo
      *
@@ -22961,6 +24314,26 @@ class StorefrontApi
      */
     public function getHistogramPropertyNamesWithHttpInfo($storefront_oid, $property_type = null)
     {
+        list($response) = $this->getHistogramPropertyNamesWithHttpInfoRetry(true ,   $storefront_oid,   $property_type);
+        return $response;
+    }
+
+
+    /**
+     * Operation getHistogramPropertyNamesWithHttpInfoRetry
+     *
+     * Get histogram property names
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $property_type (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailHistogramPropertyNamesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getHistogramPropertyNamesWithHttpInfoRetry($retry ,  $storefront_oid,  $property_type = null)
+    {
         $returnType = '\ultracart\v2\models\EmailHistogramPropertyNamesResponse';
         $request = $this->getHistogramPropertyNamesRequest($storefront_oid, $property_type);
 
@@ -22969,26 +24342,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getHistogramPropertyNamesWithHttpInfoRetry(false ,   $storefront_oid,   $property_type);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -23281,6 +24653,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getHistogramPropertyValuesWithHttpInfo
      *
@@ -23297,6 +24670,28 @@ class StorefrontApi
      */
     public function getHistogramPropertyValuesWithHttpInfo($storefront_oid, $property_name = null, $property_type = null, $limit = null)
     {
+        list($response) = $this->getHistogramPropertyValuesWithHttpInfoRetry(true ,   $storefront_oid,   $property_name,   $property_type,   $limit);
+        return $response;
+    }
+
+
+    /**
+     * Operation getHistogramPropertyValuesWithHttpInfoRetry
+     *
+     * Get histogram property values
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $property_name (optional)
+     * @param  string $property_type (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailHistogramPropertyValuesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getHistogramPropertyValuesWithHttpInfoRetry($retry ,  $storefront_oid,  $property_name = null,  $property_type = null,  $limit = null)
+    {
         $returnType = '\ultracart\v2\models\EmailHistogramPropertyValuesResponse';
         $request = $this->getHistogramPropertyValuesRequest($storefront_oid, $property_name, $property_type, $limit);
 
@@ -23305,26 +24700,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getHistogramPropertyValuesWithHttpInfoRetry(false ,   $storefront_oid,   $property_name,   $property_type,   $limit);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -23627,6 +25021,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getLibraryFilterValuesWithHttpInfo
      *
@@ -23639,6 +25034,24 @@ class StorefrontApi
      */
     public function getLibraryFilterValuesWithHttpInfo()
     {
+        list($response) = $this->getLibraryFilterValuesWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getLibraryFilterValuesWithHttpInfoRetry
+     *
+     * Get library values used to populate drop down boxes for filtering.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryFilterValuesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLibraryFilterValuesWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\LibraryFilterValuesResponse';
         $request = $this->getLibraryFilterValuesRequest();
 
@@ -23647,26 +25060,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getLibraryFilterValuesWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -23932,6 +25344,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getLibraryItemWithHttpInfo
      *
@@ -23945,6 +25358,25 @@ class StorefrontApi
      */
     public function getLibraryItemWithHttpInfo($library_item_oid)
     {
+        list($response) = $this->getLibraryItemWithHttpInfoRetry(true ,   $library_item_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getLibraryItemWithHttpInfoRetry
+     *
+     * Get library item.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $library_item_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLibraryItemWithHttpInfoRetry($retry ,  $library_item_oid)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->getLibraryItemRequest($library_item_oid);
 
@@ -23953,26 +25385,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getLibraryItemWithHttpInfoRetry(false ,   $library_item_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -24255,6 +25686,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getLibraryItemPublishedVersionsWithHttpInfo
      *
@@ -24268,6 +25700,25 @@ class StorefrontApi
      */
     public function getLibraryItemPublishedVersionsWithHttpInfo($library_item_oid)
     {
+        list($response) = $this->getLibraryItemPublishedVersionsWithHttpInfoRetry(true ,   $library_item_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getLibraryItemPublishedVersionsWithHttpInfoRetry
+     *
+     * Get all published versions for a library item.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $library_item_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getLibraryItemPublishedVersionsWithHttpInfoRetry($retry ,  $library_item_oid)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->getLibraryItemPublishedVersionsRequest($library_item_oid);
 
@@ -24276,26 +25727,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getLibraryItemPublishedVersionsWithHttpInfoRetry(false ,   $library_item_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -24562,6 +26012,333 @@ class StorefrontApi
     }
 
     /**
+     * Operation getPricingTiers
+     *
+     * Retrieve pricing tiers
+     *
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\PricingTiersResponse
+     */
+    public function getPricingTiers($_expand = null)
+    {
+        list($response) = $this->getPricingTiersWithHttpInfo($_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getPricingTiersWithHttpInfo
+     *
+     * Retrieve pricing tiers
+     *
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\PricingTiersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPricingTiersWithHttpInfo($_expand = null)
+    {
+        list($response) = $this->getPricingTiersWithHttpInfoRetry(true ,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getPricingTiersWithHttpInfoRetry
+     *
+     * Retrieve pricing tiers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\PricingTiersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPricingTiersWithHttpInfoRetry($retry ,  $_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\PricingTiersResponse';
+        $request = $this->getPricingTiersRequest($_expand);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getPricingTiersWithHttpInfoRetry(false ,   $_expand);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\PricingTiersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPricingTiersAsync
+     *
+     * Retrieve pricing tiers
+     *
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPricingTiersAsync($_expand = null)
+    {
+        return $this->getPricingTiersAsyncWithHttpInfo($_expand)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPricingTiersAsyncWithHttpInfo
+     *
+     * Retrieve pricing tiers
+     *
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPricingTiersAsyncWithHttpInfo($_expand = null)
+    {
+        $returnType = '\ultracart\v2\models\PricingTiersResponse';
+        $request = $this->getPricingTiersRequest($_expand);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPricingTiers'
+     *
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getPricingTiersRequest($_expand = null)
+    {
+
+        $resourcePath = '/storefront/pricing_tiers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getThumbnailParameters
      *
      * Get thumbnail parameters
@@ -24578,6 +26355,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getThumbnailParametersWithHttpInfo
      *
@@ -24591,6 +26369,25 @@ class StorefrontApi
      */
     public function getThumbnailParametersWithHttpInfo($thumbnail_parameters)
     {
+        list($response) = $this->getThumbnailParametersWithHttpInfoRetry(true ,   $thumbnail_parameters);
+        return $response;
+    }
+
+
+    /**
+     * Operation getThumbnailParametersWithHttpInfoRetry
+     *
+     * Get thumbnail parameters
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\ThumbnailParametersRequest $thumbnail_parameters Thumbnail Parameters (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ThumbnailParametersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getThumbnailParametersWithHttpInfoRetry($retry ,  $thumbnail_parameters)
+    {
         $returnType = '\ultracart\v2\models\ThumbnailParametersResponse';
         $request = $this->getThumbnailParametersRequest($thumbnail_parameters);
 
@@ -24599,26 +26396,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getThumbnailParametersWithHttpInfoRetry(false ,   $thumbnail_parameters);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -24897,6 +26693,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getTransactionEmailWithHttpInfo
      *
@@ -24911,6 +26708,26 @@ class StorefrontApi
      */
     public function getTransactionEmailWithHttpInfo($storefront_oid, $email_id)
     {
+        list($response) = $this->getTransactionEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation getTransactionEmailWithHttpInfoRetry
+     *
+     * Gets a transaction email object
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_id (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TransactionEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTransactionEmailWithHttpInfoRetry($retry ,  $storefront_oid,  $email_id)
+    {
         $returnType = '\ultracart\v2\models\TransactionEmailResponse';
         $request = $this->getTransactionEmailRequest($storefront_oid, $email_id);
 
@@ -24919,26 +26736,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTransactionEmailWithHttpInfoRetry(false ,   $storefront_oid,   $email_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -25238,6 +27054,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getTransactionEmailListWithHttpInfo
      *
@@ -25251,6 +27068,25 @@ class StorefrontApi
      */
     public function getTransactionEmailListWithHttpInfo($storefront_oid)
     {
+        list($response) = $this->getTransactionEmailListWithHttpInfoRetry(true ,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getTransactionEmailListWithHttpInfoRetry
+     *
+     * Gets a list of transaction email names
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TransactionEmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTransactionEmailListWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
         $returnType = '\ultracart\v2\models\TransactionEmailListResponse';
         $request = $this->getTransactionEmailListRequest($storefront_oid);
 
@@ -25259,26 +27095,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTransactionEmailListWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -25562,6 +27397,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation getTransactionEmailScreenshotsWithHttpInfo
      *
@@ -25576,6 +27412,26 @@ class StorefrontApi
      */
     public function getTransactionEmailScreenshotsWithHttpInfo($storefront_oid, $email_id)
     {
+        list($response) = $this->getTransactionEmailScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation getTransactionEmailScreenshotsWithHttpInfoRetry
+     *
+     * Get transactional email screenshots
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_id (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ScreenshotsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTransactionEmailScreenshotsWithHttpInfoRetry($retry ,  $storefront_oid,  $email_id)
+    {
         $returnType = '\ultracart\v2\models\ScreenshotsResponse';
         $request = $this->getTransactionEmailScreenshotsRequest($storefront_oid, $email_id);
 
@@ -25584,26 +27440,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTransactionEmailScreenshotsWithHttpInfoRetry(false ,   $storefront_oid,   $email_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -25904,6 +27759,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation globalUnsubscribeWithHttpInfo
      *
@@ -25918,6 +27774,26 @@ class StorefrontApi
      */
     public function globalUnsubscribeWithHttpInfo($storefront_oid, $unsubscribe)
     {
+        list($response) = $this->globalUnsubscribeWithHttpInfoRetry(true ,   $storefront_oid,   $unsubscribe);
+        return $response;
+    }
+
+
+    /**
+     * Operation globalUnsubscribeWithHttpInfoRetry
+     *
+     * Globally unsubscribe a customer
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailGlobalUnsubscribeRequest $unsubscribe Unsubscribe (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailGlobalUnsubscribeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function globalUnsubscribeWithHttpInfoRetry($retry ,  $storefront_oid,  $unsubscribe)
+    {
         $returnType = '\ultracart\v2\models\EmailGlobalUnsubscribeResponse';
         $request = $this->globalUnsubscribeRequest($storefront_oid, $unsubscribe);
 
@@ -25926,26 +27802,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->globalUnsubscribeWithHttpInfoRetry(false ,   $storefront_oid,   $unsubscribe);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -26240,6 +28115,7 @@ class StorefrontApi
         $this->importEmailThirdPartyProviderListWithHttpInfo($storefront_oid, $import_request);
     }
 
+
     /**
      * Operation importEmailThirdPartyProviderListWithHttpInfo
      *
@@ -26254,6 +28130,25 @@ class StorefrontApi
      */
     public function importEmailThirdPartyProviderListWithHttpInfo($storefront_oid, $import_request)
     {
+        $this->importEmailThirdPartyProviderListWithHttpInfoRetry(true ,   $storefront_oid,   $import_request);
+    }
+
+
+    /**
+     * Operation importEmailThirdPartyProviderListWithHttpInfoRetry
+     *
+     * Import a third party provider list
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailThirdPartyListImportRequest $import_request lists to import (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function importEmailThirdPartyProviderListWithHttpInfoRetry($retry ,  $storefront_oid,  $import_request)
+    {
         $returnType = '';
         $request = $this->importEmailThirdPartyProviderListRequest($storefront_oid, $import_request);
 
@@ -26262,26 +28157,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->importEmailThirdPartyProviderListWithHttpInfoRetry(false ,   $storefront_oid,   $import_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -26541,6 +28435,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation insertEmailCampaignWithHttpInfo
      *
@@ -26555,6 +28450,26 @@ class StorefrontApi
      */
     public function insertEmailCampaignWithHttpInfo($storefront_oid, $email_campaign)
     {
+        list($response) = $this->insertEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertEmailCampaignWithHttpInfoRetry
+     *
+     * Insert email campaign
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailCampaignWithHttpInfoRetry($retry ,  $storefront_oid,  $email_campaign)
+    {
         $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->insertEmailCampaignRequest($storefront_oid, $email_campaign);
 
@@ -26563,26 +28478,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertEmailCampaignWithHttpInfoRetry(false ,   $storefront_oid,   $email_campaign);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -26878,6 +28792,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation insertEmailCommseqWithHttpInfo
      *
@@ -26892,6 +28807,26 @@ class StorefrontApi
      */
     public function insertEmailCommseqWithHttpInfo($storefront_oid, $email_commseq)
     {
+        list($response) = $this->insertEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertEmailCommseqWithHttpInfoRetry
+     *
+     * Insert email commseq
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailCommseqWithHttpInfoRetry($retry ,  $storefront_oid,  $email_commseq)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->insertEmailCommseqRequest($storefront_oid, $email_commseq);
 
@@ -26900,26 +28835,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertEmailCommseqWithHttpInfoRetry(false ,   $storefront_oid,   $email_commseq);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -27215,6 +29149,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation insertEmailEmailWithHttpInfo
      *
@@ -27229,6 +29164,26 @@ class StorefrontApi
      */
     public function insertEmailEmailWithHttpInfo($storefront_oid, $email_commseq_email)
     {
+        list($response) = $this->insertEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_email);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertEmailEmailWithHttpInfoRetry
+     *
+     * Insert email email
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email email (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailEmailWithHttpInfoRetry($retry ,  $storefront_oid,  $email_commseq_email)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->insertEmailEmailRequest($storefront_oid, $email_commseq_email);
 
@@ -27237,26 +29192,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertEmailEmailWithHttpInfoRetry(false ,   $storefront_oid,   $email_commseq_email);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -27552,6 +29506,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation insertEmailFlowWithHttpInfo
      *
@@ -27566,6 +29521,26 @@ class StorefrontApi
      */
     public function insertEmailFlowWithHttpInfo($storefront_oid, $email_flow)
     {
+        list($response) = $this->insertEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertEmailFlowWithHttpInfoRetry
+     *
+     * Insert email flow
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailFlowWithHttpInfoRetry($retry ,  $storefront_oid,  $email_flow)
+    {
         $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->insertEmailFlowRequest($storefront_oid, $email_flow);
 
@@ -27574,26 +29549,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertEmailFlowWithHttpInfoRetry(false ,   $storefront_oid,   $email_flow);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -27889,6 +29863,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation insertEmailListWithHttpInfo
      *
@@ -27903,6 +29878,26 @@ class StorefrontApi
      */
     public function insertEmailListWithHttpInfo($storefront_oid, $email_list)
     {
+        list($response) = $this->insertEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertEmailListWithHttpInfoRetry
+     *
+     * Insert email list
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailListWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list)
+    {
         $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->insertEmailListRequest($storefront_oid, $email_list);
 
@@ -27911,26 +29906,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertEmailListWithHttpInfoRetry(false ,   $storefront_oid,   $email_list);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -28226,6 +30220,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation insertEmailPostcardWithHttpInfo
      *
@@ -28240,6 +30235,26 @@ class StorefrontApi
      */
     public function insertEmailPostcardWithHttpInfo($storefront_oid, $email_commseq_postcard)
     {
+        list($response) = $this->insertEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_postcard);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertEmailPostcardWithHttpInfoRetry
+     *
+     * Insert email postcard
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email postcard (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailPostcardWithHttpInfoRetry($retry ,  $storefront_oid,  $email_commseq_postcard)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->insertEmailPostcardRequest($storefront_oid, $email_commseq_postcard);
 
@@ -28248,26 +30263,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertEmailPostcardWithHttpInfoRetry(false ,   $storefront_oid,   $email_commseq_postcard);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -28563,6 +30577,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation insertEmailSegmentWithHttpInfo
      *
@@ -28577,6 +30592,26 @@ class StorefrontApi
      */
     public function insertEmailSegmentWithHttpInfo($storefront_oid, $email_segment)
     {
+        list($response) = $this->insertEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertEmailSegmentWithHttpInfoRetry
+     *
+     * Insert email segment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailSegmentWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->insertEmailSegmentRequest($storefront_oid, $email_segment);
 
@@ -28585,26 +30620,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertEmailSegmentWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -28900,6 +30934,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation prepareDownloadEmailSegmentWithHttpInfo
      *
@@ -28914,6 +30949,26 @@ class StorefrontApi
      */
     public function prepareDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
+        list($response) = $this->prepareDownloadEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation prepareDownloadEmailSegmentWithHttpInfoRetry
+     *
+     * Prepare download of email segment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_segment_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentDownloadPrepareResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function prepareDownloadEmailSegmentWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment_uuid)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentDownloadPrepareResponse';
         $request = $this->prepareDownloadEmailSegmentRequest($storefront_oid, $email_segment_uuid);
 
@@ -28922,26 +30977,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->prepareDownloadEmailSegmentWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -29242,6 +31296,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation publishLibraryItemWithHttpInfo
      *
@@ -29256,6 +31311,26 @@ class StorefrontApi
      */
     public function publishLibraryItemWithHttpInfo($library_item_oid, $publish_library_request)
     {
+        list($response) = $this->publishLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $publish_library_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation publishLibraryItemWithHttpInfoRetry
+     *
+     * Publish library item.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $library_item_oid (required)
+     * @param  \ultracart\v2\models\PublishLibraryItemRequest $publish_library_request Publish library item request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function publishLibraryItemWithHttpInfoRetry($retry ,  $library_item_oid,  $publish_library_request)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->publishLibraryItemRequest($library_item_oid, $publish_library_request);
 
@@ -29264,26 +31339,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->publishLibraryItemWithHttpInfoRetry(false ,   $library_item_oid,   $publish_library_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -29579,6 +31653,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation purchaseLibraryItemWithHttpInfo
      *
@@ -29593,6 +31668,26 @@ class StorefrontApi
      */
     public function purchaseLibraryItemWithHttpInfo($library_item_oid, $storefront_oid = null)
     {
+        list($response) = $this->purchaseLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation purchaseLibraryItemWithHttpInfoRetry
+     *
+     * Purchase public library item, which creates a copy of the item in your personal code library
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $library_item_oid (required)
+     * @param  int $storefront_oid (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function purchaseLibraryItemWithHttpInfoRetry($retry ,  $library_item_oid,  $storefront_oid = null)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->purchaseLibraryItemRequest($library_item_oid, $storefront_oid);
 
@@ -29601,26 +31696,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->purchaseLibraryItemWithHttpInfoRetry(false ,   $library_item_oid,   $storefront_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -29911,6 +32005,7 @@ class StorefrontApi
         $this->releaseEmailCommseqStepWaitingWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid);
     }
 
+
     /**
      * Operation releaseEmailCommseqStepWaitingWithHttpInfo
      *
@@ -29926,6 +32021,26 @@ class StorefrontApi
      */
     public function releaseEmailCommseqStepWaitingWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid)
     {
+        $this->releaseEmailCommseqStepWaitingWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid);
+    }
+
+
+    /**
+     * Operation releaseEmailCommseqStepWaitingWithHttpInfoRetry
+     *
+     * Release email communication sequence customers waiting at the specified step
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  string $commseq_step_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function releaseEmailCommseqStepWaitingWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid,  $commseq_step_uuid)
+    {
         $returnType = '';
         $request = $this->releaseEmailCommseqStepWaitingRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid);
 
@@ -29934,26 +32049,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->releaseEmailCommseqStepWaitingWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -30236,6 +32350,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation reviewWithHttpInfo
      *
@@ -30251,6 +32366,27 @@ class StorefrontApi
      */
     public function reviewWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
     {
+        list($response) = $this->reviewWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email_review_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation reviewWithHttpInfoRetry
+     *
+     * Request a review of an email
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_email_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_review_request Email commseq email review request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function reviewWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_email_uuid,  $email_commseq_email_review_request)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
         $request = $this->reviewRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request);
 
@@ -30259,26 +32395,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->reviewWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email_review_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -30594,6 +32729,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation searchWithHttpInfo
      *
@@ -30611,6 +32747,29 @@ class StorefrontApi
      */
     public function searchWithHttpInfo($category = null, $matches = null, $storefront_oid = null, $max_hits = null, $subcategory = null)
     {
+        list($response) = $this->searchWithHttpInfoRetry(true ,   $category,   $matches,   $storefront_oid,   $max_hits,   $subcategory);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchWithHttpInfoRetry
+     *
+     * Searches for all matching values
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $category (optional)
+     * @param  string $matches (optional)
+     * @param  string $storefront_oid (optional)
+     * @param  int $max_hits (optional)
+     * @param  string $subcategory (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LookupResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchWithHttpInfoRetry($retry ,  $category = null,  $matches = null,  $storefront_oid = null,  $max_hits = null,  $subcategory = null)
+    {
         $returnType = '\ultracart\v2\models\LookupResponse';
         $request = $this->searchRequest($category, $matches, $storefront_oid, $max_hits, $subcategory);
 
@@ -30619,26 +32778,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->searchWithHttpInfoRetry(false ,   $category,   $matches,   $storefront_oid,   $max_hits,   $subcategory);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -30939,6 +33097,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation search2WithHttpInfo
      *
@@ -30952,6 +33111,25 @@ class StorefrontApi
      */
     public function search2WithHttpInfo($lookup_request)
     {
+        list($response) = $this->search2WithHttpInfoRetry(true ,   $lookup_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation search2WithHttpInfoRetry
+     *
+     * Searches for all matching values (using POST)
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\LookupRequest $lookup_request LookupRequest (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LookupResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function search2WithHttpInfoRetry($retry ,  $lookup_request)
+    {
         $returnType = '\ultracart\v2\models\LookupResponse';
         $request = $this->search2Request($lookup_request);
 
@@ -30960,26 +33138,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->search2WithHttpInfoRetry(false ,   $lookup_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -31259,6 +33436,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation searchEmailListCustomersWithHttpInfo
      *
@@ -31274,6 +33452,27 @@ class StorefrontApi
      */
     public function searchEmailListCustomersWithHttpInfo($storefront_oid, $email_list_uuid, $starts_with = null)
     {
+        list($response) = $this->searchEmailListCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $starts_with);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchEmailListCustomersWithHttpInfoRetry
+     *
+     * Search email list customers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_uuid (required)
+     * @param  string $starts_with (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchEmailListCustomersWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_uuid,  $starts_with = null)
+    {
         $returnType = '\ultracart\v2\models\EmailListCustomersResponse';
         $request = $this->searchEmailListCustomersRequest($storefront_oid, $email_list_uuid, $starts_with);
 
@@ -31282,26 +33481,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->searchEmailListCustomersWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_uuid,   $starts_with);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -31610,6 +33808,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation searchEmailSegmentCustomersWithHttpInfo
      *
@@ -31625,6 +33824,27 @@ class StorefrontApi
      */
     public function searchEmailSegmentCustomersWithHttpInfo($storefront_oid, $email_segment_uuid, $starts_with = null)
     {
+        list($response) = $this->searchEmailSegmentCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $starts_with);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchEmailSegmentCustomersWithHttpInfoRetry
+     *
+     * Search email segment customers
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_segment_uuid (required)
+     * @param  string $starts_with (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentCustomersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchEmailSegmentCustomersWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment_uuid,  $starts_with = null)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentCustomersResponse';
         $request = $this->searchEmailSegmentCustomersRequest($storefront_oid, $email_segment_uuid, $starts_with);
 
@@ -31633,26 +33853,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->searchEmailSegmentCustomersWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment_uuid,   $starts_with);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -31962,6 +34181,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation searchLibraryItemsWithHttpInfo
      *
@@ -31978,6 +34198,28 @@ class StorefrontApi
      */
     public function searchLibraryItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
+        list($response) = $this->searchLibraryItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchLibraryItemsWithHttpInfoRetry
+     *
+     * Retrieve library items
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchLibraryItemsWithHttpInfoRetry($retry ,  $item_query,  $_limit = '10000',  $_offset = '0',  $_sort = null)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchLibraryItemsRequest($item_query, $_limit, $_offset, $_sort);
 
@@ -31986,26 +34228,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->searchLibraryItemsWithHttpInfoRetry(false ,   $item_query,   $_limit,   $_offset,   $_sort);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -32302,6 +34543,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation searchPublishedItemsWithHttpInfo
      *
@@ -32318,6 +34560,28 @@ class StorefrontApi
      */
     public function searchPublishedItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
+        list($response) = $this->searchPublishedItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchPublishedItemsWithHttpInfoRetry
+     *
+     * Retrieve library items
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchPublishedItemsWithHttpInfoRetry($retry ,  $item_query,  $_limit = '10000',  $_offset = '0',  $_sort = null)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchPublishedItemsRequest($item_query, $_limit, $_offset, $_sort);
 
@@ -32326,26 +34590,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->searchPublishedItemsWithHttpInfoRetry(false ,   $item_query,   $_limit,   $_offset,   $_sort);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -32642,6 +34905,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation searchReviewItemsWithHttpInfo
      *
@@ -32658,6 +34922,28 @@ class StorefrontApi
      */
     public function searchReviewItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
+        list($response) = $this->searchReviewItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchReviewItemsWithHttpInfoRetry
+     *
+     * Retrieve library items needing review or rejected
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchReviewItemsWithHttpInfoRetry($retry ,  $item_query,  $_limit = '10000',  $_offset = '0',  $_sort = null)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchReviewItemsRequest($item_query, $_limit, $_offset, $_sort);
 
@@ -32666,26 +34952,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->searchReviewItemsWithHttpInfoRetry(false ,   $item_query,   $_limit,   $_offset,   $_sort);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -32982,6 +35267,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation searchSharedItemsWithHttpInfo
      *
@@ -32998,6 +35284,28 @@ class StorefrontApi
      */
     public function searchSharedItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
+        list($response) = $this->searchSharedItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
+        return $response;
+    }
+
+
+    /**
+     * Operation searchSharedItemsWithHttpInfoRetry
+     *
+     * Retrieve library items
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\LibraryItemQuery $item_query Item query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 10000) (optional, default to 10000)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the library items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchSharedItemsWithHttpInfoRetry($retry ,  $item_query,  $_limit = '10000',  $_offset = '0',  $_sort = null)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemsResponse';
         $request = $this->searchSharedItemsRequest($item_query, $_limit, $_offset, $_sort);
 
@@ -33006,26 +35314,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->searchSharedItemsWithHttpInfoRetry(false ,   $item_query,   $_limit,   $_offset,   $_sort);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -33321,6 +35628,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation sendEmailTestWithHttpInfo
      *
@@ -33336,6 +35644,27 @@ class StorefrontApi
      */
     public function sendEmailTestWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request)
     {
+        list($response) = $this->sendEmailTestWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email_test_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation sendEmailTestWithHttpInfoRetry
+     *
+     * Send email test
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_email_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmailSendTestRequest $email_commseq_email_test_request Email commseq email test request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendEmailTestWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_email_uuid,  $email_commseq_email_test_request)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
         $request = $this->sendEmailTestRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request);
 
@@ -33344,26 +35673,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->sendEmailTestWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email_test_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -33677,6 +36005,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation sendPostcardTestWithHttpInfo
      *
@@ -33692,6 +36021,27 @@ class StorefrontApi
      */
     public function sendPostcardTestWithHttpInfo($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request)
     {
+        list($response) = $this->sendPostcardTestWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid,   $email_commseq_postcard_test_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation sendPostcardTestWithHttpInfoRetry
+     *
+     * Send postcard test
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_postcard_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcardSendTestRequest $email_commseq_postcard_test_request Email commseq email test request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendPostcardTestWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_postcard_uuid,  $email_commseq_postcard_test_request)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqPostcardSendTestResponse';
         $request = $this->sendPostcardTestRequest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request);
 
@@ -33700,26 +36050,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->sendPostcardTestWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_postcard_uuid,   $email_commseq_postcard_test_request);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -34032,6 +36381,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation startEmailCampaignWithHttpInfo
      *
@@ -34046,6 +36396,26 @@ class StorefrontApi
      */
     public function startEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
+        list($response) = $this->startEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation startEmailCampaignWithHttpInfoRetry
+     *
+     * Start email campaign
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_campaign_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function startEmailCampaignWithHttpInfoRetry($retry ,  $storefront_oid,  $email_campaign_uuid)
+    {
         $returnType = '\ultracart\v2\models\BaseResponse';
         $request = $this->startEmailCampaignRequest($storefront_oid, $email_campaign_uuid);
 
@@ -34054,26 +36424,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->startEmailCampaignWithHttpInfoRetry(false ,   $storefront_oid,   $email_campaign_uuid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -34375,6 +36744,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation subscribeToEmailListWithHttpInfo
      *
@@ -34390,6 +36760,27 @@ class StorefrontApi
      */
     public function subscribeToEmailListWithHttpInfo($storefront_oid, $email_list_uuid, $customers)
     {
+        list($response) = $this->subscribeToEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $customers);
+        return $response;
+    }
+
+
+    /**
+     * Operation subscribeToEmailListWithHttpInfoRetry
+     *
+     * Subscribe customers to email list
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_uuid (required)
+     * @param  \ultracart\v2\models\EmailCustomer[] $customers Customers (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSubscribeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function subscribeToEmailListWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_uuid,  $customers)
+    {
         $returnType = '\ultracart\v2\models\EmailListSubscribeResponse';
         $request = $this->subscribeToEmailListRequest($storefront_oid, $email_list_uuid, $customers);
 
@@ -34398,26 +36789,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->subscribeToEmailListWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_uuid,   $customers);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -34731,6 +37121,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailCampaignWithHttpInfo
      *
@@ -34746,6 +37137,27 @@ class StorefrontApi
      */
     public function updateEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid, $email_campaign)
     {
+        list($response) = $this->updateEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid,   $email_campaign);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailCampaignWithHttpInfoRetry
+     *
+     * Update email campaign
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_campaign_uuid (required)
+     * @param  \ultracart\v2\models\EmailCampaign $email_campaign Email campaign (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCampaignResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailCampaignWithHttpInfoRetry($retry ,  $storefront_oid,  $email_campaign_uuid,  $email_campaign)
+    {
         $returnType = '\ultracart\v2\models\EmailCampaignResponse';
         $request = $this->updateEmailCampaignRequest($storefront_oid, $email_campaign_uuid, $email_campaign);
 
@@ -34754,26 +37166,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailCampaignWithHttpInfoRetry(false ,   $storefront_oid,   $email_campaign_uuid,   $email_campaign);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -35087,6 +37498,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailCommseqWithHttpInfo
      *
@@ -35102,6 +37514,27 @@ class StorefrontApi
      */
     public function updateEmailCommseqWithHttpInfo($storefront_oid, $commseq_uuid, $email_commseq)
     {
+        list($response) = $this->updateEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $email_commseq);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailCommseqWithHttpInfoRetry
+     *
+     * Update email commseq
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseq $email_commseq Email commseq (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailCommseqWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_uuid,  $email_commseq)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqResponse';
         $request = $this->updateEmailCommseqRequest($storefront_oid, $commseq_uuid, $email_commseq);
 
@@ -35110,26 +37543,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailCommseqWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $email_commseq);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -35442,6 +37874,7 @@ class StorefrontApi
         $this->updateEmailCustomerWithHttpInfo($storefront_oid, $email_customer_uuid, $email_customer);
     }
 
+
     /**
      * Operation updateEmailCustomerWithHttpInfo
      *
@@ -35457,6 +37890,26 @@ class StorefrontApi
      */
     public function updateEmailCustomerWithHttpInfo($storefront_oid, $email_customer_uuid, $email_customer)
     {
+        $this->updateEmailCustomerWithHttpInfoRetry(true ,   $storefront_oid,   $email_customer_uuid,   $email_customer);
+    }
+
+
+    /**
+     * Operation updateEmailCustomerWithHttpInfoRetry
+     *
+     * Update email customer
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_customer_uuid (required)
+     * @param  \ultracart\v2\models\EmailCustomer $email_customer Email customer (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailCustomerWithHttpInfoRetry($retry ,  $storefront_oid,  $email_customer_uuid,  $email_customer)
+    {
         $returnType = '';
         $request = $this->updateEmailCustomerRequest($storefront_oid, $email_customer_uuid, $email_customer);
 
@@ -35465,26 +37918,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailCustomerWithHttpInfoRetry(false ,   $storefront_oid,   $email_customer_uuid,   $email_customer);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -35762,6 +38214,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailEmailWithHttpInfo
      *
@@ -35777,6 +38230,27 @@ class StorefrontApi
      */
     public function updateEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email)
     {
+        list($response) = $this->updateEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailEmailWithHttpInfoRetry
+     *
+     * Update email email
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_email_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqEmail $email_commseq_email Email commseq email (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailEmailWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_email_uuid,  $email_commseq_email)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqEmailResponse';
         $request = $this->updateEmailEmailRequest($storefront_oid, $commseq_email_uuid, $email_commseq_email);
 
@@ -35785,26 +38259,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailEmailWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -36118,6 +38591,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailFlowWithHttpInfo
      *
@@ -36133,6 +38607,27 @@ class StorefrontApi
      */
     public function updateEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $email_flow)
     {
+        list($response) = $this->updateEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $email_flow);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailFlowWithHttpInfoRetry
+     *
+     * Update email flow
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_flow_uuid (required)
+     * @param  \ultracart\v2\models\EmailFlow $email_flow Email flow (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailFlowResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailFlowWithHttpInfoRetry($retry ,  $storefront_oid,  $email_flow_uuid,  $email_flow)
+    {
         $returnType = '\ultracart\v2\models\EmailFlowResponse';
         $request = $this->updateEmailFlowRequest($storefront_oid, $email_flow_uuid, $email_flow);
 
@@ -36141,26 +38636,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailFlowWithHttpInfoRetry(false ,   $storefront_oid,   $email_flow_uuid,   $email_flow);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -36472,6 +38966,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailGlobalSettingsWithHttpInfo
      *
@@ -36485,6 +38980,25 @@ class StorefrontApi
      */
     public function updateEmailGlobalSettingsWithHttpInfo($global_settings)
     {
+        list($response) = $this->updateEmailGlobalSettingsWithHttpInfoRetry(true ,   $global_settings);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailGlobalSettingsWithHttpInfoRetry
+     *
+     * Update email global settings
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\EmailGlobalSettings $global_settings global settings request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailGlobalSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailGlobalSettingsWithHttpInfoRetry($retry ,  $global_settings)
+    {
         $returnType = '\ultracart\v2\models\EmailGlobalSettingsResponse';
         $request = $this->updateEmailGlobalSettingsRequest($global_settings);
 
@@ -36493,26 +39007,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailGlobalSettingsWithHttpInfoRetry(false ,   $global_settings);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -36792,6 +39305,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailListWithHttpInfo
      *
@@ -36807,6 +39321,27 @@ class StorefrontApi
      */
     public function updateEmailListWithHttpInfo($storefront_oid, $email_list_uuid, $email_list)
     {
+        list($response) = $this->updateEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_list);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailListWithHttpInfoRetry
+     *
+     * Update email list
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_uuid (required)
+     * @param  \ultracart\v2\models\EmailList $email_list Email list (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailListWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_uuid,  $email_list)
+    {
         $returnType = '\ultracart\v2\models\EmailListResponse';
         $request = $this->updateEmailListRequest($storefront_oid, $email_list_uuid, $email_list);
 
@@ -36815,26 +39350,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailListWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_uuid,   $email_list);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -37147,6 +39681,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailPlanWithHttpInfo
      *
@@ -37161,6 +39696,26 @@ class StorefrontApi
      */
     public function updateEmailPlanWithHttpInfo($storefront_oid, $settings)
     {
+        list($response) = $this->updateEmailPlanWithHttpInfoRetry(true ,   $storefront_oid,   $settings);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailPlanWithHttpInfoRetry
+     *
+     * Update email plan
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailPlan $settings plan request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailPlanResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailPlanWithHttpInfoRetry($retry ,  $storefront_oid,  $settings)
+    {
         $returnType = '\ultracart\v2\models\EmailPlanResponse';
         $request = $this->updateEmailPlanRequest($storefront_oid, $settings);
 
@@ -37169,26 +39724,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailPlanWithHttpInfoRetry(false ,   $storefront_oid,   $settings);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -37485,6 +40039,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailPostcardWithHttpInfo
      *
@@ -37500,6 +40055,27 @@ class StorefrontApi
      */
     public function updateEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard)
     {
+        list($response) = $this->updateEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid,   $email_commseq_postcard);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailPostcardWithHttpInfoRetry
+     *
+     * Update email postcard
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_postcard_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqPostcard $email_commseq_postcard Email commseq postcard (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqPostcardResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailPostcardWithHttpInfoRetry($retry ,  $storefront_oid,  $commseq_postcard_uuid,  $email_commseq_postcard)
+    {
         $returnType = '\ultracart\v2\models\EmailCommseqPostcardResponse';
         $request = $this->updateEmailPostcardRequest($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard);
 
@@ -37508,26 +40084,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailPostcardWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_postcard_uuid,   $email_commseq_postcard);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -37841,6 +40416,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailSegmentWithHttpInfo
      *
@@ -37856,6 +40432,27 @@ class StorefrontApi
      */
     public function updateEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment)
     {
+        list($response) = $this->updateEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_segment);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailSegmentWithHttpInfoRetry
+     *
+     * Update email segment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_segment_uuid (required)
+     * @param  \ultracart\v2\models\EmailSegment $email_segment Email segment (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSegmentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailSegmentWithHttpInfoRetry($retry ,  $storefront_oid,  $email_segment_uuid,  $email_segment)
+    {
         $returnType = '\ultracart\v2\models\EmailSegmentResponse';
         $request = $this->updateEmailSegmentRequest($storefront_oid, $email_segment_uuid, $email_segment);
 
@@ -37864,26 +40461,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailSegmentWithHttpInfoRetry(false ,   $storefront_oid,   $email_segment_uuid,   $email_segment);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -38196,6 +40792,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateEmailSettingsWithHttpInfo
      *
@@ -38210,6 +40807,26 @@ class StorefrontApi
      */
     public function updateEmailSettingsWithHttpInfo($storefront_oid, $settings)
     {
+        list($response) = $this->updateEmailSettingsWithHttpInfoRetry(true ,   $storefront_oid,   $settings);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailSettingsWithHttpInfoRetry
+     *
+     * Update email settings
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailSettings $settings settings request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailSettingsWithHttpInfoRetry($retry ,  $storefront_oid,  $settings)
+    {
         $returnType = '\ultracart\v2\models\EmailSettingsResponse';
         $request = $this->updateEmailSettingsRequest($storefront_oid, $settings);
 
@@ -38218,26 +40835,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailSettingsWithHttpInfoRetry(false ,   $storefront_oid,   $settings);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -38534,6 +41150,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateExperimentWithHttpInfo
      *
@@ -38549,6 +41166,27 @@ class StorefrontApi
      */
     public function updateExperimentWithHttpInfo($storefront_oid, $storefront_experiment_oid, $experiment)
     {
+        list($response) = $this->updateExperimentWithHttpInfoRetry(true ,   $storefront_oid,   $storefront_experiment_oid,   $experiment);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateExperimentWithHttpInfoRetry
+     *
+     * Update experiment
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  int $storefront_experiment_oid (required)
+     * @param  \ultracart\v2\models\Experiment $experiment Experiment (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ExperimentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateExperimentWithHttpInfoRetry($retry ,  $storefront_oid,  $storefront_experiment_oid,  $experiment)
+    {
         $returnType = '\ultracart\v2\models\ExperimentResponse';
         $request = $this->updateExperimentRequest($storefront_oid, $storefront_experiment_oid, $experiment);
 
@@ -38557,26 +41195,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateExperimentWithHttpInfoRetry(false ,   $storefront_oid,   $storefront_experiment_oid,   $experiment);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -38889,6 +41526,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateLibraryItemWithHttpInfo
      *
@@ -38903,6 +41541,26 @@ class StorefrontApi
      */
     public function updateLibraryItemWithHttpInfo($library_item_oid, $library_item)
     {
+        list($response) = $this->updateLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $library_item);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateLibraryItemWithHttpInfoRetry
+     *
+     * Update library item. Note that only certain fields may be updated via this method.
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $library_item_oid (required)
+     * @param  \ultracart\v2\models\LibraryItem $library_item Library item (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\LibraryItemResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateLibraryItemWithHttpInfoRetry($retry ,  $library_item_oid,  $library_item)
+    {
         $returnType = '\ultracart\v2\models\LibraryItemResponse';
         $request = $this->updateLibraryItemRequest($library_item_oid, $library_item);
 
@@ -38911,26 +41569,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateLibraryItemWithHttpInfoRetry(false ,   $library_item_oid,   $library_item);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -39227,6 +41884,7 @@ class StorefrontApi
         return $response;
     }
 
+
     /**
      * Operation updateTransactionEmailWithHttpInfo
      *
@@ -39242,6 +41900,27 @@ class StorefrontApi
      */
     public function updateTransactionEmailWithHttpInfo($storefront_oid, $email_id, $transaction_email)
     {
+        list($response) = $this->updateTransactionEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_id,   $transaction_email);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTransactionEmailWithHttpInfoRetry
+     *
+     * Updates a transaction email object
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_id (required)
+     * @param  \ultracart\v2\models\TransactionEmail $transaction_email TransactionEmail (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TransactionEmailResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTransactionEmailWithHttpInfoRetry($retry ,  $storefront_oid,  $email_id,  $transaction_email)
+    {
         $returnType = '\ultracart\v2\models\TransactionEmailResponse';
         $request = $this->updateTransactionEmailRequest($storefront_oid, $email_id, $transaction_email);
 
@@ -39250,26 +41929,25 @@ class StorefrontApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTransactionEmailWithHttpInfoRetry(false ,   $storefront_oid,   $email_id,   $transaction_email);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

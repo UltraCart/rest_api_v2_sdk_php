@@ -63,6 +63,7 @@ class LibraryItemPublishedMeta implements ModelInterface, ArrayAccess
         'rejected' => 'bool',
         'rejected_reason' => 'string',
         'release_version' => 'int',
+        'review_version' => 'int',
         'under_review' => 'bool'
     ];
 
@@ -78,6 +79,7 @@ class LibraryItemPublishedMeta implements ModelInterface, ArrayAccess
         'rejected' => null,
         'rejected_reason' => null,
         'release_version' => 'int32',
+        'review_version' => 'int32',
         'under_review' => null
     ];
 
@@ -114,6 +116,7 @@ class LibraryItemPublishedMeta implements ModelInterface, ArrayAccess
         'rejected' => 'rejected',
         'rejected_reason' => 'rejected_reason',
         'release_version' => 'release_version',
+        'review_version' => 'review_version',
         'under_review' => 'under_review'
     ];
 
@@ -129,6 +132,7 @@ class LibraryItemPublishedMeta implements ModelInterface, ArrayAccess
         'rejected' => 'setRejected',
         'rejected_reason' => 'setRejectedReason',
         'release_version' => 'setReleaseVersion',
+        'review_version' => 'setReviewVersion',
         'under_review' => 'setUnderReview'
     ];
 
@@ -144,6 +148,7 @@ class LibraryItemPublishedMeta implements ModelInterface, ArrayAccess
         'rejected' => 'getRejected',
         'rejected_reason' => 'getRejectedReason',
         'release_version' => 'getReleaseVersion',
+        'review_version' => 'getReviewVersion',
         'under_review' => 'getUnderReview'
     ];
 
@@ -213,6 +218,7 @@ class LibraryItemPublishedMeta implements ModelInterface, ArrayAccess
         $this->container['rejected'] = isset($data['rejected']) ? $data['rejected'] : null;
         $this->container['rejected_reason'] = isset($data['rejected_reason']) ? $data['rejected_reason'] : null;
         $this->container['release_version'] = isset($data['release_version']) ? $data['release_version'] : null;
+        $this->container['review_version'] = isset($data['review_version']) ? $data['review_version'] : null;
         $this->container['under_review'] = isset($data['under_review']) ? $data['under_review'] : null;
     }
 
@@ -380,6 +386,30 @@ class LibraryItemPublishedMeta implements ModelInterface, ArrayAccess
     public function setReleaseVersion($release_version)
     {
         $this->container['release_version'] = $release_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets review_version
+     *
+     * @return int
+     */
+    public function getReviewVersion()
+    {
+        return $this->container['review_version'];
+    }
+
+    /**
+     * Sets review_version
+     *
+     * @param int $review_version If this library item is a source item and has a published item currently under review, this is that version number
+     *
+     * @return $this
+     */
+    public function setReviewVersion($review_version)
+    {
+        $this->container['review_version'] = $review_version;
 
         return $this;
     }

@@ -124,6 +124,49 @@ echo "</pre></body></html>";
 ?>
 ```
 
+## Automatic Retry (v3.0.62, January 2021)
+Starting with 3.0.62, we have modified the standard SDK to include retry logic.  This logic was handled to allow
+client code to automatically retry if it trips the server side rate limiter
+
+### Usage
+Set the MaxRetyAfter (seconds) within the Configuration object.  This is a failsafe to avoid having client code
+hang forever if the retry-after header returns a large number.  If you don't mind your code waiting for an hour, then
+you may set the retry to 3600, etc.
+```php
+ultracart\v2\Configuration::getDefaultConfiguration()->setMaxRetrySeconds(30);
+```
+
+This is the actual logic used to determine if a retry should be attempted:
+```php
+try {
+    $response = $this->client->send($request, $options);
+} catch (RequestException $e) {
+
+    // BEGIN Retry Logic
+    if($e->getResponse()) {
+        $retryAfter = 0;
+        if (array_key_exists('Retry-After', $headers)) {
+            $retryAfter = intval($headers['Retry-After'][0]);
+        }
+
+        if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+            sleep($retryAfter);
+            return $this->getCustomersByQueryWithHttpInfoRetry(false, $customer_query, $_limit, $_offset, $_since, $_sort, $_expand);
+        }
+    }
+    // End Retry Logic
+
+    throw new ApiException(
+        "[{$e->getCode()}] {$e->getMessage()}",
+        $e->getCode(),
+        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+        $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+    );
+}
+
+```
+
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://secure.ultracart.com/rest/v2*
@@ -168,12 +211,15 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**deleteCouponsByOid**](docs/Api/CouponApi.md#deletecouponsbyoid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
 *CouponApi* | [**generateCouponCodes**](docs/Api/CouponApi.md#generatecouponcodes) | **POST** /coupon/coupons/{coupon_oid}/generate_codes | Generates one time codes for a coupon
 *CouponApi* | [**generateOneTimeCodesByMerchantCode**](docs/Api/CouponApi.md#generateonetimecodesbymerchantcode) | **POST** /coupon/coupons/merchant_code/{merchant_code}/generate_codes | Generates one time codes by merchant code
+*CouponApi* | [**getAutoApply**](docs/Api/CouponApi.md#getautoapply) | **GET** /coupon/auto_apply | Retrieve auto apply rules and conditions
 *CouponApi* | [**getCoupon**](docs/Api/CouponApi.md#getcoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
 *CouponApi* | [**getCouponByMerchantCode**](docs/Api/CouponApi.md#getcouponbymerchantcode) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 *CouponApi* | [**getCoupons**](docs/Api/CouponApi.md#getcoupons) | **GET** /coupon/coupons | Retrieve coupons
 *CouponApi* | [**getCouponsByQuery**](docs/Api/CouponApi.md#getcouponsbyquery) | **GET** /coupon/coupons/query | Retrieve coupons by query
 *CouponApi* | [**getEditorValues**](docs/Api/CouponApi.md#geteditorvalues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
 *CouponApi* | [**insertCoupon**](docs/Api/CouponApi.md#insertcoupon) | **POST** /coupon/coupons | Insert a coupon
+*CouponApi* | [**searchItems**](docs/Api/CouponApi.md#searchitems) | **GET** /coupon/searchItems | Searches for items to display within a coupon editor and assign to coupons
+*CouponApi* | [**updateAutoApply**](docs/Api/CouponApi.md#updateautoapply) | **POST** /coupon/auto_apply | Update auto apply rules and conditions
 *CouponApi* | [**updateCoupon**](docs/Api/CouponApi.md#updatecoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
 *CouponApi* | [**uploadCouponCodes**](docs/Api/CouponApi.md#uploadcouponcodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
 *CustomerApi* | [**deleteCustomer**](docs/Api/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
@@ -295,6 +341,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getLibraryFilterValues**](docs/Api/StorefrontApi.md#getlibraryfiltervalues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
 *StorefrontApi* | [**getLibraryItem**](docs/Api/StorefrontApi.md#getlibraryitem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
 *StorefrontApi* | [**getLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#getlibraryitempublishedversions) | **GET** /storefront/code_library/{library_item_oid}/published_versions | Get all published versions for a library item.
+*StorefrontApi* | [**getPricingTiers**](docs/Api/StorefrontApi.md#getpricingtiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 *StorefrontApi* | [**getThumbnailParameters**](docs/Api/StorefrontApi.md#getthumbnailparameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 *StorefrontApi* | [**getTransactionEmail**](docs/Api/StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -500,7 +547,10 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/Model/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/Model/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/Model/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponAutoApplyCondition](docs/Model/CouponAutoApplyCondition.md)
+ - [CouponAutoApplyConditions](docs/Model/CouponAutoApplyConditions.md)
  - [CouponAutomaticallyApplyCouponCodes](docs/Model/CouponAutomaticallyApplyCouponCodes.md)
+ - [CouponBuyOneGetOneLimit](docs/Model/CouponBuyOneGetOneLimit.md)
  - [CouponCodesRequest](docs/Model/CouponCodesRequest.md)
  - [CouponCodesResponse](docs/Model/CouponCodesResponse.md)
  - [CouponDeletesRequest](docs/Model/CouponDeletesRequest.md)
@@ -516,6 +566,8 @@ Class | Method | HTTP request | Description
  - [CouponFreeShippingSpecificItems](docs/Model/CouponFreeShippingSpecificItems.md)
  - [CouponFreeShippingWithItemsPurchase](docs/Model/CouponFreeShippingWithItemsPurchase.md)
  - [CouponFreeShippingWithSubtotal](docs/Model/CouponFreeShippingWithSubtotal.md)
+ - [CouponItemSearchResult](docs/Model/CouponItemSearchResult.md)
+ - [CouponItemSearchResultsResponse](docs/Model/CouponItemSearchResultsResponse.md)
  - [CouponMultipleAmountsOffItems](docs/Model/CouponMultipleAmountsOffItems.md)
  - [CouponNoDiscount](docs/Model/CouponNoDiscount.md)
  - [CouponPercentOffItemWithItemsQuantityPurchase](docs/Model/CouponPercentOffItemWithItemsQuantityPurchase.md)
@@ -759,6 +811,7 @@ Class | Method | HTTP request | Description
  - [LibraryItemAsset](docs/Model/LibraryItemAsset.md)
  - [LibraryItemEmail](docs/Model/LibraryItemEmail.md)
  - [LibraryItemPublishedMeta](docs/Model/LibraryItemPublishedMeta.md)
+ - [LibraryItemPurchasedMeta](docs/Model/LibraryItemPurchasedMeta.md)
  - [LibraryItemQuery](docs/Model/LibraryItemQuery.md)
  - [LibraryItemResponse](docs/Model/LibraryItemResponse.md)
  - [LibraryItemScreenshot](docs/Model/LibraryItemScreenshot.md)
@@ -838,6 +891,7 @@ Class | Method | HTTP request | Description
  - [ResultSet](docs/Model/ResultSet.md)
  - [ScreenshotsResponse](docs/Model/ScreenshotsResponse.md)
  - [SelfConfig](docs/Model/SelfConfig.md)
+ - [SimpleValue](docs/Model/SimpleValue.md)
  - [SovosConfig](docs/Model/SovosConfig.md)
  - [StateProvince](docs/Model/StateProvince.md)
  - [StepWaiting](docs/Model/StepWaiting.md)
@@ -959,6 +1013,10 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.62 | 01/19/2021 | Added retry ability when rate limit is triggered (PHP SDK only) only) Other sdk to follow. |
+| 3.0.60 | 01/14/2021 | Working with Ruby SDK |
+| 3.0.57 | 12/17/2020 | CouponAPI: Added Buy one get one free coupon |
+| 3.0.53 | 12/14/2020 | StoreFrontAPI: added a duplicate method to load the pricing tiers on the StoreFront |
 | 3.0.51 | 12/09/2020 | UserAPI: internal bug preventing proper usage of user group creation |
 | 3.0.45 | 12/03/2020 | CouponAPI: added partial searches to getCoupon params, added deleteCoupons method, fixed bugs |
 | 3.0.44 | 12/03/2020 | Code library updates, intended for internal use |

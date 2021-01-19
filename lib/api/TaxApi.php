@@ -104,6 +104,7 @@ class TaxApi
         $this->deleteTaxProviderSelfCityWithHttpInfo($city, $tax_city);
     }
 
+
     /**
      * Operation deleteTaxProviderSelfCityWithHttpInfo
      *
@@ -118,6 +119,25 @@ class TaxApi
      */
     public function deleteTaxProviderSelfCityWithHttpInfo($city, $tax_city)
     {
+        $this->deleteTaxProviderSelfCityWithHttpInfoRetry(true ,   $city,   $tax_city);
+    }
+
+
+    /**
+     * Operation deleteTaxProviderSelfCityWithHttpInfoRetry
+     *
+     * Deletes a Self tax provider city
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $city The city being deleted. (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be deleted (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTaxProviderSelfCityWithHttpInfoRetry($retry ,  $city,  $tax_city)
+    {
         $returnType = '';
         $request = $this->deleteTaxProviderSelfCityRequest($city, $tax_city);
 
@@ -126,26 +146,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteTaxProviderSelfCityWithHttpInfoRetry(false ,   $city,   $tax_city);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -399,6 +418,7 @@ class TaxApi
         $this->deleteTaxProviderSelfCountryWithHttpInfo($country_code, $tax_country);
     }
 
+
     /**
      * Operation deleteTaxProviderSelfCountryWithHttpInfo
      *
@@ -413,6 +433,25 @@ class TaxApi
      */
     public function deleteTaxProviderSelfCountryWithHttpInfo($country_code, $tax_country)
     {
+        $this->deleteTaxProviderSelfCountryWithHttpInfoRetry(true ,   $country_code,   $tax_country);
+    }
+
+
+    /**
+     * Operation deleteTaxProviderSelfCountryWithHttpInfoRetry
+     *
+     * Deletes a Self tax provider country
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $country_code The country code being deleted. (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be deleted (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTaxProviderSelfCountryWithHttpInfoRetry($retry ,  $country_code,  $tax_country)
+    {
         $returnType = '';
         $request = $this->deleteTaxProviderSelfCountryRequest($country_code, $tax_country);
 
@@ -421,26 +460,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteTaxProviderSelfCountryWithHttpInfoRetry(false ,   $country_code,   $tax_country);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -694,6 +732,7 @@ class TaxApi
         $this->deleteTaxProviderSelfCountyWithHttpInfo($county, $tax_county);
     }
 
+
     /**
      * Operation deleteTaxProviderSelfCountyWithHttpInfo
      *
@@ -708,6 +747,25 @@ class TaxApi
      */
     public function deleteTaxProviderSelfCountyWithHttpInfo($county, $tax_county)
     {
+        $this->deleteTaxProviderSelfCountyWithHttpInfoRetry(true ,   $county,   $tax_county);
+    }
+
+
+    /**
+     * Operation deleteTaxProviderSelfCountyWithHttpInfoRetry
+     *
+     * Deletes a Self tax provider county
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $county The county being deleted. (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be deleted (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTaxProviderSelfCountyWithHttpInfoRetry($retry ,  $county,  $tax_county)
+    {
         $returnType = '';
         $request = $this->deleteTaxProviderSelfCountyRequest($county, $tax_county);
 
@@ -716,26 +774,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteTaxProviderSelfCountyWithHttpInfoRetry(false ,   $county,   $tax_county);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -989,6 +1046,7 @@ class TaxApi
         $this->deleteTaxProviderSelfPostalCodeWithHttpInfo($postal_code, $tax_postal_code);
     }
 
+
     /**
      * Operation deleteTaxProviderSelfPostalCodeWithHttpInfo
      *
@@ -1003,6 +1061,25 @@ class TaxApi
      */
     public function deleteTaxProviderSelfPostalCodeWithHttpInfo($postal_code, $tax_postal_code)
     {
+        $this->deleteTaxProviderSelfPostalCodeWithHttpInfoRetry(true ,   $postal_code,   $tax_postal_code);
+    }
+
+
+    /**
+     * Operation deleteTaxProviderSelfPostalCodeWithHttpInfoRetry
+     *
+     * Deletes a Self tax provider postalCode
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $postal_code The postal code being deleted. (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be deleted (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTaxProviderSelfPostalCodeWithHttpInfoRetry($retry ,  $postal_code,  $tax_postal_code)
+    {
         $returnType = '';
         $request = $this->deleteTaxProviderSelfPostalCodeRequest($postal_code, $tax_postal_code);
 
@@ -1011,26 +1088,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteTaxProviderSelfPostalCodeWithHttpInfoRetry(false ,   $postal_code,   $tax_postal_code);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1284,6 +1360,7 @@ class TaxApi
         $this->deleteTaxProviderSelfStateWithHttpInfo($state_code, $tax_state);
     }
 
+
     /**
      * Operation deleteTaxProviderSelfStateWithHttpInfo
      *
@@ -1298,6 +1375,25 @@ class TaxApi
      */
     public function deleteTaxProviderSelfStateWithHttpInfo($state_code, $tax_state)
     {
+        $this->deleteTaxProviderSelfStateWithHttpInfoRetry(true ,   $state_code,   $tax_state);
+    }
+
+
+    /**
+     * Operation deleteTaxProviderSelfStateWithHttpInfoRetry
+     *
+     * Deletes a Self tax provider state
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $state_code The state code being deleted. (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be deleted (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteTaxProviderSelfStateWithHttpInfoRetry($retry ,  $state_code,  $tax_state)
+    {
         $returnType = '';
         $request = $this->deleteTaxProviderSelfStateRequest($state_code, $tax_state);
 
@@ -1306,26 +1402,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteTaxProviderSelfStateWithHttpInfoRetry(false ,   $state_code,   $tax_state);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1578,6 +1673,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderAvalaraWithHttpInfo
      *
@@ -1590,6 +1686,24 @@ class TaxApi
      */
     public function getTaxProviderAvalaraWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderAvalaraWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderAvalaraWithHttpInfoRetry
+     *
+     * Retrieve the Avalara tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderAvalara, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderAvalaraWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderAvalara';
         $request = $this->getTaxProviderAvalaraRequest();
 
@@ -1598,26 +1712,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderAvalaraWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1878,6 +1991,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderAvalaraCompaniesWithHttpInfo
      *
@@ -1891,6 +2005,25 @@ class TaxApi
      */
     public function getTaxProviderAvalaraCompaniesWithHttpInfo($tax_provider_avalara)
     {
+        list($response) = $this->getTaxProviderAvalaraCompaniesWithHttpInfoRetry(true ,   $tax_provider_avalara);
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderAvalaraCompaniesWithHttpInfoRetry
+     *
+     * Returns Avalara Tax companies configured by the merchant
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderAvalaraCompaniesResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderAvalaraCompaniesWithHttpInfoRetry($retry ,  $tax_provider_avalara)
+    {
         $returnType = '\ultracart\v2\models\TaxProviderAvalaraCompaniesResult';
         $request = $this->getTaxProviderAvalaraCompaniesRequest($tax_provider_avalara);
 
@@ -1899,26 +2032,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderAvalaraCompaniesWithHttpInfoRetry(false ,   $tax_provider_avalara);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2190,6 +2322,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderAvalaraTestWithHttpInfo
      *
@@ -2202,6 +2335,24 @@ class TaxApi
      */
     public function getTaxProviderAvalaraTestWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderAvalaraTestWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderAvalaraTestWithHttpInfoRetry
+     *
+     * Attempts to connect to Avalara and returns back the response
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderAvalaraTestWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderAvalaraTestRequest();
 
@@ -2210,26 +2361,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderAvalaraTestWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2489,6 +2639,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderSelfWithHttpInfo
      *
@@ -2501,6 +2652,24 @@ class TaxApi
      */
     public function getTaxProviderSelfWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderSelfWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderSelfWithHttpInfoRetry
+     *
+     * Retrieve the Self tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderSelf, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderSelfWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderSelf';
         $request = $this->getTaxProviderSelfRequest();
 
@@ -2509,26 +2678,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderSelfWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2788,6 +2956,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderSelfCountriesWithHttpInfo
      *
@@ -2800,6 +2969,24 @@ class TaxApi
      */
     public function getTaxProviderSelfCountriesWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderSelfCountriesWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderSelfCountriesWithHttpInfoRetry
+     *
+     * Retrieve the Self tax provider countries
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderSelfCountriesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderSelfCountriesWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderSelfCountriesResponse';
         $request = $this->getTaxProviderSelfCountriesRequest();
 
@@ -2808,26 +2995,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderSelfCountriesWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3088,6 +3274,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderSelfRegionsByCountryCodeWithHttpInfo
      *
@@ -3101,6 +3288,25 @@ class TaxApi
      */
     public function getTaxProviderSelfRegionsByCountryCodeWithHttpInfo($country_code)
     {
+        list($response) = $this->getTaxProviderSelfRegionsByCountryCodeWithHttpInfoRetry(true ,   $country_code);
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderSelfRegionsByCountryCodeWithHttpInfoRetry
+     *
+     * Retrieve the Self tax provider regions for a given country code
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $country_code The country code regions desired. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderSelfRegionsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderSelfRegionsByCountryCodeWithHttpInfoRetry($retry ,  $country_code)
+    {
         $returnType = '\ultracart\v2\models\TaxProviderSelfRegionsResponse';
         $request = $this->getTaxProviderSelfRegionsByCountryCodeRequest($country_code);
 
@@ -3109,26 +3315,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderSelfRegionsByCountryCodeWithHttpInfoRetry(false ,   $country_code);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3405,6 +3610,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderSovosWithHttpInfo
      *
@@ -3417,6 +3623,24 @@ class TaxApi
      */
     public function getTaxProviderSovosWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderSovosWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderSovosWithHttpInfoRetry
+     *
+     * Retrieve the Sovos tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderSovos, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderSovosWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderSovos';
         $request = $this->getTaxProviderSovosRequest();
 
@@ -3425,26 +3649,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderSovosWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3704,6 +3927,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderSovosTestWithHttpInfo
      *
@@ -3716,6 +3940,24 @@ class TaxApi
      */
     public function getTaxProviderSovosTestWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderSovosTestWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderSovosTestWithHttpInfoRetry
+     *
+     * Attempts to connect to Sovos and returns back the response
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderSovosTestWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderSovosTestRequest();
 
@@ -3724,26 +3966,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderSovosTestWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4003,6 +4244,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderTaxJarWithHttpInfo
      *
@@ -4015,6 +4257,24 @@ class TaxApi
      */
     public function getTaxProviderTaxJarWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderTaxJarWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderTaxJarWithHttpInfoRetry
+     *
+     * Retrieve the TaxJar tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderTaxJar, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderTaxJarWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderTaxJar';
         $request = $this->getTaxProviderTaxJarRequest();
 
@@ -4023,26 +4283,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderTaxJarWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4302,6 +4561,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderTaxJarTestWithHttpInfo
      *
@@ -4314,6 +4574,24 @@ class TaxApi
      */
     public function getTaxProviderTaxJarTestWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderTaxJarTestWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderTaxJarTestWithHttpInfoRetry
+     *
+     * Attempts to connect to TaxJar and returns back the response
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderTestResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderTaxJarTestWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderTestResult';
         $request = $this->getTaxProviderTaxJarTestRequest();
 
@@ -4322,26 +4600,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderTaxJarTestWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4601,6 +4878,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProviderUltraCartWithHttpInfo
      *
@@ -4613,6 +4891,24 @@ class TaxApi
      */
     public function getTaxProviderUltraCartWithHttpInfo()
     {
+        list($response) = $this->getTaxProviderUltraCartWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProviderUltraCartWithHttpInfoRetry
+     *
+     * Retrieve the UltraCart tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderUltraCart, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProviderUltraCartWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\TaxProviderUltraCart';
         $request = $this->getTaxProviderUltraCartRequest();
 
@@ -4621,26 +4917,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProviderUltraCartWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -4903,6 +5198,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation getTaxProvidersWithHttpInfo
      *
@@ -4918,6 +5214,27 @@ class TaxApi
      */
     public function getTaxProvidersWithHttpInfo($_limit = '100', $_offset = '0', $_expand = null)
     {
+        list($response) = $this->getTaxProvidersWithHttpInfoRetry(true ,   $_limit,   $_offset,   $_expand);
+        return $response;
+    }
+
+
+    /**
+     * Operation getTaxProvidersWithHttpInfoRetry
+     *
+     * Retrieve tax methods
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProvidersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTaxProvidersWithHttpInfoRetry($retry ,  $_limit = '100',  $_offset = '0',  $_expand = null)
+    {
         $returnType = '\ultracart\v2\models\TaxProvidersResponse';
         $request = $this->getTaxProvidersRequest($_limit, $_offset, $_expand);
 
@@ -4926,26 +5243,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getTaxProvidersWithHttpInfoRetry(false ,   $_limit,   $_offset,   $_expand);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5227,6 +5543,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation setActiveTaxProviderWithHttpInfo
      *
@@ -5240,6 +5557,25 @@ class TaxApi
      */
     public function setActiveTaxProviderWithHttpInfo($provider_name)
     {
+        list($response) = $this->setActiveTaxProviderWithHttpInfoRetry(true ,   $provider_name);
+        return $response;
+    }
+
+
+    /**
+     * Operation setActiveTaxProviderWithHttpInfoRetry
+     *
+     * Toggle a tax provider to active
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $provider_name The tax provider to set active. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderActivateResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setActiveTaxProviderWithHttpInfoRetry($retry ,  $provider_name)
+    {
         $returnType = '\ultracart\v2\models\TaxProviderActivateResult';
         $request = $this->setActiveTaxProviderRequest($provider_name);
 
@@ -5248,26 +5584,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->setActiveTaxProviderWithHttpInfoRetry(false ,   $provider_name);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5545,6 +5880,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderAvalaraWithHttpInfo
      *
@@ -5558,6 +5894,25 @@ class TaxApi
      */
     public function updateTaxProviderAvalaraWithHttpInfo($tax_provider_avalara)
     {
+        list($response) = $this->updateTaxProviderAvalaraWithHttpInfoRetry(true ,   $tax_provider_avalara);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderAvalaraWithHttpInfoRetry
+     *
+     * Update the Avalara tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\TaxProviderAvalara $tax_provider_avalara TaxProviderAvalara object (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderAvalara, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderAvalaraWithHttpInfoRetry($retry ,  $tax_provider_avalara)
+    {
         $returnType = '\ultracart\v2\models\TaxProviderAvalara';
         $request = $this->updateTaxProviderAvalaraRequest($tax_provider_avalara);
 
@@ -5566,26 +5921,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderAvalaraWithHttpInfoRetry(false ,   $tax_provider_avalara);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -5858,6 +6212,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderSelfWithHttpInfo
      *
@@ -5871,6 +6226,25 @@ class TaxApi
      */
     public function updateTaxProviderSelfWithHttpInfo($tax_provider_self)
     {
+        list($response) = $this->updateTaxProviderSelfWithHttpInfoRetry(true ,   $tax_provider_self);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderSelfWithHttpInfoRetry
+     *
+     * Update the Self tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\TaxProviderSelf $tax_provider_self TaxProviderSelf object (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderSelf, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderSelfWithHttpInfoRetry($retry ,  $tax_provider_self)
+    {
         $returnType = '\ultracart\v2\models\TaxProviderSelf';
         $request = $this->updateTaxProviderSelfRequest($tax_provider_self);
 
@@ -5879,26 +6253,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderSelfWithHttpInfoRetry(false ,   $tax_provider_self);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -6172,6 +6545,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderSelfCityWithHttpInfo
      *
@@ -6186,6 +6560,26 @@ class TaxApi
      */
     public function updateTaxProviderSelfCityWithHttpInfo($city, $tax_city)
     {
+        list($response) = $this->updateTaxProviderSelfCityWithHttpInfoRetry(true ,   $city,   $tax_city);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderSelfCityWithHttpInfoRetry
+     *
+     * Updates a Self tax provider city
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $city The city being updated. (required)
+     * @param  \ultracart\v2\models\TaxCity $tax_city tax city to be updated (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxCity, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderSelfCityWithHttpInfoRetry($retry ,  $city,  $tax_city)
+    {
         $returnType = '\ultracart\v2\models\TaxCity';
         $request = $this->updateTaxProviderSelfCityRequest($city, $tax_city);
 
@@ -6194,26 +6588,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderSelfCityWithHttpInfoRetry(false ,   $city,   $tax_city);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -6504,6 +6897,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderSelfCountryWithHttpInfo
      *
@@ -6518,6 +6912,26 @@ class TaxApi
      */
     public function updateTaxProviderSelfCountryWithHttpInfo($country_code, $tax_country)
     {
+        list($response) = $this->updateTaxProviderSelfCountryWithHttpInfoRetry(true ,   $country_code,   $tax_country);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderSelfCountryWithHttpInfoRetry
+     *
+     * Updates a Self tax provider country
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $country_code The country code being updated. (required)
+     * @param  \ultracart\v2\models\TaxCountry $tax_country tax country to be updated (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxCountry, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderSelfCountryWithHttpInfoRetry($retry ,  $country_code,  $tax_country)
+    {
         $returnType = '\ultracart\v2\models\TaxCountry';
         $request = $this->updateTaxProviderSelfCountryRequest($country_code, $tax_country);
 
@@ -6526,26 +6940,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderSelfCountryWithHttpInfoRetry(false ,   $country_code,   $tax_country);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -6836,6 +7249,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderSelfCountyWithHttpInfo
      *
@@ -6850,6 +7264,26 @@ class TaxApi
      */
     public function updateTaxProviderSelfCountyWithHttpInfo($county, $tax_county)
     {
+        list($response) = $this->updateTaxProviderSelfCountyWithHttpInfoRetry(true ,   $county,   $tax_county);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderSelfCountyWithHttpInfoRetry
+     *
+     * Updates a Self tax provider county
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $county The county being updated. (required)
+     * @param  \ultracart\v2\models\TaxCounty $tax_county tax county to be updated (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxCounty, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderSelfCountyWithHttpInfoRetry($retry ,  $county,  $tax_county)
+    {
         $returnType = '\ultracart\v2\models\TaxCounty';
         $request = $this->updateTaxProviderSelfCountyRequest($county, $tax_county);
 
@@ -6858,26 +7292,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderSelfCountyWithHttpInfoRetry(false ,   $county,   $tax_county);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -7168,6 +7601,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderSelfPostalCodeWithHttpInfo
      *
@@ -7182,6 +7616,26 @@ class TaxApi
      */
     public function updateTaxProviderSelfPostalCodeWithHttpInfo($postal_code, $tax_postal_code)
     {
+        list($response) = $this->updateTaxProviderSelfPostalCodeWithHttpInfoRetry(true ,   $postal_code,   $tax_postal_code);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderSelfPostalCodeWithHttpInfoRetry
+     *
+     * Updates a Self tax provider postalCode
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $postal_code The postal code being updated. (required)
+     * @param  \ultracart\v2\models\TaxPostalCode $tax_postal_code tax postal code to be updated (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxPostalCode, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderSelfPostalCodeWithHttpInfoRetry($retry ,  $postal_code,  $tax_postal_code)
+    {
         $returnType = '\ultracart\v2\models\TaxPostalCode';
         $request = $this->updateTaxProviderSelfPostalCodeRequest($postal_code, $tax_postal_code);
 
@@ -7190,26 +7644,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderSelfPostalCodeWithHttpInfoRetry(false ,   $postal_code,   $tax_postal_code);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -7500,6 +7953,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderSelfStateWithHttpInfo
      *
@@ -7514,6 +7968,26 @@ class TaxApi
      */
     public function updateTaxProviderSelfStateWithHttpInfo($state_code, $tax_state)
     {
+        list($response) = $this->updateTaxProviderSelfStateWithHttpInfoRetry(true ,   $state_code,   $tax_state);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderSelfStateWithHttpInfoRetry
+     *
+     * Updates a Self tax provider state
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $state_code The state code being updated. (required)
+     * @param  \ultracart\v2\models\TaxState $tax_state tax state to be updated (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxState, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderSelfStateWithHttpInfoRetry($retry ,  $state_code,  $tax_state)
+    {
         $returnType = '\ultracart\v2\models\TaxState';
         $request = $this->updateTaxProviderSelfStateRequest($state_code, $tax_state);
 
@@ -7522,26 +7996,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderSelfStateWithHttpInfoRetry(false ,   $state_code,   $tax_state);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -7831,6 +8304,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderSovosWithHttpInfo
      *
@@ -7844,6 +8318,25 @@ class TaxApi
      */
     public function updateTaxProviderSovosWithHttpInfo($tax_provider_sovos)
     {
+        list($response) = $this->updateTaxProviderSovosWithHttpInfoRetry(true ,   $tax_provider_sovos);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderSovosWithHttpInfoRetry
+     *
+     * Update the Sovos tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\TaxProviderSovos $tax_provider_sovos TaxProviderSovos object (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderSovos, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderSovosWithHttpInfoRetry($retry ,  $tax_provider_sovos)
+    {
         $returnType = '\ultracart\v2\models\TaxProviderSovos';
         $request = $this->updateTaxProviderSovosRequest($tax_provider_sovos);
 
@@ -7852,26 +8345,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderSovosWithHttpInfoRetry(false ,   $tax_provider_sovos);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -8144,6 +8636,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderTaxJarWithHttpInfo
      *
@@ -8157,6 +8650,25 @@ class TaxApi
      */
     public function updateTaxProviderTaxJarWithHttpInfo($tax_provider_tax_jar)
     {
+        list($response) = $this->updateTaxProviderTaxJarWithHttpInfoRetry(true ,   $tax_provider_tax_jar);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderTaxJarWithHttpInfoRetry
+     *
+     * Update the TaxJar tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\TaxProviderTaxJar $tax_provider_tax_jar TaxProviderTaxJar object (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderTaxJar, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderTaxJarWithHttpInfoRetry($retry ,  $tax_provider_tax_jar)
+    {
         $returnType = '\ultracart\v2\models\TaxProviderTaxJar';
         $request = $this->updateTaxProviderTaxJarRequest($tax_provider_tax_jar);
 
@@ -8165,26 +8677,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderTaxJarWithHttpInfoRetry(false ,   $tax_provider_tax_jar);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -8457,6 +8968,7 @@ class TaxApi
         return $response;
     }
 
+
     /**
      * Operation updateTaxProviderUltraCartWithHttpInfo
      *
@@ -8470,6 +8982,25 @@ class TaxApi
      */
     public function updateTaxProviderUltraCartWithHttpInfo($tax_provider_ultracart)
     {
+        list($response) = $this->updateTaxProviderUltraCartWithHttpInfoRetry(true ,   $tax_provider_ultracart);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateTaxProviderUltraCartWithHttpInfoRetry
+     *
+     * Update the UltraCart tax provider
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\TaxProviderUltraCart $tax_provider_ultracart TaxProviderUltraCart object (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\TaxProviderUltraCart, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateTaxProviderUltraCartWithHttpInfoRetry($retry ,  $tax_provider_ultracart)
+    {
         $returnType = '\ultracart\v2\models\TaxProviderUltraCart';
         $request = $this->updateTaxProviderUltraCartRequest($tax_provider_ultracart);
 
@@ -8478,26 +9009,25 @@ class TaxApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateTaxProviderUltraCartWithHttpInfoRetry(false ,   $tax_provider_ultracart);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

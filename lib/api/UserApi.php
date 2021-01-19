@@ -103,6 +103,7 @@ class UserApi
         $this->deleteGroupWithHttpInfo($group_oid);
     }
 
+
     /**
      * Operation deleteGroupWithHttpInfo
      *
@@ -116,6 +117,24 @@ class UserApi
      */
     public function deleteGroupWithHttpInfo($group_oid)
     {
+        $this->deleteGroupWithHttpInfoRetry(true ,   $group_oid);
+    }
+
+
+    /**
+     * Operation deleteGroupWithHttpInfoRetry
+     *
+     * Delete a group
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $group_oid The group_oid to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteGroupWithHttpInfoRetry($retry ,  $group_oid)
+    {
         $returnType = '';
         $request = $this->deleteGroupRequest($group_oid);
 
@@ -124,26 +143,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteGroupWithHttpInfoRetry(false ,   $group_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -384,6 +402,7 @@ class UserApi
         $this->deleteUserWithHttpInfo($user_id);
     }
 
+
     /**
      * Operation deleteUserWithHttpInfo
      *
@@ -397,6 +416,24 @@ class UserApi
      */
     public function deleteUserWithHttpInfo($user_id)
     {
+        $this->deleteUserWithHttpInfoRetry(true ,   $user_id);
+    }
+
+
+    /**
+     * Operation deleteUserWithHttpInfoRetry
+     *
+     * Delete a user
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id The user_id to delete. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteUserWithHttpInfoRetry($retry ,  $user_id)
+    {
         $returnType = '';
         $request = $this->deleteUserRequest($user_id);
 
@@ -405,26 +442,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteUserWithHttpInfoRetry(false ,   $user_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -665,6 +701,7 @@ class UserApi
         $this->getGroupWithHttpInfo($group_oid);
     }
 
+
     /**
      * Operation getGroupWithHttpInfo
      *
@@ -678,6 +715,24 @@ class UserApi
      */
     public function getGroupWithHttpInfo($group_oid)
     {
+        $this->getGroupWithHttpInfoRetry(true ,   $group_oid);
+    }
+
+
+    /**
+     * Operation getGroupWithHttpInfoRetry
+     *
+     * Retrieve a group
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $group_oid The group id to retrieve. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getGroupWithHttpInfoRetry($retry ,  $group_oid)
+    {
         $returnType = '';
         $request = $this->getGroupRequest($group_oid);
 
@@ -686,26 +741,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getGroupWithHttpInfoRetry(false ,   $group_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -946,6 +1000,7 @@ class UserApi
         return $response;
     }
 
+
     /**
      * Operation getGroupsWithHttpInfo
      *
@@ -958,6 +1013,24 @@ class UserApi
      */
     public function getGroupsWithHttpInfo()
     {
+        list($response) = $this->getGroupsWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getGroupsWithHttpInfoRetry
+     *
+     * Get groups
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\GroupsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getGroupsWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\GroupsResponse';
         $request = $this->getGroupsRequest();
 
@@ -966,26 +1039,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getGroupsWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1246,6 +1318,7 @@ class UserApi
         return $response;
     }
 
+
     /**
      * Operation getUserWithHttpInfo
      *
@@ -1259,6 +1332,25 @@ class UserApi
      */
     public function getUserWithHttpInfo($user_id)
     {
+        list($response) = $this->getUserWithHttpInfoRetry(true ,   $user_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation getUserWithHttpInfoRetry
+     *
+     * Retrieve a user
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id The user id to retrieve. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUserWithHttpInfoRetry($retry ,  $user_id)
+    {
         $returnType = '\ultracart\v2\models\UserResponse';
         $request = $this->getUserRequest($user_id);
 
@@ -1267,26 +1359,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getUserWithHttpInfoRetry(false ,   $user_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1564,6 +1655,7 @@ class UserApi
         return $response;
     }
 
+
     /**
      * Operation getUserLoginsWithHttpInfo
      *
@@ -1577,6 +1669,25 @@ class UserApi
      */
     public function getUserLoginsWithHttpInfo($user_id)
     {
+        list($response) = $this->getUserLoginsWithHttpInfoRetry(true ,   $user_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation getUserLoginsWithHttpInfoRetry
+     *
+     * Retrieve a user's login history
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $user_id The user id to retrieve. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\UserLoginsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUserLoginsWithHttpInfoRetry($retry ,  $user_id)
+    {
         $returnType = '\ultracart\v2\models\UserLoginsResponse';
         $request = $this->getUserLoginsRequest($user_id);
 
@@ -1585,26 +1696,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getUserLoginsWithHttpInfoRetry(false ,   $user_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -1881,6 +1991,7 @@ class UserApi
         return $response;
     }
 
+
     /**
      * Operation getUsersWithHttpInfo
      *
@@ -1893,6 +2004,24 @@ class UserApi
      */
     public function getUsersWithHttpInfo()
     {
+        list($response) = $this->getUsersWithHttpInfoRetry(true );
+        return $response;
+    }
+
+
+    /**
+     * Operation getUsersWithHttpInfoRetry
+     *
+     * Get users
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\UsersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUsersWithHttpInfoRetry($retry )
+    {
         $returnType = '\ultracart\v2\models\UsersResponse';
         $request = $this->getUsersRequest();
 
@@ -1901,26 +2030,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getUsersWithHttpInfoRetry(false );
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2181,6 +2309,7 @@ class UserApi
         return $response;
     }
 
+
     /**
      * Operation insertGroupWithHttpInfo
      *
@@ -2194,6 +2323,25 @@ class UserApi
      */
     public function insertGroupWithHttpInfo($group)
     {
+        list($response) = $this->insertGroupWithHttpInfoRetry(true ,   $group);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertGroupWithHttpInfoRetry
+     *
+     * Insert a group
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Group $group Group to insert (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\GroupResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertGroupWithHttpInfoRetry($retry ,  $group)
+    {
         $returnType = '\ultracart\v2\models\GroupResponse';
         $request = $this->insertGroupRequest($group);
 
@@ -2202,26 +2350,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertGroupWithHttpInfoRetry(false ,   $group);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2494,6 +2641,7 @@ class UserApi
         return $response;
     }
 
+
     /**
      * Operation insertUserWithHttpInfo
      *
@@ -2507,6 +2655,25 @@ class UserApi
      */
     public function insertUserWithHttpInfo($user)
     {
+        list($response) = $this->insertUserWithHttpInfoRetry(true ,   $user);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertUserWithHttpInfoRetry
+     *
+     * Insert a user
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\User $user User to insert (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertUserWithHttpInfoRetry($retry ,  $user)
+    {
         $returnType = '\ultracart\v2\models\UserResponse';
         $request = $this->insertUserRequest($user);
 
@@ -2515,26 +2682,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertUserWithHttpInfoRetry(false ,   $user);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -2808,6 +2974,7 @@ class UserApi
         return $response;
     }
 
+
     /**
      * Operation updateGroupWithHttpInfo
      *
@@ -2822,6 +2989,26 @@ class UserApi
      */
     public function updateGroupWithHttpInfo($group, $group_oid)
     {
+        list($response) = $this->updateGroupWithHttpInfoRetry(true ,   $group,   $group_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateGroupWithHttpInfoRetry
+     *
+     * Update a group
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\Group $group Group to update (required)
+     * @param  int $group_oid The group_oid to update. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\GroupResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateGroupWithHttpInfoRetry($retry ,  $group,  $group_oid)
+    {
         $returnType = '\ultracart\v2\models\GroupResponse';
         $request = $this->updateGroupRequest($group, $group_oid);
 
@@ -2830,26 +3017,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateGroupWithHttpInfoRetry(false ,   $group,   $group_oid);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 
@@ -3140,6 +3326,7 @@ class UserApi
         return $response;
     }
 
+
     /**
      * Operation updateUserWithHttpInfo
      *
@@ -3154,6 +3341,26 @@ class UserApi
      */
     public function updateUserWithHttpInfo($user, $user_id)
     {
+        list($response) = $this->updateUserWithHttpInfoRetry(true ,   $user,   $user_id);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateUserWithHttpInfoRetry
+     *
+     * Update a user
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  \ultracart\v2\models\User $user User to update (required)
+     * @param  int $user_id The user_id to update. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\UserResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateUserWithHttpInfoRetry($retry ,  $user,  $user_id)
+    {
         $returnType = '\ultracart\v2\models\UserResponse';
         $request = $this->updateUserRequest($user, $user_id);
 
@@ -3162,26 +3369,25 @@ class UserApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateUserWithHttpInfoRetry(false ,   $user,   $user_id);
+                    }
+                }
+
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
                     $e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
                 );
             }
 

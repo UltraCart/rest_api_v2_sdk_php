@@ -59,7 +59,8 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'currency_code' => 'string',
         'discount_amount' => 'float',
-        'items' => 'string[]'
+        'items' => 'string[]',
+        'limit' => 'int'
     ];
 
     /**
@@ -70,7 +71,8 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'currency_code' => null,
         'discount_amount' => null,
-        'items' => null
+        'items' => null,
+        'limit' => 'int32'
     ];
 
     /**
@@ -102,7 +104,8 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'currency_code' => 'currency_code',
         'discount_amount' => 'discount_amount',
-        'items' => 'items'
+        'items' => 'items',
+        'limit' => 'limit'
     ];
 
     /**
@@ -113,7 +116,8 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess
     protected static $setters = [
         'currency_code' => 'setCurrencyCode',
         'discount_amount' => 'setDiscountAmount',
-        'items' => 'setItems'
+        'items' => 'setItems',
+        'limit' => 'setLimit'
     ];
 
     /**
@@ -124,7 +128,8 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess
     protected static $getters = [
         'currency_code' => 'getCurrencyCode',
         'discount_amount' => 'getDiscountAmount',
-        'items' => 'getItems'
+        'items' => 'getItems',
+        'limit' => 'getLimit'
     ];
 
     /**
@@ -190,6 +195,7 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
     }
 
     /**
@@ -292,6 +298,30 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess
     public function setItems($items)
     {
         $this->container['items'] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit The limit of items which are eligible for the discount amount.
+     *
+     * @return $this
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
 
         return $this;
     }
