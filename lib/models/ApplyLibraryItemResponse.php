@@ -57,6 +57,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'attributes' => '\ultracart\v2\models\LibraryItemAttribute[]',
         'cjson' => 'string',
         'content_type' => 'string',
         'email_template_vm_path' => 'string',
@@ -75,6 +76,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'attributes' => null,
         'cjson' => null,
         'content_type' => null,
         'email_template_vm_path' => null,
@@ -114,6 +116,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attributes' => 'attributes',
         'cjson' => 'cjson',
         'content_type' => 'content_type',
         'email_template_vm_path' => 'email_template_vm_path',
@@ -132,6 +135,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attributes' => 'setAttributes',
         'cjson' => 'setCjson',
         'content_type' => 'setContentType',
         'email_template_vm_path' => 'setEmailTemplateVmPath',
@@ -150,6 +154,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attributes' => 'getAttributes',
         'cjson' => 'getCjson',
         'content_type' => 'getContentType',
         'email_template_vm_path' => 'getEmailTemplateVmPath',
@@ -222,6 +227,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['cjson'] = isset($data['cjson']) ? $data['cjson'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
         $this->container['email_template_vm_path'] = isset($data['email_template_vm_path']) ? $data['email_template_vm_path'] : null;
@@ -257,6 +263,30 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attributes
+     *
+     * @return \ultracart\v2\models\LibraryItemAttribute[]
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \ultracart\v2\models\LibraryItemAttribute[] $attributes Attributes from the library item
+     *
+     * @return $this
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
 
     /**
      * Gets cjson

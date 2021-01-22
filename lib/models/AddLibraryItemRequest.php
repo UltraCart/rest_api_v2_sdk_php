@@ -57,6 +57,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'attributes' => '\ultracart\v2\models\LibraryItemAttribute[]',
         'cjson' => 'string',
         'content_type' => 'string',
         'description' => 'string',
@@ -75,6 +76,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'attributes' => null,
         'cjson' => null,
         'content_type' => null,
         'description' => null,
@@ -114,6 +116,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attributes' => 'attributes',
         'cjson' => 'cjson',
         'content_type' => 'content_type',
         'description' => 'description',
@@ -132,6 +135,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attributes' => 'setAttributes',
         'cjson' => 'setCjson',
         'content_type' => 'setContentType',
         'description' => 'setDescription',
@@ -150,6 +154,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attributes' => 'getAttributes',
         'cjson' => 'getCjson',
         'content_type' => 'getContentType',
         'description' => 'getDescription',
@@ -222,6 +227,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['cjson'] = isset($data['cjson']) ? $data['cjson'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
@@ -257,6 +263,30 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attributes
+     *
+     * @return \ultracart\v2\models\LibraryItemAttribute[]
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \ultracart\v2\models\LibraryItemAttribute[] $attributes Attributes associated with the library item to contain additional configuration.
+     *
+     * @return $this
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
+
+        return $this;
+    }
 
     /**
      * Gets cjson

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**attributes** | [**\ultracart\v2\models\LibraryItemAttribute[]**](LibraryItemAttribute.md) | Attributes from the library item | [optional] 
 **cjson** | **string** | Cjson from library item, only populated if this library item was a cjson snippet or marketing email (not transactional) | [optional] 
 **content_type** | **string** | flow, campaign, cjson, upsell, transactional_email or email | [optional] 
 **email_template_vm_path** | **string** | If a marketing email was applied, this is the path to the template encapsulating the cjson.  This is needed for the UltraCart UI. | [optional] 

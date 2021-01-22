@@ -58,6 +58,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'assets' => '\ultracart\v2\models\LibraryItemAsset[]',
+        'attributes' => '\ultracart\v2\models\LibraryItemAttribute[]',
         'categories' => 'string[]',
         'content' => 'string',
         'content_type' => 'string',
@@ -105,6 +106,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'assets' => null,
+        'attributes' => null,
         'categories' => null,
         'content' => null,
         'content_type' => null,
@@ -173,6 +175,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'assets' => 'assets',
+        'attributes' => 'attributes',
         'categories' => 'categories',
         'content' => 'content',
         'content_type' => 'content_type',
@@ -220,6 +223,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'assets' => 'setAssets',
+        'attributes' => 'setAttributes',
         'categories' => 'setCategories',
         'content' => 'setContent',
         'content_type' => 'setContentType',
@@ -267,6 +271,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'assets' => 'getAssets',
+        'attributes' => 'getAttributes',
         'categories' => 'getCategories',
         'content' => 'getContent',
         'content_type' => 'getContentType',
@@ -368,6 +373,7 @@ class LibraryItem implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['assets'] = isset($data['assets']) ? $data['assets'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
@@ -452,6 +458,30 @@ class LibraryItem implements ModelInterface, ArrayAccess
     public function setAssets($assets)
     {
         $this->container['assets'] = $assets;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return \ultracart\v2\models\LibraryItemAttribute[]
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param \ultracart\v2\models\LibraryItemAttribute[] $attributes attributes
+     *
+     * @return $this
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

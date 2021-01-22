@@ -68,6 +68,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'enrolled_customers' => 'int',
         'esp_domain_user' => 'string',
         'esp_domain_uuid' => 'string',
+        'esp_flow_folder_uuid' => 'string',
         'esp_friendly_name' => 'string',
         'filter_profile_equation_json' => 'string',
         'library_item_oid' => 'int',
@@ -75,6 +76,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'name' => 'string',
         'open_rate_formatted' => 'string',
         'revenue_formatted' => 'string',
+        'revenue_per_customer_formatted' => 'string',
         'screenshot_large_full_url' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
@@ -101,6 +103,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'enrolled_customers' => 'int32',
         'esp_domain_user' => null,
         'esp_domain_uuid' => null,
+        'esp_flow_folder_uuid' => null,
         'esp_friendly_name' => null,
         'filter_profile_equation_json' => null,
         'library_item_oid' => 'int32',
@@ -108,6 +111,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'name' => null,
         'open_rate_formatted' => null,
         'revenue_formatted' => null,
+        'revenue_per_customer_formatted' => null,
         'screenshot_large_full_url' => null,
         'status' => null,
         'status_dts' => 'dateTime',
@@ -155,6 +159,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'enrolled_customers' => 'enrolled_customers',
         'esp_domain_user' => 'esp_domain_user',
         'esp_domain_uuid' => 'esp_domain_uuid',
+        'esp_flow_folder_uuid' => 'esp_flow_folder_uuid',
         'esp_friendly_name' => 'esp_friendly_name',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'library_item_oid' => 'library_item_oid',
@@ -162,6 +167,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'name' => 'name',
         'open_rate_formatted' => 'open_rate_formatted',
         'revenue_formatted' => 'revenue_formatted',
+        'revenue_per_customer_formatted' => 'revenue_per_customer_formatted',
         'screenshot_large_full_url' => 'screenshot_large_full_url',
         'status' => 'status',
         'status_dts' => 'status_dts',
@@ -188,6 +194,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'enrolled_customers' => 'setEnrolledCustomers',
         'esp_domain_user' => 'setEspDomainUser',
         'esp_domain_uuid' => 'setEspDomainUuid',
+        'esp_flow_folder_uuid' => 'setEspFlowFolderUuid',
         'esp_friendly_name' => 'setEspFriendlyName',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'library_item_oid' => 'setLibraryItemOid',
@@ -195,6 +202,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'open_rate_formatted' => 'setOpenRateFormatted',
         'revenue_formatted' => 'setRevenueFormatted',
+        'revenue_per_customer_formatted' => 'setRevenuePerCustomerFormatted',
         'screenshot_large_full_url' => 'setScreenshotLargeFullUrl',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
@@ -221,6 +229,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'enrolled_customers' => 'getEnrolledCustomers',
         'esp_domain_user' => 'getEspDomainUser',
         'esp_domain_uuid' => 'getEspDomainUuid',
+        'esp_flow_folder_uuid' => 'getEspFlowFolderUuid',
         'esp_friendly_name' => 'getEspFriendlyName',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'library_item_oid' => 'getLibraryItemOid',
@@ -228,6 +237,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'open_rate_formatted' => 'getOpenRateFormatted',
         'revenue_formatted' => 'getRevenueFormatted',
+        'revenue_per_customer_formatted' => 'getRevenuePerCustomerFormatted',
         'screenshot_large_full_url' => 'getScreenshotLargeFullUrl',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
@@ -308,6 +318,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         $this->container['enrolled_customers'] = isset($data['enrolled_customers']) ? $data['enrolled_customers'] : null;
         $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
+        $this->container['esp_flow_folder_uuid'] = isset($data['esp_flow_folder_uuid']) ? $data['esp_flow_folder_uuid'] : null;
         $this->container['esp_friendly_name'] = isset($data['esp_friendly_name']) ? $data['esp_friendly_name'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
@@ -315,6 +326,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['open_rate_formatted'] = isset($data['open_rate_formatted']) ? $data['open_rate_formatted'] : null;
         $this->container['revenue_formatted'] = isset($data['revenue_formatted']) ? $data['revenue_formatted'] : null;
+        $this->container['revenue_per_customer_formatted'] = isset($data['revenue_per_customer_formatted']) ? $data['revenue_per_customer_formatted'] : null;
         $this->container['screenshot_large_full_url'] = isset($data['screenshot_large_full_url']) ? $data['screenshot_large_full_url'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['status_dts'] = isset($data['status_dts']) ? $data['status_dts'] : null;
@@ -617,6 +629,30 @@ class EmailFlow implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets esp_flow_folder_uuid
+     *
+     * @return string
+     */
+    public function getEspFlowFolderUuid()
+    {
+        return $this->container['esp_flow_folder_uuid'];
+    }
+
+    /**
+     * Sets esp_flow_folder_uuid
+     *
+     * @param string $esp_flow_folder_uuid Flow folder UUID.  Null for uncategorized
+     *
+     * @return $this
+     */
+    public function setEspFlowFolderUuid($esp_flow_folder_uuid)
+    {
+        $this->container['esp_flow_folder_uuid'] = $esp_flow_folder_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets esp_friendly_name
      *
      * @return string
@@ -784,6 +820,30 @@ class EmailFlow implements ModelInterface, ArrayAccess
     public function setRevenueFormatted($revenue_formatted)
     {
         $this->container['revenue_formatted'] = $revenue_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets revenue_per_customer_formatted
+     *
+     * @return string
+     */
+    public function getRevenuePerCustomerFormatted()
+    {
+        return $this->container['revenue_per_customer_formatted'];
+    }
+
+    /**
+     * Sets revenue_per_customer_formatted
+     *
+     * @param string $revenue_per_customer_formatted Revenue per customer, formatted
+     *
+     * @return $this
+     */
+    public function setRevenuePerCustomerFormatted($revenue_per_customer_formatted)
+    {
+        $this->container['revenue_per_customer_formatted'] = $revenue_per_customer_formatted;
 
         return $this;
     }

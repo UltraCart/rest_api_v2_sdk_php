@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**attributes** | [**\ultracart\v2\models\LibraryItemAttribute[]**](LibraryItemAttribute.md) | Attributes associated with the library item to contain additional configuration. | [optional] 
 **cjson** | **string** | Cjson to be added to library | [optional] 
 **content_type** | **string** | flow, campaign, cjson, email, transactional_email or upsell | [optional] 
 **description** | **string** | description of library item | [optional] 

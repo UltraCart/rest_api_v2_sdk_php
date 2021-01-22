@@ -63,6 +63,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => 'string',
         'email_communication_sequence_uuid' => 'string',
         'end_once_customer_purchases' => 'bool',
+        'esp_campaign_folder_uuid' => 'string',
         'esp_domain_user' => 'string',
         'esp_domain_uuid' => 'string',
         'esp_friendly_name' => 'string',
@@ -73,6 +74,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'open_rate_formatted' => 'string',
         'prevent_sending_due_to_spam' => 'bool',
         'revenue_formatted' => 'string',
+        'revenue_per_customer_formatted' => 'string',
         'scheduled_dts' => 'string',
         'screenshot_large_full_url' => 'string',
         'status' => 'string',
@@ -92,6 +94,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => null,
         'email_communication_sequence_uuid' => null,
         'end_once_customer_purchases' => null,
+        'esp_campaign_folder_uuid' => null,
         'esp_domain_user' => null,
         'esp_domain_uuid' => null,
         'esp_friendly_name' => null,
@@ -102,6 +105,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'open_rate_formatted' => null,
         'prevent_sending_due_to_spam' => null,
         'revenue_formatted' => null,
+        'revenue_per_customer_formatted' => null,
         'scheduled_dts' => 'dateTime',
         'screenshot_large_full_url' => null,
         'status' => null,
@@ -142,6 +146,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => 'email_campaign_uuid',
         'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
         'end_once_customer_purchases' => 'end_once_customer_purchases',
+        'esp_campaign_folder_uuid' => 'esp_campaign_folder_uuid',
         'esp_domain_user' => 'esp_domain_user',
         'esp_domain_uuid' => 'esp_domain_uuid',
         'esp_friendly_name' => 'esp_friendly_name',
@@ -152,6 +157,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'open_rate_formatted' => 'open_rate_formatted',
         'prevent_sending_due_to_spam' => 'prevent_sending_due_to_spam',
         'revenue_formatted' => 'revenue_formatted',
+        'revenue_per_customer_formatted' => 'revenue_per_customer_formatted',
         'scheduled_dts' => 'scheduled_dts',
         'screenshot_large_full_url' => 'screenshot_large_full_url',
         'status' => 'status',
@@ -171,6 +177,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => 'setEmailCampaignUuid',
         'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
         'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
+        'esp_campaign_folder_uuid' => 'setEspCampaignFolderUuid',
         'esp_domain_user' => 'setEspDomainUser',
         'esp_domain_uuid' => 'setEspDomainUuid',
         'esp_friendly_name' => 'setEspFriendlyName',
@@ -181,6 +188,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'open_rate_formatted' => 'setOpenRateFormatted',
         'prevent_sending_due_to_spam' => 'setPreventSendingDueToSpam',
         'revenue_formatted' => 'setRevenueFormatted',
+        'revenue_per_customer_formatted' => 'setRevenuePerCustomerFormatted',
         'scheduled_dts' => 'setScheduledDts',
         'screenshot_large_full_url' => 'setScreenshotLargeFullUrl',
         'status' => 'setStatus',
@@ -200,6 +208,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => 'getEmailCampaignUuid',
         'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
         'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
+        'esp_campaign_folder_uuid' => 'getEspCampaignFolderUuid',
         'esp_domain_user' => 'getEspDomainUser',
         'esp_domain_uuid' => 'getEspDomainUuid',
         'esp_friendly_name' => 'getEspFriendlyName',
@@ -210,6 +219,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'open_rate_formatted' => 'getOpenRateFormatted',
         'prevent_sending_due_to_spam' => 'getPreventSendingDueToSpam',
         'revenue_formatted' => 'getRevenueFormatted',
+        'revenue_per_customer_formatted' => 'getRevenuePerCustomerFormatted',
         'scheduled_dts' => 'getScheduledDts',
         'screenshot_large_full_url' => 'getScreenshotLargeFullUrl',
         'status' => 'getStatus',
@@ -283,6 +293,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         $this->container['email_campaign_uuid'] = isset($data['email_campaign_uuid']) ? $data['email_campaign_uuid'] : null;
         $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
         $this->container['end_once_customer_purchases'] = isset($data['end_once_customer_purchases']) ? $data['end_once_customer_purchases'] : null;
+        $this->container['esp_campaign_folder_uuid'] = isset($data['esp_campaign_folder_uuid']) ? $data['esp_campaign_folder_uuid'] : null;
         $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
         $this->container['esp_friendly_name'] = isset($data['esp_friendly_name']) ? $data['esp_friendly_name'] : null;
@@ -293,6 +304,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         $this->container['open_rate_formatted'] = isset($data['open_rate_formatted']) ? $data['open_rate_formatted'] : null;
         $this->container['prevent_sending_due_to_spam'] = isset($data['prevent_sending_due_to_spam']) ? $data['prevent_sending_due_to_spam'] : null;
         $this->container['revenue_formatted'] = isset($data['revenue_formatted']) ? $data['revenue_formatted'] : null;
+        $this->container['revenue_per_customer_formatted'] = isset($data['revenue_per_customer_formatted']) ? $data['revenue_per_customer_formatted'] : null;
         $this->container['scheduled_dts'] = isset($data['scheduled_dts']) ? $data['scheduled_dts'] : null;
         $this->container['screenshot_large_full_url'] = isset($data['screenshot_large_full_url']) ? $data['screenshot_large_full_url'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -468,6 +480,30 @@ class EmailCampaign implements ModelInterface, ArrayAccess
     public function setEndOnceCustomerPurchases($end_once_customer_purchases)
     {
         $this->container['end_once_customer_purchases'] = $end_once_customer_purchases;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_campaign_folder_uuid
+     *
+     * @return string
+     */
+    public function getEspCampaignFolderUuid()
+    {
+        return $this->container['esp_campaign_folder_uuid'];
+    }
+
+    /**
+     * Sets esp_campaign_folder_uuid
+     *
+     * @param string $esp_campaign_folder_uuid Campaign folder UUID.  Null for uncategorized
+     *
+     * @return $this
+     */
+    public function setEspCampaignFolderUuid($esp_campaign_folder_uuid)
+    {
+        $this->container['esp_campaign_folder_uuid'] = $esp_campaign_folder_uuid;
 
         return $this;
     }
@@ -712,6 +748,30 @@ class EmailCampaign implements ModelInterface, ArrayAccess
     public function setRevenueFormatted($revenue_formatted)
     {
         $this->container['revenue_formatted'] = $revenue_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets revenue_per_customer_formatted
+     *
+     * @return string
+     */
+    public function getRevenuePerCustomerFormatted()
+    {
+        return $this->container['revenue_per_customer_formatted'];
+    }
+
+    /**
+     * Sets revenue_per_customer_formatted
+     *
+     * @param string $revenue_per_customer_formatted Revenue per customer associated with campaign
+     *
+     * @return $this
+     */
+    public function setRevenuePerCustomerFormatted($revenue_per_customer_formatted)
+    {
+        $this->container['revenue_per_customer_formatted'] = $revenue_per_customer_formatted;
 
         return $this;
     }

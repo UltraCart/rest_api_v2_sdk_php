@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assets** | [**\ultracart\v2\models\LibraryItemAsset[]**](LibraryItemAsset.md) |  | [optional] 
+**attributes** | [**\ultracart\v2\models\LibraryItemAttribute[]**](LibraryItemAttribute.md) |  | [optional] 
 **categories** | **string[]** |  | [optional] 
 **content** | **string** |  | [optional] 
 **content_type** | **string** |  | [optional] 
