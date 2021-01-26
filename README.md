@@ -195,7 +195,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**getCart**](docs/Api/CheckoutApi.md#getcart) | **GET** /checkout/cart | Get cart
 *CheckoutApi* | [**getCartByCartId**](docs/Api/CheckoutApi.md#getcartbycartid) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
 *CheckoutApi* | [**getCartByReturnCode**](docs/Api/CheckoutApi.md#getcartbyreturncode) | **GET** /checkout/return/{return_code} | Get cart (by return code)
-*CheckoutApi* | [**getCartByReturnToken**](docs/Api/CheckoutApi.md#getcartbyreturntoken) | **GET** /checkout/return_token/{return_token} | Get cart (by return token)
+*CheckoutApi* | [**getCartByReturnToken**](docs/Api/CheckoutApi.md#getcartbyreturntoken) | **GET** /checkout/return_token | Get cart (by return token)
 *CheckoutApi* | [**getStateProvincesForCountry**](docs/Api/CheckoutApi.md#getstateprovincesforcountry) | **POST** /checkout/stateProvincesForCountry/{country_code} | Get state/province list for a country code
 *CheckoutApi* | [**handoffCart**](docs/Api/CheckoutApi.md#handoffcart) | **POST** /checkout/cart/handoff | Handoff cart
 *CheckoutApi* | [**login**](docs/Api/CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login

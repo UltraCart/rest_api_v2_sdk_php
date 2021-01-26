@@ -2461,14 +2461,14 @@ class CheckoutApi
      *
      * Get cart (by return token)
      *
-     * @param  string $return_token Return token to lookup cart ID by (required)
+     * @param  string $return_token return_token (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\CartResponse
      */
-    public function getCartByReturnToken($return_token, $_expand = null)
+    public function getCartByReturnToken($return_token = null, $_expand = null)
     {
         list($response) = $this->getCartByReturnTokenWithHttpInfo($return_token, $_expand);
         return $response;
@@ -2480,14 +2480,14 @@ class CheckoutApi
      *
      * Get cart (by return token)
      *
-     * @param  string $return_token Return token to lookup cart ID by (required)
+     * @param  string $return_token (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCartByReturnTokenWithHttpInfo($return_token, $_expand = null)
+    public function getCartByReturnTokenWithHttpInfo($return_token = null, $_expand = null)
     {
         list($response) = $this->getCartByReturnTokenWithHttpInfoRetry(true ,   $return_token,   $_expand);
         return $response;
@@ -2500,14 +2500,14 @@ class CheckoutApi
      * Get cart (by return token)
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
-     * @param  string $return_token Return token to lookup cart ID by (required)
+     * @param  string $return_token (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\CartResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCartByReturnTokenWithHttpInfoRetry($retry ,  $return_token,  $_expand = null)
+    public function getCartByReturnTokenWithHttpInfoRetry($retry ,  $return_token = null,  $_expand = null)
     {
         $returnType = '\ultracart\v2\models\CartResponse';
         $request = $this->getCartByReturnTokenRequest($return_token, $_expand);
@@ -2615,13 +2615,13 @@ class CheckoutApi
      *
      * Get cart (by return token)
      *
-     * @param  string $return_token Return token to lookup cart ID by (required)
+     * @param  string $return_token (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCartByReturnTokenAsync($return_token, $_expand = null)
+    public function getCartByReturnTokenAsync($return_token = null, $_expand = null)
     {
         return $this->getCartByReturnTokenAsyncWithHttpInfo($return_token, $_expand)
             ->then(
@@ -2636,13 +2636,13 @@ class CheckoutApi
      *
      * Get cart (by return token)
      *
-     * @param  string $return_token Return token to lookup cart ID by (required)
+     * @param  string $return_token (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCartByReturnTokenAsyncWithHttpInfo($return_token, $_expand = null)
+    public function getCartByReturnTokenAsyncWithHttpInfo($return_token = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\CartResponse';
         $request = $this->getCartByReturnTokenRequest($return_token, $_expand);
@@ -2687,22 +2687,16 @@ class CheckoutApi
     /**
      * Create request for operation 'getCartByReturnToken'
      *
-     * @param  string $return_token Return token to lookup cart ID by (required)
+     * @param  string $return_token (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCartByReturnTokenRequest($return_token, $_expand = null)
+    protected function getCartByReturnTokenRequest($return_token = null, $_expand = null)
     {
-        // verify the required parameter 'return_token' is set
-        if ($return_token === null || (is_array($return_token) && count($return_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $return_token when calling getCartByReturnToken'
-            );
-        }
 
-        $resourcePath = '/checkout/return_token/{return_token}';
+        $resourcePath = '/checkout/return_token';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2710,18 +2704,14 @@ class CheckoutApi
         $multipart = false;
 
         // query params
+        if ($return_token !== null) {
+            $queryParams['return_token'] = ObjectSerializer::toQueryValue($return_token);
+        }
+        // query params
         if ($_expand !== null) {
             $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
         }
 
-        // path params
-        if ($return_token !== null) {
-            $resourcePath = str_replace(
-                '{' . 'return_token' . '}',
-                ObjectSerializer::toPathValue($return_token),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;
