@@ -67,6 +67,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => 'string',
         'ip_address' => 'string',
         'return_code' => 'string',
+        'return_url' => 'string',
         'screen_branding_theme_code' => 'string',
         'storefront_host_name' => 'string',
         'user_agent' => 'string'
@@ -88,6 +89,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => null,
         'ip_address' => null,
         'return_code' => null,
+        'return_url' => null,
         'screen_branding_theme_code' => null,
         'storefront_host_name' => null,
         'user_agent' => null
@@ -130,6 +132,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => 'custom_field7',
         'ip_address' => 'ip_address',
         'return_code' => 'return_code',
+        'return_url' => 'return_url',
         'screen_branding_theme_code' => 'screen_branding_theme_code',
         'storefront_host_name' => 'storefront_host_name',
         'user_agent' => 'user_agent'
@@ -151,6 +154,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => 'setCustomField7',
         'ip_address' => 'setIpAddress',
         'return_code' => 'setReturnCode',
+        'return_url' => 'setReturnUrl',
         'screen_branding_theme_code' => 'setScreenBrandingThemeCode',
         'storefront_host_name' => 'setStorefrontHostName',
         'user_agent' => 'setUserAgent'
@@ -172,6 +176,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => 'getCustomField7',
         'ip_address' => 'getIpAddress',
         'return_code' => 'getReturnCode',
+        'return_url' => 'getReturnUrl',
         'screen_branding_theme_code' => 'getScreenBrandingThemeCode',
         'storefront_host_name' => 'getStorefrontHostName',
         'user_agent' => 'getUserAgent'
@@ -247,6 +252,7 @@ class CartCheckout implements ModelInterface, ArrayAccess
         $this->container['custom_field7'] = isset($data['custom_field7']) ? $data['custom_field7'] : null;
         $this->container['ip_address'] = isset($data['ip_address']) ? $data['ip_address'] : null;
         $this->container['return_code'] = isset($data['return_code']) ? $data['return_code'] : null;
+        $this->container['return_url'] = isset($data['return_url']) ? $data['return_url'] : null;
         $this->container['screen_branding_theme_code'] = isset($data['screen_branding_theme_code']) ? $data['screen_branding_theme_code'] : null;
         $this->container['storefront_host_name'] = isset($data['storefront_host_name']) ? $data['storefront_host_name'] : null;
         $this->container['user_agent'] = isset($data['user_agent']) ? $data['user_agent'] : null;
@@ -291,6 +297,10 @@ class CartCheckout implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['custom_field7']) && (mb_strlen($this->container['custom_field7']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field7', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['return_url']) && (mb_strlen($this->container['return_url']) > 2048)) {
+            $invalidProperties[] = "invalid value for 'return_url', the character length must be smaller than or equal to 2048.";
         }
 
         if (!is_null($this->container['screen_branding_theme_code']) && (mb_strlen($this->container['screen_branding_theme_code']) > 10)) {
@@ -580,6 +590,34 @@ class CartCheckout implements ModelInterface, ArrayAccess
     public function setReturnCode($return_code)
     {
         $this->container['return_code'] = $return_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_url
+     *
+     * @return string
+     */
+    public function getReturnUrl()
+    {
+        return $this->container['return_url'];
+    }
+
+    /**
+     * Sets return_url
+     *
+     * @param string $return_url The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol.
+     *
+     * @return $this
+     */
+    public function setReturnUrl($return_url)
+    {
+        if (!is_null($return_url) && (mb_strlen($return_url) > 2048)) {
+            throw new \InvalidArgumentException('invalid length for $return_url when calling CartCheckout., must be smaller than or equal to 2048.');
+        }
+
+        $this->container['return_url'] = $return_url;
 
         return $this;
     }

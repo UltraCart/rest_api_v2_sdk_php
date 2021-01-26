@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **custom_field7** | **string** | Custom field 7 | [optional] 
 **ip_address** | **string** | IP Address (read only unless non-browser key authenticated) | [optional] 
 **return_code** | **string** | Return code assigned for send return email operation | [optional] 
+**return_url** | **string** | The URL to redirect the customer to when they return from an abandon cart email.  Must be https protocol. | [optional] 
 **screen_branding_theme_code** | **string** | Screen branding theme code | [optional] 
 **storefront_host_name** | **string** | StoreFront Host Name | [optional] 
 **user_agent** | **string** | User agent of the browser | [optional] 

@@ -195,6 +195,7 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**getCart**](docs/Api/CheckoutApi.md#getcart) | **GET** /checkout/cart | Get cart
 *CheckoutApi* | [**getCartByCartId**](docs/Api/CheckoutApi.md#getcartbycartid) | **GET** /checkout/cart/{cart_id} | Get cart (by cart id)
 *CheckoutApi* | [**getCartByReturnCode**](docs/Api/CheckoutApi.md#getcartbyreturncode) | **GET** /checkout/return/{return_code} | Get cart (by return code)
+*CheckoutApi* | [**getCartByReturnToken**](docs/Api/CheckoutApi.md#getcartbyreturntoken) | **GET** /checkout/return_token/{return_token} | Get cart (by return token)
 *CheckoutApi* | [**getStateProvincesForCountry**](docs/Api/CheckoutApi.md#getstateprovincesforcountry) | **POST** /checkout/stateProvincesForCountry/{country_code} | Get state/province list for a country code
 *CheckoutApi* | [**handoffCart**](docs/Api/CheckoutApi.md#handoffcart) | **POST** /checkout/cart/handoff | Handoff cart
 *CheckoutApi* | [**login**](docs/Api/CheckoutApi.md#login) | **POST** /checkout/cart/profile/login | Profile login
@@ -1087,6 +1088,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.70 | 01/26/2021 | Checkout return URL support |
 | 3.0.66 | 01/22/2021 | code library attributes (mostly internal dev) |
 | 3.0.65 | 01/22/2021 | Added folder support for email campaigns and flows |
 | 3.0.64 | 01/20/2021 | Bug fix on revenue per customer field incorrectly named. |
