@@ -147,8 +147,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -484,8 +486,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -816,8 +820,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -1155,8 +1161,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -1480,8 +1488,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -1815,8 +1825,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -2167,8 +2179,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -2461,7 +2475,7 @@ class CheckoutApi
      *
      * Get cart (by return token)
      *
-     * @param  string $return_token return_token (optional)
+     * @param  string $return_token Return token provided by StoreFront Communications (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -2480,7 +2494,7 @@ class CheckoutApi
      *
      * Get cart (by return token)
      *
-     * @param  string $return_token (optional)
+     * @param  string $return_token Return token provided by StoreFront Communications (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -2500,7 +2514,7 @@ class CheckoutApi
      * Get cart (by return token)
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
-     * @param  string $return_token (optional)
+     * @param  string $return_token Return token provided by StoreFront Communications (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
@@ -2519,8 +2533,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -2615,7 +2631,7 @@ class CheckoutApi
      *
      * Get cart (by return token)
      *
-     * @param  string $return_token (optional)
+     * @param  string $return_token Return token provided by StoreFront Communications (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2636,7 +2652,7 @@ class CheckoutApi
      *
      * Get cart (by return token)
      *
-     * @param  string $return_token (optional)
+     * @param  string $return_token Return token provided by StoreFront Communications (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2687,7 +2703,7 @@ class CheckoutApi
     /**
      * Create request for operation 'getCartByReturnToken'
      *
-     * @param  string $return_token (optional)
+     * @param  string $return_token Return token provided by StoreFront Communications (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
@@ -2858,8 +2874,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -3203,8 +3221,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -3550,8 +3570,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -3897,8 +3919,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -4244,8 +4268,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -4591,8 +4617,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -4938,8 +4966,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -5288,8 +5318,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -5649,8 +5681,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -5984,8 +6018,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -6331,8 +6367,10 @@ class CheckoutApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }

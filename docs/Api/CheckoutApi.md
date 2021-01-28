@@ -509,7 +509,7 @@ $api_instance = new ultracart\v2\api\CheckoutApi(
     $config
 );
 
-$return_token = "return_token_example"; // string | 
+$return_token = "return_token_example"; // string | Return token provided by StoreFront Communications
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
@@ -525,7 +525,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **return_token** | **string**|  | [optional]
+ **return_token** | **string**| Return token provided by StoreFront Communications | [optional]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

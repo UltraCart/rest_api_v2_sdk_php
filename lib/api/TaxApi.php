@@ -148,8 +148,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -462,8 +464,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -776,8 +780,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -1090,8 +1096,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -1404,8 +1412,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -1714,8 +1724,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -2034,8 +2046,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -2363,8 +2377,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -2680,8 +2696,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -2997,8 +3015,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -3317,8 +3337,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -3651,8 +3673,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -3968,8 +3992,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -4285,8 +4311,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -4602,8 +4630,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -4919,8 +4949,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -5245,8 +5277,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -5586,8 +5620,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -5923,8 +5959,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -6255,8 +6293,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -6590,8 +6630,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -6942,8 +6984,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -7294,8 +7338,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -7646,8 +7692,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -7998,8 +8046,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -8347,8 +8397,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -8679,8 +8731,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
@@ -9011,8 +9065,10 @@ class TaxApi
             } catch (RequestException $e) {
 
                 if($e->getResponse()) {
+                    $response = $e->getResponse();
                     $statusCode = $response->getStatusCode();
                     $retryAfter = 0;
+                    $headers = $response->getHeaders();
                     if (array_key_exists('Retry-After', $headers)) {
                         $retryAfter = intval($headers['Retry-After'][0]);
                     }
