@@ -158,7 +158,7 @@ class FulfillmentApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->acknowledgeOrdersWithHttpInfoRetry(false ,   $distribution_center_code,   $order_ids);
+                        $this->acknowledgeOrdersWithHttpInfoRetry(false ,   $distribution_center_code,   $order_ids);
                     }
                 }
 
@@ -434,8 +434,7 @@ class FulfillmentApi
      */
     public function getDistributionCenterOrdersWithHttpInfo($distribution_center_code)
     {
-        list($response) = $this->getDistributionCenterOrdersWithHttpInfoRetry(true ,   $distribution_center_code);
-        return $response;
+        return $this->getDistributionCenterOrdersWithHttpInfoRetry(true ,   $distribution_center_code);
     }
 
 
@@ -771,8 +770,7 @@ class FulfillmentApi
      */
     public function getDistributionCentersWithHttpInfo()
     {
-        list($response) = $this->getDistributionCentersWithHttpInfoRetry(true );
-        return $response;
+        return $this->getDistributionCentersWithHttpInfoRetry(true );
     }
 
 
@@ -1132,7 +1130,7 @@ class FulfillmentApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->shipOrdersWithHttpInfoRetry(false ,   $distribution_center_code,   $shipments);
+                        $this->shipOrdersWithHttpInfoRetry(false ,   $distribution_center_code,   $shipments);
                     }
                 }
 
@@ -1448,7 +1446,7 @@ class FulfillmentApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->updateInventoryWithHttpInfoRetry(false ,   $distribution_center_code,   $inventories);
+                        $this->updateInventoryWithHttpInfoRetry(false ,   $distribution_center_code,   $inventories);
                     }
                 }
 

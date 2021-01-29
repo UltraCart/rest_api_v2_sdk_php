@@ -120,8 +120,7 @@ class OrderApi
      */
     public function adjustOrderTotalWithHttpInfo($order_id, $desired_total)
     {
-        list($response) = $this->adjustOrderTotalWithHttpInfoRetry(true ,   $order_id,   $desired_total);
-        return $response;
+        return $this->adjustOrderTotalWithHttpInfoRetry(true ,   $order_id,   $desired_total);
     }
 
 
@@ -477,8 +476,7 @@ class OrderApi
      */
     public function cancelOrderWithHttpInfo($order_id)
     {
-        list($response) = $this->cancelOrderWithHttpInfoRetry(true ,   $order_id);
-        return $response;
+        return $this->cancelOrderWithHttpInfoRetry(true ,   $order_id);
     }
 
 
@@ -853,7 +851,7 @@ class OrderApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteOrderWithHttpInfoRetry(false ,   $order_id);
+                        $this->deleteOrderWithHttpInfoRetry(false ,   $order_id);
                     }
                 }
 
@@ -1119,8 +1117,7 @@ class OrderApi
      */
     public function formatWithHttpInfo($order_id, $format_options)
     {
-        list($response) = $this->formatWithHttpInfoRetry(true ,   $order_id,   $format_options);
-        return $response;
+        return $this->formatWithHttpInfoRetry(true ,   $order_id,   $format_options);
     }
 
 
@@ -1471,8 +1468,7 @@ class OrderApi
      */
     public function generateOrderTokenWithHttpInfo($order_id)
     {
-        list($response) = $this->generateOrderTokenWithHttpInfoRetry(true ,   $order_id);
-        return $response;
+        return $this->generateOrderTokenWithHttpInfoRetry(true ,   $order_id);
     }
 
 
@@ -1808,8 +1804,7 @@ class OrderApi
      */
     public function getAccountsReceivableRetryConfigWithHttpInfo()
     {
-        list($response) = $this->getAccountsReceivableRetryConfigWithHttpInfoRetry(true );
-        return $response;
+        return $this->getAccountsReceivableRetryConfigWithHttpInfoRetry(true );
     }
 
 
@@ -2131,8 +2126,7 @@ class OrderApi
      */
     public function getAccountsReceivableRetryStatsWithHttpInfo($from = null, $to = null)
     {
-        list($response) = $this->getAccountsReceivableRetryStatsWithHttpInfoRetry(true ,   $from,   $to);
-        return $response;
+        return $this->getAccountsReceivableRetryStatsWithHttpInfoRetry(true ,   $from,   $to);
     }
 
 
@@ -2470,8 +2464,7 @@ class OrderApi
      */
     public function getOrderWithHttpInfo($order_id, $_expand = null)
     {
-        list($response) = $this->getOrderWithHttpInfoRetry(true ,   $order_id,   $_expand);
-        return $response;
+        return $this->getOrderWithHttpInfoRetry(true ,   $order_id,   $_expand);
     }
 
 
@@ -2819,8 +2812,7 @@ class OrderApi
      */
     public function getOrderByTokenWithHttpInfo($order_by_token_query, $_expand = null)
     {
-        list($response) = $this->getOrderByTokenWithHttpInfoRetry(true ,   $order_by_token_query,   $_expand);
-        return $response;
+        return $this->getOrderByTokenWithHttpInfoRetry(true ,   $order_by_token_query,   $_expand);
     }
 
 
@@ -3227,8 +3219,7 @@ class OrderApi
      */
     public function getOrdersWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        list($response) = $this->getOrdersWithHttpInfoRetry(true ,   $order_id,   $payment_method,   $company,   $first_name,   $last_name,   $city,   $state_region,   $postal_code,   $country_code,   $phone,   $email,   $cc_email,   $total,   $screen_branding_theme_code,   $storefront_host_name,   $creation_date_begin,   $creation_date_end,   $payment_date_begin,   $payment_date_end,   $shipment_date_begin,   $shipment_date_end,   $rma,   $purchase_order_number,   $item_id,   $current_stage,   $channel_partner_code,   $channel_partner_order_id,   $customer_profile_oid,   $refund_date_begin,   $refund_date_end,   $_limit,   $_offset,   $_sort,   $_expand);
-        return $response;
+        return $this->getOrdersWithHttpInfoRetry(true ,   $order_id,   $payment_method,   $company,   $first_name,   $last_name,   $city,   $state_region,   $postal_code,   $country_code,   $phone,   $email,   $cc_email,   $total,   $screen_branding_theme_code,   $storefront_host_name,   $creation_date_begin,   $creation_date_end,   $payment_date_begin,   $payment_date_end,   $shipment_date_begin,   $shipment_date_end,   $rma,   $purchase_order_number,   $item_id,   $current_stage,   $channel_partner_code,   $channel_partner_order_id,   $customer_profile_oid,   $refund_date_begin,   $refund_date_end,   $_limit,   $_offset,   $_sort,   $_expand);
     }
 
 
@@ -3822,8 +3813,7 @@ class OrderApi
      */
     public function getOrdersBatchWithHttpInfo($order_batch, $_expand = null)
     {
-        list($response) = $this->getOrdersBatchWithHttpInfoRetry(true ,   $order_batch,   $_expand);
-        return $response;
+        return $this->getOrdersBatchWithHttpInfoRetry(true ,   $order_batch,   $_expand);
     }
 
 
@@ -4172,8 +4162,7 @@ class OrderApi
      */
     public function getOrdersByQueryWithHttpInfo($order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        list($response) = $this->getOrdersByQueryWithHttpInfoRetry(true ,   $order_query,   $_limit,   $_offset,   $_sort,   $_expand);
-        return $response;
+        return $this->getOrdersByQueryWithHttpInfoRetry(true ,   $order_query,   $_limit,   $_offset,   $_sort,   $_expand);
     }
 
 
@@ -4540,8 +4529,7 @@ class OrderApi
      */
     public function insertOrderWithHttpInfo($order, $_expand = null)
     {
-        list($response) = $this->insertOrderWithHttpInfoRetry(true ,   $order,   $_expand);
-        return $response;
+        return $this->insertOrderWithHttpInfoRetry(true ,   $order,   $_expand);
     }
 
 
@@ -4884,8 +4872,7 @@ class OrderApi
      */
     public function processPaymentWithHttpInfo($order_id, $process_payment_request)
     {
-        list($response) = $this->processPaymentWithHttpInfoRetry(true ,   $order_id,   $process_payment_request);
-        return $response;
+        return $this->processPaymentWithHttpInfoRetry(true ,   $order_id,   $process_payment_request);
     }
 
 
@@ -5250,8 +5237,7 @@ class OrderApi
      */
     public function refundOrderWithHttpInfo($order, $order_id, $reject_after_refund = 'false', $skip_customer_notification = 'false', $auto_order_cancel = 'false', $manual_refund = 'false', $reverse_affiliate_transactions = 'true', $_expand = null)
     {
-        list($response) = $this->refundOrderWithHttpInfoRetry(true ,   $order,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $_expand);
-        return $response;
+        return $this->refundOrderWithHttpInfoRetry(true ,   $order,   $order_id,   $reject_after_refund,   $skip_customer_notification,   $auto_order_cancel,   $manual_refund,   $reverse_affiliate_transactions,   $_expand);
     }
 
 
@@ -5652,8 +5638,7 @@ class OrderApi
      */
     public function replacementWithHttpInfo($order_id, $replacement)
     {
-        list($response) = $this->replacementWithHttpInfoRetry(true ,   $order_id,   $replacement);
-        return $response;
+        return $this->replacementWithHttpInfoRetry(true ,   $order_id,   $replacement);
     }
 
 
@@ -6004,8 +5989,7 @@ class OrderApi
      */
     public function resendReceiptWithHttpInfo($order_id)
     {
-        list($response) = $this->resendReceiptWithHttpInfoRetry(true ,   $order_id);
-        return $response;
+        return $this->resendReceiptWithHttpInfoRetry(true ,   $order_id);
     }
 
 
@@ -6343,8 +6327,7 @@ class OrderApi
      */
     public function resendShipmentConfirmationWithHttpInfo($order_id)
     {
-        list($response) = $this->resendShipmentConfirmationWithHttpInfoRetry(true ,   $order_id);
-        return $response;
+        return $this->resendShipmentConfirmationWithHttpInfoRetry(true ,   $order_id);
     }
 
 
@@ -6682,8 +6665,7 @@ class OrderApi
      */
     public function updateAccountsReceivableRetryConfigWithHttpInfo($retry_config)
     {
-        list($response) = $this->updateAccountsReceivableRetryConfigWithHttpInfoRetry(true ,   $retry_config);
-        return $response;
+        return $this->updateAccountsReceivableRetryConfigWithHttpInfoRetry(true ,   $retry_config);
     }
 
 
@@ -7020,8 +7002,7 @@ class OrderApi
      */
     public function updateOrderWithHttpInfo($order, $order_id, $_expand = null)
     {
-        list($response) = $this->updateOrderWithHttpInfoRetry(true ,   $order,   $order_id,   $_expand);
-        return $response;
+        return $this->updateOrderWithHttpInfoRetry(true ,   $order,   $order_id,   $_expand);
     }
 
 

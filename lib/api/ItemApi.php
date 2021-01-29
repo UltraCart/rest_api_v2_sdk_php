@@ -155,7 +155,7 @@ class ItemApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteItemWithHttpInfoRetry(false ,   $merchant_item_oid);
+                        $this->deleteItemWithHttpInfoRetry(false ,   $merchant_item_oid);
                     }
                 }
 
@@ -423,8 +423,7 @@ class ItemApi
      */
     public function getItemWithHttpInfo($merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->getItemWithHttpInfoRetry(true ,   $merchant_item_oid,   $_expand,   $_placeholders);
-        return $response;
+        return $this->getItemWithHttpInfoRetry(true ,   $merchant_item_oid,   $_expand,   $_placeholders);
     }
 
 
@@ -782,8 +781,7 @@ class ItemApi
      */
     public function getItemByMerchantItemIdWithHttpInfo($merchant_item_id, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->getItemByMerchantItemIdWithHttpInfoRetry(true ,   $merchant_item_id,   $_expand,   $_placeholders);
-        return $response;
+        return $this->getItemByMerchantItemIdWithHttpInfoRetry(true ,   $merchant_item_id,   $_expand,   $_placeholders);
     }
 
 
@@ -1151,8 +1149,7 @@ class ItemApi
      */
     public function getItemsWithHttpInfo($parent_category_id = null, $parent_category_path = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->getItemsWithHttpInfoRetry(true ,   $parent_category_id,   $parent_category_path,   $_limit,   $_offset,   $_since,   $_sort,   $_expand,   $_placeholders);
-        return $response;
+        return $this->getItemsWithHttpInfoRetry(true ,   $parent_category_id,   $parent_category_path,   $_limit,   $_offset,   $_since,   $_sort,   $_expand,   $_placeholders);
     }
 
 
@@ -1536,8 +1533,7 @@ class ItemApi
      */
     public function getPricingTiersWithHttpInfo($_expand = null)
     {
-        list($response) = $this->getPricingTiersWithHttpInfoRetry(true ,   $_expand);
-        return $response;
+        return $this->getPricingTiersWithHttpInfoRetry(true ,   $_expand);
     }
 
 
@@ -1869,8 +1865,7 @@ class ItemApi
      */
     public function insertItemWithHttpInfo($item, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->insertItemWithHttpInfoRetry(true ,   $item,   $_expand,   $_placeholders);
-        return $response;
+        return $this->insertItemWithHttpInfoRetry(true ,   $item,   $_expand,   $_placeholders);
     }
 
 
@@ -2225,8 +2220,7 @@ class ItemApi
      */
     public function updateItemWithHttpInfo($item, $merchant_item_oid, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->updateItemWithHttpInfoRetry(true ,   $item,   $merchant_item_oid,   $_expand,   $_placeholders);
-        return $response;
+        return $this->updateItemWithHttpInfoRetry(true ,   $item,   $merchant_item_oid,   $_expand,   $_placeholders);
     }
 
 
@@ -2599,8 +2593,7 @@ class ItemApi
      */
     public function updateItemsWithHttpInfo($items_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        list($response) = $this->updateItemsWithHttpInfoRetry(true ,   $items_request,   $_expand,   $_placeholders,   $_async);
-        return $response;
+        return $this->updateItemsWithHttpInfoRetry(true ,   $items_request,   $_expand,   $_placeholders,   $_async);
     }
 
 
@@ -2957,8 +2950,7 @@ class ItemApi
      */
     public function uploadTemporaryMultimediaWithHttpInfo($file)
     {
-        list($response) = $this->uploadTemporaryMultimediaWithHttpInfoRetry(true ,   $file);
-        return $response;
+        return $this->uploadTemporaryMultimediaWithHttpInfoRetry(true ,   $file);
     }
 
 

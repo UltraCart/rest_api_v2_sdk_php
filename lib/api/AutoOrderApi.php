@@ -120,8 +120,7 @@ class AutoOrderApi
      */
     public function getAutoOrderWithHttpInfo($auto_order_oid, $_expand = null)
     {
-        list($response) = $this->getAutoOrderWithHttpInfoRetry(true ,   $auto_order_oid,   $_expand);
-        return $response;
+        return $this->getAutoOrderWithHttpInfoRetry(true ,   $auto_order_oid,   $_expand);
     }
 
 
@@ -469,8 +468,7 @@ class AutoOrderApi
      */
     public function getAutoOrderByCodeWithHttpInfo($auto_order_code, $_expand = null)
     {
-        list($response) = $this->getAutoOrderByCodeWithHttpInfoRetry(true ,   $auto_order_code,   $_expand);
-        return $response;
+        return $this->getAutoOrderByCodeWithHttpInfoRetry(true ,   $auto_order_code,   $_expand);
     }
 
 
@@ -818,8 +816,7 @@ class AutoOrderApi
      */
     public function getAutoOrderByReferenceOrderIdWithHttpInfo($reference_order_id, $_expand = null)
     {
-        list($response) = $this->getAutoOrderByReferenceOrderIdWithHttpInfoRetry(true ,   $reference_order_id,   $_expand);
-        return $response;
+        return $this->getAutoOrderByReferenceOrderIdWithHttpInfoRetry(true ,   $reference_order_id,   $_expand);
     }
 
 
@@ -1209,8 +1206,7 @@ class AutoOrderApi
      */
     public function getAutoOrdersWithHttpInfo($auto_order_code = null, $original_order_id = null, $first_name = null, $last_name = null, $company = null, $city = null, $state = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $original_order_date_begin = null, $original_order_date_end = null, $next_shipment_date_begin = null, $next_shipment_date_end = null, $card_type = null, $item_id = null, $status = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->getAutoOrdersWithHttpInfoRetry(true ,   $auto_order_code,   $original_order_id,   $first_name,   $last_name,   $company,   $city,   $state,   $postal_code,   $country_code,   $phone,   $email,   $original_order_date_begin,   $original_order_date_end,   $next_shipment_date_begin,   $next_shipment_date_end,   $card_type,   $item_id,   $status,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
-        return $response;
+        return $this->getAutoOrdersWithHttpInfoRetry(true ,   $auto_order_code,   $original_order_id,   $first_name,   $last_name,   $company,   $city,   $state,   $postal_code,   $country_code,   $phone,   $email,   $original_order_date_begin,   $original_order_date_end,   $next_shipment_date_begin,   $next_shipment_date_end,   $card_type,   $item_id,   $status,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
     }
 
 
@@ -1716,8 +1712,7 @@ class AutoOrderApi
      */
     public function getAutoOrdersBatchWithHttpInfo($auto_order_batch, $_expand = null)
     {
-        list($response) = $this->getAutoOrdersBatchWithHttpInfoRetry(true ,   $auto_order_batch,   $_expand);
-        return $response;
+        return $this->getAutoOrdersBatchWithHttpInfoRetry(true ,   $auto_order_batch,   $_expand);
     }
 
 
@@ -2066,8 +2061,7 @@ class AutoOrderApi
      */
     public function getAutoOrdersByQueryWithHttpInfo($auto_order_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        list($response) = $this->getAutoOrdersByQueryWithHttpInfoRetry(true ,   $auto_order_query,   $_limit,   $_offset,   $_sort,   $_expand);
-        return $response;
+        return $this->getAutoOrdersByQueryWithHttpInfoRetry(true ,   $auto_order_query,   $_limit,   $_offset,   $_sort,   $_expand);
     }
 
 
@@ -2436,8 +2430,7 @@ class AutoOrderApi
      */
     public function updateAutoOrderWithHttpInfo($auto_order, $auto_order_oid, $_expand = null)
     {
-        list($response) = $this->updateAutoOrderWithHttpInfoRetry(true ,   $auto_order,   $auto_order_oid,   $_expand);
-        return $response;
+        return $this->updateAutoOrderWithHttpInfoRetry(true ,   $auto_order,   $auto_order_oid,   $_expand);
     }
 
 
@@ -2802,8 +2795,7 @@ class AutoOrderApi
      */
     public function updateAutoOrdersBatchWithHttpInfo($auto_orders_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        list($response) = $this->updateAutoOrdersBatchWithHttpInfoRetry(true ,   $auto_orders_request,   $_expand,   $_placeholders,   $_async);
-        return $response;
+        return $this->updateAutoOrdersBatchWithHttpInfoRetry(true ,   $auto_orders_request,   $_expand,   $_placeholders,   $_async);
     }
 
 

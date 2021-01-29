@@ -155,7 +155,7 @@ class CouponApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteCouponWithHttpInfoRetry(false ,   $coupon_oid);
+                        $this->deleteCouponWithHttpInfoRetry(false ,   $coupon_oid);
                     }
                 }
 
@@ -456,7 +456,7 @@ class CouponApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteCouponsByCodeWithHttpInfoRetry(false ,   $coupon_delete_request);
+                        $this->deleteCouponsByCodeWithHttpInfoRetry(false ,   $coupon_delete_request);
                     }
                 }
 
@@ -752,7 +752,7 @@ class CouponApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteCouponsByOidWithHttpInfoRetry(false ,   $coupon_delete_request);
+                        $this->deleteCouponsByOidWithHttpInfoRetry(false ,   $coupon_delete_request);
                     }
                 }
 
@@ -1011,8 +1011,7 @@ class CouponApi
      */
     public function doesCouponCodeExistWithHttpInfo($merchant_code)
     {
-        list($response) = $this->doesCouponCodeExistWithHttpInfoRetry(true ,   $merchant_code);
-        return $response;
+        return $this->doesCouponCodeExistWithHttpInfoRetry(true ,   $merchant_code);
     }
 
 
@@ -1352,8 +1351,7 @@ class CouponApi
      */
     public function generateCouponCodesWithHttpInfo($coupon_oid, $coupon_codes_request)
     {
-        list($response) = $this->generateCouponCodesWithHttpInfoRetry(true ,   $coupon_oid,   $coupon_codes_request);
-        return $response;
+        return $this->generateCouponCodesWithHttpInfoRetry(true ,   $coupon_oid,   $coupon_codes_request);
     }
 
 
@@ -1706,8 +1704,7 @@ class CouponApi
      */
     public function generateOneTimeCodesByMerchantCodeWithHttpInfo($merchant_code, $coupon_codes_request)
     {
-        list($response) = $this->generateOneTimeCodesByMerchantCodeWithHttpInfoRetry(true ,   $merchant_code,   $coupon_codes_request);
-        return $response;
+        return $this->generateOneTimeCodesByMerchantCodeWithHttpInfoRetry(true ,   $merchant_code,   $coupon_codes_request);
     }
 
 
@@ -2056,8 +2053,7 @@ class CouponApi
      */
     public function getAutoApplyWithHttpInfo()
     {
-        list($response) = $this->getAutoApplyWithHttpInfoRetry(true );
-        return $response;
+        return $this->getAutoApplyWithHttpInfoRetry(true );
     }
 
 
@@ -2379,8 +2375,7 @@ class CouponApi
      */
     public function getCouponWithHttpInfo($coupon_oid, $_expand = null)
     {
-        list($response) = $this->getCouponWithHttpInfoRetry(true ,   $coupon_oid,   $_expand);
-        return $response;
+        return $this->getCouponWithHttpInfoRetry(true ,   $coupon_oid,   $_expand);
     }
 
 
@@ -2728,8 +2723,7 @@ class CouponApi
      */
     public function getCouponByMerchantCodeWithHttpInfo($merchant_code, $_expand = null)
     {
-        list($response) = $this->getCouponByMerchantCodeWithHttpInfoRetry(true ,   $merchant_code,   $_expand);
-        return $response;
+        return $this->getCouponByMerchantCodeWithHttpInfoRetry(true ,   $merchant_code,   $_expand);
     }
 
 
@@ -3099,8 +3093,7 @@ class CouponApi
      */
     public function getCouponsWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        list($response) = $this->getCouponsWithHttpInfoRetry(true ,   $merchant_code,   $description,   $coupon_type,   $start_date_begin,   $start_date_end,   $expiration_date_begin,   $expiration_date_end,   $affiliate_oid,   $exclude_expired,   $_limit,   $_offset,   $_sort,   $_expand);
-        return $response;
+        return $this->getCouponsWithHttpInfoRetry(true ,   $merchant_code,   $description,   $coupon_type,   $start_date_begin,   $start_date_end,   $expiration_date_begin,   $expiration_date_end,   $affiliate_oid,   $exclude_expired,   $_limit,   $_offset,   $_sort,   $_expand);
     }
 
 
@@ -3532,8 +3525,7 @@ class CouponApi
      */
     public function getCouponsByQueryWithHttpInfo($coupon_query, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        list($response) = $this->getCouponsByQueryWithHttpInfoRetry(true ,   $coupon_query,   $_limit,   $_offset,   $_sort,   $_expand);
-        return $response;
+        return $this->getCouponsByQueryWithHttpInfoRetry(true ,   $coupon_query,   $_limit,   $_offset,   $_sort,   $_expand);
     }
 
 
@@ -3896,8 +3888,7 @@ class CouponApi
      */
     public function getEditorValuesWithHttpInfo()
     {
-        list($response) = $this->getEditorValuesWithHttpInfoRetry(true );
-        return $response;
+        return $this->getEditorValuesWithHttpInfoRetry(true );
     }
 
 
@@ -4219,8 +4210,7 @@ class CouponApi
      */
     public function insertCouponWithHttpInfo($coupon, $_expand = null)
     {
-        list($response) = $this->insertCouponWithHttpInfoRetry(true ,   $coupon,   $_expand);
-        return $response;
+        return $this->insertCouponWithHttpInfoRetry(true ,   $coupon,   $_expand);
     }
 
 
@@ -4565,8 +4555,7 @@ class CouponApi
      */
     public function insertCouponsWithHttpInfo($coupons_request, $_expand = null, $_placeholders = null)
     {
-        list($response) = $this->insertCouponsWithHttpInfoRetry(true ,   $coupons_request,   $_expand,   $_placeholders);
-        return $response;
+        return $this->insertCouponsWithHttpInfoRetry(true ,   $coupons_request,   $_expand,   $_placeholders);
     }
 
 
@@ -4917,8 +4906,7 @@ class CouponApi
      */
     public function searchItemsWithHttpInfo($s = null, $m = null)
     {
-        list($response) = $this->searchItemsWithHttpInfoRetry(true ,   $s,   $m);
-        return $response;
+        return $this->searchItemsWithHttpInfoRetry(true ,   $s,   $m);
     }
 
 
@@ -5291,7 +5279,7 @@ class CouponApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->updateAutoApplyWithHttpInfoRetry(false ,   $conditions);
+                        $this->updateAutoApplyWithHttpInfoRetry(false ,   $conditions);
                     }
                 }
 
@@ -5554,8 +5542,7 @@ class CouponApi
      */
     public function updateCouponWithHttpInfo($coupon, $coupon_oid, $_expand = null)
     {
-        list($response) = $this->updateCouponWithHttpInfoRetry(true ,   $coupon,   $coupon_oid,   $_expand);
-        return $response;
+        return $this->updateCouponWithHttpInfoRetry(true ,   $coupon,   $coupon_oid,   $_expand);
     }
 
 
@@ -5920,8 +5907,7 @@ class CouponApi
      */
     public function updateCouponsWithHttpInfo($coupons_request, $_expand = null, $_placeholders = null, $_async = null)
     {
-        list($response) = $this->updateCouponsWithHttpInfoRetry(true ,   $coupons_request,   $_expand,   $_placeholders,   $_async);
-        return $response;
+        return $this->updateCouponsWithHttpInfoRetry(true ,   $coupons_request,   $_expand,   $_placeholders,   $_async);
     }
 
 
@@ -6280,8 +6266,7 @@ class CouponApi
      */
     public function uploadCouponCodesWithHttpInfo($coupon_oid, $upload_coupon_codes_request)
     {
-        list($response) = $this->uploadCouponCodesWithHttpInfoRetry(true ,   $coupon_oid,   $upload_coupon_codes_request);
-        return $response;
+        return $this->uploadCouponCodesWithHttpInfoRetry(true ,   $coupon_oid,   $upload_coupon_codes_request);
     }
 
 

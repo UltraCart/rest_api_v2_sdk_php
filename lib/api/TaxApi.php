@@ -158,7 +158,7 @@ class TaxApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteTaxProviderSelfCityWithHttpInfoRetry(false ,   $city,   $tax_city);
+                        $this->deleteTaxProviderSelfCityWithHttpInfoRetry(false ,   $city,   $tax_city);
                     }
                 }
 
@@ -474,7 +474,7 @@ class TaxApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteTaxProviderSelfCountryWithHttpInfoRetry(false ,   $country_code,   $tax_country);
+                        $this->deleteTaxProviderSelfCountryWithHttpInfoRetry(false ,   $country_code,   $tax_country);
                     }
                 }
 
@@ -790,7 +790,7 @@ class TaxApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteTaxProviderSelfCountyWithHttpInfoRetry(false ,   $county,   $tax_county);
+                        $this->deleteTaxProviderSelfCountyWithHttpInfoRetry(false ,   $county,   $tax_county);
                     }
                 }
 
@@ -1106,7 +1106,7 @@ class TaxApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteTaxProviderSelfPostalCodeWithHttpInfoRetry(false ,   $postal_code,   $tax_postal_code);
+                        $this->deleteTaxProviderSelfPostalCodeWithHttpInfoRetry(false ,   $postal_code,   $tax_postal_code);
                     }
                 }
 
@@ -1422,7 +1422,7 @@ class TaxApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteTaxProviderSelfStateWithHttpInfoRetry(false ,   $state_code,   $tax_state);
+                        $this->deleteTaxProviderSelfStateWithHttpInfoRetry(false ,   $state_code,   $tax_state);
                     }
                 }
 
@@ -1696,8 +1696,7 @@ class TaxApi
      */
     public function getTaxProviderAvalaraWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderAvalaraWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderAvalaraWithHttpInfoRetry(true );
     }
 
 
@@ -2017,8 +2016,7 @@ class TaxApi
      */
     public function getTaxProviderAvalaraCompaniesWithHttpInfo($tax_provider_avalara)
     {
-        list($response) = $this->getTaxProviderAvalaraCompaniesWithHttpInfoRetry(true ,   $tax_provider_avalara);
-        return $response;
+        return $this->getTaxProviderAvalaraCompaniesWithHttpInfoRetry(true ,   $tax_provider_avalara);
     }
 
 
@@ -2349,8 +2347,7 @@ class TaxApi
      */
     public function getTaxProviderAvalaraTestWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderAvalaraTestWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderAvalaraTestWithHttpInfoRetry(true );
     }
 
 
@@ -2668,8 +2665,7 @@ class TaxApi
      */
     public function getTaxProviderSelfWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderSelfWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderSelfWithHttpInfoRetry(true );
     }
 
 
@@ -2987,8 +2983,7 @@ class TaxApi
      */
     public function getTaxProviderSelfCountriesWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderSelfCountriesWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderSelfCountriesWithHttpInfoRetry(true );
     }
 
 
@@ -3308,8 +3303,7 @@ class TaxApi
      */
     public function getTaxProviderSelfRegionsByCountryCodeWithHttpInfo($country_code)
     {
-        list($response) = $this->getTaxProviderSelfRegionsByCountryCodeWithHttpInfoRetry(true ,   $country_code);
-        return $response;
+        return $this->getTaxProviderSelfRegionsByCountryCodeWithHttpInfoRetry(true ,   $country_code);
     }
 
 
@@ -3645,8 +3639,7 @@ class TaxApi
      */
     public function getTaxProviderSovosWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderSovosWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderSovosWithHttpInfoRetry(true );
     }
 
 
@@ -3964,8 +3957,7 @@ class TaxApi
      */
     public function getTaxProviderSovosTestWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderSovosTestWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderSovosTestWithHttpInfoRetry(true );
     }
 
 
@@ -4283,8 +4275,7 @@ class TaxApi
      */
     public function getTaxProviderTaxJarWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderTaxJarWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderTaxJarWithHttpInfoRetry(true );
     }
 
 
@@ -4602,8 +4593,7 @@ class TaxApi
      */
     public function getTaxProviderTaxJarTestWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderTaxJarTestWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderTaxJarTestWithHttpInfoRetry(true );
     }
 
 
@@ -4921,8 +4911,7 @@ class TaxApi
      */
     public function getTaxProviderUltraCartWithHttpInfo()
     {
-        list($response) = $this->getTaxProviderUltraCartWithHttpInfoRetry(true );
-        return $response;
+        return $this->getTaxProviderUltraCartWithHttpInfoRetry(true );
     }
 
 
@@ -5246,8 +5235,7 @@ class TaxApi
      */
     public function getTaxProvidersWithHttpInfo($_limit = '100', $_offset = '0', $_expand = null)
     {
-        list($response) = $this->getTaxProvidersWithHttpInfoRetry(true ,   $_limit,   $_offset,   $_expand);
-        return $response;
+        return $this->getTaxProvidersWithHttpInfoRetry(true ,   $_limit,   $_offset,   $_expand);
     }
 
 
@@ -5591,8 +5579,7 @@ class TaxApi
      */
     public function setActiveTaxProviderWithHttpInfo($provider_name)
     {
-        list($response) = $this->setActiveTaxProviderWithHttpInfoRetry(true ,   $provider_name);
-        return $response;
+        return $this->setActiveTaxProviderWithHttpInfoRetry(true ,   $provider_name);
     }
 
 
@@ -5930,8 +5917,7 @@ class TaxApi
      */
     public function updateTaxProviderAvalaraWithHttpInfo($tax_provider_avalara)
     {
-        list($response) = $this->updateTaxProviderAvalaraWithHttpInfoRetry(true ,   $tax_provider_avalara);
-        return $response;
+        return $this->updateTaxProviderAvalaraWithHttpInfoRetry(true ,   $tax_provider_avalara);
     }
 
 
@@ -6264,8 +6250,7 @@ class TaxApi
      */
     public function updateTaxProviderSelfWithHttpInfo($tax_provider_self)
     {
-        list($response) = $this->updateTaxProviderSelfWithHttpInfoRetry(true ,   $tax_provider_self);
-        return $response;
+        return $this->updateTaxProviderSelfWithHttpInfoRetry(true ,   $tax_provider_self);
     }
 
 
@@ -6600,8 +6585,7 @@ class TaxApi
      */
     public function updateTaxProviderSelfCityWithHttpInfo($city, $tax_city)
     {
-        list($response) = $this->updateTaxProviderSelfCityWithHttpInfoRetry(true ,   $city,   $tax_city);
-        return $response;
+        return $this->updateTaxProviderSelfCityWithHttpInfoRetry(true ,   $city,   $tax_city);
     }
 
 
@@ -6954,8 +6938,7 @@ class TaxApi
      */
     public function updateTaxProviderSelfCountryWithHttpInfo($country_code, $tax_country)
     {
-        list($response) = $this->updateTaxProviderSelfCountryWithHttpInfoRetry(true ,   $country_code,   $tax_country);
-        return $response;
+        return $this->updateTaxProviderSelfCountryWithHttpInfoRetry(true ,   $country_code,   $tax_country);
     }
 
 
@@ -7308,8 +7291,7 @@ class TaxApi
      */
     public function updateTaxProviderSelfCountyWithHttpInfo($county, $tax_county)
     {
-        list($response) = $this->updateTaxProviderSelfCountyWithHttpInfoRetry(true ,   $county,   $tax_county);
-        return $response;
+        return $this->updateTaxProviderSelfCountyWithHttpInfoRetry(true ,   $county,   $tax_county);
     }
 
 
@@ -7662,8 +7644,7 @@ class TaxApi
      */
     public function updateTaxProviderSelfPostalCodeWithHttpInfo($postal_code, $tax_postal_code)
     {
-        list($response) = $this->updateTaxProviderSelfPostalCodeWithHttpInfoRetry(true ,   $postal_code,   $tax_postal_code);
-        return $response;
+        return $this->updateTaxProviderSelfPostalCodeWithHttpInfoRetry(true ,   $postal_code,   $tax_postal_code);
     }
 
 
@@ -8016,8 +7997,7 @@ class TaxApi
      */
     public function updateTaxProviderSelfStateWithHttpInfo($state_code, $tax_state)
     {
-        list($response) = $this->updateTaxProviderSelfStateWithHttpInfoRetry(true ,   $state_code,   $tax_state);
-        return $response;
+        return $this->updateTaxProviderSelfStateWithHttpInfoRetry(true ,   $state_code,   $tax_state);
     }
 
 
@@ -8368,8 +8348,7 @@ class TaxApi
      */
     public function updateTaxProviderSovosWithHttpInfo($tax_provider_sovos)
     {
-        list($response) = $this->updateTaxProviderSovosWithHttpInfoRetry(true ,   $tax_provider_sovos);
-        return $response;
+        return $this->updateTaxProviderSovosWithHttpInfoRetry(true ,   $tax_provider_sovos);
     }
 
 
@@ -8702,8 +8681,7 @@ class TaxApi
      */
     public function updateTaxProviderTaxJarWithHttpInfo($tax_provider_tax_jar)
     {
-        list($response) = $this->updateTaxProviderTaxJarWithHttpInfoRetry(true ,   $tax_provider_tax_jar);
-        return $response;
+        return $this->updateTaxProviderTaxJarWithHttpInfoRetry(true ,   $tax_provider_tax_jar);
     }
 
 
@@ -9036,8 +9014,7 @@ class TaxApi
      */
     public function updateTaxProviderUltraCartWithHttpInfo($tax_provider_ultracart)
     {
-        list($response) = $this->updateTaxProviderUltraCartWithHttpInfoRetry(true ,   $tax_provider_ultracart);
-        return $response;
+        return $this->updateTaxProviderUltraCartWithHttpInfoRetry(true ,   $tax_provider_ultracart);
     }
 
 

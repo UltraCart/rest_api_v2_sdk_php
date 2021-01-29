@@ -124,8 +124,7 @@ class AffiliateApi
      */
     public function getClicksByQueryWithHttpInfo($click_query, $_limit = '10000', $_offset = '0', $_expand = null)
     {
-        list($response) = $this->getClicksByQueryWithHttpInfoRetry(true ,   $click_query,   $_limit,   $_offset,   $_expand);
-        return $response;
+        return $this->getClicksByQueryWithHttpInfoRetry(true ,   $click_query,   $_limit,   $_offset,   $_expand);
     }
 
 
@@ -488,8 +487,7 @@ class AffiliateApi
      */
     public function getLedgersByQueryWithHttpInfo($ledger_query, $_limit = '100', $_offset = '0', $_expand = null)
     {
-        list($response) = $this->getLedgersByQueryWithHttpInfoRetry(true ,   $ledger_query,   $_limit,   $_offset,   $_expand);
-        return $response;
+        return $this->getLedgersByQueryWithHttpInfoRetry(true ,   $ledger_query,   $_limit,   $_offset,   $_expand);
     }
 
 

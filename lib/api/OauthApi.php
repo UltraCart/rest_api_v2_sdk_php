@@ -126,8 +126,7 @@ class OauthApi
      */
     public function oauthAccessTokenWithHttpInfo($client_id, $grant_type, $code = null, $redirect_uri = null, $refresh_token = null)
     {
-        list($response) = $this->oauthAccessTokenWithHttpInfoRetry(true ,   $client_id,   $grant_type,   $code,   $redirect_uri,   $refresh_token);
-        return $response;
+        return $this->oauthAccessTokenWithHttpInfoRetry(true ,   $client_id,   $grant_type,   $code,   $redirect_uri,   $refresh_token);
     }
 
 
@@ -482,8 +481,7 @@ class OauthApi
      */
     public function oauthRevokeWithHttpInfo($client_id, $token)
     {
-        list($response) = $this->oauthRevokeWithHttpInfoRetry(true ,   $client_id,   $token);
-        return $response;
+        return $this->oauthRevokeWithHttpInfoRetry(true ,   $client_id,   $token);
     }
 
 

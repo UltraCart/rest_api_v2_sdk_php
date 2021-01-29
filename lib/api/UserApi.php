@@ -155,7 +155,7 @@ class UserApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteGroupWithHttpInfoRetry(false ,   $group_oid);
+                        $this->deleteGroupWithHttpInfoRetry(false ,   $group_oid);
                     }
                 }
 
@@ -456,7 +456,7 @@ class UserApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteUserWithHttpInfoRetry(false ,   $user_id);
+                        $this->deleteUserWithHttpInfoRetry(false ,   $user_id);
                     }
                 }
 
@@ -757,7 +757,7 @@ class UserApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getGroupWithHttpInfoRetry(false ,   $group_oid);
+                        $this->getGroupWithHttpInfoRetry(false ,   $group_oid);
                     }
                 }
 
@@ -1019,8 +1019,7 @@ class UserApi
      */
     public function getGroupsWithHttpInfo()
     {
-        list($response) = $this->getGroupsWithHttpInfoRetry(true );
-        return $response;
+        return $this->getGroupsWithHttpInfoRetry(true );
     }
 
 
@@ -1340,8 +1339,7 @@ class UserApi
      */
     public function getUserWithHttpInfo($user_id)
     {
-        list($response) = $this->getUserWithHttpInfoRetry(true ,   $user_id);
-        return $response;
+        return $this->getUserWithHttpInfoRetry(true ,   $user_id);
     }
 
 
@@ -1679,8 +1677,7 @@ class UserApi
      */
     public function getUserLoginsWithHttpInfo($user_id)
     {
-        list($response) = $this->getUserLoginsWithHttpInfoRetry(true ,   $user_id);
-        return $response;
+        return $this->getUserLoginsWithHttpInfoRetry(true ,   $user_id);
     }
 
 
@@ -2016,8 +2013,7 @@ class UserApi
      */
     public function getUsersWithHttpInfo()
     {
-        list($response) = $this->getUsersWithHttpInfoRetry(true );
-        return $response;
+        return $this->getUsersWithHttpInfoRetry(true );
     }
 
 
@@ -2337,8 +2333,7 @@ class UserApi
      */
     public function insertGroupWithHttpInfo($group)
     {
-        list($response) = $this->insertGroupWithHttpInfoRetry(true ,   $group);
-        return $response;
+        return $this->insertGroupWithHttpInfoRetry(true ,   $group);
     }
 
 
@@ -2671,8 +2666,7 @@ class UserApi
      */
     public function insertUserWithHttpInfo($user)
     {
-        list($response) = $this->insertUserWithHttpInfoRetry(true ,   $user);
-        return $response;
+        return $this->insertUserWithHttpInfoRetry(true ,   $user);
     }
 
 
@@ -3007,8 +3001,7 @@ class UserApi
      */
     public function updateGroupWithHttpInfo($group, $group_oid)
     {
-        list($response) = $this->updateGroupWithHttpInfoRetry(true ,   $group,   $group_oid);
-        return $response;
+        return $this->updateGroupWithHttpInfoRetry(true ,   $group,   $group_oid);
     }
 
 
@@ -3361,8 +3354,7 @@ class UserApi
      */
     public function updateUserWithHttpInfo($user, $user_id)
     {
-        list($response) = $this->updateUserWithHttpInfoRetry(true ,   $user,   $user_id);
-        return $response;
+        return $this->updateUserWithHttpInfoRetry(true ,   $user,   $user_id);
     }
 
 

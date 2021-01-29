@@ -118,8 +118,7 @@ class ChargebackApi
      */
     public function deleteChargebackWithHttpInfo($chargeback_dispute_oid)
     {
-        list($response) = $this->deleteChargebackWithHttpInfoRetry(true ,   $chargeback_dispute_oid);
-        return $response;
+        return $this->deleteChargebackWithHttpInfoRetry(true ,   $chargeback_dispute_oid);
     }
 
 
@@ -459,8 +458,7 @@ class ChargebackApi
      */
     public function getChargebackDisputeWithHttpInfo($chargeback_dispute_oid, $_expand = null)
     {
-        list($response) = $this->getChargebackDisputeWithHttpInfoRetry(true ,   $chargeback_dispute_oid,   $_expand);
-        return $response;
+        return $this->getChargebackDisputeWithHttpInfoRetry(true ,   $chargeback_dispute_oid,   $_expand);
     }
 
 
@@ -828,8 +826,7 @@ class ChargebackApi
      */
     public function getChargebackDisputesWithHttpInfo($order_id = null, $case_number = null, $status = null, $expiration_dts_start = null, $expiration_dts_end = null, $chargeback_dts_start = null, $chargeback_dts_end = null, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null)
     {
-        list($response) = $this->getChargebackDisputesWithHttpInfoRetry(true ,   $order_id,   $case_number,   $status,   $expiration_dts_start,   $expiration_dts_end,   $chargeback_dts_start,   $chargeback_dts_end,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
-        return $response;
+        return $this->getChargebackDisputesWithHttpInfoRetry(true ,   $order_id,   $case_number,   $status,   $expiration_dts_start,   $expiration_dts_end,   $chargeback_dts_start,   $chargeback_dts_end,   $_limit,   $_offset,   $_since,   $_sort,   $_expand);
     }
 
 
@@ -1247,8 +1244,7 @@ class ChargebackApi
      */
     public function insertChargebackWithHttpInfo($chargeback, $_expand = null)
     {
-        list($response) = $this->insertChargebackWithHttpInfoRetry(true ,   $chargeback,   $_expand);
-        return $response;
+        return $this->insertChargebackWithHttpInfoRetry(true ,   $chargeback,   $_expand);
     }
 
 
@@ -1593,8 +1589,7 @@ class ChargebackApi
      */
     public function updateChargebackWithHttpInfo($chargeback, $chargeback_dispute_oid, $_expand = null)
     {
-        list($response) = $this->updateChargebackWithHttpInfoRetry(true ,   $chargeback,   $chargeback_dispute_oid,   $_expand);
-        return $response;
+        return $this->updateChargebackWithHttpInfoRetry(true ,   $chargeback,   $chargeback_dispute_oid,   $_expand);
     }
 
 

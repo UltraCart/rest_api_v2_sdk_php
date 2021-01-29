@@ -118,8 +118,7 @@ class CheckoutApi
      */
     public function cityStateWithHttpInfo($cart)
     {
-        list($response) = $this->cityStateWithHttpInfoRetry(true ,   $cart);
-        return $response;
+        return $this->cityStateWithHttpInfoRetry(true ,   $cart);
     }
 
 
@@ -457,8 +456,7 @@ class CheckoutApi
      */
     public function finalizeOrderWithHttpInfo($finalize_request)
     {
-        list($response) = $this->finalizeOrderWithHttpInfoRetry(true ,   $finalize_request);
-        return $response;
+        return $this->finalizeOrderWithHttpInfoRetry(true ,   $finalize_request);
     }
 
 
@@ -791,8 +789,7 @@ class CheckoutApi
      */
     public function getAffirmCheckoutWithHttpInfo($cart_id)
     {
-        list($response) = $this->getAffirmCheckoutWithHttpInfoRetry(true ,   $cart_id);
-        return $response;
+        return $this->getAffirmCheckoutWithHttpInfoRetry(true ,   $cart_id);
     }
 
 
@@ -1133,8 +1130,7 @@ class CheckoutApi
      */
     public function getAllowedCountriesWithHttpInfo()
     {
-        list($response) = $this->getAllowedCountriesWithHttpInfoRetry(true );
-        return $response;
+        return $this->getAllowedCountriesWithHttpInfoRetry(true );
     }
 
 
@@ -1459,8 +1455,7 @@ class CheckoutApi
      */
     public function getCartWithHttpInfo($_expand = null)
     {
-        list($response) = $this->getCartWithHttpInfoRetry(true ,   $_expand);
-        return $response;
+        return $this->getCartWithHttpInfoRetry(true ,   $_expand);
     }
 
 
@@ -1795,8 +1790,7 @@ class CheckoutApi
      */
     public function getCartByCartIdWithHttpInfo($cart_id, $_expand = null)
     {
-        list($response) = $this->getCartByCartIdWithHttpInfoRetry(true ,   $cart_id,   $_expand);
-        return $response;
+        return $this->getCartByCartIdWithHttpInfoRetry(true ,   $cart_id,   $_expand);
     }
 
 
@@ -2149,8 +2143,7 @@ class CheckoutApi
      */
     public function getCartByReturnCodeWithHttpInfo($return_code, $_expand = null)
     {
-        list($response) = $this->getCartByReturnCodeWithHttpInfoRetry(true ,   $return_code,   $_expand);
-        return $response;
+        return $this->getCartByReturnCodeWithHttpInfoRetry(true ,   $return_code,   $_expand);
     }
 
 
@@ -2503,8 +2496,7 @@ class CheckoutApi
      */
     public function getCartByReturnTokenWithHttpInfo($return_token = null, $_expand = null)
     {
-        list($response) = $this->getCartByReturnTokenWithHttpInfoRetry(true ,   $return_token,   $_expand);
-        return $response;
+        return $this->getCartByReturnTokenWithHttpInfoRetry(true ,   $return_token,   $_expand);
     }
 
 
@@ -2845,8 +2837,7 @@ class CheckoutApi
      */
     public function getStateProvincesForCountryWithHttpInfo($country_code)
     {
-        list($response) = $this->getStateProvincesForCountryWithHttpInfoRetry(true ,   $country_code);
-        return $response;
+        return $this->getStateProvincesForCountryWithHttpInfoRetry(true ,   $country_code);
     }
 
 
@@ -3191,8 +3182,7 @@ class CheckoutApi
      */
     public function handoffCartWithHttpInfo($handoff_request, $_expand = null)
     {
-        list($response) = $this->handoffCartWithHttpInfoRetry(true ,   $handoff_request,   $_expand);
-        return $response;
+        return $this->handoffCartWithHttpInfoRetry(true ,   $handoff_request,   $_expand);
     }
 
 
@@ -3540,8 +3530,7 @@ class CheckoutApi
      */
     public function loginWithHttpInfo($login_request, $_expand = null)
     {
-        list($response) = $this->loginWithHttpInfoRetry(true ,   $login_request,   $_expand);
-        return $response;
+        return $this->loginWithHttpInfoRetry(true ,   $login_request,   $_expand);
     }
 
 
@@ -3889,8 +3878,7 @@ class CheckoutApi
      */
     public function logoutWithHttpInfo($cart, $_expand = null)
     {
-        list($response) = $this->logoutWithHttpInfoRetry(true ,   $cart,   $_expand);
-        return $response;
+        return $this->logoutWithHttpInfoRetry(true ,   $cart,   $_expand);
     }
 
 
@@ -4238,8 +4226,7 @@ class CheckoutApi
      */
     public function registerWithHttpInfo($register_request, $_expand = null)
     {
-        list($response) = $this->registerWithHttpInfoRetry(true ,   $register_request,   $_expand);
-        return $response;
+        return $this->registerWithHttpInfoRetry(true ,   $register_request,   $_expand);
     }
 
 
@@ -4587,8 +4574,7 @@ class CheckoutApi
      */
     public function registerAffiliateClickWithHttpInfo($register_affiliate_click_request, $_expand = null)
     {
-        list($response) = $this->registerAffiliateClickWithHttpInfoRetry(true ,   $register_affiliate_click_request,   $_expand);
-        return $response;
+        return $this->registerAffiliateClickWithHttpInfoRetry(true ,   $register_affiliate_click_request,   $_expand);
     }
 
 
@@ -4936,8 +4922,7 @@ class CheckoutApi
      */
     public function relatedItemsForCartWithHttpInfo($cart, $_expand = null)
     {
-        list($response) = $this->relatedItemsForCartWithHttpInfoRetry(true ,   $cart,   $_expand);
-        return $response;
+        return $this->relatedItemsForCartWithHttpInfoRetry(true ,   $cart,   $_expand);
     }
 
 
@@ -5287,8 +5272,7 @@ class CheckoutApi
      */
     public function relatedItemsForItemWithHttpInfo($item_id, $cart, $_expand = null)
     {
-        list($response) = $this->relatedItemsForItemWithHttpInfoRetry(true ,   $item_id,   $cart,   $_expand);
-        return $response;
+        return $this->relatedItemsForItemWithHttpInfoRetry(true ,   $item_id,   $cart,   $_expand);
     }
 
 
@@ -5652,8 +5636,7 @@ class CheckoutApi
      */
     public function setupBrowserKeyWithHttpInfo($browser_key_request)
     {
-        list($response) = $this->setupBrowserKeyWithHttpInfoRetry(true ,   $browser_key_request);
-        return $response;
+        return $this->setupBrowserKeyWithHttpInfoRetry(true ,   $browser_key_request);
     }
 
 
@@ -5988,8 +5971,7 @@ class CheckoutApi
      */
     public function updateCartWithHttpInfo($cart, $_expand = null)
     {
-        list($response) = $this->updateCartWithHttpInfoRetry(true ,   $cart,   $_expand);
-        return $response;
+        return $this->updateCartWithHttpInfoRetry(true ,   $cart,   $_expand);
     }
 
 
@@ -6337,8 +6319,7 @@ class CheckoutApi
      */
     public function validateCartWithHttpInfo($validation_request, $_expand = null)
     {
-        list($response) = $this->validateCartWithHttpInfoRetry(true ,   $validation_request,   $_expand);
-        return $response;
+        return $this->validateCartWithHttpInfoRetry(true ,   $validation_request,   $_expand);
     }
 
 

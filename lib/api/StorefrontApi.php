@@ -118,8 +118,7 @@ class StorefrontApi
      */
     public function addToLibraryWithHttpInfo($add_library_request)
     {
-        list($response) = $this->addToLibraryWithHttpInfoRetry(true ,   $add_library_request);
-        return $response;
+        return $this->addToLibraryWithHttpInfoRetry(true ,   $add_library_request);
     }
 
 
@@ -457,8 +456,7 @@ class StorefrontApi
      */
     public function applyToStoreFrontWithHttpInfo($apply_library_request)
     {
-        list($response) = $this->applyToStoreFrontWithHttpInfoRetry(true ,   $apply_library_request);
-        return $response;
+        return $this->applyToStoreFrontWithHttpInfoRetry(true ,   $apply_library_request);
     }
 
 
@@ -798,8 +796,7 @@ class StorefrontApi
      */
     public function archiveEmailListWithHttpInfo($storefront_oid, $email_list_uuid)
     {
-        list($response) = $this->archiveEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid);
-        return $response;
+        return $this->archiveEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid);
     }
 
 
@@ -1162,8 +1159,7 @@ class StorefrontApi
      */
     public function archiveEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        list($response) = $this->archiveEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
-        return $response;
+        return $this->archiveEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
     }
 
 
@@ -1528,8 +1524,7 @@ class StorefrontApi
      */
     public function backPopulateEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $back_populate_request)
     {
-        list($response) = $this->backPopulateEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $back_populate_request);
-        return $response;
+        return $this->backPopulateEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $back_populate_request);
     }
 
 
@@ -1907,8 +1902,7 @@ class StorefrontApi
      */
     public function checkDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment_rebuild_uuid)
     {
-        list($response) = $this->checkDownloadEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_segment_rebuild_uuid);
-        return $response;
+        return $this->checkDownloadEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_segment_rebuild_uuid);
     }
 
 
@@ -2291,8 +2285,7 @@ class StorefrontApi
      */
     public function cloneEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid, $target_storefront_oid = null)
     {
-        list($response) = $this->cloneEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid,   $target_storefront_oid);
-        return $response;
+        return $this->cloneEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid,   $target_storefront_oid);
     }
 
 
@@ -2665,8 +2658,7 @@ class StorefrontApi
      */
     public function cloneEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $target_storefront_oid = null)
     {
-        list($response) = $this->cloneEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $target_storefront_oid);
-        return $response;
+        return $this->cloneEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $target_storefront_oid);
     }
 
 
@@ -3035,8 +3027,7 @@ class StorefrontApi
      */
     public function createEmailSendingDomainWithHttpInfo($domain)
     {
-        list($response) = $this->createEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
-        return $response;
+        return $this->createEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
     }
 
 
@@ -3381,8 +3372,7 @@ class StorefrontApi
      */
     public function deleteEmailCampaignFolderWithHttpInfo($storefront_oid, $email_campaign_folder_uuid)
     {
-        list($response) = $this->deleteEmailCampaignFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_folder_uuid);
-        return $response;
+        return $this->deleteEmailCampaignFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_folder_uuid);
     }
 
 
@@ -3783,7 +3773,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteEmailCommseqStatWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid);
+                        $this->deleteEmailCommseqStatWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid);
                     }
                 }
 
@@ -4071,8 +4061,7 @@ class StorefrontApi
      */
     public function deleteEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid)
     {
-        list($response) = $this->deleteEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid);
-        return $response;
+        return $this->deleteEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid);
     }
 
 
@@ -4435,8 +4424,7 @@ class StorefrontApi
      */
     public function deleteEmailFlowFolderWithHttpInfo($storefront_oid, $email_flow_folder_uuid)
     {
-        list($response) = $this->deleteEmailFlowFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_folder_uuid);
-        return $response;
+        return $this->deleteEmailFlowFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_folder_uuid);
     }
 
 
@@ -4801,8 +4789,7 @@ class StorefrontApi
      */
     public function deleteEmailListCustomerWithHttpInfo($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
-        list($response) = $this->deleteEmailListCustomerWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_customer_uuid);
-        return $response;
+        return $this->deleteEmailListCustomerWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_customer_uuid);
     }
 
 
@@ -5183,8 +5170,7 @@ class StorefrontApi
      */
     public function deleteEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid)
     {
-        list($response) = $this->deleteEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid);
-        return $response;
+        return $this->deleteEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid);
     }
 
 
@@ -5545,8 +5531,7 @@ class StorefrontApi
      */
     public function deleteEmailSendingDomainWithHttpInfo($domain)
     {
-        list($response) = $this->deleteEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
-        return $response;
+        return $this->deleteEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
     }
 
 
@@ -5929,7 +5914,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteExperimentWithHttpInfoRetry(false ,   $storefront_oid,   $storefront_experiment_oid);
+                        $this->deleteExperimentWithHttpInfoRetry(false ,   $storefront_oid,   $storefront_experiment_oid);
                     }
                 }
 
@@ -6252,7 +6237,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteLibraryItemWithHttpInfoRetry(false ,   $library_item_oid);
+                        $this->deleteLibraryItemWithHttpInfoRetry(false ,   $library_item_oid);
                     }
                 }
 
@@ -6558,7 +6543,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteLibraryItemPublishedVersionsWithHttpInfoRetry(false ,   $library_item_oid);
+                        $this->deleteLibraryItemPublishedVersionsWithHttpInfoRetry(false ,   $library_item_oid);
                     }
                 }
 
@@ -6829,8 +6814,7 @@ class StorefrontApi
      */
     public function deleteScreenRecordingSegmentWithHttpInfo($storefront_oid, $screen_recording_segment_oid)
     {
-        list($response) = $this->deleteScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid);
-        return $response;
+        return $this->deleteScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid);
     }
 
 
@@ -7191,8 +7175,7 @@ class StorefrontApi
      */
     public function duplicateLibraryItemWithHttpInfo($library_item_oid)
     {
-        list($response) = $this->duplicateLibraryItemWithHttpInfoRetry(true ,   $library_item_oid);
-        return $response;
+        return $this->duplicateLibraryItemWithHttpInfoRetry(true ,   $library_item_oid);
     }
 
 
@@ -7575,7 +7558,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->favoriteScreenRecordingWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid);
+                        $this->favoriteScreenRecordingWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid);
                     }
                 }
 
@@ -7858,8 +7841,7 @@ class StorefrontApi
      */
     public function geocodeAddressWithHttpInfo($storefront_oid, $geocode_request)
     {
-        list($response) = $this->geocodeAddressWithHttpInfoRetry(true ,   $storefront_oid,   $geocode_request);
-        return $response;
+        return $this->geocodeAddressWithHttpInfoRetry(true ,   $storefront_oid,   $geocode_request);
     }
 
 
@@ -8215,8 +8197,7 @@ class StorefrontApi
      */
     public function getCountriesWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getCountriesWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getCountriesWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -8559,8 +8540,7 @@ class StorefrontApi
      */
     public function getEditorTokenWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEditorTokenWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEditorTokenWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -8903,8 +8883,7 @@ class StorefrontApi
      */
     public function getEmailBaseTemplatesWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailBaseTemplatesWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailBaseTemplatesWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -9249,8 +9228,7 @@ class StorefrontApi
      */
     public function getEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        list($response) = $this->getEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
-        return $response;
+        return $this->getEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
     }
 
 
@@ -9613,8 +9591,7 @@ class StorefrontApi
      */
     public function getEmailCampaignFolderWithHttpInfo($storefront_oid, $email_campaign_folder_uuid)
     {
-        list($response) = $this->getEmailCampaignFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_folder_uuid);
-        return $response;
+        return $this->getEmailCampaignFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_folder_uuid);
     }
 
 
@@ -9975,8 +9952,7 @@ class StorefrontApi
      */
     public function getEmailCampaignFoldersWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailCampaignFoldersWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailCampaignFoldersWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -10321,8 +10297,7 @@ class StorefrontApi
      */
     public function getEmailCampaignScreenshotsWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        list($response) = $this->getEmailCampaignScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
-        return $response;
+        return $this->getEmailCampaignScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
     }
 
 
@@ -10683,8 +10658,7 @@ class StorefrontApi
      */
     public function getEmailCampaignsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailCampaignsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailCampaignsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -11029,8 +11003,7 @@ class StorefrontApi
      */
     public function getEmailCampaignsWithStatsWithHttpInfo($storefront_oid, $stat_days)
     {
-        list($response) = $this->getEmailCampaignsWithStatsWithHttpInfoRetry(true ,   $storefront_oid,   $stat_days);
-        return $response;
+        return $this->getEmailCampaignsWithStatsWithHttpInfoRetry(true ,   $storefront_oid,   $stat_days);
     }
 
 
@@ -11393,8 +11366,7 @@ class StorefrontApi
      */
     public function getEmailCommseqWithHttpInfo($storefront_oid, $commseq_uuid)
     {
-        list($response) = $this->getEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid);
-        return $response;
+        return $this->getEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid);
     }
 
 
@@ -11759,8 +11731,7 @@ class StorefrontApi
      */
     public function getEmailCommseqEmailStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        list($response) = $this->getEmailCommseqEmailStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
-        return $response;
+        return $this->getEmailCommseqEmailStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
     }
 
 
@@ -12138,8 +12109,7 @@ class StorefrontApi
      */
     public function getEmailCommseqPostcardStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        list($response) = $this->getEmailCommseqPostcardStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
-        return $response;
+        return $this->getEmailCommseqPostcardStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
     }
 
 
@@ -12515,8 +12485,7 @@ class StorefrontApi
      */
     public function getEmailCommseqStatOverallWithHttpInfo($storefront_oid, $commseq_uuid)
     {
-        list($response) = $this->getEmailCommseqStatOverallWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid);
-        return $response;
+        return $this->getEmailCommseqStatOverallWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid);
     }
 
 
@@ -12881,8 +12850,7 @@ class StorefrontApi
      */
     public function getEmailCommseqStepStatsWithHttpInfo($storefront_oid, $commseq_uuid, $stats_request)
     {
-        list($response) = $this->getEmailCommseqStepStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
-        return $response;
+        return $this->getEmailCommseqStepStatsWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $stats_request);
     }
 
 
@@ -13260,8 +13228,7 @@ class StorefrontApi
      */
     public function getEmailCommseqStepWaitingWithHttpInfo($storefront_oid, $commseq_uuid, $waiting_request)
     {
-        list($response) = $this->getEmailCommseqStepWaitingWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $waiting_request);
-        return $response;
+        return $this->getEmailCommseqStepWaitingWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $waiting_request);
     }
 
 
@@ -13635,8 +13602,7 @@ class StorefrontApi
      */
     public function getEmailCommseqsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailCommseqsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailCommseqsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -13981,8 +13947,7 @@ class StorefrontApi
      */
     public function getEmailCustomerEditorUrlWithHttpInfo($storefront_oid, $email_customer_uuid)
     {
-        list($response) = $this->getEmailCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_customer_uuid);
-        return $response;
+        return $this->getEmailCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_customer_uuid);
     }
 
 
@@ -14349,8 +14314,7 @@ class StorefrontApi
      */
     public function getEmailCustomersWithHttpInfo($storefront_oid, $page_number = null, $page_size = null, $search_email_prefix = null)
     {
-        list($response) = $this->getEmailCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $page_number,   $page_size,   $search_email_prefix);
-        return $response;
+        return $this->getEmailCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $page_number,   $page_size,   $search_email_prefix);
     }
 
 
@@ -14719,8 +14683,7 @@ class StorefrontApi
      */
     public function getEmailDashboardActivityWithHttpInfo($storefront_oid, $last_records = null)
     {
-        list($response) = $this->getEmailDashboardActivityWithHttpInfoRetry(true ,   $storefront_oid,   $last_records);
-        return $response;
+        return $this->getEmailDashboardActivityWithHttpInfoRetry(true ,   $storefront_oid,   $last_records);
     }
 
 
@@ -15073,8 +15036,7 @@ class StorefrontApi
      */
     public function getEmailDashboardStatsWithHttpInfo($storefront_oid, $days = null)
     {
-        list($response) = $this->getEmailDashboardStatsWithHttpInfoRetry(true ,   $storefront_oid,   $days);
-        return $response;
+        return $this->getEmailDashboardStatsWithHttpInfoRetry(true ,   $storefront_oid,   $days);
     }
 
 
@@ -15427,8 +15389,7 @@ class StorefrontApi
      */
     public function getEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid)
     {
-        list($response) = $this->getEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid);
-        return $response;
+        return $this->getEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid);
     }
 
 
@@ -15797,8 +15758,7 @@ class StorefrontApi
      */
     public function getEmailEmailClicksWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
-        list($response) = $this->getEmailEmailClicksWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $commseq_email_uuid,   $days);
-        return $response;
+        return $this->getEmailEmailClicksWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $commseq_email_uuid,   $days);
     }
 
 
@@ -16207,8 +16167,7 @@ class StorefrontApi
      */
     public function getEmailEmailCustomerEditorUrlWithHttpInfo($storefront_oid, $commseq_email_uuid, $order_id)
     {
-        list($response) = $this->getEmailEmailCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $order_id);
-        return $response;
+        return $this->getEmailEmailCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $order_id);
     }
 
 
@@ -16595,8 +16554,7 @@ class StorefrontApi
      */
     public function getEmailEmailOrdersWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $commseq_email_uuid, $days = null)
     {
-        list($response) = $this->getEmailEmailOrdersWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $commseq_email_uuid,   $days);
-        return $response;
+        return $this->getEmailEmailOrdersWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $commseq_email_uuid,   $days);
     }
 
 
@@ -17001,8 +16959,7 @@ class StorefrontApi
      */
     public function getEmailEmailsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailEmailsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailEmailsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -17347,8 +17304,7 @@ class StorefrontApi
      */
     public function getEmailEmailsMultipleWithHttpInfo($storefront_oid, $email_commseq_emails_request)
     {
-        list($response) = $this->getEmailEmailsMultipleWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_emails_request);
-        return $response;
+        return $this->getEmailEmailsMultipleWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_emails_request);
     }
 
 
@@ -17706,8 +17662,7 @@ class StorefrontApi
      */
     public function getEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid)
     {
-        list($response) = $this->getEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid);
-        return $response;
+        return $this->getEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid);
     }
 
 
@@ -18070,8 +18025,7 @@ class StorefrontApi
      */
     public function getEmailFlowFolderWithHttpInfo($storefront_oid, $email_flow_folder_uuid)
     {
-        list($response) = $this->getEmailFlowFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_folder_uuid);
-        return $response;
+        return $this->getEmailFlowFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_folder_uuid);
     }
 
 
@@ -18432,8 +18386,7 @@ class StorefrontApi
      */
     public function getEmailFlowFoldersWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailFlowFoldersWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailFlowFoldersWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -18778,8 +18731,7 @@ class StorefrontApi
      */
     public function getEmailFlowScreenshotsWithHttpInfo($storefront_oid, $email_flow_uuid)
     {
-        list($response) = $this->getEmailFlowScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid);
-        return $response;
+        return $this->getEmailFlowScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid);
     }
 
 
@@ -19140,8 +19092,7 @@ class StorefrontApi
      */
     public function getEmailFlowsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailFlowsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailFlowsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -19482,8 +19433,7 @@ class StorefrontApi
      */
     public function getEmailGlobalSettingsWithHttpInfo()
     {
-        list($response) = $this->getEmailGlobalSettingsWithHttpInfoRetry(true );
-        return $response;
+        return $this->getEmailGlobalSettingsWithHttpInfoRetry(true );
     }
 
 
@@ -19810,8 +19760,7 @@ class StorefrontApi
      */
     public function getEmailListWithHttpInfo($storefront_oid, $email_list_uuid)
     {
-        list($response) = $this->getEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid);
-        return $response;
+        return $this->getEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid);
     }
 
 
@@ -20176,8 +20125,7 @@ class StorefrontApi
      */
     public function getEmailListCustomerEditorUrlWithHttpInfo($storefront_oid, $email_list_uuid, $email_customer_uuid)
     {
-        list($response) = $this->getEmailListCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_customer_uuid);
-        return $response;
+        return $this->getEmailListCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_customer_uuid);
     }
 
 
@@ -20562,8 +20510,7 @@ class StorefrontApi
      */
     public function getEmailListCustomersWithHttpInfo($storefront_oid, $email_list_uuid, $page_number = null, $page_size = null)
     {
-        list($response) = $this->getEmailListCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $page_number,   $page_size);
-        return $response;
+        return $this->getEmailListCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $page_number,   $page_size);
     }
 
 
@@ -20940,8 +20887,7 @@ class StorefrontApi
      */
     public function getEmailListsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailListsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailListsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -21284,8 +21230,7 @@ class StorefrontApi
      */
     public function getEmailPerformanceWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailPerformanceWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailPerformanceWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -21628,8 +21573,7 @@ class StorefrontApi
      */
     public function getEmailPlanWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailPlanWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailPlanWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -21974,8 +21918,7 @@ class StorefrontApi
      */
     public function getEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid)
     {
-        list($response) = $this->getEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid);
-        return $response;
+        return $this->getEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid);
     }
 
 
@@ -22336,8 +22279,7 @@ class StorefrontApi
      */
     public function getEmailPostcardsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailPostcardsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailPostcardsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -22682,8 +22624,7 @@ class StorefrontApi
      */
     public function getEmailPostcardsMultipleWithHttpInfo($storefront_oid, $email_commseq_postcards_request)
     {
-        list($response) = $this->getEmailPostcardsMultipleWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_postcards_request);
-        return $response;
+        return $this->getEmailPostcardsMultipleWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_postcards_request);
     }
 
 
@@ -23041,8 +22982,7 @@ class StorefrontApi
      */
     public function getEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        list($response) = $this->getEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
-        return $response;
+        return $this->getEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
     }
 
 
@@ -23407,8 +23347,7 @@ class StorefrontApi
      */
     public function getEmailSegmentCustomerEditorUrlWithHttpInfo($storefront_oid, $email_segment_uuid, $email_customer_uuid)
     {
-        list($response) = $this->getEmailSegmentCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_customer_uuid);
-        return $response;
+        return $this->getEmailSegmentCustomerEditorUrlWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_customer_uuid);
     }
 
 
@@ -23793,8 +23732,7 @@ class StorefrontApi
      */
     public function getEmailSegmentCustomersWithHttpInfo($storefront_oid, $email_segment_uuid, $page_number = null, $page_size = null)
     {
-        list($response) = $this->getEmailSegmentCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $page_number,   $page_size);
-        return $response;
+        return $this->getEmailSegmentCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $page_number,   $page_size);
     }
 
 
@@ -24171,8 +24109,7 @@ class StorefrontApi
      */
     public function getEmailSegmentsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailSegmentsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailSegmentsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -24515,8 +24452,7 @@ class StorefrontApi
      */
     public function getEmailSendingDomainWithHttpInfo($domain)
     {
-        list($response) = $this->getEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
-        return $response;
+        return $this->getEmailSendingDomainWithHttpInfoRetry(true ,   $domain);
     }
 
 
@@ -24859,8 +24795,7 @@ class StorefrontApi
      */
     public function getEmailSendingDomainStatusWithHttpInfo($domain)
     {
-        list($response) = $this->getEmailSendingDomainStatusWithHttpInfoRetry(true ,   $domain);
-        return $response;
+        return $this->getEmailSendingDomainStatusWithHttpInfoRetry(true ,   $domain);
     }
 
 
@@ -25201,8 +25136,7 @@ class StorefrontApi
      */
     public function getEmailSendingDomainsWithHttpInfo()
     {
-        list($response) = $this->getEmailSendingDomainsWithHttpInfoRetry(true );
-        return $response;
+        return $this->getEmailSendingDomainsWithHttpInfoRetry(true );
     }
 
 
@@ -25527,8 +25461,7 @@ class StorefrontApi
      */
     public function getEmailSettingsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailSettingsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailSettingsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -25873,8 +25806,7 @@ class StorefrontApi
      */
     public function getEmailTemplateWithHttpInfo($storefront_oid, $email_template_oid)
     {
-        list($response) = $this->getEmailTemplateWithHttpInfoRetry(true ,   $storefront_oid,   $email_template_oid);
-        return $response;
+        return $this->getEmailTemplateWithHttpInfoRetry(true ,   $storefront_oid,   $email_template_oid);
     }
 
 
@@ -26237,8 +26169,7 @@ class StorefrontApi
      */
     public function getEmailTemplatesWithHttpInfo($storefront_oid, $trigger_type = null)
     {
-        list($response) = $this->getEmailTemplatesWithHttpInfoRetry(true ,   $storefront_oid,   $trigger_type);
-        return $response;
+        return $this->getEmailTemplatesWithHttpInfoRetry(true ,   $storefront_oid,   $trigger_type);
     }
 
 
@@ -26589,8 +26520,7 @@ class StorefrontApi
      */
     public function getEmailThirdPartyProvidersWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getEmailThirdPartyProvidersWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getEmailThirdPartyProvidersWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -26933,8 +26863,7 @@ class StorefrontApi
      */
     public function getExperimentsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getExperimentsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getExperimentsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -27279,8 +27208,7 @@ class StorefrontApi
      */
     public function getHistogramPropertyNamesWithHttpInfo($storefront_oid, $property_type = null)
     {
-        list($response) = $this->getHistogramPropertyNamesWithHttpInfoRetry(true ,   $storefront_oid,   $property_type);
-        return $response;
+        return $this->getHistogramPropertyNamesWithHttpInfoRetry(true ,   $storefront_oid,   $property_type);
     }
 
 
@@ -27637,8 +27565,7 @@ class StorefrontApi
      */
     public function getHistogramPropertyValuesWithHttpInfo($storefront_oid, $property_name = null, $property_type = null, $limit = null)
     {
-        list($response) = $this->getHistogramPropertyValuesWithHttpInfoRetry(true ,   $storefront_oid,   $property_name,   $property_type,   $limit);
-        return $response;
+        return $this->getHistogramPropertyValuesWithHttpInfoRetry(true ,   $storefront_oid,   $property_name,   $property_type,   $limit);
     }
 
 
@@ -28003,8 +27930,7 @@ class StorefrontApi
      */
     public function getLibraryFilterValuesWithHttpInfo()
     {
-        list($response) = $this->getLibraryFilterValuesWithHttpInfoRetry(true );
-        return $response;
+        return $this->getLibraryFilterValuesWithHttpInfoRetry(true );
     }
 
 
@@ -28329,8 +28255,7 @@ class StorefrontApi
      */
     public function getLibraryItemWithHttpInfo($library_item_oid)
     {
-        list($response) = $this->getLibraryItemWithHttpInfoRetry(true ,   $library_item_oid);
-        return $response;
+        return $this->getLibraryItemWithHttpInfoRetry(true ,   $library_item_oid);
     }
 
 
@@ -28673,8 +28598,7 @@ class StorefrontApi
      */
     public function getLibraryItemPublishedVersionsWithHttpInfo($library_item_oid)
     {
-        list($response) = $this->getLibraryItemPublishedVersionsWithHttpInfoRetry(true ,   $library_item_oid);
-        return $response;
+        return $this->getLibraryItemPublishedVersionsWithHttpInfoRetry(true ,   $library_item_oid);
     }
 
 
@@ -29017,8 +28941,7 @@ class StorefrontApi
      */
     public function getPricingTiersWithHttpInfo($_expand = null)
     {
-        list($response) = $this->getPricingTiersWithHttpInfoRetry(true ,   $_expand);
-        return $response;
+        return $this->getPricingTiersWithHttpInfoRetry(true ,   $_expand);
     }
 
 
@@ -29348,8 +29271,7 @@ class StorefrontApi
      */
     public function getScreenRecordingWithHttpInfo($storefront_oid, $screen_recording_uuid)
     {
-        list($response) = $this->getScreenRecordingWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_uuid);
-        return $response;
+        return $this->getScreenRecordingWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_uuid);
     }
 
 
@@ -29709,8 +29631,7 @@ class StorefrontApi
      */
     public function getScreenRecordingPageViewDataWithHttpInfo($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
     {
-        list($response) = $this->getScreenRecordingPageViewDataWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_uuid,   $screen_recording_page_view_uuid);
-        return $response;
+        return $this->getScreenRecordingPageViewDataWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_uuid,   $screen_recording_page_view_uuid);
     }
 
 
@@ -30086,8 +30007,7 @@ class StorefrontApi
      */
     public function getScreenRecordingSegmentWithHttpInfo($storefront_oid, $screen_recording_segment_oid)
     {
-        list($response) = $this->getScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid);
-        return $response;
+        return $this->getScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid);
     }
 
 
@@ -30448,8 +30368,7 @@ class StorefrontApi
      */
     public function getScreenRecordingSegmentsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getScreenRecordingSegmentsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getScreenRecordingSegmentsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -30792,8 +30711,7 @@ class StorefrontApi
      */
     public function getScreenRecordingSettingsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getScreenRecordingSettingsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getScreenRecordingSettingsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -31136,8 +31054,7 @@ class StorefrontApi
      */
     public function getScreenRecordingTagsWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getScreenRecordingTagsWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getScreenRecordingTagsWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -31483,8 +31400,7 @@ class StorefrontApi
      */
     public function getScreenRecordingsByQueryWithHttpInfo($storefront_oid, $query, $_limit = '100', $_offset = '0', $_sort = null)
     {
-        list($response) = $this->getScreenRecordingsByQueryWithHttpInfoRetry(true ,   $storefront_oid,   $query,   $_limit,   $_offset,   $_sort);
-        return $response;
+        return $this->getScreenRecordingsByQueryWithHttpInfoRetry(true ,   $storefront_oid,   $query,   $_limit,   $_offset,   $_sort);
     }
 
 
@@ -31867,8 +31783,7 @@ class StorefrontApi
      */
     public function getScreenRecordingsBySegmentWithHttpInfo($storefront_oid, $screen_recording_segment_oid, $_limit = '100', $_offset = '0', $_sort = null)
     {
-        list($response) = $this->getScreenRecordingsBySegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid,   $_limit,   $_offset,   $_sort);
-        return $response;
+        return $this->getScreenRecordingsBySegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid,   $_limit,   $_offset,   $_sort);
     }
 
 
@@ -32248,8 +32163,7 @@ class StorefrontApi
      */
     public function getThumbnailParametersWithHttpInfo($thumbnail_parameters)
     {
-        list($response) = $this->getThumbnailParametersWithHttpInfoRetry(true ,   $thumbnail_parameters);
-        return $response;
+        return $this->getThumbnailParametersWithHttpInfoRetry(true ,   $thumbnail_parameters);
     }
 
 
@@ -32589,8 +32503,7 @@ class StorefrontApi
      */
     public function getTransactionEmailWithHttpInfo($storefront_oid, $email_id)
     {
-        list($response) = $this->getTransactionEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_id);
-        return $response;
+        return $this->getTransactionEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_id);
     }
 
 
@@ -32951,8 +32864,7 @@ class StorefrontApi
      */
     public function getTransactionEmailListWithHttpInfo($storefront_oid)
     {
-        list($response) = $this->getTransactionEmailListWithHttpInfoRetry(true ,   $storefront_oid);
-        return $response;
+        return $this->getTransactionEmailListWithHttpInfoRetry(true ,   $storefront_oid);
     }
 
 
@@ -33297,8 +33209,7 @@ class StorefrontApi
      */
     public function getTransactionEmailScreenshotsWithHttpInfo($storefront_oid, $email_id)
     {
-        list($response) = $this->getTransactionEmailScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_id);
-        return $response;
+        return $this->getTransactionEmailScreenshotsWithHttpInfoRetry(true ,   $storefront_oid,   $email_id);
     }
 
 
@@ -33661,8 +33572,7 @@ class StorefrontApi
      */
     public function globalUnsubscribeWithHttpInfo($storefront_oid, $unsubscribe)
     {
-        list($response) = $this->globalUnsubscribeWithHttpInfoRetry(true ,   $storefront_oid,   $unsubscribe);
-        return $response;
+        return $this->globalUnsubscribeWithHttpInfoRetry(true ,   $storefront_oid,   $unsubscribe);
     }
 
 
@@ -34058,7 +33968,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->importEmailThirdPartyProviderListWithHttpInfoRetry(false ,   $storefront_oid,   $import_request);
+                        $this->importEmailThirdPartyProviderListWithHttpInfoRetry(false ,   $storefront_oid,   $import_request);
                     }
                 }
 
@@ -34341,8 +34251,7 @@ class StorefrontApi
      */
     public function insertEmailCampaignWithHttpInfo($storefront_oid, $email_campaign)
     {
-        list($response) = $this->insertEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign);
-        return $response;
+        return $this->insertEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign);
     }
 
 
@@ -34700,8 +34609,7 @@ class StorefrontApi
      */
     public function insertEmailCampaignFolderWithHttpInfo($storefront_oid, $email_campaign_folder)
     {
-        list($response) = $this->insertEmailCampaignFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_folder);
-        return $response;
+        return $this->insertEmailCampaignFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_folder);
     }
 
 
@@ -35059,8 +34967,7 @@ class StorefrontApi
      */
     public function insertEmailCommseqWithHttpInfo($storefront_oid, $email_commseq)
     {
-        list($response) = $this->insertEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq);
-        return $response;
+        return $this->insertEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq);
     }
 
 
@@ -35418,8 +35325,7 @@ class StorefrontApi
      */
     public function insertEmailEmailWithHttpInfo($storefront_oid, $email_commseq_email)
     {
-        list($response) = $this->insertEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_email);
-        return $response;
+        return $this->insertEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_email);
     }
 
 
@@ -35777,8 +35683,7 @@ class StorefrontApi
      */
     public function insertEmailFlowWithHttpInfo($storefront_oid, $email_flow)
     {
-        list($response) = $this->insertEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow);
-        return $response;
+        return $this->insertEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow);
     }
 
 
@@ -36136,8 +36041,7 @@ class StorefrontApi
      */
     public function insertEmailFlowFolderWithHttpInfo($storefront_oid, $email_flow_folder)
     {
-        list($response) = $this->insertEmailFlowFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_folder);
-        return $response;
+        return $this->insertEmailFlowFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_folder);
     }
 
 
@@ -36495,8 +36399,7 @@ class StorefrontApi
      */
     public function insertEmailListWithHttpInfo($storefront_oid, $email_list)
     {
-        list($response) = $this->insertEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list);
-        return $response;
+        return $this->insertEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list);
     }
 
 
@@ -36854,8 +36757,7 @@ class StorefrontApi
      */
     public function insertEmailPostcardWithHttpInfo($storefront_oid, $email_commseq_postcard)
     {
-        list($response) = $this->insertEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_postcard);
-        return $response;
+        return $this->insertEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $email_commseq_postcard);
     }
 
 
@@ -37213,8 +37115,7 @@ class StorefrontApi
      */
     public function insertEmailSegmentWithHttpInfo($storefront_oid, $email_segment)
     {
-        list($response) = $this->insertEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment);
-        return $response;
+        return $this->insertEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment);
     }
 
 
@@ -37572,8 +37473,7 @@ class StorefrontApi
      */
     public function insertScreenRecordingSegmentWithHttpInfo($storefront_oid, $segment)
     {
-        list($response) = $this->insertScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $segment);
-        return $response;
+        return $this->insertScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $segment);
     }
 
 
@@ -37931,8 +37831,7 @@ class StorefrontApi
      */
     public function prepareDownloadEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid)
     {
-        list($response) = $this->prepareDownloadEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
-        return $response;
+        return $this->prepareDownloadEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid);
     }
 
 
@@ -38295,8 +38194,7 @@ class StorefrontApi
      */
     public function publishLibraryItemWithHttpInfo($library_item_oid, $publish_library_request)
     {
-        list($response) = $this->publishLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $publish_library_request);
-        return $response;
+        return $this->publishLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $publish_library_request);
     }
 
 
@@ -38654,8 +38552,7 @@ class StorefrontApi
      */
     public function purchaseLibraryItemWithHttpInfo($library_item_oid, $storefront_oid = null)
     {
-        list($response) = $this->purchaseLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $storefront_oid);
-        return $response;
+        return $this->purchaseLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $storefront_oid);
     }
 
 
@@ -39049,7 +38946,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->releaseEmailCommseqStepWaitingWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid);
+                        $this->releaseEmailCommseqStepWaitingWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid);
                     }
                 }
 
@@ -39356,8 +39253,7 @@ class StorefrontApi
      */
     public function reviewWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_review_request)
     {
-        list($response) = $this->reviewWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email_review_request);
-        return $response;
+        return $this->reviewWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email_review_request);
     }
 
 
@@ -39739,8 +39635,7 @@ class StorefrontApi
      */
     public function searchWithHttpInfo($category = null, $matches = null, $storefront_oid = null, $max_hits = null, $subcategory = null)
     {
-        list($response) = $this->searchWithHttpInfoRetry(true ,   $category,   $matches,   $storefront_oid,   $max_hits,   $subcategory);
-        return $response;
+        return $this->searchWithHttpInfoRetry(true ,   $category,   $matches,   $storefront_oid,   $max_hits,   $subcategory);
     }
 
 
@@ -40105,8 +40000,7 @@ class StorefrontApi
      */
     public function search2WithHttpInfo($lookup_request)
     {
-        list($response) = $this->search2WithHttpInfoRetry(true ,   $lookup_request);
-        return $response;
+        return $this->search2WithHttpInfoRetry(true ,   $lookup_request);
     }
 
 
@@ -40448,8 +40342,7 @@ class StorefrontApi
      */
     public function searchEmailListCustomersWithHttpInfo($storefront_oid, $email_list_uuid, $starts_with = null)
     {
-        list($response) = $this->searchEmailListCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $starts_with);
-        return $response;
+        return $this->searchEmailListCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $starts_with);
     }
 
 
@@ -40822,8 +40715,7 @@ class StorefrontApi
      */
     public function searchEmailSegmentCustomersWithHttpInfo($storefront_oid, $email_segment_uuid, $starts_with = null)
     {
-        list($response) = $this->searchEmailSegmentCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $starts_with);
-        return $response;
+        return $this->searchEmailSegmentCustomersWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $starts_with);
     }
 
 
@@ -41198,8 +41090,7 @@ class StorefrontApi
      */
     public function searchLibraryItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        list($response) = $this->searchLibraryItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
-        return $response;
+        return $this->searchLibraryItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
     }
 
 
@@ -41562,8 +41453,7 @@ class StorefrontApi
      */
     public function searchPublishedItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        list($response) = $this->searchPublishedItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
-        return $response;
+        return $this->searchPublishedItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
     }
 
 
@@ -41926,8 +41816,7 @@ class StorefrontApi
      */
     public function searchReviewItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        list($response) = $this->searchReviewItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
-        return $response;
+        return $this->searchReviewItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
     }
 
 
@@ -42290,8 +42179,7 @@ class StorefrontApi
      */
     public function searchSharedItemsWithHttpInfo($item_query, $_limit = '10000', $_offset = '0', $_sort = null)
     {
-        list($response) = $this->searchSharedItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
-        return $response;
+        return $this->searchSharedItemsWithHttpInfoRetry(true ,   $item_query,   $_limit,   $_offset,   $_sort);
     }
 
 
@@ -42652,8 +42540,7 @@ class StorefrontApi
      */
     public function sendEmailTestWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email_test_request)
     {
-        list($response) = $this->sendEmailTestWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email_test_request);
-        return $response;
+        return $this->sendEmailTestWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email_test_request);
     }
 
 
@@ -43031,8 +42918,7 @@ class StorefrontApi
      */
     public function sendPostcardTestWithHttpInfo($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard_test_request)
     {
-        list($response) = $this->sendPostcardTestWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid,   $email_commseq_postcard_test_request);
-        return $response;
+        return $this->sendPostcardTestWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid,   $email_commseq_postcard_test_request);
     }
 
 
@@ -43408,8 +43294,7 @@ class StorefrontApi
      */
     public function startEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid)
     {
-        list($response) = $this->startEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
-        return $response;
+        return $this->startEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid);
     }
 
 
@@ -43774,8 +43659,7 @@ class StorefrontApi
      */
     public function subscribeToEmailListWithHttpInfo($storefront_oid, $email_list_uuid, $customers)
     {
-        list($response) = $this->subscribeToEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $customers);
-        return $response;
+        return $this->subscribeToEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $customers);
     }
 
 
@@ -44189,7 +44073,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->unfavoriteScreenRecordingWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid);
+                        $this->unfavoriteScreenRecordingWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid);
                     }
                 }
 
@@ -44474,8 +44358,7 @@ class StorefrontApi
      */
     public function updateEmailCampaignWithHttpInfo($storefront_oid, $email_campaign_uuid, $email_campaign)
     {
-        list($response) = $this->updateEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid,   $email_campaign);
-        return $response;
+        return $this->updateEmailCampaignWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_uuid,   $email_campaign);
     }
 
 
@@ -44853,8 +44736,7 @@ class StorefrontApi
      */
     public function updateEmailCampaignFolderWithHttpInfo($storefront_oid, $email_campaign_folder_uuid, $email_campaign_folder)
     {
-        list($response) = $this->updateEmailCampaignFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_folder_uuid,   $email_campaign_folder);
-        return $response;
+        return $this->updateEmailCampaignFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_campaign_folder_uuid,   $email_campaign_folder);
     }
 
 
@@ -45232,8 +45114,7 @@ class StorefrontApi
      */
     public function updateEmailCommseqWithHttpInfo($storefront_oid, $commseq_uuid, $email_commseq)
     {
-        list($response) = $this->updateEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $email_commseq);
-        return $response;
+        return $this->updateEmailCommseqWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $email_commseq);
     }
 
 
@@ -45650,7 +45531,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->updateEmailCustomerWithHttpInfoRetry(false ,   $storefront_oid,   $email_customer_uuid,   $email_customer);
+                        $this->updateEmailCustomerWithHttpInfoRetry(false ,   $storefront_oid,   $email_customer_uuid,   $email_customer);
                     }
                 }
 
@@ -45952,8 +45833,7 @@ class StorefrontApi
      */
     public function updateEmailEmailWithHttpInfo($storefront_oid, $commseq_email_uuid, $email_commseq_email)
     {
-        list($response) = $this->updateEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email);
-        return $response;
+        return $this->updateEmailEmailWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_email_uuid,   $email_commseq_email);
     }
 
 
@@ -46331,8 +46211,7 @@ class StorefrontApi
      */
     public function updateEmailFlowWithHttpInfo($storefront_oid, $email_flow_uuid, $email_flow)
     {
-        list($response) = $this->updateEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $email_flow);
-        return $response;
+        return $this->updateEmailFlowWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_uuid,   $email_flow);
     }
 
 
@@ -46710,8 +46589,7 @@ class StorefrontApi
      */
     public function updateEmailFlowFolderWithHttpInfo($storefront_oid, $email_flow_folder_uuid, $email_flow_folder)
     {
-        list($response) = $this->updateEmailFlowFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_folder_uuid,   $email_flow_folder);
-        return $response;
+        return $this->updateEmailFlowFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_flow_folder_uuid,   $email_flow_folder);
     }
 
 
@@ -47085,8 +46963,7 @@ class StorefrontApi
      */
     public function updateEmailGlobalSettingsWithHttpInfo($global_settings)
     {
-        list($response) = $this->updateEmailGlobalSettingsWithHttpInfoRetry(true ,   $global_settings);
-        return $response;
+        return $this->updateEmailGlobalSettingsWithHttpInfoRetry(true ,   $global_settings);
     }
 
 
@@ -47428,8 +47305,7 @@ class StorefrontApi
      */
     public function updateEmailListWithHttpInfo($storefront_oid, $email_list_uuid, $email_list)
     {
-        list($response) = $this->updateEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_list);
-        return $response;
+        return $this->updateEmailListWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_uuid,   $email_list);
     }
 
 
@@ -47805,8 +47681,7 @@ class StorefrontApi
      */
     public function updateEmailPlanWithHttpInfo($storefront_oid, $settings)
     {
-        list($response) = $this->updateEmailPlanWithHttpInfoRetry(true ,   $storefront_oid,   $settings);
-        return $response;
+        return $this->updateEmailPlanWithHttpInfoRetry(true ,   $storefront_oid,   $settings);
     }
 
 
@@ -48166,8 +48041,7 @@ class StorefrontApi
      */
     public function updateEmailPostcardWithHttpInfo($storefront_oid, $commseq_postcard_uuid, $email_commseq_postcard)
     {
-        list($response) = $this->updateEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid,   $email_commseq_postcard);
-        return $response;
+        return $this->updateEmailPostcardWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_postcard_uuid,   $email_commseq_postcard);
     }
 
 
@@ -48545,8 +48419,7 @@ class StorefrontApi
      */
     public function updateEmailSegmentWithHttpInfo($storefront_oid, $email_segment_uuid, $email_segment)
     {
-        list($response) = $this->updateEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_segment);
-        return $response;
+        return $this->updateEmailSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $email_segment_uuid,   $email_segment);
     }
 
 
@@ -48922,8 +48795,7 @@ class StorefrontApi
      */
     public function updateEmailSettingsWithHttpInfo($storefront_oid, $settings)
     {
-        list($response) = $this->updateEmailSettingsWithHttpInfoRetry(true ,   $storefront_oid,   $settings);
-        return $response;
+        return $this->updateEmailSettingsWithHttpInfoRetry(true ,   $storefront_oid,   $settings);
     }
 
 
@@ -49283,8 +49155,7 @@ class StorefrontApi
      */
     public function updateExperimentWithHttpInfo($storefront_oid, $storefront_experiment_oid, $experiment)
     {
-        list($response) = $this->updateExperimentWithHttpInfoRetry(true ,   $storefront_oid,   $storefront_experiment_oid,   $experiment);
-        return $response;
+        return $this->updateExperimentWithHttpInfoRetry(true ,   $storefront_oid,   $storefront_experiment_oid,   $experiment);
     }
 
 
@@ -49660,8 +49531,7 @@ class StorefrontApi
      */
     public function updateLibraryItemWithHttpInfo($library_item_oid, $library_item)
     {
-        list($response) = $this->updateLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $library_item);
-        return $response;
+        return $this->updateLibraryItemWithHttpInfoRetry(true ,   $library_item_oid,   $library_item);
     }
 
 
@@ -50021,8 +49891,7 @@ class StorefrontApi
      */
     public function updateScreenRecordingSegmentWithHttpInfo($storefront_oid, $screen_recording_segment_oid, $segment)
     {
-        list($response) = $this->updateScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid,   $segment);
-        return $response;
+        return $this->updateScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid,   $segment);
     }
 
 
@@ -50398,8 +50267,7 @@ class StorefrontApi
      */
     public function updateScreenRecordingSettingsWithHttpInfo($storefront_oid, $settings)
     {
-        list($response) = $this->updateScreenRecordingSettingsWithHttpInfoRetry(true ,   $storefront_oid,   $settings);
-        return $response;
+        return $this->updateScreenRecordingSettingsWithHttpInfoRetry(true ,   $storefront_oid,   $settings);
     }
 
 
@@ -50798,7 +50666,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->updateScreenRecordingTagsWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid,   $tags);
+                        $this->updateScreenRecordingTagsWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid,   $tags);
                     }
                 }
 
@@ -51095,8 +50963,7 @@ class StorefrontApi
      */
     public function updateTransactionEmailWithHttpInfo($storefront_oid, $email_id, $transaction_email)
     {
-        list($response) = $this->updateTransactionEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_id,   $transaction_email);
-        return $response;
+        return $this->updateTransactionEmailWithHttpInfoRetry(true ,   $storefront_oid,   $email_id,   $transaction_email);
     }
 
 

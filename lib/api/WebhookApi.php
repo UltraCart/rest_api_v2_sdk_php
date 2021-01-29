@@ -155,7 +155,7 @@ class WebhookApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteWebhookWithHttpInfoRetry(false ,   $webhook_oid);
+                        $this->deleteWebhookWithHttpInfoRetry(false ,   $webhook_oid);
                     }
                 }
 
@@ -419,8 +419,7 @@ class WebhookApi
      */
     public function deleteWebhookByUrlWithHttpInfo($webhook)
     {
-        list($response) = $this->deleteWebhookByUrlWithHttpInfoRetry(true ,   $webhook);
-        return $response;
+        return $this->deleteWebhookByUrlWithHttpInfoRetry(true ,   $webhook);
     }
 
 
@@ -755,8 +754,7 @@ class WebhookApi
      */
     public function getWebhookLogWithHttpInfo($webhook_oid, $request_id)
     {
-        list($response) = $this->getWebhookLogWithHttpInfoRetry(true ,   $webhook_oid,   $request_id);
-        return $response;
+        return $this->getWebhookLogWithHttpInfoRetry(true ,   $webhook_oid,   $request_id);
     }
 
 
@@ -1118,8 +1116,7 @@ class WebhookApi
      */
     public function getWebhookLogSummariesWithHttpInfo($webhook_oid, $_limit = '100', $_offset = '0', $_since = null)
     {
-        list($response) = $this->getWebhookLogSummariesWithHttpInfoRetry(true ,   $webhook_oid,   $_limit,   $_offset,   $_since);
-        return $response;
+        return $this->getWebhookLogSummariesWithHttpInfoRetry(true ,   $webhook_oid,   $_limit,   $_offset,   $_since);
     }
 
 
@@ -1487,8 +1484,7 @@ class WebhookApi
      */
     public function getWebhooksWithHttpInfo($_limit = '100', $_offset = '0', $_sort = null, $_placeholders = null)
     {
-        list($response) = $this->getWebhooksWithHttpInfoRetry(true ,   $_limit,   $_offset,   $_sort,   $_placeholders);
-        return $response;
+        return $this->getWebhooksWithHttpInfoRetry(true ,   $_limit,   $_offset,   $_sort,   $_placeholders);
     }
 
 
@@ -1842,8 +1838,7 @@ class WebhookApi
      */
     public function insertWebhookWithHttpInfo($webhook, $_placeholders = null)
     {
-        list($response) = $this->insertWebhookWithHttpInfoRetry(true ,   $webhook,   $_placeholders);
-        return $response;
+        return $this->insertWebhookWithHttpInfoRetry(true ,   $webhook,   $_placeholders);
     }
 
 
@@ -2186,8 +2181,7 @@ class WebhookApi
      */
     public function resendEventWithHttpInfo($webhook_oid, $event_name)
     {
-        list($response) = $this->resendEventWithHttpInfoRetry(true ,   $webhook_oid,   $event_name);
-        return $response;
+        return $this->resendEventWithHttpInfoRetry(true ,   $webhook_oid,   $event_name);
     }
 
 
@@ -2547,8 +2541,7 @@ class WebhookApi
      */
     public function updateWebhookWithHttpInfo($webhook, $webhook_oid, $_placeholders = null)
     {
-        list($response) = $this->updateWebhookWithHttpInfoRetry(true ,   $webhook,   $webhook_oid,   $_placeholders);
-        return $response;
+        return $this->updateWebhookWithHttpInfoRetry(true ,   $webhook,   $webhook_oid,   $_placeholders);
     }
 
 
