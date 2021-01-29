@@ -3785,7 +3785,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -5926,7 +5926,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -6249,7 +6249,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -6555,7 +6555,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -7570,7 +7570,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -33980,7 +33980,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -38958,7 +38958,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -44085,7 +44085,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -45543,7 +45543,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -50678,7 +50678,7 @@ class StorefrontApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
