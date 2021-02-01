@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **additional_customers** | **int** |  | [optional] 
 **additional_emails** | **int** |  | [optional] 
+**additional_fee** | **float** |  | [optional] 
 **allow_list_import** | **bool** |  | [optional] 
 **allow_tracking_emails** | **bool** |  | [optional] 
 **customer_tiers** | [**\ultracart\v2\models\EmailPlanAdditional[]**](EmailPlanAdditional.md) |  | [optional] 

@@ -60,6 +60,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
         'can_downgrade' => 'bool',
         'can_upgrade' => 'bool',
         'cost' => 'float',
+        'cost_change' => 'float',
+        'cost_change_formatted' => 'string',
         'cost_formatted' => 'string',
         'customers' => 'int',
         'emails' => 'int'
@@ -74,6 +76,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
         'can_downgrade' => null,
         'can_upgrade' => null,
         'cost' => null,
+        'cost_change' => null,
+        'cost_change_formatted' => null,
         'cost_formatted' => null,
         'customers' => 'int32',
         'emails' => 'int32'
@@ -109,6 +113,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
         'can_downgrade' => 'can_downgrade',
         'can_upgrade' => 'can_upgrade',
         'cost' => 'cost',
+        'cost_change' => 'cost_change',
+        'cost_change_formatted' => 'cost_change_formatted',
         'cost_formatted' => 'cost_formatted',
         'customers' => 'customers',
         'emails' => 'emails'
@@ -123,6 +129,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
         'can_downgrade' => 'setCanDowngrade',
         'can_upgrade' => 'setCanUpgrade',
         'cost' => 'setCost',
+        'cost_change' => 'setCostChange',
+        'cost_change_formatted' => 'setCostChangeFormatted',
         'cost_formatted' => 'setCostFormatted',
         'customers' => 'setCustomers',
         'emails' => 'setEmails'
@@ -137,6 +145,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
         'can_downgrade' => 'getCanDowngrade',
         'can_upgrade' => 'getCanUpgrade',
         'cost' => 'getCost',
+        'cost_change' => 'getCostChange',
+        'cost_change_formatted' => 'getCostChangeFormatted',
         'cost_formatted' => 'getCostFormatted',
         'customers' => 'getCustomers',
         'emails' => 'getEmails'
@@ -205,6 +215,8 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
         $this->container['can_downgrade'] = isset($data['can_downgrade']) ? $data['can_downgrade'] : null;
         $this->container['can_upgrade'] = isset($data['can_upgrade']) ? $data['can_upgrade'] : null;
         $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
+        $this->container['cost_change'] = isset($data['cost_change']) ? $data['cost_change'] : null;
+        $this->container['cost_change_formatted'] = isset($data['cost_change_formatted']) ? $data['cost_change_formatted'] : null;
         $this->container['cost_formatted'] = isset($data['cost_formatted']) ? $data['cost_formatted'] : null;
         $this->container['customers'] = isset($data['customers']) ? $data['customers'] : null;
         $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
@@ -302,6 +314,54 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
     public function setCost($cost)
     {
         $this->container['cost'] = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_change
+     *
+     * @return float
+     */
+    public function getCostChange()
+    {
+        return $this->container['cost_change'];
+    }
+
+    /**
+     * Sets cost_change
+     *
+     * @param float $cost_change cost_change
+     *
+     * @return $this
+     */
+    public function setCostChange($cost_change)
+    {
+        $this->container['cost_change'] = $cost_change;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost_change_formatted
+     *
+     * @return string
+     */
+    public function getCostChangeFormatted()
+    {
+        return $this->container['cost_change_formatted'];
+    }
+
+    /**
+     * Sets cost_change_formatted
+     *
+     * @param string $cost_change_formatted cost_change_formatted
+     *
+     * @return $this
+     */
+    public function setCostChangeFormatted($cost_change_formatted)
+    {
+        $this->container['cost_change_formatted'] = $cost_change_formatted;
 
         return $this;
     }

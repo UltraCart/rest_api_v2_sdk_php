@@ -59,6 +59,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'additional_customers' => 'int',
         'additional_emails' => 'int',
+        'additional_fee' => 'float',
         'allow_list_import' => 'bool',
         'allow_tracking_emails' => 'bool',
         'customer_tiers' => '\ultracart\v2\models\EmailPlanAdditional[]',
@@ -83,6 +84,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'additional_customers' => 'int32',
         'additional_emails' => 'int32',
+        'additional_fee' => null,
         'allow_list_import' => null,
         'allow_tracking_emails' => null,
         'customer_tiers' => null,
@@ -128,6 +130,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'additional_customers' => 'additional_customers',
         'additional_emails' => 'additional_emails',
+        'additional_fee' => 'additional_fee',
         'allow_list_import' => 'allow_list_import',
         'allow_tracking_emails' => 'allow_tracking_emails',
         'customer_tiers' => 'customer_tiers',
@@ -152,6 +155,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $setters = [
         'additional_customers' => 'setAdditionalCustomers',
         'additional_emails' => 'setAdditionalEmails',
+        'additional_fee' => 'setAdditionalFee',
         'allow_list_import' => 'setAllowListImport',
         'allow_tracking_emails' => 'setAllowTrackingEmails',
         'customer_tiers' => 'setCustomerTiers',
@@ -176,6 +180,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     protected static $getters = [
         'additional_customers' => 'getAdditionalCustomers',
         'additional_emails' => 'getAdditionalEmails',
+        'additional_fee' => 'getAdditionalFee',
         'allow_list_import' => 'getAllowListImport',
         'allow_tracking_emails' => 'getAllowTrackingEmails',
         'customer_tiers' => 'getCustomerTiers',
@@ -254,6 +259,7 @@ class EmailPlan implements ModelInterface, ArrayAccess
     {
         $this->container['additional_customers'] = isset($data['additional_customers']) ? $data['additional_customers'] : null;
         $this->container['additional_emails'] = isset($data['additional_emails']) ? $data['additional_emails'] : null;
+        $this->container['additional_fee'] = isset($data['additional_fee']) ? $data['additional_fee'] : null;
         $this->container['allow_list_import'] = isset($data['allow_list_import']) ? $data['allow_list_import'] : null;
         $this->container['allow_tracking_emails'] = isset($data['allow_tracking_emails']) ? $data['allow_tracking_emails'] : null;
         $this->container['customer_tiers'] = isset($data['customer_tiers']) ? $data['customer_tiers'] : null;
@@ -338,6 +344,30 @@ class EmailPlan implements ModelInterface, ArrayAccess
     public function setAdditionalEmails($additional_emails)
     {
         $this->container['additional_emails'] = $additional_emails;
+
+        return $this;
+    }
+
+    /**
+     * Gets additional_fee
+     *
+     * @return float
+     */
+    public function getAdditionalFee()
+    {
+        return $this->container['additional_fee'];
+    }
+
+    /**
+     * Sets additional_fee
+     *
+     * @param float $additional_fee additional_fee
+     *
+     * @return $this
+     */
+    public function setAdditionalFee($additional_fee)
+    {
+        $this->container['additional_fee'] = $additional_fee;
 
         return $this;
     }

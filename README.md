@@ -1088,6 +1088,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.0.75 | 02/01/2021 | StoreFront Communication plan revision (internal use) |
 | 3.0.71 | 01/28/2021 | BugFix: PHP SDK retry logic NPE |
 | 3.0.70 | 01/26/2021 | Checkout return URL support |
 | 3.0.66 | 01/22/2021 | code library attributes (mostly internal dev) |
