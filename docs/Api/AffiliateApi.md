@@ -20,22 +20,9 @@ Retrieves a group of clicks from the account based on a query object.  If no par
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\api\AffiliateApi(new \Http\Adapter\Guzzle6\Client());
-
-Alternative method:
-$api_instance = new ultracart\v2\api\AffiliateApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\AffiliateApi::usingApiKey($simple_key);
 
 $click_query = new \ultracart\v2\models\AffiliateClickQuery(); // \ultracart\v2\models\AffiliateClickQuery | Click query
 $_limit = 10000; // int | The maximum number of records to return on this one API call. (Maximum 10000)
@@ -87,22 +74,9 @@ Retrieves a group of ledger entries from the account based on a query object.  I
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\api\AffiliateApi(new \Http\Adapter\Guzzle6\Client());
-
-Alternative method:
-$api_instance = new ultracart\v2\api\AffiliateApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\AffiliateApi::usingApiKey($simple_key);
 
 $ledger_query = new \ultracart\v2\models\AffiliateLedgerQuery(); // \ultracart\v2\models\AffiliateLedgerQuery | Ledger query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)

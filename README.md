@@ -58,26 +58,11 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```php
 <?php
 
-// This example downloads all completed records.  To run, you need to set up an API key and replace the dummy key below.
-// Please see this article for instructions on setting up a Simple API key.
-// https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-
 require_once __DIR__ . '/vendor/autoload.php';
 
-// Configure API key authorization: ultraCartSimpleApiKey
-// They key below is a development key so 1) not worried you're seeing it and 2) it won't work for you.
-ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', '0a4842d0f198c801706475cf15380100b575d4eb25ddeb01706475cf15380100');
-
-// Disable SSL verification if we're having issues with this PHP install not having the proper CA installed.
-//  Fix your CA for a production environment!
-// Set debug to true if you need more information on request/response
-$client = new GuzzleHttp\Client(['verify' => false, 'debug' => false]);
-
-$api_instance = new ultracart\v2\api\OrderApi(
-    $client,
-    ultracart\v2\Configuration::getDefaultConfiguration(),
-    new ultracart\v2\HeaderSelector("2017-03-01")
-);
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
 
 // The UltraCart objects are large.  Very large.  So we have encapsulated the fields in sub objects allowing you to
 // only request the sub objects you need.  This is done via the expansion object.   The API docs on the main web site

@@ -20,26 +20,9 @@ The final leg in the OAuth process which exchanges the specified access token fo
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: ultraCartBrowserApiKey
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
-// Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
-
-Alternative method:
-$api_instance = new ultracart\v2\api\OauthApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OauthApi::usingApiKey($simple_key);
 
 $client_id = "client_id_example"; // string | The OAuth application client_id.
 $grant_type = "grant_type_example"; // string | Type of grant
@@ -93,26 +76,9 @@ Revokes the OAuth application associated with the specified client_id and token.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: ultraCartBrowserApiKey
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-browser-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-browser-key', 'Bearer');
-// Configure OAuth2 access token for authorization: ultraCartOauth
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-// Configure API key authorization: ultraCartSimpleApiKey
-$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
-
-$api_instance = new ultracart\v2\api\OauthApi(new \Http\Adapter\Guzzle6\Client());
-
-Alternative method:
-$api_instance = new ultracart\v2\api\OauthApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OauthApi::usingApiKey($simple_key);
 
 $client_id = "client_id_example"; // string | The OAuth application client_id.
 $token = "token_example"; // string | The OAuth access token that is to be revoked..

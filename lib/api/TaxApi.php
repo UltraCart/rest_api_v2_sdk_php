@@ -79,6 +79,24 @@ class TaxApi
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
+
+    /**
+     * @param string $simple_key api key
+     * @param int $max_retry_seconds 0 to disable, else the maximum number of seconds to wait and automatically retry when rate limit is hit
+     * @param string $verify passed to Guzzle to enable/disable ssl verify
+     */
+    public static function usingApiKey( $simple_key, $max_retry_seconds = 0, $verify = true) {
+        $config = new Configuration();
+        $config->setApiKey('x-ultracart-simple-key', $simple_key);
+        $config->setMaxRetrySeconds($max_retry_seconds);
+
+        $client = new Client(['verify' => $verify, 'debug' => false);
+        $headerSelector = new HeaderSelector(/* leave null for version tied to this sdk version */);
+        $api = new TaxApi($client, $config, $headerSelector);
+        return $api;
+    }
+
+
     /**
      * @return Configuration
      */
