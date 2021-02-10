@@ -4,12 +4,12 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-[**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
-[**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
+[**getAutoOrder**](AutoOrderApi.md#getAutoOrder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
+[**getAutoOrderByCode**](AutoOrderApi.md#getAutoOrderByCode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
+[**getAutoOrderByReferenceOrderId**](AutoOrderApi.md#getAutoOrderByReferenceOrderId) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
 [**getAutoOrders**](AutoOrderApi.md#getAutoOrders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 [**getAutoOrdersBatch**](AutoOrderApi.md#getAutoOrdersBatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
-[**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
+[**getAutoOrdersByQuery**](AutoOrderApi.md#getAutoOrdersByQuery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 [**updateAutoOrder**](AutoOrderApi.md#updateAutoOrder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 [**updateAutoOrdersBatch**](AutoOrderApi.md#updateAutoOrdersBatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 # **getAutoOrder**
 > \ultracart\v2\models\AutoOrderResponse getAutoOrder($auto_order_oid, $_expand)
 
-Retrieve an auto order
+Retrieve an auto order by oid
 
 Retrieves a single auto order using the specified auto order oid.
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 # **getAutoOrderByCode**
 > \ultracart\v2\models\AutoOrderResponse getAutoOrderByCode($auto_order_code, $_expand)
 
-Retrieve an auto order
+Retrieve an auto order by code
 
 Retrieves a single auto order using the specified reference (original) order id.
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 # **getAutoOrderByReferenceOrderId**
 > \ultracart\v2\models\AutoOrderResponse getAutoOrderByReferenceOrderId($reference_order_id, $_expand)
 
-Retrieve an auto order
+Retrieve an auto order by order id
 
 Retrieves a single auto order using the specified reference (original) order id.
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 # **getAutoOrdersByQuery**
 > \ultracart\v2\models\AutoOrdersResponse getAutoOrdersByQuery($auto_order_query, $_limit, $_offset, $_sort, $_expand)
 
-Retrieve auto orders
+Retrieve auto orders by query
 
 Retrieves a group of auto orders from the account based on a query object.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 

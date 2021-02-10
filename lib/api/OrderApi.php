@@ -4144,7 +4144,7 @@ class OrderApi
     /**
      * Operation getOrdersByQuery
      *
-     * Retrieve orders
+     * Retrieve orders by query
      *
      * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -4166,7 +4166,7 @@ class OrderApi
     /**
      * Operation getOrdersByQueryWithHttpInfo
      *
-     * Retrieve orders
+     * Retrieve orders by query
      *
      * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -4187,7 +4187,7 @@ class OrderApi
     /**
      * Operation getOrdersByQueryWithHttpInfoRetry
      *
-     * Retrieve orders
+     * Retrieve orders by query
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
@@ -4308,7 +4308,7 @@ class OrderApi
     /**
      * Operation getOrdersByQueryAsync
      *
-     * Retrieve orders
+     * Retrieve orders by query
      *
      * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -4332,7 +4332,7 @@ class OrderApi
     /**
      * Operation getOrdersByQueryAsyncWithHttpInfo
      *
-     * Retrieve orders
+     * Retrieve orders by query
      *
      * @param  \ultracart\v2\models\OrderQuery $order_query Order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
