@@ -4525,7 +4525,7 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\EmailVerifyTokenResponse
+     * @return \ultracart\v2\models\EmailVerifyTokenValidateResponse
      */
     public function validateEmailVerificationToken($validation_request)
     {
@@ -4543,7 +4543,7 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\EmailVerifyTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailVerifyTokenValidateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateEmailVerificationTokenWithHttpInfo($validation_request)
     {
@@ -4561,11 +4561,11 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\EmailVerifyTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailVerifyTokenValidateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateEmailVerificationTokenWithHttpInfoRetry($retry ,  $validation_request)
     {
-        $returnType = '\ultracart\v2\models\EmailVerifyTokenResponse';
+        $returnType = '\ultracart\v2\models\EmailVerifyTokenValidateResponse';
         $request = $this->validateEmailVerificationTokenRequest($validation_request);
 
         try {
@@ -4618,7 +4618,7 @@ class CustomerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\EmailVerifyTokenResponse',
+                        '\ultracart\v2\models\EmailVerifyTokenValidateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4700,7 +4700,7 @@ class CustomerApi
      */
     public function validateEmailVerificationTokenAsyncWithHttpInfo($validation_request)
     {
-        $returnType = '\ultracart\v2\models\EmailVerifyTokenResponse';
+        $returnType = '\ultracart\v2\models\EmailVerifyTokenValidateResponse';
         $request = $this->validateEmailVerificationTokenRequest($validation_request);
 
         return $this->client

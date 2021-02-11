@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **validateEmailVerificationToken**
-> \ultracart\v2\models\EmailVerifyTokenResponse validateEmailVerificationToken($validation_request)
+> \ultracart\v2\models\EmailVerifyTokenValidateResponse validateEmailVerificationToken($validation_request)
 
 Validate a token that can be used to verify a customer email address
 
@@ -706,7 +706,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\EmailVerifyTokenResponse**](../Model/EmailVerifyTokenResponse.md)
+[**\ultracart\v2\models\EmailVerifyTokenValidateResponse**](../Model/EmailVerifyTokenValidateResponse.md)
 
 ### Authorization
 

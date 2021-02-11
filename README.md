@@ -743,6 +743,7 @@ Class | Method | HTTP request | Description
  - [EmailVerifyTokenRequest](docs/Model/EmailVerifyTokenRequest.md)
  - [EmailVerifyTokenResponse](docs/Model/EmailVerifyTokenResponse.md)
  - [EmailVerifyTokenValidateRequest](docs/Model/EmailVerifyTokenValidateRequest.md)
+ - [EmailVerifyTokenValidateResponse](docs/Model/EmailVerifyTokenValidateResponse.md)
  - [Error](docs/Model/Error.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Experiment](docs/Model/Experiment.md)
@@ -1079,6 +1080,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.3 | 02/11/2021 | Bug Fix: wrong return type on CustomerApi.validateEmailVerificationToken |
 | 3.1.2 | 02/11/2021 | CustomerApi.getEmailVerificationToken, CustomerApi.validateEmailVerificationToken added to allow for custom email verification.  Also added favorite flag to screen recording object |
 | 3.1.1 | 02/10/2021 | CustomerApi.getCustomerByEmail() method added |
 | 3.1.0 | 02/10/2021 | Minor revision jump.  Added new convenience methods for simple_key use to all api calls.  Updated docs |
