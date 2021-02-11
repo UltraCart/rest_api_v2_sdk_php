@@ -65,6 +65,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'esp_customer_uuid' => 'string',
         'events_gz_size' => 'int',
         'events_json_key' => 'string',
+        'favorite' => 'bool',
         'favorites' => 'int[]',
         'geolocation' => '\ultracart\v2\models\GeoPoint',
         'geolocation_country' => 'string',
@@ -105,6 +106,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'esp_customer_uuid' => null,
         'events_gz_size' => 'int32',
         'events_json_key' => null,
+        'favorite' => null,
         'favorites' => null,
         'geolocation' => null,
         'geolocation_country' => null,
@@ -166,6 +168,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'esp_customer_uuid' => 'esp_customer_uuid',
         'events_gz_size' => 'events_gz_size',
         'events_json_key' => 'events_json_key',
+        'favorite' => 'favorite',
         'favorites' => 'favorites',
         'geolocation' => 'geolocation',
         'geolocation_country' => 'geolocation_country',
@@ -206,6 +209,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'esp_customer_uuid' => 'setEspCustomerUuid',
         'events_gz_size' => 'setEventsGzSize',
         'events_json_key' => 'setEventsJsonKey',
+        'favorite' => 'setFavorite',
         'favorites' => 'setFavorites',
         'geolocation' => 'setGeolocation',
         'geolocation_country' => 'setGeolocationCountry',
@@ -246,6 +250,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'esp_customer_uuid' => 'getEspCustomerUuid',
         'events_gz_size' => 'getEventsGzSize',
         'events_json_key' => 'getEventsJsonKey',
+        'favorite' => 'getFavorite',
         'favorites' => 'getFavorites',
         'geolocation' => 'getGeolocation',
         'geolocation_country' => 'getGeolocationCountry',
@@ -340,6 +345,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         $this->container['esp_customer_uuid'] = isset($data['esp_customer_uuid']) ? $data['esp_customer_uuid'] : null;
         $this->container['events_gz_size'] = isset($data['events_gz_size']) ? $data['events_gz_size'] : null;
         $this->container['events_json_key'] = isset($data['events_json_key']) ? $data['events_json_key'] : null;
+        $this->container['favorite'] = isset($data['favorite']) ? $data['favorite'] : null;
         $this->container['favorites'] = isset($data['favorites']) ? $data['favorites'] : null;
         $this->container['geolocation'] = isset($data['geolocation']) ? $data['geolocation'] : null;
         $this->container['geolocation_country'] = isset($data['geolocation_country']) ? $data['geolocation_country'] : null;
@@ -583,6 +589,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets favorite
+     *
+     * @return bool
+     */
+    public function getFavorite()
+    {
+        return $this->container['favorite'];
+    }
+
+    /**
+     * Sets favorite
+     *
+     * @param bool $favorite True if the user calling the API has favorited this particular screen recording.
+     *
+     * @return $this
+     */
+    public function setFavorite($favorite)
+    {
+        $this->container['favorite'] = $favorite;
+
+        return $this;
+    }
+
+    /**
      * Gets favorites
      *
      * @return int[]
@@ -595,7 +625,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     /**
      * Sets favorites
      *
-     * @param int[] $favorites favorites
+     * @param int[] $favorites Array of user ids that favorited this particular screen recording.
      *
      * @return $this
      */

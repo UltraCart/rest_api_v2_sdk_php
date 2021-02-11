@@ -12,9 +12,11 @@ Method | HTTP request | Description
 [**getCustomersForDataTables**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**getEditorValues**](CustomerApi.md#getEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**getEmailLists**](CustomerApi.md#getEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+[**getEmailVerificationToken**](CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**updateCustomerEmailLists**](CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
+[**validateEmailVerificationToken**](CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 
 
 # **deleteCustomer**
@@ -469,6 +471,54 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getEmailVerificationToken**
+> \ultracart\v2\models\EmailVerifyTokenResponse getEmailVerificationToken($token_request)
+
+Create a token that can be used to verify a customer email address
+
+Create a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
+
+$token_request = new \ultracart\v2\models\EmailVerifyTokenRequest(); // \ultracart\v2\models\EmailVerifyTokenRequest | Token request
+
+try {
+    $result = $apiInstance->getEmailVerificationToken($token_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getEmailVerificationToken: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **token_request** | [**\ultracart\v2\models\EmailVerifyTokenRequest**](../Model/EmailVerifyTokenRequest.md)| Token request |
+
+### Return type
+
+[**\ultracart\v2\models\EmailVerifyTokenResponse**](../Model/EmailVerifyTokenResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **insertCustomer**
 > \ultracart\v2\models\CustomerResponse insertCustomer($customer, $_expand)
 
@@ -617,6 +667,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **validateEmailVerificationToken**
+> \ultracart\v2\models\EmailVerifyTokenResponse validateEmailVerificationToken($validation_request)
+
+Validate a token that can be used to verify a customer email address
+
+Validate a token that can be used to verify a customer email address.  The implementation of how a customer interacts with this token is left to the merchant.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
+
+$validation_request = new \ultracart\v2\models\EmailVerifyTokenValidateRequest(); // \ultracart\v2\models\EmailVerifyTokenValidateRequest | Token validation request
+
+try {
+    $result = $apiInstance->validateEmailVerificationToken($validation_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->validateEmailVerificationToken: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **validation_request** | [**\ultracart\v2\models\EmailVerifyTokenValidateRequest**](../Model/EmailVerifyTokenValidateRequest.md)| Token validation request |
+
+### Return type
+
+[**\ultracart\v2\models\EmailVerifyTokenResponse**](../Model/EmailVerifyTokenResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

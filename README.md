@@ -219,9 +219,11 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEditorValues**](docs/Api/CustomerApi.md#geteditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 *CustomerApi* | [**getEmailLists**](docs/Api/CustomerApi.md#getemaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+*CustomerApi* | [**getEmailVerificationToken**](docs/Api/CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
+*CustomerApi* | [**validateEmailVerificationToken**](docs/Api/CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 *FulfillmentApi* | [**acknowledgeOrders**](docs/Api/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
 *FulfillmentApi* | [**getDistributionCenterOrders**](docs/Api/FulfillmentApi.md#getdistributioncenterorders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
 *FulfillmentApi* | [**getDistributionCenters**](docs/Api/FulfillmentApi.md#getdistributioncenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
@@ -738,6 +740,9 @@ Class | Method | HTTP request | Description
  - [EmailThirdPartyListImportRequest](docs/Model/EmailThirdPartyListImportRequest.md)
  - [EmailThirdPartyProvider](docs/Model/EmailThirdPartyProvider.md)
  - [EmailThirdPartyProvidersResponse](docs/Model/EmailThirdPartyProvidersResponse.md)
+ - [EmailVerifyTokenRequest](docs/Model/EmailVerifyTokenRequest.md)
+ - [EmailVerifyTokenResponse](docs/Model/EmailVerifyTokenResponse.md)
+ - [EmailVerifyTokenValidateRequest](docs/Model/EmailVerifyTokenValidateRequest.md)
  - [Error](docs/Model/Error.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Experiment](docs/Model/Experiment.md)
@@ -1074,6 +1079,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.2 | 02/11/2021 | CustomerApi.getEmailVerificationToken, CustomerApi.validateEmailVerificationToken added to allow for custom email verification.  Also added favorite flag to screen recording object |
+| 3.1.1 | 02/10/2021 | CustomerApi.getCustomerByEmail() method added |
+| 3.1.0 | 02/10/2021 | Minor revision jump.  Added new convenience methods for simple_key use to all api calls.  Updated docs |
 | 3.0.75 | 02/01/2021 | StoreFront Communication plan revision (internal use) |
 | 3.0.71 | 01/28/2021 | BugFix: PHP SDK retry logic NPE |
 | 3.0.70 | 01/26/2021 | Checkout return URL support |
