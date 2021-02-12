@@ -90,7 +90,7 @@ class AffiliateApi
         $config->setApiKey('x-ultracart-simple-key', $simple_key);
         $config->setMaxRetrySeconds($max_retry_seconds);
 
-        $client = new Client(['verify' => $verify, 'debug' => false);
+        $client = new Client(['verify' => $verify, 'debug' => false]);
         $headerSelector = new HeaderSelector(/* leave null for version tied to this sdk version */);
         $api = new AffiliateApi($client, $config, $headerSelector);
         return $api;

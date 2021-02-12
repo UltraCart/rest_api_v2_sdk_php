@@ -90,7 +90,7 @@ class UserApi
         $config->setApiKey('x-ultracart-simple-key', $simple_key);
         $config->setMaxRetrySeconds($max_retry_seconds);
 
-        $client = new Client(['verify' => $verify, 'debug' => false);
+        $client = new Client(['verify' => $verify, 'debug' => false]);
         $headerSelector = new HeaderSelector(/* leave null for version tied to this sdk version */);
         $api = new UserApi($client, $config, $headerSelector);
         return $api;
