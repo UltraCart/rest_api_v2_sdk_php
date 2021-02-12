@@ -938,6 +938,7 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValuesEventParams](docs/Model/ScreenRecordingFilterValuesEventParams.md)
  - [ScreenRecordingMultifield](docs/Model/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/Model/ScreenRecordingPageView.md)
+ - [ScreenRecordingPageViewDataResponse](docs/Model/ScreenRecordingPageViewDataResponse.md)
  - [ScreenRecordingPageViewEvent](docs/Model/ScreenRecordingPageViewEvent.md)
  - [ScreenRecordingPageViewEventParameter](docs/Model/ScreenRecordingPageViewEventParameter.md)
  - [ScreenRecordingPageViewParameter](docs/Model/ScreenRecordingPageViewParameter.md)

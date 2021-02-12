@@ -4119,7 +4119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScreenRecordingPageViewData**
-> \ultracart\v2\models\ScreenRecordingResponse getScreenRecordingPageViewData($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+> \ultracart\v2\models\ScreenRecordingPageViewDataResponse getScreenRecordingPageViewData($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
 
 Get screen recording page view data
 
@@ -4157,7 +4157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ScreenRecordingResponse**](../Model/ScreenRecordingResponse.md)
+[**\ultracart\v2\models\ScreenRecordingPageViewDataResponse**](../Model/ScreenRecordingPageViewDataResponse.md)
 
 ### Authorization
 

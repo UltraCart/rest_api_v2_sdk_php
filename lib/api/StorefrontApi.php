@@ -29625,7 +29625,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\ScreenRecordingResponse
+     * @return \ultracart\v2\models\ScreenRecordingPageViewDataResponse
      */
     public function getScreenRecordingPageViewData($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
     {
@@ -29645,7 +29645,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ScreenRecordingResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ScreenRecordingPageViewDataResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getScreenRecordingPageViewDataWithHttpInfo($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
     {
@@ -29665,11 +29665,11 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ScreenRecordingResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ScreenRecordingPageViewDataResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getScreenRecordingPageViewDataWithHttpInfoRetry($retry ,  $storefront_oid,  $screen_recording_uuid,  $screen_recording_page_view_uuid)
     {
-        $returnType = '\ultracart\v2\models\ScreenRecordingResponse';
+        $returnType = '\ultracart\v2\models\ScreenRecordingPageViewDataResponse';
         $request = $this->getScreenRecordingPageViewDataRequest($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid);
 
         try {
@@ -29722,7 +29722,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\ScreenRecordingResponse',
+                        '\ultracart\v2\models\ScreenRecordingPageViewDataResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -29808,7 +29808,7 @@ class StorefrontApi
      */
     public function getScreenRecordingPageViewDataAsyncWithHttpInfo($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
     {
-        $returnType = '\ultracart\v2\models\ScreenRecordingResponse';
+        $returnType = '\ultracart\v2\models\ScreenRecordingPageViewDataResponse';
         $request = $this->getScreenRecordingPageViewDataRequest($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid);
 
         return $this->client
