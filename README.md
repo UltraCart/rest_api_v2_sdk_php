@@ -564,6 +564,7 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/Model/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/Model/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/Model/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponAmountOffSubtotalWithPurchase](docs/Model/CouponAmountOffSubtotalWithPurchase.md)
  - [CouponAutoApplyCondition](docs/Model/CouponAutoApplyCondition.md)
  - [CouponAutoApplyConditions](docs/Model/CouponAutoApplyConditions.md)
  - [CouponAutomaticallyApplyCouponCodes](docs/Model/CouponAutomaticallyApplyCouponCodes.md)

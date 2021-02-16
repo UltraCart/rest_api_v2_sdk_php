@@ -67,6 +67,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => '\ultracart\v2\models\CouponAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase',
+        'amount_off_subtotal_with_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithPurchase',
         'automatically_apply_coupon_codes' => '\ultracart\v2\models\CouponAutomaticallyApplyCouponCodes',
         'buy_one_get_one' => '\ultracart\v2\models\CouponBuyOneGetOneLimit',
         'calculated_description' => 'string',
@@ -131,6 +132,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => null,
         'amount_off_subtotal_with_block_purchase' => null,
         'amount_off_subtotal_with_items_purchase' => null,
+        'amount_off_subtotal_with_purchase' => null,
         'automatically_apply_coupon_codes' => null,
         'buy_one_get_one' => null,
         'calculated_description' => null,
@@ -216,6 +218,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'amount_off_subtotal_and_shipping',
         'amount_off_subtotal_with_block_purchase' => 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase' => 'amount_off_subtotal_with_items_purchase',
+        'amount_off_subtotal_with_purchase' => 'amount_off_subtotal_with_purchase',
         'automatically_apply_coupon_codes' => 'automatically_apply_coupon_codes',
         'buy_one_get_one' => 'buy_one_get_one',
         'calculated_description' => 'calculated_description',
@@ -280,6 +283,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'setAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => 'setAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => 'setAmountOffSubtotalWithItemsPurchase',
+        'amount_off_subtotal_with_purchase' => 'setAmountOffSubtotalWithPurchase',
         'automatically_apply_coupon_codes' => 'setAutomaticallyApplyCouponCodes',
         'buy_one_get_one' => 'setBuyOneGetOne',
         'calculated_description' => 'setCalculatedDescription',
@@ -344,6 +348,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'getAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => 'getAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => 'getAmountOffSubtotalWithItemsPurchase',
+        'amount_off_subtotal_with_purchase' => 'getAmountOffSubtotalWithPurchase',
         'automatically_apply_coupon_codes' => 'getAutomaticallyApplyCouponCodes',
         'buy_one_get_one' => 'getBuyOneGetOne',
         'calculated_description' => 'getCalculatedDescription',
@@ -462,6 +467,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['amount_off_subtotal_and_shipping'] = isset($data['amount_off_subtotal_and_shipping']) ? $data['amount_off_subtotal_and_shipping'] : null;
         $this->container['amount_off_subtotal_with_block_purchase'] = isset($data['amount_off_subtotal_with_block_purchase']) ? $data['amount_off_subtotal_with_block_purchase'] : null;
         $this->container['amount_off_subtotal_with_items_purchase'] = isset($data['amount_off_subtotal_with_items_purchase']) ? $data['amount_off_subtotal_with_items_purchase'] : null;
+        $this->container['amount_off_subtotal_with_purchase'] = isset($data['amount_off_subtotal_with_purchase']) ? $data['amount_off_subtotal_with_purchase'] : null;
         $this->container['automatically_apply_coupon_codes'] = isset($data['automatically_apply_coupon_codes']) ? $data['automatically_apply_coupon_codes'] : null;
         $this->container['buy_one_get_one'] = isset($data['buy_one_get_one']) ? $data['buy_one_get_one'] : null;
         $this->container['calculated_description'] = isset($data['calculated_description']) ? $data['calculated_description'] : null;
@@ -794,6 +800,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setAmountOffSubtotalWithItemsPurchase($amount_off_subtotal_with_items_purchase)
     {
         $this->container['amount_off_subtotal_with_items_purchase'] = $amount_off_subtotal_with_items_purchase;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_off_subtotal_with_purchase
+     *
+     * @return \ultracart\v2\models\CouponAmountOffSubtotalWithPurchase
+     */
+    public function getAmountOffSubtotalWithPurchase()
+    {
+        return $this->container['amount_off_subtotal_with_purchase'];
+    }
+
+    /**
+     * Sets amount_off_subtotal_with_purchase
+     *
+     * @param \ultracart\v2\models\CouponAmountOffSubtotalWithPurchase $amount_off_subtotal_with_purchase amount_off_subtotal_with_purchase
+     *
+     * @return $this
+     */
+    public function setAmountOffSubtotalWithPurchase($amount_off_subtotal_with_purchase)
+    {
+        $this->container['amount_off_subtotal_with_purchase'] = $amount_off_subtotal_with_purchase;
 
         return $this;
     }
