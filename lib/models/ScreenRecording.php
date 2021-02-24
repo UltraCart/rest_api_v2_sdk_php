@@ -88,6 +88,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'string',
         'user_ip' => 'string',
         'user_properties' => '\ultracart\v2\models\ScreenRecordingUserProperty[]',
+        'visitor_number' => 'int',
         'watched' => 'bool',
         'window_height' => 'int',
         'window_width' => 'int'
@@ -130,6 +131,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => null,
         'user_ip' => null,
         'user_properties' => null,
+        'visitor_number' => 'int32',
         'watched' => null,
         'window_height' => 'int32',
         'window_width' => 'int32'
@@ -193,6 +195,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'user_agent_raw',
         'user_ip' => 'user_ip',
         'user_properties' => 'user_properties',
+        'visitor_number' => 'visitor_number',
         'watched' => 'watched',
         'window_height' => 'window_height',
         'window_width' => 'window_width'
@@ -235,6 +238,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'setUserAgentRaw',
         'user_ip' => 'setUserIp',
         'user_properties' => 'setUserProperties',
+        'visitor_number' => 'setVisitorNumber',
         'watched' => 'setWatched',
         'window_height' => 'setWindowHeight',
         'window_width' => 'setWindowWidth'
@@ -277,6 +281,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'getUserAgentRaw',
         'user_ip' => 'getUserIp',
         'user_properties' => 'getUserProperties',
+        'visitor_number' => 'getVisitorNumber',
         'watched' => 'getWatched',
         'window_height' => 'getWindowHeight',
         'window_width' => 'getWindowWidth'
@@ -373,6 +378,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         $this->container['user_agent_raw'] = isset($data['user_agent_raw']) ? $data['user_agent_raw'] : null;
         $this->container['user_ip'] = isset($data['user_ip']) ? $data['user_ip'] : null;
         $this->container['user_properties'] = isset($data['user_properties']) ? $data['user_properties'] : null;
+        $this->container['visitor_number'] = isset($data['visitor_number']) ? $data['visitor_number'] : null;
         $this->container['watched'] = isset($data['watched']) ? $data['watched'] : null;
         $this->container['window_height'] = isset($data['window_height']) ? $data['window_height'] : null;
         $this->container['window_width'] = isset($data['window_width']) ? $data['window_width'] : null;
@@ -1142,6 +1148,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setUserProperties($user_properties)
     {
         $this->container['user_properties'] = $user_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets visitor_number
+     *
+     * @return int
+     */
+    public function getVisitorNumber()
+    {
+        return $this->container['visitor_number'];
+    }
+
+    /**
+     * Sets visitor_number
+     *
+     * @param int $visitor_number visitor_number
+     *
+     * @return $this
+     */
+    public function setVisitorNumber($visitor_number)
+    {
+        $this->container['visitor_number'] = $visitor_number;
 
         return $this;
     }

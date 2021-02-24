@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **user_agent_raw** | **string** |  | [optional] 
 **user_ip** | **string** |  | [optional] 
 **user_properties** | [**\ultracart\v2\models\ScreenRecordingUserProperty[]**](ScreenRecordingUserProperty.md) |  | [optional] 
+**visitor_number** | **int** |  | [optional] 
 **watched** | **bool** |  | [optional] 
 **window_height** | **int** |  | [optional] 
 **window_width** | **int** |  | [optional] 
