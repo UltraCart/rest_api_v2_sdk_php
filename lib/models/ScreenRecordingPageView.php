@@ -61,6 +61,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'first_event_timestamp' => 'string',
         'http_post' => 'bool',
         'last_event_timestamp' => 'string',
+        'missing_events' => 'bool',
         'params' => '\ultracart\v2\models\ScreenRecordingPageViewParameter[]',
         'range_end' => 'int',
         'range_start' => 'int',
@@ -84,6 +85,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'first_event_timestamp' => 'dateTime',
         'http_post' => null,
         'last_event_timestamp' => 'dateTime',
+        'missing_events' => null,
         'params' => null,
         'range_end' => 'int32',
         'range_start' => 'int32',
@@ -128,6 +130,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'first_event_timestamp' => 'first_event_timestamp',
         'http_post' => 'http_post',
         'last_event_timestamp' => 'last_event_timestamp',
+        'missing_events' => 'missing_events',
         'params' => 'params',
         'range_end' => 'range_end',
         'range_start' => 'range_start',
@@ -151,6 +154,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'first_event_timestamp' => 'setFirstEventTimestamp',
         'http_post' => 'setHttpPost',
         'last_event_timestamp' => 'setLastEventTimestamp',
+        'missing_events' => 'setMissingEvents',
         'params' => 'setParams',
         'range_end' => 'setRangeEnd',
         'range_start' => 'setRangeStart',
@@ -174,6 +178,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'first_event_timestamp' => 'getFirstEventTimestamp',
         'http_post' => 'getHttpPost',
         'last_event_timestamp' => 'getLastEventTimestamp',
+        'missing_events' => 'getMissingEvents',
         'params' => 'getParams',
         'range_end' => 'getRangeEnd',
         'range_start' => 'getRangeStart',
@@ -251,6 +256,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         $this->container['first_event_timestamp'] = isset($data['first_event_timestamp']) ? $data['first_event_timestamp'] : null;
         $this->container['http_post'] = isset($data['http_post']) ? $data['http_post'] : null;
         $this->container['last_event_timestamp'] = isset($data['last_event_timestamp']) ? $data['last_event_timestamp'] : null;
+        $this->container['missing_events'] = isset($data['missing_events']) ? $data['missing_events'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['range_end'] = isset($data['range_end']) ? $data['range_end'] : null;
         $this->container['range_start'] = isset($data['range_start']) ? $data['range_start'] : null;
@@ -380,6 +386,30 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
     public function setLastEventTimestamp($last_event_timestamp)
     {
         $this->container['last_event_timestamp'] = $last_event_timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets missing_events
+     *
+     * @return bool
+     */
+    public function getMissingEvents()
+    {
+        return $this->container['missing_events'];
+    }
+
+    /**
+     * Sets missing_events
+     *
+     * @param bool $missing_events missing_events
+     *
+     * @return $this
+     */
+    public function setMissingEvents($missing_events)
+    {
+        $this->container['missing_events'] = $missing_events;
 
         return $this;
     }
