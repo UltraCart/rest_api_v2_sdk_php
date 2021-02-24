@@ -49875,6 +49875,342 @@ class StorefrontApi
     }
 
     /**
+     * Operation updateScreenRecordingMerchantNotes
+     *
+     * Update merchant notes on a screen recording
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $screen_recording_uuid screen_recording_uuid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingMerchantNotesRequest $merchant_notes_request Merchant Notes (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateScreenRecordingMerchantNotes($storefront_oid, $screen_recording_uuid, $merchant_notes_request)
+    {
+        $this->updateScreenRecordingMerchantNotesWithHttpInfo($storefront_oid, $screen_recording_uuid, $merchant_notes_request);
+    }
+
+
+    /**
+     * Operation updateScreenRecordingMerchantNotesWithHttpInfo
+     *
+     * Update merchant notes on a screen recording
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingMerchantNotesRequest $merchant_notes_request Merchant Notes (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateScreenRecordingMerchantNotesWithHttpInfo($storefront_oid, $screen_recording_uuid, $merchant_notes_request)
+    {
+        $this->updateScreenRecordingMerchantNotesWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_uuid,   $merchant_notes_request);
+    }
+
+
+    /**
+     * Operation updateScreenRecordingMerchantNotesWithHttpInfoRetry
+     *
+     * Update merchant notes on a screen recording
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingMerchantNotesRequest $merchant_notes_request Merchant Notes (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateScreenRecordingMerchantNotesWithHttpInfoRetry($retry ,  $storefront_oid,  $screen_recording_uuid,  $merchant_notes_request)
+    {
+        $returnType = '';
+        $request = $this->updateScreenRecordingMerchantNotesRequest($storefront_oid, $screen_recording_uuid, $merchant_notes_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->updateScreenRecordingMerchantNotesWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_uuid,   $merchant_notes_request);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateScreenRecordingMerchantNotesAsync
+     *
+     * Update merchant notes on a screen recording
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingMerchantNotesRequest $merchant_notes_request Merchant Notes (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateScreenRecordingMerchantNotesAsync($storefront_oid, $screen_recording_uuid, $merchant_notes_request)
+    {
+        return $this->updateScreenRecordingMerchantNotesAsyncWithHttpInfo($storefront_oid, $screen_recording_uuid, $merchant_notes_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateScreenRecordingMerchantNotesAsyncWithHttpInfo
+     *
+     * Update merchant notes on a screen recording
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingMerchantNotesRequest $merchant_notes_request Merchant Notes (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateScreenRecordingMerchantNotesAsyncWithHttpInfo($storefront_oid, $screen_recording_uuid, $merchant_notes_request)
+    {
+        $returnType = '';
+        $request = $this->updateScreenRecordingMerchantNotesRequest($storefront_oid, $screen_recording_uuid, $merchant_notes_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateScreenRecordingMerchantNotes'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $screen_recording_uuid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingMerchantNotesRequest $merchant_notes_request Merchant Notes (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateScreenRecordingMerchantNotesRequest($storefront_oid, $screen_recording_uuid, $merchant_notes_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling updateScreenRecordingMerchantNotes'
+            );
+        }
+        // verify the required parameter 'screen_recording_uuid' is set
+        if ($screen_recording_uuid === null || (is_array($screen_recording_uuid) && count($screen_recording_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $screen_recording_uuid when calling updateScreenRecordingMerchantNotes'
+            );
+        }
+        // verify the required parameter 'merchant_notes_request' is set
+        if ($merchant_notes_request === null || (is_array($merchant_notes_request) && count($merchant_notes_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $merchant_notes_request when calling updateScreenRecordingMerchantNotes'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/merchant_notes';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($screen_recording_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'screen_recording_uuid' . '}',
+                ObjectSerializer::toPathValue($screen_recording_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($merchant_notes_request)) {
+            $_tempBody = $merchant_notes_request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateScreenRecordingSegment
      *
      * Update screen recording segment

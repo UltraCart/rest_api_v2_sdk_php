@@ -71,6 +71,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'geolocation_country' => 'string',
         'geolocation_state' => 'string',
         'merchant_id' => 'string',
+        'merchant_notes' => 'string',
         'order_id' => 'string',
         'page_view_count' => 'int',
         'page_views' => '\ultracart\v2\models\ScreenRecordingPageView[]',
@@ -112,6 +113,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'geolocation_country' => null,
         'geolocation_state' => null,
         'merchant_id' => null,
+        'merchant_notes' => null,
         'order_id' => null,
         'page_view_count' => 'int32',
         'page_views' => null,
@@ -174,6 +176,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'geolocation_country' => 'geolocation_country',
         'geolocation_state' => 'geolocation_state',
         'merchant_id' => 'merchant_id',
+        'merchant_notes' => 'merchant_notes',
         'order_id' => 'order_id',
         'page_view_count' => 'page_view_count',
         'page_views' => 'page_views',
@@ -215,6 +218,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'geolocation_country' => 'setGeolocationCountry',
         'geolocation_state' => 'setGeolocationState',
         'merchant_id' => 'setMerchantId',
+        'merchant_notes' => 'setMerchantNotes',
         'order_id' => 'setOrderId',
         'page_view_count' => 'setPageViewCount',
         'page_views' => 'setPageViews',
@@ -256,6 +260,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'geolocation_country' => 'getGeolocationCountry',
         'geolocation_state' => 'getGeolocationState',
         'merchant_id' => 'getMerchantId',
+        'merchant_notes' => 'getMerchantNotes',
         'order_id' => 'getOrderId',
         'page_view_count' => 'getPageViewCount',
         'page_views' => 'getPageViews',
@@ -351,6 +356,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         $this->container['geolocation_country'] = isset($data['geolocation_country']) ? $data['geolocation_country'] : null;
         $this->container['geolocation_state'] = isset($data['geolocation_state']) ? $data['geolocation_state'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['merchant_notes'] = isset($data['merchant_notes']) ? $data['merchant_notes'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['page_view_count'] = isset($data['page_view_count']) ? $data['page_view_count'] : null;
         $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
@@ -728,6 +734,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_notes
+     *
+     * @return string
+     */
+    public function getMerchantNotes()
+    {
+        return $this->container['merchant_notes'];
+    }
+
+    /**
+     * Sets merchant_notes
+     *
+     * @param string $merchant_notes merchant_notes
+     *
+     * @return $this
+     */
+    public function setMerchantNotes($merchant_notes)
+    {
+        $this->container['merchant_notes'] = $merchant_notes;
 
         return $this;
     }
