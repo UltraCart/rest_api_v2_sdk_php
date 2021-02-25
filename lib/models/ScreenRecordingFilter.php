@@ -83,6 +83,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'string',
         'user_agent_os_version' => 'string',
         'user_ip' => '\ultracart\v2\models\ScreenRecordingFilterIpSearch',
+        'visitor_number' => 'int',
         'watched' => 'bool'
     ];
 
@@ -118,6 +119,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => null,
         'user_agent_os_version' => null,
         'user_ip' => null,
+        'visitor_number' => 'int32',
         'watched' => null
     ];
 
@@ -174,6 +176,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'user_agent_os_name',
         'user_agent_os_version' => 'user_agent_os_version',
         'user_ip' => 'user_ip',
+        'visitor_number' => 'visitor_number',
         'watched' => 'watched'
     ];
 
@@ -209,6 +212,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'setUserAgentOsName',
         'user_agent_os_version' => 'setUserAgentOsVersion',
         'user_ip' => 'setUserIp',
+        'visitor_number' => 'setVisitorNumber',
         'watched' => 'setWatched'
     ];
 
@@ -244,6 +248,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'getUserAgentOsName',
         'user_agent_os_version' => 'getUserAgentOsVersion',
         'user_ip' => 'getUserIp',
+        'visitor_number' => 'getVisitorNumber',
         'watched' => 'getWatched'
     ];
 
@@ -333,6 +338,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         $this->container['user_agent_os_name'] = isset($data['user_agent_os_name']) ? $data['user_agent_os_name'] : null;
         $this->container['user_agent_os_version'] = isset($data['user_agent_os_version']) ? $data['user_agent_os_version'] : null;
         $this->container['user_ip'] = isset($data['user_ip']) ? $data['user_ip'] : null;
+        $this->container['visitor_number'] = isset($data['visitor_number']) ? $data['visitor_number'] : null;
         $this->container['watched'] = isset($data['watched']) ? $data['watched'] : null;
     }
 
@@ -980,6 +986,30 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
     public function setUserIp($user_ip)
     {
         $this->container['user_ip'] = $user_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets visitor_number
+     *
+     * @return int
+     */
+    public function getVisitorNumber()
+    {
+        return $this->container['visitor_number'];
+    }
+
+    /**
+     * Sets visitor_number
+     *
+     * @param int $visitor_number visitor_number
+     *
+     * @return $this
+     */
+    public function setVisitorNumber($visitor_number)
+    {
+        $this->container['visitor_number'] = $visitor_number;
 
         return $this;
     }
