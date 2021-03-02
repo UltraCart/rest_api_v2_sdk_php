@@ -696,7 +696,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
 $api_instance = ultracart\v2\api\CouponApi::usingApiKey($simple_key);
 
-$coupons_request = new \ultracart\v2\models\CouponsRequest(); // \ultracart\v2\models\CouponsRequest | Coupons to insert (maximum 20)
+$coupons_request = new \ultracart\v2\models\CouponsRequest(); // \ultracart\v2\models\CouponsRequest | Coupons to insert (maximum 50)
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 $_placeholders = true; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
@@ -713,7 +713,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **coupons_request** | [**\ultracart\v2\models\CouponsRequest**](../Model/CouponsRequest.md)| Coupons to insert (maximum 20) |
+ **coupons_request** | [**\ultracart\v2\models\CouponsRequest**](../Model/CouponsRequest.md)| Coupons to insert (maximum 50) |
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 

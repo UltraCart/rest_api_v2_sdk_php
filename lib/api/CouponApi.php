@@ -4543,7 +4543,7 @@ class CouponApi
      *
      * Insert multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4563,7 +4563,7 @@ class CouponApi
      *
      * Insert multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4583,7 +4583,7 @@ class CouponApi
      * Insert multiple coupons
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4701,7 +4701,7 @@ class CouponApi
      *
      * Insert multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4723,7 +4723,7 @@ class CouponApi
      *
      * Insert multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4775,7 +4775,7 @@ class CouponApi
     /**
      * Create request for operation 'insertCoupons'
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
