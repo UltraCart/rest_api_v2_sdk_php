@@ -1084,6 +1084,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.15 | 03/15/2021 | fix response from deleteScreenRecordingSegment that should have been void |
 | 3.1.14 | 03/15/2021 | sort screen recordings by favorite flag |
 | 3.1.13 | 03/02/2021 | new webhook order_payment_failed |
 | 3.1.12 | 02/25/2021 | added screen recording visitor_first_seen property |

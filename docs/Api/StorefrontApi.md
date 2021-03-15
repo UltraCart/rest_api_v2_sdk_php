@@ -1057,7 +1057,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteScreenRecordingSegment**
-> \ultracart\v2\models\ScreenRecordingSegmentResponse deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid)
+> deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid)
 
 Delete screen recording segment
 
@@ -1074,8 +1074,7 @@ $storefront_oid = 56; // int |
 $screen_recording_segment_oid = 56; // int | 
 
 try {
-    $result = $apiInstance->deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid);
-    print_r($result);
+    $apiInstance->deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid);
 } catch (Exception $e) {
     echo 'Exception when calling StorefrontApi->deleteScreenRecordingSegment: ', $e->getMessage(), PHP_EOL;
 }
@@ -1091,7 +1090,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ScreenRecordingSegmentResponse**](../Model/ScreenRecordingSegmentResponse.md)
+void (empty response body)
 
 ### Authorization
 

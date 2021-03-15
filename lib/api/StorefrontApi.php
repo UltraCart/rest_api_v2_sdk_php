@@ -6809,12 +6809,11 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\ScreenRecordingSegmentResponse
+     * @return void
      */
     public function deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid)
     {
-        list($response) = $this->deleteScreenRecordingSegmentWithHttpInfo($storefront_oid, $screen_recording_segment_oid);
-        return $response;
+        $this->deleteScreenRecordingSegmentWithHttpInfo($storefront_oid, $screen_recording_segment_oid);
     }
 
 
@@ -6828,11 +6827,11 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ScreenRecordingSegmentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteScreenRecordingSegmentWithHttpInfo($storefront_oid, $screen_recording_segment_oid)
     {
-        return $this->deleteScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid);
+        $this->deleteScreenRecordingSegmentWithHttpInfoRetry(true ,   $storefront_oid,   $screen_recording_segment_oid);
     }
 
 
@@ -6847,11 +6846,11 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ScreenRecordingSegmentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteScreenRecordingSegmentWithHttpInfoRetry($retry ,  $storefront_oid,  $screen_recording_segment_oid)
     {
-        $returnType = '\ultracart\v2\models\ScreenRecordingSegmentResponse';
+        $returnType = '';
         $request = $this->deleteScreenRecordingSegmentRequest($storefront_oid, $screen_recording_segment_oid);
 
         try {
@@ -6871,7 +6870,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteScreenRecordingSegmentWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_segment_oid);
+                        $this->deleteScreenRecordingSegmentWithHttpInfoRetry(false ,   $storefront_oid,   $screen_recording_segment_oid);
                     }
                 }
 
@@ -6883,32 +6882,10 @@ class StorefrontApi
                 );
             }
 
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\ScreenRecordingSegmentResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -6988,28 +6965,14 @@ class StorefrontApi
      */
     public function deleteScreenRecordingSegmentAsyncWithHttpInfo($storefront_oid, $screen_recording_segment_oid)
     {
-        $returnType = '\ultracart\v2\models\ScreenRecordingSegmentResponse';
+        $returnType = '';
         $request = $this->deleteScreenRecordingSegmentRequest($storefront_oid, $screen_recording_segment_oid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
