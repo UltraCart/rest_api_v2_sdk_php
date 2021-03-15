@@ -79,6 +79,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'smart_sending' => 'bool',
         'storefront_oid' => 'int',
         'subject' => 'string',
+        'suspended_for_spam' => 'bool',
         'transactional_email' => 'bool',
         'version' => 'int'
     ];
@@ -111,6 +112,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'smart_sending' => null,
         'storefront_oid' => 'int32',
         'subject' => null,
+        'suspended_for_spam' => null,
         'transactional_email' => null,
         'version' => 'int32'
     ];
@@ -164,6 +166,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'smart_sending' => 'smart_sending',
         'storefront_oid' => 'storefront_oid',
         'subject' => 'subject',
+        'suspended_for_spam' => 'suspended_for_spam',
         'transactional_email' => 'transactional_email',
         'version' => 'version'
     ];
@@ -196,6 +199,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'smart_sending' => 'setSmartSending',
         'storefront_oid' => 'setStorefrontOid',
         'subject' => 'setSubject',
+        'suspended_for_spam' => 'setSuspendedForSpam',
         'transactional_email' => 'setTransactionalEmail',
         'version' => 'setVersion'
     ];
@@ -228,6 +232,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'smart_sending' => 'getSmartSending',
         'storefront_oid' => 'getStorefrontOid',
         'subject' => 'getSubject',
+        'suspended_for_spam' => 'getSuspendedForSpam',
         'transactional_email' => 'getTransactionalEmail',
         'version' => 'getVersion'
     ];
@@ -314,6 +319,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         $this->container['smart_sending'] = isset($data['smart_sending']) ? $data['smart_sending'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
         $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
+        $this->container['suspended_for_spam'] = isset($data['suspended_for_spam']) ? $data['suspended_for_spam'] : null;
         $this->container['transactional_email'] = isset($data['transactional_email']) ? $data['transactional_email'] : null;
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
@@ -866,6 +872,30 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
     public function setSubject($subject)
     {
         $this->container['subject'] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets suspended_for_spam
+     *
+     * @return bool
+     */
+    public function getSuspendedForSpam()
+    {
+        return $this->container['suspended_for_spam'];
+    }
+
+    /**
+     * Sets suspended_for_spam
+     *
+     * @param bool $suspended_for_spam True if the email was suspended for too high of a spam rate.
+     *
+     * @return $this
+     */
+    public function setSuspendedForSpam($suspended_for_spam)
+    {
+        $this->container['suspended_for_spam'] = $suspended_for_spam;
 
         return $this;
     }

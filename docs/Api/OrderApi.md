@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrders**
-> \ultracart\v2\models\OrdersResponse getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $_limit, $_offset, $_sort, $_expand)
+> \ultracart\v2\models\OrdersResponse getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve orders
 
@@ -509,13 +509,20 @@ $channel_partner_order_id = "channel_partner_order_id_example"; // string | Chan
 $customer_profile_oid = 56; // int | 
 $refund_date_begin = "refund_date_begin_example"; // string | 
 $refund_date_end = "refund_date_end_example"; // string | 
+$custom_field_1 = "custom_field_1_example"; // string | 
+$custom_field_2 = "custom_field_2_example"; // string | 
+$custom_field_3 = "custom_field_3_example"; // string | 
+$custom_field_4 = "custom_field_4_example"; // string | 
+$custom_field_5 = "custom_field_5_example"; // string | 
+$custom_field_6 = "custom_field_6_example"; // string | 
+$custom_field_7 = "custom_field_7_example"; // string | 
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Maximum 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_sort = "_sort_example"; // string | The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.
 
 try {
-    $result = $apiInstance->getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $_limit, $_offset, $_sort, $_expand);
+    $result = $apiInstance->getOrders($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $_limit, $_offset, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->getOrders: ', $e->getMessage(), PHP_EOL;
@@ -557,6 +564,13 @@ Name | Type | Description  | Notes
  **customer_profile_oid** | **int**|  | [optional]
  **refund_date_begin** | **string**|  | [optional]
  **refund_date_end** | **string**|  | [optional]
+ **custom_field_1** | **string**|  | [optional]
+ **custom_field_2** | **string**|  | [optional]
+ **custom_field_3** | **string**|  | [optional]
+ **custom_field_4** | **string**|  | [optional]
+ **custom_field_5** | **string**|  | [optional]
+ **custom_field_6** | **string**|  | [optional]
+ **custom_field_7** | **string**|  | [optional]
  **_limit** | **int**| The maximum number of records to return on this one API call. (Maximum 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_sort** | **string**| The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]

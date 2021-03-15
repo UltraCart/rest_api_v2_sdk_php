@@ -66,6 +66,13 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'string',
         'creation_date_end' => 'string',
         'current_stage' => 'string',
+        'custom_field_1' => 'string',
+        'custom_field_2' => 'string',
+        'custom_field_3' => 'string',
+        'custom_field_4' => 'string',
+        'custom_field_5' => 'string',
+        'custom_field_6' => 'string',
+        'custom_field_7' => 'string',
         'customer_profile_oid' => 'int',
         'email' => 'string',
         'first_name' => 'string',
@@ -104,6 +111,13 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'dateTime',
         'creation_date_end' => 'dateTime',
         'current_stage' => null,
+        'custom_field_1' => null,
+        'custom_field_2' => null,
+        'custom_field_3' => null,
+        'custom_field_4' => null,
+        'custom_field_5' => null,
+        'custom_field_6' => null,
+        'custom_field_7' => null,
         'customer_profile_oid' => 'int32',
         'email' => null,
         'first_name' => null,
@@ -163,6 +177,13 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'creation_date_begin',
         'creation_date_end' => 'creation_date_end',
         'current_stage' => 'current_stage',
+        'custom_field_1' => 'custom_field_1',
+        'custom_field_2' => 'custom_field_2',
+        'custom_field_3' => 'custom_field_3',
+        'custom_field_4' => 'custom_field_4',
+        'custom_field_5' => 'custom_field_5',
+        'custom_field_6' => 'custom_field_6',
+        'custom_field_7' => 'custom_field_7',
         'customer_profile_oid' => 'customer_profile_oid',
         'email' => 'email',
         'first_name' => 'first_name',
@@ -201,6 +222,13 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'setCreationDateBegin',
         'creation_date_end' => 'setCreationDateEnd',
         'current_stage' => 'setCurrentStage',
+        'custom_field_1' => 'setCustomField1',
+        'custom_field_2' => 'setCustomField2',
+        'custom_field_3' => 'setCustomField3',
+        'custom_field_4' => 'setCustomField4',
+        'custom_field_5' => 'setCustomField5',
+        'custom_field_6' => 'setCustomField6',
+        'custom_field_7' => 'setCustomField7',
         'customer_profile_oid' => 'setCustomerProfileOid',
         'email' => 'setEmail',
         'first_name' => 'setFirstName',
@@ -239,6 +267,13 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'creation_date_begin' => 'getCreationDateBegin',
         'creation_date_end' => 'getCreationDateEnd',
         'current_stage' => 'getCurrentStage',
+        'custom_field_1' => 'getCustomField1',
+        'custom_field_2' => 'getCustomField2',
+        'custom_field_3' => 'getCustomField3',
+        'custom_field_4' => 'getCustomField4',
+        'custom_field_5' => 'getCustomField5',
+        'custom_field_6' => 'getCustomField6',
+        'custom_field_7' => 'getCustomField7',
         'customer_profile_oid' => 'getCustomerProfileOid',
         'email' => 'getEmail',
         'first_name' => 'getFirstName',
@@ -403,6 +438,13 @@ class OrderQuery implements ModelInterface, ArrayAccess
         $this->container['creation_date_begin'] = isset($data['creation_date_begin']) ? $data['creation_date_begin'] : null;
         $this->container['creation_date_end'] = isset($data['creation_date_end']) ? $data['creation_date_end'] : null;
         $this->container['current_stage'] = isset($data['current_stage']) ? $data['current_stage'] : null;
+        $this->container['custom_field_1'] = isset($data['custom_field_1']) ? $data['custom_field_1'] : null;
+        $this->container['custom_field_2'] = isset($data['custom_field_2']) ? $data['custom_field_2'] : null;
+        $this->container['custom_field_3'] = isset($data['custom_field_3']) ? $data['custom_field_3'] : null;
+        $this->container['custom_field_4'] = isset($data['custom_field_4']) ? $data['custom_field_4'] : null;
+        $this->container['custom_field_5'] = isset($data['custom_field_5']) ? $data['custom_field_5'] : null;
+        $this->container['custom_field_6'] = isset($data['custom_field_6']) ? $data['custom_field_6'] : null;
+        $this->container['custom_field_7'] = isset($data['custom_field_7']) ? $data['custom_field_7'] : null;
         $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
@@ -751,6 +793,174 @@ class OrderQuery implements ModelInterface, ArrayAccess
             );
         }
         $this->container['current_stage'] = $current_stage;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_1
+     *
+     * @return string
+     */
+    public function getCustomField1()
+    {
+        return $this->container['custom_field_1'];
+    }
+
+    /**
+     * Sets custom_field_1
+     *
+     * @param string $custom_field_1 Custom field 1
+     *
+     * @return $this
+     */
+    public function setCustomField1($custom_field_1)
+    {
+        $this->container['custom_field_1'] = $custom_field_1;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_2
+     *
+     * @return string
+     */
+    public function getCustomField2()
+    {
+        return $this->container['custom_field_2'];
+    }
+
+    /**
+     * Sets custom_field_2
+     *
+     * @param string $custom_field_2 Custom field 2
+     *
+     * @return $this
+     */
+    public function setCustomField2($custom_field_2)
+    {
+        $this->container['custom_field_2'] = $custom_field_2;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_3
+     *
+     * @return string
+     */
+    public function getCustomField3()
+    {
+        return $this->container['custom_field_3'];
+    }
+
+    /**
+     * Sets custom_field_3
+     *
+     * @param string $custom_field_3 Custom field 3
+     *
+     * @return $this
+     */
+    public function setCustomField3($custom_field_3)
+    {
+        $this->container['custom_field_3'] = $custom_field_3;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_4
+     *
+     * @return string
+     */
+    public function getCustomField4()
+    {
+        return $this->container['custom_field_4'];
+    }
+
+    /**
+     * Sets custom_field_4
+     *
+     * @param string $custom_field_4 Custom field 4
+     *
+     * @return $this
+     */
+    public function setCustomField4($custom_field_4)
+    {
+        $this->container['custom_field_4'] = $custom_field_4;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_5
+     *
+     * @return string
+     */
+    public function getCustomField5()
+    {
+        return $this->container['custom_field_5'];
+    }
+
+    /**
+     * Sets custom_field_5
+     *
+     * @param string $custom_field_5 Custom field 5
+     *
+     * @return $this
+     */
+    public function setCustomField5($custom_field_5)
+    {
+        $this->container['custom_field_5'] = $custom_field_5;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_6
+     *
+     * @return string
+     */
+    public function getCustomField6()
+    {
+        return $this->container['custom_field_6'];
+    }
+
+    /**
+     * Sets custom_field_6
+     *
+     * @param string $custom_field_6 Custom field 6
+     *
+     * @return $this
+     */
+    public function setCustomField6($custom_field_6)
+    {
+        $this->container['custom_field_6'] = $custom_field_6;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_7
+     *
+     * @return string
+     */
+    public function getCustomField7()
+    {
+        return $this->container['custom_field_7'];
+    }
+
+    /**
+     * Sets custom_field_7
+     *
+     * @param string $custom_field_7 Custom field 7
+     *
+     * @return $this
+     */
+    public function setCustomField7($custom_field_7)
+    {
+        $this->container['custom_field_7'] = $custom_field_7;
 
         return $this;
     }
