@@ -938,6 +938,7 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValues](docs/Model/ScreenRecordingFilterValues.md)
  - [ScreenRecordingFilterValuesEvent](docs/Model/ScreenRecordingFilterValuesEvent.md)
  - [ScreenRecordingFilterValuesEventParams](docs/Model/ScreenRecordingFilterValuesEventParams.md)
+ - [ScreenRecordingFilterValuesPageParam](docs/Model/ScreenRecordingFilterValuesPageParam.md)
  - [ScreenRecordingMerchantNotesRequest](docs/Model/ScreenRecordingMerchantNotesRequest.md)
  - [ScreenRecordingMultifield](docs/Model/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/Model/ScreenRecordingPageView.md)
@@ -1084,6 +1085,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.16 | 03/16/2021 | screen recording filter page parameter names |
 | 3.1.15 | 03/15/2021 | fix response from deleteScreenRecordingSegment that should have been void |
 | 3.1.14 | 03/15/2021 | sort screen recordings by favorite flag |
 | 3.1.13 | 03/02/2021 | new webhook order_payment_failed |

@@ -61,6 +61,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_countries' => 'string[]',
         'geolocation_states' => 'string[]',
         'max_values' => 'int',
+        'page_params' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]',
         'urls' => 'string[]',
         'user_agent_device_names' => 'string[]',
         'user_agent_device_os_names' => 'string[]',
@@ -79,6 +80,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_countries' => null,
         'geolocation_states' => null,
         'max_values' => 'int32',
+        'page_params' => null,
         'urls' => null,
         'user_agent_device_names' => null,
         'user_agent_device_os_names' => null,
@@ -118,6 +120,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_countries' => 'geolocation_countries',
         'geolocation_states' => 'geolocation_states',
         'max_values' => 'max_values',
+        'page_params' => 'page_params',
         'urls' => 'urls',
         'user_agent_device_names' => 'user_agent_device_names',
         'user_agent_device_os_names' => 'user_agent_device_os_names',
@@ -136,6 +139,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_countries' => 'setGeolocationCountries',
         'geolocation_states' => 'setGeolocationStates',
         'max_values' => 'setMaxValues',
+        'page_params' => 'setPageParams',
         'urls' => 'setUrls',
         'user_agent_device_names' => 'setUserAgentDeviceNames',
         'user_agent_device_os_names' => 'setUserAgentDeviceOsNames',
@@ -154,6 +158,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_countries' => 'getGeolocationCountries',
         'geolocation_states' => 'getGeolocationStates',
         'max_values' => 'getMaxValues',
+        'page_params' => 'getPageParams',
         'urls' => 'getUrls',
         'user_agent_device_names' => 'getUserAgentDeviceNames',
         'user_agent_device_os_names' => 'getUserAgentDeviceOsNames',
@@ -226,6 +231,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         $this->container['geolocation_countries'] = isset($data['geolocation_countries']) ? $data['geolocation_countries'] : null;
         $this->container['geolocation_states'] = isset($data['geolocation_states']) ? $data['geolocation_states'] : null;
         $this->container['max_values'] = isset($data['max_values']) ? $data['max_values'] : null;
+        $this->container['page_params'] = isset($data['page_params']) ? $data['page_params'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['user_agent_device_names'] = isset($data['user_agent_device_names']) ? $data['user_agent_device_names'] : null;
         $this->container['user_agent_device_os_names'] = isset($data['user_agent_device_os_names']) ? $data['user_agent_device_os_names'] : null;
@@ -350,6 +356,30 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     public function setMaxValues($max_values)
     {
         $this->container['max_values'] = $max_values;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_params
+     *
+     * @return \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]
+     */
+    public function getPageParams()
+    {
+        return $this->container['page_params'];
+    }
+
+    /**
+     * Sets page_params
+     *
+     * @param \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[] $page_params page_params
+     *
+     * @return $this
+     */
+    public function setPageParams($page_params)
+    {
+        $this->container['page_params'] = $page_params;
 
         return $this;
     }

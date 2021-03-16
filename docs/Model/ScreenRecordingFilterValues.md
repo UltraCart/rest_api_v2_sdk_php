@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **geolocation_countries** | **string[]** |  | [optional] 
 **geolocation_states** | **string[]** |  | [optional] 
 **max_values** | **int** |  | [optional] 
+**page_params** | [**\ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]**](ScreenRecordingFilterValuesPageParam.md) |  | [optional] 
 **urls** | **string[]** |  | [optional] 
 **user_agent_device_names** | **string[]** |  | [optional] 
 **user_agent_device_os_names** | **string[]** |  | [optional] 
