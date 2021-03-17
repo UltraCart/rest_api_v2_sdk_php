@@ -91,6 +91,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'screen_branding_theme_code' => 'string',
         'shipment_date_begin' => 'string',
         'shipment_date_end' => 'string',
+        'shipped_on_date_begin' => 'string',
+        'shipped_on_date_end' => 'string',
         'state_region' => 'string',
         'storefront_host_name' => 'string',
         'total' => 'float'
@@ -136,6 +138,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'screen_branding_theme_code' => null,
         'shipment_date_begin' => 'dateTime',
         'shipment_date_end' => 'dateTime',
+        'shipped_on_date_begin' => 'dateTime',
+        'shipped_on_date_end' => 'dateTime',
         'state_region' => null,
         'storefront_host_name' => null,
         'total' => null
@@ -202,6 +206,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'screen_branding_theme_code' => 'screen_branding_theme_code',
         'shipment_date_begin' => 'shipment_date_begin',
         'shipment_date_end' => 'shipment_date_end',
+        'shipped_on_date_begin' => 'shipped_on_date_begin',
+        'shipped_on_date_end' => 'shipped_on_date_end',
         'state_region' => 'state_region',
         'storefront_host_name' => 'storefront_host_name',
         'total' => 'total'
@@ -247,6 +253,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'screen_branding_theme_code' => 'setScreenBrandingThemeCode',
         'shipment_date_begin' => 'setShipmentDateBegin',
         'shipment_date_end' => 'setShipmentDateEnd',
+        'shipped_on_date_begin' => 'setShippedOnDateBegin',
+        'shipped_on_date_end' => 'setShippedOnDateEnd',
         'state_region' => 'setStateRegion',
         'storefront_host_name' => 'setStorefrontHostName',
         'total' => 'setTotal'
@@ -292,6 +300,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         'screen_branding_theme_code' => 'getScreenBrandingThemeCode',
         'shipment_date_begin' => 'getShipmentDateBegin',
         'shipment_date_end' => 'getShipmentDateEnd',
+        'shipped_on_date_begin' => 'getShippedOnDateBegin',
+        'shipped_on_date_end' => 'getShippedOnDateEnd',
         'state_region' => 'getStateRegion',
         'storefront_host_name' => 'getStorefrontHostName',
         'total' => 'getTotal'
@@ -463,6 +473,8 @@ class OrderQuery implements ModelInterface, ArrayAccess
         $this->container['screen_branding_theme_code'] = isset($data['screen_branding_theme_code']) ? $data['screen_branding_theme_code'] : null;
         $this->container['shipment_date_begin'] = isset($data['shipment_date_begin']) ? $data['shipment_date_begin'] : null;
         $this->container['shipment_date_end'] = isset($data['shipment_date_end']) ? $data['shipment_date_end'] : null;
+        $this->container['shipped_on_date_begin'] = isset($data['shipped_on_date_begin']) ? $data['shipped_on_date_begin'] : null;
+        $this->container['shipped_on_date_end'] = isset($data['shipped_on_date_end']) ? $data['shipped_on_date_end'] : null;
         $this->container['state_region'] = isset($data['state_region']) ? $data['state_region'] : null;
         $this->container['storefront_host_name'] = isset($data['storefront_host_name']) ? $data['storefront_host_name'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
@@ -1399,7 +1411,7 @@ class OrderQuery implements ModelInterface, ArrayAccess
     /**
      * Sets shipment_date_begin
      *
-     * @param string $shipment_date_begin Date/time that the order was shipping
+     * @param string $shipment_date_begin Date/time that the order was shipped
      *
      * @return $this
      */
@@ -1430,6 +1442,54 @@ class OrderQuery implements ModelInterface, ArrayAccess
     public function setShipmentDateEnd($shipment_date_end)
     {
         $this->container['shipment_date_end'] = $shipment_date_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipped_on_date_begin
+     *
+     * @return string
+     */
+    public function getShippedOnDateBegin()
+    {
+        return $this->container['shipped_on_date_begin'];
+    }
+
+    /**
+     * Sets shipped_on_date_begin
+     *
+     * @param string $shipped_on_date_begin Date/time that the order should ship on
+     *
+     * @return $this
+     */
+    public function setShippedOnDateBegin($shipped_on_date_begin)
+    {
+        $this->container['shipped_on_date_begin'] = $shipped_on_date_begin;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipped_on_date_end
+     *
+     * @return string
+     */
+    public function getShippedOnDateEnd()
+    {
+        return $this->container['shipped_on_date_end'];
+    }
+
+    /**
+     * Sets shipped_on_date_end
+     *
+     * @param string $shipped_on_date_end Date/time that the order should ship on
+     *
+     * @return $this
+     */
+    public function setShippedOnDateEnd($shipped_on_date_end)
+    {
+        $this->container['shipped_on_date_end'] = $shipped_on_date_end;
 
         return $this;
     }

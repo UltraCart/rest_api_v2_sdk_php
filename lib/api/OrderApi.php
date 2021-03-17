@@ -3182,6 +3182,8 @@ class OrderApi
      * @param  string $custom_field_5 custom_field_5 (optional)
      * @param  string $custom_field_6 custom_field_6 (optional)
      * @param  string $custom_field_7 custom_field_7 (optional)
+     * @param  string $ship_on_date_begin ship_on_date_begin (optional)
+     * @param  string $ship_on_date_end ship_on_date_end (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3191,9 +3193,9 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\OrdersResponse
      */
-    public function getOrders($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getOrders($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $ship_on_date_begin = null, $ship_on_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        list($response) = $this->getOrdersWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $_limit, $_offset, $_sort, $_expand);
+        list($response) = $this->getOrdersWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $ship_on_date_begin, $ship_on_date_end, $_limit, $_offset, $_sort, $_expand);
         return $response;
     }
 
@@ -3240,6 +3242,8 @@ class OrderApi
      * @param  string $custom_field_5 (optional)
      * @param  string $custom_field_6 (optional)
      * @param  string $custom_field_7 (optional)
+     * @param  string $ship_on_date_begin (optional)
+     * @param  string $ship_on_date_end (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3249,9 +3253,9 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrdersWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getOrdersWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $ship_on_date_begin = null, $ship_on_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        return $this->getOrdersWithHttpInfoRetry(true ,   $order_id,   $payment_method,   $company,   $first_name,   $last_name,   $city,   $state_region,   $postal_code,   $country_code,   $phone,   $email,   $cc_email,   $total,   $screen_branding_theme_code,   $storefront_host_name,   $creation_date_begin,   $creation_date_end,   $payment_date_begin,   $payment_date_end,   $shipment_date_begin,   $shipment_date_end,   $rma,   $purchase_order_number,   $item_id,   $current_stage,   $channel_partner_code,   $channel_partner_order_id,   $customer_profile_oid,   $refund_date_begin,   $refund_date_end,   $custom_field_1,   $custom_field_2,   $custom_field_3,   $custom_field_4,   $custom_field_5,   $custom_field_6,   $custom_field_7,   $_limit,   $_offset,   $_sort,   $_expand);
+        return $this->getOrdersWithHttpInfoRetry(true ,   $order_id,   $payment_method,   $company,   $first_name,   $last_name,   $city,   $state_region,   $postal_code,   $country_code,   $phone,   $email,   $cc_email,   $total,   $screen_branding_theme_code,   $storefront_host_name,   $creation_date_begin,   $creation_date_end,   $payment_date_begin,   $payment_date_end,   $shipment_date_begin,   $shipment_date_end,   $rma,   $purchase_order_number,   $item_id,   $current_stage,   $channel_partner_code,   $channel_partner_order_id,   $customer_profile_oid,   $refund_date_begin,   $refund_date_end,   $custom_field_1,   $custom_field_2,   $custom_field_3,   $custom_field_4,   $custom_field_5,   $custom_field_6,   $custom_field_7,   $ship_on_date_begin,   $ship_on_date_end,   $_limit,   $_offset,   $_sort,   $_expand);
     }
 
 
@@ -3298,6 +3302,8 @@ class OrderApi
      * @param  string $custom_field_5 (optional)
      * @param  string $custom_field_6 (optional)
      * @param  string $custom_field_7 (optional)
+     * @param  string $ship_on_date_begin (optional)
+     * @param  string $ship_on_date_end (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3307,10 +3313,10 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOrdersWithHttpInfoRetry($retry ,  $order_id = null,  $payment_method = null,  $company = null,  $first_name = null,  $last_name = null,  $city = null,  $state_region = null,  $postal_code = null,  $country_code = null,  $phone = null,  $email = null,  $cc_email = null,  $total = null,  $screen_branding_theme_code = null,  $storefront_host_name = null,  $creation_date_begin = null,  $creation_date_end = null,  $payment_date_begin = null,  $payment_date_end = null,  $shipment_date_begin = null,  $shipment_date_end = null,  $rma = null,  $purchase_order_number = null,  $item_id = null,  $current_stage = null,  $channel_partner_code = null,  $channel_partner_order_id = null,  $customer_profile_oid = null,  $refund_date_begin = null,  $refund_date_end = null,  $custom_field_1 = null,  $custom_field_2 = null,  $custom_field_3 = null,  $custom_field_4 = null,  $custom_field_5 = null,  $custom_field_6 = null,  $custom_field_7 = null,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
+    public function getOrdersWithHttpInfoRetry($retry ,  $order_id = null,  $payment_method = null,  $company = null,  $first_name = null,  $last_name = null,  $city = null,  $state_region = null,  $postal_code = null,  $country_code = null,  $phone = null,  $email = null,  $cc_email = null,  $total = null,  $screen_branding_theme_code = null,  $storefront_host_name = null,  $creation_date_begin = null,  $creation_date_end = null,  $payment_date_begin = null,  $payment_date_end = null,  $shipment_date_begin = null,  $shipment_date_end = null,  $rma = null,  $purchase_order_number = null,  $item_id = null,  $current_stage = null,  $channel_partner_code = null,  $channel_partner_order_id = null,  $customer_profile_oid = null,  $refund_date_begin = null,  $refund_date_end = null,  $custom_field_1 = null,  $custom_field_2 = null,  $custom_field_3 = null,  $custom_field_4 = null,  $custom_field_5 = null,  $custom_field_6 = null,  $custom_field_7 = null,  $ship_on_date_begin = null,  $ship_on_date_end = null,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrdersResponse';
-        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $_limit, $_offset, $_sort, $_expand);
+        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $ship_on_date_begin, $ship_on_date_end, $_limit, $_offset, $_sort, $_expand);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3329,7 +3335,7 @@ class OrderApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getOrdersWithHttpInfoRetry(false ,   $order_id,   $payment_method,   $company,   $first_name,   $last_name,   $city,   $state_region,   $postal_code,   $country_code,   $phone,   $email,   $cc_email,   $total,   $screen_branding_theme_code,   $storefront_host_name,   $creation_date_begin,   $creation_date_end,   $payment_date_begin,   $payment_date_end,   $shipment_date_begin,   $shipment_date_end,   $rma,   $purchase_order_number,   $item_id,   $current_stage,   $channel_partner_code,   $channel_partner_order_id,   $customer_profile_oid,   $refund_date_begin,   $refund_date_end,   $custom_field_1,   $custom_field_2,   $custom_field_3,   $custom_field_4,   $custom_field_5,   $custom_field_6,   $custom_field_7,   $_limit,   $_offset,   $_sort,   $_expand);
+                        return $this->getOrdersWithHttpInfoRetry(false ,   $order_id,   $payment_method,   $company,   $first_name,   $last_name,   $city,   $state_region,   $postal_code,   $country_code,   $phone,   $email,   $cc_email,   $total,   $screen_branding_theme_code,   $storefront_host_name,   $creation_date_begin,   $creation_date_end,   $payment_date_begin,   $payment_date_end,   $shipment_date_begin,   $shipment_date_end,   $rma,   $purchase_order_number,   $item_id,   $current_stage,   $channel_partner_code,   $channel_partner_order_id,   $customer_profile_oid,   $refund_date_begin,   $refund_date_end,   $custom_field_1,   $custom_field_2,   $custom_field_3,   $custom_field_4,   $custom_field_5,   $custom_field_6,   $custom_field_7,   $ship_on_date_begin,   $ship_on_date_end,   $_limit,   $_offset,   $_sort,   $_expand);
                     }
                 }
 
@@ -3454,6 +3460,8 @@ class OrderApi
      * @param  string $custom_field_5 (optional)
      * @param  string $custom_field_6 (optional)
      * @param  string $custom_field_7 (optional)
+     * @param  string $ship_on_date_begin (optional)
+     * @param  string $ship_on_date_end (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3462,9 +3470,9 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsync($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getOrdersAsync($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $ship_on_date_begin = null, $ship_on_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        return $this->getOrdersAsyncWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $_limit, $_offset, $_sort, $_expand)
+        return $this->getOrdersAsyncWithHttpInfo($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $ship_on_date_begin, $ship_on_date_end, $_limit, $_offset, $_sort, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3514,6 +3522,8 @@ class OrderApi
      * @param  string $custom_field_5 (optional)
      * @param  string $custom_field_6 (optional)
      * @param  string $custom_field_7 (optional)
+     * @param  string $ship_on_date_begin (optional)
+     * @param  string $ship_on_date_end (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3522,10 +3532,10 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOrdersAsyncWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getOrdersAsyncWithHttpInfo($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $ship_on_date_begin = null, $ship_on_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\OrdersResponse';
-        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $_limit, $_offset, $_sort, $_expand);
+        $request = $this->getOrdersRequest($order_id, $payment_method, $company, $first_name, $last_name, $city, $state_region, $postal_code, $country_code, $phone, $email, $cc_email, $total, $screen_branding_theme_code, $storefront_host_name, $creation_date_begin, $creation_date_end, $payment_date_begin, $payment_date_end, $shipment_date_begin, $shipment_date_end, $rma, $purchase_order_number, $item_id, $current_stage, $channel_partner_code, $channel_partner_order_id, $customer_profile_oid, $refund_date_begin, $refund_date_end, $custom_field_1, $custom_field_2, $custom_field_3, $custom_field_4, $custom_field_5, $custom_field_6, $custom_field_7, $ship_on_date_begin, $ship_on_date_end, $_limit, $_offset, $_sort, $_expand);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3604,6 +3614,8 @@ class OrderApi
      * @param  string $custom_field_5 (optional)
      * @param  string $custom_field_6 (optional)
      * @param  string $custom_field_7 (optional)
+     * @param  string $ship_on_date_begin (optional)
+     * @param  string $ship_on_date_end (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the orders.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3612,7 +3624,7 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getOrdersRequest($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    protected function getOrdersRequest($order_id = null, $payment_method = null, $company = null, $first_name = null, $last_name = null, $city = null, $state_region = null, $postal_code = null, $country_code = null, $phone = null, $email = null, $cc_email = null, $total = null, $screen_branding_theme_code = null, $storefront_host_name = null, $creation_date_begin = null, $creation_date_end = null, $payment_date_begin = null, $payment_date_end = null, $shipment_date_begin = null, $shipment_date_end = null, $rma = null, $purchase_order_number = null, $item_id = null, $current_stage = null, $channel_partner_code = null, $channel_partner_order_id = null, $customer_profile_oid = null, $refund_date_begin = null, $refund_date_end = null, $custom_field_1 = null, $custom_field_2 = null, $custom_field_3 = null, $custom_field_4 = null, $custom_field_5 = null, $custom_field_6 = null, $custom_field_7 = null, $ship_on_date_begin = null, $ship_on_date_end = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
 
         $resourcePath = '/order/orders';
@@ -3769,6 +3781,14 @@ class OrderApi
         // query params
         if ($custom_field_7 !== null) {
             $queryParams['Custom Field 7'] = ObjectSerializer::toQueryValue($custom_field_7);
+        }
+        // query params
+        if ($ship_on_date_begin !== null) {
+            $queryParams['ship_on_date_begin'] = ObjectSerializer::toQueryValue($ship_on_date_begin);
+        }
+        // query params
+        if ($ship_on_date_end !== null) {
+            $queryParams['ship_on_date_end'] = ObjectSerializer::toQueryValue($ship_on_date_end);
         }
         // query params
         if ($_limit !== null) {
