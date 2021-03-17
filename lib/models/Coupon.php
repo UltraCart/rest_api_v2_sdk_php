@@ -95,6 +95,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => '\ultracart\v2\models\CouponPercentOffItems',
         'percent_off_items_and_free_shipping' => '\ultracart\v2\models\CouponPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => '\ultracart\v2\models\CouponPercentOffItemsWithItemsPurchase',
+        'percent_off_msrp_items' => '\ultracart\v2\models\CouponPercentOffMsrpItems',
         'percent_off_retail_price_items' => '\ultracart\v2\models\CouponPercentOffRetailPriceItems',
         'percent_off_shipping' => '\ultracart\v2\models\CouponPercentOffShipping',
         'percent_off_subtotal' => '\ultracart\v2\models\CouponPercentOffSubtotal',
@@ -160,6 +161,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => null,
         'percent_off_items_and_free_shipping' => null,
         'percent_off_items_with_items_purchase' => null,
+        'percent_off_msrp_items' => null,
         'percent_off_retail_price_items' => null,
         'percent_off_shipping' => null,
         'percent_off_subtotal' => null,
@@ -246,6 +248,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => 'percent_off_items',
         'percent_off_items_and_free_shipping' => 'percent_off_items_and_free_shipping',
         'percent_off_items_with_items_purchase' => 'percent_off_items_with_items_purchase',
+        'percent_off_msrp_items' => 'percent_off_msrp_items',
         'percent_off_retail_price_items' => 'percent_off_retail_price_items',
         'percent_off_shipping' => 'percent_off_shipping',
         'percent_off_subtotal' => 'percent_off_subtotal',
@@ -311,6 +314,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => 'setPercentOffItems',
         'percent_off_items_and_free_shipping' => 'setPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => 'setPercentOffItemsWithItemsPurchase',
+        'percent_off_msrp_items' => 'setPercentOffMsrpItems',
         'percent_off_retail_price_items' => 'setPercentOffRetailPriceItems',
         'percent_off_shipping' => 'setPercentOffShipping',
         'percent_off_subtotal' => 'setPercentOffSubtotal',
@@ -376,6 +380,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => 'getPercentOffItems',
         'percent_off_items_and_free_shipping' => 'getPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => 'getPercentOffItemsWithItemsPurchase',
+        'percent_off_msrp_items' => 'getPercentOffMsrpItems',
         'percent_off_retail_price_items' => 'getPercentOffRetailPriceItems',
         'percent_off_shipping' => 'getPercentOffShipping',
         'percent_off_subtotal' => 'getPercentOffSubtotal',
@@ -495,6 +500,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['percent_off_items'] = isset($data['percent_off_items']) ? $data['percent_off_items'] : null;
         $this->container['percent_off_items_and_free_shipping'] = isset($data['percent_off_items_and_free_shipping']) ? $data['percent_off_items_and_free_shipping'] : null;
         $this->container['percent_off_items_with_items_purchase'] = isset($data['percent_off_items_with_items_purchase']) ? $data['percent_off_items_with_items_purchase'] : null;
+        $this->container['percent_off_msrp_items'] = isset($data['percent_off_msrp_items']) ? $data['percent_off_msrp_items'] : null;
         $this->container['percent_off_retail_price_items'] = isset($data['percent_off_retail_price_items']) ? $data['percent_off_retail_price_items'] : null;
         $this->container['percent_off_shipping'] = isset($data['percent_off_shipping']) ? $data['percent_off_shipping'] : null;
         $this->container['percent_off_subtotal'] = isset($data['percent_off_subtotal']) ? $data['percent_off_subtotal'] : null;
@@ -1488,6 +1494,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setPercentOffItemsWithItemsPurchase($percent_off_items_with_items_purchase)
     {
         $this->container['percent_off_items_with_items_purchase'] = $percent_off_items_with_items_purchase;
+
+        return $this;
+    }
+
+    /**
+     * Gets percent_off_msrp_items
+     *
+     * @return \ultracart\v2\models\CouponPercentOffMsrpItems
+     */
+    public function getPercentOffMsrpItems()
+    {
+        return $this->container['percent_off_msrp_items'];
+    }
+
+    /**
+     * Sets percent_off_msrp_items
+     *
+     * @param \ultracart\v2\models\CouponPercentOffMsrpItems $percent_off_msrp_items percent_off_msrp_items
+     *
+     * @return $this
+     */
+    public function setPercentOffMsrpItems($percent_off_msrp_items)
+    {
+        $this->container['percent_off_msrp_items'] = $percent_off_msrp_items;
 
         return $this;
     }

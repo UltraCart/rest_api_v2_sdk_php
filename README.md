@@ -594,6 +594,7 @@ Class | Method | HTTP request | Description
  - [CouponPercentOffItems](docs/Model/CouponPercentOffItems.md)
  - [CouponPercentOffItemsAndFreeShipping](docs/Model/CouponPercentOffItemsAndFreeShipping.md)
  - [CouponPercentOffItemsWithItemsPurchase](docs/Model/CouponPercentOffItemsWithItemsPurchase.md)
+ - [CouponPercentOffMsrpItems](docs/Model/CouponPercentOffMsrpItems.md)
  - [CouponPercentOffRetailPriceItems](docs/Model/CouponPercentOffRetailPriceItems.md)
  - [CouponPercentOffShipping](docs/Model/CouponPercentOffShipping.md)
  - [CouponPercentOffSubtotal](docs/Model/CouponPercentOffSubtotal.md)
@@ -1085,6 +1086,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.17 | 03/17/2021 | New coupon - percent off MSRP item |
 | 3.1.16 | 03/16/2021 | screen recording filter page parameter names |
 | 3.1.15 | 03/15/2021 | fix response from deleteScreenRecordingSegment that should have been void |
 | 3.1.14 | 03/15/2021 | sort screen recordings by favorite flag |
