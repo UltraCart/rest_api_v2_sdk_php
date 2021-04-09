@@ -59,6 +59,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'events' => '\ultracart\v2\models\ScreenRecordingFilterValuesEvent[]',
         'page_params' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]',
+        'time_on_page_max' => 'int',
+        'time_on_page_min' => 'int',
         'urls' => 'string[]'
     ];
 
@@ -70,6 +72,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'events' => null,
         'page_params' => null,
+        'time_on_page_max' => 'int32',
+        'time_on_page_min' => 'int32',
         'urls' => null
     ];
 
@@ -102,6 +106,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'events' => 'events',
         'page_params' => 'page_params',
+        'time_on_page_max' => 'time_on_page_max',
+        'time_on_page_min' => 'time_on_page_min',
         'urls' => 'urls'
     ];
 
@@ -113,6 +119,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
     protected static $setters = [
         'events' => 'setEvents',
         'page_params' => 'setPageParams',
+        'time_on_page_max' => 'setTimeOnPageMax',
+        'time_on_page_min' => 'setTimeOnPageMin',
         'urls' => 'setUrls'
     ];
 
@@ -124,6 +132,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
     protected static $getters = [
         'events' => 'getEvents',
         'page_params' => 'getPageParams',
+        'time_on_page_max' => 'getTimeOnPageMax',
+        'time_on_page_min' => 'getTimeOnPageMin',
         'urls' => 'getUrls'
     ];
 
@@ -189,6 +199,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
     {
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['page_params'] = isset($data['page_params']) ? $data['page_params'] : null;
+        $this->container['time_on_page_max'] = isset($data['time_on_page_max']) ? $data['time_on_page_max'] : null;
+        $this->container['time_on_page_min'] = isset($data['time_on_page_min']) ? $data['time_on_page_min'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
     }
 
@@ -260,6 +272,54 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
     public function setPageParams($page_params)
     {
         $this->container['page_params'] = $page_params;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_on_page_max
+     *
+     * @return int
+     */
+    public function getTimeOnPageMax()
+    {
+        return $this->container['time_on_page_max'];
+    }
+
+    /**
+     * Sets time_on_page_max
+     *
+     * @param int $time_on_page_max time_on_page_max
+     *
+     * @return $this
+     */
+    public function setTimeOnPageMax($time_on_page_max)
+    {
+        $this->container['time_on_page_max'] = $time_on_page_max;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_on_page_min
+     *
+     * @return int
+     */
+    public function getTimeOnPageMin()
+    {
+        return $this->container['time_on_page_min'];
+    }
+
+    /**
+     * Sets time_on_page_min
+     *
+     * @param int $time_on_page_min time_on_page_min
+     *
+     * @return $this
+     */
+    public function setTimeOnPageMin($time_on_page_min)
+    {
+        $this->container['time_on_page_min'] = $time_on_page_min;
 
         return $this;
     }

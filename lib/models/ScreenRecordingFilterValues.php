@@ -61,6 +61,8 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_states' => 'string[]',
         'max_values' => 'int',
         'page_views' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageView[]',
+        'time_on_site_max' => 'int',
+        'time_on_site_min' => 'int',
         'urls' => 'string[]',
         'user_agent_device_names' => 'string[]',
         'user_agent_device_os_names' => 'string[]',
@@ -79,6 +81,8 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_states' => null,
         'max_values' => 'int32',
         'page_views' => null,
+        'time_on_site_max' => 'int32',
+        'time_on_site_min' => 'int32',
         'urls' => null,
         'user_agent_device_names' => null,
         'user_agent_device_os_names' => null,
@@ -118,6 +122,8 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_states' => 'geolocation_states',
         'max_values' => 'max_values',
         'page_views' => 'page_views',
+        'time_on_site_max' => 'time_on_site_max',
+        'time_on_site_min' => 'time_on_site_min',
         'urls' => 'urls',
         'user_agent_device_names' => 'user_agent_device_names',
         'user_agent_device_os_names' => 'user_agent_device_os_names',
@@ -136,6 +142,8 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_states' => 'setGeolocationStates',
         'max_values' => 'setMaxValues',
         'page_views' => 'setPageViews',
+        'time_on_site_max' => 'setTimeOnSiteMax',
+        'time_on_site_min' => 'setTimeOnSiteMin',
         'urls' => 'setUrls',
         'user_agent_device_names' => 'setUserAgentDeviceNames',
         'user_agent_device_os_names' => 'setUserAgentDeviceOsNames',
@@ -154,6 +162,8 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'geolocation_states' => 'getGeolocationStates',
         'max_values' => 'getMaxValues',
         'page_views' => 'getPageViews',
+        'time_on_site_max' => 'getTimeOnSiteMax',
+        'time_on_site_min' => 'getTimeOnSiteMin',
         'urls' => 'getUrls',
         'user_agent_device_names' => 'getUserAgentDeviceNames',
         'user_agent_device_os_names' => 'getUserAgentDeviceOsNames',
@@ -226,6 +236,8 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         $this->container['geolocation_states'] = isset($data['geolocation_states']) ? $data['geolocation_states'] : null;
         $this->container['max_values'] = isset($data['max_values']) ? $data['max_values'] : null;
         $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
+        $this->container['time_on_site_max'] = isset($data['time_on_site_max']) ? $data['time_on_site_max'] : null;
+        $this->container['time_on_site_min'] = isset($data['time_on_site_min']) ? $data['time_on_site_min'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['user_agent_device_names'] = isset($data['user_agent_device_names']) ? $data['user_agent_device_names'] : null;
         $this->container['user_agent_device_os_names'] = isset($data['user_agent_device_os_names']) ? $data['user_agent_device_os_names'] : null;
@@ -350,6 +362,54 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     public function setPageViews($page_views)
     {
         $this->container['page_views'] = $page_views;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_on_site_max
+     *
+     * @return int
+     */
+    public function getTimeOnSiteMax()
+    {
+        return $this->container['time_on_site_max'];
+    }
+
+    /**
+     * Sets time_on_site_max
+     *
+     * @param int $time_on_site_max time_on_site_max
+     *
+     * @return $this
+     */
+    public function setTimeOnSiteMax($time_on_site_max)
+    {
+        $this->container['time_on_site_max'] = $time_on_site_max;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_on_site_min
+     *
+     * @return int
+     */
+    public function getTimeOnSiteMin()
+    {
+        return $this->container['time_on_site_min'];
+    }
+
+    /**
+     * Sets time_on_site_min
+     *
+     * @param int $time_on_site_min time_on_site_min
+     *
+     * @return $this
+     */
+    public function setTimeOnSiteMin($time_on_site_min)
+    {
+        $this->container['time_on_site_min'] = $time_on_site_min;
 
         return $this;
     }

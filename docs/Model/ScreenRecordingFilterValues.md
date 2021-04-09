@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **geolocation_states** | **string[]** |  | [optional] 
 **max_values** | **int** |  | [optional] 
 **page_views** | [**\ultracart\v2\models\ScreenRecordingFilterValuesPageView[]**](ScreenRecordingFilterValuesPageView.md) |  | [optional] 
+**time_on_site_max** | **int** |  | [optional] 
+**time_on_site_min** | **int** |  | [optional] 
 **urls** | **string[]** |  | [optional] 
 **user_agent_device_names** | **string[]** |  | [optional] 
 **user_agent_device_os_names** | **string[]** |  | [optional] 
