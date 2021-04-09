@@ -940,6 +940,7 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValuesEvent](docs/Model/ScreenRecordingFilterValuesEvent.md)
  - [ScreenRecordingFilterValuesEventParams](docs/Model/ScreenRecordingFilterValuesEventParams.md)
  - [ScreenRecordingFilterValuesPageParam](docs/Model/ScreenRecordingFilterValuesPageParam.md)
+ - [ScreenRecordingFilterValuesPageView](docs/Model/ScreenRecordingFilterValuesPageView.md)
  - [ScreenRecordingMerchantNotesRequest](docs/Model/ScreenRecordingMerchantNotesRequest.md)
  - [ScreenRecordingMultifield](docs/Model/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/Model/ScreenRecordingPageView.md)
@@ -1086,6 +1087,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.22 | 04/09/2021 | Move URL filter values into page level view for screen recordings |
 | 3.1.18 | 03/17/2021 | Added order query by ship on date |
 | 3.1.17 | 03/17/2021 | New coupon - percent off MSRP item |
 | 3.1.16 | 03/16/2021 | screen recording filter page parameter names |

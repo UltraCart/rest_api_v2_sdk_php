@@ -1,6 +1,6 @@
 <?php
 /**
- * CouponPercentOffMsrpItems
+ * ScreenRecordingFilterValuesPageView
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CouponPercentOffMsrpItems Class Doc Comment
+ * ScreenRecordingFilterValuesPageView Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
+class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CouponPercentOffMsrpItems';
+    protected static $swaggerModelName = 'ScreenRecordingFilterValuesPageView';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'discount_percent' => 'float',
-        'excluded_items' => 'string[]',
-        'items' => 'string[]',
-        'limit' => 'int'
+        'events' => '\ultracart\v2\models\ScreenRecordingFilterValuesEvent[]',
+        'page_params' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]',
+        'urls' => 'string[]'
     ];
 
     /**
@@ -69,10 +68,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'discount_percent' => null,
-        'excluded_items' => null,
-        'items' => null,
-        'limit' => 'int32'
+        'events' => null,
+        'page_params' => null,
+        'urls' => null
     ];
 
     /**
@@ -102,10 +100,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'discount_percent' => 'discount_percent',
-        'excluded_items' => 'excluded_items',
-        'items' => 'items',
-        'limit' => 'limit'
+        'events' => 'events',
+        'page_params' => 'page_params',
+        'urls' => 'urls'
     ];
 
     /**
@@ -114,10 +111,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'discount_percent' => 'setDiscountPercent',
-        'excluded_items' => 'setExcludedItems',
-        'items' => 'setItems',
-        'limit' => 'setLimit'
+        'events' => 'setEvents',
+        'page_params' => 'setPageParams',
+        'urls' => 'setUrls'
     ];
 
     /**
@@ -126,10 +122,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'discount_percent' => 'getDiscountPercent',
-        'excluded_items' => 'getExcludedItems',
-        'items' => 'getItems',
-        'limit' => 'getLimit'
+        'events' => 'getEvents',
+        'page_params' => 'getPageParams',
+        'urls' => 'getUrls'
     ];
 
     /**
@@ -192,10 +187,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['discount_percent'] = isset($data['discount_percent']) ? $data['discount_percent'] : null;
-        $this->container['excluded_items'] = isset($data['excluded_items']) ? $data['excluded_items'] : null;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
-        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
+        $this->container['page_params'] = isset($data['page_params']) ? $data['page_params'] : null;
+        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
     }
 
     /**
@@ -223,97 +217,73 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets discount_percent
+     * Gets events
      *
-     * @return float
+     * @return \ultracart\v2\models\ScreenRecordingFilterValuesEvent[]
      */
-    public function getDiscountPercent()
+    public function getEvents()
     {
-        return $this->container['discount_percent'];
+        return $this->container['events'];
     }
 
     /**
-     * Sets discount_percent
+     * Sets events
      *
-     * @param float $discount_percent The percentage of subtotal discount
+     * @param \ultracart\v2\models\ScreenRecordingFilterValuesEvent[] $events events
      *
      * @return $this
      */
-    public function setDiscountPercent($discount_percent)
+    public function setEvents($events)
     {
-        $this->container['discount_percent'] = $discount_percent;
+        $this->container['events'] = $events;
 
         return $this;
     }
 
     /**
-     * Gets excluded_items
+     * Gets page_params
+     *
+     * @return \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]
+     */
+    public function getPageParams()
+    {
+        return $this->container['page_params'];
+    }
+
+    /**
+     * Sets page_params
+     *
+     * @param \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[] $page_params page_params
+     *
+     * @return $this
+     */
+    public function setPageParams($page_params)
+    {
+        $this->container['page_params'] = $page_params;
+
+        return $this;
+    }
+
+    /**
+     * Gets urls
      *
      * @return string[]
      */
-    public function getExcludedItems()
+    public function getUrls()
     {
-        return $this->container['excluded_items'];
+        return $this->container['urls'];
     }
 
     /**
-     * Sets excluded_items
+     * Sets urls
      *
-     * @param string[] $excluded_items A list of items which cannot be discounted.
+     * @param string[] $urls urls
      *
      * @return $this
      */
-    public function setExcludedItems($excluded_items)
+    public function setUrls($urls)
     {
-        $this->container['excluded_items'] = $excluded_items;
-
-        return $this;
-    }
-
-    /**
-     * Gets items
-     *
-     * @return string[]
-     */
-    public function getItems()
-    {
-        return $this->container['items'];
-    }
-
-    /**
-     * Sets items
-     *
-     * @param string[] $items An list of items which will receive a discount.
-     *
-     * @return $this
-     */
-    public function setItems($items)
-    {
-        $this->container['items'] = $items;
-
-        return $this;
-    }
-
-    /**
-     * Gets limit
-     *
-     * @return int
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int $limit The (optional) maximum quantity of discounted items.
-     *
-     * @return $this
-     */
-    public function setLimit($limit)
-    {
-        $this->container['limit'] = $limit;
+        $this->container['urls'] = $urls;
 
         return $this;
     }

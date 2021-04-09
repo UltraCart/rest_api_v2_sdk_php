@@ -57,11 +57,10 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'events' => '\ultracart\v2\models\ScreenRecordingFilterValuesEvent[]',
         'geolocation_countries' => 'string[]',
         'geolocation_states' => 'string[]',
         'max_values' => 'int',
-        'page_params' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]',
+        'page_views' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageView[]',
         'urls' => 'string[]',
         'user_agent_device_names' => 'string[]',
         'user_agent_device_os_names' => 'string[]',
@@ -76,11 +75,10 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'events' => null,
         'geolocation_countries' => null,
         'geolocation_states' => null,
         'max_values' => 'int32',
-        'page_params' => null,
+        'page_views' => null,
         'urls' => null,
         'user_agent_device_names' => null,
         'user_agent_device_os_names' => null,
@@ -116,11 +114,10 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'events' => 'events',
         'geolocation_countries' => 'geolocation_countries',
         'geolocation_states' => 'geolocation_states',
         'max_values' => 'max_values',
-        'page_params' => 'page_params',
+        'page_views' => 'page_views',
         'urls' => 'urls',
         'user_agent_device_names' => 'user_agent_device_names',
         'user_agent_device_os_names' => 'user_agent_device_os_names',
@@ -135,11 +132,10 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'events' => 'setEvents',
         'geolocation_countries' => 'setGeolocationCountries',
         'geolocation_states' => 'setGeolocationStates',
         'max_values' => 'setMaxValues',
-        'page_params' => 'setPageParams',
+        'page_views' => 'setPageViews',
         'urls' => 'setUrls',
         'user_agent_device_names' => 'setUserAgentDeviceNames',
         'user_agent_device_os_names' => 'setUserAgentDeviceOsNames',
@@ -154,11 +150,10 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'events' => 'getEvents',
         'geolocation_countries' => 'getGeolocationCountries',
         'geolocation_states' => 'getGeolocationStates',
         'max_values' => 'getMaxValues',
-        'page_params' => 'getPageParams',
+        'page_views' => 'getPageViews',
         'urls' => 'getUrls',
         'user_agent_device_names' => 'getUserAgentDeviceNames',
         'user_agent_device_os_names' => 'getUserAgentDeviceOsNames',
@@ -227,11 +222,10 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['geolocation_countries'] = isset($data['geolocation_countries']) ? $data['geolocation_countries'] : null;
         $this->container['geolocation_states'] = isset($data['geolocation_states']) ? $data['geolocation_states'] : null;
         $this->container['max_values'] = isset($data['max_values']) ? $data['max_values'] : null;
-        $this->container['page_params'] = isset($data['page_params']) ? $data['page_params'] : null;
+        $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['user_agent_device_names'] = isset($data['user_agent_device_names']) ? $data['user_agent_device_names'] : null;
         $this->container['user_agent_device_os_names'] = isset($data['user_agent_device_os_names']) ? $data['user_agent_device_os_names'] : null;
@@ -263,30 +257,6 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets events
-     *
-     * @return \ultracart\v2\models\ScreenRecordingFilterValuesEvent[]
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param \ultracart\v2\models\ScreenRecordingFilterValuesEvent[] $events events
-     *
-     * @return $this
-     */
-    public function setEvents($events)
-    {
-        $this->container['events'] = $events;
-
-        return $this;
-    }
 
     /**
      * Gets geolocation_countries
@@ -361,25 +331,25 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets page_params
+     * Gets page_views
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]
+     * @return \ultracart\v2\models\ScreenRecordingFilterValuesPageView[]
      */
-    public function getPageParams()
+    public function getPageViews()
     {
-        return $this->container['page_params'];
+        return $this->container['page_views'];
     }
 
     /**
-     * Sets page_params
+     * Sets page_views
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[] $page_params page_params
+     * @param \ultracart\v2\models\ScreenRecordingFilterValuesPageView[] $page_views page_views
      *
      * @return $this
      */
-    public function setPageParams($page_params)
+    public function setPageViews($page_views)
     {
-        $this->container['page_params'] = $page_params;
+        $this->container['page_views'] = $page_views;
 
         return $this;
     }
