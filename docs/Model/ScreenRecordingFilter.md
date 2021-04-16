@@ -3,6 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**communications_campaign_name** | **string** |  | [optional] 
+**communications_email_subject** | **string** |  | [optional] 
+**communications_flow_name** | **string** |  | [optional] 
 **email** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **email_identified** | **bool** |  | [optional] 
 **end_timestamp** | [**\ultracart\v2\models\ScreenRecordingFilterRangeDate**](ScreenRecordingFilterRangeDate.md) |  | [optional] 

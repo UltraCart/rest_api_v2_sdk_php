@@ -57,6 +57,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'communications_campaign_names' => 'string[]',
+        'communications_email_subjects' => 'string[]',
+        'communications_flow_names' => 'string[]',
         'geolocation_countries' => 'string[]',
         'geolocation_states' => 'string[]',
         'max_values' => 'int',
@@ -77,6 +80,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'communications_campaign_names' => null,
+        'communications_email_subjects' => null,
+        'communications_flow_names' => null,
         'geolocation_countries' => null,
         'geolocation_states' => null,
         'max_values' => 'int32',
@@ -118,6 +124,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'communications_campaign_names' => 'communications_campaign_names',
+        'communications_email_subjects' => 'communications_email_subjects',
+        'communications_flow_names' => 'communications_flow_names',
         'geolocation_countries' => 'geolocation_countries',
         'geolocation_states' => 'geolocation_states',
         'max_values' => 'max_values',
@@ -138,6 +147,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'communications_campaign_names' => 'setCommunicationsCampaignNames',
+        'communications_email_subjects' => 'setCommunicationsEmailSubjects',
+        'communications_flow_names' => 'setCommunicationsFlowNames',
         'geolocation_countries' => 'setGeolocationCountries',
         'geolocation_states' => 'setGeolocationStates',
         'max_values' => 'setMaxValues',
@@ -158,6 +170,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'communications_campaign_names' => 'getCommunicationsCampaignNames',
+        'communications_email_subjects' => 'getCommunicationsEmailSubjects',
+        'communications_flow_names' => 'getCommunicationsFlowNames',
         'geolocation_countries' => 'getGeolocationCountries',
         'geolocation_states' => 'getGeolocationStates',
         'max_values' => 'getMaxValues',
@@ -232,6 +247,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['communications_campaign_names'] = isset($data['communications_campaign_names']) ? $data['communications_campaign_names'] : null;
+        $this->container['communications_email_subjects'] = isset($data['communications_email_subjects']) ? $data['communications_email_subjects'] : null;
+        $this->container['communications_flow_names'] = isset($data['communications_flow_names']) ? $data['communications_flow_names'] : null;
         $this->container['geolocation_countries'] = isset($data['geolocation_countries']) ? $data['geolocation_countries'] : null;
         $this->container['geolocation_states'] = isset($data['geolocation_states']) ? $data['geolocation_states'] : null;
         $this->container['max_values'] = isset($data['max_values']) ? $data['max_values'] : null;
@@ -269,6 +287,78 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets communications_campaign_names
+     *
+     * @return string[]
+     */
+    public function getCommunicationsCampaignNames()
+    {
+        return $this->container['communications_campaign_names'];
+    }
+
+    /**
+     * Sets communications_campaign_names
+     *
+     * @param string[] $communications_campaign_names communications_campaign_names
+     *
+     * @return $this
+     */
+    public function setCommunicationsCampaignNames($communications_campaign_names)
+    {
+        $this->container['communications_campaign_names'] = $communications_campaign_names;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_email_subjects
+     *
+     * @return string[]
+     */
+    public function getCommunicationsEmailSubjects()
+    {
+        return $this->container['communications_email_subjects'];
+    }
+
+    /**
+     * Sets communications_email_subjects
+     *
+     * @param string[] $communications_email_subjects communications_email_subjects
+     *
+     * @return $this
+     */
+    public function setCommunicationsEmailSubjects($communications_email_subjects)
+    {
+        $this->container['communications_email_subjects'] = $communications_email_subjects;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_flow_names
+     *
+     * @return string[]
+     */
+    public function getCommunicationsFlowNames()
+    {
+        return $this->container['communications_flow_names'];
+    }
+
+    /**
+     * Sets communications_flow_names
+     *
+     * @param string[] $communications_flow_names communications_flow_names
+     *
+     * @return $this
+     */
+    public function setCommunicationsFlowNames($communications_flow_names)
+    {
+        $this->container['communications_flow_names'] = $communications_flow_names;
+
+        return $this;
+    }
 
     /**
      * Gets geolocation_countries

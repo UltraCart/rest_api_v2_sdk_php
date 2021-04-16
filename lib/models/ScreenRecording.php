@@ -60,6 +60,12 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'analytics_client_oid' => 'int',
         'analytics_session_dts' => 'int',
         'analytics_session_oid' => 'int',
+        'communications_campaign_name' => 'string',
+        'communications_campaign_uuid' => 'string',
+        'communications_email_subject' => 'string',
+        'communications_email_uuid' => 'string',
+        'communications_flow_name' => 'string',
+        'communications_flow_uuid' => 'string',
         'email' => 'string',
         'end_timestamp' => 'string',
         'esp_customer_uuid' => 'string',
@@ -104,6 +110,12 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'analytics_client_oid' => 'int64',
         'analytics_session_dts' => 'int64',
         'analytics_session_oid' => 'int64',
+        'communications_campaign_name' => null,
+        'communications_campaign_uuid' => null,
+        'communications_email_subject' => null,
+        'communications_email_uuid' => null,
+        'communications_flow_name' => null,
+        'communications_flow_uuid' => null,
         'email' => null,
         'end_timestamp' => 'dateTime',
         'esp_customer_uuid' => null,
@@ -169,6 +181,12 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'analytics_client_oid' => 'analytics_client_oid',
         'analytics_session_dts' => 'analytics_session_dts',
         'analytics_session_oid' => 'analytics_session_oid',
+        'communications_campaign_name' => 'communications_campaign_name',
+        'communications_campaign_uuid' => 'communications_campaign_uuid',
+        'communications_email_subject' => 'communications_email_subject',
+        'communications_email_uuid' => 'communications_email_uuid',
+        'communications_flow_name' => 'communications_flow_name',
+        'communications_flow_uuid' => 'communications_flow_uuid',
         'email' => 'email',
         'end_timestamp' => 'end_timestamp',
         'esp_customer_uuid' => 'esp_customer_uuid',
@@ -213,6 +231,12 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'analytics_client_oid' => 'setAnalyticsClientOid',
         'analytics_session_dts' => 'setAnalyticsSessionDts',
         'analytics_session_oid' => 'setAnalyticsSessionOid',
+        'communications_campaign_name' => 'setCommunicationsCampaignName',
+        'communications_campaign_uuid' => 'setCommunicationsCampaignUuid',
+        'communications_email_subject' => 'setCommunicationsEmailSubject',
+        'communications_email_uuid' => 'setCommunicationsEmailUuid',
+        'communications_flow_name' => 'setCommunicationsFlowName',
+        'communications_flow_uuid' => 'setCommunicationsFlowUuid',
         'email' => 'setEmail',
         'end_timestamp' => 'setEndTimestamp',
         'esp_customer_uuid' => 'setEspCustomerUuid',
@@ -257,6 +281,12 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'analytics_client_oid' => 'getAnalyticsClientOid',
         'analytics_session_dts' => 'getAnalyticsSessionDts',
         'analytics_session_oid' => 'getAnalyticsSessionOid',
+        'communications_campaign_name' => 'getCommunicationsCampaignName',
+        'communications_campaign_uuid' => 'getCommunicationsCampaignUuid',
+        'communications_email_subject' => 'getCommunicationsEmailSubject',
+        'communications_email_uuid' => 'getCommunicationsEmailUuid',
+        'communications_flow_name' => 'getCommunicationsFlowName',
+        'communications_flow_uuid' => 'getCommunicationsFlowUuid',
         'email' => 'getEmail',
         'end_timestamp' => 'getEndTimestamp',
         'esp_customer_uuid' => 'getEspCustomerUuid',
@@ -355,6 +385,12 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         $this->container['analytics_client_oid'] = isset($data['analytics_client_oid']) ? $data['analytics_client_oid'] : null;
         $this->container['analytics_session_dts'] = isset($data['analytics_session_dts']) ? $data['analytics_session_dts'] : null;
         $this->container['analytics_session_oid'] = isset($data['analytics_session_oid']) ? $data['analytics_session_oid'] : null;
+        $this->container['communications_campaign_name'] = isset($data['communications_campaign_name']) ? $data['communications_campaign_name'] : null;
+        $this->container['communications_campaign_uuid'] = isset($data['communications_campaign_uuid']) ? $data['communications_campaign_uuid'] : null;
+        $this->container['communications_email_subject'] = isset($data['communications_email_subject']) ? $data['communications_email_subject'] : null;
+        $this->container['communications_email_uuid'] = isset($data['communications_email_uuid']) ? $data['communications_email_uuid'] : null;
+        $this->container['communications_flow_name'] = isset($data['communications_flow_name']) ? $data['communications_flow_name'] : null;
+        $this->container['communications_flow_uuid'] = isset($data['communications_flow_uuid']) ? $data['communications_flow_uuid'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['end_timestamp'] = isset($data['end_timestamp']) ? $data['end_timestamp'] : null;
         $this->container['esp_customer_uuid'] = isset($data['esp_customer_uuid']) ? $data['esp_customer_uuid'] : null;
@@ -482,6 +518,150 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setAnalyticsSessionOid($analytics_session_oid)
     {
         $this->container['analytics_session_oid'] = $analytics_session_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_campaign_name
+     *
+     * @return string
+     */
+    public function getCommunicationsCampaignName()
+    {
+        return $this->container['communications_campaign_name'];
+    }
+
+    /**
+     * Sets communications_campaign_name
+     *
+     * @param string $communications_campaign_name Campaign Name
+     *
+     * @return $this
+     */
+    public function setCommunicationsCampaignName($communications_campaign_name)
+    {
+        $this->container['communications_campaign_name'] = $communications_campaign_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_campaign_uuid
+     *
+     * @return string
+     */
+    public function getCommunicationsCampaignUuid()
+    {
+        return $this->container['communications_campaign_uuid'];
+    }
+
+    /**
+     * Sets communications_campaign_uuid
+     *
+     * @param string $communications_campaign_uuid Campaign UUID
+     *
+     * @return $this
+     */
+    public function setCommunicationsCampaignUuid($communications_campaign_uuid)
+    {
+        $this->container['communications_campaign_uuid'] = $communications_campaign_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_email_subject
+     *
+     * @return string
+     */
+    public function getCommunicationsEmailSubject()
+    {
+        return $this->container['communications_email_subject'];
+    }
+
+    /**
+     * Sets communications_email_subject
+     *
+     * @param string $communications_email_subject Email subject
+     *
+     * @return $this
+     */
+    public function setCommunicationsEmailSubject($communications_email_subject)
+    {
+        $this->container['communications_email_subject'] = $communications_email_subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_email_uuid
+     *
+     * @return string
+     */
+    public function getCommunicationsEmailUuid()
+    {
+        return $this->container['communications_email_uuid'];
+    }
+
+    /**
+     * Sets communications_email_uuid
+     *
+     * @param string $communications_email_uuid Email UUID
+     *
+     * @return $this
+     */
+    public function setCommunicationsEmailUuid($communications_email_uuid)
+    {
+        $this->container['communications_email_uuid'] = $communications_email_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_flow_name
+     *
+     * @return string
+     */
+    public function getCommunicationsFlowName()
+    {
+        return $this->container['communications_flow_name'];
+    }
+
+    /**
+     * Sets communications_flow_name
+     *
+     * @param string $communications_flow_name Flow Name
+     *
+     * @return $this
+     */
+    public function setCommunicationsFlowName($communications_flow_name)
+    {
+        $this->container['communications_flow_name'] = $communications_flow_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_flow_uuid
+     *
+     * @return string
+     */
+    public function getCommunicationsFlowUuid()
+    {
+        return $this->container['communications_flow_uuid'];
+    }
+
+    /**
+     * Sets communications_flow_uuid
+     *
+     * @param string $communications_flow_uuid Flow UUID
+     *
+     * @return $this
+     */
+    public function setCommunicationsFlowUuid($communications_flow_uuid)
+    {
+        $this->container['communications_flow_uuid'] = $communications_flow_uuid;
 
         return $this;
     }

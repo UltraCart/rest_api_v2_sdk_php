@@ -57,6 +57,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'communications_campaign_name' => 'string',
+        'communications_email_subject' => 'string',
+        'communications_flow_name' => 'string',
         'email' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'email_identified' => 'bool',
         'end_timestamp' => '\ultracart\v2\models\ScreenRecordingFilterRangeDate',
@@ -93,6 +96,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'communications_campaign_name' => null,
+        'communications_email_subject' => null,
+        'communications_flow_name' => null,
         'email' => null,
         'email_identified' => null,
         'end_timestamp' => null,
@@ -150,6 +156,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'communications_campaign_name' => 'communications_campaign_name',
+        'communications_email_subject' => 'communications_email_subject',
+        'communications_flow_name' => 'communications_flow_name',
         'email' => 'email',
         'email_identified' => 'email_identified',
         'end_timestamp' => 'end_timestamp',
@@ -186,6 +195,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'communications_campaign_name' => 'setCommunicationsCampaignName',
+        'communications_email_subject' => 'setCommunicationsEmailSubject',
+        'communications_flow_name' => 'setCommunicationsFlowName',
         'email' => 'setEmail',
         'email_identified' => 'setEmailIdentified',
         'end_timestamp' => 'setEndTimestamp',
@@ -222,6 +234,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'communications_campaign_name' => 'getCommunicationsCampaignName',
+        'communications_email_subject' => 'getCommunicationsEmailSubject',
+        'communications_flow_name' => 'getCommunicationsFlowName',
         'email' => 'getEmail',
         'email_identified' => 'getEmailIdentified',
         'end_timestamp' => 'getEndTimestamp',
@@ -312,6 +327,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['communications_campaign_name'] = isset($data['communications_campaign_name']) ? $data['communications_campaign_name'] : null;
+        $this->container['communications_email_subject'] = isset($data['communications_email_subject']) ? $data['communications_email_subject'] : null;
+        $this->container['communications_flow_name'] = isset($data['communications_flow_name']) ? $data['communications_flow_name'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['email_identified'] = isset($data['email_identified']) ? $data['email_identified'] : null;
         $this->container['end_timestamp'] = isset($data['end_timestamp']) ? $data['end_timestamp'] : null;
@@ -365,6 +383,78 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets communications_campaign_name
+     *
+     * @return string
+     */
+    public function getCommunicationsCampaignName()
+    {
+        return $this->container['communications_campaign_name'];
+    }
+
+    /**
+     * Sets communications_campaign_name
+     *
+     * @param string $communications_campaign_name communications_campaign_name
+     *
+     * @return $this
+     */
+    public function setCommunicationsCampaignName($communications_campaign_name)
+    {
+        $this->container['communications_campaign_name'] = $communications_campaign_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_email_subject
+     *
+     * @return string
+     */
+    public function getCommunicationsEmailSubject()
+    {
+        return $this->container['communications_email_subject'];
+    }
+
+    /**
+     * Sets communications_email_subject
+     *
+     * @param string $communications_email_subject communications_email_subject
+     *
+     * @return $this
+     */
+    public function setCommunicationsEmailSubject($communications_email_subject)
+    {
+        $this->container['communications_email_subject'] = $communications_email_subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_flow_name
+     *
+     * @return string
+     */
+    public function getCommunicationsFlowName()
+    {
+        return $this->container['communications_flow_name'];
+    }
+
+    /**
+     * Sets communications_flow_name
+     *
+     * @param string $communications_flow_name communications_flow_name
+     *
+     * @return $this
+     */
+    public function setCommunicationsFlowName($communications_flow_name)
+    {
+        $this->container['communications_flow_name'] = $communications_flow_name;
+
+        return $this;
+    }
 
     /**
      * Gets email

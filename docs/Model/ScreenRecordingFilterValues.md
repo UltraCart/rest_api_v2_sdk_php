@@ -3,6 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**communications_campaign_names** | **string[]** |  | [optional] 
+**communications_email_subjects** | **string[]** |  | [optional] 
+**communications_flow_names** | **string[]** |  | [optional] 
 **geolocation_countries** | **string[]** |  | [optional] 
 **geolocation_states** | **string[]** |  | [optional] 
 **max_values** | **int** |  | [optional] 
