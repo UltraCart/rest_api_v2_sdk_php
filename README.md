@@ -1087,7 +1087,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
-| 3.1.24 | 04/16/2021 | Screen recordin aggregations on communications campaign/flows |
+| 3.1.25 | 04/19/2021 | Screen recording UTM campaign and source fields |
+| 3.1.24 | 04/16/2021 | Screen recording aggregations on communications campaign/flows |
 | 3.1.22 | 04/09/2021 | Move URL filter values into page level view for screen recordings |
 | 3.1.18 | 03/17/2021 | Added order query by ship on date |
 | 3.1.17 | 03/17/2021 | New coupon - percent off MSRP item |

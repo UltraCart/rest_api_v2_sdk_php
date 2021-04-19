@@ -86,6 +86,8 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'string',
         'user_agent_os_version' => 'string',
         'user_ip' => '\ultracart\v2\models\ScreenRecordingFilterIpSearch',
+        'utm_campaign' => 'string',
+        'utm_source' => 'string',
         'visitor_number' => 'int',
         'watched' => 'bool'
     ];
@@ -125,6 +127,8 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => null,
         'user_agent_os_version' => null,
         'user_ip' => null,
+        'utm_campaign' => null,
+        'utm_source' => null,
         'visitor_number' => 'int32',
         'watched' => null
     ];
@@ -185,6 +189,8 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'user_agent_os_name',
         'user_agent_os_version' => 'user_agent_os_version',
         'user_ip' => 'user_ip',
+        'utm_campaign' => 'utm_campaign',
+        'utm_source' => 'utm_source',
         'visitor_number' => 'visitor_number',
         'watched' => 'watched'
     ];
@@ -224,6 +230,8 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'setUserAgentOsName',
         'user_agent_os_version' => 'setUserAgentOsVersion',
         'user_ip' => 'setUserIp',
+        'utm_campaign' => 'setUtmCampaign',
+        'utm_source' => 'setUtmSource',
         'visitor_number' => 'setVisitorNumber',
         'watched' => 'setWatched'
     ];
@@ -263,6 +271,8 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'getUserAgentOsName',
         'user_agent_os_version' => 'getUserAgentOsVersion',
         'user_ip' => 'getUserIp',
+        'utm_campaign' => 'getUtmCampaign',
+        'utm_source' => 'getUtmSource',
         'visitor_number' => 'getVisitorNumber',
         'watched' => 'getWatched'
     ];
@@ -356,6 +366,8 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         $this->container['user_agent_os_name'] = isset($data['user_agent_os_name']) ? $data['user_agent_os_name'] : null;
         $this->container['user_agent_os_version'] = isset($data['user_agent_os_version']) ? $data['user_agent_os_version'] : null;
         $this->container['user_ip'] = isset($data['user_ip']) ? $data['user_ip'] : null;
+        $this->container['utm_campaign'] = isset($data['utm_campaign']) ? $data['utm_campaign'] : null;
+        $this->container['utm_source'] = isset($data['utm_source']) ? $data['utm_source'] : null;
         $this->container['visitor_number'] = isset($data['visitor_number']) ? $data['visitor_number'] : null;
         $this->container['watched'] = isset($data['watched']) ? $data['watched'] : null;
     }
@@ -1076,6 +1088,54 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
     public function setUserIp($user_ip)
     {
         $this->container['user_ip'] = $user_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_campaign
+     *
+     * @return string
+     */
+    public function getUtmCampaign()
+    {
+        return $this->container['utm_campaign'];
+    }
+
+    /**
+     * Sets utm_campaign
+     *
+     * @param string $utm_campaign utm_campaign
+     *
+     * @return $this
+     */
+    public function setUtmCampaign($utm_campaign)
+    {
+        $this->container['utm_campaign'] = $utm_campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_source
+     *
+     * @return string
+     */
+    public function getUtmSource()
+    {
+        return $this->container['utm_source'];
+    }
+
+    /**
+     * Sets utm_source
+     *
+     * @param string $utm_source utm_source
+     *
+     * @return $this
+     */
+    public function setUtmSource($utm_source)
+    {
+        $this->container['utm_source'] = $utm_source;
 
         return $this;
     }

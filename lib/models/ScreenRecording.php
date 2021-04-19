@@ -94,6 +94,8 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'string',
         'user_ip' => 'string',
         'user_properties' => '\ultracart\v2\models\ScreenRecordingUserProperty[]',
+        'utm_campaign' => 'string',
+        'utm_source' => 'string',
         'visitor_first_seen' => 'string',
         'visitor_number' => 'int',
         'watched' => 'bool',
@@ -144,6 +146,8 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => null,
         'user_ip' => null,
         'user_properties' => null,
+        'utm_campaign' => null,
+        'utm_source' => null,
         'visitor_first_seen' => 'dateTime',
         'visitor_number' => 'int32',
         'watched' => null,
@@ -215,6 +219,8 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'user_agent_raw',
         'user_ip' => 'user_ip',
         'user_properties' => 'user_properties',
+        'utm_campaign' => 'utm_campaign',
+        'utm_source' => 'utm_source',
         'visitor_first_seen' => 'visitor_first_seen',
         'visitor_number' => 'visitor_number',
         'watched' => 'watched',
@@ -265,6 +271,8 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'setUserAgentRaw',
         'user_ip' => 'setUserIp',
         'user_properties' => 'setUserProperties',
+        'utm_campaign' => 'setUtmCampaign',
+        'utm_source' => 'setUtmSource',
         'visitor_first_seen' => 'setVisitorFirstSeen',
         'visitor_number' => 'setVisitorNumber',
         'watched' => 'setWatched',
@@ -315,6 +323,8 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'getUserAgentRaw',
         'user_ip' => 'getUserIp',
         'user_properties' => 'getUserProperties',
+        'utm_campaign' => 'getUtmCampaign',
+        'utm_source' => 'getUtmSource',
         'visitor_first_seen' => 'getVisitorFirstSeen',
         'visitor_number' => 'getVisitorNumber',
         'watched' => 'getWatched',
@@ -419,6 +429,8 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         $this->container['user_agent_raw'] = isset($data['user_agent_raw']) ? $data['user_agent_raw'] : null;
         $this->container['user_ip'] = isset($data['user_ip']) ? $data['user_ip'] : null;
         $this->container['user_properties'] = isset($data['user_properties']) ? $data['user_properties'] : null;
+        $this->container['utm_campaign'] = isset($data['utm_campaign']) ? $data['utm_campaign'] : null;
+        $this->container['utm_source'] = isset($data['utm_source']) ? $data['utm_source'] : null;
         $this->container['visitor_first_seen'] = isset($data['visitor_first_seen']) ? $data['visitor_first_seen'] : null;
         $this->container['visitor_number'] = isset($data['visitor_number']) ? $data['visitor_number'] : null;
         $this->container['watched'] = isset($data['watched']) ? $data['watched'] : null;
@@ -1334,6 +1346,54 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setUserProperties($user_properties)
     {
         $this->container['user_properties'] = $user_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_campaign
+     *
+     * @return string
+     */
+    public function getUtmCampaign()
+    {
+        return $this->container['utm_campaign'];
+    }
+
+    /**
+     * Sets utm_campaign
+     *
+     * @param string $utm_campaign UTM Campaign
+     *
+     * @return $this
+     */
+    public function setUtmCampaign($utm_campaign)
+    {
+        $this->container['utm_campaign'] = $utm_campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_source
+     *
+     * @return string
+     */
+    public function getUtmSource()
+    {
+        return $this->container['utm_source'];
+    }
+
+    /**
+     * Sets utm_source
+     *
+     * @param string $utm_source UTM Source
+     *
+     * @return $this
+     */
+    public function setUtmSource($utm_source)
+    {
+        $this->container['utm_source'] = $utm_source;
 
         return $this;
     }

@@ -71,7 +71,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'user_agent_device_os_names' => 'string[]',
         'user_agent_device_os_versions' => 'string[]',
         'user_agent_names' => 'string[]',
-        'user_agent_originals' => 'string[]'
+        'user_agent_originals' => 'string[]',
+        'utm_campaigns' => 'string[]',
+        'utm_sources' => 'string[]'
     ];
 
     /**
@@ -94,7 +96,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'user_agent_device_os_names' => null,
         'user_agent_device_os_versions' => null,
         'user_agent_names' => null,
-        'user_agent_originals' => null
+        'user_agent_originals' => null,
+        'utm_campaigns' => null,
+        'utm_sources' => null
     ];
 
     /**
@@ -138,7 +142,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'user_agent_device_os_names' => 'user_agent_device_os_names',
         'user_agent_device_os_versions' => 'user_agent_device_os_versions',
         'user_agent_names' => 'user_agent_names',
-        'user_agent_originals' => 'user_agent_originals'
+        'user_agent_originals' => 'user_agent_originals',
+        'utm_campaigns' => 'utm_campaigns',
+        'utm_sources' => 'utm_sources'
     ];
 
     /**
@@ -161,7 +167,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'user_agent_device_os_names' => 'setUserAgentDeviceOsNames',
         'user_agent_device_os_versions' => 'setUserAgentDeviceOsVersions',
         'user_agent_names' => 'setUserAgentNames',
-        'user_agent_originals' => 'setUserAgentOriginals'
+        'user_agent_originals' => 'setUserAgentOriginals',
+        'utm_campaigns' => 'setUtmCampaigns',
+        'utm_sources' => 'setUtmSources'
     ];
 
     /**
@@ -184,7 +192,9 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'user_agent_device_os_names' => 'getUserAgentDeviceOsNames',
         'user_agent_device_os_versions' => 'getUserAgentDeviceOsVersions',
         'user_agent_names' => 'getUserAgentNames',
-        'user_agent_originals' => 'getUserAgentOriginals'
+        'user_agent_originals' => 'getUserAgentOriginals',
+        'utm_campaigns' => 'getUtmCampaigns',
+        'utm_sources' => 'getUtmSources'
     ];
 
     /**
@@ -262,6 +272,8 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         $this->container['user_agent_device_os_versions'] = isset($data['user_agent_device_os_versions']) ? $data['user_agent_device_os_versions'] : null;
         $this->container['user_agent_names'] = isset($data['user_agent_names']) ? $data['user_agent_names'] : null;
         $this->container['user_agent_originals'] = isset($data['user_agent_originals']) ? $data['user_agent_originals'] : null;
+        $this->container['utm_campaigns'] = isset($data['utm_campaigns']) ? $data['utm_campaigns'] : null;
+        $this->container['utm_sources'] = isset($data['utm_sources']) ? $data['utm_sources'] : null;
     }
 
     /**
@@ -644,6 +656,54 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     public function setUserAgentOriginals($user_agent_originals)
     {
         $this->container['user_agent_originals'] = $user_agent_originals;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_campaigns
+     *
+     * @return string[]
+     */
+    public function getUtmCampaigns()
+    {
+        return $this->container['utm_campaigns'];
+    }
+
+    /**
+     * Sets utm_campaigns
+     *
+     * @param string[] $utm_campaigns utm_campaigns
+     *
+     * @return $this
+     */
+    public function setUtmCampaigns($utm_campaigns)
+    {
+        $this->container['utm_campaigns'] = $utm_campaigns;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_sources
+     *
+     * @return string[]
+     */
+    public function getUtmSources()
+    {
+        return $this->container['utm_sources'];
+    }
+
+    /**
+     * Sets utm_sources
+     *
+     * @param string[] $utm_sources utm_sources
+     *
+     * @return $this
+     */
+    public function setUtmSources($utm_sources)
+    {
+        $this->container['utm_sources'] = $utm_sources;
 
         return $this;
     }

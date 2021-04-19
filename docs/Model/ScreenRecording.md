@@ -40,6 +40,8 @@ Name | Type | Description | Notes
 **user_agent_raw** | **string** |  | [optional] 
 **user_ip** | **string** |  | [optional] 
 **user_properties** | [**\ultracart\v2\models\ScreenRecordingUserProperty[]**](ScreenRecordingUserProperty.md) |  | [optional] 
+**utm_campaign** | **string** | UTM Campaign | [optional] 
+**utm_source** | **string** | UTM Source | [optional] 
 **visitor_first_seen** | **string** | Timestamp this visitor was first seen | [optional] 
 **visitor_number** | **int** |  | [optional] 
 **watched** | **bool** |  | [optional] 

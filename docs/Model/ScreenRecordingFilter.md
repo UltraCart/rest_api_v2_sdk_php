@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **user_agent_os_name** | **string** |  | [optional] 
 **user_agent_os_version** | **string** |  | [optional] 
 **user_ip** | [**\ultracart\v2\models\ScreenRecordingFilterIpSearch**](ScreenRecordingFilterIpSearch.md) |  | [optional] 
+**utm_campaign** | **string** |  | [optional] 
+**utm_source** | **string** |  | [optional] 
 **visitor_number** | **int** |  | [optional] 
 **watched** | **bool** |  | [optional] 
 
