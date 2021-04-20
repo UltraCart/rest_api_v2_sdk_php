@@ -1087,6 +1087,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.26 | 04/20/2021 | StoreFront Connumications - flag to end campaign or flow once purchase happens anywhere |
 | 3.1.25 | 04/19/2021 | Screen recording UTM campaign and source fields |
 | 3.1.24 | 04/16/2021 | Screen recording aggregations on communications campaign/flows |
 | 3.1.22 | 04/09/2021 | Move URL filter values into page level view for screen recordings |
