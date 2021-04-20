@@ -63,7 +63,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => 'string',
         'email_communication_sequence_uuid' => 'string',
         'end_once_customer_purchases' => 'bool',
-        'end_once_customer_purchases_anwyere' => 'bool',
+        'end_once_customer_purchases_anywhere' => 'bool',
         'esp_campaign_folder_uuid' => 'string',
         'esp_domain_user' => 'string',
         'esp_domain_uuid' => 'string',
@@ -95,7 +95,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => null,
         'email_communication_sequence_uuid' => null,
         'end_once_customer_purchases' => null,
-        'end_once_customer_purchases_anwyere' => null,
+        'end_once_customer_purchases_anywhere' => null,
         'esp_campaign_folder_uuid' => null,
         'esp_domain_user' => null,
         'esp_domain_uuid' => null,
@@ -148,7 +148,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => 'email_campaign_uuid',
         'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
         'end_once_customer_purchases' => 'end_once_customer_purchases',
-        'end_once_customer_purchases_anwyere' => 'end_once_customer_purchases_anwyere',
+        'end_once_customer_purchases_anywhere' => 'end_once_customer_purchases_anywhere',
         'esp_campaign_folder_uuid' => 'esp_campaign_folder_uuid',
         'esp_domain_user' => 'esp_domain_user',
         'esp_domain_uuid' => 'esp_domain_uuid',
@@ -180,7 +180,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => 'setEmailCampaignUuid',
         'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
         'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
-        'end_once_customer_purchases_anwyere' => 'setEndOnceCustomerPurchasesAnwyere',
+        'end_once_customer_purchases_anywhere' => 'setEndOnceCustomerPurchasesAnywhere',
         'esp_campaign_folder_uuid' => 'setEspCampaignFolderUuid',
         'esp_domain_user' => 'setEspDomainUser',
         'esp_domain_uuid' => 'setEspDomainUuid',
@@ -212,7 +212,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         'email_campaign_uuid' => 'getEmailCampaignUuid',
         'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
         'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
-        'end_once_customer_purchases_anwyere' => 'getEndOnceCustomerPurchasesAnwyere',
+        'end_once_customer_purchases_anywhere' => 'getEndOnceCustomerPurchasesAnywhere',
         'esp_campaign_folder_uuid' => 'getEspCampaignFolderUuid',
         'esp_domain_user' => 'getEspDomainUser',
         'esp_domain_uuid' => 'getEspDomainUuid',
@@ -298,7 +298,7 @@ class EmailCampaign implements ModelInterface, ArrayAccess
         $this->container['email_campaign_uuid'] = isset($data['email_campaign_uuid']) ? $data['email_campaign_uuid'] : null;
         $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
         $this->container['end_once_customer_purchases'] = isset($data['end_once_customer_purchases']) ? $data['end_once_customer_purchases'] : null;
-        $this->container['end_once_customer_purchases_anwyere'] = isset($data['end_once_customer_purchases_anwyere']) ? $data['end_once_customer_purchases_anwyere'] : null;
+        $this->container['end_once_customer_purchases_anywhere'] = isset($data['end_once_customer_purchases_anywhere']) ? $data['end_once_customer_purchases_anywhere'] : null;
         $this->container['esp_campaign_folder_uuid'] = isset($data['esp_campaign_folder_uuid']) ? $data['esp_campaign_folder_uuid'] : null;
         $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
@@ -491,25 +491,25 @@ class EmailCampaign implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets end_once_customer_purchases_anwyere
+     * Gets end_once_customer_purchases_anywhere
      *
      * @return bool
      */
-    public function getEndOnceCustomerPurchasesAnwyere()
+    public function getEndOnceCustomerPurchasesAnywhere()
     {
-        return $this->container['end_once_customer_purchases_anwyere'];
+        return $this->container['end_once_customer_purchases_anywhere'];
     }
 
     /**
-     * Sets end_once_customer_purchases_anwyere
+     * Sets end_once_customer_purchases_anywhere
      *
-     * @param bool $end_once_customer_purchases_anwyere True if the customer should end the flow once they purchase from anywhere
+     * @param bool $end_once_customer_purchases_anywhere True if the customer should end the flow once they purchase from anywhere
      *
      * @return $this
      */
-    public function setEndOnceCustomerPurchasesAnwyere($end_once_customer_purchases_anwyere)
+    public function setEndOnceCustomerPurchasesAnywhere($end_once_customer_purchases_anywhere)
     {
-        $this->container['end_once_customer_purchases_anwyere'] = $end_once_customer_purchases_anwyere;
+        $this->container['end_once_customer_purchases_anywhere'] = $end_once_customer_purchases_anywhere;
 
         return $this;
     }

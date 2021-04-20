@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **email_campaign_uuid** | **string** | Email campaign UUID | [optional] 
 **email_communication_sequence_uuid** | **string** | Email communication sequence UUID | [optional] 
 **end_once_customer_purchases** | **bool** | True if the customer should end the flow once they purchase from this campaign | [optional] 
-**end_once_customer_purchases_anwyere** | **bool** | True if the customer should end the flow once they purchase from anywhere | [optional] 
+**end_once_customer_purchases_anywhere** | **bool** | True if the customer should end the flow once they purchase from anywhere | [optional] 
 **esp_campaign_folder_uuid** | **string** | Campaign folder UUID.  Null for uncategorized | [optional] 
 **esp_domain_user** | **string** | User of the sending address | [optional] 
 **esp_domain_uuid** | **string** | UUID of the sending domain | [optional] 
