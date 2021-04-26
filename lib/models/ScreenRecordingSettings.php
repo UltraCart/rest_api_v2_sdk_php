@@ -57,7 +57,12 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'enabled' => 'bool'
+        'enabled' => 'bool',
+        'sessions_current_billing_period' => 'int',
+        'sessions_last_billing_period' => 'int',
+        'sessions_trial_billing_period' => 'int',
+        'trial_expiration' => 'string',
+        'trial_expired' => 'bool'
     ];
 
     /**
@@ -66,7 +71,12 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'enabled' => null
+        'enabled' => null,
+        'sessions_current_billing_period' => 'int32',
+        'sessions_last_billing_period' => 'int32',
+        'sessions_trial_billing_period' => 'int32',
+        'trial_expiration' => null,
+        'trial_expired' => null
     ];
 
     /**
@@ -96,7 +106,12 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'enabled' => 'enabled'
+        'enabled' => 'enabled',
+        'sessions_current_billing_period' => 'sessions_current_billing_period',
+        'sessions_last_billing_period' => 'sessions_last_billing_period',
+        'sessions_trial_billing_period' => 'sessions_trial_billing_period',
+        'trial_expiration' => 'trial_expiration',
+        'trial_expired' => 'trial_expired'
     ];
 
     /**
@@ -105,7 +120,12 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'enabled' => 'setEnabled'
+        'enabled' => 'setEnabled',
+        'sessions_current_billing_period' => 'setSessionsCurrentBillingPeriod',
+        'sessions_last_billing_period' => 'setSessionsLastBillingPeriod',
+        'sessions_trial_billing_period' => 'setSessionsTrialBillingPeriod',
+        'trial_expiration' => 'setTrialExpiration',
+        'trial_expired' => 'setTrialExpired'
     ];
 
     /**
@@ -114,7 +134,12 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'enabled' => 'getEnabled'
+        'enabled' => 'getEnabled',
+        'sessions_current_billing_period' => 'getSessionsCurrentBillingPeriod',
+        'sessions_last_billing_period' => 'getSessionsLastBillingPeriod',
+        'sessions_trial_billing_period' => 'getSessionsTrialBillingPeriod',
+        'trial_expiration' => 'getTrialExpiration',
+        'trial_expired' => 'getTrialExpired'
     ];
 
     /**
@@ -178,6 +203,11 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['sessions_current_billing_period'] = isset($data['sessions_current_billing_period']) ? $data['sessions_current_billing_period'] : null;
+        $this->container['sessions_last_billing_period'] = isset($data['sessions_last_billing_period']) ? $data['sessions_last_billing_period'] : null;
+        $this->container['sessions_trial_billing_period'] = isset($data['sessions_trial_billing_period']) ? $data['sessions_trial_billing_period'] : null;
+        $this->container['trial_expiration'] = isset($data['trial_expiration']) ? $data['trial_expiration'] : null;
+        $this->container['trial_expired'] = isset($data['trial_expired']) ? $data['trial_expired'] : null;
     }
 
     /**
@@ -224,6 +254,126 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets sessions_current_billing_period
+     *
+     * @return int
+     */
+    public function getSessionsCurrentBillingPeriod()
+    {
+        return $this->container['sessions_current_billing_period'];
+    }
+
+    /**
+     * Sets sessions_current_billing_period
+     *
+     * @param int $sessions_current_billing_period sessions_current_billing_period
+     *
+     * @return $this
+     */
+    public function setSessionsCurrentBillingPeriod($sessions_current_billing_period)
+    {
+        $this->container['sessions_current_billing_period'] = $sessions_current_billing_period;
+
+        return $this;
+    }
+
+    /**
+     * Gets sessions_last_billing_period
+     *
+     * @return int
+     */
+    public function getSessionsLastBillingPeriod()
+    {
+        return $this->container['sessions_last_billing_period'];
+    }
+
+    /**
+     * Sets sessions_last_billing_period
+     *
+     * @param int $sessions_last_billing_period sessions_last_billing_period
+     *
+     * @return $this
+     */
+    public function setSessionsLastBillingPeriod($sessions_last_billing_period)
+    {
+        $this->container['sessions_last_billing_period'] = $sessions_last_billing_period;
+
+        return $this;
+    }
+
+    /**
+     * Gets sessions_trial_billing_period
+     *
+     * @return int
+     */
+    public function getSessionsTrialBillingPeriod()
+    {
+        return $this->container['sessions_trial_billing_period'];
+    }
+
+    /**
+     * Sets sessions_trial_billing_period
+     *
+     * @param int $sessions_trial_billing_period sessions_trial_billing_period
+     *
+     * @return $this
+     */
+    public function setSessionsTrialBillingPeriod($sessions_trial_billing_period)
+    {
+        $this->container['sessions_trial_billing_period'] = $sessions_trial_billing_period;
+
+        return $this;
+    }
+
+    /**
+     * Gets trial_expiration
+     *
+     * @return string
+     */
+    public function getTrialExpiration()
+    {
+        return $this->container['trial_expiration'];
+    }
+
+    /**
+     * Sets trial_expiration
+     *
+     * @param string $trial_expiration trial_expiration
+     *
+     * @return $this
+     */
+    public function setTrialExpiration($trial_expiration)
+    {
+        $this->container['trial_expiration'] = $trial_expiration;
+
+        return $this;
+    }
+
+    /**
+     * Gets trial_expired
+     *
+     * @return bool
+     */
+    public function getTrialExpired()
+    {
+        return $this->container['trial_expired'];
+    }
+
+    /**
+     * Sets trial_expired
+     *
+     * @param bool $trial_expired trial_expired
+     *
+     * @return $this
+     */
+    public function setTrialExpired($trial_expired)
+    {
+        $this->container['trial_expired'] = $trial_expired;
 
         return $this;
     }
