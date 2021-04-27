@@ -68,6 +68,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => '\ultracart\v2\models\ScreenRecordingFilterGeoDistance',
         'geolocation_country' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'geolocation_state' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
+        'language_iso_code' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'max_filter_values' => 'int',
         'order_id' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'page_view_count' => '\ultracart\v2\models\ScreenRecordingFilterRangeInteger',
@@ -109,6 +110,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => null,
         'geolocation_country' => null,
         'geolocation_state' => null,
+        'language_iso_code' => null,
         'max_filter_values' => 'int32',
         'order_id' => null,
         'page_view_count' => null,
@@ -171,6 +173,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => 'geolocation',
         'geolocation_country' => 'geolocation_country',
         'geolocation_state' => 'geolocation_state',
+        'language_iso_code' => 'language_iso_code',
         'max_filter_values' => 'max_filter_values',
         'order_id' => 'order_id',
         'page_view_count' => 'page_view_count',
@@ -212,6 +215,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => 'setGeolocation',
         'geolocation_country' => 'setGeolocationCountry',
         'geolocation_state' => 'setGeolocationState',
+        'language_iso_code' => 'setLanguageIsoCode',
         'max_filter_values' => 'setMaxFilterValues',
         'order_id' => 'setOrderId',
         'page_view_count' => 'setPageViewCount',
@@ -253,6 +257,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => 'getGeolocation',
         'geolocation_country' => 'getGeolocationCountry',
         'geolocation_state' => 'getGeolocationState',
+        'language_iso_code' => 'getLanguageIsoCode',
         'max_filter_values' => 'getMaxFilterValues',
         'order_id' => 'getOrderId',
         'page_view_count' => 'getPageViewCount',
@@ -348,6 +353,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         $this->container['geolocation'] = isset($data['geolocation']) ? $data['geolocation'] : null;
         $this->container['geolocation_country'] = isset($data['geolocation_country']) ? $data['geolocation_country'] : null;
         $this->container['geolocation_state'] = isset($data['geolocation_state']) ? $data['geolocation_state'] : null;
+        $this->container['language_iso_code'] = isset($data['language_iso_code']) ? $data['language_iso_code'] : null;
         $this->container['max_filter_values'] = isset($data['max_filter_values']) ? $data['max_filter_values'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['page_view_count'] = isset($data['page_view_count']) ? $data['page_view_count'] : null;
@@ -656,6 +662,30 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
     public function setGeolocationState($geolocation_state)
     {
         $this->container['geolocation_state'] = $geolocation_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets language_iso_code
+     *
+     * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
+     */
+    public function getLanguageIsoCode()
+    {
+        return $this->container['language_iso_code'];
+    }
+
+    /**
+     * Sets language_iso_code
+     *
+     * @param \ultracart\v2\models\ScreenRecordingFilterStringSearch $language_iso_code language_iso_code
+     *
+     * @return $this
+     */
+    public function setLanguageIsoCode($language_iso_code)
+    {
+        $this->container['language_iso_code'] = $language_iso_code;
 
         return $this;
     }

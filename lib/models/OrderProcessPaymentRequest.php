@@ -57,6 +57,7 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'amount' => 'float',
         'card_verification_number_token' => 'string'
     ];
 
@@ -66,6 +67,7 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'amount' => null,
         'card_verification_number_token' => null
     ];
 
@@ -96,6 +98,7 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'amount' => 'amount',
         'card_verification_number_token' => 'card_verification_number_token'
     ];
 
@@ -105,6 +108,7 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'amount' => 'setAmount',
         'card_verification_number_token' => 'setCardVerificationNumberToken'
     ];
 
@@ -114,6 +118,7 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'amount' => 'getAmount',
         'card_verification_number_token' => 'getCardVerificationNumberToken'
     ];
 
@@ -177,6 +182,7 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['card_verification_number_token'] = isset($data['card_verification_number_token']) ? $data['card_verification_number_token'] : null;
     }
 
@@ -203,6 +209,30 @@ class OrderProcessPaymentRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets amount
+     *
+     * @return float
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param float $amount Specific amount to bill (optional).  If not specified the total of the order is billed.
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
 
     /**
      * Gets card_verification_number_token

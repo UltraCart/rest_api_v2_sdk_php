@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **communications_flow_names** | **string[]** |  | [optional] 
 **geolocation_countries** | **string[]** |  | [optional] 
 **geolocation_states** | **string[]** |  | [optional] 
+**language_iso_codes** | **string[]** |  | [optional] 
 **max_values** | **int** |  | [optional] 
 **page_views** | [**\ultracart\v2\models\ScreenRecordingFilterValuesPageView[]**](ScreenRecordingFilterValuesPageView.md) |  | [optional] 
 **time_on_site_max** | **int** |  | [optional] 

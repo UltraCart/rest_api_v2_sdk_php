@@ -1087,6 +1087,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.30 | 04/27/2021 | OrderApi.processPayment now allows a specific amount to be billed  | 
+| 3.1.29 | 04/26/2021 | screen recording language iso code | 
 | 3.1.28 | 04/26/2021 | screen recording statistics on the setting object | 
 | 3.1.27 | 04/20/2021 | bug fix - annotation misspell on new email campaign property |
 | 3.1.26 | 04/20/2021 | StoreFront Connumications - flag to end campaign or flow once purchase happens anywhere |

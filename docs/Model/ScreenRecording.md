@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **geolocation** | [**\ultracart\v2\models\GeoPoint**](GeoPoint.md) |  | [optional] 
 **geolocation_country** | **string** |  | [optional] 
 **geolocation_state** | **string** |  | [optional] 
+**language_iso_code** | **string** | Language ISO code | [optional] 
 **merchant_id** | **string** |  | [optional] 
 **merchant_notes** | **string** |  | [optional] 
 **order_id** | **string** |  | [optional] 

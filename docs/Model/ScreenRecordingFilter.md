@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **geolocation** | [**\ultracart\v2\models\ScreenRecordingFilterGeoDistance**](ScreenRecordingFilterGeoDistance.md) |  | [optional] 
 **geolocation_country** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **geolocation_state** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**language_iso_code** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **max_filter_values** | **int** |  | [optional] 
 **order_id** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **page_view_count** | [**\ultracart\v2\models\ScreenRecordingFilterRangeInteger**](ScreenRecordingFilterRangeInteger.md) |  | [optional] 

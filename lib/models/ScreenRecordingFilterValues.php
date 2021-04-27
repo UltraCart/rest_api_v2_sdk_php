@@ -62,6 +62,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_flow_names' => 'string[]',
         'geolocation_countries' => 'string[]',
         'geolocation_states' => 'string[]',
+        'language_iso_codes' => 'string[]',
         'max_values' => 'int',
         'page_views' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageView[]',
         'time_on_site_max' => 'int',
@@ -87,6 +88,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_flow_names' => null,
         'geolocation_countries' => null,
         'geolocation_states' => null,
+        'language_iso_codes' => null,
         'max_values' => 'int32',
         'page_views' => null,
         'time_on_site_max' => 'int32',
@@ -133,6 +135,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_flow_names' => 'communications_flow_names',
         'geolocation_countries' => 'geolocation_countries',
         'geolocation_states' => 'geolocation_states',
+        'language_iso_codes' => 'language_iso_codes',
         'max_values' => 'max_values',
         'page_views' => 'page_views',
         'time_on_site_max' => 'time_on_site_max',
@@ -158,6 +161,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_flow_names' => 'setCommunicationsFlowNames',
         'geolocation_countries' => 'setGeolocationCountries',
         'geolocation_states' => 'setGeolocationStates',
+        'language_iso_codes' => 'setLanguageIsoCodes',
         'max_values' => 'setMaxValues',
         'page_views' => 'setPageViews',
         'time_on_site_max' => 'setTimeOnSiteMax',
@@ -183,6 +187,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_flow_names' => 'getCommunicationsFlowNames',
         'geolocation_countries' => 'getGeolocationCountries',
         'geolocation_states' => 'getGeolocationStates',
+        'language_iso_codes' => 'getLanguageIsoCodes',
         'max_values' => 'getMaxValues',
         'page_views' => 'getPageViews',
         'time_on_site_max' => 'getTimeOnSiteMax',
@@ -262,6 +267,7 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         $this->container['communications_flow_names'] = isset($data['communications_flow_names']) ? $data['communications_flow_names'] : null;
         $this->container['geolocation_countries'] = isset($data['geolocation_countries']) ? $data['geolocation_countries'] : null;
         $this->container['geolocation_states'] = isset($data['geolocation_states']) ? $data['geolocation_states'] : null;
+        $this->container['language_iso_codes'] = isset($data['language_iso_codes']) ? $data['language_iso_codes'] : null;
         $this->container['max_values'] = isset($data['max_values']) ? $data['max_values'] : null;
         $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
         $this->container['time_on_site_max'] = isset($data['time_on_site_max']) ? $data['time_on_site_max'] : null;
@@ -416,6 +422,30 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     public function setGeolocationStates($geolocation_states)
     {
         $this->container['geolocation_states'] = $geolocation_states;
+
+        return $this;
+    }
+
+    /**
+     * Gets language_iso_codes
+     *
+     * @return string[]
+     */
+    public function getLanguageIsoCodes()
+    {
+        return $this->container['language_iso_codes'];
+    }
+
+    /**
+     * Sets language_iso_codes
+     *
+     * @param string[] $language_iso_codes language_iso_codes
+     *
+     * @return $this
+     */
+    public function setLanguageIsoCodes($language_iso_codes)
+    {
+        $this->container['language_iso_codes'] = $language_iso_codes;
 
         return $this;
     }
