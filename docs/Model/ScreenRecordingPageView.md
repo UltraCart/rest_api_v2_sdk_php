@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **referrer_raw** | **string** |  | [optional] 
 **screen_recording_page_view_uuid** | **string** |  | [optional] 
 **time_on_page** | **int** |  | [optional] 
+**timing_dom_content_loaded** | **int** | Amount of time for DOMContentLoaded event to fire (milliseconds) | [optional] 
+**timing_loaded** | **int** | Amount of time for loaded event to fire (milliseconds) | [optional] 
 **truncated_events** | **bool** |  | [optional] 
 **ucapv** | **string** |  | [optional] 
 **url** | **string** |  | [optional] 

@@ -60,6 +60,9 @@ class ScreenRecordingSegment implements ModelInterface, ArrayAccess
         'create_dts' => 'string',
         'description' => 'string',
         'filter' => '\ultracart\v2\models\ScreenRecordingFilter',
+        'histogram_data' => 'int[]',
+        'histogram_interval' => 'string',
+        'histogram_start_dts' => 'string',
         'name' => 'string',
         'screen_recording_segment_oid' => 'int',
         'session_count' => 'int',
@@ -75,6 +78,9 @@ class ScreenRecordingSegment implements ModelInterface, ArrayAccess
         'create_dts' => null,
         'description' => null,
         'filter' => null,
+        'histogram_data' => null,
+        'histogram_interval' => null,
+        'histogram_start_dts' => null,
         'name' => null,
         'screen_recording_segment_oid' => 'int32',
         'session_count' => 'int32',
@@ -111,6 +117,9 @@ class ScreenRecordingSegment implements ModelInterface, ArrayAccess
         'create_dts' => 'create_dts',
         'description' => 'description',
         'filter' => 'filter',
+        'histogram_data' => 'histogram_data',
+        'histogram_interval' => 'histogram_interval',
+        'histogram_start_dts' => 'histogram_start_dts',
         'name' => 'name',
         'screen_recording_segment_oid' => 'screen_recording_segment_oid',
         'session_count' => 'session_count',
@@ -126,6 +135,9 @@ class ScreenRecordingSegment implements ModelInterface, ArrayAccess
         'create_dts' => 'setCreateDts',
         'description' => 'setDescription',
         'filter' => 'setFilter',
+        'histogram_data' => 'setHistogramData',
+        'histogram_interval' => 'setHistogramInterval',
+        'histogram_start_dts' => 'setHistogramStartDts',
         'name' => 'setName',
         'screen_recording_segment_oid' => 'setScreenRecordingSegmentOid',
         'session_count' => 'setSessionCount',
@@ -141,6 +153,9 @@ class ScreenRecordingSegment implements ModelInterface, ArrayAccess
         'create_dts' => 'getCreateDts',
         'description' => 'getDescription',
         'filter' => 'getFilter',
+        'histogram_data' => 'getHistogramData',
+        'histogram_interval' => 'getHistogramInterval',
+        'histogram_start_dts' => 'getHistogramStartDts',
         'name' => 'getName',
         'screen_recording_segment_oid' => 'getScreenRecordingSegmentOid',
         'session_count' => 'getSessionCount',
@@ -210,6 +225,9 @@ class ScreenRecordingSegment implements ModelInterface, ArrayAccess
         $this->container['create_dts'] = isset($data['create_dts']) ? $data['create_dts'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
+        $this->container['histogram_data'] = isset($data['histogram_data']) ? $data['histogram_data'] : null;
+        $this->container['histogram_interval'] = isset($data['histogram_interval']) ? $data['histogram_interval'] : null;
+        $this->container['histogram_start_dts'] = isset($data['histogram_start_dts']) ? $data['histogram_start_dts'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['screen_recording_segment_oid'] = isset($data['screen_recording_segment_oid']) ? $data['screen_recording_segment_oid'] : null;
         $this->container['session_count'] = isset($data['session_count']) ? $data['session_count'] : null;
@@ -308,6 +326,78 @@ class ScreenRecordingSegment implements ModelInterface, ArrayAccess
     public function setFilter($filter)
     {
         $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets histogram_data
+     *
+     * @return int[]
+     */
+    public function getHistogramData()
+    {
+        return $this->container['histogram_data'];
+    }
+
+    /**
+     * Sets histogram_data
+     *
+     * @param int[] $histogram_data histogram_data
+     *
+     * @return $this
+     */
+    public function setHistogramData($histogram_data)
+    {
+        $this->container['histogram_data'] = $histogram_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets histogram_interval
+     *
+     * @return string
+     */
+    public function getHistogramInterval()
+    {
+        return $this->container['histogram_interval'];
+    }
+
+    /**
+     * Sets histogram_interval
+     *
+     * @param string $histogram_interval histogram_interval
+     *
+     * @return $this
+     */
+    public function setHistogramInterval($histogram_interval)
+    {
+        $this->container['histogram_interval'] = $histogram_interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets histogram_start_dts
+     *
+     * @return string
+     */
+    public function getHistogramStartDts()
+    {
+        return $this->container['histogram_start_dts'];
+    }
+
+    /**
+     * Sets histogram_start_dts
+     *
+     * @param string $histogram_start_dts histogram_start_dts
+     *
+     * @return $this
+     */
+    public function setHistogramStartDts($histogram_start_dts)
+    {
+        $this->container['histogram_start_dts'] = $histogram_start_dts;
 
         return $this;
     }

@@ -60,11 +60,14 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_campaign_names' => 'string[]',
         'communications_email_subjects' => 'string[]',
         'communications_flow_names' => 'string[]',
+        'email_domains' => 'string[]',
         'geolocation_countries' => 'string[]',
         'geolocation_states' => 'string[]',
         'language_iso_codes' => 'string[]',
         'max_values' => 'int',
         'page_views' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageView[]',
+        'preferred_languages' => 'string[]',
+        'referrer_domains' => 'string[]',
         'time_on_site_max' => 'int',
         'time_on_site_min' => 'int',
         'urls' => 'string[]',
@@ -86,11 +89,14 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_campaign_names' => null,
         'communications_email_subjects' => null,
         'communications_flow_names' => null,
+        'email_domains' => null,
         'geolocation_countries' => null,
         'geolocation_states' => null,
         'language_iso_codes' => null,
         'max_values' => 'int32',
         'page_views' => null,
+        'preferred_languages' => null,
+        'referrer_domains' => null,
         'time_on_site_max' => 'int32',
         'time_on_site_min' => 'int32',
         'urls' => null,
@@ -133,11 +139,14 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_campaign_names' => 'communications_campaign_names',
         'communications_email_subjects' => 'communications_email_subjects',
         'communications_flow_names' => 'communications_flow_names',
+        'email_domains' => 'email_domains',
         'geolocation_countries' => 'geolocation_countries',
         'geolocation_states' => 'geolocation_states',
         'language_iso_codes' => 'language_iso_codes',
         'max_values' => 'max_values',
         'page_views' => 'page_views',
+        'preferred_languages' => 'preferred_languages',
+        'referrer_domains' => 'referrer_domains',
         'time_on_site_max' => 'time_on_site_max',
         'time_on_site_min' => 'time_on_site_min',
         'urls' => 'urls',
@@ -159,11 +168,14 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_campaign_names' => 'setCommunicationsCampaignNames',
         'communications_email_subjects' => 'setCommunicationsEmailSubjects',
         'communications_flow_names' => 'setCommunicationsFlowNames',
+        'email_domains' => 'setEmailDomains',
         'geolocation_countries' => 'setGeolocationCountries',
         'geolocation_states' => 'setGeolocationStates',
         'language_iso_codes' => 'setLanguageIsoCodes',
         'max_values' => 'setMaxValues',
         'page_views' => 'setPageViews',
+        'preferred_languages' => 'setPreferredLanguages',
+        'referrer_domains' => 'setReferrerDomains',
         'time_on_site_max' => 'setTimeOnSiteMax',
         'time_on_site_min' => 'setTimeOnSiteMin',
         'urls' => 'setUrls',
@@ -185,11 +197,14 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         'communications_campaign_names' => 'getCommunicationsCampaignNames',
         'communications_email_subjects' => 'getCommunicationsEmailSubjects',
         'communications_flow_names' => 'getCommunicationsFlowNames',
+        'email_domains' => 'getEmailDomains',
         'geolocation_countries' => 'getGeolocationCountries',
         'geolocation_states' => 'getGeolocationStates',
         'language_iso_codes' => 'getLanguageIsoCodes',
         'max_values' => 'getMaxValues',
         'page_views' => 'getPageViews',
+        'preferred_languages' => 'getPreferredLanguages',
+        'referrer_domains' => 'getReferrerDomains',
         'time_on_site_max' => 'getTimeOnSiteMax',
         'time_on_site_min' => 'getTimeOnSiteMin',
         'urls' => 'getUrls',
@@ -265,11 +280,14 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
         $this->container['communications_campaign_names'] = isset($data['communications_campaign_names']) ? $data['communications_campaign_names'] : null;
         $this->container['communications_email_subjects'] = isset($data['communications_email_subjects']) ? $data['communications_email_subjects'] : null;
         $this->container['communications_flow_names'] = isset($data['communications_flow_names']) ? $data['communications_flow_names'] : null;
+        $this->container['email_domains'] = isset($data['email_domains']) ? $data['email_domains'] : null;
         $this->container['geolocation_countries'] = isset($data['geolocation_countries']) ? $data['geolocation_countries'] : null;
         $this->container['geolocation_states'] = isset($data['geolocation_states']) ? $data['geolocation_states'] : null;
         $this->container['language_iso_codes'] = isset($data['language_iso_codes']) ? $data['language_iso_codes'] : null;
         $this->container['max_values'] = isset($data['max_values']) ? $data['max_values'] : null;
         $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
+        $this->container['preferred_languages'] = isset($data['preferred_languages']) ? $data['preferred_languages'] : null;
+        $this->container['referrer_domains'] = isset($data['referrer_domains']) ? $data['referrer_domains'] : null;
         $this->container['time_on_site_max'] = isset($data['time_on_site_max']) ? $data['time_on_site_max'] : null;
         $this->container['time_on_site_min'] = isset($data['time_on_site_min']) ? $data['time_on_site_min'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
@@ -374,6 +392,30 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     public function setCommunicationsFlowNames($communications_flow_names)
     {
         $this->container['communications_flow_names'] = $communications_flow_names;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_domains
+     *
+     * @return string[]
+     */
+    public function getEmailDomains()
+    {
+        return $this->container['email_domains'];
+    }
+
+    /**
+     * Sets email_domains
+     *
+     * @param string[] $email_domains email_domains
+     *
+     * @return $this
+     */
+    public function setEmailDomains($email_domains)
+    {
+        $this->container['email_domains'] = $email_domains;
 
         return $this;
     }
@@ -494,6 +536,54 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     public function setPageViews($page_views)
     {
         $this->container['page_views'] = $page_views;
+
+        return $this;
+    }
+
+    /**
+     * Gets preferred_languages
+     *
+     * @return string[]
+     */
+    public function getPreferredLanguages()
+    {
+        return $this->container['preferred_languages'];
+    }
+
+    /**
+     * Sets preferred_languages
+     *
+     * @param string[] $preferred_languages preferred_languages
+     *
+     * @return $this
+     */
+    public function setPreferredLanguages($preferred_languages)
+    {
+        $this->container['preferred_languages'] = $preferred_languages;
+
+        return $this;
+    }
+
+    /**
+     * Gets referrer_domains
+     *
+     * @return string[]
+     */
+    public function getReferrerDomains()
+    {
+        return $this->container['referrer_domains'];
+    }
+
+    /**
+     * Sets referrer_domains
+     *
+     * @param string[] $referrer_domains referrer_domains
+     *
+     * @return $this
+     */
+    public function setReferrerDomains($referrer_domains)
+    {
+        $this->container['referrer_domains'] = $referrer_domains;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ad_platform** | [**\ultracart\v2\models\ScreenRecordingAdPlatform**](ScreenRecordingAdPlatform.md) |  | [optional] 
 **analytics_client_oid** | **int** |  | [optional] 
 **analytics_session_dts** | **int** |  | [optional] 
 **analytics_session_oid** | **int** |  | [optional] 
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **communications_flow_name** | **string** | Flow Name | [optional] 
 **communications_flow_uuid** | **string** | Flow UUID | [optional] 
 **email** | **string** |  | [optional] 
+**email_domain** | **string** |  | [optional] 
 **end_timestamp** | **string** | Ending timestamp | [optional] 
 **esp_customer_uuid** | **string** |  | [optional] 
 **events_gz_size** | **int** |  | [optional] 
@@ -28,6 +30,8 @@ Name | Type | Description | Notes
 **order_id** | **string** |  | [optional] 
 **page_view_count** | **int** |  | [optional] 
 **page_views** | [**\ultracart\v2\models\ScreenRecordingPageView[]**](ScreenRecordingPageView.md) |  | [optional] 
+**preferred_language** | **string** | ISO 3 Letter language code that the customer would prefer | [optional] 
+**referrer_domain** | **string** |  | [optional] 
 **rrweb_version** | **string** |  | [optional] 
 **screen_recording_uuid** | **string** |  | [optional] 
 **signed_download_url** | **string** |  | [optional] 

@@ -70,6 +70,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => 'string',
         'screen_recording_page_view_uuid' => 'string',
         'time_on_page' => 'int',
+        'timing_dom_content_loaded' => 'int',
+        'timing_loaded' => 'int',
         'truncated_events' => 'bool',
         'ucapv' => 'string',
         'url' => 'string'
@@ -94,6 +96,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => null,
         'screen_recording_page_view_uuid' => null,
         'time_on_page' => 'int32',
+        'timing_dom_content_loaded' => 'int32',
+        'timing_loaded' => 'int32',
         'truncated_events' => null,
         'ucapv' => null,
         'url' => null
@@ -139,6 +143,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => 'referrer_raw',
         'screen_recording_page_view_uuid' => 'screen_recording_page_view_uuid',
         'time_on_page' => 'time_on_page',
+        'timing_dom_content_loaded' => 'timing_dom_content_loaded',
+        'timing_loaded' => 'timing_loaded',
         'truncated_events' => 'truncated_events',
         'ucapv' => 'ucapv',
         'url' => 'url'
@@ -163,6 +169,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => 'setReferrerRaw',
         'screen_recording_page_view_uuid' => 'setScreenRecordingPageViewUuid',
         'time_on_page' => 'setTimeOnPage',
+        'timing_dom_content_loaded' => 'setTimingDomContentLoaded',
+        'timing_loaded' => 'setTimingLoaded',
         'truncated_events' => 'setTruncatedEvents',
         'ucapv' => 'setUcapv',
         'url' => 'setUrl'
@@ -187,6 +195,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => 'getReferrerRaw',
         'screen_recording_page_view_uuid' => 'getScreenRecordingPageViewUuid',
         'time_on_page' => 'getTimeOnPage',
+        'timing_dom_content_loaded' => 'getTimingDomContentLoaded',
+        'timing_loaded' => 'getTimingLoaded',
         'truncated_events' => 'getTruncatedEvents',
         'ucapv' => 'getUcapv',
         'url' => 'getUrl'
@@ -265,6 +275,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         $this->container['referrer_raw'] = isset($data['referrer_raw']) ? $data['referrer_raw'] : null;
         $this->container['screen_recording_page_view_uuid'] = isset($data['screen_recording_page_view_uuid']) ? $data['screen_recording_page_view_uuid'] : null;
         $this->container['time_on_page'] = isset($data['time_on_page']) ? $data['time_on_page'] : null;
+        $this->container['timing_dom_content_loaded'] = isset($data['timing_dom_content_loaded']) ? $data['timing_dom_content_loaded'] : null;
+        $this->container['timing_loaded'] = isset($data['timing_loaded']) ? $data['timing_loaded'] : null;
         $this->container['truncated_events'] = isset($data['truncated_events']) ? $data['truncated_events'] : null;
         $this->container['ucapv'] = isset($data['ucapv']) ? $data['ucapv'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -602,6 +614,54 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
     public function setTimeOnPage($time_on_page)
     {
         $this->container['time_on_page'] = $time_on_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets timing_dom_content_loaded
+     *
+     * @return int
+     */
+    public function getTimingDomContentLoaded()
+    {
+        return $this->container['timing_dom_content_loaded'];
+    }
+
+    /**
+     * Sets timing_dom_content_loaded
+     *
+     * @param int $timing_dom_content_loaded Amount of time for DOMContentLoaded event to fire (milliseconds)
+     *
+     * @return $this
+     */
+    public function setTimingDomContentLoaded($timing_dom_content_loaded)
+    {
+        $this->container['timing_dom_content_loaded'] = $timing_dom_content_loaded;
+
+        return $this;
+    }
+
+    /**
+     * Gets timing_loaded
+     *
+     * @return int
+     */
+    public function getTimingLoaded()
+    {
+        return $this->container['timing_loaded'];
+    }
+
+    /**
+     * Sets timing_loaded
+     *
+     * @param int $timing_loaded Amount of time for loaded event to fire (milliseconds)
+     *
+     * @return $this
+     */
+    public function setTimingLoaded($timing_loaded)
+    {
+        $this->container['timing_loaded'] = $timing_loaded;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ScreenRecordingPageViewEvent
+ * ScreenRecordingAdPlatform
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ScreenRecordingPageViewEvent Class Doc Comment
+ * ScreenRecordingAdPlatform Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
+class ScreenRecordingAdPlatform implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ScreenRecordingPageViewEvent';
+    protected static $swaggerModelName = 'ScreenRecordingAdPlatform';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,12 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'params' => '\ultracart\v2\models\ScreenRecordingPageViewEventParameter[]',
-        'prior_page_view' => 'bool',
-        'timestamp' => 'string',
-        'ts' => 'int'
+        'fbc' => 'string',
+        'fbclid' => 'string',
+        'fbp' => 'string',
+        'gacid' => 'string',
+        'glcid' => 'string',
+        'msclkid' => 'string'
     ];
 
     /**
@@ -70,11 +71,12 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'params' => null,
-        'prior_page_view' => null,
-        'timestamp' => 'dateTime',
-        'ts' => 'int64'
+        'fbc' => null,
+        'fbclid' => null,
+        'fbp' => null,
+        'gacid' => null,
+        'glcid' => null,
+        'msclkid' => null
     ];
 
     /**
@@ -104,11 +106,12 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'params' => 'params',
-        'prior_page_view' => 'prior_page_view',
-        'timestamp' => 'timestamp',
-        'ts' => 'ts'
+        'fbc' => 'fbc',
+        'fbclid' => 'fbclid',
+        'fbp' => 'fbp',
+        'gacid' => 'gacid',
+        'glcid' => 'glcid',
+        'msclkid' => 'msclkid'
     ];
 
     /**
@@ -117,11 +120,12 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'params' => 'setParams',
-        'prior_page_view' => 'setPriorPageView',
-        'timestamp' => 'setTimestamp',
-        'ts' => 'setTs'
+        'fbc' => 'setFbc',
+        'fbclid' => 'setFbclid',
+        'fbp' => 'setFbp',
+        'gacid' => 'setGacid',
+        'glcid' => 'setGlcid',
+        'msclkid' => 'setMsclkid'
     ];
 
     /**
@@ -130,11 +134,12 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'params' => 'getParams',
-        'prior_page_view' => 'getPriorPageView',
-        'timestamp' => 'getTimestamp',
-        'ts' => 'getTs'
+        'fbc' => 'getFbc',
+        'fbclid' => 'getFbclid',
+        'fbp' => 'getFbp',
+        'gacid' => 'getGacid',
+        'glcid' => 'getGlcid',
+        'msclkid' => 'getMsclkid'
     ];
 
     /**
@@ -197,11 +202,12 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['params'] = isset($data['params']) ? $data['params'] : null;
-        $this->container['prior_page_view'] = isset($data['prior_page_view']) ? $data['prior_page_view'] : null;
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
-        $this->container['ts'] = isset($data['ts']) ? $data['ts'] : null;
+        $this->container['fbc'] = isset($data['fbc']) ? $data['fbc'] : null;
+        $this->container['fbclid'] = isset($data['fbclid']) ? $data['fbclid'] : null;
+        $this->container['fbp'] = isset($data['fbp']) ? $data['fbp'] : null;
+        $this->container['gacid'] = isset($data['gacid']) ? $data['gacid'] : null;
+        $this->container['glcid'] = isset($data['glcid']) ? $data['glcid'] : null;
+        $this->container['msclkid'] = isset($data['msclkid']) ? $data['msclkid'] : null;
     }
 
     /**
@@ -229,121 +235,145 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets fbc
      *
      * @return string
      */
-    public function getName()
+    public function getFbc()
     {
-        return $this->container['name'];
+        return $this->container['fbc'];
     }
 
     /**
-     * Sets name
+     * Sets fbc
      *
-     * @param string $name name
+     * @param string $fbc Facebook Click Id (Cookie)
      *
      * @return $this
      */
-    public function setName($name)
+    public function setFbc($fbc)
     {
-        $this->container['name'] = $name;
+        $this->container['fbc'] = $fbc;
 
         return $this;
     }
 
     /**
-     * Gets params
-     *
-     * @return \ultracart\v2\models\ScreenRecordingPageViewEventParameter[]
-     */
-    public function getParams()
-    {
-        return $this->container['params'];
-    }
-
-    /**
-     * Sets params
-     *
-     * @param \ultracart\v2\models\ScreenRecordingPageViewEventParameter[] $params params
-     *
-     * @return $this
-     */
-    public function setParams($params)
-    {
-        $this->container['params'] = $params;
-
-        return $this;
-    }
-
-    /**
-     * Gets prior_page_view
-     *
-     * @return bool
-     */
-    public function getPriorPageView()
-    {
-        return $this->container['prior_page_view'];
-    }
-
-    /**
-     * Sets prior_page_view
-     *
-     * @param bool $prior_page_view prior_page_view
-     *
-     * @return $this
-     */
-    public function setPriorPageView($prior_page_view)
-    {
-        $this->container['prior_page_view'] = $prior_page_view;
-
-        return $this;
-    }
-
-    /**
-     * Gets timestamp
+     * Gets fbclid
      *
      * @return string
      */
-    public function getTimestamp()
+    public function getFbclid()
     {
-        return $this->container['timestamp'];
+        return $this->container['fbclid'];
     }
 
     /**
-     * Sets timestamp
+     * Sets fbclid
      *
-     * @param string $timestamp Timestamp of the event
+     * @param string $fbclid Facebook Click Id Parameter (Parameter)
      *
      * @return $this
      */
-    public function setTimestamp($timestamp)
+    public function setFbclid($fbclid)
     {
-        $this->container['timestamp'] = $timestamp;
+        $this->container['fbclid'] = $fbclid;
 
         return $this;
     }
 
     /**
-     * Gets ts
+     * Gets fbp
      *
-     * @return int
+     * @return string
      */
-    public function getTs()
+    public function getFbp()
     {
-        return $this->container['ts'];
+        return $this->container['fbp'];
     }
 
     /**
-     * Sets ts
+     * Sets fbp
      *
-     * @param int $ts ts
+     * @param string $fbp Facebook Browser Id (Cookie)
      *
      * @return $this
      */
-    public function setTs($ts)
+    public function setFbp($fbp)
     {
-        $this->container['ts'] = $ts;
+        $this->container['fbp'] = $fbp;
+
+        return $this;
+    }
+
+    /**
+     * Gets gacid
+     *
+     * @return string
+     */
+    public function getGacid()
+    {
+        return $this->container['gacid'];
+    }
+
+    /**
+     * Sets gacid
+     *
+     * @param string $gacid Google Analytics CID (Cookie)
+     *
+     * @return $this
+     */
+    public function setGacid($gacid)
+    {
+        $this->container['gacid'] = $gacid;
+
+        return $this;
+    }
+
+    /**
+     * Gets glcid
+     *
+     * @return string
+     */
+    public function getGlcid()
+    {
+        return $this->container['glcid'];
+    }
+
+    /**
+     * Sets glcid
+     *
+     * @param string $glcid Google Adwords Click Id (Parameter)
+     *
+     * @return $this
+     */
+    public function setGlcid($glcid)
+    {
+        $this->container['glcid'] = $glcid;
+
+        return $this;
+    }
+
+    /**
+     * Gets msclkid
+     *
+     * @return string
+     */
+    public function getMsclkid()
+    {
+        return $this->container['msclkid'];
+    }
+
+    /**
+     * Sets msclkid
+     *
+     * @param string $msclkid Bing Click Id (Parameter
+     *
+     * @return $this
+     */
+    public function setMsclkid($msclkid)
+    {
+        $this->container['msclkid'] = $msclkid;
 
         return $this;
     }

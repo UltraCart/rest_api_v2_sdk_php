@@ -59,6 +59,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'current_points' => 'int',
         'ledger_entries' => '\ultracart\v2\models\CustomerLoyaltyLedger[]',
+        'pending_points' => 'int',
         'redemptions' => '\ultracart\v2\models\CustomerLoyaltyRedemption[]'
     ];
 
@@ -70,6 +71,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'current_points' => 'int32',
         'ledger_entries' => null,
+        'pending_points' => 'int32',
         'redemptions' => null
     ];
 
@@ -102,6 +104,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'current_points' => 'current_points',
         'ledger_entries' => 'ledger_entries',
+        'pending_points' => 'pending_points',
         'redemptions' => 'redemptions'
     ];
 
@@ -113,6 +116,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     protected static $setters = [
         'current_points' => 'setCurrentPoints',
         'ledger_entries' => 'setLedgerEntries',
+        'pending_points' => 'setPendingPoints',
         'redemptions' => 'setRedemptions'
     ];
 
@@ -124,6 +128,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     protected static $getters = [
         'current_points' => 'getCurrentPoints',
         'ledger_entries' => 'getLedgerEntries',
+        'pending_points' => 'getPendingPoints',
         'redemptions' => 'getRedemptions'
     ];
 
@@ -189,6 +194,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     {
         $this->container['current_points'] = isset($data['current_points']) ? $data['current_points'] : null;
         $this->container['ledger_entries'] = isset($data['ledger_entries']) ? $data['ledger_entries'] : null;
+        $this->container['pending_points'] = isset($data['pending_points']) ? $data['pending_points'] : null;
         $this->container['redemptions'] = isset($data['redemptions']) ? $data['redemptions'] : null;
     }
 
@@ -260,6 +266,30 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     public function setLedgerEntries($ledger_entries)
     {
         $this->container['ledger_entries'] = $ledger_entries;
+
+        return $this;
+    }
+
+    /**
+     * Gets pending_points
+     *
+     * @return int
+     */
+    public function getPendingPoints()
+    {
+        return $this->container['pending_points'];
+    }
+
+    /**
+     * Sets pending_points
+     *
+     * @param int $pending_points Pending Points
+     *
+     * @return $this
+     */
+    public function setPendingPoints($pending_points)
+    {
+        $this->container['pending_points'] = $pending_points;
 
         return $this;
     }
