@@ -1,6 +1,6 @@
 <?php
 /**
- * ScreenRecordingFilterPageView
+ * ScreenRecordingHeatmapUrl
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ScreenRecordingFilterPageView Class Doc Comment
+ * ScreenRecordingHeatmapUrl Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
+class ScreenRecordingHeatmapUrl implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ScreenRecordingFilterPageView';
+    protected static $swaggerModelName = 'ScreenRecordingHeatmapUrl';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,11 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'domain' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
-        'events' => '\ultracart\v2\models\ScreenRecordingFilterPageViewEvent[]',
-        'params' => '\ultracart\v2\models\ScreenRecordingFilterPageViewParam[]',
-        'referrer' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
-        'referrer_params' => '\ultracart\v2\models\ScreenRecordingFilterPageViewReferrerParam[]',
-        'referrer_raw' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
-        'time_on_page' => '\ultracart\v2\models\ScreenRecordingFilterRangeInteger',
-        'url' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch'
+        'histogram_data' => 'int[]',
+        'histogram_interval' => 'string',
+        'histogram_start_dts' => 'string',
+        'session_count' => 'int',
+        'url' => 'string'
     ];
 
     /**
@@ -73,13 +70,10 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'domain' => null,
-        'events' => null,
-        'params' => null,
-        'referrer' => null,
-        'referrer_params' => null,
-        'referrer_raw' => null,
-        'time_on_page' => null,
+        'histogram_data' => null,
+        'histogram_interval' => null,
+        'histogram_start_dts' => null,
+        'session_count' => 'int32',
         'url' => null
     ];
 
@@ -110,13 +104,10 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'domain' => 'domain',
-        'events' => 'events',
-        'params' => 'params',
-        'referrer' => 'referrer',
-        'referrer_params' => 'referrer_params',
-        'referrer_raw' => 'referrer_raw',
-        'time_on_page' => 'time_on_page',
+        'histogram_data' => 'histogram_data',
+        'histogram_interval' => 'histogram_interval',
+        'histogram_start_dts' => 'histogram_start_dts',
+        'session_count' => 'session_count',
         'url' => 'url'
     ];
 
@@ -126,13 +117,10 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'domain' => 'setDomain',
-        'events' => 'setEvents',
-        'params' => 'setParams',
-        'referrer' => 'setReferrer',
-        'referrer_params' => 'setReferrerParams',
-        'referrer_raw' => 'setReferrerRaw',
-        'time_on_page' => 'setTimeOnPage',
+        'histogram_data' => 'setHistogramData',
+        'histogram_interval' => 'setHistogramInterval',
+        'histogram_start_dts' => 'setHistogramStartDts',
+        'session_count' => 'setSessionCount',
         'url' => 'setUrl'
     ];
 
@@ -142,13 +130,10 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'domain' => 'getDomain',
-        'events' => 'getEvents',
-        'params' => 'getParams',
-        'referrer' => 'getReferrer',
-        'referrer_params' => 'getReferrerParams',
-        'referrer_raw' => 'getReferrerRaw',
-        'time_on_page' => 'getTimeOnPage',
+        'histogram_data' => 'getHistogramData',
+        'histogram_interval' => 'getHistogramInterval',
+        'histogram_start_dts' => 'getHistogramStartDts',
+        'session_count' => 'getSessionCount',
         'url' => 'getUrl'
     ];
 
@@ -212,13 +197,10 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
-        $this->container['params'] = isset($data['params']) ? $data['params'] : null;
-        $this->container['referrer'] = isset($data['referrer']) ? $data['referrer'] : null;
-        $this->container['referrer_params'] = isset($data['referrer_params']) ? $data['referrer_params'] : null;
-        $this->container['referrer_raw'] = isset($data['referrer_raw']) ? $data['referrer_raw'] : null;
-        $this->container['time_on_page'] = isset($data['time_on_page']) ? $data['time_on_page'] : null;
+        $this->container['histogram_data'] = isset($data['histogram_data']) ? $data['histogram_data'] : null;
+        $this->container['histogram_interval'] = isset($data['histogram_interval']) ? $data['histogram_interval'] : null;
+        $this->container['histogram_start_dts'] = isset($data['histogram_start_dts']) ? $data['histogram_start_dts'] : null;
+        $this->container['session_count'] = isset($data['session_count']) ? $data['session_count'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -247,169 +229,97 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets domain
+     * Gets histogram_data
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
+     * @return int[]
      */
-    public function getDomain()
+    public function getHistogramData()
     {
-        return $this->container['domain'];
+        return $this->container['histogram_data'];
     }
 
     /**
-     * Sets domain
+     * Sets histogram_data
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterStringSearch $domain domain
+     * @param int[] $histogram_data histogram_data
      *
      * @return $this
      */
-    public function setDomain($domain)
+    public function setHistogramData($histogram_data)
     {
-        $this->container['domain'] = $domain;
+        $this->container['histogram_data'] = $histogram_data;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets histogram_interval
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterPageViewEvent[]
+     * @return string
      */
-    public function getEvents()
+    public function getHistogramInterval()
     {
-        return $this->container['events'];
+        return $this->container['histogram_interval'];
     }
 
     /**
-     * Sets events
+     * Sets histogram_interval
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterPageViewEvent[] $events events
+     * @param string $histogram_interval histogram_interval
      *
      * @return $this
      */
-    public function setEvents($events)
+    public function setHistogramInterval($histogram_interval)
     {
-        $this->container['events'] = $events;
+        $this->container['histogram_interval'] = $histogram_interval;
 
         return $this;
     }
 
     /**
-     * Gets params
+     * Gets histogram_start_dts
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterPageViewParam[]
+     * @return string
      */
-    public function getParams()
+    public function getHistogramStartDts()
     {
-        return $this->container['params'];
+        return $this->container['histogram_start_dts'];
     }
 
     /**
-     * Sets params
+     * Sets histogram_start_dts
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterPageViewParam[] $params params
+     * @param string $histogram_start_dts histogram_start_dts
      *
      * @return $this
      */
-    public function setParams($params)
+    public function setHistogramStartDts($histogram_start_dts)
     {
-        $this->container['params'] = $params;
+        $this->container['histogram_start_dts'] = $histogram_start_dts;
 
         return $this;
     }
 
     /**
-     * Gets referrer
+     * Gets session_count
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
+     * @return int
      */
-    public function getReferrer()
+    public function getSessionCount()
     {
-        return $this->container['referrer'];
+        return $this->container['session_count'];
     }
 
     /**
-     * Sets referrer
+     * Sets session_count
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterStringSearch $referrer referrer
+     * @param int $session_count session_count
      *
      * @return $this
      */
-    public function setReferrer($referrer)
+    public function setSessionCount($session_count)
     {
-        $this->container['referrer'] = $referrer;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrer_params
-     *
-     * @return \ultracart\v2\models\ScreenRecordingFilterPageViewReferrerParam[]
-     */
-    public function getReferrerParams()
-    {
-        return $this->container['referrer_params'];
-    }
-
-    /**
-     * Sets referrer_params
-     *
-     * @param \ultracart\v2\models\ScreenRecordingFilterPageViewReferrerParam[] $referrer_params referrer_params
-     *
-     * @return $this
-     */
-    public function setReferrerParams($referrer_params)
-    {
-        $this->container['referrer_params'] = $referrer_params;
-
-        return $this;
-    }
-
-    /**
-     * Gets referrer_raw
-     *
-     * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
-     */
-    public function getReferrerRaw()
-    {
-        return $this->container['referrer_raw'];
-    }
-
-    /**
-     * Sets referrer_raw
-     *
-     * @param \ultracart\v2\models\ScreenRecordingFilterStringSearch $referrer_raw referrer_raw
-     *
-     * @return $this
-     */
-    public function setReferrerRaw($referrer_raw)
-    {
-        $this->container['referrer_raw'] = $referrer_raw;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_on_page
-     *
-     * @return \ultracart\v2\models\ScreenRecordingFilterRangeInteger
-     */
-    public function getTimeOnPage()
-    {
-        return $this->container['time_on_page'];
-    }
-
-    /**
-     * Sets time_on_page
-     *
-     * @param \ultracart\v2\models\ScreenRecordingFilterRangeInteger $time_on_page time_on_page
-     *
-     * @return $this
-     */
-    public function setTimeOnPage($time_on_page)
-    {
-        $this->container['time_on_page'] = $time_on_page;
+        $this->container['session_count'] = $session_count;
 
         return $this;
     }
@@ -417,7 +327,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     /**
      * Gets url
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
+     * @return string
      */
     public function getUrl()
     {
@@ -427,7 +337,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     /**
      * Sets url
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterStringSearch $url url
+     * @param string $url url
      *
      * @return $this
      */

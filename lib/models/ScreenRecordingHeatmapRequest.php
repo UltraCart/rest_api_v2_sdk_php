@@ -1,6 +1,6 @@
 <?php
 /**
- * ScreenRecordingFilterValuesPageView
+ * ScreenRecordingHeatmapRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ScreenRecordingFilterValuesPageView Class Doc Comment
+ * ScreenRecordingHeatmapRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
+class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ScreenRecordingFilterValuesPageView';
+    protected static $swaggerModelName = 'ScreenRecordingHeatmapRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'domains' => 'string[]',
-        'events' => '\ultracart\v2\models\ScreenRecordingFilterValuesEvent[]',
-        'page_params' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]',
-        'time_on_page_max' => 'int',
-        'time_on_page_min' => 'int',
-        'urls' => 'string[]'
+        'range' => '\ultracart\v2\models\ScreenRecordingFilterRangeDate',
+        'url' => 'string'
     ];
 
     /**
@@ -71,12 +67,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'domains' => null,
-        'events' => null,
-        'page_params' => null,
-        'time_on_page_max' => 'int32',
-        'time_on_page_min' => 'int32',
-        'urls' => null
+        'range' => null,
+        'url' => null
     ];
 
     /**
@@ -106,12 +98,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'domains' => 'domains',
-        'events' => 'events',
-        'page_params' => 'page_params',
-        'time_on_page_max' => 'time_on_page_max',
-        'time_on_page_min' => 'time_on_page_min',
-        'urls' => 'urls'
+        'range' => 'range',
+        'url' => 'url'
     ];
 
     /**
@@ -120,12 +108,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'domains' => 'setDomains',
-        'events' => 'setEvents',
-        'page_params' => 'setPageParams',
-        'time_on_page_max' => 'setTimeOnPageMax',
-        'time_on_page_min' => 'setTimeOnPageMin',
-        'urls' => 'setUrls'
+        'range' => 'setRange',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -134,12 +118,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'domains' => 'getDomains',
-        'events' => 'getEvents',
-        'page_params' => 'getPageParams',
-        'time_on_page_max' => 'getTimeOnPageMax',
-        'time_on_page_min' => 'getTimeOnPageMin',
-        'urls' => 'getUrls'
+        'range' => 'getRange',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -202,12 +182,8 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
-        $this->container['page_params'] = isset($data['page_params']) ? $data['page_params'] : null;
-        $this->container['time_on_page_max'] = isset($data['time_on_page_max']) ? $data['time_on_page_max'] : null;
-        $this->container['time_on_page_min'] = isset($data['time_on_page_min']) ? $data['time_on_page_min'] : null;
-        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
+        $this->container['range'] = isset($data['range']) ? $data['range'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -235,145 +211,49 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets domains
+     * Gets range
      *
-     * @return string[]
+     * @return \ultracart\v2\models\ScreenRecordingFilterRangeDate
      */
-    public function getDomains()
+    public function getRange()
     {
-        return $this->container['domains'];
+        return $this->container['range'];
     }
 
     /**
-     * Sets domains
+     * Sets range
      *
-     * @param string[] $domains domains
+     * @param \ultracart\v2\models\ScreenRecordingFilterRangeDate $range range
      *
      * @return $this
      */
-    public function setDomains($domains)
+    public function setRange($range)
     {
-        $this->container['domains'] = $domains;
+        $this->container['range'] = $range;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets url
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterValuesEvent[]
+     * @return string
      */
-    public function getEvents()
+    public function getUrl()
     {
-        return $this->container['events'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets events
+     * Sets url
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterValuesEvent[] $events events
+     * @param string $url url
      *
      * @return $this
      */
-    public function setEvents($events)
+    public function setUrl($url)
     {
-        $this->container['events'] = $events;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_params
-     *
-     * @return \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]
-     */
-    public function getPageParams()
-    {
-        return $this->container['page_params'];
-    }
-
-    /**
-     * Sets page_params
-     *
-     * @param \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[] $page_params page_params
-     *
-     * @return $this
-     */
-    public function setPageParams($page_params)
-    {
-        $this->container['page_params'] = $page_params;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_on_page_max
-     *
-     * @return int
-     */
-    public function getTimeOnPageMax()
-    {
-        return $this->container['time_on_page_max'];
-    }
-
-    /**
-     * Sets time_on_page_max
-     *
-     * @param int $time_on_page_max time_on_page_max
-     *
-     * @return $this
-     */
-    public function setTimeOnPageMax($time_on_page_max)
-    {
-        $this->container['time_on_page_max'] = $time_on_page_max;
-
-        return $this;
-    }
-
-    /**
-     * Gets time_on_page_min
-     *
-     * @return int
-     */
-    public function getTimeOnPageMin()
-    {
-        return $this->container['time_on_page_min'];
-    }
-
-    /**
-     * Sets time_on_page_min
-     *
-     * @param int $time_on_page_min time_on_page_min
-     *
-     * @return $this
-     */
-    public function setTimeOnPageMin($time_on_page_min)
-    {
-        $this->container['time_on_page_min'] = $time_on_page_min;
-
-        return $this;
-    }
-
-    /**
-     * Gets urls
-     *
-     * @return string[]
-     */
-    public function getUrls()
-    {
-        return $this->container['urls'];
-    }
-
-    /**
-     * Sets urls
-     *
-     * @param string[] $urls urls
-     *
-     * @return $this
-     */
-    public function setUrls($urls)
-    {
-        $this->container['urls'] = $urls;
+        $this->container['url'] = $url;
 
         return $this;
     }

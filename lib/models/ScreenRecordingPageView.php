@@ -57,6 +57,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'domain' => 'string',
         'events' => '\ultracart\v2\models\ScreenRecordingPageViewEvent[]',
         'first_event_timestamp' => 'string',
         'http_post' => 'bool',
@@ -83,6 +84,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'domain' => null,
         'events' => null,
         'first_event_timestamp' => 'dateTime',
         'http_post' => null,
@@ -130,6 +132,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'domain' => 'domain',
         'events' => 'events',
         'first_event_timestamp' => 'first_event_timestamp',
         'http_post' => 'http_post',
@@ -156,6 +159,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'domain' => 'setDomain',
         'events' => 'setEvents',
         'first_event_timestamp' => 'setFirstEventTimestamp',
         'http_post' => 'setHttpPost',
@@ -182,6 +186,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'domain' => 'getDomain',
         'events' => 'getEvents',
         'first_event_timestamp' => 'getFirstEventTimestamp',
         'http_post' => 'getHttpPost',
@@ -262,6 +267,7 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['first_event_timestamp'] = isset($data['first_event_timestamp']) ? $data['first_event_timestamp'] : null;
         $this->container['http_post'] = isset($data['http_post']) ? $data['http_post'] : null;
@@ -305,6 +311,30 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param string $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
 
     /**
      * Gets events

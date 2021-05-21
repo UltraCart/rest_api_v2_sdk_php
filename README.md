@@ -277,6 +277,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteEmailPostcard**](docs/Api/StorefrontApi.md#deleteemailpostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/Api/StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+*StorefrontApi* | [**deleteHeatmap**](docs/Api/StorefrontApi.md#deleteheatmap) | **DELETE** /storefront/{storefront_oid}/screen_recordings/heatmap | Delete screen recording heatmap
 *StorefrontApi* | [**deleteLibraryItem**](docs/Api/StorefrontApi.md#deletelibraryitem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 *StorefrontApi* | [**deleteLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#deletelibraryitempublishedversions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
 *StorefrontApi* | [**deleteScreenRecordingSegment**](docs/Api/StorefrontApi.md#deletescreenrecordingsegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
@@ -336,6 +337,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/Api/StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 *StorefrontApi* | [**getExperiments**](docs/Api/StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+*StorefrontApi* | [**getHeatmap**](docs/Api/StorefrontApi.md#getheatmap) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap | Get screen recording heatmap
+*StorefrontApi* | [**getHeatmapIndex**](docs/Api/StorefrontApi.md#getheatmapindex) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap/index | Get screen recording heatmap index
 *StorefrontApi* | [**getHistogramPropertyNames**](docs/Api/StorefrontApi.md#gethistogrampropertynames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 *StorefrontApi* | [**getHistogramPropertyValues**](docs/Api/StorefrontApi.md#gethistogrampropertyvalues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
 *StorefrontApi* | [**getLibraryFilterValues**](docs/Api/StorefrontApi.md#getlibraryfiltervalues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
@@ -942,6 +945,12 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValuesEventParams](docs/Model/ScreenRecordingFilterValuesEventParams.md)
  - [ScreenRecordingFilterValuesPageParam](docs/Model/ScreenRecordingFilterValuesPageParam.md)
  - [ScreenRecordingFilterValuesPageView](docs/Model/ScreenRecordingFilterValuesPageView.md)
+ - [ScreenRecordingHeatmap](docs/Model/ScreenRecordingHeatmap.md)
+ - [ScreenRecordingHeatmapIndexResponse](docs/Model/ScreenRecordingHeatmapIndexResponse.md)
+ - [ScreenRecordingHeatmapRequest](docs/Model/ScreenRecordingHeatmapRequest.md)
+ - [ScreenRecordingHeatmapReset](docs/Model/ScreenRecordingHeatmapReset.md)
+ - [ScreenRecordingHeatmapResponse](docs/Model/ScreenRecordingHeatmapResponse.md)
+ - [ScreenRecordingHeatmapUrl](docs/Model/ScreenRecordingHeatmapUrl.md)
  - [ScreenRecordingMerchantNotesRequest](docs/Model/ScreenRecordingMerchantNotesRequest.md)
  - [ScreenRecordingMultifield](docs/Model/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/Model/ScreenRecordingPageView.md)
@@ -1088,6 +1097,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.41 | 05/21/2021 | screen recording heatmap methods | 
 | 3.1.40 | 05/20/2021 | Order.summary.actual_payment_processing field added | 
 | 3.1.39 | 05/19/2021 | full deployment to ensure all language SDKs are up to date | 
 | 3.1.37 | 05/18/2021 | removed php sdk dependency on ext-mbstring by generating sdk with polyfill requirement.  sdk is more portable now. | 

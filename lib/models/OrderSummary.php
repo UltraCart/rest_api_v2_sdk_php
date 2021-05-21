@@ -58,6 +58,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'actual_fulfillment' => '\ultracart\v2\models\Currency',
+        'actual_payment_processing' => '\ultracart\v2\models\Currency',
         'actual_shipping' => '\ultracart\v2\models\Currency',
         'arbitrary_shipping_handling_total' => '\ultracart\v2\models\Currency',
         'other_refunded' => '\ultracart\v2\models\Currency',
@@ -83,6 +84,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'actual_fulfillment' => null,
+        'actual_payment_processing' => null,
         'actual_shipping' => null,
         'arbitrary_shipping_handling_total' => null,
         'other_refunded' => null,
@@ -129,6 +131,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'actual_fulfillment' => 'actual_fulfillment',
+        'actual_payment_processing' => 'actual_payment_processing',
         'actual_shipping' => 'actual_shipping',
         'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
         'other_refunded' => 'other_refunded',
@@ -154,6 +157,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'actual_fulfillment' => 'setActualFulfillment',
+        'actual_payment_processing' => 'setActualPaymentProcessing',
         'actual_shipping' => 'setActualShipping',
         'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
         'other_refunded' => 'setOtherRefunded',
@@ -179,6 +183,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'actual_fulfillment' => 'getActualFulfillment',
+        'actual_payment_processing' => 'getActualPaymentProcessing',
         'actual_shipping' => 'getActualShipping',
         'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
         'other_refunded' => 'getOtherRefunded',
@@ -258,6 +263,7 @@ class OrderSummary implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['actual_fulfillment'] = isset($data['actual_fulfillment']) ? $data['actual_fulfillment'] : null;
+        $this->container['actual_payment_processing'] = isset($data['actual_payment_processing']) ? $data['actual_payment_processing'] : null;
         $this->container['actual_shipping'] = isset($data['actual_shipping']) ? $data['actual_shipping'] : null;
         $this->container['arbitrary_shipping_handling_total'] = isset($data['arbitrary_shipping_handling_total']) ? $data['arbitrary_shipping_handling_total'] : null;
         $this->container['other_refunded'] = isset($data['other_refunded']) ? $data['other_refunded'] : null;
@@ -320,6 +326,30 @@ class OrderSummary implements ModelInterface, ArrayAccess
     public function setActualFulfillment($actual_fulfillment)
     {
         $this->container['actual_fulfillment'] = $actual_fulfillment;
+
+        return $this;
+    }
+
+    /**
+     * Gets actual_payment_processing
+     *
+     * @return \ultracart\v2\models\Currency
+     */
+    public function getActualPaymentProcessing()
+    {
+        return $this->container['actual_payment_processing'];
+    }
+
+    /**
+     * Sets actual_payment_processing
+     *
+     * @param \ultracart\v2\models\Currency $actual_payment_processing actual_payment_processing
+     *
+     * @return $this
+     */
+    public function setActualPaymentProcessing($actual_payment_processing)
+    {
+        $this->container['actual_payment_processing'] = $actual_payment_processing;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**domain** | **string** |  | [optional] 
 **events** | [**\ultracart\v2\models\ScreenRecordingPageViewEvent[]**](ScreenRecordingPageViewEvent.md) |  | [optional] 
 **first_event_timestamp** | **string** | First event timestamp | [optional] 
 **http_post** | **bool** |  | [optional] 

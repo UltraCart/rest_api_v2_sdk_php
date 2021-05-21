@@ -1,6 +1,6 @@
 <?php
 /**
- * ScreenRecordingFilterValuesPageView
+ * ScreenRecordingHeatmapIndexResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ScreenRecordingFilterValuesPageView Class Doc Comment
+ * ScreenRecordingHeatmapIndexResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
+class ScreenRecordingHeatmapIndexResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ScreenRecordingFilterValuesPageView';
+    protected static $swaggerModelName = 'ScreenRecordingHeatmapIndexResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,11 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'domains' => 'string[]',
-        'events' => '\ultracart\v2\models\ScreenRecordingFilterValuesEvent[]',
-        'page_params' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]',
-        'time_on_page_max' => 'int',
-        'time_on_page_min' => 'int',
-        'urls' => 'string[]'
+        'error' => '\ultracart\v2\models\Error',
+        'heatmap_urls' => '\ultracart\v2\models\ScreenRecordingHeatmapUrl[]',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -71,12 +70,11 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'domains' => null,
-        'events' => null,
-        'page_params' => null,
-        'time_on_page_max' => 'int32',
-        'time_on_page_min' => 'int32',
-        'urls' => null
+        'error' => null,
+        'heatmap_urls' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -106,12 +104,11 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'domains' => 'domains',
-        'events' => 'events',
-        'page_params' => 'page_params',
-        'time_on_page_max' => 'time_on_page_max',
-        'time_on_page_min' => 'time_on_page_min',
-        'urls' => 'urls'
+        'error' => 'error',
+        'heatmap_urls' => 'heatmap_urls',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -120,12 +117,11 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'domains' => 'setDomains',
-        'events' => 'setEvents',
-        'page_params' => 'setPageParams',
-        'time_on_page_max' => 'setTimeOnPageMax',
-        'time_on_page_min' => 'setTimeOnPageMin',
-        'urls' => 'setUrls'
+        'error' => 'setError',
+        'heatmap_urls' => 'setHeatmapUrls',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -134,12 +130,11 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'domains' => 'getDomains',
-        'events' => 'getEvents',
-        'page_params' => 'getPageParams',
-        'time_on_page_max' => 'getTimeOnPageMax',
-        'time_on_page_min' => 'getTimeOnPageMin',
-        'urls' => 'getUrls'
+        'error' => 'getError',
+        'heatmap_urls' => 'getHeatmapUrls',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -202,12 +197,11 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
-        $this->container['page_params'] = isset($data['page_params']) ? $data['page_params'] : null;
-        $this->container['time_on_page_max'] = isset($data['time_on_page_max']) ? $data['time_on_page_max'] : null;
-        $this->container['time_on_page_min'] = isset($data['time_on_page_min']) ? $data['time_on_page_min'] : null;
-        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['heatmap_urls'] = isset($data['heatmap_urls']) ? $data['heatmap_urls'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -235,145 +229,121 @@ class ScreenRecordingFilterValuesPageView implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets domains
+     * Gets error
      *
-     * @return string[]
+     * @return \ultracart\v2\models\Error
      */
-    public function getDomains()
+    public function getError()
     {
-        return $this->container['domains'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets domains
+     * Sets error
      *
-     * @param string[] $domains domains
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setDomains($domains)
+    public function setError($error)
     {
-        $this->container['domains'] = $domains;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets heatmap_urls
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterValuesEvent[]
+     * @return \ultracart\v2\models\ScreenRecordingHeatmapUrl[]
      */
-    public function getEvents()
+    public function getHeatmapUrls()
     {
-        return $this->container['events'];
+        return $this->container['heatmap_urls'];
     }
 
     /**
-     * Sets events
+     * Sets heatmap_urls
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterValuesEvent[] $events events
+     * @param \ultracart\v2\models\ScreenRecordingHeatmapUrl[] $heatmap_urls heatmap_urls
      *
      * @return $this
      */
-    public function setEvents($events)
+    public function setHeatmapUrls($heatmap_urls)
     {
-        $this->container['events'] = $events;
+        $this->container['heatmap_urls'] = $heatmap_urls;
 
         return $this;
     }
 
     /**
-     * Gets page_params
+     * Gets metadata
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[]
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getPageParams()
+    public function getMetadata()
     {
-        return $this->container['page_params'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets page_params
+     * Sets metadata
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterValuesPageParam[] $page_params page_params
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setPageParams($page_params)
+    public function setMetadata($metadata)
     {
-        $this->container['page_params'] = $page_params;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets time_on_page_max
+     * Gets success
      *
-     * @return int
+     * @return bool
      */
-    public function getTimeOnPageMax()
+    public function getSuccess()
     {
-        return $this->container['time_on_page_max'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets time_on_page_max
+     * Sets success
      *
-     * @param int $time_on_page_max time_on_page_max
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setTimeOnPageMax($time_on_page_max)
+    public function setSuccess($success)
     {
-        $this->container['time_on_page_max'] = $time_on_page_max;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets time_on_page_min
+     * Gets warning
      *
-     * @return int
+     * @return \ultracart\v2\models\Warning
      */
-    public function getTimeOnPageMin()
+    public function getWarning()
     {
-        return $this->container['time_on_page_min'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets time_on_page_min
+     * Sets warning
      *
-     * @param int $time_on_page_min time_on_page_min
+     * @param \ultracart\v2\models\Warning $warning warning
      *
      * @return $this
      */
-    public function setTimeOnPageMin($time_on_page_min)
+    public function setWarning($warning)
     {
-        $this->container['time_on_page_min'] = $time_on_page_min;
-
-        return $this;
-    }
-
-    /**
-     * Gets urls
-     *
-     * @return string[]
-     */
-    public function getUrls()
-    {
-        return $this->container['urls'];
-    }
-
-    /**
-     * Sets urls
-     *
-     * @param string[] $urls urls
-     *
-     * @return $this
-     */
-    public function setUrls($urls)
-    {
-        $this->container['urls'] = $urls;
+        $this->container['warning'] = $warning;
 
         return $this;
     }
