@@ -1097,7 +1097,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
-| 3.1.42 | 01/01/2021 | added quickbooks accounting codes at the tiered level for tiered coupons  | 
+| 3.1.43 | 06/01/2021 | one of us cannot spell, not saying who  | 
+| 3.1.42 | 06/01/2021 | added quickbooks accounting codes at the tiered level for tiered coupons  | 
 | 3.1.41 | 05/21/2021 | screen recording heatmap methods | 
 | 3.1.40 | 05/20/2021 | Order.summary.actual_payment_processing field added | 
 | 3.1.39 | 05/19/2021 | full deployment to ensure all language SDKs are up to date | 
