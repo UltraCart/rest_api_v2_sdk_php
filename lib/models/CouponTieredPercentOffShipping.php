@@ -57,6 +57,7 @@ class CouponTieredPercentOffShipping implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'quickbooks_code' => 'string',
         'shipping_methods' => 'string[]',
         'tiers' => '\ultracart\v2\models\CouponTierPercent[]'
     ];
@@ -67,6 +68,7 @@ class CouponTieredPercentOffShipping implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'quickbooks_code' => null,
         'shipping_methods' => null,
         'tiers' => null
     ];
@@ -98,6 +100,7 @@ class CouponTieredPercentOffShipping implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'quickbooks_code' => 'quickbooks_code',
         'shipping_methods' => 'shipping_methods',
         'tiers' => 'tiers'
     ];
@@ -108,6 +111,7 @@ class CouponTieredPercentOffShipping implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'quickbooks_code' => 'setQuickbooksCode',
         'shipping_methods' => 'setShippingMethods',
         'tiers' => 'setTiers'
     ];
@@ -118,6 +122,7 @@ class CouponTieredPercentOffShipping implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'quickbooks_code' => 'getQuickbooksCode',
         'shipping_methods' => 'getShippingMethods',
         'tiers' => 'getTiers'
     ];
@@ -182,6 +187,7 @@ class CouponTieredPercentOffShipping implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['quickbooks_code'] = isset($data['quickbooks_code']) ? $data['quickbooks_code'] : null;
         $this->container['shipping_methods'] = isset($data['shipping_methods']) ? $data['shipping_methods'] : null;
         $this->container['tiers'] = isset($data['tiers']) ? $data['tiers'] : null;
     }
@@ -194,6 +200,10 @@ class CouponTieredPercentOffShipping implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['quickbooks_code']) && (mb_strlen($this->container['quickbooks_code']) > 20)) {
+            $invalidProperties[] = "invalid value for 'quickbooks_code', the character length must be smaller than or equal to 20.";
+        }
 
         return $invalidProperties;
     }
@@ -209,6 +219,34 @@ class CouponTieredPercentOffShipping implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets quickbooks_code
+     *
+     * @return string
+     */
+    public function getQuickbooksCode()
+    {
+        return $this->container['quickbooks_code'];
+    }
+
+    /**
+     * Sets quickbooks_code
+     *
+     * @param string $quickbooks_code Quickbooks accounting code.
+     *
+     * @return $this
+     */
+    public function setQuickbooksCode($quickbooks_code)
+    {
+        if (!is_null($quickbooks_code) && (mb_strlen($quickbooks_code) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $quickbooks_code when calling CouponTieredPercentOffShipping., must be smaller than or equal to 20.');
+        }
+
+        $this->container['quickbooks_code'] = $quickbooks_code;
+
+        return $this;
+    }
 
     /**
      * Gets shipping_methods

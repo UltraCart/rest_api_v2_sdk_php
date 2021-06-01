@@ -58,6 +58,7 @@ class CouponTierAmount implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'discount_amount' => 'float',
+        'quickbooks_code' => 'string',
         'subtotal_amount' => 'float'
     ];
 
@@ -68,6 +69,7 @@ class CouponTierAmount implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'discount_amount' => null,
+        'quickbooks_code' => null,
         'subtotal_amount' => null
     ];
 
@@ -99,6 +101,7 @@ class CouponTierAmount implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'discount_amount' => 'discount_amount',
+        'quickbooks_code' => 'quickbooks_code',
         'subtotal_amount' => 'subtotal_amount'
     ];
 
@@ -109,6 +112,7 @@ class CouponTierAmount implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'discount_amount' => 'setDiscountAmount',
+        'quickbooks_code' => 'setQuickbooksCode',
         'subtotal_amount' => 'setSubtotalAmount'
     ];
 
@@ -119,6 +123,7 @@ class CouponTierAmount implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'discount_amount' => 'getDiscountAmount',
+        'quickbooks_code' => 'getQuickbooksCode',
         'subtotal_amount' => 'getSubtotalAmount'
     ];
 
@@ -183,6 +188,7 @@ class CouponTierAmount implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['quickbooks_code'] = isset($data['quickbooks_code']) ? $data['quickbooks_code'] : null;
         $this->container['subtotal_amount'] = isset($data['subtotal_amount']) ? $data['subtotal_amount'] : null;
     }
 
@@ -194,6 +200,10 @@ class CouponTierAmount implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['quickbooks_code']) && (mb_strlen($this->container['quickbooks_code']) > 20)) {
+            $invalidProperties[] = "invalid value for 'quickbooks_code', the character length must be smaller than or equal to 20.";
+        }
 
         return $invalidProperties;
     }
@@ -230,6 +240,34 @@ class CouponTierAmount implements ModelInterface, ArrayAccess
     public function setDiscountAmount($discount_amount)
     {
         $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets quickbooks_code
+     *
+     * @return string
+     */
+    public function getQuickbooksCode()
+    {
+        return $this->container['quickbooks_code'];
+    }
+
+    /**
+     * Sets quickbooks_code
+     *
+     * @param string $quickbooks_code Quickbooks accounting code.
+     *
+     * @return $this
+     */
+    public function setQuickbooksCode($quickbooks_code)
+    {
+        if (!is_null($quickbooks_code) && (mb_strlen($quickbooks_code) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $quickbooks_code when calling CouponTierAmount., must be smaller than or equal to 20.');
+        }
+
+        $this->container['quickbooks_code'] = $quickbooks_code;
 
         return $this;
     }
