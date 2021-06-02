@@ -1097,6 +1097,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.44 | 06/02/2021 | new boolean flag on items object to allow sharing of reviews between items   | 
 | 3.1.43 | 06/01/2021 | one of us cannot spell, not saying who  | 
 | 3.1.42 | 06/01/2021 | added quickbooks accounting codes at the tiered level for tiered coupons  | 
 | 3.1.41 | 05/21/2021 | screen recording heatmap methods | 
