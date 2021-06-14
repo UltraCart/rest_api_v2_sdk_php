@@ -27831,14 +27831,18 @@ class StorefrontApi
      * Get screen recording heatmap index
      *
      * @param  int $storefront_oid storefront_oid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest $query Query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\ScreenRecordingHeatmapIndexResponse
      */
-    public function getHeatmapIndex($storefront_oid)
+    public function getHeatmapIndex($storefront_oid, $query, $_limit = '100', $_offset = '0', $_sort = null)
     {
-        list($response) = $this->getHeatmapIndexWithHttpInfo($storefront_oid);
+        list($response) = $this->getHeatmapIndexWithHttpInfo($storefront_oid, $query, $_limit, $_offset, $_sort);
         return $response;
     }
 
@@ -27849,14 +27853,18 @@ class StorefrontApi
      * Get screen recording heatmap index
      *
      * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest $query Query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ScreenRecordingHeatmapIndexResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getHeatmapIndexWithHttpInfo($storefront_oid)
+    public function getHeatmapIndexWithHttpInfo($storefront_oid, $query, $_limit = '100', $_offset = '0', $_sort = null)
     {
-        return $this->getHeatmapIndexWithHttpInfoRetry(true ,   $storefront_oid);
+        return $this->getHeatmapIndexWithHttpInfoRetry(true ,   $storefront_oid,   $query,   $_limit,   $_offset,   $_sort);
     }
 
 
@@ -27867,15 +27875,19 @@ class StorefrontApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest $query Query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ScreenRecordingHeatmapIndexResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getHeatmapIndexWithHttpInfoRetry($retry ,  $storefront_oid)
+    public function getHeatmapIndexWithHttpInfoRetry($retry ,  $storefront_oid,  $query,  $_limit = '100',  $_offset = '0',  $_sort = null)
     {
         $returnType = '\ultracart\v2\models\ScreenRecordingHeatmapIndexResponse';
-        $request = $this->getHeatmapIndexRequest($storefront_oid);
+        $request = $this->getHeatmapIndexRequest($storefront_oid, $query, $_limit, $_offset, $_sort);
 
         try {
             $options = $this->createHttpClientOption();
@@ -27894,7 +27906,7 @@ class StorefrontApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getHeatmapIndexWithHttpInfoRetry(false ,   $storefront_oid);
+                        return $this->getHeatmapIndexWithHttpInfoRetry(false ,   $storefront_oid,   $query,   $_limit,   $_offset,   $_sort);
                     }
                 }
 
@@ -27983,13 +27995,17 @@ class StorefrontApi
      * Get screen recording heatmap index
      *
      * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest $query Query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getHeatmapIndexAsync($storefront_oid)
+    public function getHeatmapIndexAsync($storefront_oid, $query, $_limit = '100', $_offset = '0', $_sort = null)
     {
-        return $this->getHeatmapIndexAsyncWithHttpInfo($storefront_oid)
+        return $this->getHeatmapIndexAsyncWithHttpInfo($storefront_oid, $query, $_limit, $_offset, $_sort)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -28003,14 +28019,18 @@ class StorefrontApi
      * Get screen recording heatmap index
      *
      * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest $query Query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getHeatmapIndexAsyncWithHttpInfo($storefront_oid)
+    public function getHeatmapIndexAsyncWithHttpInfo($storefront_oid, $query, $_limit = '100', $_offset = '0', $_sort = null)
     {
         $returnType = '\ultracart\v2\models\ScreenRecordingHeatmapIndexResponse';
-        $request = $this->getHeatmapIndexRequest($storefront_oid);
+        $request = $this->getHeatmapIndexRequest($storefront_oid, $query, $_limit, $_offset, $_sort);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -28053,16 +28073,26 @@ class StorefrontApi
      * Create request for operation 'getHeatmapIndex'
      *
      * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest $query Query (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 500) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getHeatmapIndexRequest($storefront_oid)
+    protected function getHeatmapIndexRequest($storefront_oid, $query, $_limit = '100', $_offset = '0', $_sort = null)
     {
         // verify the required parameter 'storefront_oid' is set
         if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $storefront_oid when calling getHeatmapIndex'
+            );
+        }
+        // verify the required parameter 'query' is set
+        if ($query === null || (is_array($query) && count($query) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $query when calling getHeatmapIndex'
             );
         }
 
@@ -28073,6 +28103,18 @@ class StorefrontApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = ObjectSerializer::toQueryValue($_offset);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = ObjectSerializer::toQueryValue($_sort);
+        }
 
         // path params
         if ($storefront_oid !== null) {
@@ -28085,6 +28127,9 @@ class StorefrontApi
 
         // body params
         $_tempBody = null;
+        if (isset($query)) {
+            $_tempBody = $query;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(

@@ -66,6 +66,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
         'buyer_item_number' => 'string',
         'channel_partner_code' => 'string',
         'channel_partner_oid' => 'int',
+        'cost' => 'float',
         'from_item_id' => 'string',
         'from_sku' => 'string',
         'mutually_defined_number' => 'string',
@@ -92,6 +93,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
         'buyer_item_number' => null,
         'channel_partner_code' => null,
         'channel_partner_oid' => 'int32',
+        'cost' => null,
         'from_item_id' => null,
         'from_sku' => null,
         'mutually_defined_number' => null,
@@ -139,6 +141,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
         'buyer_item_number' => 'buyer_item_number',
         'channel_partner_code' => 'channel_partner_code',
         'channel_partner_oid' => 'channel_partner_oid',
+        'cost' => 'cost',
         'from_item_id' => 'from_item_id',
         'from_sku' => 'from_sku',
         'mutually_defined_number' => 'mutually_defined_number',
@@ -165,6 +168,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
         'buyer_item_number' => 'setBuyerItemNumber',
         'channel_partner_code' => 'setChannelPartnerCode',
         'channel_partner_oid' => 'setChannelPartnerOid',
+        'cost' => 'setCost',
         'from_item_id' => 'setFromItemId',
         'from_sku' => 'setFromSku',
         'mutually_defined_number' => 'setMutuallyDefinedNumber',
@@ -191,6 +195,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
         'buyer_item_number' => 'getBuyerItemNumber',
         'channel_partner_code' => 'getChannelPartnerCode',
         'channel_partner_oid' => 'getChannelPartnerOid',
+        'cost' => 'getCost',
         'from_item_id' => 'getFromItemId',
         'from_sku' => 'getFromSku',
         'mutually_defined_number' => 'getMutuallyDefinedNumber',
@@ -271,6 +276,7 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
         $this->container['buyer_item_number'] = isset($data['buyer_item_number']) ? $data['buyer_item_number'] : null;
         $this->container['channel_partner_code'] = isset($data['channel_partner_code']) ? $data['channel_partner_code'] : null;
         $this->container['channel_partner_oid'] = isset($data['channel_partner_oid']) ? $data['channel_partner_oid'] : null;
+        $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
         $this->container['from_item_id'] = isset($data['from_item_id']) ? $data['from_item_id'] : null;
         $this->container['from_sku'] = isset($data['from_sku']) ? $data['from_sku'] : null;
         $this->container['mutually_defined_number'] = isset($data['mutually_defined_number']) ? $data['mutually_defined_number'] : null;
@@ -530,6 +536,30 @@ class ItemChannelPartnerMapping implements ModelInterface, ArrayAccess
     public function setChannelPartnerOid($channel_partner_oid)
     {
         $this->container['channel_partner_oid'] = $channel_partner_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets cost
+     *
+     * @return float
+     */
+    public function getCost()
+    {
+        return $this->container['cost'];
+    }
+
+    /**
+     * Sets cost
+     *
+     * @param float $cost Cost given to this channel partner
+     *
+     * @return $this
+     */
+    public function setCost($cost)
+    {
+        $this->container['cost'] = $cost;
 
         return $this;
     }

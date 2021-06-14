@@ -946,6 +946,7 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValuesPageParam](docs/Model/ScreenRecordingFilterValuesPageParam.md)
  - [ScreenRecordingFilterValuesPageView](docs/Model/ScreenRecordingFilterValuesPageView.md)
  - [ScreenRecordingHeatmap](docs/Model/ScreenRecordingHeatmap.md)
+ - [ScreenRecordingHeatmapIndexRequest](docs/Model/ScreenRecordingHeatmapIndexRequest.md)
  - [ScreenRecordingHeatmapIndexResponse](docs/Model/ScreenRecordingHeatmapIndexResponse.md)
  - [ScreenRecordingHeatmapRequest](docs/Model/ScreenRecordingHeatmapRequest.md)
  - [ScreenRecordingHeatmapReset](docs/Model/ScreenRecordingHeatmapReset.md)
@@ -1097,6 +1098,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.46 | 06/14/2021 | Screen recording: server side paginated heat map index with url contains filters, Item: channel partner item mapping unit cost override  | 
 | 3.1.44 | 06/02/2021 | new boolean flag on items object to allow sharing of reviews between items   | 
 | 3.1.43 | 06/01/2021 | fix item serialized name of item serialized name for channel partner item mappings  | 
 | 3.1.42 | 06/01/2021 | added quickbooks accounting codes at the tiered level for tiered coupons  | 

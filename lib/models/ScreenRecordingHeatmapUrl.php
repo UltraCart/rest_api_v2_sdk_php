@@ -60,6 +60,7 @@ class ScreenRecordingHeatmapUrl implements ModelInterface, ArrayAccess
         'histogram_data' => 'int[]',
         'histogram_interval' => 'string',
         'histogram_start_dts' => 'string',
+        'page_rank' => 'int',
         'session_count' => 'int',
         'url' => 'string'
     ];
@@ -73,6 +74,7 @@ class ScreenRecordingHeatmapUrl implements ModelInterface, ArrayAccess
         'histogram_data' => null,
         'histogram_interval' => null,
         'histogram_start_dts' => null,
+        'page_rank' => 'int32',
         'session_count' => 'int32',
         'url' => null
     ];
@@ -107,6 +109,7 @@ class ScreenRecordingHeatmapUrl implements ModelInterface, ArrayAccess
         'histogram_data' => 'histogram_data',
         'histogram_interval' => 'histogram_interval',
         'histogram_start_dts' => 'histogram_start_dts',
+        'page_rank' => 'page_rank',
         'session_count' => 'session_count',
         'url' => 'url'
     ];
@@ -120,6 +123,7 @@ class ScreenRecordingHeatmapUrl implements ModelInterface, ArrayAccess
         'histogram_data' => 'setHistogramData',
         'histogram_interval' => 'setHistogramInterval',
         'histogram_start_dts' => 'setHistogramStartDts',
+        'page_rank' => 'setPageRank',
         'session_count' => 'setSessionCount',
         'url' => 'setUrl'
     ];
@@ -133,6 +137,7 @@ class ScreenRecordingHeatmapUrl implements ModelInterface, ArrayAccess
         'histogram_data' => 'getHistogramData',
         'histogram_interval' => 'getHistogramInterval',
         'histogram_start_dts' => 'getHistogramStartDts',
+        'page_rank' => 'getPageRank',
         'session_count' => 'getSessionCount',
         'url' => 'getUrl'
     ];
@@ -200,6 +205,7 @@ class ScreenRecordingHeatmapUrl implements ModelInterface, ArrayAccess
         $this->container['histogram_data'] = isset($data['histogram_data']) ? $data['histogram_data'] : null;
         $this->container['histogram_interval'] = isset($data['histogram_interval']) ? $data['histogram_interval'] : null;
         $this->container['histogram_start_dts'] = isset($data['histogram_start_dts']) ? $data['histogram_start_dts'] : null;
+        $this->container['page_rank'] = isset($data['page_rank']) ? $data['page_rank'] : null;
         $this->container['session_count'] = isset($data['session_count']) ? $data['session_count'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -296,6 +302,30 @@ class ScreenRecordingHeatmapUrl implements ModelInterface, ArrayAccess
     public function setHistogramStartDts($histogram_start_dts)
     {
         $this->container['histogram_start_dts'] = $histogram_start_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_rank
+     *
+     * @return int
+     */
+    public function getPageRank()
+    {
+        return $this->container['page_rank'];
+    }
+
+    /**
+     * Sets page_rank
+     *
+     * @param int $page_rank page_rank
+     *
+     * @return $this
+     */
+    public function setPageRank($page_rank)
+    {
+        $this->container['page_rank'] = $page_rank;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Error
+ * ScreenRecordingHeatmapIndexRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ScreenRecordingHeatmapIndexRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error implements ModelInterface, ArrayAccess
+class ScreenRecordingHeatmapIndexRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Error';
+    protected static $swaggerModelName = 'ScreenRecordingHeatmapIndexRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,7 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'developer_message' => 'string',
-        'error_code' => 'string',
-        'more_info' => 'string',
-        'object_id' => 'string',
-        'user_message' => 'string'
+        'url_contains' => 'string'
     ];
 
     /**
@@ -70,11 +66,7 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'developer_message' => null,
-        'error_code' => null,
-        'more_info' => null,
-        'object_id' => null,
-        'user_message' => null
+        'url_contains' => null
     ];
 
     /**
@@ -104,11 +96,7 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'developer_message' => 'developer_message',
-        'error_code' => 'error_code',
-        'more_info' => 'more_info',
-        'object_id' => 'object_id',
-        'user_message' => 'user_message'
+        'url_contains' => 'url_contains'
     ];
 
     /**
@@ -117,11 +105,7 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'developer_message' => 'setDeveloperMessage',
-        'error_code' => 'setErrorCode',
-        'more_info' => 'setMoreInfo',
-        'object_id' => 'setObjectId',
-        'user_message' => 'setUserMessage'
+        'url_contains' => 'setUrlContains'
     ];
 
     /**
@@ -130,11 +114,7 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'developer_message' => 'getDeveloperMessage',
-        'error_code' => 'getErrorCode',
-        'more_info' => 'getMoreInfo',
-        'object_id' => 'getObjectId',
-        'user_message' => 'getUserMessage'
+        'url_contains' => 'getUrlContains'
     ];
 
     /**
@@ -197,11 +177,7 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['developer_message'] = isset($data['developer_message']) ? $data['developer_message'] : null;
-        $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
-        $this->container['more_info'] = isset($data['more_info']) ? $data['more_info'] : null;
-        $this->container['object_id'] = isset($data['object_id']) ? $data['object_id'] : null;
-        $this->container['user_message'] = isset($data['user_message']) ? $data['user_message'] : null;
+        $this->container['url_contains'] = isset($data['url_contains']) ? $data['url_contains'] : null;
     }
 
     /**
@@ -229,121 +205,25 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets developer_message
+     * Gets url_contains
      *
      * @return string
      */
-    public function getDeveloperMessage()
+    public function getUrlContains()
     {
-        return $this->container['developer_message'];
+        return $this->container['url_contains'];
     }
 
     /**
-     * Sets developer_message
+     * Sets url_contains
      *
-     * @param string $developer_message A technical message meant to be read by a developer
+     * @param string $url_contains url_contains
      *
      * @return $this
      */
-    public function setDeveloperMessage($developer_message)
+    public function setUrlContains($url_contains)
     {
-        $this->container['developer_message'] = $developer_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets error_code
-     *
-     * @return string
-     */
-    public function getErrorCode()
-    {
-        return $this->container['error_code'];
-    }
-
-    /**
-     * Sets error_code
-     *
-     * @param string $error_code HTTP status code
-     *
-     * @return $this
-     */
-    public function setErrorCode($error_code)
-    {
-        $this->container['error_code'] = $error_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets more_info
-     *
-     * @return string
-     */
-    public function getMoreInfo()
-    {
-        return $this->container['more_info'];
-    }
-
-    /**
-     * Sets more_info
-     *
-     * @param string $more_info Additional information often a link to additional documentation
-     *
-     * @return $this
-     */
-    public function setMoreInfo($more_info)
-    {
-        $this->container['more_info'] = $more_info;
-
-        return $this;
-    }
-
-    /**
-     * Gets object_id
-     *
-     * @return string
-     */
-    public function getObjectId()
-    {
-        return $this->container['object_id'];
-    }
-
-    /**
-     * Sets object_id
-     *
-     * @param string $object_id Object id that the error is associated with
-     *
-     * @return $this
-     */
-    public function setObjectId($object_id)
-    {
-        $this->container['object_id'] = $object_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_message
-     *
-     * @return string
-     */
-    public function getUserMessage()
-    {
-        return $this->container['user_message'];
-    }
-
-    /**
-     * Sets user_message
-     *
-     * @param string $user_message An end-user friendly message suitable for display to the customer
-     *
-     * @return $this
-     */
-    public function setUserMessage($user_message)
-    {
-        $this->container['user_message'] = $user_message;
+        $this->container['url_contains'] = $url_contains;
 
         return $this;
     }
