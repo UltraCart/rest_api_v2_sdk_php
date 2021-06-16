@@ -1,6 +1,6 @@
 <?php
 /**
- * LibraryItemAttribute
+ * IntegrationLogLog
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * LibraryItemAttribute Class Doc Comment
+ * IntegrationLogLog Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LibraryItemAttribute implements ModelInterface, ArrayAccess
+class IntegrationLogLog implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LibraryItemAttribute';
+    protected static $swaggerModelName = 'IntegrationLogLog';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,8 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'library_item_oid' => 'int',
-        'name' => 'string',
-        'value' => 'string'
+        'contents' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -68,9 +67,8 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'library_item_oid' => 'int32',
-        'name' => null,
-        'value' => null
+        'contents' => null,
+        'name' => null
     ];
 
     /**
@@ -100,9 +98,8 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'library_item_oid' => 'libraryItemOid',
-        'name' => 'name',
-        'value' => 'value'
+        'contents' => 'contents',
+        'name' => 'name'
     ];
 
     /**
@@ -111,9 +108,8 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'library_item_oid' => 'setLibraryItemOid',
-        'name' => 'setName',
-        'value' => 'setValue'
+        'contents' => 'setContents',
+        'name' => 'setName'
     ];
 
     /**
@@ -122,9 +118,8 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'library_item_oid' => 'getLibraryItemOid',
-        'name' => 'getName',
-        'value' => 'getValue'
+        'contents' => 'getContents',
+        'name' => 'getName'
     ];
 
     /**
@@ -187,9 +182,8 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
+        $this->container['contents'] = isset($data['contents']) ? $data['contents'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -217,25 +211,25 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets library_item_oid
+     * Gets contents
      *
-     * @return int
+     * @return string
      */
-    public function getLibraryItemOid()
+    public function getContents()
     {
-        return $this->container['library_item_oid'];
+        return $this->container['contents'];
     }
 
     /**
-     * Sets library_item_oid
+     * Sets contents
      *
-     * @param int $library_item_oid library_item_oid
+     * @param string $contents contents
      *
      * @return $this
      */
-    public function setLibraryItemOid($library_item_oid)
+    public function setContents($contents)
     {
-        $this->container['library_item_oid'] = $library_item_oid;
+        $this->container['contents'] = $contents;
 
         return $this;
     }
@@ -260,30 +254,6 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
 
         return $this;
     }

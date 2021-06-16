@@ -1,6 +1,6 @@
 <?php
 /**
- * LibraryItemAttribute
+ * IntegrationLogFile
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * LibraryItemAttribute Class Doc Comment
+ * IntegrationLogFile Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LibraryItemAttribute implements ModelInterface, ArrayAccess
+class IntegrationLogFile implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LibraryItemAttribute';
+    protected static $swaggerModelName = 'IntegrationLogFile';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'library_item_oid' => 'int',
         'name' => 'string',
-        'value' => 'string'
+        'size' => 'int',
+        'uuid' => 'string'
     ];
 
     /**
@@ -68,9 +68,9 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'library_item_oid' => 'int32',
         'name' => null,
-        'value' => null
+        'size' => 'int32',
+        'uuid' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'library_item_oid' => 'libraryItemOid',
         'name' => 'name',
-        'value' => 'value'
+        'size' => 'size',
+        'uuid' => 'uuid'
     ];
 
     /**
@@ -111,9 +111,9 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'library_item_oid' => 'setLibraryItemOid',
         'name' => 'setName',
-        'value' => 'setValue'
+        'size' => 'setSize',
+        'uuid' => 'setUuid'
     ];
 
     /**
@@ -122,9 +122,9 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'library_item_oid' => 'getLibraryItemOid',
         'name' => 'getName',
-        'value' => 'getValue'
+        'size' => 'getSize',
+        'uuid' => 'getUuid'
     ];
 
     /**
@@ -187,9 +187,9 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
     }
 
     /**
@@ -217,30 +217,6 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets library_item_oid
-     *
-     * @return int
-     */
-    public function getLibraryItemOid()
-    {
-        return $this->container['library_item_oid'];
-    }
-
-    /**
-     * Sets library_item_oid
-     *
-     * @param int $library_item_oid library_item_oid
-     *
-     * @return $this
-     */
-    public function setLibraryItemOid($library_item_oid)
-    {
-        $this->container['library_item_oid'] = $library_item_oid;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string
@@ -265,25 +241,49 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets value
+     * Gets size
      *
-     * @return string
+     * @return int
      */
-    public function getValue()
+    public function getSize()
     {
-        return $this->container['value'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets value
+     * Sets size
      *
-     * @param string $value value
+     * @param int $size size
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setSize($size)
     {
-        $this->container['value'] = $value;
+        $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets uuid
+     *
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string $uuid uuid
+     *
+     * @return $this
+     */
+    public function setUuid($uuid)
+    {
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }

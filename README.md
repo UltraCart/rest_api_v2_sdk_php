@@ -229,6 +229,8 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**getDistributionCenters**](docs/Api/FulfillmentApi.md#getdistributioncenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
 *FulfillmentApi* | [**shipOrders**](docs/Api/FulfillmentApi.md#shiporders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
 *FulfillmentApi* | [**updateInventory**](docs/Api/FulfillmentApi.md#updateinventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
+*IntegrationLogApi* | [**getIntegrationLog**](docs/Api/IntegrationLogApi.md#getintegrationlog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
+*IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsquery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteItem**](docs/Api/ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**getItem**](docs/Api/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
@@ -766,6 +768,12 @@ Class | Method | HTTP request | Description
  - [GroupUserMembership](docs/Model/GroupUserMembership.md)
  - [GroupsResponse](docs/Model/GroupsResponse.md)
  - [HTTPHeader](docs/Model/HTTPHeader.md)
+ - [IntegrationLog](docs/Model/IntegrationLog.md)
+ - [IntegrationLogFile](docs/Model/IntegrationLogFile.md)
+ - [IntegrationLogLog](docs/Model/IntegrationLogLog.md)
+ - [IntegrationLogQueryFilterValues](docs/Model/IntegrationLogQueryFilterValues.md)
+ - [IntegrationLogQueryRequest](docs/Model/IntegrationLogQueryRequest.md)
+ - [IntegrationLogQueryResponse](docs/Model/IntegrationLogQueryResponse.md)
  - [Item](docs/Model/Item.md)
  - [ItemAccounting](docs/Model/ItemAccounting.md)
  - [ItemAmember](docs/Model/ItemAmember.md)

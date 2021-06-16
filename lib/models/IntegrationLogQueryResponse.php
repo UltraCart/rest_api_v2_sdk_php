@@ -1,6 +1,6 @@
 <?php
 /**
- * LibraryItemAttribute
+ * IntegrationLogQueryResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * LibraryItemAttribute Class Doc Comment
+ * IntegrationLogQueryResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LibraryItemAttribute implements ModelInterface, ArrayAccess
+class IntegrationLogQueryResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LibraryItemAttribute';
+    protected static $swaggerModelName = 'IntegrationLogQueryResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,12 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'library_item_oid' => 'int',
-        'name' => 'string',
-        'value' => 'string'
+        'error' => '\ultracart\v2\models\Error',
+        'filter_values' => '\ultracart\v2\models\IntegrationLogQueryFilterValues',
+        'integration_logs' => '\ultracart\v2\models\IntegrationLog[]',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -68,9 +71,12 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'library_item_oid' => 'int32',
-        'name' => null,
-        'value' => null
+        'error' => null,
+        'filter_values' => null,
+        'integration_logs' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -100,9 +106,12 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'library_item_oid' => 'libraryItemOid',
-        'name' => 'name',
-        'value' => 'value'
+        'error' => 'error',
+        'filter_values' => 'filter_values',
+        'integration_logs' => 'integration_logs',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -111,9 +120,12 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'library_item_oid' => 'setLibraryItemOid',
-        'name' => 'setName',
-        'value' => 'setValue'
+        'error' => 'setError',
+        'filter_values' => 'setFilterValues',
+        'integration_logs' => 'setIntegrationLogs',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -122,9 +134,12 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'library_item_oid' => 'getLibraryItemOid',
-        'name' => 'getName',
-        'value' => 'getValue'
+        'error' => 'getError',
+        'filter_values' => 'getFilterValues',
+        'integration_logs' => 'getIntegrationLogs',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -187,9 +202,12 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['filter_values'] = isset($data['filter_values']) ? $data['filter_values'] : null;
+        $this->container['integration_logs'] = isset($data['integration_logs']) ? $data['integration_logs'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -217,73 +235,145 @@ class LibraryItemAttribute implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets library_item_oid
+     * Gets error
      *
-     * @return int
+     * @return \ultracart\v2\models\Error
      */
-    public function getLibraryItemOid()
+    public function getError()
     {
-        return $this->container['library_item_oid'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets library_item_oid
+     * Sets error
      *
-     * @param int $library_item_oid library_item_oid
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setLibraryItemOid($library_item_oid)
+    public function setError($error)
     {
-        $this->container['library_item_oid'] = $library_item_oid;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets filter_values
      *
-     * @return string
+     * @return \ultracart\v2\models\IntegrationLogQueryFilterValues
      */
-    public function getName()
+    public function getFilterValues()
     {
-        return $this->container['name'];
+        return $this->container['filter_values'];
     }
 
     /**
-     * Sets name
+     * Sets filter_values
      *
-     * @param string $name name
+     * @param \ultracart\v2\models\IntegrationLogQueryFilterValues $filter_values filter_values
      *
      * @return $this
      */
-    public function setName($name)
+    public function setFilterValues($filter_values)
     {
-        $this->container['name'] = $name;
+        $this->container['filter_values'] = $filter_values;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets integration_logs
      *
-     * @return string
+     * @return \ultracart\v2\models\IntegrationLog[]
      */
-    public function getValue()
+    public function getIntegrationLogs()
     {
-        return $this->container['value'];
+        return $this->container['integration_logs'];
     }
 
     /**
-     * Sets value
+     * Sets integration_logs
      *
-     * @param string $value value
+     * @param \ultracart\v2\models\IntegrationLog[] $integration_logs integration_logs
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setIntegrationLogs($integration_logs)
     {
-        $this->container['value'] = $value;
+        $this->container['integration_logs'] = $integration_logs;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success Indicates if API call was successful
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }
