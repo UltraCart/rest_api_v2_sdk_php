@@ -774,6 +774,7 @@ Class | Method | HTTP request | Description
  - [IntegrationLogQueryFilterValues](docs/Model/IntegrationLogQueryFilterValues.md)
  - [IntegrationLogQueryRequest](docs/Model/IntegrationLogQueryRequest.md)
  - [IntegrationLogQueryResponse](docs/Model/IntegrationLogQueryResponse.md)
+ - [IntegrationLogResponse](docs/Model/IntegrationLogResponse.md)
  - [Item](docs/Model/Item.md)
  - [ItemAccounting](docs/Model/ItemAccounting.md)
  - [ItemAmember](docs/Model/ItemAmember.md)
@@ -1106,6 +1107,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.1.49 | 06/17/2021 | Integrated Logging: standardize the response object from getIntegrationLog method  | 
 | 3.1.47 | 06/16/2021 | Integrated Logging Rest API  | 
 | 3.1.46 | 06/14/2021 | Screen recording: server side paginated heat map index with url contains filters, Item: channel partner item mapping unit cost override  | 
 | 3.1.44 | 06/02/2021 | new boolean flag on items object to allow sharing of reviews between items   | 

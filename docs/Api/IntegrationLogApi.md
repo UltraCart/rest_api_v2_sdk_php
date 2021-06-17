@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getIntegrationLog**
-> \ultracart\v2\models\IntegrationLog getIntegrationLog($pk, $sk)
+> \ultracart\v2\models\IntegrationLogResponse getIntegrationLog($pk, $sk)
 
 Retrieve an integration log
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\IntegrationLog**](../Model/IntegrationLog.md)
+[**\ultracart\v2\models\IntegrationLogResponse**](../Model/IntegrationLogResponse.md)
 
 ### Authorization
 

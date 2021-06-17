@@ -1,6 +1,6 @@
 <?php
 /**
- * ScreenRecordingHeatmapRequest
+ * IntegrationLogResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ScreenRecordingHeatmapRequest Class Doc Comment
+ * IntegrationLogResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
+class IntegrationLogResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ScreenRecordingHeatmapRequest';
+    protected static $swaggerModelName = 'IntegrationLogResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,11 @@ class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'range' => '\ultracart\v2\models\ScreenRecordingFilterRangeDate',
-        'screen_sizes' => 'string[]',
-        'url' => 'string'
+        'error' => '\ultracart\v2\models\Error',
+        'integration_log' => '\ultracart\v2\models\IntegrationLog',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -68,9 +70,11 @@ class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'range' => null,
-        'screen_sizes' => null,
-        'url' => null
+        'error' => null,
+        'integration_log' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -100,9 +104,11 @@ class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'range' => 'range',
-        'screen_sizes' => 'screen_sizes',
-        'url' => 'url'
+        'error' => 'error',
+        'integration_log' => 'integration_log',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -111,9 +117,11 @@ class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'range' => 'setRange',
-        'screen_sizes' => 'setScreenSizes',
-        'url' => 'setUrl'
+        'error' => 'setError',
+        'integration_log' => 'setIntegrationLog',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -122,9 +130,11 @@ class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'range' => 'getRange',
-        'screen_sizes' => 'getScreenSizes',
-        'url' => 'getUrl'
+        'error' => 'getError',
+        'integration_log' => 'getIntegrationLog',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -187,9 +197,11 @@ class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['range'] = isset($data['range']) ? $data['range'] : null;
-        $this->container['screen_sizes'] = isset($data['screen_sizes']) ? $data['screen_sizes'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['integration_log'] = isset($data['integration_log']) ? $data['integration_log'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -217,73 +229,121 @@ class ScreenRecordingHeatmapRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets range
+     * Gets error
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterRangeDate
+     * @return \ultracart\v2\models\Error
      */
-    public function getRange()
+    public function getError()
     {
-        return $this->container['range'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets range
+     * Sets error
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterRangeDate $range range
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setRange($range)
+    public function setError($error)
     {
-        $this->container['range'] = $range;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets screen_sizes
+     * Gets integration_log
      *
-     * @return string[]
+     * @return \ultracart\v2\models\IntegrationLog
      */
-    public function getScreenSizes()
+    public function getIntegrationLog()
     {
-        return $this->container['screen_sizes'];
+        return $this->container['integration_log'];
     }
 
     /**
-     * Sets screen_sizes
+     * Sets integration_log
      *
-     * @param string[] $screen_sizes screen_sizes
+     * @param \ultracart\v2\models\IntegrationLog $integration_log integration_log
      *
      * @return $this
      */
-    public function setScreenSizes($screen_sizes)
+    public function setIntegrationLog($integration_log)
     {
-        $this->container['screen_sizes'] = $screen_sizes;
+        $this->container['integration_log'] = $integration_log;
 
         return $this;
     }
 
     /**
-     * Gets url
+     * Gets metadata
      *
-     * @return string
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getUrl()
+    public function getMetadata()
     {
-        return $this->container['url'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets url
+     * Sets metadata
      *
-     * @param string $url url
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setMetadata($metadata)
     {
-        $this->container['url'] = $url;
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success Indicates if API call was successful
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

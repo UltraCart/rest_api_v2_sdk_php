@@ -115,7 +115,7 @@ class IntegrationLogApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\IntegrationLog
+     * @return \ultracart\v2\models\IntegrationLogResponse
      */
     public function getIntegrationLog($pk, $sk)
     {
@@ -134,7 +134,7 @@ class IntegrationLogApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\IntegrationLog, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\IntegrationLogResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getIntegrationLogWithHttpInfo($pk, $sk)
     {
@@ -153,11 +153,11 @@ class IntegrationLogApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\IntegrationLog, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\IntegrationLogResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getIntegrationLogWithHttpInfoRetry($retry ,  $pk,  $sk)
     {
-        $returnType = '\ultracart\v2\models\IntegrationLog';
+        $returnType = '\ultracart\v2\models\IntegrationLogResponse';
         $request = $this->getIntegrationLogRequest($pk, $sk);
 
         try {
@@ -210,7 +210,7 @@ class IntegrationLogApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\IntegrationLog',
+                        '\ultracart\v2\models\IntegrationLogResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -294,7 +294,7 @@ class IntegrationLogApi
      */
     public function getIntegrationLogAsyncWithHttpInfo($pk, $sk)
     {
-        $returnType = '\ultracart\v2\models\IntegrationLog';
+        $returnType = '\ultracart\v2\models\IntegrationLogResponse';
         $request = $this->getIntegrationLogRequest($pk, $sk);
 
         return $this->client
