@@ -57,6 +57,7 @@ class IntegrationLogFile implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'mime_type' => 'string',
         'name' => 'string',
         'size' => 'int',
         'uuid' => 'string'
@@ -68,6 +69,7 @@ class IntegrationLogFile implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'mime_type' => null,
         'name' => null,
         'size' => 'int32',
         'uuid' => null
@@ -100,6 +102,7 @@ class IntegrationLogFile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'mime_type' => 'mime_type',
         'name' => 'name',
         'size' => 'size',
         'uuid' => 'uuid'
@@ -111,6 +114,7 @@ class IntegrationLogFile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'mime_type' => 'setMimeType',
         'name' => 'setName',
         'size' => 'setSize',
         'uuid' => 'setUuid'
@@ -122,6 +126,7 @@ class IntegrationLogFile implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'mime_type' => 'getMimeType',
         'name' => 'getName',
         'size' => 'getSize',
         'uuid' => 'getUuid'
@@ -187,6 +192,7 @@ class IntegrationLogFile implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -215,6 +221,30 @@ class IntegrationLogFile implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets mime_type
+     *
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->container['mime_type'];
+    }
+
+    /**
+     * Sets mime_type
+     *
+     * @param string $mime_type mime_type
+     *
+     * @return $this
+     */
+    public function setMimeType($mime_type)
+    {
+        $this->container['mime_type'] = $mime_type;
+
+        return $this;
+    }
 
     /**
      * Gets name

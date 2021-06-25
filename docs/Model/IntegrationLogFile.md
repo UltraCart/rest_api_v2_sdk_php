@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**mime_type** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
 **size** | **int** |  | [optional] 
 **uuid** | **string** |  | [optional] 

@@ -7,11 +7,11 @@ Method | HTTP request | Description
 [**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomerByEmail**](CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
+[**getCustomerEditorValues**](CustomerApi.md#getCustomerEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
+[**getCustomerEmailLists**](CustomerApi.md#getCustomerEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
 [**getCustomersByQuery**](CustomerApi.md#getCustomersByQuery) | **POST** /customer/customers/query | Retrieve customers by query
 [**getCustomersForDataTables**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
-[**getEditorValues**](CustomerApi.md#getEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
-[**getEmailLists**](CustomerApi.md#getEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**getEmailVerificationToken**](CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**insertCustomer**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 [**updateCustomer**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
@@ -155,6 +155,94 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCustomerEditorValues**
+> \ultracart\v2\models\CustomerEditorValues getCustomerEditorValues()
+
+Retrieve values needed for a customer profile editor
+
+Retrieve values needed for a customer profile editor.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
+
+
+try {
+    $result = $apiInstance->getCustomerEditorValues();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getCustomerEditorValues: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\CustomerEditorValues**](../Model/CustomerEditorValues.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCustomerEmailLists**
+> \ultracart\v2\models\EmailListsResponse getCustomerEmailLists()
+
+Retrieve all email lists across all storefronts
+
+Retrieve all email lists across all storefronts
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
+
+
+try {
+    $result = $apiInstance->getCustomerEmailLists();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getCustomerEmailLists: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\ultracart\v2\models\EmailListsResponse**](../Model/EmailListsResponse.md)
 
 ### Authorization
 
@@ -371,94 +459,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\DataTablesServerSideResponse**](../Model/DataTablesServerSideResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getEditorValues**
-> \ultracart\v2\models\CustomerEditorValues getEditorValues()
-
-Retrieve values needed for a customer profile editor
-
-Retrieve values needed for a customer profile editor.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
-
-
-try {
-    $result = $apiInstance->getEditorValues();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->getEditorValues: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\ultracart\v2\models\CustomerEditorValues**](../Model/CustomerEditorValues.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getEmailLists**
-> \ultracart\v2\models\EmailListsResponse getEmailLists()
-
-Retrieve all email lists across all storefronts
-
-Retrieve all email lists across all storefronts
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
-
-
-try {
-    $result = $apiInstance->getEmailLists();
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->getEmailLists: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**\ultracart\v2\models\EmailListsResponse**](../Model/EmailListsResponse.md)
 
 ### Authorization
 

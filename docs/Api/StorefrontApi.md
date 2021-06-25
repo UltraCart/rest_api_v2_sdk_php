@@ -88,7 +88,6 @@ Method | HTTP request | Description
 [**getLibraryFilterValues**](StorefrontApi.md#getLibraryFilterValues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
 [**getLibraryItem**](StorefrontApi.md#getLibraryItem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
 [**getLibraryItemPublishedVersions**](StorefrontApi.md#getLibraryItemPublishedVersions) | **GET** /storefront/code_library/{library_item_oid}/published_versions | Get all published versions for a library item.
-[**getPricingTiers**](StorefrontApi.md#getPricingTiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 [**getScreenRecording**](StorefrontApi.md#getScreenRecording) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid} | Get screen recording
 [**getScreenRecordingPageViewData**](StorefrontApi.md#getScreenRecordingPageViewData) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/page_view_data/{screen_recording_page_view_uuid} | Get screen recording page view data
 [**getScreenRecordingSegment**](StorefrontApi.md#getScreenRecordingSegment) | **GET** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Get screen recording segment
@@ -97,6 +96,7 @@ Method | HTTP request | Description
 [**getScreenRecordingTags**](StorefrontApi.md#getScreenRecordingTags) | **POST** /storefront/{storefront_oid}/screen_recordings/tags | Get tags used by screen recording
 [**getScreenRecordingsByQuery**](StorefrontApi.md#getScreenRecordingsByQuery) | **POST** /storefront/{storefront_oid}/screen_recordings/query | Query screen recordings
 [**getScreenRecordingsBySegment**](StorefrontApi.md#getScreenRecordingsBySegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query | Get screen recordings by segment
+[**getStoreFrontPricingTiers**](StorefrontApi.md#getStoreFrontPricingTiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 [**getThumbnailParameters**](StorefrontApi.md#getThumbnailParameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 [**getTransactionEmail**](StorefrontApi.md#getTransactionEmail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 [**getTransactionEmailList**](StorefrontApi.md#getTransactionEmailList) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -4178,54 +4178,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getPricingTiers**
-> \ultracart\v2\models\PricingTiersResponse getPricingTiers($_expand)
-
-Retrieve pricing tiers
-
-Retrieves the pricing tiers
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
-
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
-
-try {
-    $result = $apiInstance->getPricingTiers($_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getPricingTiers: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\PricingTiersResponse**](../Model/PricingTiersResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **getScreenRecording**
 > \ultracart\v2\models\ScreenRecordingResponse getScreenRecording($storefront_oid, $screen_recording_uuid)
 
@@ -4616,6 +4568,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ScreenRecordingQueryResponse**](../Model/ScreenRecordingQueryResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getStoreFrontPricingTiers**
+> \ultracart\v2\models\PricingTiersResponse getStoreFrontPricingTiers($_expand)
+
+Retrieve pricing tiers
+
+Retrieves the pricing tiers
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $apiInstance->getStoreFrontPricingTiers($_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getStoreFrontPricingTiers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\PricingTiersResponse**](../Model/PricingTiersResponse.md)
 
 ### Authorization
 

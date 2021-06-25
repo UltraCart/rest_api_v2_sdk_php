@@ -10,7 +10,6 @@ For more information, please visit [http://www.ultracart.com](http://www.ultraca
 ## Requirements
 
 - PHP 5.5 and later
-- PHP Multibyte String (mbstring) See https://www.php.net/manual/en/book.mbstring.php
 
 ## Installation & Usage
 ### Composer
@@ -214,11 +213,11 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**deleteCustomer**](docs/Api/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/Api/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomerByEmail**](docs/Api/CustomerApi.md#getcustomerbyemail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
+*CustomerApi* | [**getCustomerEditorValues**](docs/Api/CustomerApi.md#getcustomereditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
+*CustomerApi* | [**getCustomerEmailLists**](docs/Api/CustomerApi.md#getcustomeremaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 *CustomerApi* | [**getCustomers**](docs/Api/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
 *CustomerApi* | [**getCustomersByQuery**](docs/Api/CustomerApi.md#getcustomersbyquery) | **POST** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
-*CustomerApi* | [**getEditorValues**](docs/Api/CustomerApi.md#geteditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
-*CustomerApi* | [**getEmailLists**](docs/Api/CustomerApi.md#getemaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 *CustomerApi* | [**getEmailVerificationToken**](docs/Api/CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
@@ -230,6 +229,7 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**shipOrders**](docs/Api/FulfillmentApi.md#shiporders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
 *FulfillmentApi* | [**updateInventory**](docs/Api/FulfillmentApi.md#updateinventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
 *IntegrationLogApi* | [**getIntegrationLog**](docs/Api/IntegrationLogApi.md#getintegrationlog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
+*IntegrationLogApi* | [**getIntegrationLogFile**](docs/Api/IntegrationLogApi.md#getintegrationlogfile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsquery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteItem**](docs/Api/ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**getItem**](docs/Api/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
@@ -346,7 +346,6 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getLibraryFilterValues**](docs/Api/StorefrontApi.md#getlibraryfiltervalues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
 *StorefrontApi* | [**getLibraryItem**](docs/Api/StorefrontApi.md#getlibraryitem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
 *StorefrontApi* | [**getLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#getlibraryitempublishedversions) | **GET** /storefront/code_library/{library_item_oid}/published_versions | Get all published versions for a library item.
-*StorefrontApi* | [**getPricingTiers**](docs/Api/StorefrontApi.md#getpricingtiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 *StorefrontApi* | [**getScreenRecording**](docs/Api/StorefrontApi.md#getscreenrecording) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid} | Get screen recording
 *StorefrontApi* | [**getScreenRecordingPageViewData**](docs/Api/StorefrontApi.md#getscreenrecordingpageviewdata) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/page_view_data/{screen_recording_page_view_uuid} | Get screen recording page view data
 *StorefrontApi* | [**getScreenRecordingSegment**](docs/Api/StorefrontApi.md#getscreenrecordingsegment) | **GET** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Get screen recording segment
@@ -355,6 +354,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getScreenRecordingTags**](docs/Api/StorefrontApi.md#getscreenrecordingtags) | **POST** /storefront/{storefront_oid}/screen_recordings/tags | Get tags used by screen recording
 *StorefrontApi* | [**getScreenRecordingsByQuery**](docs/Api/StorefrontApi.md#getscreenrecordingsbyquery) | **POST** /storefront/{storefront_oid}/screen_recordings/query | Query screen recordings
 *StorefrontApi* | [**getScreenRecordingsBySegment**](docs/Api/StorefrontApi.md#getscreenrecordingsbysegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query | Get screen recordings by segment
+*StorefrontApi* | [**getStoreFrontPricingTiers**](docs/Api/StorefrontApi.md#getstorefrontpricingtiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 *StorefrontApi* | [**getThumbnailParameters**](docs/Api/StorefrontApi.md#getthumbnailparameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 *StorefrontApi* | [**getTransactionEmail**](docs/Api/StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -1072,6 +1072,8 @@ Class | Method | HTTP request | Description
  - **customer_write**: Allows you to write customer information.
  - **fulfillment_read**: Allows you to read fulfillment information.
  - **fulfillment_write**: Allows you to write fulfillment information.
+ - **integration_log_read**: Allows you to read integration log information.
+ - **integration_log_write**: Allows you to write integration log information.
  - **order_read**: Allows you to read order information.
  - **order_write**: Allows you to write order information.
  - **item_read**: Allows you to read item information.
@@ -1107,6 +1109,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.2 | 06/24/2021 | integration log file mime type added | 
+| 3.2.0 | 06/23/2021 | Changed 4 methods due to naming conflicts revealed through swagger validator.  All internal methods, so impact should be negligible | 
+| 3.1.50 | 06/23/2021 | Integrated Logging: returning back streamed files for log requests | 
 | 3.1.49 | 06/17/2021 | Integrated Logging: standardize the response object from getIntegrationLog method  | 
 | 3.1.47 | 06/16/2021 | Integrated Logging Rest API  | 
 | 3.1.46 | 06/14/2021 | Screen recording: server side paginated heat map index with url contains filters, Item: channel partner item mapping unit cost override  | 
