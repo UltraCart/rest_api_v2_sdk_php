@@ -67,6 +67,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'log_dts' => 'string',
         'log_type' => 'string',
         'logger_id' => 'string',
+        'logger_name' => 'string',
         'logs' => '\ultracart\v2\models\IntegrationLogLog[]',
         'order_ids' => 'string[]',
         'pk' => 'string',
@@ -90,6 +91,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'log_dts' => null,
         'log_type' => null,
         'logger_id' => null,
+        'logger_name' => null,
         'logs' => null,
         'order_ids' => null,
         'pk' => null,
@@ -134,6 +136,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'log_dts' => 'log_dts',
         'log_type' => 'log_type',
         'logger_id' => 'logger_id',
+        'logger_name' => 'logger_name',
         'logs' => 'logs',
         'order_ids' => 'order_ids',
         'pk' => 'pk',
@@ -157,6 +160,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'log_dts' => 'setLogDts',
         'log_type' => 'setLogType',
         'logger_id' => 'setLoggerId',
+        'logger_name' => 'setLoggerName',
         'logs' => 'setLogs',
         'order_ids' => 'setOrderIds',
         'pk' => 'setPk',
@@ -180,6 +184,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'log_dts' => 'getLogDts',
         'log_type' => 'getLogType',
         'logger_id' => 'getLoggerId',
+        'logger_name' => 'getLoggerName',
         'logs' => 'getLogs',
         'order_ids' => 'getOrderIds',
         'pk' => 'getPk',
@@ -257,6 +262,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         $this->container['log_dts'] = isset($data['log_dts']) ? $data['log_dts'] : null;
         $this->container['log_type'] = isset($data['log_type']) ? $data['log_type'] : null;
         $this->container['logger_id'] = isset($data['logger_id']) ? $data['logger_id'] : null;
+        $this->container['logger_name'] = isset($data['logger_name']) ? $data['logger_name'] : null;
         $this->container['logs'] = isset($data['logs']) ? $data['logs'] : null;
         $this->container['order_ids'] = isset($data['order_ids']) ? $data['order_ids'] : null;
         $this->container['pk'] = isset($data['pk']) ? $data['pk'] : null;
@@ -524,6 +530,30 @@ class IntegrationLog implements ModelInterface, ArrayAccess
     public function setLoggerId($logger_id)
     {
         $this->container['logger_id'] = $logger_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets logger_name
+     *
+     * @return string
+     */
+    public function getLoggerName()
+    {
+        return $this->container['logger_name'];
+    }
+
+    /**
+     * Sets logger_name
+     *
+     * @param string $logger_name logger_name
+     *
+     * @return $this
+     */
+    public function setLoggerName($logger_name)
+    {
+        $this->container['logger_name'] = $logger_name;
 
         return $this;
     }

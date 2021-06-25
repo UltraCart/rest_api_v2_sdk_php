@@ -64,6 +64,7 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'item_ids' => 'string[]',
         'item_ipn_oids' => 'int[]',
         'log_types' => 'string[]',
+        'logger_names' => 'string[]',
         'order_ids' => 'string[]',
         'statuses' => 'string[]'
     ];
@@ -81,6 +82,7 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'item_ids' => null,
         'item_ipn_oids' => null,
         'log_types' => null,
+        'logger_names' => null,
         'order_ids' => null,
         'statuses' => null
     ];
@@ -119,6 +121,7 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'item_ids' => 'item_ids',
         'item_ipn_oids' => 'item_ipn_oids',
         'log_types' => 'log_types',
+        'logger_names' => 'logger_names',
         'order_ids' => 'order_ids',
         'statuses' => 'statuses'
     ];
@@ -136,6 +139,7 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'item_ids' => 'setItemIds',
         'item_ipn_oids' => 'setItemIpnOids',
         'log_types' => 'setLogTypes',
+        'logger_names' => 'setLoggerNames',
         'order_ids' => 'setOrderIds',
         'statuses' => 'setStatuses'
     ];
@@ -153,6 +157,7 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'item_ids' => 'getItemIds',
         'item_ipn_oids' => 'getItemIpnOids',
         'log_types' => 'getLogTypes',
+        'logger_names' => 'getLoggerNames',
         'order_ids' => 'getOrderIds',
         'statuses' => 'getStatuses'
     ];
@@ -224,6 +229,7 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         $this->container['item_ids'] = isset($data['item_ids']) ? $data['item_ids'] : null;
         $this->container['item_ipn_oids'] = isset($data['item_ipn_oids']) ? $data['item_ipn_oids'] : null;
         $this->container['log_types'] = isset($data['log_types']) ? $data['log_types'] : null;
+        $this->container['logger_names'] = isset($data['logger_names']) ? $data['logger_names'] : null;
         $this->container['order_ids'] = isset($data['order_ids']) ? $data['order_ids'] : null;
         $this->container['statuses'] = isset($data['statuses']) ? $data['statuses'] : null;
     }
@@ -416,6 +422,30 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
     public function setLogTypes($log_types)
     {
         $this->container['log_types'] = $log_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets logger_names
+     *
+     * @return string[]
+     */
+    public function getLoggerNames()
+    {
+        return $this->container['logger_names'];
+    }
+
+    /**
+     * Sets logger_names
+     *
+     * @param string[] $logger_names logger_names
+     *
+     * @return $this
+     */
+    public function setLoggerNames($logger_names)
+    {
+        $this->container['logger_names'] = $logger_names;
 
         return $this;
     }

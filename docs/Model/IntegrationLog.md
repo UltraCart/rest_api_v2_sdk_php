@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **log_dts** | **string** |  | [optional] 
 **log_type** | **string** |  | [optional] 
 **logger_id** | **string** |  | [optional] 
+**logger_name** | **string** |  | [optional] 
 **logs** | [**\ultracart\v2\models\IntegrationLogLog[]**](IntegrationLogLog.md) |  | [optional] 
 **order_ids** | **string[]** |  | [optional] 
 **pk** | **string** |  | [optional] 

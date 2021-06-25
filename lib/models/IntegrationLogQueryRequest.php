@@ -67,6 +67,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'log_dts_end' => 'string',
         'log_type' => 'string',
         'logger_id' => 'string',
+        'logger_name' => 'string',
         'order_ids' => 'string[]',
         'status' => 'string'
     ];
@@ -87,6 +88,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'log_dts_end' => 'dateTime',
         'log_type' => null,
         'logger_id' => null,
+        'logger_name' => null,
         'order_ids' => null,
         'status' => null
     ];
@@ -128,6 +130,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'log_dts_end' => 'log_dts_end',
         'log_type' => 'log_type',
         'logger_id' => 'logger_id',
+        'logger_name' => 'logger_name',
         'order_ids' => 'order_ids',
         'status' => 'status'
     ];
@@ -148,6 +151,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'log_dts_end' => 'setLogDtsEnd',
         'log_type' => 'setLogType',
         'logger_id' => 'setLoggerId',
+        'logger_name' => 'setLoggerName',
         'order_ids' => 'setOrderIds',
         'status' => 'setStatus'
     ];
@@ -168,6 +172,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'log_dts_end' => 'getLogDtsEnd',
         'log_type' => 'getLogType',
         'logger_id' => 'getLoggerId',
+        'logger_name' => 'getLoggerName',
         'order_ids' => 'getOrderIds',
         'status' => 'getStatus'
     ];
@@ -242,6 +247,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         $this->container['log_dts_end'] = isset($data['log_dts_end']) ? $data['log_dts_end'] : null;
         $this->container['log_type'] = isset($data['log_type']) ? $data['log_type'] : null;
         $this->container['logger_id'] = isset($data['logger_id']) ? $data['logger_id'] : null;
+        $this->container['logger_name'] = isset($data['logger_name']) ? $data['logger_name'] : null;
         $this->container['order_ids'] = isset($data['order_ids']) ? $data['order_ids'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
@@ -506,6 +512,30 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
     public function setLoggerId($logger_id)
     {
         $this->container['logger_id'] = $logger_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets logger_name
+     *
+     * @return string
+     */
+    public function getLoggerName()
+    {
+        return $this->container['logger_name'];
+    }
+
+    /**
+     * Sets logger_name
+     *
+     * @param string $logger_name logger_name
+     *
+     * @return $this
+     */
+    public function setLoggerName($logger_name)
+    {
+        $this->container['logger_name'] = $logger_name;
 
         return $this;
     }

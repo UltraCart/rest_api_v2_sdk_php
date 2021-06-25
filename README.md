@@ -1109,6 +1109,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.6 | 06/25/2021 | integration log: added logger name | 
 | 3.2.2 | 06/24/2021 | integration log file mime type added | 
 | 3.2.0 | 06/23/2021 | Changed 4 methods due to naming conflicts revealed through swagger validator.  All internal methods, so impact should be negligible | 
 | 3.1.50 | 06/23/2021 | Integrated Logging: returning back streamed files for log requests | 
