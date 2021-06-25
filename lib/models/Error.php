@@ -60,6 +60,7 @@ class Error implements ModelInterface, ArrayAccess
         'developer_message' => 'string',
         'error_code' => 'string',
         'more_info' => 'string',
+        'object_id' => 'string',
         'user_message' => 'string'
     ];
 
@@ -72,6 +73,7 @@ class Error implements ModelInterface, ArrayAccess
         'developer_message' => null,
         'error_code' => null,
         'more_info' => null,
+        'object_id' => null,
         'user_message' => null
     ];
 
@@ -105,6 +107,7 @@ class Error implements ModelInterface, ArrayAccess
         'developer_message' => 'developer_message',
         'error_code' => 'error_code',
         'more_info' => 'more_info',
+        'object_id' => 'object_id',
         'user_message' => 'user_message'
     ];
 
@@ -117,6 +120,7 @@ class Error implements ModelInterface, ArrayAccess
         'developer_message' => 'setDeveloperMessage',
         'error_code' => 'setErrorCode',
         'more_info' => 'setMoreInfo',
+        'object_id' => 'setObjectId',
         'user_message' => 'setUserMessage'
     ];
 
@@ -129,6 +133,7 @@ class Error implements ModelInterface, ArrayAccess
         'developer_message' => 'getDeveloperMessage',
         'error_code' => 'getErrorCode',
         'more_info' => 'getMoreInfo',
+        'object_id' => 'getObjectId',
         'user_message' => 'getUserMessage'
     ];
 
@@ -195,6 +200,7 @@ class Error implements ModelInterface, ArrayAccess
         $this->container['developer_message'] = isset($data['developer_message']) ? $data['developer_message'] : null;
         $this->container['error_code'] = isset($data['error_code']) ? $data['error_code'] : null;
         $this->container['more_info'] = isset($data['more_info']) ? $data['more_info'] : null;
+        $this->container['object_id'] = isset($data['object_id']) ? $data['object_id'] : null;
         $this->container['user_message'] = isset($data['user_message']) ? $data['user_message'] : null;
     }
 
@@ -290,6 +296,30 @@ class Error implements ModelInterface, ArrayAccess
     public function setMoreInfo($more_info)
     {
         $this->container['more_info'] = $more_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_id
+     *
+     * @return string
+     */
+    public function getObjectId()
+    {
+        return $this->container['object_id'];
+    }
+
+    /**
+     * Sets object_id
+     *
+     * @param string $object_id Object id that the error is associated with
+     *
+     * @return $this
+     */
+    public function setObjectId($object_id)
+    {
+        $this->container['object_id'] = $object_id;
 
         return $this;
     }

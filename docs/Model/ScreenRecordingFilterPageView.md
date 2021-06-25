@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**domain** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **events** | [**\ultracart\v2\models\ScreenRecordingFilterPageViewEvent[]**](ScreenRecordingFilterPageViewEvent.md) |  | [optional] 
 **params** | [**\ultracart\v2\models\ScreenRecordingFilterPageViewParam[]**](ScreenRecordingFilterPageViewParam.md) |  | [optional] 
 **referrer** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 

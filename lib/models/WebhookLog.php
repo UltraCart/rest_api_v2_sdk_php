@@ -59,6 +59,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'delivery_dts' => 'string',
         'duration' => 'int',
+        'queue_delay' => 'int',
         'request' => 'string',
         'request_headers' => '\ultracart\v2\models\HTTPHeader[]',
         'request_id' => 'string',
@@ -77,6 +78,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'delivery_dts' => 'dateTime',
         'duration' => 'int32',
+        'queue_delay' => 'int64',
         'request' => null,
         'request_headers' => null,
         'request_id' => null,
@@ -116,6 +118,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'delivery_dts' => 'delivery_dts',
         'duration' => 'duration',
+        'queue_delay' => 'queue_delay',
         'request' => 'request',
         'request_headers' => 'request_headers',
         'request_id' => 'request_id',
@@ -134,6 +137,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     protected static $setters = [
         'delivery_dts' => 'setDeliveryDts',
         'duration' => 'setDuration',
+        'queue_delay' => 'setQueueDelay',
         'request' => 'setRequest',
         'request_headers' => 'setRequestHeaders',
         'request_id' => 'setRequestId',
@@ -152,6 +156,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     protected static $getters = [
         'delivery_dts' => 'getDeliveryDts',
         'duration' => 'getDuration',
+        'queue_delay' => 'getQueueDelay',
         'request' => 'getRequest',
         'request_headers' => 'getRequestHeaders',
         'request_id' => 'getRequestId',
@@ -224,6 +229,7 @@ class WebhookLog implements ModelInterface, ArrayAccess
     {
         $this->container['delivery_dts'] = isset($data['delivery_dts']) ? $data['delivery_dts'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
+        $this->container['queue_delay'] = isset($data['queue_delay']) ? $data['queue_delay'] : null;
         $this->container['request'] = isset($data['request']) ? $data['request'] : null;
         $this->container['request_headers'] = isset($data['request_headers']) ? $data['request_headers'] : null;
         $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
@@ -302,6 +308,30 @@ class WebhookLog implements ModelInterface, ArrayAccess
     public function setDuration($duration)
     {
         $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets queue_delay
+     *
+     * @return int
+     */
+    public function getQueueDelay()
+    {
+        return $this->container['queue_delay'];
+    }
+
+    /**
+     * Sets queue_delay
+     *
+     * @param int $queue_delay Number of milliseconds of delay caused by queuing
+     *
+     * @return $this
+     */
+    public function setQueueDelay($queue_delay)
+    {
+        $this->container['queue_delay'] = $queue_delay;
 
         return $this;
     }

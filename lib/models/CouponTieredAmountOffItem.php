@@ -253,7 +253,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
     /**
      * Sets limit
      *
-     * @param float $limit The maximum amount of total discount by this coupon.
+     * @param float $limit The maximum number of discounted items.
      *
      * @return $this
      */

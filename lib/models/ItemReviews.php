@@ -63,7 +63,9 @@ class ItemReviews implements ModelInterface, ArrayAccess
         'review_overall' => 'float',
         'review_template_name' => 'string',
         'review_template_oid' => 'int',
-        'reviewable' => 'bool'
+        'reviewable' => 'bool',
+        'share_reviews_with_merchant_item_id' => 'string',
+        'share_reviews_with_merchant_item_oid' => 'int'
     ];
 
     /**
@@ -78,7 +80,9 @@ class ItemReviews implements ModelInterface, ArrayAccess
         'review_overall' => null,
         'review_template_name' => null,
         'review_template_oid' => 'int32',
-        'reviewable' => null
+        'reviewable' => null,
+        'share_reviews_with_merchant_item_id' => null,
+        'share_reviews_with_merchant_item_oid' => 'int32'
     ];
 
     /**
@@ -114,7 +118,9 @@ class ItemReviews implements ModelInterface, ArrayAccess
         'review_overall' => 'review_overall',
         'review_template_name' => 'review_template_name',
         'review_template_oid' => 'review_template_oid',
-        'reviewable' => 'reviewable'
+        'reviewable' => 'reviewable',
+        'share_reviews_with_merchant_item_id' => 'share_reviews_with_merchant_item_id',
+        'share_reviews_with_merchant_item_oid' => 'share_reviews_with_merchant_item_oid'
     ];
 
     /**
@@ -129,7 +135,9 @@ class ItemReviews implements ModelInterface, ArrayAccess
         'review_overall' => 'setReviewOverall',
         'review_template_name' => 'setReviewTemplateName',
         'review_template_oid' => 'setReviewTemplateOid',
-        'reviewable' => 'setReviewable'
+        'reviewable' => 'setReviewable',
+        'share_reviews_with_merchant_item_id' => 'setShareReviewsWithMerchantItemId',
+        'share_reviews_with_merchant_item_oid' => 'setShareReviewsWithMerchantItemOid'
     ];
 
     /**
@@ -144,7 +152,9 @@ class ItemReviews implements ModelInterface, ArrayAccess
         'review_overall' => 'getReviewOverall',
         'review_template_name' => 'getReviewTemplateName',
         'review_template_oid' => 'getReviewTemplateOid',
-        'reviewable' => 'getReviewable'
+        'reviewable' => 'getReviewable',
+        'share_reviews_with_merchant_item_id' => 'getShareReviewsWithMerchantItemId',
+        'share_reviews_with_merchant_item_oid' => 'getShareReviewsWithMerchantItemOid'
     ];
 
     /**
@@ -214,6 +224,8 @@ class ItemReviews implements ModelInterface, ArrayAccess
         $this->container['review_template_name'] = isset($data['review_template_name']) ? $data['review_template_name'] : null;
         $this->container['review_template_oid'] = isset($data['review_template_oid']) ? $data['review_template_oid'] : null;
         $this->container['reviewable'] = isset($data['reviewable']) ? $data['reviewable'] : null;
+        $this->container['share_reviews_with_merchant_item_id'] = isset($data['share_reviews_with_merchant_item_id']) ? $data['share_reviews_with_merchant_item_id'] : null;
+        $this->container['share_reviews_with_merchant_item_oid'] = isset($data['share_reviews_with_merchant_item_oid']) ? $data['share_reviews_with_merchant_item_oid'] : null;
     }
 
     /**
@@ -404,6 +416,54 @@ class ItemReviews implements ModelInterface, ArrayAccess
     public function setReviewable($reviewable)
     {
         $this->container['reviewable'] = $reviewable;
+
+        return $this;
+    }
+
+    /**
+     * Gets share_reviews_with_merchant_item_id
+     *
+     * @return string
+     */
+    public function getShareReviewsWithMerchantItemId()
+    {
+        return $this->container['share_reviews_with_merchant_item_id'];
+    }
+
+    /**
+     * Sets share_reviews_with_merchant_item_id
+     *
+     * @param string $share_reviews_with_merchant_item_id Share reviews with item id.  To set, use the share_reviews_with_merchant_item_oid field.
+     *
+     * @return $this
+     */
+    public function setShareReviewsWithMerchantItemId($share_reviews_with_merchant_item_id)
+    {
+        $this->container['share_reviews_with_merchant_item_id'] = $share_reviews_with_merchant_item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets share_reviews_with_merchant_item_oid
+     *
+     * @return int
+     */
+    public function getShareReviewsWithMerchantItemOid()
+    {
+        return $this->container['share_reviews_with_merchant_item_oid'];
+    }
+
+    /**
+     * Sets share_reviews_with_merchant_item_oid
+     *
+     * @param int $share_reviews_with_merchant_item_oid Share reviews with item oid.  To null out this field, set teh value to zero.
+     *
+     * @return $this
+     */
+    public function setShareReviewsWithMerchantItemOid($share_reviews_with_merchant_item_oid)
+    {
+        $this->container['share_reviews_with_merchant_item_oid'] = $share_reviews_with_merchant_item_oid;
 
         return $this;
     }

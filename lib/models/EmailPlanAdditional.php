@@ -57,6 +57,7 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'active' => 'bool',
         'can_downgrade' => 'bool',
         'can_upgrade' => 'bool',
         'cost' => 'float',
@@ -73,6 +74,7 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'active' => null,
         'can_downgrade' => null,
         'can_upgrade' => null,
         'cost' => null,
@@ -110,6 +112,7 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'active' => 'active',
         'can_downgrade' => 'can_downgrade',
         'can_upgrade' => 'can_upgrade',
         'cost' => 'cost',
@@ -126,6 +129,7 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'active' => 'setActive',
         'can_downgrade' => 'setCanDowngrade',
         'can_upgrade' => 'setCanUpgrade',
         'cost' => 'setCost',
@@ -142,6 +146,7 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'active' => 'getActive',
         'can_downgrade' => 'getCanDowngrade',
         'can_upgrade' => 'getCanUpgrade',
         'cost' => 'getCost',
@@ -212,6 +217,7 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['can_downgrade'] = isset($data['can_downgrade']) ? $data['can_downgrade'] : null;
         $this->container['can_upgrade'] = isset($data['can_upgrade']) ? $data['can_upgrade'] : null;
         $this->container['cost'] = isset($data['cost']) ? $data['cost'] : null;
@@ -245,6 +251,30 @@ class EmailPlanAdditional implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool $active active
+     *
+     * @return $this
+     */
+    public function setActive($active)
+    {
+        $this->container['active'] = $active;
+
+        return $this;
+    }
 
     /**
      * Gets can_downgrade

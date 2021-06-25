@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**default_assignment** | **bool** | True if this group is the default assignment for this item | [optional] 
 **group_oid** | **int** | Page (group) object identifier | [optional] 
 **group_path** | **string** | Page (group) path | [optional] 
 **host** | **string** | StoreFront host name | [optional] 

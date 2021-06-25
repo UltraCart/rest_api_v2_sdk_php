@@ -57,6 +57,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'default_assignment' => 'bool',
         'group_oid' => 'int',
         'group_path' => 'string',
         'host' => 'string',
@@ -70,6 +71,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'default_assignment' => null,
         'group_oid' => 'int32',
         'group_path' => null,
         'host' => null,
@@ -104,6 +106,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'default_assignment' => 'default_assignment',
         'group_oid' => 'group_oid',
         'group_path' => 'group_path',
         'host' => 'host',
@@ -117,6 +120,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'default_assignment' => 'setDefaultAssignment',
         'group_oid' => 'setGroupOid',
         'group_path' => 'setGroupPath',
         'host' => 'setHost',
@@ -130,6 +134,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'default_assignment' => 'getDefaultAssignment',
         'group_oid' => 'getGroupOid',
         'group_path' => 'getGroupPath',
         'host' => 'getHost',
@@ -197,6 +202,7 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['default_assignment'] = isset($data['default_assignment']) ? $data['default_assignment'] : null;
         $this->container['group_oid'] = isset($data['group_oid']) ? $data['group_oid'] : null;
         $this->container['group_path'] = isset($data['group_path']) ? $data['group_path'] : null;
         $this->container['host'] = isset($data['host']) ? $data['host'] : null;
@@ -231,6 +237,30 @@ class ItemContentAssignment implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets default_assignment
+     *
+     * @return bool
+     */
+    public function getDefaultAssignment()
+    {
+        return $this->container['default_assignment'];
+    }
+
+    /**
+     * Sets default_assignment
+     *
+     * @param bool $default_assignment True if this group is the default assignment for this item
+     *
+     * @return $this
+     */
+    public function setDefaultAssignment($default_assignment)
+    {
+        $this->container['default_assignment'] = $default_assignment;
+
+        return $this;
+    }
 
     /**
      * Gets group_oid

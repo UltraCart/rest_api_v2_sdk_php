@@ -67,6 +67,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => '\ultracart\v2\models\CouponAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase',
+        'amount_off_subtotal_with_purchase' => '\ultracart\v2\models\CouponAmountOffSubtotalWithPurchase',
         'automatically_apply_coupon_codes' => '\ultracart\v2\models\CouponAutomaticallyApplyCouponCodes',
         'buy_one_get_one' => '\ultracart\v2\models\CouponBuyOneGetOneLimit',
         'calculated_description' => 'string',
@@ -94,6 +95,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => '\ultracart\v2\models\CouponPercentOffItems',
         'percent_off_items_and_free_shipping' => '\ultracart\v2\models\CouponPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => '\ultracart\v2\models\CouponPercentOffItemsWithItemsPurchase',
+        'percent_off_msrp_items' => '\ultracart\v2\models\CouponPercentOffMsrpItems',
         'percent_off_retail_price_items' => '\ultracart\v2\models\CouponPercentOffRetailPriceItems',
         'percent_off_shipping' => '\ultracart\v2\models\CouponPercentOffShipping',
         'percent_off_subtotal' => '\ultracart\v2\models\CouponPercentOffSubtotal',
@@ -131,6 +133,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => null,
         'amount_off_subtotal_with_block_purchase' => null,
         'amount_off_subtotal_with_items_purchase' => null,
+        'amount_off_subtotal_with_purchase' => null,
         'automatically_apply_coupon_codes' => null,
         'buy_one_get_one' => null,
         'calculated_description' => null,
@@ -158,6 +161,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => null,
         'percent_off_items_and_free_shipping' => null,
         'percent_off_items_with_items_purchase' => null,
+        'percent_off_msrp_items' => null,
         'percent_off_retail_price_items' => null,
         'percent_off_shipping' => null,
         'percent_off_subtotal' => null,
@@ -216,6 +220,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'amount_off_subtotal_and_shipping',
         'amount_off_subtotal_with_block_purchase' => 'amount_off_subtotal_with_block_purchase',
         'amount_off_subtotal_with_items_purchase' => 'amount_off_subtotal_with_items_purchase',
+        'amount_off_subtotal_with_purchase' => 'amount_off_subtotal_with_purchase',
         'automatically_apply_coupon_codes' => 'automatically_apply_coupon_codes',
         'buy_one_get_one' => 'buy_one_get_one',
         'calculated_description' => 'calculated_description',
@@ -243,6 +248,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => 'percent_off_items',
         'percent_off_items_and_free_shipping' => 'percent_off_items_and_free_shipping',
         'percent_off_items_with_items_purchase' => 'percent_off_items_with_items_purchase',
+        'percent_off_msrp_items' => 'percent_off_msrp_items',
         'percent_off_retail_price_items' => 'percent_off_retail_price_items',
         'percent_off_shipping' => 'percent_off_shipping',
         'percent_off_subtotal' => 'percent_off_subtotal',
@@ -280,6 +286,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'setAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => 'setAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => 'setAmountOffSubtotalWithItemsPurchase',
+        'amount_off_subtotal_with_purchase' => 'setAmountOffSubtotalWithPurchase',
         'automatically_apply_coupon_codes' => 'setAutomaticallyApplyCouponCodes',
         'buy_one_get_one' => 'setBuyOneGetOne',
         'calculated_description' => 'setCalculatedDescription',
@@ -307,6 +314,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => 'setPercentOffItems',
         'percent_off_items_and_free_shipping' => 'setPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => 'setPercentOffItemsWithItemsPurchase',
+        'percent_off_msrp_items' => 'setPercentOffMsrpItems',
         'percent_off_retail_price_items' => 'setPercentOffRetailPriceItems',
         'percent_off_shipping' => 'setPercentOffShipping',
         'percent_off_subtotal' => 'setPercentOffSubtotal',
@@ -344,6 +352,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'amount_off_subtotal_and_shipping' => 'getAmountOffSubtotalAndShipping',
         'amount_off_subtotal_with_block_purchase' => 'getAmountOffSubtotalWithBlockPurchase',
         'amount_off_subtotal_with_items_purchase' => 'getAmountOffSubtotalWithItemsPurchase',
+        'amount_off_subtotal_with_purchase' => 'getAmountOffSubtotalWithPurchase',
         'automatically_apply_coupon_codes' => 'getAutomaticallyApplyCouponCodes',
         'buy_one_get_one' => 'getBuyOneGetOne',
         'calculated_description' => 'getCalculatedDescription',
@@ -371,6 +380,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'percent_off_items' => 'getPercentOffItems',
         'percent_off_items_and_free_shipping' => 'getPercentOffItemsAndFreeShipping',
         'percent_off_items_with_items_purchase' => 'getPercentOffItemsWithItemsPurchase',
+        'percent_off_msrp_items' => 'getPercentOffMsrpItems',
         'percent_off_retail_price_items' => 'getPercentOffRetailPriceItems',
         'percent_off_shipping' => 'getPercentOffShipping',
         'percent_off_subtotal' => 'getPercentOffSubtotal',
@@ -462,6 +472,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['amount_off_subtotal_and_shipping'] = isset($data['amount_off_subtotal_and_shipping']) ? $data['amount_off_subtotal_and_shipping'] : null;
         $this->container['amount_off_subtotal_with_block_purchase'] = isset($data['amount_off_subtotal_with_block_purchase']) ? $data['amount_off_subtotal_with_block_purchase'] : null;
         $this->container['amount_off_subtotal_with_items_purchase'] = isset($data['amount_off_subtotal_with_items_purchase']) ? $data['amount_off_subtotal_with_items_purchase'] : null;
+        $this->container['amount_off_subtotal_with_purchase'] = isset($data['amount_off_subtotal_with_purchase']) ? $data['amount_off_subtotal_with_purchase'] : null;
         $this->container['automatically_apply_coupon_codes'] = isset($data['automatically_apply_coupon_codes']) ? $data['automatically_apply_coupon_codes'] : null;
         $this->container['buy_one_get_one'] = isset($data['buy_one_get_one']) ? $data['buy_one_get_one'] : null;
         $this->container['calculated_description'] = isset($data['calculated_description']) ? $data['calculated_description'] : null;
@@ -489,6 +500,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['percent_off_items'] = isset($data['percent_off_items']) ? $data['percent_off_items'] : null;
         $this->container['percent_off_items_and_free_shipping'] = isset($data['percent_off_items_and_free_shipping']) ? $data['percent_off_items_and_free_shipping'] : null;
         $this->container['percent_off_items_with_items_purchase'] = isset($data['percent_off_items_with_items_purchase']) ? $data['percent_off_items_with_items_purchase'] : null;
+        $this->container['percent_off_msrp_items'] = isset($data['percent_off_msrp_items']) ? $data['percent_off_msrp_items'] : null;
         $this->container['percent_off_retail_price_items'] = isset($data['percent_off_retail_price_items']) ? $data['percent_off_retail_price_items'] : null;
         $this->container['percent_off_shipping'] = isset($data['percent_off_shipping']) ? $data['percent_off_shipping'] : null;
         $this->container['percent_off_subtotal'] = isset($data['percent_off_subtotal']) ? $data['percent_off_subtotal'] : null;
@@ -794,6 +806,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setAmountOffSubtotalWithItemsPurchase($amount_off_subtotal_with_items_purchase)
     {
         $this->container['amount_off_subtotal_with_items_purchase'] = $amount_off_subtotal_with_items_purchase;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount_off_subtotal_with_purchase
+     *
+     * @return \ultracart\v2\models\CouponAmountOffSubtotalWithPurchase
+     */
+    public function getAmountOffSubtotalWithPurchase()
+    {
+        return $this->container['amount_off_subtotal_with_purchase'];
+    }
+
+    /**
+     * Sets amount_off_subtotal_with_purchase
+     *
+     * @param \ultracart\v2\models\CouponAmountOffSubtotalWithPurchase $amount_off_subtotal_with_purchase amount_off_subtotal_with_purchase
+     *
+     * @return $this
+     */
+    public function setAmountOffSubtotalWithPurchase($amount_off_subtotal_with_purchase)
+    {
+        $this->container['amount_off_subtotal_with_purchase'] = $amount_off_subtotal_with_purchase;
 
         return $this;
     }
@@ -1458,6 +1494,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setPercentOffItemsWithItemsPurchase($percent_off_items_with_items_purchase)
     {
         $this->container['percent_off_items_with_items_purchase'] = $percent_off_items_with_items_purchase;
+
+        return $this;
+    }
+
+    /**
+     * Gets percent_off_msrp_items
+     *
+     * @return \ultracart\v2\models\CouponPercentOffMsrpItems
+     */
+    public function getPercentOffMsrpItems()
+    {
+        return $this->container['percent_off_msrp_items'];
+    }
+
+    /**
+     * Sets percent_off_msrp_items
+     *
+     * @param \ultracart\v2\models\CouponPercentOffMsrpItems $percent_off_msrp_items percent_off_msrp_items
+     *
+     * @return $this
+     */
+    public function setPercentOffMsrpItems($percent_off_msrp_items)
+    {
+        $this->container['percent_off_msrp_items'] = $percent_off_msrp_items;
 
         return $this;
     }

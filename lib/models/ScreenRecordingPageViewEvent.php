@@ -59,6 +59,7 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'name' => 'string',
         'params' => '\ultracart\v2\models\ScreenRecordingPageViewEventParameter[]',
+        'prior_page_view' => 'bool',
         'timestamp' => 'string',
         'ts' => 'int'
     ];
@@ -71,6 +72,7 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'name' => null,
         'params' => null,
+        'prior_page_view' => null,
         'timestamp' => 'dateTime',
         'ts' => 'int64'
     ];
@@ -104,6 +106,7 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'params' => 'params',
+        'prior_page_view' => 'prior_page_view',
         'timestamp' => 'timestamp',
         'ts' => 'ts'
     ];
@@ -116,6 +119,7 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'params' => 'setParams',
+        'prior_page_view' => 'setPriorPageView',
         'timestamp' => 'setTimestamp',
         'ts' => 'setTs'
     ];
@@ -128,6 +132,7 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'params' => 'getParams',
+        'prior_page_view' => 'getPriorPageView',
         'timestamp' => 'getTimestamp',
         'ts' => 'getTs'
     ];
@@ -194,6 +199,7 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
+        $this->container['prior_page_view'] = isset($data['prior_page_view']) ? $data['prior_page_view'] : null;
         $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
         $this->container['ts'] = isset($data['ts']) ? $data['ts'] : null;
     }
@@ -266,6 +272,30 @@ class ScreenRecordingPageViewEvent implements ModelInterface, ArrayAccess
     public function setParams($params)
     {
         $this->container['params'] = $params;
+
+        return $this;
+    }
+
+    /**
+     * Gets prior_page_view
+     *
+     * @return bool
+     */
+    public function getPriorPageView()
+    {
+        return $this->container['prior_page_view'];
+    }
+
+    /**
+     * Sets prior_page_view
+     *
+     * @param bool $prior_page_view prior_page_view
+     *
+     * @return $this
+     */
+    public function setPriorPageView($prior_page_view)
+    {
+        $this->container['prior_page_view'] = $prior_page_view;
 
         return $this;
     }

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **amember** | [**\ultracart\v2\models\ItemAmember**](ItemAmember.md) |  | [optional] 
 **auto_order** | [**\ultracart\v2\models\ItemAutoOrder**](ItemAutoOrder.md) |  | [optional] 
 **ccbill** | [**\ultracart\v2\models\ItemCCBill**](ItemCCBill.md) |  | [optional] 
-**channel_partner_mappings** | [**\ultracart\v2\models\ItemChannelPartnerMapping[]**](ItemChannelPartnerMapping.md) | Channel Partner Item Mapping | [optional] 
+**channel_partner_item_mappings** | [**\ultracart\v2\models\ItemChannelPartnerMapping[]**](ItemChannelPartnerMapping.md) | Channel Partner Item Mapping | [optional] 
 **chargeback** | [**\ultracart\v2\models\ItemChargeback**](ItemChargeback.md) |  | [optional] 
 **checkout** | [**\ultracart\v2\models\ItemCheckout**](ItemCheckout.md) |  | [optional] 
 **content** | [**\ultracart\v2\models\ItemContent**](ItemContent.md) |  | [optional] 

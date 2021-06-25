@@ -3,7 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**affiliate_email** | **string** |  | [optional] 
+**affiliate_id** | **int** |  | [optional] 
+**communications_campaign_name** | **string** |  | [optional] 
+**communications_email_subject** | **string** |  | [optional] 
+**communications_flow_name** | **string** |  | [optional] 
 **email** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**email_domain** | **string** |  | [optional] 
 **email_identified** | **bool** |  | [optional] 
 **end_timestamp** | [**\ultracart\v2\models\ScreenRecordingFilterRangeDate**](ScreenRecordingFilterRangeDate.md) |  | [optional] 
 **esp_customer_uuid** | **string** |  | [optional] 
@@ -11,11 +17,15 @@ Name | Type | Description | Notes
 **geolocation** | [**\ultracart\v2\models\ScreenRecordingFilterGeoDistance**](ScreenRecordingFilterGeoDistance.md) |  | [optional] 
 **geolocation_country** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **geolocation_state** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**language_iso_code** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**last_x_days** | **int** |  | [optional] 
 **max_filter_values** | **int** |  | [optional] 
 **order_id** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **page_view_count** | [**\ultracart\v2\models\ScreenRecordingFilterRangeInteger**](ScreenRecordingFilterRangeInteger.md) |  | [optional] 
 **page_views** | [**\ultracart\v2\models\ScreenRecordingFilterPageView[]**](ScreenRecordingFilterPageView.md) |  | [optional] 
 **placed_order** | **bool** |  | [optional] 
+**preferred_language** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**referrer_domain** | **string** |  | [optional] 
 **screen_recording_uuids** | **string[]** |  | [optional] 
 **screen_sizes** | **string[]** |  | [optional] 
 **skip_filter_values** | **bool** |  | [optional] 
@@ -29,6 +39,9 @@ Name | Type | Description | Notes
 **user_agent_os_name** | **string** |  | [optional] 
 **user_agent_os_version** | **string** |  | [optional] 
 **user_ip** | [**\ultracart\v2\models\ScreenRecordingFilterIpSearch**](ScreenRecordingFilterIpSearch.md) |  | [optional] 
+**utm_campaign** | **string** |  | [optional] 
+**utm_source** | **string** |  | [optional] 
+**visitor_number** | **int** |  | [optional] 
 **watched** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

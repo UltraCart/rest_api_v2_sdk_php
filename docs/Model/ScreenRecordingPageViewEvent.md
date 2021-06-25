@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** |  | [optional] 
 **params** | [**\ultracart\v2\models\ScreenRecordingPageViewEventParameter[]**](ScreenRecordingPageViewEventParameter.md) |  | [optional] 
+**prior_page_view** | **bool** |  | [optional] 
 **timestamp** | **string** | Timestamp of the event | [optional] 
 **ts** | **int** |  | [optional] 
 

@@ -62,6 +62,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'estimate_only' => 'bool',
         'send_outside_nexus' => 'bool',
         'send_test_orders' => 'bool',
+        'skip_channel_orders' => 'bool',
         'use_distribution_center_from' => 'bool'
     ];
 
@@ -76,6 +77,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'estimate_only' => null,
         'send_outside_nexus' => null,
         'send_test_orders' => null,
+        'skip_channel_orders' => null,
         'use_distribution_center_from' => null
     ];
 
@@ -111,6 +113,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'estimate_only' => 'estimate_only',
         'send_outside_nexus' => 'send_outside_nexus',
         'send_test_orders' => 'send_test_orders',
+        'skip_channel_orders' => 'skip_channel_orders',
         'use_distribution_center_from' => 'use_distribution_center_from'
     ];
 
@@ -125,6 +128,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'estimate_only' => 'setEstimateOnly',
         'send_outside_nexus' => 'setSendOutsideNexus',
         'send_test_orders' => 'setSendTestOrders',
+        'skip_channel_orders' => 'setSkipChannelOrders',
         'use_distribution_center_from' => 'setUseDistributionCenterFrom'
     ];
 
@@ -139,6 +143,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         'estimate_only' => 'getEstimateOnly',
         'send_outside_nexus' => 'getSendOutsideNexus',
         'send_test_orders' => 'getSendTestOrders',
+        'skip_channel_orders' => 'getSkipChannelOrders',
         'use_distribution_center_from' => 'getUseDistributionCenterFrom'
     ];
 
@@ -207,6 +212,7 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
         $this->container['estimate_only'] = isset($data['estimate_only']) ? $data['estimate_only'] : null;
         $this->container['send_outside_nexus'] = isset($data['send_outside_nexus']) ? $data['send_outside_nexus'] : null;
         $this->container['send_test_orders'] = isset($data['send_test_orders']) ? $data['send_test_orders'] : null;
+        $this->container['skip_channel_orders'] = isset($data['skip_channel_orders']) ? $data['skip_channel_orders'] : null;
         $this->container['use_distribution_center_from'] = isset($data['use_distribution_center_from']) ? $data['use_distribution_center_from'] : null;
     }
 
@@ -350,6 +356,30 @@ class TaxJarConfig implements ModelInterface, ArrayAccess
     public function setSendTestOrders($send_test_orders)
     {
         $this->container['send_test_orders'] = $send_test_orders;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_channel_orders
+     *
+     * @return bool
+     */
+    public function getSkipChannelOrders()
+    {
+        return $this->container['skip_channel_orders'];
+    }
+
+    /**
+     * Sets skip_channel_orders
+     *
+     * @param bool $skip_channel_orders Do not send channel partner orders to TaxJar.  Set this to true if your channel partner reports tax on their own.
+     *
+     * @return $this
+     */
+    public function setSkipChannelOrders($skip_channel_orders)
+    {
+        $this->container['skip_channel_orders'] = $skip_channel_orders;
 
         return $this;
     }

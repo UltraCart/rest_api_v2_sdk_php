@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**library_item_oid** | **int** |  | [optional] 
 **name** | **string** |  | [optional] 
 **value** | **string** |  | [optional] 
 

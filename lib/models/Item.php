@@ -61,7 +61,7 @@ class Item implements ModelInterface, ArrayAccess
         'amember' => '\ultracart\v2\models\ItemAmember',
         'auto_order' => '\ultracart\v2\models\ItemAutoOrder',
         'ccbill' => '\ultracart\v2\models\ItemCCBill',
-        'channel_partner_mappings' => '\ultracart\v2\models\ItemChannelPartnerMapping[]',
+        'channel_partner_item_mappings' => '\ultracart\v2\models\ItemChannelPartnerMapping[]',
         'chargeback' => '\ultracart\v2\models\ItemChargeback',
         'checkout' => '\ultracart\v2\models\ItemCheckout',
         'content' => '\ultracart\v2\models\ItemContent',
@@ -119,7 +119,7 @@ class Item implements ModelInterface, ArrayAccess
         'amember' => null,
         'auto_order' => null,
         'ccbill' => null,
-        'channel_partner_mappings' => null,
+        'channel_partner_item_mappings' => null,
         'chargeback' => null,
         'checkout' => null,
         'content' => null,
@@ -198,7 +198,7 @@ class Item implements ModelInterface, ArrayAccess
         'amember' => 'amember',
         'auto_order' => 'auto_order',
         'ccbill' => 'ccbill',
-        'channel_partner_mappings' => 'channelPartnerMappings',
+        'channel_partner_item_mappings' => 'channel_partner_item_mappings',
         'chargeback' => 'chargeback',
         'checkout' => 'checkout',
         'content' => 'content',
@@ -256,7 +256,7 @@ class Item implements ModelInterface, ArrayAccess
         'amember' => 'setAmember',
         'auto_order' => 'setAutoOrder',
         'ccbill' => 'setCcbill',
-        'channel_partner_mappings' => 'setChannelPartnerMappings',
+        'channel_partner_item_mappings' => 'setChannelPartnerItemMappings',
         'chargeback' => 'setChargeback',
         'checkout' => 'setCheckout',
         'content' => 'setContent',
@@ -314,7 +314,7 @@ class Item implements ModelInterface, ArrayAccess
         'amember' => 'getAmember',
         'auto_order' => 'getAutoOrder',
         'ccbill' => 'getCcbill',
-        'channel_partner_mappings' => 'getChannelPartnerMappings',
+        'channel_partner_item_mappings' => 'getChannelPartnerItemMappings',
         'chargeback' => 'getChargeback',
         'checkout' => 'getCheckout',
         'content' => 'getContent',
@@ -426,7 +426,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['amember'] = isset($data['amember']) ? $data['amember'] : null;
         $this->container['auto_order'] = isset($data['auto_order']) ? $data['auto_order'] : null;
         $this->container['ccbill'] = isset($data['ccbill']) ? $data['ccbill'] : null;
-        $this->container['channel_partner_mappings'] = isset($data['channel_partner_mappings']) ? $data['channel_partner_mappings'] : null;
+        $this->container['channel_partner_item_mappings'] = isset($data['channel_partner_item_mappings']) ? $data['channel_partner_item_mappings'] : null;
         $this->container['chargeback'] = isset($data['chargeback']) ? $data['chargeback'] : null;
         $this->container['checkout'] = isset($data['checkout']) ? $data['checkout'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
@@ -607,25 +607,25 @@ class Item implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets channel_partner_mappings
+     * Gets channel_partner_item_mappings
      *
      * @return \ultracart\v2\models\ItemChannelPartnerMapping[]
      */
-    public function getChannelPartnerMappings()
+    public function getChannelPartnerItemMappings()
     {
-        return $this->container['channel_partner_mappings'];
+        return $this->container['channel_partner_item_mappings'];
     }
 
     /**
-     * Sets channel_partner_mappings
+     * Sets channel_partner_item_mappings
      *
-     * @param \ultracart\v2\models\ItemChannelPartnerMapping[] $channel_partner_mappings Channel Partner Item Mapping
+     * @param \ultracart\v2\models\ItemChannelPartnerMapping[] $channel_partner_item_mappings Channel Partner Item Mapping
      *
      * @return $this
      */
-    public function setChannelPartnerMappings($channel_partner_mappings)
+    public function setChannelPartnerItemMappings($channel_partner_item_mappings)
     {
-        $this->container['channel_partner_mappings'] = $channel_partner_mappings;
+        $this->container['channel_partner_item_mappings'] = $channel_partner_item_mappings;
 
         return $this;
     }

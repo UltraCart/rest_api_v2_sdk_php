@@ -57,16 +57,27 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'events' => '\ultracart\v2\models\ScreenRecordingFilterValuesEvent[]',
+        'communications_campaign_names' => 'string[]',
+        'communications_email_subjects' => 'string[]',
+        'communications_flow_names' => 'string[]',
+        'email_domains' => 'string[]',
         'geolocation_countries' => 'string[]',
         'geolocation_states' => 'string[]',
+        'language_iso_codes' => 'string[]',
         'max_values' => 'int',
+        'page_views' => '\ultracart\v2\models\ScreenRecordingFilterValuesPageView[]',
+        'preferred_languages' => 'string[]',
+        'referrer_domains' => 'string[]',
+        'time_on_site_max' => 'int',
+        'time_on_site_min' => 'int',
         'urls' => 'string[]',
         'user_agent_device_names' => 'string[]',
         'user_agent_device_os_names' => 'string[]',
         'user_agent_device_os_versions' => 'string[]',
         'user_agent_names' => 'string[]',
-        'user_agent_originals' => 'string[]'
+        'user_agent_originals' => 'string[]',
+        'utm_campaigns' => 'string[]',
+        'utm_sources' => 'string[]'
     ];
 
     /**
@@ -75,16 +86,27 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'events' => null,
+        'communications_campaign_names' => null,
+        'communications_email_subjects' => null,
+        'communications_flow_names' => null,
+        'email_domains' => null,
         'geolocation_countries' => null,
         'geolocation_states' => null,
+        'language_iso_codes' => null,
         'max_values' => 'int32',
+        'page_views' => null,
+        'preferred_languages' => null,
+        'referrer_domains' => null,
+        'time_on_site_max' => 'int32',
+        'time_on_site_min' => 'int32',
         'urls' => null,
         'user_agent_device_names' => null,
         'user_agent_device_os_names' => null,
         'user_agent_device_os_versions' => null,
         'user_agent_names' => null,
-        'user_agent_originals' => null
+        'user_agent_originals' => null,
+        'utm_campaigns' => null,
+        'utm_sources' => null
     ];
 
     /**
@@ -114,16 +136,27 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'events' => 'events',
+        'communications_campaign_names' => 'communications_campaign_names',
+        'communications_email_subjects' => 'communications_email_subjects',
+        'communications_flow_names' => 'communications_flow_names',
+        'email_domains' => 'email_domains',
         'geolocation_countries' => 'geolocation_countries',
         'geolocation_states' => 'geolocation_states',
+        'language_iso_codes' => 'language_iso_codes',
         'max_values' => 'max_values',
+        'page_views' => 'page_views',
+        'preferred_languages' => 'preferred_languages',
+        'referrer_domains' => 'referrer_domains',
+        'time_on_site_max' => 'time_on_site_max',
+        'time_on_site_min' => 'time_on_site_min',
         'urls' => 'urls',
         'user_agent_device_names' => 'user_agent_device_names',
         'user_agent_device_os_names' => 'user_agent_device_os_names',
         'user_agent_device_os_versions' => 'user_agent_device_os_versions',
         'user_agent_names' => 'user_agent_names',
-        'user_agent_originals' => 'user_agent_originals'
+        'user_agent_originals' => 'user_agent_originals',
+        'utm_campaigns' => 'utm_campaigns',
+        'utm_sources' => 'utm_sources'
     ];
 
     /**
@@ -132,16 +165,27 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'events' => 'setEvents',
+        'communications_campaign_names' => 'setCommunicationsCampaignNames',
+        'communications_email_subjects' => 'setCommunicationsEmailSubjects',
+        'communications_flow_names' => 'setCommunicationsFlowNames',
+        'email_domains' => 'setEmailDomains',
         'geolocation_countries' => 'setGeolocationCountries',
         'geolocation_states' => 'setGeolocationStates',
+        'language_iso_codes' => 'setLanguageIsoCodes',
         'max_values' => 'setMaxValues',
+        'page_views' => 'setPageViews',
+        'preferred_languages' => 'setPreferredLanguages',
+        'referrer_domains' => 'setReferrerDomains',
+        'time_on_site_max' => 'setTimeOnSiteMax',
+        'time_on_site_min' => 'setTimeOnSiteMin',
         'urls' => 'setUrls',
         'user_agent_device_names' => 'setUserAgentDeviceNames',
         'user_agent_device_os_names' => 'setUserAgentDeviceOsNames',
         'user_agent_device_os_versions' => 'setUserAgentDeviceOsVersions',
         'user_agent_names' => 'setUserAgentNames',
-        'user_agent_originals' => 'setUserAgentOriginals'
+        'user_agent_originals' => 'setUserAgentOriginals',
+        'utm_campaigns' => 'setUtmCampaigns',
+        'utm_sources' => 'setUtmSources'
     ];
 
     /**
@@ -150,16 +194,27 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'events' => 'getEvents',
+        'communications_campaign_names' => 'getCommunicationsCampaignNames',
+        'communications_email_subjects' => 'getCommunicationsEmailSubjects',
+        'communications_flow_names' => 'getCommunicationsFlowNames',
+        'email_domains' => 'getEmailDomains',
         'geolocation_countries' => 'getGeolocationCountries',
         'geolocation_states' => 'getGeolocationStates',
+        'language_iso_codes' => 'getLanguageIsoCodes',
         'max_values' => 'getMaxValues',
+        'page_views' => 'getPageViews',
+        'preferred_languages' => 'getPreferredLanguages',
+        'referrer_domains' => 'getReferrerDomains',
+        'time_on_site_max' => 'getTimeOnSiteMax',
+        'time_on_site_min' => 'getTimeOnSiteMin',
         'urls' => 'getUrls',
         'user_agent_device_names' => 'getUserAgentDeviceNames',
         'user_agent_device_os_names' => 'getUserAgentDeviceOsNames',
         'user_agent_device_os_versions' => 'getUserAgentDeviceOsVersions',
         'user_agent_names' => 'getUserAgentNames',
-        'user_agent_originals' => 'getUserAgentOriginals'
+        'user_agent_originals' => 'getUserAgentOriginals',
+        'utm_campaigns' => 'getUtmCampaigns',
+        'utm_sources' => 'getUtmSources'
     ];
 
     /**
@@ -222,16 +277,27 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
+        $this->container['communications_campaign_names'] = isset($data['communications_campaign_names']) ? $data['communications_campaign_names'] : null;
+        $this->container['communications_email_subjects'] = isset($data['communications_email_subjects']) ? $data['communications_email_subjects'] : null;
+        $this->container['communications_flow_names'] = isset($data['communications_flow_names']) ? $data['communications_flow_names'] : null;
+        $this->container['email_domains'] = isset($data['email_domains']) ? $data['email_domains'] : null;
         $this->container['geolocation_countries'] = isset($data['geolocation_countries']) ? $data['geolocation_countries'] : null;
         $this->container['geolocation_states'] = isset($data['geolocation_states']) ? $data['geolocation_states'] : null;
+        $this->container['language_iso_codes'] = isset($data['language_iso_codes']) ? $data['language_iso_codes'] : null;
         $this->container['max_values'] = isset($data['max_values']) ? $data['max_values'] : null;
+        $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
+        $this->container['preferred_languages'] = isset($data['preferred_languages']) ? $data['preferred_languages'] : null;
+        $this->container['referrer_domains'] = isset($data['referrer_domains']) ? $data['referrer_domains'] : null;
+        $this->container['time_on_site_max'] = isset($data['time_on_site_max']) ? $data['time_on_site_max'] : null;
+        $this->container['time_on_site_min'] = isset($data['time_on_site_min']) ? $data['time_on_site_min'] : null;
         $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['user_agent_device_names'] = isset($data['user_agent_device_names']) ? $data['user_agent_device_names'] : null;
         $this->container['user_agent_device_os_names'] = isset($data['user_agent_device_os_names']) ? $data['user_agent_device_os_names'] : null;
         $this->container['user_agent_device_os_versions'] = isset($data['user_agent_device_os_versions']) ? $data['user_agent_device_os_versions'] : null;
         $this->container['user_agent_names'] = isset($data['user_agent_names']) ? $data['user_agent_names'] : null;
         $this->container['user_agent_originals'] = isset($data['user_agent_originals']) ? $data['user_agent_originals'] : null;
+        $this->container['utm_campaigns'] = isset($data['utm_campaigns']) ? $data['utm_campaigns'] : null;
+        $this->container['utm_sources'] = isset($data['utm_sources']) ? $data['utm_sources'] : null;
     }
 
     /**
@@ -259,25 +325,97 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets events
+     * Gets communications_campaign_names
      *
-     * @return \ultracart\v2\models\ScreenRecordingFilterValuesEvent[]
+     * @return string[]
      */
-    public function getEvents()
+    public function getCommunicationsCampaignNames()
     {
-        return $this->container['events'];
+        return $this->container['communications_campaign_names'];
     }
 
     /**
-     * Sets events
+     * Sets communications_campaign_names
      *
-     * @param \ultracart\v2\models\ScreenRecordingFilterValuesEvent[] $events events
+     * @param string[] $communications_campaign_names communications_campaign_names
      *
      * @return $this
      */
-    public function setEvents($events)
+    public function setCommunicationsCampaignNames($communications_campaign_names)
     {
-        $this->container['events'] = $events;
+        $this->container['communications_campaign_names'] = $communications_campaign_names;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_email_subjects
+     *
+     * @return string[]
+     */
+    public function getCommunicationsEmailSubjects()
+    {
+        return $this->container['communications_email_subjects'];
+    }
+
+    /**
+     * Sets communications_email_subjects
+     *
+     * @param string[] $communications_email_subjects communications_email_subjects
+     *
+     * @return $this
+     */
+    public function setCommunicationsEmailSubjects($communications_email_subjects)
+    {
+        $this->container['communications_email_subjects'] = $communications_email_subjects;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_flow_names
+     *
+     * @return string[]
+     */
+    public function getCommunicationsFlowNames()
+    {
+        return $this->container['communications_flow_names'];
+    }
+
+    /**
+     * Sets communications_flow_names
+     *
+     * @param string[] $communications_flow_names communications_flow_names
+     *
+     * @return $this
+     */
+    public function setCommunicationsFlowNames($communications_flow_names)
+    {
+        $this->container['communications_flow_names'] = $communications_flow_names;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_domains
+     *
+     * @return string[]
+     */
+    public function getEmailDomains()
+    {
+        return $this->container['email_domains'];
+    }
+
+    /**
+     * Sets email_domains
+     *
+     * @param string[] $email_domains email_domains
+     *
+     * @return $this
+     */
+    public function setEmailDomains($email_domains)
+    {
+        $this->container['email_domains'] = $email_domains;
 
         return $this;
     }
@@ -331,6 +469,30 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets language_iso_codes
+     *
+     * @return string[]
+     */
+    public function getLanguageIsoCodes()
+    {
+        return $this->container['language_iso_codes'];
+    }
+
+    /**
+     * Sets language_iso_codes
+     *
+     * @param string[] $language_iso_codes language_iso_codes
+     *
+     * @return $this
+     */
+    public function setLanguageIsoCodes($language_iso_codes)
+    {
+        $this->container['language_iso_codes'] = $language_iso_codes;
+
+        return $this;
+    }
+
+    /**
      * Gets max_values
      *
      * @return int
@@ -350,6 +512,126 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     public function setMaxValues($max_values)
     {
         $this->container['max_values'] = $max_values;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_views
+     *
+     * @return \ultracart\v2\models\ScreenRecordingFilterValuesPageView[]
+     */
+    public function getPageViews()
+    {
+        return $this->container['page_views'];
+    }
+
+    /**
+     * Sets page_views
+     *
+     * @param \ultracart\v2\models\ScreenRecordingFilterValuesPageView[] $page_views page_views
+     *
+     * @return $this
+     */
+    public function setPageViews($page_views)
+    {
+        $this->container['page_views'] = $page_views;
+
+        return $this;
+    }
+
+    /**
+     * Gets preferred_languages
+     *
+     * @return string[]
+     */
+    public function getPreferredLanguages()
+    {
+        return $this->container['preferred_languages'];
+    }
+
+    /**
+     * Sets preferred_languages
+     *
+     * @param string[] $preferred_languages preferred_languages
+     *
+     * @return $this
+     */
+    public function setPreferredLanguages($preferred_languages)
+    {
+        $this->container['preferred_languages'] = $preferred_languages;
+
+        return $this;
+    }
+
+    /**
+     * Gets referrer_domains
+     *
+     * @return string[]
+     */
+    public function getReferrerDomains()
+    {
+        return $this->container['referrer_domains'];
+    }
+
+    /**
+     * Sets referrer_domains
+     *
+     * @param string[] $referrer_domains referrer_domains
+     *
+     * @return $this
+     */
+    public function setReferrerDomains($referrer_domains)
+    {
+        $this->container['referrer_domains'] = $referrer_domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_on_site_max
+     *
+     * @return int
+     */
+    public function getTimeOnSiteMax()
+    {
+        return $this->container['time_on_site_max'];
+    }
+
+    /**
+     * Sets time_on_site_max
+     *
+     * @param int $time_on_site_max time_on_site_max
+     *
+     * @return $this
+     */
+    public function setTimeOnSiteMax($time_on_site_max)
+    {
+        $this->container['time_on_site_max'] = $time_on_site_max;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_on_site_min
+     *
+     * @return int
+     */
+    public function getTimeOnSiteMin()
+    {
+        return $this->container['time_on_site_min'];
+    }
+
+    /**
+     * Sets time_on_site_min
+     *
+     * @param int $time_on_site_min time_on_site_min
+     *
+     * @return $this
+     */
+    public function setTimeOnSiteMin($time_on_site_min)
+    {
+        $this->container['time_on_site_min'] = $time_on_site_min;
 
         return $this;
     }
@@ -494,6 +776,54 @@ class ScreenRecordingFilterValues implements ModelInterface, ArrayAccess
     public function setUserAgentOriginals($user_agent_originals)
     {
         $this->container['user_agent_originals'] = $user_agent_originals;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_campaigns
+     *
+     * @return string[]
+     */
+    public function getUtmCampaigns()
+    {
+        return $this->container['utm_campaigns'];
+    }
+
+    /**
+     * Sets utm_campaigns
+     *
+     * @param string[] $utm_campaigns utm_campaigns
+     *
+     * @return $this
+     */
+    public function setUtmCampaigns($utm_campaigns)
+    {
+        $this->container['utm_campaigns'] = $utm_campaigns;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_sources
+     *
+     * @return string[]
+     */
+    public function getUtmSources()
+    {
+        return $this->container['utm_sources'];
+    }
+
+    /**
+     * Sets utm_sources
+     *
+     * @param string[] $utm_sources utm_sources
+     *
+     * @return $this
+     */
+    public function setUtmSources($utm_sources)
+    {
+        $this->container['utm_sources'] = $utm_sources;
 
         return $this;
     }

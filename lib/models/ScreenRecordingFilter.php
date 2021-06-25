@@ -57,7 +57,13 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'affiliate_email' => 'string',
+        'affiliate_id' => 'int',
+        'communications_campaign_name' => 'string',
+        'communications_email_subject' => 'string',
+        'communications_flow_name' => 'string',
         'email' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
+        'email_domain' => 'string',
         'email_identified' => 'bool',
         'end_timestamp' => '\ultracart\v2\models\ScreenRecordingFilterRangeDate',
         'esp_customer_uuid' => 'string',
@@ -65,11 +71,15 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => '\ultracart\v2\models\ScreenRecordingFilterGeoDistance',
         'geolocation_country' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'geolocation_state' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
+        'language_iso_code' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
+        'last_x_days' => 'int',
         'max_filter_values' => 'int',
         'order_id' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'page_view_count' => '\ultracart\v2\models\ScreenRecordingFilterRangeInteger',
         'page_views' => '\ultracart\v2\models\ScreenRecordingFilterPageView[]',
         'placed_order' => 'bool',
+        'preferred_language' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
+        'referrer_domain' => 'string',
         'screen_recording_uuids' => 'string[]',
         'screen_sizes' => 'string[]',
         'skip_filter_values' => 'bool',
@@ -83,6 +93,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'string',
         'user_agent_os_version' => 'string',
         'user_ip' => '\ultracart\v2\models\ScreenRecordingFilterIpSearch',
+        'utm_campaign' => 'string',
+        'utm_source' => 'string',
+        'visitor_number' => 'int',
         'watched' => 'bool'
     ];
 
@@ -92,7 +105,13 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'affiliate_email' => null,
+        'affiliate_id' => 'int32',
+        'communications_campaign_name' => null,
+        'communications_email_subject' => null,
+        'communications_flow_name' => null,
         'email' => null,
+        'email_domain' => null,
         'email_identified' => null,
         'end_timestamp' => null,
         'esp_customer_uuid' => null,
@@ -100,11 +119,15 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => null,
         'geolocation_country' => null,
         'geolocation_state' => null,
+        'language_iso_code' => null,
+        'last_x_days' => 'int32',
         'max_filter_values' => 'int32',
         'order_id' => null,
         'page_view_count' => null,
         'page_views' => null,
         'placed_order' => null,
+        'preferred_language' => null,
+        'referrer_domain' => null,
         'screen_recording_uuids' => null,
         'screen_sizes' => null,
         'skip_filter_values' => null,
@@ -118,6 +141,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => null,
         'user_agent_os_version' => null,
         'user_ip' => null,
+        'utm_campaign' => null,
+        'utm_source' => null,
+        'visitor_number' => 'int32',
         'watched' => null
     ];
 
@@ -148,7 +174,13 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'affiliate_email' => 'affiliate_email',
+        'affiliate_id' => 'affiliate_id',
+        'communications_campaign_name' => 'communications_campaign_name',
+        'communications_email_subject' => 'communications_email_subject',
+        'communications_flow_name' => 'communications_flow_name',
         'email' => 'email',
+        'email_domain' => 'email_domain',
         'email_identified' => 'email_identified',
         'end_timestamp' => 'end_timestamp',
         'esp_customer_uuid' => 'esp_customer_uuid',
@@ -156,11 +188,15 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => 'geolocation',
         'geolocation_country' => 'geolocation_country',
         'geolocation_state' => 'geolocation_state',
+        'language_iso_code' => 'language_iso_code',
+        'last_x_days' => 'last_x_days',
         'max_filter_values' => 'max_filter_values',
         'order_id' => 'order_id',
         'page_view_count' => 'page_view_count',
         'page_views' => 'page_views',
         'placed_order' => 'placed_order',
+        'preferred_language' => 'preferred_language',
+        'referrer_domain' => 'referrer_domain',
         'screen_recording_uuids' => 'screen_recording_uuids',
         'screen_sizes' => 'screen_sizes',
         'skip_filter_values' => 'skip_filter_values',
@@ -174,6 +210,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'user_agent_os_name',
         'user_agent_os_version' => 'user_agent_os_version',
         'user_ip' => 'user_ip',
+        'utm_campaign' => 'utm_campaign',
+        'utm_source' => 'utm_source',
+        'visitor_number' => 'visitor_number',
         'watched' => 'watched'
     ];
 
@@ -183,7 +222,13 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'affiliate_email' => 'setAffiliateEmail',
+        'affiliate_id' => 'setAffiliateId',
+        'communications_campaign_name' => 'setCommunicationsCampaignName',
+        'communications_email_subject' => 'setCommunicationsEmailSubject',
+        'communications_flow_name' => 'setCommunicationsFlowName',
         'email' => 'setEmail',
+        'email_domain' => 'setEmailDomain',
         'email_identified' => 'setEmailIdentified',
         'end_timestamp' => 'setEndTimestamp',
         'esp_customer_uuid' => 'setEspCustomerUuid',
@@ -191,11 +236,15 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => 'setGeolocation',
         'geolocation_country' => 'setGeolocationCountry',
         'geolocation_state' => 'setGeolocationState',
+        'language_iso_code' => 'setLanguageIsoCode',
+        'last_x_days' => 'setLastXDays',
         'max_filter_values' => 'setMaxFilterValues',
         'order_id' => 'setOrderId',
         'page_view_count' => 'setPageViewCount',
         'page_views' => 'setPageViews',
         'placed_order' => 'setPlacedOrder',
+        'preferred_language' => 'setPreferredLanguage',
+        'referrer_domain' => 'setReferrerDomain',
         'screen_recording_uuids' => 'setScreenRecordingUuids',
         'screen_sizes' => 'setScreenSizes',
         'skip_filter_values' => 'setSkipFilterValues',
@@ -209,6 +258,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'setUserAgentOsName',
         'user_agent_os_version' => 'setUserAgentOsVersion',
         'user_ip' => 'setUserIp',
+        'utm_campaign' => 'setUtmCampaign',
+        'utm_source' => 'setUtmSource',
+        'visitor_number' => 'setVisitorNumber',
         'watched' => 'setWatched'
     ];
 
@@ -218,7 +270,13 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'affiliate_email' => 'getAffiliateEmail',
+        'affiliate_id' => 'getAffiliateId',
+        'communications_campaign_name' => 'getCommunicationsCampaignName',
+        'communications_email_subject' => 'getCommunicationsEmailSubject',
+        'communications_flow_name' => 'getCommunicationsFlowName',
         'email' => 'getEmail',
+        'email_domain' => 'getEmailDomain',
         'email_identified' => 'getEmailIdentified',
         'end_timestamp' => 'getEndTimestamp',
         'esp_customer_uuid' => 'getEspCustomerUuid',
@@ -226,11 +284,15 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'geolocation' => 'getGeolocation',
         'geolocation_country' => 'getGeolocationCountry',
         'geolocation_state' => 'getGeolocationState',
+        'language_iso_code' => 'getLanguageIsoCode',
+        'last_x_days' => 'getLastXDays',
         'max_filter_values' => 'getMaxFilterValues',
         'order_id' => 'getOrderId',
         'page_view_count' => 'getPageViewCount',
         'page_views' => 'getPageViews',
         'placed_order' => 'getPlacedOrder',
+        'preferred_language' => 'getPreferredLanguage',
+        'referrer_domain' => 'getReferrerDomain',
         'screen_recording_uuids' => 'getScreenRecordingUuids',
         'screen_sizes' => 'getScreenSizes',
         'skip_filter_values' => 'getSkipFilterValues',
@@ -244,6 +306,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'user_agent_os_name' => 'getUserAgentOsName',
         'user_agent_os_version' => 'getUserAgentOsVersion',
         'user_ip' => 'getUserIp',
+        'utm_campaign' => 'getUtmCampaign',
+        'utm_source' => 'getUtmSource',
+        'visitor_number' => 'getVisitorNumber',
         'watched' => 'getWatched'
     ];
 
@@ -307,7 +372,13 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['affiliate_email'] = isset($data['affiliate_email']) ? $data['affiliate_email'] : null;
+        $this->container['affiliate_id'] = isset($data['affiliate_id']) ? $data['affiliate_id'] : null;
+        $this->container['communications_campaign_name'] = isset($data['communications_campaign_name']) ? $data['communications_campaign_name'] : null;
+        $this->container['communications_email_subject'] = isset($data['communications_email_subject']) ? $data['communications_email_subject'] : null;
+        $this->container['communications_flow_name'] = isset($data['communications_flow_name']) ? $data['communications_flow_name'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['email_domain'] = isset($data['email_domain']) ? $data['email_domain'] : null;
         $this->container['email_identified'] = isset($data['email_identified']) ? $data['email_identified'] : null;
         $this->container['end_timestamp'] = isset($data['end_timestamp']) ? $data['end_timestamp'] : null;
         $this->container['esp_customer_uuid'] = isset($data['esp_customer_uuid']) ? $data['esp_customer_uuid'] : null;
@@ -315,11 +386,15 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         $this->container['geolocation'] = isset($data['geolocation']) ? $data['geolocation'] : null;
         $this->container['geolocation_country'] = isset($data['geolocation_country']) ? $data['geolocation_country'] : null;
         $this->container['geolocation_state'] = isset($data['geolocation_state']) ? $data['geolocation_state'] : null;
+        $this->container['language_iso_code'] = isset($data['language_iso_code']) ? $data['language_iso_code'] : null;
+        $this->container['last_x_days'] = isset($data['last_x_days']) ? $data['last_x_days'] : null;
         $this->container['max_filter_values'] = isset($data['max_filter_values']) ? $data['max_filter_values'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['page_view_count'] = isset($data['page_view_count']) ? $data['page_view_count'] : null;
         $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
         $this->container['placed_order'] = isset($data['placed_order']) ? $data['placed_order'] : null;
+        $this->container['preferred_language'] = isset($data['preferred_language']) ? $data['preferred_language'] : null;
+        $this->container['referrer_domain'] = isset($data['referrer_domain']) ? $data['referrer_domain'] : null;
         $this->container['screen_recording_uuids'] = isset($data['screen_recording_uuids']) ? $data['screen_recording_uuids'] : null;
         $this->container['screen_sizes'] = isset($data['screen_sizes']) ? $data['screen_sizes'] : null;
         $this->container['skip_filter_values'] = isset($data['skip_filter_values']) ? $data['skip_filter_values'] : null;
@@ -333,6 +408,9 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         $this->container['user_agent_os_name'] = isset($data['user_agent_os_name']) ? $data['user_agent_os_name'] : null;
         $this->container['user_agent_os_version'] = isset($data['user_agent_os_version']) ? $data['user_agent_os_version'] : null;
         $this->container['user_ip'] = isset($data['user_ip']) ? $data['user_ip'] : null;
+        $this->container['utm_campaign'] = isset($data['utm_campaign']) ? $data['utm_campaign'] : null;
+        $this->container['utm_source'] = isset($data['utm_source']) ? $data['utm_source'] : null;
+        $this->container['visitor_number'] = isset($data['visitor_number']) ? $data['visitor_number'] : null;
         $this->container['watched'] = isset($data['watched']) ? $data['watched'] : null;
     }
 
@@ -361,6 +439,126 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets affiliate_email
+     *
+     * @return string
+     */
+    public function getAffiliateEmail()
+    {
+        return $this->container['affiliate_email'];
+    }
+
+    /**
+     * Sets affiliate_email
+     *
+     * @param string $affiliate_email affiliate_email
+     *
+     * @return $this
+     */
+    public function setAffiliateEmail($affiliate_email)
+    {
+        $this->container['affiliate_email'] = $affiliate_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets affiliate_id
+     *
+     * @return int
+     */
+    public function getAffiliateId()
+    {
+        return $this->container['affiliate_id'];
+    }
+
+    /**
+     * Sets affiliate_id
+     *
+     * @param int $affiliate_id affiliate_id
+     *
+     * @return $this
+     */
+    public function setAffiliateId($affiliate_id)
+    {
+        $this->container['affiliate_id'] = $affiliate_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_campaign_name
+     *
+     * @return string
+     */
+    public function getCommunicationsCampaignName()
+    {
+        return $this->container['communications_campaign_name'];
+    }
+
+    /**
+     * Sets communications_campaign_name
+     *
+     * @param string $communications_campaign_name communications_campaign_name
+     *
+     * @return $this
+     */
+    public function setCommunicationsCampaignName($communications_campaign_name)
+    {
+        $this->container['communications_campaign_name'] = $communications_campaign_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_email_subject
+     *
+     * @return string
+     */
+    public function getCommunicationsEmailSubject()
+    {
+        return $this->container['communications_email_subject'];
+    }
+
+    /**
+     * Sets communications_email_subject
+     *
+     * @param string $communications_email_subject communications_email_subject
+     *
+     * @return $this
+     */
+    public function setCommunicationsEmailSubject($communications_email_subject)
+    {
+        $this->container['communications_email_subject'] = $communications_email_subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_flow_name
+     *
+     * @return string
+     */
+    public function getCommunicationsFlowName()
+    {
+        return $this->container['communications_flow_name'];
+    }
+
+    /**
+     * Sets communications_flow_name
+     *
+     * @param string $communications_flow_name communications_flow_name
+     *
+     * @return $this
+     */
+    public function setCommunicationsFlowName($communications_flow_name)
+    {
+        $this->container['communications_flow_name'] = $communications_flow_name;
+
+        return $this;
+    }
+
+    /**
      * Gets email
      *
      * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
@@ -380,6 +578,30 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_domain
+     *
+     * @return string
+     */
+    public function getEmailDomain()
+    {
+        return $this->container['email_domain'];
+    }
+
+    /**
+     * Sets email_domain
+     *
+     * @param string $email_domain email_domain
+     *
+     * @return $this
+     */
+    public function setEmailDomain($email_domain)
+    {
+        $this->container['email_domain'] = $email_domain;
 
         return $this;
     }
@@ -553,6 +775,54 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets language_iso_code
+     *
+     * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
+     */
+    public function getLanguageIsoCode()
+    {
+        return $this->container['language_iso_code'];
+    }
+
+    /**
+     * Sets language_iso_code
+     *
+     * @param \ultracart\v2\models\ScreenRecordingFilterStringSearch $language_iso_code language_iso_code
+     *
+     * @return $this
+     */
+    public function setLanguageIsoCode($language_iso_code)
+    {
+        $this->container['language_iso_code'] = $language_iso_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_x_days
+     *
+     * @return int
+     */
+    public function getLastXDays()
+    {
+        return $this->container['last_x_days'];
+    }
+
+    /**
+     * Sets last_x_days
+     *
+     * @param int $last_x_days last_x_days
+     *
+     * @return $this
+     */
+    public function setLastXDays($last_x_days)
+    {
+        $this->container['last_x_days'] = $last_x_days;
+
+        return $this;
+    }
+
+    /**
      * Gets max_filter_values
      *
      * @return int
@@ -668,6 +938,54 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
     public function setPlacedOrder($placed_order)
     {
         $this->container['placed_order'] = $placed_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets preferred_language
+     *
+     * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
+     */
+    public function getPreferredLanguage()
+    {
+        return $this->container['preferred_language'];
+    }
+
+    /**
+     * Sets preferred_language
+     *
+     * @param \ultracart\v2\models\ScreenRecordingFilterStringSearch $preferred_language preferred_language
+     *
+     * @return $this
+     */
+    public function setPreferredLanguage($preferred_language)
+    {
+        $this->container['preferred_language'] = $preferred_language;
+
+        return $this;
+    }
+
+    /**
+     * Gets referrer_domain
+     *
+     * @return string
+     */
+    public function getReferrerDomain()
+    {
+        return $this->container['referrer_domain'];
+    }
+
+    /**
+     * Sets referrer_domain
+     *
+     * @param string $referrer_domain referrer_domain
+     *
+     * @return $this
+     */
+    public function setReferrerDomain($referrer_domain)
+    {
+        $this->container['referrer_domain'] = $referrer_domain;
 
         return $this;
     }
@@ -980,6 +1298,78 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
     public function setUserIp($user_ip)
     {
         $this->container['user_ip'] = $user_ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_campaign
+     *
+     * @return string
+     */
+    public function getUtmCampaign()
+    {
+        return $this->container['utm_campaign'];
+    }
+
+    /**
+     * Sets utm_campaign
+     *
+     * @param string $utm_campaign utm_campaign
+     *
+     * @return $this
+     */
+    public function setUtmCampaign($utm_campaign)
+    {
+        $this->container['utm_campaign'] = $utm_campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_source
+     *
+     * @return string
+     */
+    public function getUtmSource()
+    {
+        return $this->container['utm_source'];
+    }
+
+    /**
+     * Sets utm_source
+     *
+     * @param string $utm_source utm_source
+     *
+     * @return $this
+     */
+    public function setUtmSource($utm_source)
+    {
+        $this->container['utm_source'] = $utm_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets visitor_number
+     *
+     * @return int
+     */
+    public function getVisitorNumber()
+    {
+        return $this->container['visitor_number'];
+    }
+
+    /**
+     * Sets visitor_number
+     *
+     * @param int $visitor_number visitor_number
+     *
+     * @return $this
+     */
+    public function setVisitorNumber($visitor_number)
+    {
+        $this->container['visitor_number'] = $visitor_number;
 
         return $this;
     }

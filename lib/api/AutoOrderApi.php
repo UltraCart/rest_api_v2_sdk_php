@@ -90,7 +90,7 @@ class AutoOrderApi
         $config->setApiKey('x-ultracart-simple-key', $simple_key);
         $config->setMaxRetrySeconds($max_retry_seconds);
 
-        $client = new Client(['verify' => $verify, 'debug' => false);
+        $client = new Client(['verify' => $verify, 'debug' => false]);
         $headerSelector = new HeaderSelector(/* leave null for version tied to this sdk version */);
         $api = new AutoOrderApi($client, $config, $headerSelector);
         return $api;
@@ -108,7 +108,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrder
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by oid
      *
      * @param  int $auto_order_oid The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -127,7 +127,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderWithHttpInfo
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by oid
      *
      * @param  int $auto_order_oid The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -145,7 +145,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderWithHttpInfoRetry
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by oid
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $auto_order_oid The auto order oid to retrieve. (required)
@@ -263,7 +263,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderAsync
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by oid
      *
      * @param  int $auto_order_oid The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -284,7 +284,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderAsyncWithHttpInfo
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by oid
      *
      * @param  int $auto_order_oid The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -456,7 +456,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByCode
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by code
      *
      * @param  string $auto_order_code The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -475,7 +475,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByCodeWithHttpInfo
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by code
      *
      * @param  string $auto_order_code The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -493,7 +493,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByCodeWithHttpInfoRetry
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by code
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $auto_order_code The auto order oid to retrieve. (required)
@@ -611,7 +611,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByCodeAsync
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by code
      *
      * @param  string $auto_order_code The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -632,7 +632,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByCodeAsyncWithHttpInfo
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by code
      *
      * @param  string $auto_order_code The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -804,7 +804,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByReferenceOrderId
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by order id
      *
      * @param  string $reference_order_id The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -823,7 +823,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByReferenceOrderIdWithHttpInfo
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by order id
      *
      * @param  string $reference_order_id The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -841,7 +841,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByReferenceOrderIdWithHttpInfoRetry
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by order id
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $reference_order_id The auto order oid to retrieve. (required)
@@ -959,7 +959,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByReferenceOrderIdAsync
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by order id
      *
      * @param  string $reference_order_id The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -980,7 +980,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrderByReferenceOrderIdAsyncWithHttpInfo
      *
-     * Retrieve an auto order
+     * Retrieve an auto order by order id
      *
      * @param  string $reference_order_id The auto order oid to retrieve. (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
@@ -2043,7 +2043,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrdersByQuery
      *
-     * Retrieve auto orders
+     * Retrieve auto orders by query
      *
      * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -2065,7 +2065,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrdersByQueryWithHttpInfo
      *
-     * Retrieve auto orders
+     * Retrieve auto orders by query
      *
      * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -2086,7 +2086,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrdersByQueryWithHttpInfoRetry
      *
-     * Retrieve auto orders
+     * Retrieve auto orders by query
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
@@ -2207,7 +2207,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrdersByQueryAsync
      *
-     * Retrieve auto orders
+     * Retrieve auto orders by query
      *
      * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)
@@ -2231,7 +2231,7 @@ class AutoOrderApi
     /**
      * Operation getAutoOrdersByQueryAsyncWithHttpInfo
      *
-     * Retrieve auto orders
+     * Retrieve auto orders by query
      *
      * @param  \ultracart\v2\models\AutoOrderQuery $auto_order_query Auto order query (required)
      * @param  int $_limit The maximum number of records to return on this one API call. (Maximum 200) (optional, default to 100)

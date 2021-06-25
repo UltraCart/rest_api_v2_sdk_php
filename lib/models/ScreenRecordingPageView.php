@@ -57,10 +57,12 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'domain' => 'string',
         'events' => '\ultracart\v2\models\ScreenRecordingPageViewEvent[]',
         'first_event_timestamp' => 'string',
         'http_post' => 'bool',
         'last_event_timestamp' => 'string',
+        'missing_events' => 'bool',
         'params' => '\ultracart\v2\models\ScreenRecordingPageViewParameter[]',
         'range_end' => 'int',
         'range_start' => 'int',
@@ -69,6 +71,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => 'string',
         'screen_recording_page_view_uuid' => 'string',
         'time_on_page' => 'int',
+        'timing_dom_content_loaded' => 'int',
+        'timing_loaded' => 'int',
         'truncated_events' => 'bool',
         'ucapv' => 'string',
         'url' => 'string'
@@ -80,10 +84,12 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'domain' => null,
         'events' => null,
         'first_event_timestamp' => 'dateTime',
         'http_post' => null,
         'last_event_timestamp' => 'dateTime',
+        'missing_events' => null,
         'params' => null,
         'range_end' => 'int32',
         'range_start' => 'int32',
@@ -92,6 +98,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => null,
         'screen_recording_page_view_uuid' => null,
         'time_on_page' => 'int32',
+        'timing_dom_content_loaded' => 'int32',
+        'timing_loaded' => 'int32',
         'truncated_events' => null,
         'ucapv' => null,
         'url' => null
@@ -124,10 +132,12 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'domain' => 'domain',
         'events' => 'events',
         'first_event_timestamp' => 'first_event_timestamp',
         'http_post' => 'http_post',
         'last_event_timestamp' => 'last_event_timestamp',
+        'missing_events' => 'missing_events',
         'params' => 'params',
         'range_end' => 'range_end',
         'range_start' => 'range_start',
@@ -136,6 +146,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => 'referrer_raw',
         'screen_recording_page_view_uuid' => 'screen_recording_page_view_uuid',
         'time_on_page' => 'time_on_page',
+        'timing_dom_content_loaded' => 'timing_dom_content_loaded',
+        'timing_loaded' => 'timing_loaded',
         'truncated_events' => 'truncated_events',
         'ucapv' => 'ucapv',
         'url' => 'url'
@@ -147,10 +159,12 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'domain' => 'setDomain',
         'events' => 'setEvents',
         'first_event_timestamp' => 'setFirstEventTimestamp',
         'http_post' => 'setHttpPost',
         'last_event_timestamp' => 'setLastEventTimestamp',
+        'missing_events' => 'setMissingEvents',
         'params' => 'setParams',
         'range_end' => 'setRangeEnd',
         'range_start' => 'setRangeStart',
@@ -159,6 +173,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => 'setReferrerRaw',
         'screen_recording_page_view_uuid' => 'setScreenRecordingPageViewUuid',
         'time_on_page' => 'setTimeOnPage',
+        'timing_dom_content_loaded' => 'setTimingDomContentLoaded',
+        'timing_loaded' => 'setTimingLoaded',
         'truncated_events' => 'setTruncatedEvents',
         'ucapv' => 'setUcapv',
         'url' => 'setUrl'
@@ -170,10 +186,12 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'domain' => 'getDomain',
         'events' => 'getEvents',
         'first_event_timestamp' => 'getFirstEventTimestamp',
         'http_post' => 'getHttpPost',
         'last_event_timestamp' => 'getLastEventTimestamp',
+        'missing_events' => 'getMissingEvents',
         'params' => 'getParams',
         'range_end' => 'getRangeEnd',
         'range_start' => 'getRangeStart',
@@ -182,6 +200,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         'referrer_raw' => 'getReferrerRaw',
         'screen_recording_page_view_uuid' => 'getScreenRecordingPageViewUuid',
         'time_on_page' => 'getTimeOnPage',
+        'timing_dom_content_loaded' => 'getTimingDomContentLoaded',
+        'timing_loaded' => 'getTimingLoaded',
         'truncated_events' => 'getTruncatedEvents',
         'ucapv' => 'getUcapv',
         'url' => 'getUrl'
@@ -247,10 +267,12 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['first_event_timestamp'] = isset($data['first_event_timestamp']) ? $data['first_event_timestamp'] : null;
         $this->container['http_post'] = isset($data['http_post']) ? $data['http_post'] : null;
         $this->container['last_event_timestamp'] = isset($data['last_event_timestamp']) ? $data['last_event_timestamp'] : null;
+        $this->container['missing_events'] = isset($data['missing_events']) ? $data['missing_events'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['range_end'] = isset($data['range_end']) ? $data['range_end'] : null;
         $this->container['range_start'] = isset($data['range_start']) ? $data['range_start'] : null;
@@ -259,6 +281,8 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         $this->container['referrer_raw'] = isset($data['referrer_raw']) ? $data['referrer_raw'] : null;
         $this->container['screen_recording_page_view_uuid'] = isset($data['screen_recording_page_view_uuid']) ? $data['screen_recording_page_view_uuid'] : null;
         $this->container['time_on_page'] = isset($data['time_on_page']) ? $data['time_on_page'] : null;
+        $this->container['timing_dom_content_loaded'] = isset($data['timing_dom_content_loaded']) ? $data['timing_dom_content_loaded'] : null;
+        $this->container['timing_loaded'] = isset($data['timing_loaded']) ? $data['timing_loaded'] : null;
         $this->container['truncated_events'] = isset($data['truncated_events']) ? $data['truncated_events'] : null;
         $this->container['ucapv'] = isset($data['ucapv']) ? $data['ucapv'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -287,6 +311,30 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets domain
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param string $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
 
     /**
      * Gets events
@@ -380,6 +428,30 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
     public function setLastEventTimestamp($last_event_timestamp)
     {
         $this->container['last_event_timestamp'] = $last_event_timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets missing_events
+     *
+     * @return bool
+     */
+    public function getMissingEvents()
+    {
+        return $this->container['missing_events'];
+    }
+
+    /**
+     * Sets missing_events
+     *
+     * @param bool $missing_events missing_events
+     *
+     * @return $this
+     */
+    public function setMissingEvents($missing_events)
+    {
+        $this->container['missing_events'] = $missing_events;
 
         return $this;
     }
@@ -572,6 +644,54 @@ class ScreenRecordingPageView implements ModelInterface, ArrayAccess
     public function setTimeOnPage($time_on_page)
     {
         $this->container['time_on_page'] = $time_on_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets timing_dom_content_loaded
+     *
+     * @return int
+     */
+    public function getTimingDomContentLoaded()
+    {
+        return $this->container['timing_dom_content_loaded'];
+    }
+
+    /**
+     * Sets timing_dom_content_loaded
+     *
+     * @param int $timing_dom_content_loaded Amount of time for DOMContentLoaded event to fire (milliseconds)
+     *
+     * @return $this
+     */
+    public function setTimingDomContentLoaded($timing_dom_content_loaded)
+    {
+        $this->container['timing_dom_content_loaded'] = $timing_dom_content_loaded;
+
+        return $this;
+    }
+
+    /**
+     * Gets timing_loaded
+     *
+     * @return int
+     */
+    public function getTimingLoaded()
+    {
+        return $this->container['timing_loaded'];
+    }
+
+    /**
+     * Sets timing_loaded
+     *
+     * @param int $timing_loaded Amount of time for loaded event to fire (milliseconds)
+     *
+     * @return $this
+     */
+    public function setTimingLoaded($timing_loaded)
+    {
+        $this->container['timing_loaded'] = $timing_loaded;
 
         return $this;
     }

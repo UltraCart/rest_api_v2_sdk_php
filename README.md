@@ -10,7 +10,6 @@ For more information, please visit [http://www.ultracart.com](http://www.ultraca
 ## Requirements
 
 - PHP 5.5 and later
-- PHP Multibyte String (mbstring) See https://www.php.net/manual/en/book.mbstring.php
 
 ## Installation & Usage
 ### Composer
@@ -160,12 +159,12 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AffiliateApi* | [**getClicksByQuery**](docs/Api/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/Api/AffiliateApi.md#getledgersbyquery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
-*AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order
-*AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order
-*AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order
+*AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
+*AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
+*AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
 *AutoOrderApi* | [**getAutoOrders**](docs/Api/AutoOrderApi.md#getautoorders) | **GET** /auto_order/auto_orders | Retrieve auto orders
 *AutoOrderApi* | [**getAutoOrdersBatch**](docs/Api/AutoOrderApi.md#getautoordersbatch) | **POST** /auto_order/auto_orders/batch | Retrieve auto order batch
-*AutoOrderApi* | [**getAutoOrdersByQuery**](docs/Api/AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders
+*AutoOrderApi* | [**getAutoOrdersByQuery**](docs/Api/AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 *AutoOrderApi* | [**updateAutoOrder**](docs/Api/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/Api/AutoOrderApi.md#updateautoordersbatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 *ChargebackApi* | [**deleteChargeback**](docs/Api/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
@@ -213,19 +212,25 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**uploadCouponCodes**](docs/Api/CouponApi.md#uploadcouponcodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
 *CustomerApi* | [**deleteCustomer**](docs/Api/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/Api/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
+*CustomerApi* | [**getCustomerByEmail**](docs/Api/CustomerApi.md#getcustomerbyemail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
+*CustomerApi* | [**getCustomerEditorValues**](docs/Api/CustomerApi.md#getcustomereditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
+*CustomerApi* | [**getCustomerEmailLists**](docs/Api/CustomerApi.md#getcustomeremaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 *CustomerApi* | [**getCustomers**](docs/Api/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
 *CustomerApi* | [**getCustomersByQuery**](docs/Api/CustomerApi.md#getcustomersbyquery) | **POST** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
-*CustomerApi* | [**getEditorValues**](docs/Api/CustomerApi.md#geteditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
-*CustomerApi* | [**getEmailLists**](docs/Api/CustomerApi.md#getemaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+*CustomerApi* | [**getEmailVerificationToken**](docs/Api/CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
+*CustomerApi* | [**validateEmailVerificationToken**](docs/Api/CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 *FulfillmentApi* | [**acknowledgeOrders**](docs/Api/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
 *FulfillmentApi* | [**getDistributionCenterOrders**](docs/Api/FulfillmentApi.md#getdistributioncenterorders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
 *FulfillmentApi* | [**getDistributionCenters**](docs/Api/FulfillmentApi.md#getdistributioncenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
 *FulfillmentApi* | [**shipOrders**](docs/Api/FulfillmentApi.md#shiporders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
 *FulfillmentApi* | [**updateInventory**](docs/Api/FulfillmentApi.md#updateinventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
+*IntegrationLogApi* | [**getIntegrationLog**](docs/Api/IntegrationLogApi.md#getintegrationlog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
+*IntegrationLogApi* | [**getIntegrationLogFile**](docs/Api/IntegrationLogApi.md#getintegrationlogfile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
+*IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsquery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteItem**](docs/Api/ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**getItem**](docs/Api/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
@@ -248,7 +253,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrderByToken**](docs/Api/OrderApi.md#getorderbytoken) | **POST** /order/orders/token | Retrieve an order using a token
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/Api/OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
-*OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders
+*OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders by query
 *OrderApi* | [**insertOrder**](docs/Api/OrderApi.md#insertorder) | **POST** /order/orders | Insert an order
 *OrderApi* | [**processPayment**](docs/Api/OrderApi.md#processpayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/Api/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
@@ -274,6 +279,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteEmailPostcard**](docs/Api/StorefrontApi.md#deleteemailpostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/Api/StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+*StorefrontApi* | [**deleteHeatmap**](docs/Api/StorefrontApi.md#deleteheatmap) | **DELETE** /storefront/{storefront_oid}/screen_recordings/heatmap | Delete screen recording heatmap
 *StorefrontApi* | [**deleteLibraryItem**](docs/Api/StorefrontApi.md#deletelibraryitem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 *StorefrontApi* | [**deleteLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#deletelibraryitempublishedversions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
 *StorefrontApi* | [**deleteScreenRecordingSegment**](docs/Api/StorefrontApi.md#deletescreenrecordingsegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
@@ -333,12 +339,13 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/Api/StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 *StorefrontApi* | [**getExperiments**](docs/Api/StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+*StorefrontApi* | [**getHeatmap**](docs/Api/StorefrontApi.md#getheatmap) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap | Get screen recording heatmap
+*StorefrontApi* | [**getHeatmapIndex**](docs/Api/StorefrontApi.md#getheatmapindex) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap/index | Get screen recording heatmap index
 *StorefrontApi* | [**getHistogramPropertyNames**](docs/Api/StorefrontApi.md#gethistogrampropertynames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 *StorefrontApi* | [**getHistogramPropertyValues**](docs/Api/StorefrontApi.md#gethistogrampropertyvalues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
 *StorefrontApi* | [**getLibraryFilterValues**](docs/Api/StorefrontApi.md#getlibraryfiltervalues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
 *StorefrontApi* | [**getLibraryItem**](docs/Api/StorefrontApi.md#getlibraryitem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
 *StorefrontApi* | [**getLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#getlibraryitempublishedversions) | **GET** /storefront/code_library/{library_item_oid}/published_versions | Get all published versions for a library item.
-*StorefrontApi* | [**getPricingTiers**](docs/Api/StorefrontApi.md#getpricingtiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 *StorefrontApi* | [**getScreenRecording**](docs/Api/StorefrontApi.md#getscreenrecording) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid} | Get screen recording
 *StorefrontApi* | [**getScreenRecordingPageViewData**](docs/Api/StorefrontApi.md#getscreenrecordingpageviewdata) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/page_view_data/{screen_recording_page_view_uuid} | Get screen recording page view data
 *StorefrontApi* | [**getScreenRecordingSegment**](docs/Api/StorefrontApi.md#getscreenrecordingsegment) | **GET** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Get screen recording segment
@@ -347,6 +354,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getScreenRecordingTags**](docs/Api/StorefrontApi.md#getscreenrecordingtags) | **POST** /storefront/{storefront_oid}/screen_recordings/tags | Get tags used by screen recording
 *StorefrontApi* | [**getScreenRecordingsByQuery**](docs/Api/StorefrontApi.md#getscreenrecordingsbyquery) | **POST** /storefront/{storefront_oid}/screen_recordings/query | Query screen recordings
 *StorefrontApi* | [**getScreenRecordingsBySegment**](docs/Api/StorefrontApi.md#getscreenrecordingsbysegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query | Get screen recordings by segment
+*StorefrontApi* | [**getStoreFrontPricingTiers**](docs/Api/StorefrontApi.md#getstorefrontpricingtiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 *StorefrontApi* | [**getThumbnailParameters**](docs/Api/StorefrontApi.md#getthumbnailparameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 *StorefrontApi* | [**getTransactionEmail**](docs/Api/StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -396,6 +404,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailSettings**](docs/Api/StorefrontApi.md#updateemailsettings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 *StorefrontApi* | [**updateExperiment**](docs/Api/StorefrontApi.md#updateexperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
 *StorefrontApi* | [**updateLibraryItem**](docs/Api/StorefrontApi.md#updatelibraryitem) | **PUT** /storefront/code_library/{library_item_oid} | Update library item. Note that only certain fields may be updated via this method.
+*StorefrontApi* | [**updateScreenRecordingMerchantNotes**](docs/Api/StorefrontApi.md#updatescreenrecordingmerchantnotes) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/merchant_notes | Update merchant notes on a screen recording
 *StorefrontApi* | [**updateScreenRecordingSegment**](docs/Api/StorefrontApi.md#updatescreenrecordingsegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Update screen recording segment
 *StorefrontApi* | [**updateScreenRecordingSettings**](docs/Api/StorefrontApi.md#updatescreenrecordingsettings) | **POST** /storefront/{storefront_oid}/screen_recordings/settings | Update screen recording settings
 *StorefrontApi* | [**updateScreenRecordingTags**](docs/Api/StorefrontApi.md#updatescreenrecordingtags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
@@ -561,6 +570,7 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalFreeShippingWithPurchase](docs/Model/CouponAmountOffSubtotalFreeShippingWithPurchase.md)
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/Model/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/Model/CouponAmountOffSubtotalWithItemsPurchase.md)
+ - [CouponAmountOffSubtotalWithPurchase](docs/Model/CouponAmountOffSubtotalWithPurchase.md)
  - [CouponAutoApplyCondition](docs/Model/CouponAutoApplyCondition.md)
  - [CouponAutoApplyConditions](docs/Model/CouponAutoApplyConditions.md)
  - [CouponAutomaticallyApplyCouponCodes](docs/Model/CouponAutomaticallyApplyCouponCodes.md)
@@ -589,6 +599,7 @@ Class | Method | HTTP request | Description
  - [CouponPercentOffItems](docs/Model/CouponPercentOffItems.md)
  - [CouponPercentOffItemsAndFreeShipping](docs/Model/CouponPercentOffItemsAndFreeShipping.md)
  - [CouponPercentOffItemsWithItemsPurchase](docs/Model/CouponPercentOffItemsWithItemsPurchase.md)
+ - [CouponPercentOffMsrpItems](docs/Model/CouponPercentOffMsrpItems.md)
  - [CouponPercentOffRetailPriceItems](docs/Model/CouponPercentOffRetailPriceItems.md)
  - [CouponPercentOffShipping](docs/Model/CouponPercentOffShipping.md)
  - [CouponPercentOffSubtotal](docs/Model/CouponPercentOffSubtotal.md)
@@ -737,6 +748,10 @@ Class | Method | HTTP request | Description
  - [EmailThirdPartyListImportRequest](docs/Model/EmailThirdPartyListImportRequest.md)
  - [EmailThirdPartyProvider](docs/Model/EmailThirdPartyProvider.md)
  - [EmailThirdPartyProvidersResponse](docs/Model/EmailThirdPartyProvidersResponse.md)
+ - [EmailVerifyTokenRequest](docs/Model/EmailVerifyTokenRequest.md)
+ - [EmailVerifyTokenResponse](docs/Model/EmailVerifyTokenResponse.md)
+ - [EmailVerifyTokenValidateRequest](docs/Model/EmailVerifyTokenValidateRequest.md)
+ - [EmailVerifyTokenValidateResponse](docs/Model/EmailVerifyTokenValidateResponse.md)
  - [Error](docs/Model/Error.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Experiment](docs/Model/Experiment.md)
@@ -753,6 +768,13 @@ Class | Method | HTTP request | Description
  - [GroupUserMembership](docs/Model/GroupUserMembership.md)
  - [GroupsResponse](docs/Model/GroupsResponse.md)
  - [HTTPHeader](docs/Model/HTTPHeader.md)
+ - [IntegrationLog](docs/Model/IntegrationLog.md)
+ - [IntegrationLogFile](docs/Model/IntegrationLogFile.md)
+ - [IntegrationLogLog](docs/Model/IntegrationLogLog.md)
+ - [IntegrationLogQueryFilterValues](docs/Model/IntegrationLogQueryFilterValues.md)
+ - [IntegrationLogQueryRequest](docs/Model/IntegrationLogQueryRequest.md)
+ - [IntegrationLogQueryResponse](docs/Model/IntegrationLogQueryResponse.md)
+ - [IntegrationLogResponse](docs/Model/IntegrationLogResponse.md)
  - [Item](docs/Model/Item.md)
  - [ItemAccounting](docs/Model/ItemAccounting.md)
  - [ItemAmember](docs/Model/ItemAmember.md)
@@ -914,6 +936,7 @@ Class | Method | HTTP request | Description
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
  - [ScreenRecording](docs/Model/ScreenRecording.md)
+ - [ScreenRecordingAdPlatform](docs/Model/ScreenRecordingAdPlatform.md)
  - [ScreenRecordingFilter](docs/Model/ScreenRecordingFilter.md)
  - [ScreenRecordingFilterGeoDistance](docs/Model/ScreenRecordingFilterGeoDistance.md)
  - [ScreenRecordingFilterIpSearch](docs/Model/ScreenRecordingFilterIpSearch.md)
@@ -929,8 +952,19 @@ Class | Method | HTTP request | Description
  - [ScreenRecordingFilterValues](docs/Model/ScreenRecordingFilterValues.md)
  - [ScreenRecordingFilterValuesEvent](docs/Model/ScreenRecordingFilterValuesEvent.md)
  - [ScreenRecordingFilterValuesEventParams](docs/Model/ScreenRecordingFilterValuesEventParams.md)
+ - [ScreenRecordingFilterValuesPageParam](docs/Model/ScreenRecordingFilterValuesPageParam.md)
+ - [ScreenRecordingFilterValuesPageView](docs/Model/ScreenRecordingFilterValuesPageView.md)
+ - [ScreenRecordingHeatmap](docs/Model/ScreenRecordingHeatmap.md)
+ - [ScreenRecordingHeatmapIndexRequest](docs/Model/ScreenRecordingHeatmapIndexRequest.md)
+ - [ScreenRecordingHeatmapIndexResponse](docs/Model/ScreenRecordingHeatmapIndexResponse.md)
+ - [ScreenRecordingHeatmapRequest](docs/Model/ScreenRecordingHeatmapRequest.md)
+ - [ScreenRecordingHeatmapReset](docs/Model/ScreenRecordingHeatmapReset.md)
+ - [ScreenRecordingHeatmapResponse](docs/Model/ScreenRecordingHeatmapResponse.md)
+ - [ScreenRecordingHeatmapUrl](docs/Model/ScreenRecordingHeatmapUrl.md)
+ - [ScreenRecordingMerchantNotesRequest](docs/Model/ScreenRecordingMerchantNotesRequest.md)
  - [ScreenRecordingMultifield](docs/Model/ScreenRecordingMultifield.md)
  - [ScreenRecordingPageView](docs/Model/ScreenRecordingPageView.md)
+ - [ScreenRecordingPageViewDataResponse](docs/Model/ScreenRecordingPageViewDataResponse.md)
  - [ScreenRecordingPageViewEvent](docs/Model/ScreenRecordingPageViewEvent.md)
  - [ScreenRecordingPageViewEventParameter](docs/Model/ScreenRecordingPageViewEventParameter.md)
  - [ScreenRecordingPageViewParameter](docs/Model/ScreenRecordingPageViewParameter.md)
@@ -1038,6 +1072,8 @@ Class | Method | HTTP request | Description
  - **customer_write**: Allows you to write customer information.
  - **fulfillment_read**: Allows you to read fulfillment information.
  - **fulfillment_write**: Allows you to write fulfillment information.
+ - **integration_log_read**: Allows you to read integration log information.
+ - **integration_log_write**: Allows you to write integration log information.
  - **order_read**: Allows you to read order information.
  - **order_write**: Allows you to write order information.
  - **item_read**: Allows you to read item information.
@@ -1073,6 +1109,48 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.2 | 06/24/2021 | integration log file mime type added | 
+| 3.2.0 | 06/23/2021 | Changed 4 methods due to naming conflicts revealed through swagger validator.  All internal methods, so impact should be negligible | 
+| 3.1.50 | 06/23/2021 | Integrated Logging: returning back streamed files for log requests | 
+| 3.1.49 | 06/17/2021 | Integrated Logging: standardize the response object from getIntegrationLog method  | 
+| 3.1.47 | 06/16/2021 | Integrated Logging Rest API  | 
+| 3.1.46 | 06/14/2021 | Screen recording: server side paginated heat map index with url contains filters, Item: channel partner item mapping unit cost override  | 
+| 3.1.44 | 06/02/2021 | new boolean flag on items object to allow sharing of reviews between items   | 
+| 3.1.43 | 06/01/2021 | fix item serialized name of item serialized name for channel partner item mappings  | 
+| 3.1.42 | 06/01/2021 | added quickbooks accounting codes at the tiered level for tiered coupons  | 
+| 3.1.41 | 05/21/2021 | screen recording heatmap methods | 
+| 3.1.40 | 05/20/2021 | Order.summary.actual_payment_processing field added | 
+| 3.1.39 | 05/19/2021 | full deployment to ensure all language SDKs are up to date | 
+| 3.1.37 | 05/18/2021 | removed php sdk dependency on ext-mbstring by generating sdk with polyfill requirement.  sdk is more portable now. | 
+| 3.1.35 | 05/14/2021 | screen recording histogram data  | 
+| 3.1.34 | 05/12/2021 | screen recording preferred language, last x days filter, referrer domain | 
+| 3.1.33 | 05/11/2021 | creen recording filter for affiliate id and email | 
+| 3.1.32 | 05/06/2021 | customer profile pending loyalty points  | 
+| 3.1.31 | 05/06/2021 | Added email domian field to screen recordings for filtering  | 
+| 3.1.30 | 04/27/2021 | OrderApi.processPayment now allows a specific amount to be billed  | 
+| 3.1.29 | 04/26/2021 | screen recording language iso code | 
+| 3.1.28 | 04/26/2021 | screen recording statistics on the setting object | 
+| 3.1.27 | 04/20/2021 | bug fix - annotation misspell on new email campaign property |
+| 3.1.26 | 04/20/2021 | StoreFront Connumications - flag to end campaign or flow once purchase happens anywhere |
+| 3.1.25 | 04/19/2021 | Screen recording UTM campaign and source fields |
+| 3.1.24 | 04/16/2021 | Screen recording aggregations on communications campaign/flows |
+| 3.1.22 | 04/09/2021 | Move URL filter values into page level view for screen recordings |
+| 3.1.18 | 03/17/2021 | Added order query by ship on date |
+| 3.1.17 | 03/17/2021 | New coupon - percent off MSRP item |
+| 3.1.16 | 03/16/2021 | screen recording filter page parameter names |
+| 3.1.15 | 03/15/2021 | fix response from deleteScreenRecordingSegment that should have been void |
+| 3.1.14 | 03/15/2021 | sort screen recordings by favorite flag |
+| 3.1.13 | 03/02/2021 | new webhook order_payment_failed |
+| 3.1.12 | 02/25/2021 | added screen recording visitor_first_seen property |
+| 3.1.11 | 02/24/2021 | Added Screen recording visitor number |
+| 3.1.10 | 02/24/2021 | Added Screen recording merchant notes |
+| 3.1.9 | 02/24/2021 | Allow coupons to be configured as unique with expiration on cart step within StoreFront Communications |
+| 3.1.8 | 02/24/2021 | Add flag: screen recording missing event boolean |
+| 3.1.5 | 02/12/2021 | Bug Fix: PHP retry logic missing a closing brace. Also screen recording page view data response refactor |
+| 3.1.3 | 02/11/2021 | Bug Fix: wrong return type on CustomerApi.validateEmailVerificationToken |
+| 3.1.2 | 02/11/2021 | CustomerApi.getEmailVerificationToken, CustomerApi.validateEmailVerificationToken added to allow for custom email verification.  Also added favorite flag to screen recording object |
+| 3.1.1 | 02/10/2021 | CustomerApi.getCustomerByEmail() method added |
+| 3.1.0 | 02/10/2021 | Minor revision jump.  Added new convenience methods for simple_key use to all api calls.  Updated docs |
 | 3.0.75 | 02/01/2021 | StoreFront Communication plan revision (internal use) |
 | 3.0.71 | 01/28/2021 | BugFix: PHP SDK retry logic NPE |
 | 3.0.70 | 01/26/2021 | Checkout return URL support |

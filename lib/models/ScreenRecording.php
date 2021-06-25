@@ -57,22 +57,35 @@ class ScreenRecording implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ad_platform' => '\ultracart\v2\models\ScreenRecordingAdPlatform',
         'analytics_client_oid' => 'int',
         'analytics_session_dts' => 'int',
         'analytics_session_oid' => 'int',
+        'communications_campaign_name' => 'string',
+        'communications_campaign_uuid' => 'string',
+        'communications_email_subject' => 'string',
+        'communications_email_uuid' => 'string',
+        'communications_flow_name' => 'string',
+        'communications_flow_uuid' => 'string',
         'email' => 'string',
+        'email_domain' => 'string',
         'end_timestamp' => 'string',
         'esp_customer_uuid' => 'string',
         'events_gz_size' => 'int',
         'events_json_key' => 'string',
+        'favorite' => 'bool',
         'favorites' => 'int[]',
         'geolocation' => '\ultracart\v2\models\GeoPoint',
         'geolocation_country' => 'string',
         'geolocation_state' => 'string',
+        'language_iso_code' => 'string',
         'merchant_id' => 'string',
+        'merchant_notes' => 'string',
         'order_id' => 'string',
         'page_view_count' => 'int',
         'page_views' => '\ultracart\v2\models\ScreenRecordingPageView[]',
+        'preferred_language' => 'string',
+        'referrer_domain' => 'string',
         'rrweb_version' => 'string',
         'screen_recording_uuid' => 'string',
         'signed_download_url' => 'string',
@@ -86,6 +99,10 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'string',
         'user_ip' => 'string',
         'user_properties' => '\ultracart\v2\models\ScreenRecordingUserProperty[]',
+        'utm_campaign' => 'string',
+        'utm_source' => 'string',
+        'visitor_first_seen' => 'string',
+        'visitor_number' => 'int',
         'watched' => 'bool',
         'window_height' => 'int',
         'window_width' => 'int'
@@ -97,22 +114,35 @@ class ScreenRecording implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'ad_platform' => null,
         'analytics_client_oid' => 'int64',
         'analytics_session_dts' => 'int64',
         'analytics_session_oid' => 'int64',
+        'communications_campaign_name' => null,
+        'communications_campaign_uuid' => null,
+        'communications_email_subject' => null,
+        'communications_email_uuid' => null,
+        'communications_flow_name' => null,
+        'communications_flow_uuid' => null,
         'email' => null,
+        'email_domain' => null,
         'end_timestamp' => 'dateTime',
         'esp_customer_uuid' => null,
         'events_gz_size' => 'int32',
         'events_json_key' => null,
+        'favorite' => null,
         'favorites' => null,
         'geolocation' => null,
         'geolocation_country' => null,
         'geolocation_state' => null,
+        'language_iso_code' => null,
         'merchant_id' => null,
+        'merchant_notes' => null,
         'order_id' => null,
         'page_view_count' => 'int32',
         'page_views' => null,
+        'preferred_language' => null,
+        'referrer_domain' => null,
         'rrweb_version' => null,
         'screen_recording_uuid' => null,
         'signed_download_url' => null,
@@ -126,6 +156,10 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => null,
         'user_ip' => null,
         'user_properties' => null,
+        'utm_campaign' => null,
+        'utm_source' => null,
+        'visitor_first_seen' => 'dateTime',
+        'visitor_number' => 'int32',
         'watched' => null,
         'window_height' => 'int32',
         'window_width' => 'int32'
@@ -158,22 +192,35 @@ class ScreenRecording implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'ad_platform' => 'ad_platform',
         'analytics_client_oid' => 'analytics_client_oid',
         'analytics_session_dts' => 'analytics_session_dts',
         'analytics_session_oid' => 'analytics_session_oid',
+        'communications_campaign_name' => 'communications_campaign_name',
+        'communications_campaign_uuid' => 'communications_campaign_uuid',
+        'communications_email_subject' => 'communications_email_subject',
+        'communications_email_uuid' => 'communications_email_uuid',
+        'communications_flow_name' => 'communications_flow_name',
+        'communications_flow_uuid' => 'communications_flow_uuid',
         'email' => 'email',
+        'email_domain' => 'email_domain',
         'end_timestamp' => 'end_timestamp',
         'esp_customer_uuid' => 'esp_customer_uuid',
         'events_gz_size' => 'events_gz_size',
         'events_json_key' => 'events_json_key',
+        'favorite' => 'favorite',
         'favorites' => 'favorites',
         'geolocation' => 'geolocation',
         'geolocation_country' => 'geolocation_country',
         'geolocation_state' => 'geolocation_state',
+        'language_iso_code' => 'language_iso_code',
         'merchant_id' => 'merchant_id',
+        'merchant_notes' => 'merchant_notes',
         'order_id' => 'order_id',
         'page_view_count' => 'page_view_count',
         'page_views' => 'page_views',
+        'preferred_language' => 'preferred_language',
+        'referrer_domain' => 'referrer_domain',
         'rrweb_version' => 'rrweb_version',
         'screen_recording_uuid' => 'screen_recording_uuid',
         'signed_download_url' => 'signed_download_url',
@@ -187,6 +234,10 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'user_agent_raw',
         'user_ip' => 'user_ip',
         'user_properties' => 'user_properties',
+        'utm_campaign' => 'utm_campaign',
+        'utm_source' => 'utm_source',
+        'visitor_first_seen' => 'visitor_first_seen',
+        'visitor_number' => 'visitor_number',
         'watched' => 'watched',
         'window_height' => 'window_height',
         'window_width' => 'window_width'
@@ -198,22 +249,35 @@ class ScreenRecording implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'ad_platform' => 'setAdPlatform',
         'analytics_client_oid' => 'setAnalyticsClientOid',
         'analytics_session_dts' => 'setAnalyticsSessionDts',
         'analytics_session_oid' => 'setAnalyticsSessionOid',
+        'communications_campaign_name' => 'setCommunicationsCampaignName',
+        'communications_campaign_uuid' => 'setCommunicationsCampaignUuid',
+        'communications_email_subject' => 'setCommunicationsEmailSubject',
+        'communications_email_uuid' => 'setCommunicationsEmailUuid',
+        'communications_flow_name' => 'setCommunicationsFlowName',
+        'communications_flow_uuid' => 'setCommunicationsFlowUuid',
         'email' => 'setEmail',
+        'email_domain' => 'setEmailDomain',
         'end_timestamp' => 'setEndTimestamp',
         'esp_customer_uuid' => 'setEspCustomerUuid',
         'events_gz_size' => 'setEventsGzSize',
         'events_json_key' => 'setEventsJsonKey',
+        'favorite' => 'setFavorite',
         'favorites' => 'setFavorites',
         'geolocation' => 'setGeolocation',
         'geolocation_country' => 'setGeolocationCountry',
         'geolocation_state' => 'setGeolocationState',
+        'language_iso_code' => 'setLanguageIsoCode',
         'merchant_id' => 'setMerchantId',
+        'merchant_notes' => 'setMerchantNotes',
         'order_id' => 'setOrderId',
         'page_view_count' => 'setPageViewCount',
         'page_views' => 'setPageViews',
+        'preferred_language' => 'setPreferredLanguage',
+        'referrer_domain' => 'setReferrerDomain',
         'rrweb_version' => 'setRrwebVersion',
         'screen_recording_uuid' => 'setScreenRecordingUuid',
         'signed_download_url' => 'setSignedDownloadUrl',
@@ -227,6 +291,10 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'setUserAgentRaw',
         'user_ip' => 'setUserIp',
         'user_properties' => 'setUserProperties',
+        'utm_campaign' => 'setUtmCampaign',
+        'utm_source' => 'setUtmSource',
+        'visitor_first_seen' => 'setVisitorFirstSeen',
+        'visitor_number' => 'setVisitorNumber',
         'watched' => 'setWatched',
         'window_height' => 'setWindowHeight',
         'window_width' => 'setWindowWidth'
@@ -238,22 +306,35 @@ class ScreenRecording implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'ad_platform' => 'getAdPlatform',
         'analytics_client_oid' => 'getAnalyticsClientOid',
         'analytics_session_dts' => 'getAnalyticsSessionDts',
         'analytics_session_oid' => 'getAnalyticsSessionOid',
+        'communications_campaign_name' => 'getCommunicationsCampaignName',
+        'communications_campaign_uuid' => 'getCommunicationsCampaignUuid',
+        'communications_email_subject' => 'getCommunicationsEmailSubject',
+        'communications_email_uuid' => 'getCommunicationsEmailUuid',
+        'communications_flow_name' => 'getCommunicationsFlowName',
+        'communications_flow_uuid' => 'getCommunicationsFlowUuid',
         'email' => 'getEmail',
+        'email_domain' => 'getEmailDomain',
         'end_timestamp' => 'getEndTimestamp',
         'esp_customer_uuid' => 'getEspCustomerUuid',
         'events_gz_size' => 'getEventsGzSize',
         'events_json_key' => 'getEventsJsonKey',
+        'favorite' => 'getFavorite',
         'favorites' => 'getFavorites',
         'geolocation' => 'getGeolocation',
         'geolocation_country' => 'getGeolocationCountry',
         'geolocation_state' => 'getGeolocationState',
+        'language_iso_code' => 'getLanguageIsoCode',
         'merchant_id' => 'getMerchantId',
+        'merchant_notes' => 'getMerchantNotes',
         'order_id' => 'getOrderId',
         'page_view_count' => 'getPageViewCount',
         'page_views' => 'getPageViews',
+        'preferred_language' => 'getPreferredLanguage',
+        'referrer_domain' => 'getReferrerDomain',
         'rrweb_version' => 'getRrwebVersion',
         'screen_recording_uuid' => 'getScreenRecordingUuid',
         'signed_download_url' => 'getSignedDownloadUrl',
@@ -267,6 +348,10 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'user_agent_raw' => 'getUserAgentRaw',
         'user_ip' => 'getUserIp',
         'user_properties' => 'getUserProperties',
+        'utm_campaign' => 'getUtmCampaign',
+        'utm_source' => 'getUtmSource',
+        'visitor_first_seen' => 'getVisitorFirstSeen',
+        'visitor_number' => 'getVisitorNumber',
         'watched' => 'getWatched',
         'window_height' => 'getWindowHeight',
         'window_width' => 'getWindowWidth'
@@ -332,22 +417,35 @@ class ScreenRecording implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['ad_platform'] = isset($data['ad_platform']) ? $data['ad_platform'] : null;
         $this->container['analytics_client_oid'] = isset($data['analytics_client_oid']) ? $data['analytics_client_oid'] : null;
         $this->container['analytics_session_dts'] = isset($data['analytics_session_dts']) ? $data['analytics_session_dts'] : null;
         $this->container['analytics_session_oid'] = isset($data['analytics_session_oid']) ? $data['analytics_session_oid'] : null;
+        $this->container['communications_campaign_name'] = isset($data['communications_campaign_name']) ? $data['communications_campaign_name'] : null;
+        $this->container['communications_campaign_uuid'] = isset($data['communications_campaign_uuid']) ? $data['communications_campaign_uuid'] : null;
+        $this->container['communications_email_subject'] = isset($data['communications_email_subject']) ? $data['communications_email_subject'] : null;
+        $this->container['communications_email_uuid'] = isset($data['communications_email_uuid']) ? $data['communications_email_uuid'] : null;
+        $this->container['communications_flow_name'] = isset($data['communications_flow_name']) ? $data['communications_flow_name'] : null;
+        $this->container['communications_flow_uuid'] = isset($data['communications_flow_uuid']) ? $data['communications_flow_uuid'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['email_domain'] = isset($data['email_domain']) ? $data['email_domain'] : null;
         $this->container['end_timestamp'] = isset($data['end_timestamp']) ? $data['end_timestamp'] : null;
         $this->container['esp_customer_uuid'] = isset($data['esp_customer_uuid']) ? $data['esp_customer_uuid'] : null;
         $this->container['events_gz_size'] = isset($data['events_gz_size']) ? $data['events_gz_size'] : null;
         $this->container['events_json_key'] = isset($data['events_json_key']) ? $data['events_json_key'] : null;
+        $this->container['favorite'] = isset($data['favorite']) ? $data['favorite'] : null;
         $this->container['favorites'] = isset($data['favorites']) ? $data['favorites'] : null;
         $this->container['geolocation'] = isset($data['geolocation']) ? $data['geolocation'] : null;
         $this->container['geolocation_country'] = isset($data['geolocation_country']) ? $data['geolocation_country'] : null;
         $this->container['geolocation_state'] = isset($data['geolocation_state']) ? $data['geolocation_state'] : null;
+        $this->container['language_iso_code'] = isset($data['language_iso_code']) ? $data['language_iso_code'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['merchant_notes'] = isset($data['merchant_notes']) ? $data['merchant_notes'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['page_view_count'] = isset($data['page_view_count']) ? $data['page_view_count'] : null;
         $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
+        $this->container['preferred_language'] = isset($data['preferred_language']) ? $data['preferred_language'] : null;
+        $this->container['referrer_domain'] = isset($data['referrer_domain']) ? $data['referrer_domain'] : null;
         $this->container['rrweb_version'] = isset($data['rrweb_version']) ? $data['rrweb_version'] : null;
         $this->container['screen_recording_uuid'] = isset($data['screen_recording_uuid']) ? $data['screen_recording_uuid'] : null;
         $this->container['signed_download_url'] = isset($data['signed_download_url']) ? $data['signed_download_url'] : null;
@@ -361,6 +459,10 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         $this->container['user_agent_raw'] = isset($data['user_agent_raw']) ? $data['user_agent_raw'] : null;
         $this->container['user_ip'] = isset($data['user_ip']) ? $data['user_ip'] : null;
         $this->container['user_properties'] = isset($data['user_properties']) ? $data['user_properties'] : null;
+        $this->container['utm_campaign'] = isset($data['utm_campaign']) ? $data['utm_campaign'] : null;
+        $this->container['utm_source'] = isset($data['utm_source']) ? $data['utm_source'] : null;
+        $this->container['visitor_first_seen'] = isset($data['visitor_first_seen']) ? $data['visitor_first_seen'] : null;
+        $this->container['visitor_number'] = isset($data['visitor_number']) ? $data['visitor_number'] : null;
         $this->container['watched'] = isset($data['watched']) ? $data['watched'] : null;
         $this->container['window_height'] = isset($data['window_height']) ? $data['window_height'] : null;
         $this->container['window_width'] = isset($data['window_width']) ? $data['window_width'] : null;
@@ -389,6 +491,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets ad_platform
+     *
+     * @return \ultracart\v2\models\ScreenRecordingAdPlatform
+     */
+    public function getAdPlatform()
+    {
+        return $this->container['ad_platform'];
+    }
+
+    /**
+     * Sets ad_platform
+     *
+     * @param \ultracart\v2\models\ScreenRecordingAdPlatform $ad_platform ad_platform
+     *
+     * @return $this
+     */
+    public function setAdPlatform($ad_platform)
+    {
+        $this->container['ad_platform'] = $ad_platform;
+
+        return $this;
+    }
 
     /**
      * Gets analytics_client_oid
@@ -463,6 +589,150 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets communications_campaign_name
+     *
+     * @return string
+     */
+    public function getCommunicationsCampaignName()
+    {
+        return $this->container['communications_campaign_name'];
+    }
+
+    /**
+     * Sets communications_campaign_name
+     *
+     * @param string $communications_campaign_name Campaign Name
+     *
+     * @return $this
+     */
+    public function setCommunicationsCampaignName($communications_campaign_name)
+    {
+        $this->container['communications_campaign_name'] = $communications_campaign_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_campaign_uuid
+     *
+     * @return string
+     */
+    public function getCommunicationsCampaignUuid()
+    {
+        return $this->container['communications_campaign_uuid'];
+    }
+
+    /**
+     * Sets communications_campaign_uuid
+     *
+     * @param string $communications_campaign_uuid Campaign UUID
+     *
+     * @return $this
+     */
+    public function setCommunicationsCampaignUuid($communications_campaign_uuid)
+    {
+        $this->container['communications_campaign_uuid'] = $communications_campaign_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_email_subject
+     *
+     * @return string
+     */
+    public function getCommunicationsEmailSubject()
+    {
+        return $this->container['communications_email_subject'];
+    }
+
+    /**
+     * Sets communications_email_subject
+     *
+     * @param string $communications_email_subject Email subject
+     *
+     * @return $this
+     */
+    public function setCommunicationsEmailSubject($communications_email_subject)
+    {
+        $this->container['communications_email_subject'] = $communications_email_subject;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_email_uuid
+     *
+     * @return string
+     */
+    public function getCommunicationsEmailUuid()
+    {
+        return $this->container['communications_email_uuid'];
+    }
+
+    /**
+     * Sets communications_email_uuid
+     *
+     * @param string $communications_email_uuid Email UUID
+     *
+     * @return $this
+     */
+    public function setCommunicationsEmailUuid($communications_email_uuid)
+    {
+        $this->container['communications_email_uuid'] = $communications_email_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_flow_name
+     *
+     * @return string
+     */
+    public function getCommunicationsFlowName()
+    {
+        return $this->container['communications_flow_name'];
+    }
+
+    /**
+     * Sets communications_flow_name
+     *
+     * @param string $communications_flow_name Flow Name
+     *
+     * @return $this
+     */
+    public function setCommunicationsFlowName($communications_flow_name)
+    {
+        $this->container['communications_flow_name'] = $communications_flow_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets communications_flow_uuid
+     *
+     * @return string
+     */
+    public function getCommunicationsFlowUuid()
+    {
+        return $this->container['communications_flow_uuid'];
+    }
+
+    /**
+     * Sets communications_flow_uuid
+     *
+     * @param string $communications_flow_uuid Flow UUID
+     *
+     * @return $this
+     */
+    public function setCommunicationsFlowUuid($communications_flow_uuid)
+    {
+        $this->container['communications_flow_uuid'] = $communications_flow_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets email
      *
      * @return string
@@ -482,6 +752,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets email_domain
+     *
+     * @return string
+     */
+    public function getEmailDomain()
+    {
+        return $this->container['email_domain'];
+    }
+
+    /**
+     * Sets email_domain
+     *
+     * @param string $email_domain email_domain
+     *
+     * @return $this
+     */
+    public function setEmailDomain($email_domain)
+    {
+        $this->container['email_domain'] = $email_domain;
 
         return $this;
     }
@@ -583,6 +877,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets favorite
+     *
+     * @return bool
+     */
+    public function getFavorite()
+    {
+        return $this->container['favorite'];
+    }
+
+    /**
+     * Sets favorite
+     *
+     * @param bool $favorite True if the user calling the API has favorited this particular screen recording.
+     *
+     * @return $this
+     */
+    public function setFavorite($favorite)
+    {
+        $this->container['favorite'] = $favorite;
+
+        return $this;
+    }
+
+    /**
      * Gets favorites
      *
      * @return int[]
@@ -595,7 +913,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     /**
      * Sets favorites
      *
-     * @param int[] $favorites favorites
+     * @param int[] $favorites Array of user ids that favorited this particular screen recording.
      *
      * @return $this
      */
@@ -679,6 +997,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets language_iso_code
+     *
+     * @return string
+     */
+    public function getLanguageIsoCode()
+    {
+        return $this->container['language_iso_code'];
+    }
+
+    /**
+     * Sets language_iso_code
+     *
+     * @param string $language_iso_code Language ISO code
+     *
+     * @return $this
+     */
+    public function setLanguageIsoCode($language_iso_code)
+    {
+        $this->container['language_iso_code'] = $language_iso_code;
+
+        return $this;
+    }
+
+    /**
      * Gets merchant_id
      *
      * @return string
@@ -698,6 +1040,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_notes
+     *
+     * @return string
+     */
+    public function getMerchantNotes()
+    {
+        return $this->container['merchant_notes'];
+    }
+
+    /**
+     * Sets merchant_notes
+     *
+     * @param string $merchant_notes merchant_notes
+     *
+     * @return $this
+     */
+    public function setMerchantNotes($merchant_notes)
+    {
+        $this->container['merchant_notes'] = $merchant_notes;
 
         return $this;
     }
@@ -770,6 +1136,54 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setPageViews($page_views)
     {
         $this->container['page_views'] = $page_views;
+
+        return $this;
+    }
+
+    /**
+     * Gets preferred_language
+     *
+     * @return string
+     */
+    public function getPreferredLanguage()
+    {
+        return $this->container['preferred_language'];
+    }
+
+    /**
+     * Sets preferred_language
+     *
+     * @param string $preferred_language ISO 3 Letter language code that the customer would prefer
+     *
+     * @return $this
+     */
+    public function setPreferredLanguage($preferred_language)
+    {
+        $this->container['preferred_language'] = $preferred_language;
+
+        return $this;
+    }
+
+    /**
+     * Gets referrer_domain
+     *
+     * @return string
+     */
+    public function getReferrerDomain()
+    {
+        return $this->container['referrer_domain'];
+    }
+
+    /**
+     * Sets referrer_domain
+     *
+     * @param string $referrer_domain referrer_domain
+     *
+     * @return $this
+     */
+    public function setReferrerDomain($referrer_domain)
+    {
+        $this->container['referrer_domain'] = $referrer_domain;
 
         return $this;
     }
@@ -1082,6 +1496,102 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setUserProperties($user_properties)
     {
         $this->container['user_properties'] = $user_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_campaign
+     *
+     * @return string
+     */
+    public function getUtmCampaign()
+    {
+        return $this->container['utm_campaign'];
+    }
+
+    /**
+     * Sets utm_campaign
+     *
+     * @param string $utm_campaign UTM Campaign
+     *
+     * @return $this
+     */
+    public function setUtmCampaign($utm_campaign)
+    {
+        $this->container['utm_campaign'] = $utm_campaign;
+
+        return $this;
+    }
+
+    /**
+     * Gets utm_source
+     *
+     * @return string
+     */
+    public function getUtmSource()
+    {
+        return $this->container['utm_source'];
+    }
+
+    /**
+     * Sets utm_source
+     *
+     * @param string $utm_source UTM Source
+     *
+     * @return $this
+     */
+    public function setUtmSource($utm_source)
+    {
+        $this->container['utm_source'] = $utm_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets visitor_first_seen
+     *
+     * @return string
+     */
+    public function getVisitorFirstSeen()
+    {
+        return $this->container['visitor_first_seen'];
+    }
+
+    /**
+     * Sets visitor_first_seen
+     *
+     * @param string $visitor_first_seen Timestamp this visitor was first seen
+     *
+     * @return $this
+     */
+    public function setVisitorFirstSeen($visitor_first_seen)
+    {
+        $this->container['visitor_first_seen'] = $visitor_first_seen;
+
+        return $this;
+    }
+
+    /**
+     * Gets visitor_number
+     *
+     * @return int
+     */
+    public function getVisitorNumber()
+    {
+        return $this->container['visitor_number'];
+    }
+
+    /**
+     * Sets visitor_number
+     *
+     * @param int $visitor_number visitor_number
+     *
+     * @return $this
+     */
+    public function setVisitorNumber($visitor_number)
+    {
+        $this->container['visitor_number'] = $visitor_number;
 
         return $this;
     }

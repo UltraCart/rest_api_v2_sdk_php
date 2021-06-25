@@ -57,6 +57,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'domain' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'events' => '\ultracart\v2\models\ScreenRecordingFilterPageViewEvent[]',
         'params' => '\ultracart\v2\models\ScreenRecordingFilterPageViewParam[]',
         'referrer' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
@@ -72,6 +73,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'domain' => null,
         'events' => null,
         'params' => null,
         'referrer' => null,
@@ -108,6 +110,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'domain' => 'domain',
         'events' => 'events',
         'params' => 'params',
         'referrer' => 'referrer',
@@ -123,6 +126,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'domain' => 'setDomain',
         'events' => 'setEvents',
         'params' => 'setParams',
         'referrer' => 'setReferrer',
@@ -138,6 +142,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'domain' => 'getDomain',
         'events' => 'getEvents',
         'params' => 'getParams',
         'referrer' => 'getReferrer',
@@ -207,6 +212,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['referrer'] = isset($data['referrer']) ? $data['referrer'] : null;
@@ -239,6 +245,30 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets domain
+     *
+     * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param \ultracart\v2\models\ScreenRecordingFilterStringSearch $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
 
     /**
      * Gets events

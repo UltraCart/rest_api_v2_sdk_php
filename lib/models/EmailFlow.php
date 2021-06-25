@@ -65,6 +65,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_communication_sequence_uuid' => 'string',
         'email_flow_uuid' => 'string',
         'end_once_customer_purchases' => 'bool',
+        'end_once_customer_purchases_anywhere' => 'bool',
         'enrolled_customers' => 'int',
         'esp_domain_user' => 'string',
         'esp_domain_uuid' => 'string',
@@ -100,6 +101,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_communication_sequence_uuid' => null,
         'email_flow_uuid' => null,
         'end_once_customer_purchases' => null,
+        'end_once_customer_purchases_anywhere' => null,
         'enrolled_customers' => 'int32',
         'esp_domain_user' => null,
         'esp_domain_uuid' => null,
@@ -156,6 +158,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_communication_sequence_uuid' => 'email_communication_sequence_uuid',
         'email_flow_uuid' => 'email_flow_uuid',
         'end_once_customer_purchases' => 'end_once_customer_purchases',
+        'end_once_customer_purchases_anywhere' => 'end_once_customer_purchases_anywhere',
         'enrolled_customers' => 'enrolled_customers',
         'esp_domain_user' => 'esp_domain_user',
         'esp_domain_uuid' => 'esp_domain_uuid',
@@ -191,6 +194,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_communication_sequence_uuid' => 'setEmailCommunicationSequenceUuid',
         'email_flow_uuid' => 'setEmailFlowUuid',
         'end_once_customer_purchases' => 'setEndOnceCustomerPurchases',
+        'end_once_customer_purchases_anywhere' => 'setEndOnceCustomerPurchasesAnywhere',
         'enrolled_customers' => 'setEnrolledCustomers',
         'esp_domain_user' => 'setEspDomainUser',
         'esp_domain_uuid' => 'setEspDomainUuid',
@@ -226,6 +230,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         'email_communication_sequence_uuid' => 'getEmailCommunicationSequenceUuid',
         'email_flow_uuid' => 'getEmailFlowUuid',
         'end_once_customer_purchases' => 'getEndOnceCustomerPurchases',
+        'end_once_customer_purchases_anywhere' => 'getEndOnceCustomerPurchasesAnywhere',
         'enrolled_customers' => 'getEnrolledCustomers',
         'esp_domain_user' => 'getEspDomainUser',
         'esp_domain_uuid' => 'getEspDomainUuid',
@@ -315,6 +320,7 @@ class EmailFlow implements ModelInterface, ArrayAccess
         $this->container['email_communication_sequence_uuid'] = isset($data['email_communication_sequence_uuid']) ? $data['email_communication_sequence_uuid'] : null;
         $this->container['email_flow_uuid'] = isset($data['email_flow_uuid']) ? $data['email_flow_uuid'] : null;
         $this->container['end_once_customer_purchases'] = isset($data['end_once_customer_purchases']) ? $data['end_once_customer_purchases'] : null;
+        $this->container['end_once_customer_purchases_anywhere'] = isset($data['end_once_customer_purchases_anywhere']) ? $data['end_once_customer_purchases_anywhere'] : null;
         $this->container['enrolled_customers'] = isset($data['enrolled_customers']) ? $data['enrolled_customers'] : null;
         $this->container['esp_domain_user'] = isset($data['esp_domain_user']) ? $data['esp_domain_user'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
@@ -545,13 +551,37 @@ class EmailFlow implements ModelInterface, ArrayAccess
     /**
      * Sets end_once_customer_purchases
      *
-     * @param bool $end_once_customer_purchases True if the customer should end the flow once they purchase
+     * @param bool $end_once_customer_purchases True if the customer should end the flow once they purchase from an email on this flow
      *
      * @return $this
      */
     public function setEndOnceCustomerPurchases($end_once_customer_purchases)
     {
         $this->container['end_once_customer_purchases'] = $end_once_customer_purchases;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_once_customer_purchases_anywhere
+     *
+     * @return bool
+     */
+    public function getEndOnceCustomerPurchasesAnywhere()
+    {
+        return $this->container['end_once_customer_purchases_anywhere'];
+    }
+
+    /**
+     * Sets end_once_customer_purchases_anywhere
+     *
+     * @param bool $end_once_customer_purchases_anywhere True if the customer should end the flow once they purchase from any source
+     *
+     * @return $this
+     */
+    public function setEndOnceCustomerPurchasesAnywhere($end_once_customer_purchases_anywhere)
+    {
+        $this->container['end_once_customer_purchases_anywhere'] = $end_once_customer_purchases_anywhere;
 
         return $this;
     }

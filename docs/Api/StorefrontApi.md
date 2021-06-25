@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**deleteEmailPostcard**](StorefrontApi.md#deleteEmailPostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 [**deleteEmailSendingDomain**](StorefrontApi.md#deleteEmailSendingDomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 [**deleteExperiment**](StorefrontApi.md#deleteExperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+[**deleteHeatmap**](StorefrontApi.md#deleteHeatmap) | **DELETE** /storefront/{storefront_oid}/screen_recordings/heatmap | Delete screen recording heatmap
 [**deleteLibraryItem**](StorefrontApi.md#deleteLibraryItem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 [**deleteLibraryItemPublishedVersions**](StorefrontApi.md#deleteLibraryItemPublishedVersions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
 [**deleteScreenRecordingSegment**](StorefrontApi.md#deleteScreenRecordingSegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
@@ -80,12 +81,13 @@ Method | HTTP request | Description
 [**getEmailTemplates**](StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 [**getEmailThirdPartyProviders**](StorefrontApi.md#getEmailThirdPartyProviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 [**getExperiments**](StorefrontApi.md#getExperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+[**getHeatmap**](StorefrontApi.md#getHeatmap) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap | Get screen recording heatmap
+[**getHeatmapIndex**](StorefrontApi.md#getHeatmapIndex) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap/index | Get screen recording heatmap index
 [**getHistogramPropertyNames**](StorefrontApi.md#getHistogramPropertyNames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
 [**getHistogramPropertyValues**](StorefrontApi.md#getHistogramPropertyValues) | **GET** /storefront/{storefront_oid}/email/histogram/property_values | Get histogram property values
 [**getLibraryFilterValues**](StorefrontApi.md#getLibraryFilterValues) | **GET** /storefront/code_library/filter_values | Get library values used to populate drop down boxes for filtering.
 [**getLibraryItem**](StorefrontApi.md#getLibraryItem) | **GET** /storefront/code_library/{library_item_oid} | Get library item.
 [**getLibraryItemPublishedVersions**](StorefrontApi.md#getLibraryItemPublishedVersions) | **GET** /storefront/code_library/{library_item_oid}/published_versions | Get all published versions for a library item.
-[**getPricingTiers**](StorefrontApi.md#getPricingTiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 [**getScreenRecording**](StorefrontApi.md#getScreenRecording) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid} | Get screen recording
 [**getScreenRecordingPageViewData**](StorefrontApi.md#getScreenRecordingPageViewData) | **GET** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/page_view_data/{screen_recording_page_view_uuid} | Get screen recording page view data
 [**getScreenRecordingSegment**](StorefrontApi.md#getScreenRecordingSegment) | **GET** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Get screen recording segment
@@ -94,6 +96,7 @@ Method | HTTP request | Description
 [**getScreenRecordingTags**](StorefrontApi.md#getScreenRecordingTags) | **POST** /storefront/{storefront_oid}/screen_recordings/tags | Get tags used by screen recording
 [**getScreenRecordingsByQuery**](StorefrontApi.md#getScreenRecordingsByQuery) | **POST** /storefront/{storefront_oid}/screen_recordings/query | Query screen recordings
 [**getScreenRecordingsBySegment**](StorefrontApi.md#getScreenRecordingsBySegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query | Get screen recordings by segment
+[**getStoreFrontPricingTiers**](StorefrontApi.md#getStoreFrontPricingTiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
 [**getThumbnailParameters**](StorefrontApi.md#getThumbnailParameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 [**getTransactionEmail**](StorefrontApi.md#getTransactionEmail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 [**getTransactionEmailList**](StorefrontApi.md#getTransactionEmailList) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -143,6 +146,7 @@ Method | HTTP request | Description
 [**updateEmailSettings**](StorefrontApi.md#updateEmailSettings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 [**updateExperiment**](StorefrontApi.md#updateExperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
 [**updateLibraryItem**](StorefrontApi.md#updateLibraryItem) | **PUT** /storefront/code_library/{library_item_oid} | Update library item. Note that only certain fields may be updated via this method.
+[**updateScreenRecordingMerchantNotes**](StorefrontApi.md#updateScreenRecordingMerchantNotes) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/merchant_notes | Update merchant notes on a screen recording
 [**updateScreenRecordingSegment**](StorefrontApi.md#updateScreenRecordingSegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Update screen recording segment
 [**updateScreenRecordingSettings**](StorefrontApi.md#updateScreenRecordingSettings) | **POST** /storefront/{storefront_oid}/screen_recordings/settings | Update screen recording settings
 [**updateScreenRecordingTags**](StorefrontApi.md#updateScreenRecordingTags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
@@ -965,6 +969,55 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **deleteHeatmap**
+> deleteHeatmap($storefront_oid, $query)
+
+Delete screen recording heatmap
+
+Delete screen recording heatmap
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+$query = new \ultracart\v2\models\ScreenRecordingHeatmapReset(); // \ultracart\v2\models\ScreenRecordingHeatmapReset | Query
+
+try {
+    $apiInstance->deleteHeatmap($storefront_oid, $query);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->deleteHeatmap: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **query** | [**\ultracart\v2\models\ScreenRecordingHeatmapReset**](../Model/ScreenRecordingHeatmapReset.md)| Query |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **deleteLibraryItem**
 > deleteLibraryItem($library_item_oid)
 
@@ -1056,7 +1109,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteScreenRecordingSegment**
-> \ultracart\v2\models\ScreenRecordingSegmentResponse deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid)
+> deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid)
 
 Delete screen recording segment
 
@@ -1073,8 +1126,7 @@ $storefront_oid = 56; // int |
 $screen_recording_segment_oid = 56; // int | 
 
 try {
-    $result = $apiInstance->deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid);
-    print_r($result);
+    $apiInstance->deleteScreenRecordingSegment($storefront_oid, $screen_recording_segment_oid);
 } catch (Exception $e) {
     echo 'Exception when calling StorefrontApi->deleteScreenRecordingSegment: ', $e->getMessage(), PHP_EOL;
 }
@@ -1090,7 +1142,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ScreenRecordingSegmentResponse**](../Model/ScreenRecordingSegmentResponse.md)
+void (empty response body)
 
 ### Authorization
 
@@ -3782,6 +3834,112 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getHeatmap**
+> \ultracart\v2\models\ScreenRecordingHeatmapResponse getHeatmap($storefront_oid, $query)
+
+Get screen recording heatmap
+
+Get screen recording heatmap
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+$query = new \ultracart\v2\models\ScreenRecordingHeatmapRequest(); // \ultracart\v2\models\ScreenRecordingHeatmapRequest | Query
+
+try {
+    $result = $apiInstance->getHeatmap($storefront_oid, $query);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getHeatmap: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **query** | [**\ultracart\v2\models\ScreenRecordingHeatmapRequest**](../Model/ScreenRecordingHeatmapRequest.md)| Query |
+
+### Return type
+
+[**\ultracart\v2\models\ScreenRecordingHeatmapResponse**](../Model/ScreenRecordingHeatmapResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getHeatmapIndex**
+> \ultracart\v2\models\ScreenRecordingHeatmapIndexResponse getHeatmapIndex($storefront_oid, $query, $_limit, $_offset, $_sort)
+
+Get screen recording heatmap index
+
+Get screen recording heatmap index
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+$query = new \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest(); // \ultracart\v2\models\ScreenRecordingHeatmapIndexRequest | Query
+$_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 500)
+$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
+$_sort = "_sort_example"; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+
+try {
+    $result = $apiInstance->getHeatmapIndex($storefront_oid, $query, $_limit, $_offset, $_sort);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getHeatmapIndex: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **query** | [**\ultracart\v2\models\ScreenRecordingHeatmapIndexRequest**](../Model/ScreenRecordingHeatmapIndexRequest.md)| Query |
+ **_limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 500) | [optional] [default to 100]
+ **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
+ **_sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\ScreenRecordingHeatmapIndexResponse**](../Model/ScreenRecordingHeatmapIndexResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getHistogramPropertyNames**
 > \ultracart\v2\models\EmailHistogramPropertyNamesResponse getHistogramPropertyNames($storefront_oid, $property_type)
 
@@ -4020,54 +4178,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getPricingTiers**
-> \ultracart\v2\models\PricingTiersResponse getPricingTiers($_expand)
-
-Retrieve pricing tiers
-
-Retrieves the pricing tiers
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
-
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
-
-try {
-    $result = $apiInstance->getPricingTiers($_expand);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getPricingTiers: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\PricingTiersResponse**](../Model/PricingTiersResponse.md)
-
-### Authorization
-
-[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **getScreenRecording**
 > \ultracart\v2\models\ScreenRecordingResponse getScreenRecording($storefront_oid, $screen_recording_uuid)
 
@@ -4119,7 +4229,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getScreenRecordingPageViewData**
-> \ultracart\v2\models\ScreenRecordingResponse getScreenRecordingPageViewData($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
+> \ultracart\v2\models\ScreenRecordingPageViewDataResponse getScreenRecordingPageViewData($storefront_oid, $screen_recording_uuid, $screen_recording_page_view_uuid)
 
 Get screen recording page view data
 
@@ -4157,7 +4267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ScreenRecordingResponse**](../Model/ScreenRecordingResponse.md)
+[**\ultracart\v2\models\ScreenRecordingPageViewDataResponse**](../Model/ScreenRecordingPageViewDataResponse.md)
 
 ### Authorization
 
@@ -4458,6 +4568,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ScreenRecordingQueryResponse**](../Model/ScreenRecordingQueryResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getStoreFrontPricingTiers**
+> \ultracart\v2\models\PricingTiersResponse getStoreFrontPricingTiers($_expand)
+
+Retrieve pricing tiers
+
+Retrieves the pricing tiers
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $result = $apiInstance->getStoreFrontPricingTiers($_expand);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getStoreFrontPricingTiers: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\PricingTiersResponse**](../Model/PricingTiersResponse.md)
 
 ### Authorization
 
@@ -6874,6 +7032,57 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateScreenRecordingMerchantNotes**
+> updateScreenRecordingMerchantNotes($storefront_oid, $screen_recording_uuid, $merchant_notes_request)
+
+Update merchant notes on a screen recording
+
+Update merchant notes on a screen recording
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+$screen_recording_uuid = "screen_recording_uuid_example"; // string | 
+$merchant_notes_request = new \ultracart\v2\models\ScreenRecordingMerchantNotesRequest(); // \ultracart\v2\models\ScreenRecordingMerchantNotesRequest | Merchant Notes
+
+try {
+    $apiInstance->updateScreenRecordingMerchantNotes($storefront_oid, $screen_recording_uuid, $merchant_notes_request);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->updateScreenRecordingMerchantNotes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **screen_recording_uuid** | **string**|  |
+ **merchant_notes_request** | [**\ultracart\v2\models\ScreenRecordingMerchantNotesRequest**](../Model/ScreenRecordingMerchantNotesRequest.md)| Merchant Notes |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
 
 ### HTTP request headers
 

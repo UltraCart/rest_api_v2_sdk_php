@@ -90,7 +90,7 @@ class CouponApi
         $config->setApiKey('x-ultracart-simple-key', $simple_key);
         $config->setMaxRetrySeconds($max_retry_seconds);
 
-        $client = new Client(['verify' => $verify, 'debug' => false);
+        $client = new Client(['verify' => $verify, 'debug' => false]);
         $headerSelector = new HeaderSelector(/* leave null for version tied to this sdk version */);
         $api = new CouponApi($client, $config, $headerSelector);
         return $api;
@@ -4543,7 +4543,7 @@ class CouponApi
      *
      * Insert multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4563,7 +4563,7 @@ class CouponApi
      *
      * Insert multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4583,7 +4583,7 @@ class CouponApi
      * Insert multiple coupons
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4701,7 +4701,7 @@ class CouponApi
      *
      * Insert multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4723,7 +4723,7 @@ class CouponApi
      *
      * Insert multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -4775,7 +4775,7 @@ class CouponApi
     /**
      * Create request for operation 'insertCoupons'
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 20) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to insert (maximum 50) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
@@ -5893,7 +5893,7 @@ class CouponApi
      *
      * Update multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -5914,7 +5914,7 @@ class CouponApi
      *
      * Update multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -5935,7 +5935,7 @@ class CouponApi
      * Update multiple coupons
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -6054,7 +6054,7 @@ class CouponApi
      *
      * Update multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -6077,7 +6077,7 @@ class CouponApi
      *
      * Update multiple coupons
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
@@ -6130,7 +6130,7 @@ class CouponApi
     /**
      * Create request for operation 'updateCoupons'
      *
-     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 20 / asynchronous maximum 100) (required)
+     * @param  \ultracart\v2\models\CouponsRequest $coupons_request Coupons to update (synchronous maximum 50 / asynchronous maximum 100) (required)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      * @param  bool $_async True if the operation should be run async.  No result returned (optional)
