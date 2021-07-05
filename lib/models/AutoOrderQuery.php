@@ -67,8 +67,10 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'first_name' => 'string',
         'item_id' => 'string',
         'last_name' => 'string',
+        'next_item_id' => 'string',
         'next_shipment_date_begin' => 'string',
         'next_shipment_date_end' => 'string',
+        'original_item_id' => 'string',
         'original_order_date_begin' => 'string',
         'original_order_date_end' => 'string',
         'original_order_id' => 'string',
@@ -94,8 +96,10 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'first_name' => null,
         'item_id' => null,
         'last_name' => null,
+        'next_item_id' => null,
         'next_shipment_date_begin' => 'dateTime',
         'next_shipment_date_end' => 'dateTime',
+        'original_item_id' => null,
         'original_order_date_begin' => 'dateTime',
         'original_order_date_end' => 'dateTime',
         'original_order_id' => null,
@@ -142,8 +146,10 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'first_name' => 'first_name',
         'item_id' => 'item_id',
         'last_name' => 'last_name',
+        'next_item_id' => 'next_item_id',
         'next_shipment_date_begin' => 'next_shipment_date_begin',
         'next_shipment_date_end' => 'next_shipment_date_end',
+        'original_item_id' => 'original_item_id',
         'original_order_date_begin' => 'original_order_date_begin',
         'original_order_date_end' => 'original_order_date_end',
         'original_order_id' => 'original_order_id',
@@ -169,8 +175,10 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'first_name' => 'setFirstName',
         'item_id' => 'setItemId',
         'last_name' => 'setLastName',
+        'next_item_id' => 'setNextItemId',
         'next_shipment_date_begin' => 'setNextShipmentDateBegin',
         'next_shipment_date_end' => 'setNextShipmentDateEnd',
+        'original_item_id' => 'setOriginalItemId',
         'original_order_date_begin' => 'setOriginalOrderDateBegin',
         'original_order_date_end' => 'setOriginalOrderDateEnd',
         'original_order_id' => 'setOriginalOrderId',
@@ -196,8 +204,10 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         'first_name' => 'getFirstName',
         'item_id' => 'getItemId',
         'last_name' => 'getLastName',
+        'next_item_id' => 'getNextItemId',
         'next_shipment_date_begin' => 'getNextShipmentDateBegin',
         'next_shipment_date_end' => 'getNextShipmentDateEnd',
+        'original_item_id' => 'getOriginalItemId',
         'original_order_date_begin' => 'getOriginalOrderDateBegin',
         'original_order_date_end' => 'getOriginalOrderDateEnd',
         'original_order_id' => 'getOriginalOrderId',
@@ -277,8 +287,10 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['next_item_id'] = isset($data['next_item_id']) ? $data['next_item_id'] : null;
         $this->container['next_shipment_date_begin'] = isset($data['next_shipment_date_begin']) ? $data['next_shipment_date_begin'] : null;
         $this->container['next_shipment_date_end'] = isset($data['next_shipment_date_end']) ? $data['next_shipment_date_end'] : null;
+        $this->container['original_item_id'] = isset($data['original_item_id']) ? $data['original_item_id'] : null;
         $this->container['original_order_date_begin'] = isset($data['original_order_date_begin']) ? $data['original_order_date_begin'] : null;
         $this->container['original_order_date_end'] = isset($data['original_order_date_end']) ? $data['original_order_date_end'] : null;
         $this->container['original_order_id'] = isset($data['original_order_id']) ? $data['original_order_id'] : null;
@@ -545,7 +557,7 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
     /**
      * Sets item_id
      *
-     * @param string $item_id Item ID
+     * @param string $item_id Item ID.  Deprecated query field.  This incorrectly meant the original order contained this item id.
      *
      * @return $this
      */
@@ -576,6 +588,30 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
     public function setLastName($last_name)
     {
         $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_item_id
+     *
+     * @return string
+     */
+    public function getNextItemId()
+    {
+        return $this->container['next_item_id'];
+    }
+
+    /**
+     * Sets next_item_id
+     *
+     * @param string $next_item_id Next Item ID that is supposed to ship.  This is calculated based upon the schedule associated with the original item id.
+     *
+     * @return $this
+     */
+    public function setNextItemId($next_item_id)
+    {
+        $this->container['next_item_id'] = $next_item_id;
 
         return $this;
     }
@@ -624,6 +660,30 @@ class AutoOrderQuery implements ModelInterface, ArrayAccess
     public function setNextShipmentDateEnd($next_shipment_date_end)
     {
         $this->container['next_shipment_date_end'] = $next_shipment_date_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets original_item_id
+     *
+     * @return string
+     */
+    public function getOriginalItemId()
+    {
+        return $this->container['original_item_id'];
+    }
+
+    /**
+     * Sets original_item_id
+     *
+     * @param string $original_item_id Original Item ID purchased on auto order.
+     *
+     * @return $this
+     */
+    public function setOriginalItemId($original_item_id)
+    {
+        $this->container['original_item_id'] = $original_item_id;
 
         return $this;
     }

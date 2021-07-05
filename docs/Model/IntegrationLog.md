@@ -15,10 +15,12 @@ Name | Type | Description | Notes
 **logger_id** | **string** |  | [optional] 
 **logger_name** | **string** |  | [optional] 
 **logs** | [**\ultracart\v2\models\IntegrationLogLog[]**](IntegrationLogLog.md) |  | [optional] 
+**omit_log_map** | **bool** |  | [optional] 
 **order_ids** | **string[]** |  | [optional] 
 **pk** | **string** |  | [optional] 
 **sk** | **string** |  | [optional] 
 **status** | **string** |  | [optional] 
+**status_code** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

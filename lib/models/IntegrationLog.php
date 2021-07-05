@@ -69,10 +69,12 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'logger_id' => 'string',
         'logger_name' => 'string',
         'logs' => '\ultracart\v2\models\IntegrationLogLog[]',
+        'omit_log_map' => 'bool',
         'order_ids' => 'string[]',
         'pk' => 'string',
         'sk' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'status_code' => 'int'
     ];
 
     /**
@@ -93,10 +95,12 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'logger_id' => null,
         'logger_name' => null,
         'logs' => null,
+        'omit_log_map' => null,
         'order_ids' => null,
         'pk' => null,
         'sk' => null,
-        'status' => null
+        'status' => null,
+        'status_code' => 'int32'
     ];
 
     /**
@@ -138,10 +142,12 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'logger_id' => 'logger_id',
         'logger_name' => 'logger_name',
         'logs' => 'logs',
+        'omit_log_map' => 'omit_log_map',
         'order_ids' => 'order_ids',
         'pk' => 'pk',
         'sk' => 'sk',
-        'status' => 'status'
+        'status' => 'status',
+        'status_code' => 'status_code'
     ];
 
     /**
@@ -162,10 +168,12 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'logger_id' => 'setLoggerId',
         'logger_name' => 'setLoggerName',
         'logs' => 'setLogs',
+        'omit_log_map' => 'setOmitLogMap',
         'order_ids' => 'setOrderIds',
         'pk' => 'setPk',
         'sk' => 'setSk',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'status_code' => 'setStatusCode'
     ];
 
     /**
@@ -186,10 +194,12 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'logger_id' => 'getLoggerId',
         'logger_name' => 'getLoggerName',
         'logs' => 'getLogs',
+        'omit_log_map' => 'getOmitLogMap',
         'order_ids' => 'getOrderIds',
         'pk' => 'getPk',
         'sk' => 'getSk',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'status_code' => 'getStatusCode'
     ];
 
     /**
@@ -264,10 +274,12 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         $this->container['logger_id'] = isset($data['logger_id']) ? $data['logger_id'] : null;
         $this->container['logger_name'] = isset($data['logger_name']) ? $data['logger_name'] : null;
         $this->container['logs'] = isset($data['logs']) ? $data['logs'] : null;
+        $this->container['omit_log_map'] = isset($data['omit_log_map']) ? $data['omit_log_map'] : null;
         $this->container['order_ids'] = isset($data['order_ids']) ? $data['order_ids'] : null;
         $this->container['pk'] = isset($data['pk']) ? $data['pk'] : null;
         $this->container['sk'] = isset($data['sk']) ? $data['sk'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
     }
 
     /**
@@ -583,6 +595,30 @@ class IntegrationLog implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets omit_log_map
+     *
+     * @return bool
+     */
+    public function getOmitLogMap()
+    {
+        return $this->container['omit_log_map'];
+    }
+
+    /**
+     * Sets omit_log_map
+     *
+     * @param bool $omit_log_map omit_log_map
+     *
+     * @return $this
+     */
+    public function setOmitLogMap($omit_log_map)
+    {
+        $this->container['omit_log_map'] = $omit_log_map;
+
+        return $this;
+    }
+
+    /**
      * Gets order_ids
      *
      * @return string[]
@@ -674,6 +710,30 @@ class IntegrationLog implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_code
+     *
+     * @return int
+     */
+    public function getStatusCode()
+    {
+        return $this->container['status_code'];
+    }
+
+    /**
+     * Sets status_code
+     *
+     * @param int $status_code status_code
+     *
+     * @return $this
+     */
+    public function setStatusCode($status_code)
+    {
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }
