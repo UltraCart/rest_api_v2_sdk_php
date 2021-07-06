@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **integration_log_oid** | **int** |  | [optional] 
 **item_id** | **string** |  | [optional] 
 **item_ipn_oid** | **int** |  | [optional] 
-**log_dts** | **string** |  | [optional] 
+**log_dts** | **string** | Date/time the integration log was created | [optional] 
 **log_type** | **string** |  | [optional] 
 **logger_id** | **string** |  | [optional] 
 **logger_name** | **string** |  | [optional] 

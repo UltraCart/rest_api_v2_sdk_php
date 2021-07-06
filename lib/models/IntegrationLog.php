@@ -90,7 +90,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
         'integration_log_oid' => 'int32',
         'item_id' => null,
         'item_ipn_oid' => 'int32',
-        'log_dts' => null,
+        'log_dts' => 'dateTime',
         'log_type' => null,
         'logger_id' => null,
         'logger_name' => null,
@@ -487,7 +487,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
     /**
      * Sets log_dts
      *
-     * @param string $log_dts log_dts
+     * @param string $log_dts Date/time the integration log was created
      *
      * @return $this
      */

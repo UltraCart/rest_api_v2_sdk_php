@@ -63,6 +63,8 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'file_names' => 'string[]',
         'item_ids' => 'string[]',
         'item_ipn_oids' => 'int[]',
+        'log_dts_max' => 'string',
+        'log_dts_min' => 'string',
         'log_types' => 'string[]',
         'logger_names' => 'string[]',
         'order_ids' => 'string[]',
@@ -81,6 +83,8 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'file_names' => null,
         'item_ids' => null,
         'item_ipn_oids' => null,
+        'log_dts_max' => 'dateTime',
+        'log_dts_min' => 'dateTime',
         'log_types' => null,
         'logger_names' => null,
         'order_ids' => null,
@@ -120,6 +124,8 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'file_names' => 'file_names',
         'item_ids' => 'item_ids',
         'item_ipn_oids' => 'item_ipn_oids',
+        'log_dts_max' => 'log_dts_max',
+        'log_dts_min' => 'log_dts_min',
         'log_types' => 'log_types',
         'logger_names' => 'logger_names',
         'order_ids' => 'order_ids',
@@ -138,6 +144,8 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'file_names' => 'setFileNames',
         'item_ids' => 'setItemIds',
         'item_ipn_oids' => 'setItemIpnOids',
+        'log_dts_max' => 'setLogDtsMax',
+        'log_dts_min' => 'setLogDtsMin',
         'log_types' => 'setLogTypes',
         'logger_names' => 'setLoggerNames',
         'order_ids' => 'setOrderIds',
@@ -156,6 +164,8 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         'file_names' => 'getFileNames',
         'item_ids' => 'getItemIds',
         'item_ipn_oids' => 'getItemIpnOids',
+        'log_dts_max' => 'getLogDtsMax',
+        'log_dts_min' => 'getLogDtsMin',
         'log_types' => 'getLogTypes',
         'logger_names' => 'getLoggerNames',
         'order_ids' => 'getOrderIds',
@@ -228,6 +238,8 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
         $this->container['file_names'] = isset($data['file_names']) ? $data['file_names'] : null;
         $this->container['item_ids'] = isset($data['item_ids']) ? $data['item_ids'] : null;
         $this->container['item_ipn_oids'] = isset($data['item_ipn_oids']) ? $data['item_ipn_oids'] : null;
+        $this->container['log_dts_max'] = isset($data['log_dts_max']) ? $data['log_dts_max'] : null;
+        $this->container['log_dts_min'] = isset($data['log_dts_min']) ? $data['log_dts_min'] : null;
         $this->container['log_types'] = isset($data['log_types']) ? $data['log_types'] : null;
         $this->container['logger_names'] = isset($data['logger_names']) ? $data['logger_names'] : null;
         $this->container['order_ids'] = isset($data['order_ids']) ? $data['order_ids'] : null;
@@ -398,6 +410,54 @@ class IntegrationLogQueryFilterValues implements ModelInterface, ArrayAccess
     public function setItemIpnOids($item_ipn_oids)
     {
         $this->container['item_ipn_oids'] = $item_ipn_oids;
+
+        return $this;
+    }
+
+    /**
+     * Gets log_dts_max
+     *
+     * @return string
+     */
+    public function getLogDtsMax()
+    {
+        return $this->container['log_dts_max'];
+    }
+
+    /**
+     * Sets log_dts_max
+     *
+     * @param string $log_dts_max Maximum date/time log date/time
+     *
+     * @return $this
+     */
+    public function setLogDtsMax($log_dts_max)
+    {
+        $this->container['log_dts_max'] = $log_dts_max;
+
+        return $this;
+    }
+
+    /**
+     * Gets log_dts_min
+     *
+     * @return string
+     */
+    public function getLogDtsMin()
+    {
+        return $this->container['log_dts_min'];
+    }
+
+    /**
+     * Sets log_dts_min
+     *
+     * @param string $log_dts_min Minimum date/time log date/time
+     *
+     * @return $this
+     */
+    public function setLogDtsMin($log_dts_min)
+    {
+        $this->container['log_dts_min'] = $log_dts_min;
 
         return $this;
     }

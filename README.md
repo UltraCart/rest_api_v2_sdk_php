@@ -1109,6 +1109,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.8 | 07/06/2021 | intgeration logs - min max log date/time retured in filter values | 
 | 3.2.7 | 07/05/2021 | integration logger bug fixes | 
 | 3.2.6 | 06/25/2021 | integration log: added logger name | 
 | 3.2.2 | 06/24/2021 | integration log file mime type added | 
