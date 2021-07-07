@@ -57,7 +57,9 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'cost_per_thousand' => 'float',
         'enabled' => 'bool',
+        'retention_interval' => 'string',
         'sessions_current_billing_period' => 'int',
         'sessions_last_billing_period' => 'int',
         'sessions_trial_billing_period' => 'int',
@@ -71,7 +73,9 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'cost_per_thousand' => null,
         'enabled' => null,
+        'retention_interval' => null,
         'sessions_current_billing_period' => 'int32',
         'sessions_last_billing_period' => 'int32',
         'sessions_trial_billing_period' => 'int32',
@@ -106,7 +110,9 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'cost_per_thousand' => 'cost_per_thousand',
         'enabled' => 'enabled',
+        'retention_interval' => 'retention_interval',
         'sessions_current_billing_period' => 'sessions_current_billing_period',
         'sessions_last_billing_period' => 'sessions_last_billing_period',
         'sessions_trial_billing_period' => 'sessions_trial_billing_period',
@@ -120,7 +126,9 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'cost_per_thousand' => 'setCostPerThousand',
         'enabled' => 'setEnabled',
+        'retention_interval' => 'setRetentionInterval',
         'sessions_current_billing_period' => 'setSessionsCurrentBillingPeriod',
         'sessions_last_billing_period' => 'setSessionsLastBillingPeriod',
         'sessions_trial_billing_period' => 'setSessionsTrialBillingPeriod',
@@ -134,7 +142,9 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'cost_per_thousand' => 'getCostPerThousand',
         'enabled' => 'getEnabled',
+        'retention_interval' => 'getRetentionInterval',
         'sessions_current_billing_period' => 'getSessionsCurrentBillingPeriod',
         'sessions_last_billing_period' => 'getSessionsLastBillingPeriod',
         'sessions_trial_billing_period' => 'getSessionsTrialBillingPeriod',
@@ -202,7 +212,9 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['cost_per_thousand'] = isset($data['cost_per_thousand']) ? $data['cost_per_thousand'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['retention_interval'] = isset($data['retention_interval']) ? $data['retention_interval'] : null;
         $this->container['sessions_current_billing_period'] = isset($data['sessions_current_billing_period']) ? $data['sessions_current_billing_period'] : null;
         $this->container['sessions_last_billing_period'] = isset($data['sessions_last_billing_period']) ? $data['sessions_last_billing_period'] : null;
         $this->container['sessions_trial_billing_period'] = isset($data['sessions_trial_billing_period']) ? $data['sessions_trial_billing_period'] : null;
@@ -235,6 +247,30 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets cost_per_thousand
+     *
+     * @return float
+     */
+    public function getCostPerThousand()
+    {
+        return $this->container['cost_per_thousand'];
+    }
+
+    /**
+     * Sets cost_per_thousand
+     *
+     * @param float $cost_per_thousand Cost per one thousand sessions
+     *
+     * @return $this
+     */
+    public function setCostPerThousand($cost_per_thousand)
+    {
+        $this->container['cost_per_thousand'] = $cost_per_thousand;
+
+        return $this;
+    }
+
+    /**
      * Gets enabled
      *
      * @return bool
@@ -254,6 +290,30 @@ class ScreenRecordingSettings implements ModelInterface, ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets retention_interval
+     *
+     * @return string
+     */
+    public function getRetentionInterval()
+    {
+        return $this->container['retention_interval'];
+    }
+
+    /**
+     * Sets retention_interval
+     *
+     * @param string $retention_interval How long screen recording data is retained
+     *
+     * @return $this
+     */
+    public function setRetentionInterval($retention_interval)
+    {
+        $this->container['retention_interval'] = $retention_interval;
 
         return $this;
     }
