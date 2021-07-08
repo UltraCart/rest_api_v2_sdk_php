@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **affiliate_oid** | **int** | Affiliate oid | [optional] 
 **allow_3rd_party_billing** | **bool** | Allow 3rd party billing | [optional] 
 **allow_cod** | **bool** | Allow COD | [optional] 
+**allow_drop_shipping** | **bool** | Allow Drop Shipping | [optional] 
 **allow_purchase_order** | **bool** | Allow purchase orders by this customer | [optional] 
 **allow_quote_request** | **bool** | Allow quote request | [optional] 
 **allow_selection_of_address_type** | **bool** | Allow selection of residential or business address type | [optional] 

@@ -61,6 +61,7 @@ class Customer implements ModelInterface, ArrayAccess
         'affiliate_oid' => 'int',
         'allow_3rd_party_billing' => 'bool',
         'allow_cod' => 'bool',
+        'allow_drop_shipping' => 'bool',
         'allow_purchase_order' => 'bool',
         'allow_quote_request' => 'bool',
         'allow_selection_of_address_type' => 'bool',
@@ -127,6 +128,7 @@ class Customer implements ModelInterface, ArrayAccess
         'affiliate_oid' => 'int32',
         'allow_3rd_party_billing' => null,
         'allow_cod' => null,
+        'allow_drop_shipping' => null,
         'allow_purchase_order' => null,
         'allow_quote_request' => null,
         'allow_selection_of_address_type' => null,
@@ -214,6 +216,7 @@ class Customer implements ModelInterface, ArrayAccess
         'affiliate_oid' => 'affiliate_oid',
         'allow_3rd_party_billing' => 'allow_3rd_party_billing',
         'allow_cod' => 'allow_cod',
+        'allow_drop_shipping' => 'allow_drop_shipping',
         'allow_purchase_order' => 'allow_purchase_order',
         'allow_quote_request' => 'allow_quote_request',
         'allow_selection_of_address_type' => 'allow_selection_of_address_type',
@@ -280,6 +283,7 @@ class Customer implements ModelInterface, ArrayAccess
         'affiliate_oid' => 'setAffiliateOid',
         'allow_3rd_party_billing' => 'setAllow3rdPartyBilling',
         'allow_cod' => 'setAllowCod',
+        'allow_drop_shipping' => 'setAllowDropShipping',
         'allow_purchase_order' => 'setAllowPurchaseOrder',
         'allow_quote_request' => 'setAllowQuoteRequest',
         'allow_selection_of_address_type' => 'setAllowSelectionOfAddressType',
@@ -346,6 +350,7 @@ class Customer implements ModelInterface, ArrayAccess
         'affiliate_oid' => 'getAffiliateOid',
         'allow_3rd_party_billing' => 'getAllow3rdPartyBilling',
         'allow_cod' => 'getAllowCod',
+        'allow_drop_shipping' => 'getAllowDropShipping',
         'allow_purchase_order' => 'getAllowPurchaseOrder',
         'allow_quote_request' => 'getAllowQuoteRequest',
         'allow_selection_of_address_type' => 'getAllowSelectionOfAddressType',
@@ -466,6 +471,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['affiliate_oid'] = isset($data['affiliate_oid']) ? $data['affiliate_oid'] : null;
         $this->container['allow_3rd_party_billing'] = isset($data['allow_3rd_party_billing']) ? $data['allow_3rd_party_billing'] : null;
         $this->container['allow_cod'] = isset($data['allow_cod']) ? $data['allow_cod'] : null;
+        $this->container['allow_drop_shipping'] = isset($data['allow_drop_shipping']) ? $data['allow_drop_shipping'] : null;
         $this->container['allow_purchase_order'] = isset($data['allow_purchase_order']) ? $data['allow_purchase_order'] : null;
         $this->container['allow_quote_request'] = isset($data['allow_quote_request']) ? $data['allow_quote_request'] : null;
         $this->container['allow_selection_of_address_type'] = isset($data['allow_selection_of_address_type']) ? $data['allow_selection_of_address_type'] : null;
@@ -682,6 +688,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setAllowCod($allow_cod)
     {
         $this->container['allow_cod'] = $allow_cod;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_drop_shipping
+     *
+     * @return bool
+     */
+    public function getAllowDropShipping()
+    {
+        return $this->container['allow_drop_shipping'];
+    }
+
+    /**
+     * Sets allow_drop_shipping
+     *
+     * @param bool $allow_drop_shipping Allow Drop Shipping
+     *
+     * @return $this
+     */
+    public function setAllowDropShipping($allow_drop_shipping)
+    {
+        $this->container['allow_drop_shipping'] = $allow_drop_shipping;
 
         return $this;
     }
