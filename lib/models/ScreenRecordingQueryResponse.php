@@ -57,6 +57,7 @@ class ScreenRecordingQueryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'checkout_only' => 'bool',
         'error' => '\ultracart\v2\models\Error',
         'filter' => '\ultracart\v2\models\ScreenRecordingFilter',
         'filter_values' => '\ultracart\v2\models\ScreenRecordingFilterValues',
@@ -75,6 +76,7 @@ class ScreenRecordingQueryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'checkout_only' => null,
         'error' => null,
         'filter' => null,
         'filter_values' => null,
@@ -114,6 +116,7 @@ class ScreenRecordingQueryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'checkout_only' => 'checkout_only',
         'error' => 'error',
         'filter' => 'filter',
         'filter_values' => 'filter_values',
@@ -132,6 +135,7 @@ class ScreenRecordingQueryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'checkout_only' => 'setCheckoutOnly',
         'error' => 'setError',
         'filter' => 'setFilter',
         'filter_values' => 'setFilterValues',
@@ -150,6 +154,7 @@ class ScreenRecordingQueryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'checkout_only' => 'getCheckoutOnly',
         'error' => 'getError',
         'filter' => 'getFilter',
         'filter_values' => 'getFilterValues',
@@ -222,6 +227,7 @@ class ScreenRecordingQueryResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['checkout_only'] = isset($data['checkout_only']) ? $data['checkout_only'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['filter'] = isset($data['filter']) ? $data['filter'] : null;
         $this->container['filter_values'] = isset($data['filter_values']) ? $data['filter_values'] : null;
@@ -257,6 +263,30 @@ class ScreenRecordingQueryResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets checkout_only
+     *
+     * @return bool
+     */
+    public function getCheckoutOnly()
+    {
+        return $this->container['checkout_only'];
+    }
+
+    /**
+     * Sets checkout_only
+     *
+     * @param bool $checkout_only checkout_only
+     *
+     * @return $this
+     */
+    public function setCheckoutOnly($checkout_only)
+    {
+        $this->container['checkout_only'] = $checkout_only;
+
+        return $this;
+    }
 
     /**
      * Gets error

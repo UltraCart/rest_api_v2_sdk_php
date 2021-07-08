@@ -81,6 +81,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'language_iso_code' => 'string',
         'merchant_id' => 'string',
         'merchant_notes' => 'string',
+        'missing_external_tracking' => 'bool',
         'order_id' => 'string',
         'page_view_count' => 'int',
         'page_views' => '\ultracart\v2\models\ScreenRecordingPageView[]',
@@ -138,6 +139,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'language_iso_code' => null,
         'merchant_id' => null,
         'merchant_notes' => null,
+        'missing_external_tracking' => null,
         'order_id' => null,
         'page_view_count' => 'int32',
         'page_views' => null,
@@ -216,6 +218,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'language_iso_code' => 'language_iso_code',
         'merchant_id' => 'merchant_id',
         'merchant_notes' => 'merchant_notes',
+        'missing_external_tracking' => 'missing_external_tracking',
         'order_id' => 'order_id',
         'page_view_count' => 'page_view_count',
         'page_views' => 'page_views',
@@ -273,6 +276,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'language_iso_code' => 'setLanguageIsoCode',
         'merchant_id' => 'setMerchantId',
         'merchant_notes' => 'setMerchantNotes',
+        'missing_external_tracking' => 'setMissingExternalTracking',
         'order_id' => 'setOrderId',
         'page_view_count' => 'setPageViewCount',
         'page_views' => 'setPageViews',
@@ -330,6 +334,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         'language_iso_code' => 'getLanguageIsoCode',
         'merchant_id' => 'getMerchantId',
         'merchant_notes' => 'getMerchantNotes',
+        'missing_external_tracking' => 'getMissingExternalTracking',
         'order_id' => 'getOrderId',
         'page_view_count' => 'getPageViewCount',
         'page_views' => 'getPageViews',
@@ -441,6 +446,7 @@ class ScreenRecording implements ModelInterface, ArrayAccess
         $this->container['language_iso_code'] = isset($data['language_iso_code']) ? $data['language_iso_code'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['merchant_notes'] = isset($data['merchant_notes']) ? $data['merchant_notes'] : null;
+        $this->container['missing_external_tracking'] = isset($data['missing_external_tracking']) ? $data['missing_external_tracking'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['page_view_count'] = isset($data['page_view_count']) ? $data['page_view_count'] : null;
         $this->container['page_views'] = isset($data['page_views']) ? $data['page_views'] : null;
@@ -1064,6 +1070,30 @@ class ScreenRecording implements ModelInterface, ArrayAccess
     public function setMerchantNotes($merchant_notes)
     {
         $this->container['merchant_notes'] = $merchant_notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets missing_external_tracking
+     *
+     * @return bool
+     */
+    public function getMissingExternalTracking()
+    {
+        return $this->container['missing_external_tracking'];
+    }
+
+    /**
+     * Sets missing_external_tracking
+     *
+     * @param bool $missing_external_tracking True if external page view was not tracked
+     *
+     * @return $this
+     */
+    public function setMissingExternalTracking($missing_external_tracking)
+    {
+        $this->container['missing_external_tracking'] = $missing_external_tracking;
 
         return $this;
     }

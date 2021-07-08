@@ -57,6 +57,7 @@ class ScreenRecordingResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'checkout_only' => 'bool',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'screen_recording' => '\ultracart\v2\models\ScreenRecording',
@@ -70,6 +71,7 @@ class ScreenRecordingResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'checkout_only' => null,
         'error' => null,
         'metadata' => null,
         'screen_recording' => null,
@@ -104,6 +106,7 @@ class ScreenRecordingResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'checkout_only' => 'checkout_only',
         'error' => 'error',
         'metadata' => 'metadata',
         'screen_recording' => 'screen_recording',
@@ -117,6 +120,7 @@ class ScreenRecordingResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'checkout_only' => 'setCheckoutOnly',
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'screen_recording' => 'setScreenRecording',
@@ -130,6 +134,7 @@ class ScreenRecordingResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'checkout_only' => 'getCheckoutOnly',
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'screen_recording' => 'getScreenRecording',
@@ -197,6 +202,7 @@ class ScreenRecordingResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['checkout_only'] = isset($data['checkout_only']) ? $data['checkout_only'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['screen_recording'] = isset($data['screen_recording']) ? $data['screen_recording'] : null;
@@ -227,6 +233,30 @@ class ScreenRecordingResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets checkout_only
+     *
+     * @return bool
+     */
+    public function getCheckoutOnly()
+    {
+        return $this->container['checkout_only'];
+    }
+
+    /**
+     * Sets checkout_only
+     *
+     * @param bool $checkout_only checkout_only
+     *
+     * @return $this
+     */
+    public function setCheckoutOnly($checkout_only)
+    {
+        $this->container['checkout_only'] = $checkout_only;
+
+        return $this;
+    }
 
     /**
      * Gets error

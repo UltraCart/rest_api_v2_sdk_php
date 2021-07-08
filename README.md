@@ -1109,6 +1109,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.11 | 07/08/2021 | screen recording - missing external tracking flag added | 
 | 3.2.10 | 07/08/2021 | customer profile - allow drop shipping options | 
 | 3.2.9 | 07/07/2021 | screen recording - provide cost per thousand and retention interval | 
 | 3.2.8 | 07/06/2021 | intgeration logs - min max log date/time retured in filter values | 

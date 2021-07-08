@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**checkout_only** | **bool** |  | [optional] 
 **error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
 **filter** | [**\ultracart\v2\models\ScreenRecordingFilter**](ScreenRecordingFilter.md) |  | [optional] 
 **filter_values** | [**\ultracart\v2\models\ScreenRecordingFilterValues**](ScreenRecordingFilterValues.md) |  | [optional] 

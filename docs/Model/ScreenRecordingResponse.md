@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**checkout_only** | **bool** |  | [optional] 
 **error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **screen_recording** | [**\ultracart\v2\models\ScreenRecording**](ScreenRecording.md) |  | [optional] 

@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **language_iso_code** | **string** | Language ISO code | [optional] 
 **merchant_id** | **string** |  | [optional] 
 **merchant_notes** | **string** |  | [optional] 
+**missing_external_tracking** | **bool** | True if external page view was not tracked | [optional] 
 **order_id** | **string** |  | [optional] 
 **page_view_count** | **int** |  | [optional] 
 **page_views** | [**\ultracart\v2\models\ScreenRecordingPageView[]**](ScreenRecordingPageView.md) |  | [optional] 
