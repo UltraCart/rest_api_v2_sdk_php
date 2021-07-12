@@ -1796,7 +1796,7 @@ class OrderApi
     /**
      * Operation generatePackingSlipAllDC
      *
-     * Generate a packing slip for this order for the given distribution center.
+     * Generate a packing slip for this order across all distribution centers.
      *
      * @param  string $order_id Order ID (required)
      *
@@ -1814,7 +1814,7 @@ class OrderApi
     /**
      * Operation generatePackingSlipAllDCWithHttpInfo
      *
-     * Generate a packing slip for this order for the given distribution center.
+     * Generate a packing slip for this order across all distribution centers.
      *
      * @param  string $order_id Order ID (required)
      *
@@ -1831,7 +1831,7 @@ class OrderApi
     /**
      * Operation generatePackingSlipAllDCWithHttpInfoRetry
      *
-     * Generate a packing slip for this order for the given distribution center.
+     * Generate a packing slip for this order across all distribution centers.
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $order_id Order ID (required)
@@ -1948,7 +1948,7 @@ class OrderApi
     /**
      * Operation generatePackingSlipAllDCAsync
      *
-     * Generate a packing slip for this order for the given distribution center.
+     * Generate a packing slip for this order across all distribution centers.
      *
      * @param  string $order_id Order ID (required)
      *
@@ -1968,7 +1968,7 @@ class OrderApi
     /**
      * Operation generatePackingSlipAllDCAsyncWithHttpInfo
      *
-     * Generate a packing slip for this order for the given distribution center.
+     * Generate a packing slip for this order across all distribution centers.
      *
      * @param  string $order_id Order ID (required)
      *

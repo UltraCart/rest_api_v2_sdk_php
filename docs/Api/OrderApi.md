@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 [**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 [**generateOrderToken**](OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
-[**generatePackingSlipAllDC**](OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order for the given distribution center.
+[**generatePackingSlipAllDC**](OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
 [**generatePackingSlipSpecificDC**](OrderApi.md#generatePackingSlipSpecificDC) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
 [**getAccountsReceivableRetryConfig**](OrderApi.md#getAccountsReceivableRetryConfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 [**getAccountsReceivableRetryStats**](OrderApi.md#getAccountsReceivableRetryStats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 # **generatePackingSlipAllDC**
 > \ultracart\v2\models\OrdersResponse generatePackingSlipAllDC($order_id)
 
-Generate a packing slip for this order for the given distribution center.
+Generate a packing slip for this order across all distribution centers.
 
 The packing slip PDF that is returned is base 64 encoded
 

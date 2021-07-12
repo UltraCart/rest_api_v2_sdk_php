@@ -60,7 +60,8 @@ class OrderCoupon implements ModelInterface, ArrayAccess
         'accounting_code' => 'string',
         'automatically_applied' => 'bool',
         'base_coupon_code' => 'string',
-        'coupon_code' => 'string'
+        'coupon_code' => 'string',
+        'hdie_from_customer' => 'bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class OrderCoupon implements ModelInterface, ArrayAccess
         'accounting_code' => null,
         'automatically_applied' => null,
         'base_coupon_code' => null,
-        'coupon_code' => null
+        'coupon_code' => null,
+        'hdie_from_customer' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class OrderCoupon implements ModelInterface, ArrayAccess
         'accounting_code' => 'accounting_code',
         'automatically_applied' => 'automatically_applied',
         'base_coupon_code' => 'base_coupon_code',
-        'coupon_code' => 'coupon_code'
+        'coupon_code' => 'coupon_code',
+        'hdie_from_customer' => 'hdie_from_customer'
     ];
 
     /**
@@ -117,7 +120,8 @@ class OrderCoupon implements ModelInterface, ArrayAccess
         'accounting_code' => 'setAccountingCode',
         'automatically_applied' => 'setAutomaticallyApplied',
         'base_coupon_code' => 'setBaseCouponCode',
-        'coupon_code' => 'setCouponCode'
+        'coupon_code' => 'setCouponCode',
+        'hdie_from_customer' => 'setHdieFromCustomer'
     ];
 
     /**
@@ -129,7 +133,8 @@ class OrderCoupon implements ModelInterface, ArrayAccess
         'accounting_code' => 'getAccountingCode',
         'automatically_applied' => 'getAutomaticallyApplied',
         'base_coupon_code' => 'getBaseCouponCode',
-        'coupon_code' => 'getCouponCode'
+        'coupon_code' => 'getCouponCode',
+        'hdie_from_customer' => 'getHdieFromCustomer'
     ];
 
     /**
@@ -196,6 +201,7 @@ class OrderCoupon implements ModelInterface, ArrayAccess
         $this->container['automatically_applied'] = isset($data['automatically_applied']) ? $data['automatically_applied'] : null;
         $this->container['base_coupon_code'] = isset($data['base_coupon_code']) ? $data['base_coupon_code'] : null;
         $this->container['coupon_code'] = isset($data['coupon_code']) ? $data['coupon_code'] : null;
+        $this->container['hdie_from_customer'] = isset($data['hdie_from_customer']) ? $data['hdie_from_customer'] : null;
     }
 
     /**
@@ -330,6 +336,30 @@ class OrderCoupon implements ModelInterface, ArrayAccess
         }
 
         $this->container['coupon_code'] = $coupon_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets hdie_from_customer
+     *
+     * @return bool
+     */
+    public function getHdieFromCustomer()
+    {
+        return $this->container['hdie_from_customer'];
+    }
+
+    /**
+     * Sets hdie_from_customer
+     *
+     * @param bool $hdie_from_customer True if this coupon is hidde from the customer
+     *
+     * @return $this
+     */
+    public function setHdieFromCustomer($hdie_from_customer)
+    {
+        $this->container['hdie_from_customer'] = $hdie_from_customer;
 
         return $this;
     }

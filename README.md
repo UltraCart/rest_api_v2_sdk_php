@@ -248,7 +248,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**format**](docs/Api/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 *OrderApi* | [**generateOrderToken**](docs/Api/OrderApi.md#generateordertoken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
-*OrderApi* | [**generatePackingSlipAllDC**](docs/Api/OrderApi.md#generatepackingslipalldc) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order for the given distribution center.
+*OrderApi* | [**generatePackingSlipAllDC**](docs/Api/OrderApi.md#generatepackingslipalldc) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
 *OrderApi* | [**generatePackingSlipSpecificDC**](docs/Api/OrderApi.md#generatepackingslipspecificdc) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
 *OrderApi* | [**getAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#getaccountsreceivableretryconfig) | **GET** /order/accountsReceivableRetryConfig | Retrieve A/R Retry Configuration
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/Api/OrderApi.md#getaccountsreceivableretrystats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
@@ -1112,7 +1112,8 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
-| 3.2.12 | 07/09/2021 | coupon api - added hideFromCustomer flag | 
+| 3.2.14 | 07/12/2021 | fix documentation bug on packing slip methods for order api | 
+| 3.2.13 | 07/12/2021 | coupon api - added hideFromCustomer flag | 
 | 3.2.12 | 07/09/2021 | new fulfillment and order methods for generation of packing slips | 
 | 3.2.11 | 07/08/2021 | screen recording - missing external tracking flag added | 
 | 3.2.10 | 07/08/2021 | customer profile - allow drop shipping options | 
