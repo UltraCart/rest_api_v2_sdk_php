@@ -1112,6 +1112,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.12 | 07/09/2021 | coupon api - added hideFromCustomer flag | 
 | 3.2.12 | 07/09/2021 | new fulfillment and order methods for generation of packing slips | 
 | 3.2.11 | 07/08/2021 | screen recording - missing external tracking flag added | 
 | 3.2.10 | 07/08/2021 | customer profile - allow drop shipping options | 

@@ -87,6 +87,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_specific_items' => '\ultracart\v2\models\CouponFreeShippingSpecificItems',
         'free_shipping_with_items_purchase' => '\ultracart\v2\models\CouponFreeShippingWithItemsPurchase',
         'free_shipping_with_subtotal' => '\ultracart\v2\models\CouponFreeShippingWithSubtotal',
+        'hide_from_customer' => 'bool',
         'merchant_code' => 'string',
         'merchant_notes' => 'string',
         'multiple_amounts_off_items' => '\ultracart\v2\models\CouponMultipleAmountsOffItems',
@@ -153,6 +154,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_specific_items' => null,
         'free_shipping_with_items_purchase' => null,
         'free_shipping_with_subtotal' => null,
+        'hide_from_customer' => null,
         'merchant_code' => null,
         'merchant_notes' => null,
         'multiple_amounts_off_items' => null,
@@ -240,6 +242,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_specific_items' => 'free_shipping_specific_items',
         'free_shipping_with_items_purchase' => 'free_shipping_with_items_purchase',
         'free_shipping_with_subtotal' => 'free_shipping_with_subtotal',
+        'hide_from_customer' => 'hide_from_customer',
         'merchant_code' => 'merchant_code',
         'merchant_notes' => 'merchant_notes',
         'multiple_amounts_off_items' => 'multiple_amounts_off_items',
@@ -306,6 +309,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_specific_items' => 'setFreeShippingSpecificItems',
         'free_shipping_with_items_purchase' => 'setFreeShippingWithItemsPurchase',
         'free_shipping_with_subtotal' => 'setFreeShippingWithSubtotal',
+        'hide_from_customer' => 'setHideFromCustomer',
         'merchant_code' => 'setMerchantCode',
         'merchant_notes' => 'setMerchantNotes',
         'multiple_amounts_off_items' => 'setMultipleAmountsOffItems',
@@ -372,6 +376,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'free_shipping_specific_items' => 'getFreeShippingSpecificItems',
         'free_shipping_with_items_purchase' => 'getFreeShippingWithItemsPurchase',
         'free_shipping_with_subtotal' => 'getFreeShippingWithSubtotal',
+        'hide_from_customer' => 'getHideFromCustomer',
         'merchant_code' => 'getMerchantCode',
         'merchant_notes' => 'getMerchantNotes',
         'multiple_amounts_off_items' => 'getMultipleAmountsOffItems',
@@ -492,6 +497,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['free_shipping_specific_items'] = isset($data['free_shipping_specific_items']) ? $data['free_shipping_specific_items'] : null;
         $this->container['free_shipping_with_items_purchase'] = isset($data['free_shipping_with_items_purchase']) ? $data['free_shipping_with_items_purchase'] : null;
         $this->container['free_shipping_with_subtotal'] = isset($data['free_shipping_with_subtotal']) ? $data['free_shipping_with_subtotal'] : null;
+        $this->container['hide_from_customer'] = isset($data['hide_from_customer']) ? $data['hide_from_customer'] : null;
         $this->container['merchant_code'] = isset($data['merchant_code']) ? $data['merchant_code'] : null;
         $this->container['merchant_notes'] = isset($data['merchant_notes']) ? $data['merchant_notes'] : null;
         $this->container['multiple_amounts_off_items'] = isset($data['multiple_amounts_off_items']) ? $data['multiple_amounts_off_items'] : null;
@@ -1294,6 +1300,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setFreeShippingWithSubtotal($free_shipping_with_subtotal)
     {
         $this->container['free_shipping_with_subtotal'] = $free_shipping_with_subtotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets hide_from_customer
+     *
+     * @return bool
+     */
+    public function getHideFromCustomer()
+    {
+        return $this->container['hide_from_customer'];
+    }
+
+    /**
+     * Sets hide_from_customer
+     *
+     * @param bool $hide_from_customer Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms.
+     *
+     * @return $this
+     */
+    public function setHideFromCustomer($hide_from_customer)
+    {
+        $this->container['hide_from_customer'] = $hide_from_customer;
 
         return $this;
     }

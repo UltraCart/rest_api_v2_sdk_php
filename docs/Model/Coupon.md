@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **free_shipping_specific_items** | [**\ultracart\v2\models\CouponFreeShippingSpecificItems**](CouponFreeShippingSpecificItems.md) |  | [optional] 
 **free_shipping_with_items_purchase** | [**\ultracart\v2\models\CouponFreeShippingWithItemsPurchase**](CouponFreeShippingWithItemsPurchase.md) |  | [optional] 
 **free_shipping_with_subtotal** | [**\ultracart\v2\models\CouponFreeShippingWithSubtotal**](CouponFreeShippingWithSubtotal.md) |  | [optional] 
+**hide_from_customer** | **bool** | Hide coupon from customer during checkout.  Often used when coupons are automatic discounting mechanisms. | [optional] 
 **merchant_code** | **string** | Merchant code of coupon up to 20 characters. | [optional] 
 **merchant_notes** | **string** | Internal notes about this coupon.  These are not visible to customer. | [optional] 
 **multiple_amounts_off_items** | [**\ultracart\v2\models\CouponMultipleAmountsOffItems**](CouponMultipleAmountsOffItems.md) |  | [optional] 
