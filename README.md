@@ -309,6 +309,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCustomers**](docs/Api/StorefrontApi.md#getemailcustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
 *StorefrontApi* | [**getEmailDashboardActivity**](docs/Api/StorefrontApi.md#getemaildashboardactivity) | **GET** /storefront/{storefront_oid}/email/dashboard_activity | Get email dashboard activity
 *StorefrontApi* | [**getEmailDashboardStats**](docs/Api/StorefrontApi.md#getemaildashboardstats) | **GET** /storefront/{storefront_oid}/email/dashboard_stats | Get dashboard stats
+*StorefrontApi* | [**getEmailDispatchLogs**](docs/Api/StorefrontApi.md#getemaildispatchlogs) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/logs | Get email dispatch logs
 *StorefrontApi* | [**getEmailEmail**](docs/Api/StorefrontApi.md#getemailemail) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Get email email
 *StorefrontApi* | [**getEmailEmailClicks**](docs/Api/StorefrontApi.md#getemailemailclicks) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/steps/{commseq_step_uuid}/emails/{commseq_email_uuid}/clicks | Get email email clicks
 *StorefrontApi* | [**getEmailEmailCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemailemailcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/orders/{order_id}/editor_url | Get email order customer editor url
@@ -681,6 +682,8 @@ Class | Method | HTTP request | Description
  - [EmailCommseqStat](docs/Model/EmailCommseqStat.md)
  - [EmailCommseqStatResponse](docs/Model/EmailCommseqStatResponse.md)
  - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
+ - [EmailCommseqStepLog](docs/Model/EmailCommseqStepLog.md)
+ - [EmailCommseqStepLogsResponse](docs/Model/EmailCommseqStepLogsResponse.md)
  - [EmailCommseqsResponse](docs/Model/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/Model/EmailCustomer.md)
  - [EmailCustomerEditorUrlResponse](docs/Model/EmailCustomerEditorUrlResponse.md)
@@ -1112,6 +1115,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.2.15 | 07/13/2021 | storefront communications - added methods to retrieve step dispatch logs | 
 | 3.2.14 | 07/12/2021 | fix documentation bug on packing slip methods for order api | 
 | 3.2.13 | 07/12/2021 | coupon api - added hideFromCustomer flag | 
 | 3.2.12 | 07/09/2021 | new fulfillment and order methods for generation of packing slips | 
