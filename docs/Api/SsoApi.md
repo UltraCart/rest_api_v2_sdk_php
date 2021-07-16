@@ -55,7 +55,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **ssoAuthorize**
-> \ultracart\v2\models\ItemsResponse ssoAuthorize($authorization_request)
+> \ultracart\v2\models\SingleSignOnAuthorizeResponse ssoAuthorize($authorization_request)
 
 Authorize a single sign on session
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+[**\ultracart\v2\models\SingleSignOnAuthorizeResponse**](../Model/SingleSignOnAuthorizeResponse.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **ssoToken**
-> \ultracart\v2\models\ItemsResponse ssoToken($token_request)
+> \ultracart\v2\models\SingleSignOnTokenResponse ssoToken($token_request)
 
 Exchange a single sign on code for a simple key token
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+[**\ultracart\v2\models\SingleSignOnTokenResponse**](../Model/SingleSignOnTokenResponse.md)
 
 ### Authorization
 

@@ -432,7 +432,7 @@ class SsoApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\ItemsResponse
+     * @return \ultracart\v2\models\SingleSignOnAuthorizeResponse
      */
     public function ssoAuthorize($authorization_request)
     {
@@ -450,7 +450,7 @@ class SsoApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SingleSignOnAuthorizeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ssoAuthorizeWithHttpInfo($authorization_request)
     {
@@ -468,11 +468,11 @@ class SsoApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SingleSignOnAuthorizeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ssoAuthorizeWithHttpInfoRetry($retry ,  $authorization_request)
     {
-        $returnType = '\ultracart\v2\models\ItemsResponse';
+        $returnType = '\ultracart\v2\models\SingleSignOnAuthorizeResponse';
         $request = $this->ssoAuthorizeRequest($authorization_request);
 
         try {
@@ -525,7 +525,7 @@ class SsoApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\ItemsResponse',
+                        '\ultracart\v2\models\SingleSignOnAuthorizeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -607,7 +607,7 @@ class SsoApi
      */
     public function ssoAuthorizeAsyncWithHttpInfo($authorization_request)
     {
-        $returnType = '\ultracart\v2\models\ItemsResponse';
+        $returnType = '\ultracart\v2\models\SingleSignOnAuthorizeResponse';
         $request = $this->ssoAuthorizeRequest($authorization_request);
 
         return $this->client
@@ -1046,7 +1046,7 @@ class SsoApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\ItemsResponse
+     * @return \ultracart\v2\models\SingleSignOnTokenResponse
      */
     public function ssoToken($token_request)
     {
@@ -1064,7 +1064,7 @@ class SsoApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SingleSignOnTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ssoTokenWithHttpInfo($token_request)
     {
@@ -1082,11 +1082,11 @@ class SsoApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\ItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\SingleSignOnTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ssoTokenWithHttpInfoRetry($retry ,  $token_request)
     {
-        $returnType = '\ultracart\v2\models\ItemsResponse';
+        $returnType = '\ultracart\v2\models\SingleSignOnTokenResponse';
         $request = $this->ssoTokenRequest($token_request);
 
         try {
@@ -1139,7 +1139,7 @@ class SsoApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\ItemsResponse',
+                        '\ultracart\v2\models\SingleSignOnTokenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1221,7 +1221,7 @@ class SsoApi
      */
     public function ssoTokenAsyncWithHttpInfo($token_request)
     {
-        $returnType = '\ultracart\v2\models\ItemsResponse';
+        $returnType = '\ultracart\v2\models\SingleSignOnTokenResponse';
         $request = $this->ssoTokenRequest($token_request);
 
         return $this->client

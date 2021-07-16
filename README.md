@@ -997,7 +997,9 @@ Class | Method | HTTP request | Description
  - [SelfConfig](docs/Model/SelfConfig.md)
  - [SimpleValue](docs/Model/SimpleValue.md)
  - [SingleSignOnAuthorizeRequest](docs/Model/SingleSignOnAuthorizeRequest.md)
+ - [SingleSignOnAuthorizeResponse](docs/Model/SingleSignOnAuthorizeResponse.md)
  - [SingleSignOnTokenRequest](docs/Model/SingleSignOnTokenRequest.md)
+ - [SingleSignOnTokenResponse](docs/Model/SingleSignOnTokenResponse.md)
  - [SovosConfig](docs/Model/SovosConfig.md)
  - [StateProvince](docs/Model/StateProvince.md)
  - [StepWaiting](docs/Model/StepWaiting.md)
@@ -1121,6 +1123,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.3.2 | 07/16/2021 | sso bug fixes | 
 | 3.3.1 | 07/16/2021 | screen recording - event sub text used for assisting in UX rendering | 
 | 3.3.0 | 07/16/2021 | new endpoint SingleSignOn | 
 | 3.2.15 | 07/13/2021 | storefront communications - added methods to retrieve step dispatch logs | 
