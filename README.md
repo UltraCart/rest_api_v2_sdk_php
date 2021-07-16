@@ -265,6 +265,10 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#updateaccountsreceivableretryconfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
+*SsoApi* | [**getSsoSessionUser**](docs/Api/SsoApi.md#getssosessionuser) | **GET** /sso/session/user | Get single sign on session user
+*SsoApi* | [**ssoAuthorize**](docs/Api/SsoApi.md#ssoauthorize) | **PUT** /sso/authorize | Authorize a single sign on session
+*SsoApi* | [**ssoSessionRevoke**](docs/Api/SsoApi.md#ssosessionrevoke) | **DELETE** /sso/session/revoke | Revoke single sign on session
+*SsoApi* | [**ssoToken**](docs/Api/SsoApi.md#ssotoken) | **PUT** /sso/token | Exchange a single sign on code for a simple key token
 *StorefrontApi* | [**addToLibrary**](docs/Api/StorefrontApi.md#addtolibrary) | **POST** /storefront/code_library | Add to library
 *StorefrontApi* | [**applyToStoreFront**](docs/Api/StorefrontApi.md#applytostorefront) | **POST** /storefront/code_library/apply | Apply library item to storefront.
 *StorefrontApi* | [**archiveEmailList**](docs/Api/StorefrontApi.md#archiveemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/archive | Archive email list
@@ -992,6 +996,8 @@ Class | Method | HTTP request | Description
  - [ScreenshotsResponse](docs/Model/ScreenshotsResponse.md)
  - [SelfConfig](docs/Model/SelfConfig.md)
  - [SimpleValue](docs/Model/SimpleValue.md)
+ - [SingleSignOnAuthorizeRequest](docs/Model/SingleSignOnAuthorizeRequest.md)
+ - [SingleSignOnTokenRequest](docs/Model/SingleSignOnTokenRequest.md)
  - [SovosConfig](docs/Model/SovosConfig.md)
  - [StateProvince](docs/Model/StateProvince.md)
  - [StepWaiting](docs/Model/StepWaiting.md)
@@ -1115,6 +1121,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.3.0 | 07/16/2021 | new endpoint SingleSignOn | 
 | 3.2.15 | 07/13/2021 | storefront communications - added methods to retrieve step dispatch logs | 
 | 3.2.14 | 07/12/2021 | fix documentation bug on packing slip methods for order api | 
 | 3.2.13 | 07/12/2021 | coupon api - added hideFromCustomer flag | 
