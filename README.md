@@ -1121,6 +1121,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.3.1 | 07/16/2021 | screen recording - event sub text used for assisting in UX rendering | 
 | 3.3.0 | 07/16/2021 | new endpoint SingleSignOn | 
 | 3.2.15 | 07/13/2021 | storefront communications - added methods to retrieve step dispatch logs | 
 | 3.2.14 | 07/12/2021 | fix documentation bug on packing slip methods for order api | 
