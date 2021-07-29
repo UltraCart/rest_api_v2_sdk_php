@@ -789,7 +789,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\PaymentsConfiguration
+     * @return \ultracart\v2\models\PaymentsConfigurationResponse
      */
     public function getPaymentsConfiguration()
     {
@@ -806,7 +806,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\PaymentsConfiguration, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\PaymentsConfigurationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsConfigurationWithHttpInfo()
     {
@@ -823,11 +823,11 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\PaymentsConfiguration, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\PaymentsConfigurationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsConfigurationWithHttpInfoRetry($retry )
     {
-        $returnType = '\ultracart\v2\models\PaymentsConfiguration';
+        $returnType = '\ultracart\v2\models\PaymentsConfigurationResponse';
         $request = $this->getPaymentsConfigurationRequest();
 
         try {
@@ -880,7 +880,7 @@ class ConfigurationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\PaymentsConfiguration',
+                        '\ultracart\v2\models\PaymentsConfigurationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -960,7 +960,7 @@ class ConfigurationApi
      */
     public function getPaymentsConfigurationAsyncWithHttpInfo()
     {
-        $returnType = '\ultracart\v2\models\PaymentsConfiguration';
+        $returnType = '\ultracart\v2\models\PaymentsConfigurationResponse';
         $request = $this->getPaymentsConfigurationRequest();
 
         return $this->client
@@ -1108,7 +1108,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\RotatingTransactionGateway
+     * @return \ultracart\v2\models\RotatingTransactionGatewayResponse
      */
     public function getPaymentsRotatingGateway($rtg_oid)
     {
@@ -1126,7 +1126,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsRotatingGatewayWithHttpInfo($rtg_oid)
     {
@@ -1144,11 +1144,11 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsRotatingGatewayWithHttpInfoRetry($retry ,  $rtg_oid)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->getPaymentsRotatingGatewayRequest($rtg_oid);
 
         try {
@@ -1201,7 +1201,7 @@ class ConfigurationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\RotatingTransactionGateway',
+                        '\ultracart\v2\models\RotatingTransactionGatewayResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1283,7 +1283,7 @@ class ConfigurationApi
      */
     public function getPaymentsRotatingGatewayAsyncWithHttpInfo($rtg_oid)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->getPaymentsRotatingGatewayRequest($rtg_oid);
 
         return $this->client
@@ -1446,7 +1446,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\RotatingTransactionGateway
+     * @return \ultracart\v2\models\RotatingTransactionGatewayResponse
      */
     public function getPaymentsRotatingGatewayByCode($code)
     {
@@ -1464,7 +1464,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsRotatingGatewayByCodeWithHttpInfo($code)
     {
@@ -1482,11 +1482,11 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsRotatingGatewayByCodeWithHttpInfoRetry($retry ,  $code)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->getPaymentsRotatingGatewayByCodeRequest($code);
 
         try {
@@ -1539,7 +1539,7 @@ class ConfigurationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\RotatingTransactionGateway',
+                        '\ultracart\v2\models\RotatingTransactionGatewayResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1621,7 +1621,7 @@ class ConfigurationApi
      */
     public function getPaymentsRotatingGatewayByCodeAsyncWithHttpInfo($code)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->getPaymentsRotatingGatewayByCodeRequest($code);
 
         return $this->client
@@ -2101,7 +2101,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\RtgSummary
+     * @return \ultracart\v2\models\RtgSummaryResponse
      */
     public function getPaymentsRtgSummaries()
     {
@@ -2118,7 +2118,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RtgSummary, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RtgSummaryResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsRtgSummariesWithHttpInfo()
     {
@@ -2135,11 +2135,11 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RtgSummary, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RtgSummaryResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsRtgSummariesWithHttpInfoRetry($retry )
     {
-        $returnType = '\ultracart\v2\models\RtgSummary';
+        $returnType = '\ultracart\v2\models\RtgSummaryResponse';
         $request = $this->getPaymentsRtgSummariesRequest();
 
         try {
@@ -2192,7 +2192,7 @@ class ConfigurationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\RtgSummary',
+                        '\ultracart\v2\models\RtgSummaryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2272,7 +2272,7 @@ class ConfigurationApi
      */
     public function getPaymentsRtgSummariesAsyncWithHttpInfo()
     {
-        $returnType = '\ultracart\v2\models\RtgSummary';
+        $returnType = '\ultracart\v2\models\RtgSummaryResponse';
         $request = $this->getPaymentsRtgSummariesRequest();
 
         return $this->client
@@ -2738,7 +2738,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\RotatingTransactionGateway
+     * @return \ultracart\v2\models\RotatingTransactionGatewayResponse
      */
     public function insertRotatingTransactionGateway($rotating_transaction_gateway)
     {
@@ -2756,7 +2756,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertRotatingTransactionGatewayWithHttpInfo($rotating_transaction_gateway)
     {
@@ -2774,11 +2774,11 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function insertRotatingTransactionGatewayWithHttpInfoRetry($retry ,  $rotating_transaction_gateway)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->insertRotatingTransactionGatewayRequest($rotating_transaction_gateway);
 
         try {
@@ -2831,7 +2831,7 @@ class ConfigurationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\RotatingTransactionGateway',
+                        '\ultracart\v2\models\RotatingTransactionGatewayResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2913,7 +2913,7 @@ class ConfigurationApi
      */
     public function insertRotatingTransactionGatewayAsyncWithHttpInfo($rotating_transaction_gateway)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->insertRotatingTransactionGatewayRequest($rotating_transaction_gateway);
 
         return $this->client
@@ -3071,7 +3071,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\RotatingTransactionGateway
+     * @return \ultracart\v2\models\RotatingTransactionGatewayResponse
      */
     public function migrateToRotatingTransactionGateway($code)
     {
@@ -3089,7 +3089,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function migrateToRotatingTransactionGatewayWithHttpInfo($code)
     {
@@ -3107,11 +3107,11 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function migrateToRotatingTransactionGatewayWithHttpInfoRetry($retry ,  $code)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->migrateToRotatingTransactionGatewayRequest($code);
 
         try {
@@ -3164,7 +3164,7 @@ class ConfigurationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\RotatingTransactionGateway',
+                        '\ultracart\v2\models\RotatingTransactionGatewayResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3246,7 +3246,7 @@ class ConfigurationApi
      */
     public function migrateToRotatingTransactionGatewayAsyncWithHttpInfo($code)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->migrateToRotatingTransactionGatewayRequest($code);
 
         return $this->client

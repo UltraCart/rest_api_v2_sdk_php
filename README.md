@@ -984,12 +984,13 @@ Class | Method | HTTP request | Description
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
  - [RotatingTransactionGateway](docs/Model/RotatingTransactionGateway.md)
+ - [RotatingTransactionGatewayResponse](docs/Model/RotatingTransactionGatewayResponse.md)
  - [RotatingTransactionGatewaysResponse](docs/Model/RotatingTransactionGatewaysResponse.md)
  - [RtgCurrency](docs/Model/RtgCurrency.md)
  - [RtgDayOfMonthRestriction](docs/Model/RtgDayOfMonthRestriction.md)
  - [RtgDayOfWeekRestriction](docs/Model/RtgDayOfWeekRestriction.md)
- - [RtgSummary](docs/Model/RtgSummary.md)
  - [RtgSummaryGateway](docs/Model/RtgSummaryGateway.md)
+ - [RtgSummaryResponse](docs/Model/RtgSummaryResponse.md)
  - [RtgThemeRestriction](docs/Model/RtgThemeRestriction.md)
  - [ScreenRecording](docs/Model/ScreenRecording.md)
  - [ScreenRecordingAdPlatform](docs/Model/ScreenRecordingAdPlatform.md)
@@ -1175,6 +1176,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.2 | 07/29/2021 | bug fixes for new configuration api | 
 | 3.4.1 | 07/29/2021 | bug fixes for new configuration api | 
 | 3.4.0 | 07/29/2021 | added new configuration api (not live yet. sdk only works against development presently) | 
 | 3.3.2 | 07/16/2021 | sso bug fixes | 

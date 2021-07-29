@@ -1,6 +1,6 @@
 <?php
 /**
- * RtgSummary
+ * RotatingTransactionGatewayResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * RtgSummary Class Doc Comment
+ * RotatingTransactionGatewayResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class RtgSummary implements ModelInterface, ArrayAccess
+class RotatingTransactionGatewayResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class RtgSummary implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RtgSummary';
+    protected static $swaggerModelName = 'RotatingTransactionGatewayResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,11 @@ class RtgSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'gateways' => '\ultracart\v2\models\RtgSummaryGateway[]',
-        'info_message' => 'string',
-        'migration_rtg_code' => 'string',
-        'migration_single_gateway_name' => 'string',
-        'show_delay_auto_orders' => 'bool',
-        'show_migration' => 'bool',
-        'warning' => 'string'
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'rotating_gateway' => '\ultracart\v2\models\RotatingTransactionGateway',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -72,12 +70,10 @@ class RtgSummary implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'gateways' => null,
-        'info_message' => null,
-        'migration_rtg_code' => null,
-        'migration_single_gateway_name' => null,
-        'show_delay_auto_orders' => null,
-        'show_migration' => null,
+        'error' => null,
+        'metadata' => null,
+        'rotating_gateway' => null,
+        'success' => null,
         'warning' => null
     ];
 
@@ -108,12 +104,10 @@ class RtgSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'gateways' => 'gateways',
-        'info_message' => 'info_message',
-        'migration_rtg_code' => 'migration_rtg_code',
-        'migration_single_gateway_name' => 'migration_single_gateway_name',
-        'show_delay_auto_orders' => 'show_delay_auto_orders',
-        'show_migration' => 'show_migration',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'rotating_gateway' => 'rotating_gateway',
+        'success' => 'success',
         'warning' => 'warning'
     ];
 
@@ -123,12 +117,10 @@ class RtgSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'gateways' => 'setGateways',
-        'info_message' => 'setInfoMessage',
-        'migration_rtg_code' => 'setMigrationRtgCode',
-        'migration_single_gateway_name' => 'setMigrationSingleGatewayName',
-        'show_delay_auto_orders' => 'setShowDelayAutoOrders',
-        'show_migration' => 'setShowMigration',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'rotating_gateway' => 'setRotatingGateway',
+        'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
 
@@ -138,12 +130,10 @@ class RtgSummary implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'gateways' => 'getGateways',
-        'info_message' => 'getInfoMessage',
-        'migration_rtg_code' => 'getMigrationRtgCode',
-        'migration_single_gateway_name' => 'getMigrationSingleGatewayName',
-        'show_delay_auto_orders' => 'getShowDelayAutoOrders',
-        'show_migration' => 'getShowMigration',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'rotating_gateway' => 'getRotatingGateway',
+        'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
 
@@ -207,12 +197,10 @@ class RtgSummary implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['gateways'] = isset($data['gateways']) ? $data['gateways'] : null;
-        $this->container['info_message'] = isset($data['info_message']) ? $data['info_message'] : null;
-        $this->container['migration_rtg_code'] = isset($data['migration_rtg_code']) ? $data['migration_rtg_code'] : null;
-        $this->container['migration_single_gateway_name'] = isset($data['migration_single_gateway_name']) ? $data['migration_single_gateway_name'] : null;
-        $this->container['show_delay_auto_orders'] = isset($data['show_delay_auto_orders']) ? $data['show_delay_auto_orders'] : null;
-        $this->container['show_migration'] = isset($data['show_migration']) ? $data['show_migration'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['rotating_gateway'] = isset($data['rotating_gateway']) ? $data['rotating_gateway'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
@@ -241,145 +229,97 @@ class RtgSummary implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets gateways
+     * Gets error
      *
-     * @return \ultracart\v2\models\RtgSummaryGateway[]
+     * @return \ultracart\v2\models\Error
      */
-    public function getGateways()
+    public function getError()
     {
-        return $this->container['gateways'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets gateways
+     * Sets error
      *
-     * @param \ultracart\v2\models\RtgSummaryGateway[] $gateways gateways
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setGateways($gateways)
+    public function setError($error)
     {
-        $this->container['gateways'] = $gateways;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets info_message
+     * Gets metadata
      *
-     * @return string
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getInfoMessage()
+    public function getMetadata()
     {
-        return $this->container['info_message'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets info_message
+     * Sets metadata
      *
-     * @param string $info_message info_message
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setInfoMessage($info_message)
+    public function setMetadata($metadata)
     {
-        $this->container['info_message'] = $info_message;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets migration_rtg_code
+     * Gets rotating_gateway
      *
-     * @return string
+     * @return \ultracart\v2\models\RotatingTransactionGateway
      */
-    public function getMigrationRtgCode()
+    public function getRotatingGateway()
     {
-        return $this->container['migration_rtg_code'];
+        return $this->container['rotating_gateway'];
     }
 
     /**
-     * Sets migration_rtg_code
+     * Sets rotating_gateway
      *
-     * @param string $migration_rtg_code migration_rtg_code
+     * @param \ultracart\v2\models\RotatingTransactionGateway $rotating_gateway rotating_gateway
      *
      * @return $this
      */
-    public function setMigrationRtgCode($migration_rtg_code)
+    public function setRotatingGateway($rotating_gateway)
     {
-        $this->container['migration_rtg_code'] = $migration_rtg_code;
+        $this->container['rotating_gateway'] = $rotating_gateway;
 
         return $this;
     }
 
     /**
-     * Gets migration_single_gateway_name
-     *
-     * @return string
-     */
-    public function getMigrationSingleGatewayName()
-    {
-        return $this->container['migration_single_gateway_name'];
-    }
-
-    /**
-     * Sets migration_single_gateway_name
-     *
-     * @param string $migration_single_gateway_name migration_single_gateway_name
-     *
-     * @return $this
-     */
-    public function setMigrationSingleGatewayName($migration_single_gateway_name)
-    {
-        $this->container['migration_single_gateway_name'] = $migration_single_gateway_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets show_delay_auto_orders
+     * Gets success
      *
      * @return bool
      */
-    public function getShowDelayAutoOrders()
+    public function getSuccess()
     {
-        return $this->container['show_delay_auto_orders'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets show_delay_auto_orders
+     * Sets success
      *
-     * @param bool $show_delay_auto_orders show_delay_auto_orders
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setShowDelayAutoOrders($show_delay_auto_orders)
+    public function setSuccess($success)
     {
-        $this->container['show_delay_auto_orders'] = $show_delay_auto_orders;
-
-        return $this;
-    }
-
-    /**
-     * Gets show_migration
-     *
-     * @return bool
-     */
-    public function getShowMigration()
-    {
-        return $this->container['show_migration'];
-    }
-
-    /**
-     * Sets show_migration
-     *
-     * @param bool $show_migration show_migration
-     *
-     * @return $this
-     */
-    public function setShowMigration($show_migration)
-    {
-        $this->container['show_migration'] = $show_migration;
+        $this->container['success'] = $success;
 
         return $this;
     }
@@ -387,7 +327,7 @@ class RtgSummary implements ModelInterface, ArrayAccess
     /**
      * Gets warning
      *
-     * @return string
+     * @return \ultracart\v2\models\Warning
      */
     public function getWarning()
     {
@@ -397,7 +337,7 @@ class RtgSummary implements ModelInterface, ArrayAccess
     /**
      * Sets warning
      *
-     * @param string $warning warning
+     * @param \ultracart\v2\models\Warning $warning warning
      *
      * @return $this
      */

@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentsConfiguration**
-> \ultracart\v2\models\PaymentsConfiguration getPaymentsConfiguration()
+> \ultracart\v2\models\PaymentsConfigurationResponse getPaymentsConfiguration()
 
 Retrieve payments configuration
 
@@ -148,7 +148,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\PaymentsConfiguration**](../Model/PaymentsConfiguration.md)
+[**\ultracart\v2\models\PaymentsConfigurationResponse**](../Model/PaymentsConfigurationResponse.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentsRotatingGateway**
-> \ultracart\v2\models\RotatingTransactionGateway getPaymentsRotatingGateway($rtg_oid)
+> \ultracart\v2\models\RotatingTransactionGatewayResponse getPaymentsRotatingGateway($rtg_oid)
 
 Retrieve a rotating transaction gateway
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\RotatingTransactionGateway**](../Model/RotatingTransactionGateway.md)
+[**\ultracart\v2\models\RotatingTransactionGatewayResponse**](../Model/RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentsRotatingGatewayByCode**
-> \ultracart\v2\models\RotatingTransactionGateway getPaymentsRotatingGatewayByCode($code)
+> \ultracart\v2\models\RotatingTransactionGatewayResponse getPaymentsRotatingGatewayByCode($code)
 
 Retrieve a rotating transaction gateway by code
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\RotatingTransactionGateway**](../Model/RotatingTransactionGateway.md)
+[**\ultracart\v2\models\RotatingTransactionGatewayResponse**](../Model/RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentsRtgSummaries**
-> \ultracart\v2\models\RtgSummary getPaymentsRtgSummaries()
+> \ultracart\v2\models\RtgSummaryResponse getPaymentsRtgSummaries()
 
 Retrieve a summary of rotating transaction gateways
 
@@ -332,7 +332,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\RtgSummary**](../Model/RtgSummary.md)
+[**\ultracart\v2\models\RtgSummaryResponse**](../Model/RtgSummaryResponse.md)
 
 ### Authorization
 
@@ -390,7 +390,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **insertRotatingTransactionGateway**
-> \ultracart\v2\models\RotatingTransactionGateway insertRotatingTransactionGateway($rotating_transaction_gateway)
+> \ultracart\v2\models\RotatingTransactionGatewayResponse insertRotatingTransactionGateway($rotating_transaction_gateway)
 
 Insert a rotating transaction gateway
 
@@ -424,7 +424,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\RotatingTransactionGateway**](../Model/RotatingTransactionGateway.md)
+[**\ultracart\v2\models\RotatingTransactionGatewayResponse**](../Model/RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **migrateToRotatingTransactionGateway**
-> \ultracart\v2\models\RotatingTransactionGateway migrateToRotatingTransactionGateway($code)
+> \ultracart\v2\models\RotatingTransactionGatewayResponse migrateToRotatingTransactionGateway($code)
 
 Migrate a normal transaction gateway to a rotating transaction gateway
 
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\RotatingTransactionGateway**](../Model/RotatingTransactionGateway.md)
+[**\ultracart\v2\models\RotatingTransactionGatewayResponse**](../Model/RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
