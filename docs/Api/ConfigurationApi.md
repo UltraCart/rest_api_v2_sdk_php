@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentsRotatingTransactionGateways**
-> \ultracart\v2\models\RotatingTransactionGateway getPaymentsRotatingTransactionGateways()
+> \ultracart\v2\models\RotatingTransactionGatewaysResponse getPaymentsRotatingTransactionGateways()
 
 Retrieve a list of rotating transaction gateways
 
@@ -288,7 +288,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\RotatingTransactionGateway**](../Model/RotatingTransactionGateway.md)
+[**\ultracart\v2\models\RotatingTransactionGatewaysResponse**](../Model/RotatingTransactionGatewaysResponse.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentsRtgSummaries**
-> \ultracart\v2\models\RotatingTransactionGateway getPaymentsRtgSummaries()
+> \ultracart\v2\models\RtgSummary getPaymentsRtgSummaries()
 
 Retrieve a summary of rotating transaction gateways
 
@@ -332,7 +332,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\ultracart\v2\models\RotatingTransactionGateway**](../Model/RotatingTransactionGateway.md)
+[**\ultracart\v2\models\RtgSummary**](../Model/RtgSummary.md)
 
 ### Authorization
 

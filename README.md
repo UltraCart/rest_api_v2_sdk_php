@@ -246,6 +246,7 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**updateInventory**](docs/Api/FulfillmentApi.md#updateinventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
 *IntegrationLogApi* | [**getIntegrationLog**](docs/Api/IntegrationLogApi.md#getintegrationlog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
 *IntegrationLogApi* | [**getIntegrationLogFile**](docs/Api/IntegrationLogApi.md#getintegrationlogfile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
+*IntegrationLogApi* | [**getIntegrationLogSummariesQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsummariesquery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsquery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteItem**](docs/Api/ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**getItem**](docs/Api/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
@@ -801,6 +802,9 @@ Class | Method | HTTP request | Description
  - [IntegrationLogQueryRequest](docs/Model/IntegrationLogQueryRequest.md)
  - [IntegrationLogQueryResponse](docs/Model/IntegrationLogQueryResponse.md)
  - [IntegrationLogResponse](docs/Model/IntegrationLogResponse.md)
+ - [IntegrationLogSummary](docs/Model/IntegrationLogSummary.md)
+ - [IntegrationLogSummaryQueryRequest](docs/Model/IntegrationLogSummaryQueryRequest.md)
+ - [IntegrationLogSummaryQueryResponse](docs/Model/IntegrationLogSummaryQueryResponse.md)
  - [Item](docs/Model/Item.md)
  - [ItemAccounting](docs/Model/ItemAccounting.md)
  - [ItemAmember](docs/Model/ItemAmember.md)
@@ -980,9 +984,12 @@ Class | Method | HTTP request | Description
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
  - [RotatingTransactionGateway](docs/Model/RotatingTransactionGateway.md)
+ - [RotatingTransactionGatewaysResponse](docs/Model/RotatingTransactionGatewaysResponse.md)
  - [RtgCurrency](docs/Model/RtgCurrency.md)
  - [RtgDayOfMonthRestriction](docs/Model/RtgDayOfMonthRestriction.md)
  - [RtgDayOfWeekRestriction](docs/Model/RtgDayOfWeekRestriction.md)
+ - [RtgSummary](docs/Model/RtgSummary.md)
+ - [RtgSummaryGateway](docs/Model/RtgSummaryGateway.md)
  - [RtgThemeRestriction](docs/Model/RtgThemeRestriction.md)
  - [ScreenRecording](docs/Model/ScreenRecording.md)
  - [ScreenRecordingAdPlatform](docs/Model/ScreenRecordingAdPlatform.md)
@@ -1168,6 +1175,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.1 | 07/29/2021 | bug fixes for new configuration api | 
 | 3.4.0 | 07/29/2021 | added new configuration api (not live yet. sdk only works against development presently) | 
 | 3.3.2 | 07/16/2021 | sso bug fixes | 
 | 3.3.1 | 07/16/2021 | screen recording - event sub text used for assisting in UX rendering | 
