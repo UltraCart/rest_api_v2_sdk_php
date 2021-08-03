@@ -1176,6 +1176,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.5 | 08/03/2021 | configuration api bug fix for a bad response object on updateRotatingTransactionGateway | 
 | 3.4.3 | 08/03/2021 | package tracking - add event_iso_date and event_timezone_id | 
 | 3.4.2 | 07/29/2021 | bug fixes for new configuration api | 
 | 3.4.1 | 07/29/2021 | bug fixes for new configuration api | 

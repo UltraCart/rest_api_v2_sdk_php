@@ -4414,7 +4414,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\RotatingTransactionGateway
+     * @return \ultracart\v2\models\RotatingTransactionGatewayResponse
      */
     public function updateRotatingTransactionGateway($rtg_oid, $rotating_transaction_gateway)
     {
@@ -4433,7 +4433,7 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateRotatingTransactionGatewayWithHttpInfo($rtg_oid, $rotating_transaction_gateway)
     {
@@ -4452,11 +4452,11 @@ class ConfigurationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\RotatingTransactionGateway, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\RotatingTransactionGatewayResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateRotatingTransactionGatewayWithHttpInfoRetry($retry ,  $rtg_oid,  $rotating_transaction_gateway)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->updateRotatingTransactionGatewayRequest($rtg_oid, $rotating_transaction_gateway);
 
         try {
@@ -4509,7 +4509,7 @@ class ConfigurationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\RotatingTransactionGateway',
+                        '\ultracart\v2\models\RotatingTransactionGatewayResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4593,7 +4593,7 @@ class ConfigurationApi
      */
     public function updateRotatingTransactionGatewayAsyncWithHttpInfo($rtg_oid, $rotating_transaction_gateway)
     {
-        $returnType = '\ultracart\v2\models\RotatingTransactionGateway';
+        $returnType = '\ultracart\v2\models\RotatingTransactionGatewayResponse';
         $request = $this->updateRotatingTransactionGatewayRequest($rtg_oid, $rotating_transaction_gateway);
 
         return $this->client

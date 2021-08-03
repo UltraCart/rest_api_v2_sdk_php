@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateRotatingTransactionGateway**
-> \ultracart\v2\models\RotatingTransactionGateway updateRotatingTransactionGateway($rtg_oid, $rotating_transaction_gateway)
+> \ultracart\v2\models\RotatingTransactionGatewayResponse updateRotatingTransactionGateway($rtg_oid, $rotating_transaction_gateway)
 
 Update a rotating transaction gateway
 
@@ -666,7 +666,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\RotatingTransactionGateway**](../Model/RotatingTransactionGateway.md)
+[**\ultracart\v2\models\RotatingTransactionGatewayResponse**](../Model/RotatingTransactionGatewayResponse.md)
 
 ### Authorization
 
