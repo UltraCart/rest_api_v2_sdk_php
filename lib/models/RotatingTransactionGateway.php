@@ -99,6 +99,7 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
         'traffic_percentage' => 'float',
         'trial_daily_amount' => 'int',
         'trial_daily_limit' => 'int',
+        'trial_monthly_amount' => 'int',
         'trial_monthly_limit' => 'int'
     ];
 
@@ -150,6 +151,7 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
         'traffic_percentage' => null,
         'trial_daily_amount' => 'int32',
         'trial_daily_limit' => 'int32',
+        'trial_monthly_amount' => 'int32',
         'trial_monthly_limit' => 'int32'
     ];
 
@@ -222,6 +224,7 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
         'traffic_percentage' => 'traffic_percentage',
         'trial_daily_amount' => 'trial_daily_amount',
         'trial_daily_limit' => 'trial_daily_limit',
+        'trial_monthly_amount' => 'trial_monthly_amount',
         'trial_monthly_limit' => 'trial_monthly_limit'
     ];
 
@@ -273,6 +276,7 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
         'traffic_percentage' => 'setTrafficPercentage',
         'trial_daily_amount' => 'setTrialDailyAmount',
         'trial_daily_limit' => 'setTrialDailyLimit',
+        'trial_monthly_amount' => 'setTrialMonthlyAmount',
         'trial_monthly_limit' => 'setTrialMonthlyLimit'
     ];
 
@@ -324,6 +328,7 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
         'traffic_percentage' => 'getTrafficPercentage',
         'trial_daily_amount' => 'getTrialDailyAmount',
         'trial_daily_limit' => 'getTrialDailyLimit',
+        'trial_monthly_amount' => 'getTrialMonthlyAmount',
         'trial_monthly_limit' => 'getTrialMonthlyLimit'
     ];
 
@@ -467,6 +472,7 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
         $this->container['traffic_percentage'] = isset($data['traffic_percentage']) ? $data['traffic_percentage'] : null;
         $this->container['trial_daily_amount'] = isset($data['trial_daily_amount']) ? $data['trial_daily_amount'] : null;
         $this->container['trial_daily_limit'] = isset($data['trial_daily_limit']) ? $data['trial_daily_limit'] : null;
+        $this->container['trial_monthly_amount'] = isset($data['trial_monthly_amount']) ? $data['trial_monthly_amount'] : null;
         $this->container['trial_monthly_limit'] = isset($data['trial_monthly_limit']) ? $data['trial_monthly_limit'] : null;
     }
 
@@ -1501,7 +1507,7 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
     /**
      * Sets trial_daily_amount
      *
-     * @param int $trial_daily_amount If specified, limits the total daily dollar amount of trial orders
+     * @param int $trial_daily_amount If specified, limits the total daily count of trial orders
      *
      * @return $this
      */
@@ -1525,13 +1531,37 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
     /**
      * Sets trial_daily_limit
      *
-     * @param int $trial_daily_limit If specified, limits the total month count of trial orders
+     * @param int $trial_daily_limit If specified, limits the total daily dollar amount of trial orders
      *
      * @return $this
      */
     public function setTrialDailyLimit($trial_daily_limit)
     {
         $this->container['trial_daily_limit'] = $trial_daily_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets trial_monthly_amount
+     *
+     * @return int
+     */
+    public function getTrialMonthlyAmount()
+    {
+        return $this->container['trial_monthly_amount'];
+    }
+
+    /**
+     * Sets trial_monthly_amount
+     *
+     * @param int $trial_monthly_amount If specified, limits the total month dollar amount of trial orders
+     *
+     * @return $this
+     */
+    public function setTrialMonthlyAmount($trial_monthly_amount)
+    {
+        $this->container['trial_monthly_amount'] = $trial_monthly_amount;
 
         return $this;
     }
@@ -1549,7 +1579,7 @@ class RotatingTransactionGateway implements ModelInterface, ArrayAccess
     /**
      * Sets trial_monthly_limit
      *
-     * @param int $trial_monthly_limit If specified, limits the total month dollar amount of trial orders
+     * @param int $trial_monthly_limit If specified, limits the total month count of trial orders
      *
      * @return $this
      */
