@@ -62,6 +62,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_data' => 'string',
         'channel_partner_oid' => 'int',
         'channel_partner_order_id' => 'string',
+        'ignore_invalid_shipping_method' => 'bool',
         'no_realtime_payment_processing' => 'bool',
         'skip_payment_processing' => 'bool',
         'store_completed' => 'bool',
@@ -80,6 +81,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_data' => null,
         'channel_partner_oid' => 'int32',
         'channel_partner_order_id' => null,
+        'ignore_invalid_shipping_method' => null,
         'no_realtime_payment_processing' => null,
         'skip_payment_processing' => null,
         'store_completed' => null,
@@ -119,6 +121,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_data' => 'channel_partner_data',
         'channel_partner_oid' => 'channel_partner_oid',
         'channel_partner_order_id' => 'channel_partner_order_id',
+        'ignore_invalid_shipping_method' => 'ignore_invalid_shipping_method',
         'no_realtime_payment_processing' => 'no_realtime_payment_processing',
         'skip_payment_processing' => 'skip_payment_processing',
         'store_completed' => 'store_completed',
@@ -137,6 +140,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_data' => 'setChannelPartnerData',
         'channel_partner_oid' => 'setChannelPartnerOid',
         'channel_partner_order_id' => 'setChannelPartnerOrderId',
+        'ignore_invalid_shipping_method' => 'setIgnoreInvalidShippingMethod',
         'no_realtime_payment_processing' => 'setNoRealtimePaymentProcessing',
         'skip_payment_processing' => 'setSkipPaymentProcessing',
         'store_completed' => 'setStoreCompleted',
@@ -155,6 +159,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_data' => 'getChannelPartnerData',
         'channel_partner_oid' => 'getChannelPartnerOid',
         'channel_partner_order_id' => 'getChannelPartnerOrderId',
+        'ignore_invalid_shipping_method' => 'getIgnoreInvalidShippingMethod',
         'no_realtime_payment_processing' => 'getNoRealtimePaymentProcessing',
         'skip_payment_processing' => 'getSkipPaymentProcessing',
         'store_completed' => 'getStoreCompleted',
@@ -227,6 +232,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
         $this->container['channel_partner_data'] = isset($data['channel_partner_data']) ? $data['channel_partner_data'] : null;
         $this->container['channel_partner_oid'] = isset($data['channel_partner_oid']) ? $data['channel_partner_oid'] : null;
         $this->container['channel_partner_order_id'] = isset($data['channel_partner_order_id']) ? $data['channel_partner_order_id'] : null;
+        $this->container['ignore_invalid_shipping_method'] = isset($data['ignore_invalid_shipping_method']) ? $data['ignore_invalid_shipping_method'] : null;
         $this->container['no_realtime_payment_processing'] = isset($data['no_realtime_payment_processing']) ? $data['no_realtime_payment_processing'] : null;
         $this->container['skip_payment_processing'] = isset($data['skip_payment_processing']) ? $data['skip_payment_processing'] : null;
         $this->container['store_completed'] = isset($data['store_completed']) ? $data['store_completed'] : null;
@@ -374,6 +380,30 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
     public function setChannelPartnerOrderId($channel_partner_order_id)
     {
         $this->container['channel_partner_order_id'] = $channel_partner_order_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignore_invalid_shipping_method
+     *
+     * @return bool
+     */
+    public function getIgnoreInvalidShippingMethod()
+    {
+        return $this->container['ignore_invalid_shipping_method'];
+    }
+
+    /**
+     * Sets ignore_invalid_shipping_method
+     *
+     * @param bool $ignore_invalid_shipping_method Set to true to ignore invalid shipping method being specified.  Only applicable on inserting orders.
+     *
+     * @return $this
+     */
+    public function setIgnoreInvalidShippingMethod($ignore_invalid_shipping_method)
+    {
+        $this->container['ignore_invalid_shipping_method'] = $ignore_invalid_shipping_method;
 
         return $this;
     }
