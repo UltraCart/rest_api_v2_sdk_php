@@ -58,8 +58,10 @@ class OrderTrackingNumberDetail implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'city' => 'string',
+        'event_dts' => 'string',
         'event_local_date' => 'string',
         'event_local_time' => 'string',
+        'event_timezone_id' => 'string',
         'state' => 'string',
         'subtag' => 'string',
         'subtag_message' => 'string',
@@ -76,8 +78,10 @@ class OrderTrackingNumberDetail implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'city' => null,
+        'event_dts' => 'dateTime',
         'event_local_date' => null,
         'event_local_time' => null,
+        'event_timezone_id' => null,
         'state' => null,
         'subtag' => null,
         'subtag_message' => null,
@@ -115,8 +119,10 @@ class OrderTrackingNumberDetail implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'city' => 'city',
+        'event_dts' => 'event_dts',
         'event_local_date' => 'event_local_date',
         'event_local_time' => 'event_local_time',
+        'event_timezone_id' => 'event_timezone_id',
         'state' => 'state',
         'subtag' => 'subtag',
         'subtag_message' => 'subtag_message',
@@ -133,8 +139,10 @@ class OrderTrackingNumberDetail implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'city' => 'setCity',
+        'event_dts' => 'setEventDts',
         'event_local_date' => 'setEventLocalDate',
         'event_local_time' => 'setEventLocalTime',
+        'event_timezone_id' => 'setEventTimezoneId',
         'state' => 'setState',
         'subtag' => 'setSubtag',
         'subtag_message' => 'setSubtagMessage',
@@ -151,8 +159,10 @@ class OrderTrackingNumberDetail implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'city' => 'getCity',
+        'event_dts' => 'getEventDts',
         'event_local_date' => 'getEventLocalDate',
         'event_local_time' => 'getEventLocalTime',
+        'event_timezone_id' => 'getEventTimezoneId',
         'state' => 'getState',
         'subtag' => 'getSubtag',
         'subtag_message' => 'getSubtagMessage',
@@ -223,8 +233,10 @@ class OrderTrackingNumberDetail implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['event_dts'] = isset($data['event_dts']) ? $data['event_dts'] : null;
         $this->container['event_local_date'] = isset($data['event_local_date']) ? $data['event_local_date'] : null;
         $this->container['event_local_time'] = isset($data['event_local_time']) ? $data['event_local_time'] : null;
+        $this->container['event_timezone_id'] = isset($data['event_timezone_id']) ? $data['event_timezone_id'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['subtag'] = isset($data['subtag']) ? $data['subtag'] : null;
         $this->container['subtag_message'] = isset($data['subtag_message']) ? $data['subtag_message'] : null;
@@ -283,6 +295,30 @@ class OrderTrackingNumberDetail implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets event_dts
+     *
+     * @return string
+     */
+    public function getEventDts()
+    {
+        return $this->container['event_dts'];
+    }
+
+    /**
+     * Sets event_dts
+     *
+     * @param string $event_dts ISO 8601 timestamp that the event occurred
+     *
+     * @return $this
+     */
+    public function setEventDts($event_dts)
+    {
+        $this->container['event_dts'] = $event_dts;
+
+        return $this;
+    }
+
+    /**
      * Gets event_local_date
      *
      * @return string
@@ -326,6 +362,30 @@ class OrderTrackingNumberDetail implements ModelInterface, ArrayAccess
     public function setEventLocalTime($event_local_time)
     {
         $this->container['event_local_time'] = $event_local_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_timezone_id
+     *
+     * @return string
+     */
+    public function getEventTimezoneId()
+    {
+        return $this->container['event_timezone_id'];
+    }
+
+    /**
+     * Sets event_timezone_id
+     *
+     * @param string $event_timezone_id Timezone the event occurred in.  Use this in conjunction with event_dts to format a local date/time.
+     *
+     * @return $this
+     */
+    public function setEventTimezoneId($event_timezone_id)
+    {
+        $this->container['event_timezone_id'] = $event_timezone_id;
 
         return $this;
     }
