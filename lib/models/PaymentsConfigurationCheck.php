@@ -58,13 +58,9 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_check_orders' => 'bool',
-        'accept_e_check' => 'bool',
-        'accept_money_orders' => 'bool',
         'check_accounting_code' => 'string',
         'check_deposit_to_account' => 'string',
         'checks_payable_to' => 'string',
-        'e_check_accounting_code' => 'string',
-        'e_check_deposit_to_account' => 'string',
         'mail_to_address1' => 'string',
         'mail_to_address2' => 'string',
         'mail_to_city' => 'string',
@@ -84,13 +80,9 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_check_orders' => null,
-        'accept_e_check' => null,
-        'accept_money_orders' => null,
         'check_accounting_code' => null,
         'check_deposit_to_account' => null,
         'checks_payable_to' => null,
-        'e_check_accounting_code' => null,
-        'e_check_deposit_to_account' => null,
         'mail_to_address1' => null,
         'mail_to_address2' => null,
         'mail_to_city' => null,
@@ -131,13 +123,9 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'accept_check_orders' => 'acceptCheckOrders',
-        'accept_e_check' => 'acceptECheck',
-        'accept_money_orders' => 'acceptMoneyOrders',
         'check_accounting_code' => 'checkAccountingCode',
         'check_deposit_to_account' => 'checkDepositToAccount',
         'checks_payable_to' => 'checksPayableTo',
-        'e_check_accounting_code' => 'eCheckAccountingCode',
-        'e_check_deposit_to_account' => 'eCheckDepositToAccount',
         'mail_to_address1' => 'mailToAddress1',
         'mail_to_address2' => 'mailToAddress2',
         'mail_to_city' => 'mailToCity',
@@ -157,13 +145,9 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_check_orders' => 'setAcceptCheckOrders',
-        'accept_e_check' => 'setAcceptECheck',
-        'accept_money_orders' => 'setAcceptMoneyOrders',
         'check_accounting_code' => 'setCheckAccountingCode',
         'check_deposit_to_account' => 'setCheckDepositToAccount',
         'checks_payable_to' => 'setChecksPayableTo',
-        'e_check_accounting_code' => 'setECheckAccountingCode',
-        'e_check_deposit_to_account' => 'setECheckDepositToAccount',
         'mail_to_address1' => 'setMailToAddress1',
         'mail_to_address2' => 'setMailToAddress2',
         'mail_to_city' => 'setMailToCity',
@@ -183,13 +167,9 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_check_orders' => 'getAcceptCheckOrders',
-        'accept_e_check' => 'getAcceptECheck',
-        'accept_money_orders' => 'getAcceptMoneyOrders',
         'check_accounting_code' => 'getCheckAccountingCode',
         'check_deposit_to_account' => 'getCheckDepositToAccount',
         'checks_payable_to' => 'getChecksPayableTo',
-        'e_check_accounting_code' => 'getECheckAccountingCode',
-        'e_check_deposit_to_account' => 'getECheckDepositToAccount',
         'mail_to_address1' => 'getMailToAddress1',
         'mail_to_address2' => 'getMailToAddress2',
         'mail_to_city' => 'getMailToCity',
@@ -263,13 +243,9 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_check_orders'] = isset($data['accept_check_orders']) ? $data['accept_check_orders'] : null;
-        $this->container['accept_e_check'] = isset($data['accept_e_check']) ? $data['accept_e_check'] : null;
-        $this->container['accept_money_orders'] = isset($data['accept_money_orders']) ? $data['accept_money_orders'] : null;
         $this->container['check_accounting_code'] = isset($data['check_accounting_code']) ? $data['check_accounting_code'] : null;
         $this->container['check_deposit_to_account'] = isset($data['check_deposit_to_account']) ? $data['check_deposit_to_account'] : null;
         $this->container['checks_payable_to'] = isset($data['checks_payable_to']) ? $data['checks_payable_to'] : null;
-        $this->container['e_check_accounting_code'] = isset($data['e_check_accounting_code']) ? $data['e_check_accounting_code'] : null;
-        $this->container['e_check_deposit_to_account'] = isset($data['e_check_deposit_to_account']) ? $data['e_check_deposit_to_account'] : null;
         $this->container['mail_to_address1'] = isset($data['mail_to_address1']) ? $data['mail_to_address1'] : null;
         $this->container['mail_to_address2'] = isset($data['mail_to_address2']) ? $data['mail_to_address2'] : null;
         $this->container['mail_to_city'] = isset($data['mail_to_city']) ? $data['mail_to_city'] : null;
@@ -326,54 +302,6 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     public function setAcceptCheckOrders($accept_check_orders)
     {
         $this->container['accept_check_orders'] = $accept_check_orders;
-
-        return $this;
-    }
-
-    /**
-     * Gets accept_e_check
-     *
-     * @return bool
-     */
-    public function getAcceptECheck()
-    {
-        return $this->container['accept_e_check'];
-    }
-
-    /**
-     * Sets accept_e_check
-     *
-     * @param bool $accept_e_check accept_e_check
-     *
-     * @return $this
-     */
-    public function setAcceptECheck($accept_e_check)
-    {
-        $this->container['accept_e_check'] = $accept_e_check;
-
-        return $this;
-    }
-
-    /**
-     * Gets accept_money_orders
-     *
-     * @return bool
-     */
-    public function getAcceptMoneyOrders()
-    {
-        return $this->container['accept_money_orders'];
-    }
-
-    /**
-     * Sets accept_money_orders
-     *
-     * @param bool $accept_money_orders accept_money_orders
-     *
-     * @return $this
-     */
-    public function setAcceptMoneyOrders($accept_money_orders)
-    {
-        $this->container['accept_money_orders'] = $accept_money_orders;
 
         return $this;
     }
@@ -446,54 +374,6 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     public function setChecksPayableTo($checks_payable_to)
     {
         $this->container['checks_payable_to'] = $checks_payable_to;
-
-        return $this;
-    }
-
-    /**
-     * Gets e_check_accounting_code
-     *
-     * @return string
-     */
-    public function getECheckAccountingCode()
-    {
-        return $this->container['e_check_accounting_code'];
-    }
-
-    /**
-     * Sets e_check_accounting_code
-     *
-     * @param string $e_check_accounting_code e_check_accounting_code
-     *
-     * @return $this
-     */
-    public function setECheckAccountingCode($e_check_accounting_code)
-    {
-        $this->container['e_check_accounting_code'] = $e_check_accounting_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets e_check_deposit_to_account
-     *
-     * @return string
-     */
-    public function getECheckDepositToAccount()
-    {
-        return $this->container['e_check_deposit_to_account'];
-    }
-
-    /**
-     * Sets e_check_deposit_to_account
-     *
-     * @param string $e_check_deposit_to_account e_check_deposit_to_account
-     *
-     * @return $this
-     */
-    public function setECheckDepositToAccount($e_check_deposit_to_account)
-    {
-        $this->container['e_check_deposit_to_account'] = $e_check_deposit_to_account;
 
         return $this;
     }

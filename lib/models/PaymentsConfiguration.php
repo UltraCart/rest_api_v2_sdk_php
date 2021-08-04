@@ -63,7 +63,9 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => '\ultracart\v2\models\PaymentsConfigurationCheck',
         'cod' => '\ultracart\v2\models\PaymentsConfigurationCOD',
         'credit_card' => '\ultracart\v2\models\PaymentsConfigurationCreditCard',
+        'e_check' => '\ultracart\v2\models\PaymentsConfigurationEcheck',
         'loan_hero' => '\ultracart\v2\models\PaymentsConfigurationLoanHero',
+        'money_order' => '\ultracart\v2\models\PaymentsConfigurationMoneyOrder',
         'pay_pal' => '\ultracart\v2\models\PaymentsConfigurationPayPal',
         'purchase_order' => '\ultracart\v2\models\PaymentsConfigurationPurchaseOrder',
         'quote_request' => '\ultracart\v2\models\PaymentsConfigurationQuoteRequest',
@@ -87,7 +89,9 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => null,
         'cod' => null,
         'credit_card' => null,
+        'e_check' => null,
         'loan_hero' => null,
+        'money_order' => null,
         'pay_pal' => null,
         'purchase_order' => null,
         'quote_request' => null,
@@ -132,7 +136,9 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => 'check',
         'cod' => 'cod',
         'credit_card' => 'creditCard',
+        'e_check' => 'eCheck',
         'loan_hero' => 'loanHero',
+        'money_order' => 'moneyOrder',
         'pay_pal' => 'payPal',
         'purchase_order' => 'purchaseOrder',
         'quote_request' => 'quoteRequest',
@@ -156,7 +162,9 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => 'setCheck',
         'cod' => 'setCod',
         'credit_card' => 'setCreditCard',
+        'e_check' => 'setECheck',
         'loan_hero' => 'setLoanHero',
+        'money_order' => 'setMoneyOrder',
         'pay_pal' => 'setPayPal',
         'purchase_order' => 'setPurchaseOrder',
         'quote_request' => 'setQuoteRequest',
@@ -180,7 +188,9 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => 'getCheck',
         'cod' => 'getCod',
         'credit_card' => 'getCreditCard',
+        'e_check' => 'getECheck',
         'loan_hero' => 'getLoanHero',
+        'money_order' => 'getMoneyOrder',
         'pay_pal' => 'getPayPal',
         'purchase_order' => 'getPurchaseOrder',
         'quote_request' => 'getQuoteRequest',
@@ -258,7 +268,9 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         $this->container['check'] = isset($data['check']) ? $data['check'] : null;
         $this->container['cod'] = isset($data['cod']) ? $data['cod'] : null;
         $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
+        $this->container['e_check'] = isset($data['e_check']) ? $data['e_check'] : null;
         $this->container['loan_hero'] = isset($data['loan_hero']) ? $data['loan_hero'] : null;
+        $this->container['money_order'] = isset($data['money_order']) ? $data['money_order'] : null;
         $this->container['pay_pal'] = isset($data['pay_pal']) ? $data['pay_pal'] : null;
         $this->container['purchase_order'] = isset($data['purchase_order']) ? $data['purchase_order'] : null;
         $this->container['quote_request'] = isset($data['quote_request']) ? $data['quote_request'] : null;
@@ -439,6 +451,30 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets e_check
+     *
+     * @return \ultracart\v2\models\PaymentsConfigurationEcheck
+     */
+    public function getECheck()
+    {
+        return $this->container['e_check'];
+    }
+
+    /**
+     * Sets e_check
+     *
+     * @param \ultracart\v2\models\PaymentsConfigurationEcheck $e_check e_check
+     *
+     * @return $this
+     */
+    public function setECheck($e_check)
+    {
+        $this->container['e_check'] = $e_check;
+
+        return $this;
+    }
+
+    /**
      * Gets loan_hero
      *
      * @return \ultracart\v2\models\PaymentsConfigurationLoanHero
@@ -458,6 +494,30 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
     public function setLoanHero($loan_hero)
     {
         $this->container['loan_hero'] = $loan_hero;
+
+        return $this;
+    }
+
+    /**
+     * Gets money_order
+     *
+     * @return \ultracart\v2\models\PaymentsConfigurationMoneyOrder
+     */
+    public function getMoneyOrder()
+    {
+        return $this->container['money_order'];
+    }
+
+    /**
+     * Sets money_order
+     *
+     * @param \ultracart\v2\models\PaymentsConfigurationMoneyOrder $money_order money_order
+     *
+     * @return $this
+     */
+    public function setMoneyOrder($money_order)
+    {
+        $this->container['money_order'] = $money_order;
 
         return $this;
     }

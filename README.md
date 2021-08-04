@@ -970,7 +970,9 @@ Class | Method | HTTP request | Description
  - [PaymentsConfigurationCash](docs/Model/PaymentsConfigurationCash.md)
  - [PaymentsConfigurationCheck](docs/Model/PaymentsConfigurationCheck.md)
  - [PaymentsConfigurationCreditCard](docs/Model/PaymentsConfigurationCreditCard.md)
+ - [PaymentsConfigurationEcheck](docs/Model/PaymentsConfigurationEcheck.md)
  - [PaymentsConfigurationLoanHero](docs/Model/PaymentsConfigurationLoanHero.md)
+ - [PaymentsConfigurationMoneyOrder](docs/Model/PaymentsConfigurationMoneyOrder.md)
  - [PaymentsConfigurationPayPal](docs/Model/PaymentsConfigurationPayPal.md)
  - [PaymentsConfigurationPurchaseOrder](docs/Model/PaymentsConfigurationPurchaseOrder.md)
  - [PaymentsConfigurationQuoteRequest](docs/Model/PaymentsConfigurationQuoteRequest.md)
@@ -1184,6 +1186,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.8 | 08/04/2021 | configuration api - payments config refactoring | 
 | 3.4.7 | 08/04/2021 | esp folders for lists/segments | 
 | 3.4.5 | 08/03/2021 | configuration api bug fix for a bad response object on updateRotatingTransactionGateway | 
 | 3.4.3 | 08/03/2021 | package tracking - add event_iso_date and event_timezone_id | 
