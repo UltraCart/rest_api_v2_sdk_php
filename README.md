@@ -299,6 +299,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteEmailEmail**](docs/Api/StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
 *StorefrontApi* | [**deleteEmailFlowFolder**](docs/Api/StorefrontApi.md#deleteemailflowfolder) | **DELETE** /storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid} | Delete email flowFolder
 *StorefrontApi* | [**deleteEmailListCustomer**](docs/Api/StorefrontApi.md#deleteemaillistcustomer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
+*StorefrontApi* | [**deleteEmailListSegmentFolder**](docs/Api/StorefrontApi.md#deleteemaillistsegmentfolder) | **DELETE** /storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid} | Delete email ListSegmentFolder
 *StorefrontApi* | [**deleteEmailPostcard**](docs/Api/StorefrontApi.md#deleteemailpostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/Api/StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
@@ -345,6 +346,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailList**](docs/Api/StorefrontApi.md#getemaillist) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
 *StorefrontApi* | [**getEmailListCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemaillistcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customer editor url
 *StorefrontApi* | [**getEmailListCustomers**](docs/Api/StorefrontApi.md#getemaillistcustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
+*StorefrontApi* | [**getEmailListSegmentFolder**](docs/Api/StorefrontApi.md#getemaillistsegmentfolder) | **GET** /storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid} | Get email campaign folder
+*StorefrontApi* | [**getEmailListSegmentFolders**](docs/Api/StorefrontApi.md#getemaillistsegmentfolders) | **GET** /storefront/{storefront_oid}/email/list_segment_folders | Get email campaign folders
 *StorefrontApi* | [**getEmailLists**](docs/Api/StorefrontApi.md#getemaillists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
 *StorefrontApi* | [**getEmailPerformance**](docs/Api/StorefrontApi.md#getemailperformance) | **GET** /storefront/{storefront_oid}/email/performance | Get email performance
 *StorefrontApi* | [**getEmailPlan**](docs/Api/StorefrontApi.md#getemailplan) | **GET** /storefront/{storefront_oid}/email/plan | Get email plan
@@ -392,6 +395,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**insertEmailFlow**](docs/Api/StorefrontApi.md#insertemailflow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
 *StorefrontApi* | [**insertEmailFlowFolder**](docs/Api/StorefrontApi.md#insertemailflowfolder) | **POST** /storefront/{storefront_oid}/email/flow_folders | Insert email flow folder
 *StorefrontApi* | [**insertEmailList**](docs/Api/StorefrontApi.md#insertemaillist) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
+*StorefrontApi* | [**insertEmailListSegmentFolder**](docs/Api/StorefrontApi.md#insertemaillistsegmentfolder) | **POST** /storefront/{storefront_oid}/email/list_segment_folders | Insert email campaign folder
 *StorefrontApi* | [**insertEmailPostcard**](docs/Api/StorefrontApi.md#insertemailpostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 *StorefrontApi* | [**insertEmailSegment**](docs/Api/StorefrontApi.md#insertemailsegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 *StorefrontApi* | [**insertScreenRecordingSegment**](docs/Api/StorefrontApi.md#insertscreenrecordingsegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments | Insert screen recording segment
@@ -422,6 +426,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailFlowFolder**](docs/Api/StorefrontApi.md#updateemailflowfolder) | **PUT** /storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid} | Update email flow folder
 *StorefrontApi* | [**updateEmailGlobalSettings**](docs/Api/StorefrontApi.md#updateemailglobalsettings) | **POST** /storefront/email/global_settings | Update email global settings
 *StorefrontApi* | [**updateEmailList**](docs/Api/StorefrontApi.md#updateemaillist) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
+*StorefrontApi* | [**updateEmailListSegmentFolder**](docs/Api/StorefrontApi.md#updateemaillistsegmentfolder) | **PUT** /storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid} | Update email campaign folder
 *StorefrontApi* | [**updateEmailPlan**](docs/Api/StorefrontApi.md#updateemailplan) | **POST** /storefront/{storefront_oid}/email/plan | Update email plan
 *StorefrontApi* | [**updateEmailPostcard**](docs/Api/StorefrontApi.md#updateemailpostcard) | **PUT** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Update email postcard
 *StorefrontApi* | [**updateEmailSegment**](docs/Api/StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
@@ -733,6 +738,9 @@ Class | Method | HTTP request | Description
  - [EmailListCustomer](docs/Model/EmailListCustomer.md)
  - [EmailListCustomersResponse](docs/Model/EmailListCustomersResponse.md)
  - [EmailListResponse](docs/Model/EmailListResponse.md)
+ - [EmailListSegmentFolder](docs/Model/EmailListSegmentFolder.md)
+ - [EmailListSegmentFolderResponse](docs/Model/EmailListSegmentFolderResponse.md)
+ - [EmailListSegmentFoldersResponse](docs/Model/EmailListSegmentFoldersResponse.md)
  - [EmailListSegmentMembership](docs/Model/EmailListSegmentMembership.md)
  - [EmailListSegmentUsedBy](docs/Model/EmailListSegmentUsedBy.md)
  - [EmailListSubscribeResponse](docs/Model/EmailListSubscribeResponse.md)
@@ -1176,6 +1184,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.7 | 08/04/2021 | esp folders for lists/segments | 
 | 3.4.5 | 08/03/2021 | configuration api bug fix for a bad response object on updateRotatingTransactionGateway | 
 | 3.4.3 | 08/03/2021 | package tracking - add event_iso_date and event_timezone_id | 
 | 3.4.2 | 07/29/2021 | bug fixes for new configuration api | 

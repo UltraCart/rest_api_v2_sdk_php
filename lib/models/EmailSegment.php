@@ -62,6 +62,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'string',
         'deleted' => 'bool',
         'email_segment_uuid' => 'string',
+        'esp_list_segment_folder_uuid' => 'string',
         'facebook_custom_audience' => 'bool',
         'filter_profile_equation_json' => 'string',
         'member_count' => 'int',
@@ -84,6 +85,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'dateTime',
         'deleted' => null,
         'email_segment_uuid' => null,
+        'esp_list_segment_folder_uuid' => null,
         'facebook_custom_audience' => null,
         'filter_profile_equation_json' => null,
         'member_count' => 'int32',
@@ -127,6 +129,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'created_dts',
         'deleted' => 'deleted',
         'email_segment_uuid' => 'email_segment_uuid',
+        'esp_list_segment_folder_uuid' => 'esp_list_segment_folder_uuid',
         'facebook_custom_audience' => 'facebook_custom_audience',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'member_count' => 'member_count',
@@ -149,6 +152,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'setCreatedDts',
         'deleted' => 'setDeleted',
         'email_segment_uuid' => 'setEmailSegmentUuid',
+        'esp_list_segment_folder_uuid' => 'setEspListSegmentFolderUuid',
         'facebook_custom_audience' => 'setFacebookCustomAudience',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'member_count' => 'setMemberCount',
@@ -171,6 +175,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'created_dts' => 'getCreatedDts',
         'deleted' => 'getDeleted',
         'email_segment_uuid' => 'getEmailSegmentUuid',
+        'esp_list_segment_folder_uuid' => 'getEspListSegmentFolderUuid',
         'facebook_custom_audience' => 'getFacebookCustomAudience',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'member_count' => 'getMemberCount',
@@ -247,6 +252,7 @@ class EmailSegment implements ModelInterface, ArrayAccess
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email_segment_uuid'] = isset($data['email_segment_uuid']) ? $data['email_segment_uuid'] : null;
+        $this->container['esp_list_segment_folder_uuid'] = isset($data['esp_list_segment_folder_uuid']) ? $data['esp_list_segment_folder_uuid'] : null;
         $this->container['facebook_custom_audience'] = isset($data['facebook_custom_audience']) ? $data['facebook_custom_audience'] : null;
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['member_count'] = isset($data['member_count']) ? $data['member_count'] : null;
@@ -402,6 +408,30 @@ class EmailSegment implements ModelInterface, ArrayAccess
     public function setEmailSegmentUuid($email_segment_uuid)
     {
         $this->container['email_segment_uuid'] = $email_segment_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets esp_list_segment_folder_uuid
+     *
+     * @return string
+     */
+    public function getEspListSegmentFolderUuid()
+    {
+        return $this->container['esp_list_segment_folder_uuid'];
+    }
+
+    /**
+     * Sets esp_list_segment_folder_uuid
+     *
+     * @param string $esp_list_segment_folder_uuid List/Segment folder UUID
+     *
+     * @return $this
+     */
+    public function setEspListSegmentFolderUuid($esp_list_segment_folder_uuid)
+    {
+        $this->container['esp_list_segment_folder_uuid'] = $esp_list_segment_folder_uuid;
 
         return $this;
     }

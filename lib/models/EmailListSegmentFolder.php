@@ -1,6 +1,6 @@
 <?php
 /**
- * EmailList
+ * EmailListSegmentFolder
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * EmailList Class Doc Comment
+ * EmailListSegmentFolder Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EmailList implements ModelInterface, ArrayAccess
+class EmailListSegmentFolder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EmailList implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'EmailList';
+    protected static $swaggerModelName = 'EmailListSegmentFolder';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,18 +57,11 @@ class EmailList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'allow_csv_download' => 'bool',
-        'created_dts' => 'string',
-        'deleted' => 'bool',
-        'email_list_uuid' => 'string',
         'esp_list_segment_folder_uuid' => 'string',
-        'member_count' => 'int',
         'merchant_id' => 'string',
         'name' => 'string',
-        'public_description' => 'string',
-        'public_list' => 'bool',
         'storefront_oid' => 'int',
-        'used_by' => '\ultracart\v2\models\EmailListSegmentUsedBy[]'
+        'system_generated' => 'bool'
     ];
 
     /**
@@ -77,18 +70,11 @@ class EmailList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'allow_csv_download' => null,
-        'created_dts' => 'dateTime',
-        'deleted' => null,
-        'email_list_uuid' => null,
         'esp_list_segment_folder_uuid' => null,
-        'member_count' => 'int32',
         'merchant_id' => null,
         'name' => null,
-        'public_description' => null,
-        'public_list' => null,
         'storefront_oid' => 'int32',
-        'used_by' => null
+        'system_generated' => null
     ];
 
     /**
@@ -118,18 +104,11 @@ class EmailList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'allow_csv_download' => 'allow_csv_download',
-        'created_dts' => 'created_dts',
-        'deleted' => 'deleted',
-        'email_list_uuid' => 'email_list_uuid',
         'esp_list_segment_folder_uuid' => 'esp_list_segment_folder_uuid',
-        'member_count' => 'member_count',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
-        'public_description' => 'public_description',
-        'public_list' => 'public_list',
         'storefront_oid' => 'storefront_oid',
-        'used_by' => 'used_by'
+        'system_generated' => 'system_generated'
     ];
 
     /**
@@ -138,18 +117,11 @@ class EmailList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'allow_csv_download' => 'setAllowCsvDownload',
-        'created_dts' => 'setCreatedDts',
-        'deleted' => 'setDeleted',
-        'email_list_uuid' => 'setEmailListUuid',
         'esp_list_segment_folder_uuid' => 'setEspListSegmentFolderUuid',
-        'member_count' => 'setMemberCount',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
-        'public_description' => 'setPublicDescription',
-        'public_list' => 'setPublicList',
         'storefront_oid' => 'setStorefrontOid',
-        'used_by' => 'setUsedBy'
+        'system_generated' => 'setSystemGenerated'
     ];
 
     /**
@@ -158,18 +130,11 @@ class EmailList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'allow_csv_download' => 'getAllowCsvDownload',
-        'created_dts' => 'getCreatedDts',
-        'deleted' => 'getDeleted',
-        'email_list_uuid' => 'getEmailListUuid',
         'esp_list_segment_folder_uuid' => 'getEspListSegmentFolderUuid',
-        'member_count' => 'getMemberCount',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
-        'public_description' => 'getPublicDescription',
-        'public_list' => 'getPublicList',
         'storefront_oid' => 'getStorefrontOid',
-        'used_by' => 'getUsedBy'
+        'system_generated' => 'getSystemGenerated'
     ];
 
     /**
@@ -232,18 +197,11 @@ class EmailList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['allow_csv_download'] = isset($data['allow_csv_download']) ? $data['allow_csv_download'] : null;
-        $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
-        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
-        $this->container['email_list_uuid'] = isset($data['email_list_uuid']) ? $data['email_list_uuid'] : null;
         $this->container['esp_list_segment_folder_uuid'] = isset($data['esp_list_segment_folder_uuid']) ? $data['esp_list_segment_folder_uuid'] : null;
-        $this->container['member_count'] = isset($data['member_count']) ? $data['member_count'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['public_description'] = isset($data['public_description']) ? $data['public_description'] : null;
-        $this->container['public_list'] = isset($data['public_list']) ? $data['public_list'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
-        $this->container['used_by'] = isset($data['used_by']) ? $data['used_by'] : null;
+        $this->container['system_generated'] = isset($data['system_generated']) ? $data['system_generated'] : null;
     }
 
     /**
@@ -275,102 +233,6 @@ class EmailList implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets allow_csv_download
-     *
-     * @return bool
-     */
-    public function getAllowCsvDownload()
-    {
-        return $this->container['allow_csv_download'];
-    }
-
-    /**
-     * Sets allow_csv_download
-     *
-     * @param bool $allow_csv_download True if the current user has the rights to download this list.
-     *
-     * @return $this
-     */
-    public function setAllowCsvDownload($allow_csv_download)
-    {
-        $this->container['allow_csv_download'] = $allow_csv_download;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_dts
-     *
-     * @return string
-     */
-    public function getCreatedDts()
-    {
-        return $this->container['created_dts'];
-    }
-
-    /**
-     * Sets created_dts
-     *
-     * @param string $created_dts Created date
-     *
-     * @return $this
-     */
-    public function setCreatedDts($created_dts)
-    {
-        $this->container['created_dts'] = $created_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets deleted
-     *
-     * @return bool
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool $deleted True if this campaign was deleted
-     *
-     * @return $this
-     */
-    public function setDeleted($deleted)
-    {
-        $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets email_list_uuid
-     *
-     * @return string
-     */
-    public function getEmailListUuid()
-    {
-        return $this->container['email_list_uuid'];
-    }
-
-    /**
-     * Sets email_list_uuid
-     *
-     * @param string $email_list_uuid Email list UUID
-     *
-     * @return $this
-     */
-    public function setEmailListUuid($email_list_uuid)
-    {
-        $this->container['email_list_uuid'] = $email_list_uuid;
-
-        return $this;
-    }
-
-    /**
      * Gets esp_list_segment_folder_uuid
      *
      * @return string
@@ -383,37 +245,13 @@ class EmailList implements ModelInterface, ArrayAccess
     /**
      * Sets esp_list_segment_folder_uuid
      *
-     * @param string $esp_list_segment_folder_uuid List/Segment folder UUID
+     * @param string $esp_list_segment_folder_uuid Email list segment folder UUID
      *
      * @return $this
      */
     public function setEspListSegmentFolderUuid($esp_list_segment_folder_uuid)
     {
         $this->container['esp_list_segment_folder_uuid'] = $esp_list_segment_folder_uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets member_count
-     *
-     * @return int
-     */
-    public function getMemberCount()
-    {
-        return $this->container['member_count'];
-    }
-
-    /**
-     * Sets member_count
-     *
-     * @param int $member_count Count of members in this list
-     *
-     * @return $this
-     */
-    public function setMemberCount($member_count)
-    {
-        $this->container['member_count'] = $member_count;
 
         return $this;
     }
@@ -455,65 +293,17 @@ class EmailList implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Name of email list
+     * @param string $name Name of email campaign folder
      *
      * @return $this
      */
     public function setName($name)
     {
         if (!is_null($name) && (mb_strlen($name) > 250)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling EmailList., must be smaller than or equal to 250.');
+            throw new \InvalidArgumentException('invalid length for $name when calling EmailListSegmentFolder., must be smaller than or equal to 250.');
         }
 
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets public_description
-     *
-     * @return string
-     */
-    public function getPublicDescription()
-    {
-        return $this->container['public_description'];
-    }
-
-    /**
-     * Sets public_description
-     *
-     * @param string $public_description Description of list shown to customer.
-     *
-     * @return $this
-     */
-    public function setPublicDescription($public_description)
-    {
-        $this->container['public_description'] = $public_description;
-
-        return $this;
-    }
-
-    /**
-     * Gets public_list
-     *
-     * @return bool
-     */
-    public function getPublicList()
-    {
-        return $this->container['public_list'];
-    }
-
-    /**
-     * Sets public_list
-     *
-     * @param bool $public_list True if this list is public
-     *
-     * @return $this
-     */
-    public function setPublicList($public_list)
-    {
-        $this->container['public_list'] = $public_list;
 
         return $this;
     }
@@ -543,25 +333,25 @@ class EmailList implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets used_by
+     * Gets system_generated
      *
-     * @return \ultracart\v2\models\EmailListSegmentUsedBy[]
+     * @return bool
      */
-    public function getUsedBy()
+    public function getSystemGenerated()
     {
-        return $this->container['used_by'];
+        return $this->container['system_generated'];
     }
 
     /**
-     * Sets used_by
+     * Sets system_generated
      *
-     * @param \ultracart\v2\models\EmailListSegmentUsedBy[] $used_by Details on the flows or campaigns that use this list.
+     * @param bool $system_generated System generated folder
      *
      * @return $this
      */
-    public function setUsedBy($used_by)
+    public function setSystemGenerated($system_generated)
     {
-        $this->container['used_by'] = $used_by;
+        $this->container['system_generated'] = $system_generated;
 
         return $this;
     }

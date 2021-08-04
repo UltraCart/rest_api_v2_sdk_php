@@ -64,7 +64,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateways_details' => 'string',
         'failed_attempts' => 'string',
         'hide_connect_single_gateway' => 'bool',
-        'immediate_finalize_domains' => 'string',
         'send_customer_billing_update_on_decline' => 'bool'
     ];
 
@@ -81,7 +80,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateways_details' => null,
         'failed_attempts' => null,
         'hide_connect_single_gateway' => null,
-        'immediate_finalize_domains' => null,
         'send_customer_billing_update_on_decline' => null
     ];
 
@@ -119,7 +117,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateways_details' => 'configuredGatewaysDetails',
         'failed_attempts' => 'failedAttempts',
         'hide_connect_single_gateway' => 'hideConnectSingleGateway',
-        'immediate_finalize_domains' => 'immediateFinalizeDomains',
         'send_customer_billing_update_on_decline' => 'sendCustomerBillingUpdateOnDecline'
     ];
 
@@ -136,7 +133,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateways_details' => 'setConfiguredGatewaysDetails',
         'failed_attempts' => 'setFailedAttempts',
         'hide_connect_single_gateway' => 'setHideConnectSingleGateway',
-        'immediate_finalize_domains' => 'setImmediateFinalizeDomains',
         'send_customer_billing_update_on_decline' => 'setSendCustomerBillingUpdateOnDecline'
     ];
 
@@ -153,7 +149,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateways_details' => 'getConfiguredGatewaysDetails',
         'failed_attempts' => 'getFailedAttempts',
         'hide_connect_single_gateway' => 'getHideConnectSingleGateway',
-        'immediate_finalize_domains' => 'getImmediateFinalizeDomains',
         'send_customer_billing_update_on_decline' => 'getSendCustomerBillingUpdateOnDecline'
     ];
 
@@ -224,7 +219,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         $this->container['configured_gateways_details'] = isset($data['configured_gateways_details']) ? $data['configured_gateways_details'] : null;
         $this->container['failed_attempts'] = isset($data['failed_attempts']) ? $data['failed_attempts'] : null;
         $this->container['hide_connect_single_gateway'] = isset($data['hide_connect_single_gateway']) ? $data['hide_connect_single_gateway'] : null;
-        $this->container['immediate_finalize_domains'] = isset($data['immediate_finalize_domains']) ? $data['immediate_finalize_domains'] : null;
         $this->container['send_customer_billing_update_on_decline'] = isset($data['send_customer_billing_update_on_decline']) ? $data['send_customer_billing_update_on_decline'] : null;
     }
 
@@ -416,30 +410,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     public function setHideConnectSingleGateway($hide_connect_single_gateway)
     {
         $this->container['hide_connect_single_gateway'] = $hide_connect_single_gateway;
-
-        return $this;
-    }
-
-    /**
-     * Gets immediate_finalize_domains
-     *
-     * @return string
-     */
-    public function getImmediateFinalizeDomains()
-    {
-        return $this->container['immediate_finalize_domains'];
-    }
-
-    /**
-     * Sets immediate_finalize_domains
-     *
-     * @param string $immediate_finalize_domains immediate_finalize_domains
-     *
-     * @return $this
-     */
-    public function setImmediateFinalizeDomains($immediate_finalize_domains)
-    {
-        $this->container['immediate_finalize_domains'] = $immediate_finalize_domains;
 
         return $this;
     }

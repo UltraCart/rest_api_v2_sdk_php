@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**deleteEmailEmail**](StorefrontApi.md#deleteEmailEmail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
 [**deleteEmailFlowFolder**](StorefrontApi.md#deleteEmailFlowFolder) | **DELETE** /storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid} | Delete email flowFolder
 [**deleteEmailListCustomer**](StorefrontApi.md#deleteEmailListCustomer) | **DELETE** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid} | Delete email list customer
+[**deleteEmailListSegmentFolder**](StorefrontApi.md#deleteEmailListSegmentFolder) | **DELETE** /storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid} | Delete email ListSegmentFolder
 [**deleteEmailPostcard**](StorefrontApi.md#deleteEmailPostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 [**deleteEmailSendingDomain**](StorefrontApi.md#deleteEmailSendingDomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 [**deleteExperiment**](StorefrontApi.md#deleteExperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
@@ -64,6 +65,8 @@ Method | HTTP request | Description
 [**getEmailList**](StorefrontApi.md#getEmailList) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Get email list
 [**getEmailListCustomerEditorUrl**](StorefrontApi.md#getEmailListCustomerEditorUrl) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers/{email_customer_uuid}/editor_url | Get email list customer editor url
 [**getEmailListCustomers**](StorefrontApi.md#getEmailListCustomers) | **GET** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/customers | Get email list customers
+[**getEmailListSegmentFolder**](StorefrontApi.md#getEmailListSegmentFolder) | **GET** /storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid} | Get email campaign folder
+[**getEmailListSegmentFolders**](StorefrontApi.md#getEmailListSegmentFolders) | **GET** /storefront/{storefront_oid}/email/list_segment_folders | Get email campaign folders
 [**getEmailLists**](StorefrontApi.md#getEmailLists) | **GET** /storefront/{storefront_oid}/email/lists | Get email lists
 [**getEmailPerformance**](StorefrontApi.md#getEmailPerformance) | **GET** /storefront/{storefront_oid}/email/performance | Get email performance
 [**getEmailPlan**](StorefrontApi.md#getEmailPlan) | **GET** /storefront/{storefront_oid}/email/plan | Get email plan
@@ -111,6 +114,7 @@ Method | HTTP request | Description
 [**insertEmailFlow**](StorefrontApi.md#insertEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows | Insert email flow
 [**insertEmailFlowFolder**](StorefrontApi.md#insertEmailFlowFolder) | **POST** /storefront/{storefront_oid}/email/flow_folders | Insert email flow folder
 [**insertEmailList**](StorefrontApi.md#insertEmailList) | **POST** /storefront/{storefront_oid}/email/lists | Insert email list
+[**insertEmailListSegmentFolder**](StorefrontApi.md#insertEmailListSegmentFolder) | **POST** /storefront/{storefront_oid}/email/list_segment_folders | Insert email campaign folder
 [**insertEmailPostcard**](StorefrontApi.md#insertEmailPostcard) | **POST** /storefront/{storefront_oid}/email/postcards | Insert email postcard
 [**insertEmailSegment**](StorefrontApi.md#insertEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments | Insert email segment
 [**insertScreenRecordingSegment**](StorefrontApi.md#insertScreenRecordingSegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments | Insert screen recording segment
@@ -141,6 +145,7 @@ Method | HTTP request | Description
 [**updateEmailFlowFolder**](StorefrontApi.md#updateEmailFlowFolder) | **PUT** /storefront/{storefront_oid}/email/flow_folders/{email_flow_folder_uuid} | Update email flow folder
 [**updateEmailGlobalSettings**](StorefrontApi.md#updateEmailGlobalSettings) | **POST** /storefront/email/global_settings | Update email global settings
 [**updateEmailList**](StorefrontApi.md#updateEmailList) | **PUT** /storefront/{storefront_oid}/email/lists/{email_list_uuid} | Update email list
+[**updateEmailListSegmentFolder**](StorefrontApi.md#updateEmailListSegmentFolder) | **PUT** /storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid} | Update email campaign folder
 [**updateEmailPlan**](StorefrontApi.md#updateEmailPlan) | **POST** /storefront/{storefront_oid}/email/plan | Update email plan
 [**updateEmailPostcard**](StorefrontApi.md#updateEmailPostcard) | **PUT** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Update email postcard
 [**updateEmailSegment**](StorefrontApi.md#updateEmailSegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
@@ -813,6 +818,54 @@ Name | Type | Description  | Notes
  **storefront_oid** | **int**|  |
  **email_list_uuid** | **string**|  |
  **email_customer_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deleteEmailListSegmentFolder**
+> \ultracart\v2\models\BaseResponse deleteEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid)
+
+Delete email ListSegmentFolder
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+$email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example"; // string | 
+
+try {
+    $result = $apiInstance->deleteEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->deleteEmailListSegmentFolder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_list_segment_folder_uuid** | **string**|  |
 
 ### Return type
 
@@ -3029,6 +3082,100 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\EmailListCustomersResponse**](../Model/EmailListCustomersResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getEmailListSegmentFolder**
+> \ultracart\v2\models\EmailListSegmentFolderResponse getEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid)
+
+Get email campaign folder
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+$email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example"; // string | 
+
+try {
+    $result = $apiInstance->getEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getEmailListSegmentFolder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_list_segment_folder_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\EmailListSegmentFolderResponse**](../Model/EmailListSegmentFolderResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getEmailListSegmentFolders**
+> \ultracart\v2\models\EmailListSegmentFoldersResponse getEmailListSegmentFolders($storefront_oid)
+
+Get email campaign folders
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+
+try {
+    $result = $apiInstance->getEmailListSegmentFolders($storefront_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getEmailListSegmentFolders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+
+### Return type
+
+[**\ultracart\v2\models\EmailListSegmentFoldersResponse**](../Model/EmailListSegmentFoldersResponse.md)
 
 ### Authorization
 
@@ -5302,6 +5449,54 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **insertEmailListSegmentFolder**
+> \ultracart\v2\models\EmailListSegmentFolderResponse insertEmailListSegmentFolder($storefront_oid, $email_list_segment_folder)
+
+Insert email campaign folder
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+$email_list_segment_folder = new \ultracart\v2\models\EmailListSegmentFolder(); // \ultracart\v2\models\EmailListSegmentFolder | Email campaign folder
+
+try {
+    $result = $apiInstance->insertEmailListSegmentFolder($storefront_oid, $email_list_segment_folder);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->insertEmailListSegmentFolder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_list_segment_folder** | [**\ultracart\v2\models\EmailListSegmentFolder**](../Model/EmailListSegmentFolder.md)| Email campaign folder |
+
+### Return type
+
+[**\ultracart\v2\models\EmailListSegmentFolderResponse**](../Model/EmailListSegmentFolderResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **insertEmailPostcard**
 > \ultracart\v2\models\EmailCommseqPostcardResponse insertEmailPostcard($storefront_oid, $email_commseq_postcard)
 
@@ -6785,6 +6980,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\EmailListResponse**](../Model/EmailListResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateEmailListSegmentFolder**
+> \ultracart\v2\models\EmailListSegmentFolderResponse updateEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder)
+
+Update email campaign folder
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\StorefrontApi::usingApiKey($simple_key);
+
+$storefront_oid = 56; // int | 
+$email_list_segment_folder_uuid = "email_list_segment_folder_uuid_example"; // string | 
+$email_list_segment_folder = new \ultracart\v2\models\EmailListSegmentFolder(); // \ultracart\v2\models\EmailListSegmentFolder | Email campaign folder
+
+try {
+    $result = $apiInstance->updateEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->updateEmailListSegmentFolder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **email_list_segment_folder_uuid** | **string**|  |
+ **email_list_segment_folder** | [**\ultracart\v2\models\EmailListSegmentFolder**](../Model/EmailListSegmentFolder.md)| Email campaign folder |
+
+### Return type
+
+[**\ultracart\v2\models\EmailListSegmentFolderResponse**](../Model/EmailListSegmentFolderResponse.md)
 
 ### Authorization
 

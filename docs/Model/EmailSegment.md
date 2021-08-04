@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **created_dts** | **string** | Created date | [optional] 
 **deleted** | **bool** | True if this campaign was deleted | [optional] 
 **email_segment_uuid** | **string** | Email segment UUID | [optional] 
+**esp_list_segment_folder_uuid** | **string** | List/Segment folder UUID | [optional] 
 **facebook_custom_audience** | **bool** | True if you want to sync to a facebook custom audience | [optional] 
 **filter_profile_equation_json** | **string** | File profile equation json | [optional] 
 **member_count** | **int** | Count of members in this segment | [optional] 

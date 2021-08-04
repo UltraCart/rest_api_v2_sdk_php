@@ -5156,6 +5156,369 @@ class StorefrontApi
     }
 
     /**
+     * Operation deleteEmailListSegmentFolder
+     *
+     * Delete email ListSegmentFolder
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid email_list_segment_folder_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\BaseResponse
+     */
+    public function deleteEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        list($response) = $this->deleteEmailListSegmentFolderWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation deleteEmailListSegmentFolderWithHttpInfo
+     *
+     * Delete email ListSegmentFolder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteEmailListSegmentFolderWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        return $this->deleteEmailListSegmentFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_segment_folder_uuid);
+    }
+
+
+    /**
+     * Operation deleteEmailListSegmentFolderWithHttpInfoRetry
+     *
+     * Delete email ListSegmentFolder
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteEmailListSegmentFolderWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_segment_folder_uuid)
+    {
+        $returnType = '\ultracart\v2\models\BaseResponse';
+        $request = $this->deleteEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->deleteEmailListSegmentFolderWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_segment_folder_uuid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\BaseResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteEmailListSegmentFolderAsync
+     *
+     * Delete email ListSegmentFolder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteEmailListSegmentFolderAsync($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        return $this->deleteEmailListSegmentFolderAsyncWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteEmailListSegmentFolderAsyncWithHttpInfo
+     *
+     * Delete email ListSegmentFolder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteEmailListSegmentFolderAsyncWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        $returnType = '\ultracart\v2\models\BaseResponse';
+        $request = $this->deleteEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteEmailListSegmentFolder'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling deleteEmailListSegmentFolder'
+            );
+        }
+        // verify the required parameter 'email_list_segment_folder_uuid' is set
+        if ($email_list_segment_folder_uuid === null || (is_array($email_list_segment_folder_uuid) && count($email_list_segment_folder_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_list_segment_folder_uuid when calling deleteEmailListSegmentFolder'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_list_segment_folder_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'email_list_segment_folder_uuid' . '}',
+                ObjectSerializer::toPathValue($email_list_segment_folder_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteEmailPostcard
      *
      * Delete email postcard
@@ -21447,6 +21810,712 @@ class StorefrontApi
             $resourcePath = str_replace(
                 '{' . 'email_list_uuid' . '}',
                 ObjectSerializer::toPathValue($email_list_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getEmailListSegmentFolder
+     *
+     * Get email campaign folder
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid email_list_segment_folder_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailListSegmentFolderResponse
+     */
+    public function getEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        list($response) = $this->getEmailListSegmentFolderWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailListSegmentFolderWithHttpInfo
+     *
+     * Get email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSegmentFolderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailListSegmentFolderWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        return $this->getEmailListSegmentFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_segment_folder_uuid);
+    }
+
+
+    /**
+     * Operation getEmailListSegmentFolderWithHttpInfoRetry
+     *
+     * Get email campaign folder
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSegmentFolderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailListSegmentFolderWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_segment_folder_uuid)
+    {
+        $returnType = '\ultracart\v2\models\EmailListSegmentFolderResponse';
+        $request = $this->getEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailListSegmentFolderWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_segment_folder_uuid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailListSegmentFolderResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEmailListSegmentFolderAsync
+     *
+     * Get email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailListSegmentFolderAsync($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        return $this->getEmailListSegmentFolderAsyncWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEmailListSegmentFolderAsyncWithHttpInfo
+     *
+     * Get email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailListSegmentFolderAsyncWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        $returnType = '\ultracart\v2\models\EmailListSegmentFolderResponse';
+        $request = $this->getEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEmailListSegmentFolder'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getEmailListSegmentFolder'
+            );
+        }
+        // verify the required parameter 'email_list_segment_folder_uuid' is set
+        if ($email_list_segment_folder_uuid === null || (is_array($email_list_segment_folder_uuid) && count($email_list_segment_folder_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_list_segment_folder_uuid when calling getEmailListSegmentFolder'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_list_segment_folder_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'email_list_segment_folder_uuid' . '}',
+                ObjectSerializer::toPathValue($email_list_segment_folder_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getEmailListSegmentFolders
+     *
+     * Get email campaign folders
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailListSegmentFoldersResponse
+     */
+    public function getEmailListSegmentFolders($storefront_oid)
+    {
+        list($response) = $this->getEmailListSegmentFoldersWithHttpInfo($storefront_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getEmailListSegmentFoldersWithHttpInfo
+     *
+     * Get email campaign folders
+     *
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSegmentFoldersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailListSegmentFoldersWithHttpInfo($storefront_oid)
+    {
+        return $this->getEmailListSegmentFoldersWithHttpInfoRetry(true ,   $storefront_oid);
+    }
+
+
+    /**
+     * Operation getEmailListSegmentFoldersWithHttpInfoRetry
+     *
+     * Get email campaign folders
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSegmentFoldersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getEmailListSegmentFoldersWithHttpInfoRetry($retry ,  $storefront_oid)
+    {
+        $returnType = '\ultracart\v2\models\EmailListSegmentFoldersResponse';
+        $request = $this->getEmailListSegmentFoldersRequest($storefront_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getEmailListSegmentFoldersWithHttpInfoRetry(false ,   $storefront_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailListSegmentFoldersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getEmailListSegmentFoldersAsync
+     *
+     * Get email campaign folders
+     *
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailListSegmentFoldersAsync($storefront_oid)
+    {
+        return $this->getEmailListSegmentFoldersAsyncWithHttpInfo($storefront_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getEmailListSegmentFoldersAsyncWithHttpInfo
+     *
+     * Get email campaign folders
+     *
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getEmailListSegmentFoldersAsyncWithHttpInfo($storefront_oid)
+    {
+        $returnType = '\ultracart\v2\models\EmailListSegmentFoldersResponse';
+        $request = $this->getEmailListSegmentFoldersRequest($storefront_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getEmailListSegmentFolders'
+     *
+     * @param  int $storefront_oid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getEmailListSegmentFoldersRequest($storefront_oid)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling getEmailListSegmentFolders'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/list_segment_folders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
                 $resourcePath
             );
         }
@@ -38141,6 +39210,364 @@ class StorefrontApi
     }
 
     /**
+     * Operation insertEmailListSegmentFolder
+     *
+     * Insert email campaign folder
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailListSegmentFolderResponse
+     */
+    public function insertEmailListSegmentFolder($storefront_oid, $email_list_segment_folder)
+    {
+        list($response) = $this->insertEmailListSegmentFolderWithHttpInfo($storefront_oid, $email_list_segment_folder);
+        return $response;
+    }
+
+
+    /**
+     * Operation insertEmailListSegmentFolderWithHttpInfo
+     *
+     * Insert email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSegmentFolderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailListSegmentFolderWithHttpInfo($storefront_oid, $email_list_segment_folder)
+    {
+        return $this->insertEmailListSegmentFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_segment_folder);
+    }
+
+
+    /**
+     * Operation insertEmailListSegmentFolderWithHttpInfoRetry
+     *
+     * Insert email campaign folder
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSegmentFolderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function insertEmailListSegmentFolderWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_segment_folder)
+    {
+        $returnType = '\ultracart\v2\models\EmailListSegmentFolderResponse';
+        $request = $this->insertEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->insertEmailListSegmentFolderWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_segment_folder);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailListSegmentFolderResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation insertEmailListSegmentFolderAsync
+     *
+     * Insert email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertEmailListSegmentFolderAsync($storefront_oid, $email_list_segment_folder)
+    {
+        return $this->insertEmailListSegmentFolderAsyncWithHttpInfo($storefront_oid, $email_list_segment_folder)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation insertEmailListSegmentFolderAsyncWithHttpInfo
+     *
+     * Insert email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function insertEmailListSegmentFolderAsyncWithHttpInfo($storefront_oid, $email_list_segment_folder)
+    {
+        $returnType = '\ultracart\v2\models\EmailListSegmentFolderResponse';
+        $request = $this->insertEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'insertEmailListSegmentFolder'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function insertEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling insertEmailListSegmentFolder'
+            );
+        }
+        // verify the required parameter 'email_list_segment_folder' is set
+        if ($email_list_segment_folder === null || (is_array($email_list_segment_folder) && count($email_list_segment_folder) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_list_segment_folder when calling insertEmailListSegmentFolder'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/list_segment_folders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($email_list_segment_folder)) {
+            $_tempBody = $email_list_segment_folder;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation insertEmailPostcard
      *
      * Insert email postcard
@@ -48980,6 +50407,384 @@ class StorefrontApi
         $_tempBody = null;
         if (isset($email_list)) {
             $_tempBody = $email_list;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateEmailListSegmentFolder
+     *
+     * Update email campaign folder
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid email_list_segment_folder_uuid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailListSegmentFolderResponse
+     */
+    public function updateEmailListSegmentFolder($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder)
+    {
+        list($response) = $this->updateEmailListSegmentFolderWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder);
+        return $response;
+    }
+
+
+    /**
+     * Operation updateEmailListSegmentFolderWithHttpInfo
+     *
+     * Update email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSegmentFolderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailListSegmentFolderWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder)
+    {
+        return $this->updateEmailListSegmentFolderWithHttpInfoRetry(true ,   $storefront_oid,   $email_list_segment_folder_uuid,   $email_list_segment_folder);
+    }
+
+
+    /**
+     * Operation updateEmailListSegmentFolderWithHttpInfoRetry
+     *
+     * Update email campaign folder
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailListSegmentFolderResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateEmailListSegmentFolderWithHttpInfoRetry($retry ,  $storefront_oid,  $email_list_segment_folder_uuid,  $email_list_segment_folder)
+    {
+        $returnType = '\ultracart\v2\models\EmailListSegmentFolderResponse';
+        $request = $this->updateEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->updateEmailListSegmentFolderWithHttpInfoRetry(false ,   $storefront_oid,   $email_list_segment_folder_uuid,   $email_list_segment_folder);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailListSegmentFolderResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateEmailListSegmentFolderAsync
+     *
+     * Update email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateEmailListSegmentFolderAsync($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder)
+    {
+        return $this->updateEmailListSegmentFolderAsyncWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateEmailListSegmentFolderAsyncWithHttpInfo
+     *
+     * Update email campaign folder
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateEmailListSegmentFolderAsyncWithHttpInfo($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder)
+    {
+        $returnType = '\ultracart\v2\models\EmailListSegmentFolderResponse';
+        $request = $this->updateEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateEmailListSegmentFolder'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $email_list_segment_folder_uuid (required)
+     * @param  \ultracart\v2\models\EmailListSegmentFolder $email_list_segment_folder Email campaign folder (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateEmailListSegmentFolderRequest($storefront_oid, $email_list_segment_folder_uuid, $email_list_segment_folder)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling updateEmailListSegmentFolder'
+            );
+        }
+        // verify the required parameter 'email_list_segment_folder_uuid' is set
+        if ($email_list_segment_folder_uuid === null || (is_array($email_list_segment_folder_uuid) && count($email_list_segment_folder_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_list_segment_folder_uuid when calling updateEmailListSegmentFolder'
+            );
+        }
+        // verify the required parameter 'email_list_segment_folder' is set
+        if ($email_list_segment_folder === null || (is_array($email_list_segment_folder) && count($email_list_segment_folder) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_list_segment_folder when calling updateEmailListSegmentFolder'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/list_segment_folders/{email_list_segment_folder_uuid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($email_list_segment_folder_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'email_list_segment_folder_uuid' . '}',
+                ObjectSerializer::toPathValue($email_list_segment_folder_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($email_list_segment_folder)) {
+            $_tempBody = $email_list_segment_folder;
         }
 
         if ($multipart) {
