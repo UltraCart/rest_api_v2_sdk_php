@@ -58,16 +58,16 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_wire_transfer' => 'bool',
+        'account_number' => 'string',
+        'accounting_code' => 'string',
+        'bank_address' => 'string',
+        'deposit_to_account' => 'string',
+        'intermediate_routing_number' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
-        'wire_transfer_accounting_code' => 'string',
-        'wire_transfer_account_number' => 'string',
-        'wire_transfer_bank_address' => 'string',
-        'wire_transfer_deposit_to_account' => 'string',
-        'wire_transfer_intermediate_routing_number' => 'string',
-        'wire_transfer_routing_number' => 'string',
-        'wire_transfer_surcharge_accounting_code' => 'string',
-        'wire_transfer_surcharge_fee' => 'string',
-        'wire_transfer_surcharge_perc' => 'string'
+        'routing_number' => 'string',
+        'surcharge_accounting_code' => 'string',
+        'surcharge_fee' => 'string',
+        'surcharge_percentage' => 'string'
     ];
 
     /**
@@ -77,16 +77,16 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_wire_transfer' => null,
+        'account_number' => null,
+        'accounting_code' => null,
+        'bank_address' => null,
+        'deposit_to_account' => null,
+        'intermediate_routing_number' => null,
         'restrictions' => null,
-        'wire_transfer_accounting_code' => null,
-        'wire_transfer_account_number' => null,
-        'wire_transfer_bank_address' => null,
-        'wire_transfer_deposit_to_account' => null,
-        'wire_transfer_intermediate_routing_number' => null,
-        'wire_transfer_routing_number' => null,
-        'wire_transfer_surcharge_accounting_code' => null,
-        'wire_transfer_surcharge_fee' => null,
-        'wire_transfer_surcharge_perc' => null
+        'routing_number' => null,
+        'surcharge_accounting_code' => null,
+        'surcharge_fee' => null,
+        'surcharge_percentage' => null
     ];
 
     /**
@@ -116,17 +116,17 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_wire_transfer' => 'acceptWireTransfer',
+        'accept_wire_transfer' => 'accept_wire_transfer',
+        'account_number' => 'account_number',
+        'accounting_code' => 'accounting_code',
+        'bank_address' => 'bank_address',
+        'deposit_to_account' => 'deposit_to_account',
+        'intermediate_routing_number' => 'intermediate_routing_number',
         'restrictions' => 'restrictions',
-        'wire_transfer_accounting_code' => 'wireTransferAccountingCode',
-        'wire_transfer_account_number' => 'wireTransferAccountNumber',
-        'wire_transfer_bank_address' => 'wireTransferBankAddress',
-        'wire_transfer_deposit_to_account' => 'wireTransferDepositToAccount',
-        'wire_transfer_intermediate_routing_number' => 'wireTransferIntermediateRoutingNumber',
-        'wire_transfer_routing_number' => 'wireTransferRoutingNumber',
-        'wire_transfer_surcharge_accounting_code' => 'wireTransferSurchargeAccountingCode',
-        'wire_transfer_surcharge_fee' => 'wireTransferSurchargeFee',
-        'wire_transfer_surcharge_perc' => 'wireTransferSurchargePerc'
+        'routing_number' => 'routing_number',
+        'surcharge_accounting_code' => 'surcharge_accounting_code',
+        'surcharge_fee' => 'surcharge_fee',
+        'surcharge_percentage' => 'surcharge_percentage'
     ];
 
     /**
@@ -136,16 +136,16 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_wire_transfer' => 'setAcceptWireTransfer',
+        'account_number' => 'setAccountNumber',
+        'accounting_code' => 'setAccountingCode',
+        'bank_address' => 'setBankAddress',
+        'deposit_to_account' => 'setDepositToAccount',
+        'intermediate_routing_number' => 'setIntermediateRoutingNumber',
         'restrictions' => 'setRestrictions',
-        'wire_transfer_accounting_code' => 'setWireTransferAccountingCode',
-        'wire_transfer_account_number' => 'setWireTransferAccountNumber',
-        'wire_transfer_bank_address' => 'setWireTransferBankAddress',
-        'wire_transfer_deposit_to_account' => 'setWireTransferDepositToAccount',
-        'wire_transfer_intermediate_routing_number' => 'setWireTransferIntermediateRoutingNumber',
-        'wire_transfer_routing_number' => 'setWireTransferRoutingNumber',
-        'wire_transfer_surcharge_accounting_code' => 'setWireTransferSurchargeAccountingCode',
-        'wire_transfer_surcharge_fee' => 'setWireTransferSurchargeFee',
-        'wire_transfer_surcharge_perc' => 'setWireTransferSurchargePerc'
+        'routing_number' => 'setRoutingNumber',
+        'surcharge_accounting_code' => 'setSurchargeAccountingCode',
+        'surcharge_fee' => 'setSurchargeFee',
+        'surcharge_percentage' => 'setSurchargePercentage'
     ];
 
     /**
@@ -155,16 +155,16 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_wire_transfer' => 'getAcceptWireTransfer',
+        'account_number' => 'getAccountNumber',
+        'accounting_code' => 'getAccountingCode',
+        'bank_address' => 'getBankAddress',
+        'deposit_to_account' => 'getDepositToAccount',
+        'intermediate_routing_number' => 'getIntermediateRoutingNumber',
         'restrictions' => 'getRestrictions',
-        'wire_transfer_accounting_code' => 'getWireTransferAccountingCode',
-        'wire_transfer_account_number' => 'getWireTransferAccountNumber',
-        'wire_transfer_bank_address' => 'getWireTransferBankAddress',
-        'wire_transfer_deposit_to_account' => 'getWireTransferDepositToAccount',
-        'wire_transfer_intermediate_routing_number' => 'getWireTransferIntermediateRoutingNumber',
-        'wire_transfer_routing_number' => 'getWireTransferRoutingNumber',
-        'wire_transfer_surcharge_accounting_code' => 'getWireTransferSurchargeAccountingCode',
-        'wire_transfer_surcharge_fee' => 'getWireTransferSurchargeFee',
-        'wire_transfer_surcharge_perc' => 'getWireTransferSurchargePerc'
+        'routing_number' => 'getRoutingNumber',
+        'surcharge_accounting_code' => 'getSurchargeAccountingCode',
+        'surcharge_fee' => 'getSurchargeFee',
+        'surcharge_percentage' => 'getSurchargePercentage'
     ];
 
     /**
@@ -228,16 +228,16 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_wire_transfer'] = isset($data['accept_wire_transfer']) ? $data['accept_wire_transfer'] : null;
+        $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
+        $this->container['bank_address'] = isset($data['bank_address']) ? $data['bank_address'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
+        $this->container['intermediate_routing_number'] = isset($data['intermediate_routing_number']) ? $data['intermediate_routing_number'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
-        $this->container['wire_transfer_accounting_code'] = isset($data['wire_transfer_accounting_code']) ? $data['wire_transfer_accounting_code'] : null;
-        $this->container['wire_transfer_account_number'] = isset($data['wire_transfer_account_number']) ? $data['wire_transfer_account_number'] : null;
-        $this->container['wire_transfer_bank_address'] = isset($data['wire_transfer_bank_address']) ? $data['wire_transfer_bank_address'] : null;
-        $this->container['wire_transfer_deposit_to_account'] = isset($data['wire_transfer_deposit_to_account']) ? $data['wire_transfer_deposit_to_account'] : null;
-        $this->container['wire_transfer_intermediate_routing_number'] = isset($data['wire_transfer_intermediate_routing_number']) ? $data['wire_transfer_intermediate_routing_number'] : null;
-        $this->container['wire_transfer_routing_number'] = isset($data['wire_transfer_routing_number']) ? $data['wire_transfer_routing_number'] : null;
-        $this->container['wire_transfer_surcharge_accounting_code'] = isset($data['wire_transfer_surcharge_accounting_code']) ? $data['wire_transfer_surcharge_accounting_code'] : null;
-        $this->container['wire_transfer_surcharge_fee'] = isset($data['wire_transfer_surcharge_fee']) ? $data['wire_transfer_surcharge_fee'] : null;
-        $this->container['wire_transfer_surcharge_perc'] = isset($data['wire_transfer_surcharge_perc']) ? $data['wire_transfer_surcharge_perc'] : null;
+        $this->container['routing_number'] = isset($data['routing_number']) ? $data['routing_number'] : null;
+        $this->container['surcharge_accounting_code'] = isset($data['surcharge_accounting_code']) ? $data['surcharge_accounting_code'] : null;
+        $this->container['surcharge_fee'] = isset($data['surcharge_fee']) ? $data['surcharge_fee'] : null;
+        $this->container['surcharge_percentage'] = isset($data['surcharge_percentage']) ? $data['surcharge_percentage'] : null;
     }
 
     /**
@@ -277,13 +277,133 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets accept_wire_transfer
      *
-     * @param bool $accept_wire_transfer accept_wire_transfer
+     * @param bool $accept_wire_transfer Master flag indicating this merchant accepts wire transfers
      *
      * @return $this
      */
     public function setAcceptWireTransfer($accept_wire_transfer)
     {
         $this->container['accept_wire_transfer'] = $accept_wire_transfer;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_number
+     *
+     * @return string
+     */
+    public function getAccountNumber()
+    {
+        return $this->container['account_number'];
+    }
+
+    /**
+     * Sets account_number
+     *
+     * @param string $account_number account_number
+     *
+     * @return $this
+     */
+    public function setAccountNumber($account_number)
+    {
+        $this->container['account_number'] = $account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets accounting_code
+     *
+     * @return string
+     */
+    public function getAccountingCode()
+    {
+        return $this->container['accounting_code'];
+    }
+
+    /**
+     * Sets accounting_code
+     *
+     * @param string $accounting_code Optional Quickbooks accounting code
+     *
+     * @return $this
+     */
+    public function setAccountingCode($accounting_code)
+    {
+        $this->container['accounting_code'] = $accounting_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets bank_address
+     *
+     * @return string
+     */
+    public function getBankAddress()
+    {
+        return $this->container['bank_address'];
+    }
+
+    /**
+     * Sets bank_address
+     *
+     * @param string $bank_address Bank address
+     *
+     * @return $this
+     */
+    public function setBankAddress($bank_address)
+    {
+        $this->container['bank_address'] = $bank_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets deposit_to_account
+     *
+     * @return string
+     */
+    public function getDepositToAccount()
+    {
+        return $this->container['deposit_to_account'];
+    }
+
+    /**
+     * Sets deposit_to_account
+     *
+     * @param string $deposit_to_account Optional Quickbooks deposit to account
+     *
+     * @return $this
+     */
+    public function setDepositToAccount($deposit_to_account)
+    {
+        $this->container['deposit_to_account'] = $deposit_to_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets intermediate_routing_number
+     *
+     * @return string
+     */
+    public function getIntermediateRoutingNumber()
+    {
+        return $this->container['intermediate_routing_number'];
+    }
+
+    /**
+     * Sets intermediate_routing_number
+     *
+     * @param string $intermediate_routing_number Intermediate routing number
+     *
+     * @return $this
+     */
+    public function setIntermediateRoutingNumber($intermediate_routing_number)
+    {
+        $this->container['intermediate_routing_number'] = $intermediate_routing_number;
 
         return $this;
     }
@@ -313,217 +433,97 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets wire_transfer_accounting_code
+     * Gets routing_number
      *
      * @return string
      */
-    public function getWireTransferAccountingCode()
+    public function getRoutingNumber()
     {
-        return $this->container['wire_transfer_accounting_code'];
+        return $this->container['routing_number'];
     }
 
     /**
-     * Sets wire_transfer_accounting_code
+     * Sets routing_number
      *
-     * @param string $wire_transfer_accounting_code wire_transfer_accounting_code
+     * @param string $routing_number Routing number
      *
      * @return $this
      */
-    public function setWireTransferAccountingCode($wire_transfer_accounting_code)
+    public function setRoutingNumber($routing_number)
     {
-        $this->container['wire_transfer_accounting_code'] = $wire_transfer_accounting_code;
+        $this->container['routing_number'] = $routing_number;
 
         return $this;
     }
 
     /**
-     * Gets wire_transfer_account_number
+     * Gets surcharge_accounting_code
      *
      * @return string
      */
-    public function getWireTransferAccountNumber()
+    public function getSurchargeAccountingCode()
     {
-        return $this->container['wire_transfer_account_number'];
+        return $this->container['surcharge_accounting_code'];
     }
 
     /**
-     * Sets wire_transfer_account_number
+     * Sets surcharge_accounting_code
      *
-     * @param string $wire_transfer_account_number wire_transfer_account_number
+     * @param string $surcharge_accounting_code If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount
      *
      * @return $this
      */
-    public function setWireTransferAccountNumber($wire_transfer_account_number)
+    public function setSurchargeAccountingCode($surcharge_accounting_code)
     {
-        $this->container['wire_transfer_account_number'] = $wire_transfer_account_number;
+        $this->container['surcharge_accounting_code'] = $surcharge_accounting_code;
 
         return $this;
     }
 
     /**
-     * Gets wire_transfer_bank_address
+     * Gets surcharge_fee
      *
      * @return string
      */
-    public function getWireTransferBankAddress()
+    public function getSurchargeFee()
     {
-        return $this->container['wire_transfer_bank_address'];
+        return $this->container['surcharge_fee'];
     }
 
     /**
-     * Sets wire_transfer_bank_address
+     * Sets surcharge_fee
      *
-     * @param string $wire_transfer_bank_address wire_transfer_bank_address
+     * @param string $surcharge_fee surcharge_fee
      *
      * @return $this
      */
-    public function setWireTransferBankAddress($wire_transfer_bank_address)
+    public function setSurchargeFee($surcharge_fee)
     {
-        $this->container['wire_transfer_bank_address'] = $wire_transfer_bank_address;
+        $this->container['surcharge_fee'] = $surcharge_fee;
 
         return $this;
     }
 
     /**
-     * Gets wire_transfer_deposit_to_account
+     * Gets surcharge_percentage
      *
      * @return string
      */
-    public function getWireTransferDepositToAccount()
+    public function getSurchargePercentage()
     {
-        return $this->container['wire_transfer_deposit_to_account'];
+        return $this->container['surcharge_percentage'];
     }
 
     /**
-     * Sets wire_transfer_deposit_to_account
+     * Sets surcharge_percentage
      *
-     * @param string $wire_transfer_deposit_to_account wire_transfer_deposit_to_account
+     * @param string $surcharge_percentage surcharge_percentage
      *
      * @return $this
      */
-    public function setWireTransferDepositToAccount($wire_transfer_deposit_to_account)
+    public function setSurchargePercentage($surcharge_percentage)
     {
-        $this->container['wire_transfer_deposit_to_account'] = $wire_transfer_deposit_to_account;
-
-        return $this;
-    }
-
-    /**
-     * Gets wire_transfer_intermediate_routing_number
-     *
-     * @return string
-     */
-    public function getWireTransferIntermediateRoutingNumber()
-    {
-        return $this->container['wire_transfer_intermediate_routing_number'];
-    }
-
-    /**
-     * Sets wire_transfer_intermediate_routing_number
-     *
-     * @param string $wire_transfer_intermediate_routing_number wire_transfer_intermediate_routing_number
-     *
-     * @return $this
-     */
-    public function setWireTransferIntermediateRoutingNumber($wire_transfer_intermediate_routing_number)
-    {
-        $this->container['wire_transfer_intermediate_routing_number'] = $wire_transfer_intermediate_routing_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets wire_transfer_routing_number
-     *
-     * @return string
-     */
-    public function getWireTransferRoutingNumber()
-    {
-        return $this->container['wire_transfer_routing_number'];
-    }
-
-    /**
-     * Sets wire_transfer_routing_number
-     *
-     * @param string $wire_transfer_routing_number wire_transfer_routing_number
-     *
-     * @return $this
-     */
-    public function setWireTransferRoutingNumber($wire_transfer_routing_number)
-    {
-        $this->container['wire_transfer_routing_number'] = $wire_transfer_routing_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets wire_transfer_surcharge_accounting_code
-     *
-     * @return string
-     */
-    public function getWireTransferSurchargeAccountingCode()
-    {
-        return $this->container['wire_transfer_surcharge_accounting_code'];
-    }
-
-    /**
-     * Sets wire_transfer_surcharge_accounting_code
-     *
-     * @param string $wire_transfer_surcharge_accounting_code wire_transfer_surcharge_accounting_code
-     *
-     * @return $this
-     */
-    public function setWireTransferSurchargeAccountingCode($wire_transfer_surcharge_accounting_code)
-    {
-        $this->container['wire_transfer_surcharge_accounting_code'] = $wire_transfer_surcharge_accounting_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets wire_transfer_surcharge_fee
-     *
-     * @return string
-     */
-    public function getWireTransferSurchargeFee()
-    {
-        return $this->container['wire_transfer_surcharge_fee'];
-    }
-
-    /**
-     * Sets wire_transfer_surcharge_fee
-     *
-     * @param string $wire_transfer_surcharge_fee wire_transfer_surcharge_fee
-     *
-     * @return $this
-     */
-    public function setWireTransferSurchargeFee($wire_transfer_surcharge_fee)
-    {
-        $this->container['wire_transfer_surcharge_fee'] = $wire_transfer_surcharge_fee;
-
-        return $this;
-    }
-
-    /**
-     * Gets wire_transfer_surcharge_perc
-     *
-     * @return string
-     */
-    public function getWireTransferSurchargePerc()
-    {
-        return $this->container['wire_transfer_surcharge_perc'];
-    }
-
-    /**
-     * Sets wire_transfer_surcharge_perc
-     *
-     * @param string $wire_transfer_surcharge_perc wire_transfer_surcharge_perc
-     *
-     * @return $this
-     */
-    public function setWireTransferSurchargePerc($wire_transfer_surcharge_perc)
-    {
-        $this->container['wire_transfer_surcharge_perc'] = $wire_transfer_surcharge_perc;
+        $this->container['surcharge_percentage'] = $surcharge_percentage;
 
         return $this;
     }

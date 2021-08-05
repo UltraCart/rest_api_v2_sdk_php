@@ -57,35 +57,35 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accept_pay_pal' => 'bool',
-        'paypal_accounting_code' => 'string',
-        'paypal_api_password' => 'string',
-        'paypal_api_user_name' => 'string',
-        'paypal_certificate_on_file' => 'bool',
-        'paypal_deposit_to_account' => 'string',
-        'paypal_email' => 'string',
-        'paypal_environment' => 'string',
-        'paypal_header_image_url' => 'string',
-        'paypal_hide_bill_me_later' => 'bool',
-        'paypal_hide_express_checkout_on_view_cart' => 'bool',
-        'paypal_hide_for_unshipped_orders' => 'bool',
-        'paypal_hold_in_ar' => 'bool',
-        'paypal_landing_page' => 'string',
-        'paypal_mode' => 'string',
-        'paypal_private_key_password' => 'string',
-        'paypal_processing_fee' => 'string',
-        'paypal_processing_perc' => 'string',
-        'paypal_send_recurring' => 'string',
-        'paypal_show_card_logos_not_directly_supported' => 'bool',
-        'paypal_show_signature' => 'bool',
-        'paypal_signature' => 'string',
-        'paypal_solution_type' => 'string',
-        'paypal_summary_email' => 'string',
-        'paypal_summary_mode' => 'string',
-        'paypal_zero_dollar_penny' => 'bool',
-        'push_pay_pal' => 'bool',
+        'accept_paypal' => 'bool',
+        'accounting_code' => 'string',
+        'api_password' => 'string',
+        'api_username' => 'string',
+        'certificate_on_file' => 'bool',
+        'deposit_to_account' => 'string',
+        'email' => 'string',
+        'environment' => 'string',
+        'header_image_url' => 'string',
+        'hide_bill_me_later' => 'bool',
+        'hide_express_checkout_on_view_cart' => 'bool',
+        'hide_for_unshipped_orders' => 'bool',
+        'hold_in_ar' => 'bool',
+        'landing_page' => 'string',
+        'mode' => 'string',
+        'private_key_password' => 'string',
+        'processing_fee' => 'string',
+        'processing_percentage' => 'string',
+        'push_paypal' => 'bool',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
-        'short_pay_pal_marketing_text' => 'bool'
+        'send_recurring' => 'bool',
+        'short_paypal_marketing_text' => 'bool',
+        'show_card_logos_not_directly_supported' => 'bool',
+        'show_signature' => 'bool',
+        'signature' => 'string',
+        'solution_type' => 'string',
+        'summary_email' => 'string',
+        'summary_mode' => 'string',
+        'zero_dollar_penny' => 'bool'
     ];
 
     /**
@@ -94,35 +94,35 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accept_pay_pal' => null,
-        'paypal_accounting_code' => null,
-        'paypal_api_password' => null,
-        'paypal_api_user_name' => null,
-        'paypal_certificate_on_file' => null,
-        'paypal_deposit_to_account' => null,
-        'paypal_email' => null,
-        'paypal_environment' => null,
-        'paypal_header_image_url' => null,
-        'paypal_hide_bill_me_later' => null,
-        'paypal_hide_express_checkout_on_view_cart' => null,
-        'paypal_hide_for_unshipped_orders' => null,
-        'paypal_hold_in_ar' => null,
-        'paypal_landing_page' => null,
-        'paypal_mode' => null,
-        'paypal_private_key_password' => null,
-        'paypal_processing_fee' => null,
-        'paypal_processing_perc' => null,
-        'paypal_send_recurring' => null,
-        'paypal_show_card_logos_not_directly_supported' => null,
-        'paypal_show_signature' => null,
-        'paypal_signature' => null,
-        'paypal_solution_type' => null,
-        'paypal_summary_email' => null,
-        'paypal_summary_mode' => null,
-        'paypal_zero_dollar_penny' => null,
-        'push_pay_pal' => null,
+        'accept_paypal' => null,
+        'accounting_code' => null,
+        'api_password' => null,
+        'api_username' => null,
+        'certificate_on_file' => null,
+        'deposit_to_account' => null,
+        'email' => null,
+        'environment' => null,
+        'header_image_url' => null,
+        'hide_bill_me_later' => null,
+        'hide_express_checkout_on_view_cart' => null,
+        'hide_for_unshipped_orders' => null,
+        'hold_in_ar' => null,
+        'landing_page' => null,
+        'mode' => null,
+        'private_key_password' => null,
+        'processing_fee' => null,
+        'processing_percentage' => null,
+        'push_paypal' => null,
         'restrictions' => null,
-        'short_pay_pal_marketing_text' => null
+        'send_recurring' => null,
+        'short_paypal_marketing_text' => null,
+        'show_card_logos_not_directly_supported' => null,
+        'show_signature' => null,
+        'signature' => null,
+        'solution_type' => null,
+        'summary_email' => null,
+        'summary_mode' => null,
+        'zero_dollar_penny' => null
     ];
 
     /**
@@ -152,35 +152,35 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_pay_pal' => 'acceptPayPal',
-        'paypal_accounting_code' => 'paypalAccountingCode',
-        'paypal_api_password' => 'paypalApiPassword',
-        'paypal_api_user_name' => 'paypalApiUserName',
-        'paypal_certificate_on_file' => 'paypalCertificateOnFile',
-        'paypal_deposit_to_account' => 'paypalDepositToAccount',
-        'paypal_email' => 'paypalEmail',
-        'paypal_environment' => 'paypalEnvironment',
-        'paypal_header_image_url' => 'paypalHeaderImageUrl',
-        'paypal_hide_bill_me_later' => 'paypalHideBillMeLater',
-        'paypal_hide_express_checkout_on_view_cart' => 'paypalHideExpressCheckoutOnViewCart',
-        'paypal_hide_for_unshipped_orders' => 'paypalHideForUnshippedOrders',
-        'paypal_hold_in_ar' => 'paypalHoldInAR',
-        'paypal_landing_page' => 'paypalLandingPage',
-        'paypal_mode' => 'paypalMode',
-        'paypal_private_key_password' => 'paypalPrivateKeyPassword',
-        'paypal_processing_fee' => 'paypalProcessingFee',
-        'paypal_processing_perc' => 'paypalProcessingPerc',
-        'paypal_send_recurring' => 'paypalSendRecurring',
-        'paypal_show_card_logos_not_directly_supported' => 'paypalShowCardLogosNotDirectlySupported',
-        'paypal_show_signature' => 'paypalShowSignature',
-        'paypal_signature' => 'paypalSignature',
-        'paypal_solution_type' => 'paypalSolutionType',
-        'paypal_summary_email' => 'paypalSummaryEmail',
-        'paypal_summary_mode' => 'paypalSummaryMode',
-        'paypal_zero_dollar_penny' => 'paypalZeroDollarPenny',
-        'push_pay_pal' => 'pushPayPal',
+        'accept_paypal' => 'accept_paypal',
+        'accounting_code' => 'accounting_code',
+        'api_password' => 'api_password',
+        'api_username' => 'api_username',
+        'certificate_on_file' => 'certificate_on_file',
+        'deposit_to_account' => 'deposit_to_account',
+        'email' => 'email',
+        'environment' => 'environment',
+        'header_image_url' => 'header_image_url',
+        'hide_bill_me_later' => 'hide_bill_me_later',
+        'hide_express_checkout_on_view_cart' => 'hide_express_checkout_on_view_cart',
+        'hide_for_unshipped_orders' => 'hide_for_unshipped_orders',
+        'hold_in_ar' => 'hold_in_ar',
+        'landing_page' => 'landing_page',
+        'mode' => 'mode',
+        'private_key_password' => 'private_key_password',
+        'processing_fee' => 'processing_fee',
+        'processing_percentage' => 'processing_percentage',
+        'push_paypal' => 'push_paypal',
         'restrictions' => 'restrictions',
-        'short_pay_pal_marketing_text' => 'shortPayPalMarketingText'
+        'send_recurring' => 'send_recurring',
+        'short_paypal_marketing_text' => 'short_paypal_marketing_text',
+        'show_card_logos_not_directly_supported' => 'show_card_logos_not_directly_supported',
+        'show_signature' => 'show_signature',
+        'signature' => 'signature',
+        'solution_type' => 'solution_type',
+        'summary_email' => 'summary_email',
+        'summary_mode' => 'summary_mode',
+        'zero_dollar_penny' => 'zero_dollar_penny'
     ];
 
     /**
@@ -189,35 +189,35 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accept_pay_pal' => 'setAcceptPayPal',
-        'paypal_accounting_code' => 'setPaypalAccountingCode',
-        'paypal_api_password' => 'setPaypalApiPassword',
-        'paypal_api_user_name' => 'setPaypalApiUserName',
-        'paypal_certificate_on_file' => 'setPaypalCertificateOnFile',
-        'paypal_deposit_to_account' => 'setPaypalDepositToAccount',
-        'paypal_email' => 'setPaypalEmail',
-        'paypal_environment' => 'setPaypalEnvironment',
-        'paypal_header_image_url' => 'setPaypalHeaderImageUrl',
-        'paypal_hide_bill_me_later' => 'setPaypalHideBillMeLater',
-        'paypal_hide_express_checkout_on_view_cart' => 'setPaypalHideExpressCheckoutOnViewCart',
-        'paypal_hide_for_unshipped_orders' => 'setPaypalHideForUnshippedOrders',
-        'paypal_hold_in_ar' => 'setPaypalHoldInAr',
-        'paypal_landing_page' => 'setPaypalLandingPage',
-        'paypal_mode' => 'setPaypalMode',
-        'paypal_private_key_password' => 'setPaypalPrivateKeyPassword',
-        'paypal_processing_fee' => 'setPaypalProcessingFee',
-        'paypal_processing_perc' => 'setPaypalProcessingPerc',
-        'paypal_send_recurring' => 'setPaypalSendRecurring',
-        'paypal_show_card_logos_not_directly_supported' => 'setPaypalShowCardLogosNotDirectlySupported',
-        'paypal_show_signature' => 'setPaypalShowSignature',
-        'paypal_signature' => 'setPaypalSignature',
-        'paypal_solution_type' => 'setPaypalSolutionType',
-        'paypal_summary_email' => 'setPaypalSummaryEmail',
-        'paypal_summary_mode' => 'setPaypalSummaryMode',
-        'paypal_zero_dollar_penny' => 'setPaypalZeroDollarPenny',
-        'push_pay_pal' => 'setPushPayPal',
+        'accept_paypal' => 'setAcceptPaypal',
+        'accounting_code' => 'setAccountingCode',
+        'api_password' => 'setApiPassword',
+        'api_username' => 'setApiUsername',
+        'certificate_on_file' => 'setCertificateOnFile',
+        'deposit_to_account' => 'setDepositToAccount',
+        'email' => 'setEmail',
+        'environment' => 'setEnvironment',
+        'header_image_url' => 'setHeaderImageUrl',
+        'hide_bill_me_later' => 'setHideBillMeLater',
+        'hide_express_checkout_on_view_cart' => 'setHideExpressCheckoutOnViewCart',
+        'hide_for_unshipped_orders' => 'setHideForUnshippedOrders',
+        'hold_in_ar' => 'setHoldInAr',
+        'landing_page' => 'setLandingPage',
+        'mode' => 'setMode',
+        'private_key_password' => 'setPrivateKeyPassword',
+        'processing_fee' => 'setProcessingFee',
+        'processing_percentage' => 'setProcessingPercentage',
+        'push_paypal' => 'setPushPaypal',
         'restrictions' => 'setRestrictions',
-        'short_pay_pal_marketing_text' => 'setShortPayPalMarketingText'
+        'send_recurring' => 'setSendRecurring',
+        'short_paypal_marketing_text' => 'setShortPaypalMarketingText',
+        'show_card_logos_not_directly_supported' => 'setShowCardLogosNotDirectlySupported',
+        'show_signature' => 'setShowSignature',
+        'signature' => 'setSignature',
+        'solution_type' => 'setSolutionType',
+        'summary_email' => 'setSummaryEmail',
+        'summary_mode' => 'setSummaryMode',
+        'zero_dollar_penny' => 'setZeroDollarPenny'
     ];
 
     /**
@@ -226,35 +226,35 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accept_pay_pal' => 'getAcceptPayPal',
-        'paypal_accounting_code' => 'getPaypalAccountingCode',
-        'paypal_api_password' => 'getPaypalApiPassword',
-        'paypal_api_user_name' => 'getPaypalApiUserName',
-        'paypal_certificate_on_file' => 'getPaypalCertificateOnFile',
-        'paypal_deposit_to_account' => 'getPaypalDepositToAccount',
-        'paypal_email' => 'getPaypalEmail',
-        'paypal_environment' => 'getPaypalEnvironment',
-        'paypal_header_image_url' => 'getPaypalHeaderImageUrl',
-        'paypal_hide_bill_me_later' => 'getPaypalHideBillMeLater',
-        'paypal_hide_express_checkout_on_view_cart' => 'getPaypalHideExpressCheckoutOnViewCart',
-        'paypal_hide_for_unshipped_orders' => 'getPaypalHideForUnshippedOrders',
-        'paypal_hold_in_ar' => 'getPaypalHoldInAr',
-        'paypal_landing_page' => 'getPaypalLandingPage',
-        'paypal_mode' => 'getPaypalMode',
-        'paypal_private_key_password' => 'getPaypalPrivateKeyPassword',
-        'paypal_processing_fee' => 'getPaypalProcessingFee',
-        'paypal_processing_perc' => 'getPaypalProcessingPerc',
-        'paypal_send_recurring' => 'getPaypalSendRecurring',
-        'paypal_show_card_logos_not_directly_supported' => 'getPaypalShowCardLogosNotDirectlySupported',
-        'paypal_show_signature' => 'getPaypalShowSignature',
-        'paypal_signature' => 'getPaypalSignature',
-        'paypal_solution_type' => 'getPaypalSolutionType',
-        'paypal_summary_email' => 'getPaypalSummaryEmail',
-        'paypal_summary_mode' => 'getPaypalSummaryMode',
-        'paypal_zero_dollar_penny' => 'getPaypalZeroDollarPenny',
-        'push_pay_pal' => 'getPushPayPal',
+        'accept_paypal' => 'getAcceptPaypal',
+        'accounting_code' => 'getAccountingCode',
+        'api_password' => 'getApiPassword',
+        'api_username' => 'getApiUsername',
+        'certificate_on_file' => 'getCertificateOnFile',
+        'deposit_to_account' => 'getDepositToAccount',
+        'email' => 'getEmail',
+        'environment' => 'getEnvironment',
+        'header_image_url' => 'getHeaderImageUrl',
+        'hide_bill_me_later' => 'getHideBillMeLater',
+        'hide_express_checkout_on_view_cart' => 'getHideExpressCheckoutOnViewCart',
+        'hide_for_unshipped_orders' => 'getHideForUnshippedOrders',
+        'hold_in_ar' => 'getHoldInAr',
+        'landing_page' => 'getLandingPage',
+        'mode' => 'getMode',
+        'private_key_password' => 'getPrivateKeyPassword',
+        'processing_fee' => 'getProcessingFee',
+        'processing_percentage' => 'getProcessingPercentage',
+        'push_paypal' => 'getPushPaypal',
         'restrictions' => 'getRestrictions',
-        'short_pay_pal_marketing_text' => 'getShortPayPalMarketingText'
+        'send_recurring' => 'getSendRecurring',
+        'short_paypal_marketing_text' => 'getShortPaypalMarketingText',
+        'show_card_logos_not_directly_supported' => 'getShowCardLogosNotDirectlySupported',
+        'show_signature' => 'getShowSignature',
+        'signature' => 'getSignature',
+        'solution_type' => 'getSolutionType',
+        'summary_email' => 'getSummaryEmail',
+        'summary_mode' => 'getSummaryMode',
+        'zero_dollar_penny' => 'getZeroDollarPenny'
     ];
 
     /**
@@ -298,8 +298,68 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ENVIRONMENT_LIVE = 'Live';
+    const ENVIRONMENT_SANDBOX = 'Sandbox';
+    const LANDING_PAGE_BILLING = 'Billing';
+    const LANDING_PAGE_LOGIN = 'Login';
+    const MODE_WPPECO = 'WPPECO';
+    const MODE_WPPECDP = 'WPPECDP';
+    const SOLUTION_TYPE_SOLE = 'Sole';
+    const SOLUTION_TYPE_MARK = 'Mark';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEnvironmentAllowableValues()
+    {
+        return [
+            self::ENVIRONMENT_LIVE,
+            self::ENVIRONMENT_SANDBOX,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLandingPageAllowableValues()
+    {
+        return [
+            self::LANDING_PAGE_BILLING,
+            self::LANDING_PAGE_LOGIN,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getModeAllowableValues()
+    {
+        return [
+            self::MODE_WPPECO,
+            self::MODE_WPPECDP,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSolutionTypeAllowableValues()
+    {
+        return [
+            self::SOLUTION_TYPE_SOLE,
+            self::SOLUTION_TYPE_MARK,
+        ];
+    }
     
 
     /**
@@ -317,35 +377,35 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accept_pay_pal'] = isset($data['accept_pay_pal']) ? $data['accept_pay_pal'] : null;
-        $this->container['paypal_accounting_code'] = isset($data['paypal_accounting_code']) ? $data['paypal_accounting_code'] : null;
-        $this->container['paypal_api_password'] = isset($data['paypal_api_password']) ? $data['paypal_api_password'] : null;
-        $this->container['paypal_api_user_name'] = isset($data['paypal_api_user_name']) ? $data['paypal_api_user_name'] : null;
-        $this->container['paypal_certificate_on_file'] = isset($data['paypal_certificate_on_file']) ? $data['paypal_certificate_on_file'] : null;
-        $this->container['paypal_deposit_to_account'] = isset($data['paypal_deposit_to_account']) ? $data['paypal_deposit_to_account'] : null;
-        $this->container['paypal_email'] = isset($data['paypal_email']) ? $data['paypal_email'] : null;
-        $this->container['paypal_environment'] = isset($data['paypal_environment']) ? $data['paypal_environment'] : null;
-        $this->container['paypal_header_image_url'] = isset($data['paypal_header_image_url']) ? $data['paypal_header_image_url'] : null;
-        $this->container['paypal_hide_bill_me_later'] = isset($data['paypal_hide_bill_me_later']) ? $data['paypal_hide_bill_me_later'] : null;
-        $this->container['paypal_hide_express_checkout_on_view_cart'] = isset($data['paypal_hide_express_checkout_on_view_cart']) ? $data['paypal_hide_express_checkout_on_view_cart'] : null;
-        $this->container['paypal_hide_for_unshipped_orders'] = isset($data['paypal_hide_for_unshipped_orders']) ? $data['paypal_hide_for_unshipped_orders'] : null;
-        $this->container['paypal_hold_in_ar'] = isset($data['paypal_hold_in_ar']) ? $data['paypal_hold_in_ar'] : null;
-        $this->container['paypal_landing_page'] = isset($data['paypal_landing_page']) ? $data['paypal_landing_page'] : null;
-        $this->container['paypal_mode'] = isset($data['paypal_mode']) ? $data['paypal_mode'] : null;
-        $this->container['paypal_private_key_password'] = isset($data['paypal_private_key_password']) ? $data['paypal_private_key_password'] : null;
-        $this->container['paypal_processing_fee'] = isset($data['paypal_processing_fee']) ? $data['paypal_processing_fee'] : null;
-        $this->container['paypal_processing_perc'] = isset($data['paypal_processing_perc']) ? $data['paypal_processing_perc'] : null;
-        $this->container['paypal_send_recurring'] = isset($data['paypal_send_recurring']) ? $data['paypal_send_recurring'] : null;
-        $this->container['paypal_show_card_logos_not_directly_supported'] = isset($data['paypal_show_card_logos_not_directly_supported']) ? $data['paypal_show_card_logos_not_directly_supported'] : null;
-        $this->container['paypal_show_signature'] = isset($data['paypal_show_signature']) ? $data['paypal_show_signature'] : null;
-        $this->container['paypal_signature'] = isset($data['paypal_signature']) ? $data['paypal_signature'] : null;
-        $this->container['paypal_solution_type'] = isset($data['paypal_solution_type']) ? $data['paypal_solution_type'] : null;
-        $this->container['paypal_summary_email'] = isset($data['paypal_summary_email']) ? $data['paypal_summary_email'] : null;
-        $this->container['paypal_summary_mode'] = isset($data['paypal_summary_mode']) ? $data['paypal_summary_mode'] : null;
-        $this->container['paypal_zero_dollar_penny'] = isset($data['paypal_zero_dollar_penny']) ? $data['paypal_zero_dollar_penny'] : null;
-        $this->container['push_pay_pal'] = isset($data['push_pay_pal']) ? $data['push_pay_pal'] : null;
+        $this->container['accept_paypal'] = isset($data['accept_paypal']) ? $data['accept_paypal'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
+        $this->container['api_password'] = isset($data['api_password']) ? $data['api_password'] : null;
+        $this->container['api_username'] = isset($data['api_username']) ? $data['api_username'] : null;
+        $this->container['certificate_on_file'] = isset($data['certificate_on_file']) ? $data['certificate_on_file'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
+        $this->container['header_image_url'] = isset($data['header_image_url']) ? $data['header_image_url'] : null;
+        $this->container['hide_bill_me_later'] = isset($data['hide_bill_me_later']) ? $data['hide_bill_me_later'] : null;
+        $this->container['hide_express_checkout_on_view_cart'] = isset($data['hide_express_checkout_on_view_cart']) ? $data['hide_express_checkout_on_view_cart'] : null;
+        $this->container['hide_for_unshipped_orders'] = isset($data['hide_for_unshipped_orders']) ? $data['hide_for_unshipped_orders'] : null;
+        $this->container['hold_in_ar'] = isset($data['hold_in_ar']) ? $data['hold_in_ar'] : null;
+        $this->container['landing_page'] = isset($data['landing_page']) ? $data['landing_page'] : null;
+        $this->container['mode'] = isset($data['mode']) ? $data['mode'] : null;
+        $this->container['private_key_password'] = isset($data['private_key_password']) ? $data['private_key_password'] : null;
+        $this->container['processing_fee'] = isset($data['processing_fee']) ? $data['processing_fee'] : null;
+        $this->container['processing_percentage'] = isset($data['processing_percentage']) ? $data['processing_percentage'] : null;
+        $this->container['push_paypal'] = isset($data['push_paypal']) ? $data['push_paypal'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
-        $this->container['short_pay_pal_marketing_text'] = isset($data['short_pay_pal_marketing_text']) ? $data['short_pay_pal_marketing_text'] : null;
+        $this->container['send_recurring'] = isset($data['send_recurring']) ? $data['send_recurring'] : null;
+        $this->container['short_paypal_marketing_text'] = isset($data['short_paypal_marketing_text']) ? $data['short_paypal_marketing_text'] : null;
+        $this->container['show_card_logos_not_directly_supported'] = isset($data['show_card_logos_not_directly_supported']) ? $data['show_card_logos_not_directly_supported'] : null;
+        $this->container['show_signature'] = isset($data['show_signature']) ? $data['show_signature'] : null;
+        $this->container['signature'] = isset($data['signature']) ? $data['signature'] : null;
+        $this->container['solution_type'] = isset($data['solution_type']) ? $data['solution_type'] : null;
+        $this->container['summary_email'] = isset($data['summary_email']) ? $data['summary_email'] : null;
+        $this->container['summary_mode'] = isset($data['summary_mode']) ? $data['summary_mode'] : null;
+        $this->container['zero_dollar_penny'] = isset($data['zero_dollar_penny']) ? $data['zero_dollar_penny'] : null;
     }
 
     /**
@@ -356,6 +416,38 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getEnvironmentAllowableValues();
+        if (!is_null($this->container['environment']) && !in_array($this->container['environment'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'environment', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getLandingPageAllowableValues();
+        if (!is_null($this->container['landing_page']) && !in_array($this->container['landing_page'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'landing_page', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getModeAllowableValues();
+        if (!is_null($this->container['mode']) && !in_array($this->container['mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'mode', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getSolutionTypeAllowableValues();
+        if (!is_null($this->container['solution_type']) && !in_array($this->container['solution_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'solution_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -373,649 +465,484 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accept_pay_pal
+     * Gets accept_paypal
      *
      * @return bool
      */
-    public function getAcceptPayPal()
+    public function getAcceptPaypal()
     {
-        return $this->container['accept_pay_pal'];
+        return $this->container['accept_paypal'];
     }
 
     /**
-     * Sets accept_pay_pal
+     * Sets accept_paypal
      *
-     * @param bool $accept_pay_pal accept_pay_pal
+     * @param bool $accept_paypal Master flag that determine if PayPal is an active payment for this account
      *
      * @return $this
      */
-    public function setAcceptPayPal($accept_pay_pal)
+    public function setAcceptPaypal($accept_paypal)
     {
-        $this->container['accept_pay_pal'] = $accept_pay_pal;
+        $this->container['accept_paypal'] = $accept_paypal;
 
         return $this;
     }
 
     /**
-     * Gets paypal_accounting_code
+     * Gets accounting_code
      *
      * @return string
      */
-    public function getPaypalAccountingCode()
+    public function getAccountingCode()
     {
-        return $this->container['paypal_accounting_code'];
+        return $this->container['accounting_code'];
     }
 
     /**
-     * Sets paypal_accounting_code
+     * Sets accounting_code
      *
-     * @param string $paypal_accounting_code paypal_accounting_code
+     * @param string $accounting_code Optional accounting code that is set to Quickbooks when an order uses this payment method.
      *
      * @return $this
      */
-    public function setPaypalAccountingCode($paypal_accounting_code)
+    public function setAccountingCode($accounting_code)
     {
-        $this->container['paypal_accounting_code'] = $paypal_accounting_code;
+        $this->container['accounting_code'] = $accounting_code;
 
         return $this;
     }
 
     /**
-     * Gets paypal_api_password
+     * Gets api_password
      *
      * @return string
      */
-    public function getPaypalApiPassword()
+    public function getApiPassword()
     {
-        return $this->container['paypal_api_password'];
+        return $this->container['api_password'];
     }
 
     /**
-     * Sets paypal_api_password
+     * Sets api_password
      *
-     * @param string $paypal_api_password paypal_api_password
+     * @param string $api_password PayPal API password
      *
      * @return $this
      */
-    public function setPaypalApiPassword($paypal_api_password)
+    public function setApiPassword($api_password)
     {
-        $this->container['paypal_api_password'] = $paypal_api_password;
+        $this->container['api_password'] = $api_password;
 
         return $this;
     }
 
     /**
-     * Gets paypal_api_user_name
+     * Gets api_username
      *
      * @return string
      */
-    public function getPaypalApiUserName()
+    public function getApiUsername()
     {
-        return $this->container['paypal_api_user_name'];
+        return $this->container['api_username'];
     }
 
     /**
-     * Sets paypal_api_user_name
+     * Sets api_username
      *
-     * @param string $paypal_api_user_name paypal_api_user_name
+     * @param string $api_username PayPal API username
      *
      * @return $this
      */
-    public function setPaypalApiUserName($paypal_api_user_name)
+    public function setApiUsername($api_username)
     {
-        $this->container['paypal_api_user_name'] = $paypal_api_user_name;
+        $this->container['api_username'] = $api_username;
 
         return $this;
     }
 
     /**
-     * Gets paypal_certificate_on_file
+     * Gets certificate_on_file
      *
      * @return bool
      */
-    public function getPaypalCertificateOnFile()
+    public function getCertificateOnFile()
     {
-        return $this->container['paypal_certificate_on_file'];
+        return $this->container['certificate_on_file'];
     }
 
     /**
-     * Sets paypal_certificate_on_file
+     * Sets certificate_on_file
      *
-     * @param bool $paypal_certificate_on_file paypal_certificate_on_file
+     * @param bool $certificate_on_file (Legacy) true if there is a PayPal certificate already on file. Used to manage the internal UI
      *
      * @return $this
      */
-    public function setPaypalCertificateOnFile($paypal_certificate_on_file)
+    public function setCertificateOnFile($certificate_on_file)
     {
-        $this->container['paypal_certificate_on_file'] = $paypal_certificate_on_file;
+        $this->container['certificate_on_file'] = $certificate_on_file;
 
         return $this;
     }
 
     /**
-     * Gets paypal_deposit_to_account
+     * Gets deposit_to_account
      *
      * @return string
      */
-    public function getPaypalDepositToAccount()
+    public function getDepositToAccount()
     {
-        return $this->container['paypal_deposit_to_account'];
+        return $this->container['deposit_to_account'];
     }
 
     /**
-     * Sets paypal_deposit_to_account
+     * Sets deposit_to_account
      *
-     * @param string $paypal_deposit_to_account paypal_deposit_to_account
+     * @param string $deposit_to_account The account to deposit funds
      *
      * @return $this
      */
-    public function setPaypalDepositToAccount($paypal_deposit_to_account)
+    public function setDepositToAccount($deposit_to_account)
     {
-        $this->container['paypal_deposit_to_account'] = $paypal_deposit_to_account;
+        $this->container['deposit_to_account'] = $deposit_to_account;
 
         return $this;
     }
 
     /**
-     * Gets paypal_email
+     * Gets email
      *
      * @return string
      */
-    public function getPaypalEmail()
+    public function getEmail()
     {
-        return $this->container['paypal_email'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets paypal_email
+     * Sets email
      *
-     * @param string $paypal_email paypal_email
+     * @param string $email The main PayPal email address
      *
      * @return $this
      */
-    public function setPaypalEmail($paypal_email)
+    public function setEmail($email)
     {
-        $this->container['paypal_email'] = $paypal_email;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets paypal_environment
+     * Gets environment
      *
      * @return string
      */
-    public function getPaypalEnvironment()
+    public function getEnvironment()
     {
-        return $this->container['paypal_environment'];
+        return $this->container['environment'];
     }
 
     /**
-     * Sets paypal_environment
+     * Sets environment
      *
-     * @param string $paypal_environment paypal_environment
+     * @param string $environment PayPal configuration, live or sandbox
      *
      * @return $this
      */
-    public function setPaypalEnvironment($paypal_environment)
+    public function setEnvironment($environment)
     {
-        $this->container['paypal_environment'] = $paypal_environment;
+        $allowedValues = $this->getEnvironmentAllowableValues();
+        if (!is_null($environment) && !in_array($environment, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'environment', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['environment'] = $environment;
 
         return $this;
     }
 
     /**
-     * Gets paypal_header_image_url
+     * Gets header_image_url
      *
      * @return string
      */
-    public function getPaypalHeaderImageUrl()
+    public function getHeaderImageUrl()
     {
-        return $this->container['paypal_header_image_url'];
+        return $this->container['header_image_url'];
     }
 
     /**
-     * Sets paypal_header_image_url
+     * Sets header_image_url
      *
-     * @param string $paypal_header_image_url paypal_header_image_url
+     * @param string $header_image_url The URL for the PayPal header
      *
      * @return $this
      */
-    public function setPaypalHeaderImageUrl($paypal_header_image_url)
+    public function setHeaderImageUrl($header_image_url)
     {
-        $this->container['paypal_header_image_url'] = $paypal_header_image_url;
+        $this->container['header_image_url'] = $header_image_url;
 
         return $this;
     }
 
     /**
-     * Gets paypal_hide_bill_me_later
+     * Gets hide_bill_me_later
      *
      * @return bool
      */
-    public function getPaypalHideBillMeLater()
+    public function getHideBillMeLater()
     {
-        return $this->container['paypal_hide_bill_me_later'];
+        return $this->container['hide_bill_me_later'];
     }
 
     /**
-     * Sets paypal_hide_bill_me_later
+     * Sets hide_bill_me_later
      *
-     * @param bool $paypal_hide_bill_me_later paypal_hide_bill_me_later
+     * @param bool $hide_bill_me_later True if the Bill Me Later button should be hidden during checkout
      *
      * @return $this
      */
-    public function setPaypalHideBillMeLater($paypal_hide_bill_me_later)
+    public function setHideBillMeLater($hide_bill_me_later)
     {
-        $this->container['paypal_hide_bill_me_later'] = $paypal_hide_bill_me_later;
+        $this->container['hide_bill_me_later'] = $hide_bill_me_later;
 
         return $this;
     }
 
     /**
-     * Gets paypal_hide_express_checkout_on_view_cart
+     * Gets hide_express_checkout_on_view_cart
      *
      * @return bool
      */
-    public function getPaypalHideExpressCheckoutOnViewCart()
+    public function getHideExpressCheckoutOnViewCart()
     {
-        return $this->container['paypal_hide_express_checkout_on_view_cart'];
+        return $this->container['hide_express_checkout_on_view_cart'];
     }
 
     /**
-     * Sets paypal_hide_express_checkout_on_view_cart
+     * Sets hide_express_checkout_on_view_cart
      *
-     * @param bool $paypal_hide_express_checkout_on_view_cart paypal_hide_express_checkout_on_view_cart
+     * @param bool $hide_express_checkout_on_view_cart True if the PayPal express checkout button should be hidden on the view cart page.  This will force the customer to enter address information before being able to checkout with PayPal
      *
      * @return $this
      */
-    public function setPaypalHideExpressCheckoutOnViewCart($paypal_hide_express_checkout_on_view_cart)
+    public function setHideExpressCheckoutOnViewCart($hide_express_checkout_on_view_cart)
     {
-        $this->container['paypal_hide_express_checkout_on_view_cart'] = $paypal_hide_express_checkout_on_view_cart;
+        $this->container['hide_express_checkout_on_view_cart'] = $hide_express_checkout_on_view_cart;
 
         return $this;
     }
 
     /**
-     * Gets paypal_hide_for_unshipped_orders
+     * Gets hide_for_unshipped_orders
      *
      * @return bool
      */
-    public function getPaypalHideForUnshippedOrders()
+    public function getHideForUnshippedOrders()
     {
-        return $this->container['paypal_hide_for_unshipped_orders'];
+        return $this->container['hide_for_unshipped_orders'];
     }
 
     /**
-     * Sets paypal_hide_for_unshipped_orders
+     * Sets hide_for_unshipped_orders
      *
-     * @param bool $paypal_hide_for_unshipped_orders paypal_hide_for_unshipped_orders
+     * @param bool $hide_for_unshipped_orders True if PayPal should be hidden for orders with no shippable product, such as digital orders
      *
      * @return $this
      */
-    public function setPaypalHideForUnshippedOrders($paypal_hide_for_unshipped_orders)
+    public function setHideForUnshippedOrders($hide_for_unshipped_orders)
     {
-        $this->container['paypal_hide_for_unshipped_orders'] = $paypal_hide_for_unshipped_orders;
+        $this->container['hide_for_unshipped_orders'] = $hide_for_unshipped_orders;
 
         return $this;
     }
 
     /**
-     * Gets paypal_hold_in_ar
+     * Gets hold_in_ar
      *
      * @return bool
      */
-    public function getPaypalHoldInAr()
+    public function getHoldInAr()
     {
-        return $this->container['paypal_hold_in_ar'];
+        return $this->container['hold_in_ar'];
     }
 
     /**
-     * Sets paypal_hold_in_ar
+     * Sets hold_in_ar
      *
-     * @param bool $paypal_hold_in_ar paypal_hold_in_ar
+     * @param bool $hold_in_ar If true, PayPal orders are held in Accounts Receivable for review
      *
      * @return $this
      */
-    public function setPaypalHoldInAr($paypal_hold_in_ar)
+    public function setHoldInAr($hold_in_ar)
     {
-        $this->container['paypal_hold_in_ar'] = $paypal_hold_in_ar;
+        $this->container['hold_in_ar'] = $hold_in_ar;
 
         return $this;
     }
 
     /**
-     * Gets paypal_landing_page
+     * Gets landing_page
      *
      * @return string
      */
-    public function getPaypalLandingPage()
+    public function getLandingPage()
     {
-        return $this->container['paypal_landing_page'];
+        return $this->container['landing_page'];
     }
 
     /**
-     * Sets paypal_landing_page
+     * Sets landing_page
      *
-     * @param string $paypal_landing_page paypal_landing_page
+     * @param string $landing_page PayPal landing page
      *
      * @return $this
      */
-    public function setPaypalLandingPage($paypal_landing_page)
+    public function setLandingPage($landing_page)
     {
-        $this->container['paypal_landing_page'] = $paypal_landing_page;
+        $allowedValues = $this->getLandingPageAllowableValues();
+        if (!is_null($landing_page) && !in_array($landing_page, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'landing_page', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['landing_page'] = $landing_page;
 
         return $this;
     }
 
     /**
-     * Gets paypal_mode
+     * Gets mode
      *
      * @return string
      */
-    public function getPaypalMode()
+    public function getMode()
     {
-        return $this->container['paypal_mode'];
+        return $this->container['mode'];
     }
 
     /**
-     * Sets paypal_mode
+     * Sets mode
      *
-     * @param string $paypal_mode paypal_mode
+     * @param string $mode The PayPal mode
      *
      * @return $this
      */
-    public function setPaypalMode($paypal_mode)
+    public function setMode($mode)
     {
-        $this->container['paypal_mode'] = $paypal_mode;
+        $allowedValues = $this->getModeAllowableValues();
+        if (!is_null($mode) && !in_array($mode, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'mode', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['mode'] = $mode;
 
         return $this;
     }
 
     /**
-     * Gets paypal_private_key_password
+     * Gets private_key_password
      *
      * @return string
      */
-    public function getPaypalPrivateKeyPassword()
+    public function getPrivateKeyPassword()
     {
-        return $this->container['paypal_private_key_password'];
+        return $this->container['private_key_password'];
     }
 
     /**
-     * Sets paypal_private_key_password
+     * Sets private_key_password
      *
-     * @param string $paypal_private_key_password paypal_private_key_password
+     * @param string $private_key_password PayPal API private key password
      *
      * @return $this
      */
-    public function setPaypalPrivateKeyPassword($paypal_private_key_password)
+    public function setPrivateKeyPassword($private_key_password)
     {
-        $this->container['paypal_private_key_password'] = $paypal_private_key_password;
+        $this->container['private_key_password'] = $private_key_password;
 
         return $this;
     }
 
     /**
-     * Gets paypal_processing_fee
+     * Gets processing_fee
      *
      * @return string
      */
-    public function getPaypalProcessingFee()
+    public function getProcessingFee()
     {
-        return $this->container['paypal_processing_fee'];
+        return $this->container['processing_fee'];
     }
 
     /**
-     * Sets paypal_processing_fee
+     * Sets processing_fee
      *
-     * @param string $paypal_processing_fee paypal_processing_fee
+     * @param string $processing_fee Optional additional fee to charge if PayPal is used.  It is rare for this to be used.
      *
      * @return $this
      */
-    public function setPaypalProcessingFee($paypal_processing_fee)
+    public function setProcessingFee($processing_fee)
     {
-        $this->container['paypal_processing_fee'] = $paypal_processing_fee;
+        $this->container['processing_fee'] = $processing_fee;
 
         return $this;
     }
 
     /**
-     * Gets paypal_processing_perc
+     * Gets processing_percentage
      *
      * @return string
      */
-    public function getPaypalProcessingPerc()
+    public function getProcessingPercentage()
     {
-        return $this->container['paypal_processing_perc'];
+        return $this->container['processing_percentage'];
     }
 
     /**
-     * Sets paypal_processing_perc
+     * Sets processing_percentage
      *
-     * @param string $paypal_processing_perc paypal_processing_perc
+     * @param string $processing_percentage The processing percentage charged by PayPal
      *
      * @return $this
      */
-    public function setPaypalProcessingPerc($paypal_processing_perc)
+    public function setProcessingPercentage($processing_percentage)
     {
-        $this->container['paypal_processing_perc'] = $paypal_processing_perc;
+        $this->container['processing_percentage'] = $processing_percentage;
 
         return $this;
     }
 
     /**
-     * Gets paypal_send_recurring
-     *
-     * @return string
-     */
-    public function getPaypalSendRecurring()
-    {
-        return $this->container['paypal_send_recurring'];
-    }
-
-    /**
-     * Sets paypal_send_recurring
-     *
-     * @param string $paypal_send_recurring paypal_send_recurring
-     *
-     * @return $this
-     */
-    public function setPaypalSendRecurring($paypal_send_recurring)
-    {
-        $this->container['paypal_send_recurring'] = $paypal_send_recurring;
-
-        return $this;
-    }
-
-    /**
-     * Gets paypal_show_card_logos_not_directly_supported
+     * Gets push_paypal
      *
      * @return bool
      */
-    public function getPaypalShowCardLogosNotDirectlySupported()
+    public function getPushPaypal()
     {
-        return $this->container['paypal_show_card_logos_not_directly_supported'];
+        return $this->container['push_paypal'];
     }
 
     /**
-     * Sets paypal_show_card_logos_not_directly_supported
+     * Sets push_paypal
      *
-     * @param bool $paypal_show_card_logos_not_directly_supported paypal_show_card_logos_not_directly_supported
+     * @param bool $push_paypal True if the internal UI should recommend opening a PayPal account
      *
      * @return $this
      */
-    public function setPaypalShowCardLogosNotDirectlySupported($paypal_show_card_logos_not_directly_supported)
+    public function setPushPaypal($push_paypal)
     {
-        $this->container['paypal_show_card_logos_not_directly_supported'] = $paypal_show_card_logos_not_directly_supported;
-
-        return $this;
-    }
-
-    /**
-     * Gets paypal_show_signature
-     *
-     * @return bool
-     */
-    public function getPaypalShowSignature()
-    {
-        return $this->container['paypal_show_signature'];
-    }
-
-    /**
-     * Sets paypal_show_signature
-     *
-     * @param bool $paypal_show_signature paypal_show_signature
-     *
-     * @return $this
-     */
-    public function setPaypalShowSignature($paypal_show_signature)
-    {
-        $this->container['paypal_show_signature'] = $paypal_show_signature;
-
-        return $this;
-    }
-
-    /**
-     * Gets paypal_signature
-     *
-     * @return string
-     */
-    public function getPaypalSignature()
-    {
-        return $this->container['paypal_signature'];
-    }
-
-    /**
-     * Sets paypal_signature
-     *
-     * @param string $paypal_signature paypal_signature
-     *
-     * @return $this
-     */
-    public function setPaypalSignature($paypal_signature)
-    {
-        $this->container['paypal_signature'] = $paypal_signature;
-
-        return $this;
-    }
-
-    /**
-     * Gets paypal_solution_type
-     *
-     * @return string
-     */
-    public function getPaypalSolutionType()
-    {
-        return $this->container['paypal_solution_type'];
-    }
-
-    /**
-     * Sets paypal_solution_type
-     *
-     * @param string $paypal_solution_type paypal_solution_type
-     *
-     * @return $this
-     */
-    public function setPaypalSolutionType($paypal_solution_type)
-    {
-        $this->container['paypal_solution_type'] = $paypal_solution_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets paypal_summary_email
-     *
-     * @return string
-     */
-    public function getPaypalSummaryEmail()
-    {
-        return $this->container['paypal_summary_email'];
-    }
-
-    /**
-     * Sets paypal_summary_email
-     *
-     * @param string $paypal_summary_email paypal_summary_email
-     *
-     * @return $this
-     */
-    public function setPaypalSummaryEmail($paypal_summary_email)
-    {
-        $this->container['paypal_summary_email'] = $paypal_summary_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets paypal_summary_mode
-     *
-     * @return string
-     */
-    public function getPaypalSummaryMode()
-    {
-        return $this->container['paypal_summary_mode'];
-    }
-
-    /**
-     * Sets paypal_summary_mode
-     *
-     * @param string $paypal_summary_mode paypal_summary_mode
-     *
-     * @return $this
-     */
-    public function setPaypalSummaryMode($paypal_summary_mode)
-    {
-        $this->container['paypal_summary_mode'] = $paypal_summary_mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets paypal_zero_dollar_penny
-     *
-     * @return bool
-     */
-    public function getPaypalZeroDollarPenny()
-    {
-        return $this->container['paypal_zero_dollar_penny'];
-    }
-
-    /**
-     * Sets paypal_zero_dollar_penny
-     *
-     * @param bool $paypal_zero_dollar_penny paypal_zero_dollar_penny
-     *
-     * @return $this
-     */
-    public function setPaypalZeroDollarPenny($paypal_zero_dollar_penny)
-    {
-        $this->container['paypal_zero_dollar_penny'] = $paypal_zero_dollar_penny;
-
-        return $this;
-    }
-
-    /**
-     * Gets push_pay_pal
-     *
-     * @return bool
-     */
-    public function getPushPayPal()
-    {
-        return $this->container['push_pay_pal'];
-    }
-
-    /**
-     * Sets push_pay_pal
-     *
-     * @param bool $push_pay_pal push_pay_pal
-     *
-     * @return $this
-     */
-    public function setPushPayPal($push_pay_pal)
-    {
-        $this->container['push_pay_pal'] = $push_pay_pal;
+        $this->container['push_paypal'] = $push_paypal;
 
         return $this;
     }
@@ -1045,25 +972,226 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets short_pay_pal_marketing_text
+     * Gets send_recurring
      *
      * @return bool
      */
-    public function getShortPayPalMarketingText()
+    public function getSendRecurring()
     {
-        return $this->container['short_pay_pal_marketing_text'];
+        return $this->container['send_recurring'];
     }
 
     /**
-     * Sets short_pay_pal_marketing_text
+     * Sets send_recurring
      *
-     * @param bool $short_pay_pal_marketing_text short_pay_pal_marketing_text
+     * @param bool $send_recurring True if UltraCart should send recurring orders to PayPal.  There are restrictions to what PayPal will accept for recurring orders.  Be careful.
      *
      * @return $this
      */
-    public function setShortPayPalMarketingText($short_pay_pal_marketing_text)
+    public function setSendRecurring($send_recurring)
     {
-        $this->container['short_pay_pal_marketing_text'] = $short_pay_pal_marketing_text;
+        $this->container['send_recurring'] = $send_recurring;
+
+        return $this;
+    }
+
+    /**
+     * Gets short_paypal_marketing_text
+     *
+     * @return bool
+     */
+    public function getShortPaypalMarketingText()
+    {
+        return $this->container['short_paypal_marketing_text'];
+    }
+
+    /**
+     * Sets short_paypal_marketing_text
+     *
+     * @param bool $short_paypal_marketing_text Short marketing text
+     *
+     * @return $this
+     */
+    public function setShortPaypalMarketingText($short_paypal_marketing_text)
+    {
+        $this->container['short_paypal_marketing_text'] = $short_paypal_marketing_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_card_logos_not_directly_supported
+     *
+     * @return bool
+     */
+    public function getShowCardLogosNotDirectlySupported()
+    {
+        return $this->container['show_card_logos_not_directly_supported'];
+    }
+
+    /**
+     * Sets show_card_logos_not_directly_supported
+     *
+     * @param bool $show_card_logos_not_directly_supported internal ui flag
+     *
+     * @return $this
+     */
+    public function setShowCardLogosNotDirectlySupported($show_card_logos_not_directly_supported)
+    {
+        $this->container['show_card_logos_not_directly_supported'] = $show_card_logos_not_directly_supported;
+
+        return $this;
+    }
+
+    /**
+     * Gets show_signature
+     *
+     * @return bool
+     */
+    public function getShowSignature()
+    {
+        return $this->container['show_signature'];
+    }
+
+    /**
+     * Sets show_signature
+     *
+     * @param bool $show_signature Internal flag used to manage UI
+     *
+     * @return $this
+     */
+    public function setShowSignature($show_signature)
+    {
+        $this->container['show_signature'] = $show_signature;
+
+        return $this;
+    }
+
+    /**
+     * Gets signature
+     *
+     * @return string
+     */
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    /**
+     * Sets signature
+     *
+     * @param string $signature PayPal signature
+     *
+     * @return $this
+     */
+    public function setSignature($signature)
+    {
+        $this->container['signature'] = $signature;
+
+        return $this;
+    }
+
+    /**
+     * Gets solution_type
+     *
+     * @return string
+     */
+    public function getSolutionType()
+    {
+        return $this->container['solution_type'];
+    }
+
+    /**
+     * Sets solution_type
+     *
+     * @param string $solution_type PayPal solution type
+     *
+     * @return $this
+     */
+    public function setSolutionType($solution_type)
+    {
+        $allowedValues = $this->getSolutionTypeAllowableValues();
+        if (!is_null($solution_type) && !in_array($solution_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'solution_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['solution_type'] = $solution_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary_email
+     *
+     * @return string
+     */
+    public function getSummaryEmail()
+    {
+        return $this->container['summary_email'];
+    }
+
+    /**
+     * Sets summary_email
+     *
+     * @param string $summary_email The email where PayPal summaries should be sent
+     *
+     * @return $this
+     */
+    public function setSummaryEmail($summary_email)
+    {
+        $this->container['summary_email'] = $summary_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary_mode
+     *
+     * @return string
+     */
+    public function getSummaryMode()
+    {
+        return $this->container['summary_mode'];
+    }
+
+    /**
+     * Sets summary_mode
+     *
+     * @param string $summary_mode Description of what mode PayPal is operating
+     *
+     * @return $this
+     */
+    public function setSummaryMode($summary_mode)
+    {
+        $this->container['summary_mode'] = $summary_mode;
+
+        return $this;
+    }
+
+    /**
+     * Gets zero_dollar_penny
+     *
+     * @return bool
+     */
+    public function getZeroDollarPenny()
+    {
+        return $this->container['zero_dollar_penny'];
+    }
+
+    /**
+     * Sets zero_dollar_penny
+     *
+     * @param bool $zero_dollar_penny Send free items to PayPal as one cent items and subtract this penny from shipping.  PayPal does not allow the sale of free items.
+     *
+     * @return $this
+     */
+    public function setZeroDollarPenny($zero_dollar_penny)
+    {
+        $this->container['zero_dollar_penny'] = $zero_dollar_penny;
 
         return $this;
     }

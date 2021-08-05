@@ -58,13 +58,14 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_sezzle' => 'bool',
-        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
-        'sezzle_accounting_code' => 'string',
-        'sezzle_business_id' => 'string',
-        'sezzle_deposit_to_account' => 'string',
-        'sezzle_environment' => 'string',
-        'sezzle_private_api_key' => 'string',
-        'sezzle_public_api_key' => 'string'
+        'accounting_code' => 'string',
+        'business_id' => 'string',
+        'deposit_to_account' => 'string',
+        'environment' => 'string',
+        'environments' => 'object',
+        'private_api_key' => 'string',
+        'public_api_key' => 'string',
+        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
     ];
 
     /**
@@ -74,13 +75,14 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_sezzle' => null,
-        'restrictions' => null,
-        'sezzle_accounting_code' => null,
-        'sezzle_business_id' => null,
-        'sezzle_deposit_to_account' => null,
-        'sezzle_environment' => null,
-        'sezzle_private_api_key' => null,
-        'sezzle_public_api_key' => null
+        'accounting_code' => null,
+        'business_id' => null,
+        'deposit_to_account' => null,
+        'environment' => null,
+        'environments' => null,
+        'private_api_key' => null,
+        'public_api_key' => null,
+        'restrictions' => null
     ];
 
     /**
@@ -110,14 +112,15 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_sezzle' => 'acceptSezzle',
-        'restrictions' => 'restrictions',
-        'sezzle_accounting_code' => 'sezzleAccountingCode',
-        'sezzle_business_id' => 'sezzleBusinessId',
-        'sezzle_deposit_to_account' => 'sezzleDepositToAccount',
-        'sezzle_environment' => 'sezzleEnvironment',
-        'sezzle_private_api_key' => 'sezzlePrivateApiKey',
-        'sezzle_public_api_key' => 'sezzlePublicApiKey'
+        'accept_sezzle' => 'accept_sezzle',
+        'accounting_code' => 'accounting_code',
+        'business_id' => 'business_id',
+        'deposit_to_account' => 'deposit_to_account',
+        'environment' => 'environment',
+        'environments' => 'environments',
+        'private_api_key' => 'private_api_key',
+        'public_api_key' => 'public_api_key',
+        'restrictions' => 'restrictions'
     ];
 
     /**
@@ -127,13 +130,14 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_sezzle' => 'setAcceptSezzle',
-        'restrictions' => 'setRestrictions',
-        'sezzle_accounting_code' => 'setSezzleAccountingCode',
-        'sezzle_business_id' => 'setSezzleBusinessId',
-        'sezzle_deposit_to_account' => 'setSezzleDepositToAccount',
-        'sezzle_environment' => 'setSezzleEnvironment',
-        'sezzle_private_api_key' => 'setSezzlePrivateApiKey',
-        'sezzle_public_api_key' => 'setSezzlePublicApiKey'
+        'accounting_code' => 'setAccountingCode',
+        'business_id' => 'setBusinessId',
+        'deposit_to_account' => 'setDepositToAccount',
+        'environment' => 'setEnvironment',
+        'environments' => 'setEnvironments',
+        'private_api_key' => 'setPrivateApiKey',
+        'public_api_key' => 'setPublicApiKey',
+        'restrictions' => 'setRestrictions'
     ];
 
     /**
@@ -143,13 +147,14 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_sezzle' => 'getAcceptSezzle',
-        'restrictions' => 'getRestrictions',
-        'sezzle_accounting_code' => 'getSezzleAccountingCode',
-        'sezzle_business_id' => 'getSezzleBusinessId',
-        'sezzle_deposit_to_account' => 'getSezzleDepositToAccount',
-        'sezzle_environment' => 'getSezzleEnvironment',
-        'sezzle_private_api_key' => 'getSezzlePrivateApiKey',
-        'sezzle_public_api_key' => 'getSezzlePublicApiKey'
+        'accounting_code' => 'getAccountingCode',
+        'business_id' => 'getBusinessId',
+        'deposit_to_account' => 'getDepositToAccount',
+        'environment' => 'getEnvironment',
+        'environments' => 'getEnvironments',
+        'private_api_key' => 'getPrivateApiKey',
+        'public_api_key' => 'getPublicApiKey',
+        'restrictions' => 'getRestrictions'
     ];
 
     /**
@@ -193,8 +198,23 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ENVIRONMENT_LIVE = 'Live';
+    const ENVIRONMENT_SANDBOX = 'Sandbox';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEnvironmentAllowableValues()
+    {
+        return [
+            self::ENVIRONMENT_LIVE,
+            self::ENVIRONMENT_SANDBOX,
+        ];
+    }
     
 
     /**
@@ -213,13 +233,14 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_sezzle'] = isset($data['accept_sezzle']) ? $data['accept_sezzle'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
+        $this->container['business_id'] = isset($data['business_id']) ? $data['business_id'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
+        $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
+        $this->container['environments'] = isset($data['environments']) ? $data['environments'] : null;
+        $this->container['private_api_key'] = isset($data['private_api_key']) ? $data['private_api_key'] : null;
+        $this->container['public_api_key'] = isset($data['public_api_key']) ? $data['public_api_key'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
-        $this->container['sezzle_accounting_code'] = isset($data['sezzle_accounting_code']) ? $data['sezzle_accounting_code'] : null;
-        $this->container['sezzle_business_id'] = isset($data['sezzle_business_id']) ? $data['sezzle_business_id'] : null;
-        $this->container['sezzle_deposit_to_account'] = isset($data['sezzle_deposit_to_account']) ? $data['sezzle_deposit_to_account'] : null;
-        $this->container['sezzle_environment'] = isset($data['sezzle_environment']) ? $data['sezzle_environment'] : null;
-        $this->container['sezzle_private_api_key'] = isset($data['sezzle_private_api_key']) ? $data['sezzle_private_api_key'] : null;
-        $this->container['sezzle_public_api_key'] = isset($data['sezzle_public_api_key']) ? $data['sezzle_public_api_key'] : null;
     }
 
     /**
@@ -230,6 +251,14 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getEnvironmentAllowableValues();
+        if (!is_null($this->container['environment']) && !in_array($this->container['environment'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'environment', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -259,13 +288,190 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
     /**
      * Sets accept_sezzle
      *
-     * @param bool $accept_sezzle accept_sezzle
+     * @param bool $accept_sezzle Master flag for this merchant accepting Sezzle payments
      *
      * @return $this
      */
     public function setAcceptSezzle($accept_sezzle)
     {
         $this->container['accept_sezzle'] = $accept_sezzle;
+
+        return $this;
+    }
+
+    /**
+     * Gets accounting_code
+     *
+     * @return string
+     */
+    public function getAccountingCode()
+    {
+        return $this->container['accounting_code'];
+    }
+
+    /**
+     * Sets accounting_code
+     *
+     * @param string $accounting_code Optional Quickbooks code for this payment method
+     *
+     * @return $this
+     */
+    public function setAccountingCode($accounting_code)
+    {
+        $this->container['accounting_code'] = $accounting_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets business_id
+     *
+     * @return string
+     */
+    public function getBusinessId()
+    {
+        return $this->container['business_id'];
+    }
+
+    /**
+     * Sets business_id
+     *
+     * @param string $business_id Business ID
+     *
+     * @return $this
+     */
+    public function setBusinessId($business_id)
+    {
+        $this->container['business_id'] = $business_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets deposit_to_account
+     *
+     * @return string
+     */
+    public function getDepositToAccount()
+    {
+        return $this->container['deposit_to_account'];
+    }
+
+    /**
+     * Sets deposit_to_account
+     *
+     * @param string $deposit_to_account Optional Quickbooks Deposit to Account value
+     *
+     * @return $this
+     */
+    public function setDepositToAccount($deposit_to_account)
+    {
+        $this->container['deposit_to_account'] = $deposit_to_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets environment
+     *
+     * @return string
+     */
+    public function getEnvironment()
+    {
+        return $this->container['environment'];
+    }
+
+    /**
+     * Sets environment
+     *
+     * @param string $environment Sezzle environment
+     *
+     * @return $this
+     */
+    public function setEnvironment($environment)
+    {
+        $allowedValues = $this->getEnvironmentAllowableValues();
+        if (!is_null($environment) && !in_array($environment, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'environment', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['environment'] = $environment;
+
+        return $this;
+    }
+
+    /**
+     * Gets environments
+     *
+     * @return object
+     */
+    public function getEnvironments()
+    {
+        return $this->container['environments'];
+    }
+
+    /**
+     * Sets environments
+     *
+     * @param object $environments List of environments possible
+     *
+     * @return $this
+     */
+    public function setEnvironments($environments)
+    {
+        $this->container['environments'] = $environments;
+
+        return $this;
+    }
+
+    /**
+     * Gets private_api_key
+     *
+     * @return string
+     */
+    public function getPrivateApiKey()
+    {
+        return $this->container['private_api_key'];
+    }
+
+    /**
+     * Sets private_api_key
+     *
+     * @param string $private_api_key Private API key
+     *
+     * @return $this
+     */
+    public function setPrivateApiKey($private_api_key)
+    {
+        $this->container['private_api_key'] = $private_api_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets public_api_key
+     *
+     * @return string
+     */
+    public function getPublicApiKey()
+    {
+        return $this->container['public_api_key'];
+    }
+
+    /**
+     * Sets public_api_key
+     *
+     * @param string $public_api_key Public API key
+     *
+     * @return $this
+     */
+    public function setPublicApiKey($public_api_key)
+    {
+        $this->container['public_api_key'] = $public_api_key;
 
         return $this;
     }
@@ -290,150 +496,6 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
-
-        return $this;
-    }
-
-    /**
-     * Gets sezzle_accounting_code
-     *
-     * @return string
-     */
-    public function getSezzleAccountingCode()
-    {
-        return $this->container['sezzle_accounting_code'];
-    }
-
-    /**
-     * Sets sezzle_accounting_code
-     *
-     * @param string $sezzle_accounting_code sezzle_accounting_code
-     *
-     * @return $this
-     */
-    public function setSezzleAccountingCode($sezzle_accounting_code)
-    {
-        $this->container['sezzle_accounting_code'] = $sezzle_accounting_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets sezzle_business_id
-     *
-     * @return string
-     */
-    public function getSezzleBusinessId()
-    {
-        return $this->container['sezzle_business_id'];
-    }
-
-    /**
-     * Sets sezzle_business_id
-     *
-     * @param string $sezzle_business_id sezzle_business_id
-     *
-     * @return $this
-     */
-    public function setSezzleBusinessId($sezzle_business_id)
-    {
-        $this->container['sezzle_business_id'] = $sezzle_business_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets sezzle_deposit_to_account
-     *
-     * @return string
-     */
-    public function getSezzleDepositToAccount()
-    {
-        return $this->container['sezzle_deposit_to_account'];
-    }
-
-    /**
-     * Sets sezzle_deposit_to_account
-     *
-     * @param string $sezzle_deposit_to_account sezzle_deposit_to_account
-     *
-     * @return $this
-     */
-    public function setSezzleDepositToAccount($sezzle_deposit_to_account)
-    {
-        $this->container['sezzle_deposit_to_account'] = $sezzle_deposit_to_account;
-
-        return $this;
-    }
-
-    /**
-     * Gets sezzle_environment
-     *
-     * @return string
-     */
-    public function getSezzleEnvironment()
-    {
-        return $this->container['sezzle_environment'];
-    }
-
-    /**
-     * Sets sezzle_environment
-     *
-     * @param string $sezzle_environment sezzle_environment
-     *
-     * @return $this
-     */
-    public function setSezzleEnvironment($sezzle_environment)
-    {
-        $this->container['sezzle_environment'] = $sezzle_environment;
-
-        return $this;
-    }
-
-    /**
-     * Gets sezzle_private_api_key
-     *
-     * @return string
-     */
-    public function getSezzlePrivateApiKey()
-    {
-        return $this->container['sezzle_private_api_key'];
-    }
-
-    /**
-     * Sets sezzle_private_api_key
-     *
-     * @param string $sezzle_private_api_key sezzle_private_api_key
-     *
-     * @return $this
-     */
-    public function setSezzlePrivateApiKey($sezzle_private_api_key)
-    {
-        $this->container['sezzle_private_api_key'] = $sezzle_private_api_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets sezzle_public_api_key
-     *
-     * @return string
-     */
-    public function getSezzlePublicApiKey()
-    {
-        return $this->container['sezzle_public_api_key'];
-    }
-
-    /**
-     * Sets sezzle_public_api_key
-     *
-     * @param string $sezzle_public_api_key sezzle_public_api_key
-     *
-     * @return $this
-     */
-    public function setSezzlePublicApiKey($sezzle_public_api_key)
-    {
-        $this->container['sezzle_public_api_key'] = $sezzle_public_api_key;
 
         return $this;
     }

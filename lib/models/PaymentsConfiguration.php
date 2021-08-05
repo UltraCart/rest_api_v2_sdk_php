@@ -63,17 +63,17 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => '\ultracart\v2\models\PaymentsConfigurationCheck',
         'cod' => '\ultracart\v2\models\PaymentsConfigurationCOD',
         'credit_card' => '\ultracart\v2\models\PaymentsConfigurationCreditCard',
-        'e_check' => '\ultracart\v2\models\PaymentsConfigurationEcheck',
+        'echeck' => '\ultracart\v2\models\PaymentsConfigurationEcheck',
         'loan_hero' => '\ultracart\v2\models\PaymentsConfigurationLoanHero',
         'money_order' => '\ultracart\v2\models\PaymentsConfigurationMoneyOrder',
-        'pay_pal' => '\ultracart\v2\models\PaymentsConfigurationPayPal',
+        'paypal' => '\ultracart\v2\models\PaymentsConfigurationPayPal',
         'purchase_order' => '\ultracart\v2\models\PaymentsConfigurationPurchaseOrder',
         'quote_request' => '\ultracart\v2\models\PaymentsConfigurationQuoteRequest',
         'sezzle' => '\ultracart\v2\models\PaymentsConfigurationSezzle',
         'show_accounting_code' => 'bool',
         'switch_to_sub_tab' => 'string',
         'switch_to_tab' => 'string',
-        'we_pay' => '\ultracart\v2\models\PaymentsConfigurationWePay',
+        'ultracart_payments_wepay' => '\ultracart\v2\models\PaymentsConfigurationWePay',
         'wire_transfer' => '\ultracart\v2\models\PaymentsConfigurationWireTransfer'
     ];
 
@@ -89,17 +89,17 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => null,
         'cod' => null,
         'credit_card' => null,
-        'e_check' => null,
+        'echeck' => null,
         'loan_hero' => null,
         'money_order' => null,
-        'pay_pal' => null,
+        'paypal' => null,
         'purchase_order' => null,
         'quote_request' => null,
         'sezzle' => null,
         'show_accounting_code' => null,
         'switch_to_sub_tab' => null,
         'switch_to_tab' => null,
-        'we_pay' => null,
+        'ultracart_payments_wepay' => null,
         'wire_transfer' => null
     ];
 
@@ -135,19 +135,19 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'cash' => 'cash',
         'check' => 'check',
         'cod' => 'cod',
-        'credit_card' => 'creditCard',
-        'e_check' => 'eCheck',
-        'loan_hero' => 'loanHero',
-        'money_order' => 'moneyOrder',
-        'pay_pal' => 'payPal',
-        'purchase_order' => 'purchaseOrder',
-        'quote_request' => 'quoteRequest',
+        'credit_card' => 'credit_card',
+        'echeck' => 'echeck',
+        'loan_hero' => 'loan_hero',
+        'money_order' => 'money_order',
+        'paypal' => 'paypal',
+        'purchase_order' => 'purchase_order',
+        'quote_request' => 'quote_request',
         'sezzle' => 'sezzle',
-        'show_accounting_code' => 'showAccountingCode',
+        'show_accounting_code' => 'show_accounting_code',
         'switch_to_sub_tab' => 'switchToSubTab',
         'switch_to_tab' => 'switchToTab',
-        'we_pay' => 'wePay',
-        'wire_transfer' => 'wireTransfer'
+        'ultracart_payments_wepay' => 'ultracart_payments_wepay',
+        'wire_transfer' => 'wire_transfer'
     ];
 
     /**
@@ -162,17 +162,17 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => 'setCheck',
         'cod' => 'setCod',
         'credit_card' => 'setCreditCard',
-        'e_check' => 'setECheck',
+        'echeck' => 'setEcheck',
         'loan_hero' => 'setLoanHero',
         'money_order' => 'setMoneyOrder',
-        'pay_pal' => 'setPayPal',
+        'paypal' => 'setPaypal',
         'purchase_order' => 'setPurchaseOrder',
         'quote_request' => 'setQuoteRequest',
         'sezzle' => 'setSezzle',
         'show_accounting_code' => 'setShowAccountingCode',
         'switch_to_sub_tab' => 'setSwitchToSubTab',
         'switch_to_tab' => 'setSwitchToTab',
-        'we_pay' => 'setWePay',
+        'ultracart_payments_wepay' => 'setUltracartPaymentsWepay',
         'wire_transfer' => 'setWireTransfer'
     ];
 
@@ -188,17 +188,17 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'check' => 'getCheck',
         'cod' => 'getCod',
         'credit_card' => 'getCreditCard',
-        'e_check' => 'getECheck',
+        'echeck' => 'getEcheck',
         'loan_hero' => 'getLoanHero',
         'money_order' => 'getMoneyOrder',
-        'pay_pal' => 'getPayPal',
+        'paypal' => 'getPaypal',
         'purchase_order' => 'getPurchaseOrder',
         'quote_request' => 'getQuoteRequest',
         'sezzle' => 'getSezzle',
         'show_accounting_code' => 'getShowAccountingCode',
         'switch_to_sub_tab' => 'getSwitchToSubTab',
         'switch_to_tab' => 'getSwitchToTab',
-        'we_pay' => 'getWePay',
+        'ultracart_payments_wepay' => 'getUltracartPaymentsWepay',
         'wire_transfer' => 'getWireTransfer'
     ];
 
@@ -268,17 +268,17 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         $this->container['check'] = isset($data['check']) ? $data['check'] : null;
         $this->container['cod'] = isset($data['cod']) ? $data['cod'] : null;
         $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
-        $this->container['e_check'] = isset($data['e_check']) ? $data['e_check'] : null;
+        $this->container['echeck'] = isset($data['echeck']) ? $data['echeck'] : null;
         $this->container['loan_hero'] = isset($data['loan_hero']) ? $data['loan_hero'] : null;
         $this->container['money_order'] = isset($data['money_order']) ? $data['money_order'] : null;
-        $this->container['pay_pal'] = isset($data['pay_pal']) ? $data['pay_pal'] : null;
+        $this->container['paypal'] = isset($data['paypal']) ? $data['paypal'] : null;
         $this->container['purchase_order'] = isset($data['purchase_order']) ? $data['purchase_order'] : null;
         $this->container['quote_request'] = isset($data['quote_request']) ? $data['quote_request'] : null;
         $this->container['sezzle'] = isset($data['sezzle']) ? $data['sezzle'] : null;
         $this->container['show_accounting_code'] = isset($data['show_accounting_code']) ? $data['show_accounting_code'] : null;
         $this->container['switch_to_sub_tab'] = isset($data['switch_to_sub_tab']) ? $data['switch_to_sub_tab'] : null;
         $this->container['switch_to_tab'] = isset($data['switch_to_tab']) ? $data['switch_to_tab'] : null;
-        $this->container['we_pay'] = isset($data['we_pay']) ? $data['we_pay'] : null;
+        $this->container['ultracart_payments_wepay'] = isset($data['ultracart_payments_wepay']) ? $data['ultracart_payments_wepay'] : null;
         $this->container['wire_transfer'] = isset($data['wire_transfer']) ? $data['wire_transfer'] : null;
     }
 
@@ -451,25 +451,25 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets e_check
+     * Gets echeck
      *
      * @return \ultracart\v2\models\PaymentsConfigurationEcheck
      */
-    public function getECheck()
+    public function getEcheck()
     {
-        return $this->container['e_check'];
+        return $this->container['echeck'];
     }
 
     /**
-     * Sets e_check
+     * Sets echeck
      *
-     * @param \ultracart\v2\models\PaymentsConfigurationEcheck $e_check e_check
+     * @param \ultracart\v2\models\PaymentsConfigurationEcheck $echeck echeck
      *
      * @return $this
      */
-    public function setECheck($e_check)
+    public function setEcheck($echeck)
     {
-        $this->container['e_check'] = $e_check;
+        $this->container['echeck'] = $echeck;
 
         return $this;
     }
@@ -523,25 +523,25 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets pay_pal
+     * Gets paypal
      *
      * @return \ultracart\v2\models\PaymentsConfigurationPayPal
      */
-    public function getPayPal()
+    public function getPaypal()
     {
-        return $this->container['pay_pal'];
+        return $this->container['paypal'];
     }
 
     /**
-     * Sets pay_pal
+     * Sets paypal
      *
-     * @param \ultracart\v2\models\PaymentsConfigurationPayPal $pay_pal pay_pal
+     * @param \ultracart\v2\models\PaymentsConfigurationPayPal $paypal paypal
      *
      * @return $this
      */
-    public function setPayPal($pay_pal)
+    public function setPaypal($paypal)
     {
-        $this->container['pay_pal'] = $pay_pal;
+        $this->container['paypal'] = $paypal;
 
         return $this;
     }
@@ -631,7 +631,7 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
     /**
      * Sets show_accounting_code
      *
-     * @param bool $show_accounting_code show_accounting_code
+     * @param bool $show_accounting_code Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured.
      *
      * @return $this
      */
@@ -691,25 +691,25 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets we_pay
+     * Gets ultracart_payments_wepay
      *
      * @return \ultracart\v2\models\PaymentsConfigurationWePay
      */
-    public function getWePay()
+    public function getUltracartPaymentsWepay()
     {
-        return $this->container['we_pay'];
+        return $this->container['ultracart_payments_wepay'];
     }
 
     /**
-     * Sets we_pay
+     * Sets ultracart_payments_wepay
      *
-     * @param \ultracart\v2\models\PaymentsConfigurationWePay $we_pay we_pay
+     * @param \ultracart\v2\models\PaymentsConfigurationWePay $ultracart_payments_wepay ultracart_payments_wepay
      *
      * @return $this
      */
-    public function setWePay($we_pay)
+    public function setUltracartPaymentsWepay($ultracart_payments_wepay)
     {
-        $this->container['we_pay'] = $we_pay;
+        $this->container['ultracart_payments_wepay'] = $ultracart_payments_wepay;
 
         return $this;
     }

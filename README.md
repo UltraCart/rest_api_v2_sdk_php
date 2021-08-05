@@ -1186,6 +1186,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.9 | 08/05/2021 | configuration api - updated annotations for method names | 
 | 3.4.8 | 08/04/2021 | configuration api - payments config refactoring | 
 | 3.4.7 | 08/04/2021 | esp folders for lists/segments | 
 | 3.4.5 | 08/03/2021 | configuration api bug fix for a bad response object on updateRotatingTransactionGateway | 

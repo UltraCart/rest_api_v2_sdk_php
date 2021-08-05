@@ -58,19 +58,18 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_check_orders' => 'bool',
-        'check_accounting_code' => 'string',
-        'check_deposit_to_account' => 'string',
+        'accounting_code' => 'string',
         'checks_payable_to' => 'string',
+        'deposit_to_account' => 'string',
         'mail_to_address1' => 'string',
         'mail_to_address2' => 'string',
         'mail_to_city' => 'string',
         'mail_to_country' => 'string',
         'mail_to_name' => 'string',
-        'mail_to_state' => 'string',
-        'mail_to_zip' => 'string',
-        'money_order_accounting_code' => 'string',
-        'money_order_deposit_to_account' => 'string',
-        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
+        'mail_to_postal_code' => 'string',
+        'mail_to_store' => 'string',
+        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
+        'test_methods' => 'object'
     ];
 
     /**
@@ -80,19 +79,18 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_check_orders' => null,
-        'check_accounting_code' => null,
-        'check_deposit_to_account' => null,
+        'accounting_code' => null,
         'checks_payable_to' => null,
+        'deposit_to_account' => null,
         'mail_to_address1' => null,
         'mail_to_address2' => null,
         'mail_to_city' => null,
         'mail_to_country' => null,
         'mail_to_name' => null,
-        'mail_to_state' => null,
-        'mail_to_zip' => null,
-        'money_order_accounting_code' => null,
-        'money_order_deposit_to_account' => null,
-        'restrictions' => null
+        'mail_to_postal_code' => null,
+        'mail_to_store' => null,
+        'restrictions' => null,
+        'test_methods' => null
     ];
 
     /**
@@ -122,20 +120,19 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_check_orders' => 'acceptCheckOrders',
-        'check_accounting_code' => 'checkAccountingCode',
-        'check_deposit_to_account' => 'checkDepositToAccount',
-        'checks_payable_to' => 'checksPayableTo',
-        'mail_to_address1' => 'mailToAddress1',
-        'mail_to_address2' => 'mailToAddress2',
-        'mail_to_city' => 'mailToCity',
-        'mail_to_country' => 'mailToCountry',
-        'mail_to_name' => 'mailToName',
-        'mail_to_state' => 'mailToState',
-        'mail_to_zip' => 'mailToZip',
-        'money_order_accounting_code' => 'moneyOrderAccountingCode',
-        'money_order_deposit_to_account' => 'moneyOrderDepositToAccount',
-        'restrictions' => 'restrictions'
+        'accept_check_orders' => 'accept_check_orders',
+        'accounting_code' => 'accounting_code',
+        'checks_payable_to' => 'checks_payable_to',
+        'deposit_to_account' => 'deposit_to_account',
+        'mail_to_address1' => 'mail_to_address1',
+        'mail_to_address2' => 'mail_to_address2',
+        'mail_to_city' => 'mail_to_city',
+        'mail_to_country' => 'mail_to_country',
+        'mail_to_name' => 'mail_to_name',
+        'mail_to_postal_code' => 'mail_to_postal_code',
+        'mail_to_store' => 'mail_to_store',
+        'restrictions' => 'restrictions',
+        'test_methods' => 'test_methods'
     ];
 
     /**
@@ -145,19 +142,18 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_check_orders' => 'setAcceptCheckOrders',
-        'check_accounting_code' => 'setCheckAccountingCode',
-        'check_deposit_to_account' => 'setCheckDepositToAccount',
+        'accounting_code' => 'setAccountingCode',
         'checks_payable_to' => 'setChecksPayableTo',
+        'deposit_to_account' => 'setDepositToAccount',
         'mail_to_address1' => 'setMailToAddress1',
         'mail_to_address2' => 'setMailToAddress2',
         'mail_to_city' => 'setMailToCity',
         'mail_to_country' => 'setMailToCountry',
         'mail_to_name' => 'setMailToName',
-        'mail_to_state' => 'setMailToState',
-        'mail_to_zip' => 'setMailToZip',
-        'money_order_accounting_code' => 'setMoneyOrderAccountingCode',
-        'money_order_deposit_to_account' => 'setMoneyOrderDepositToAccount',
-        'restrictions' => 'setRestrictions'
+        'mail_to_postal_code' => 'setMailToPostalCode',
+        'mail_to_store' => 'setMailToStore',
+        'restrictions' => 'setRestrictions',
+        'test_methods' => 'setTestMethods'
     ];
 
     /**
@@ -167,19 +163,18 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_check_orders' => 'getAcceptCheckOrders',
-        'check_accounting_code' => 'getCheckAccountingCode',
-        'check_deposit_to_account' => 'getCheckDepositToAccount',
+        'accounting_code' => 'getAccountingCode',
         'checks_payable_to' => 'getChecksPayableTo',
+        'deposit_to_account' => 'getDepositToAccount',
         'mail_to_address1' => 'getMailToAddress1',
         'mail_to_address2' => 'getMailToAddress2',
         'mail_to_city' => 'getMailToCity',
         'mail_to_country' => 'getMailToCountry',
         'mail_to_name' => 'getMailToName',
-        'mail_to_state' => 'getMailToState',
-        'mail_to_zip' => 'getMailToZip',
-        'money_order_accounting_code' => 'getMoneyOrderAccountingCode',
-        'money_order_deposit_to_account' => 'getMoneyOrderDepositToAccount',
-        'restrictions' => 'getRestrictions'
+        'mail_to_postal_code' => 'getMailToPostalCode',
+        'mail_to_store' => 'getMailToStore',
+        'restrictions' => 'getRestrictions',
+        'test_methods' => 'getTestMethods'
     ];
 
     /**
@@ -243,19 +238,18 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_check_orders'] = isset($data['accept_check_orders']) ? $data['accept_check_orders'] : null;
-        $this->container['check_accounting_code'] = isset($data['check_accounting_code']) ? $data['check_accounting_code'] : null;
-        $this->container['check_deposit_to_account'] = isset($data['check_deposit_to_account']) ? $data['check_deposit_to_account'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
         $this->container['checks_payable_to'] = isset($data['checks_payable_to']) ? $data['checks_payable_to'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
         $this->container['mail_to_address1'] = isset($data['mail_to_address1']) ? $data['mail_to_address1'] : null;
         $this->container['mail_to_address2'] = isset($data['mail_to_address2']) ? $data['mail_to_address2'] : null;
         $this->container['mail_to_city'] = isset($data['mail_to_city']) ? $data['mail_to_city'] : null;
         $this->container['mail_to_country'] = isset($data['mail_to_country']) ? $data['mail_to_country'] : null;
         $this->container['mail_to_name'] = isset($data['mail_to_name']) ? $data['mail_to_name'] : null;
-        $this->container['mail_to_state'] = isset($data['mail_to_state']) ? $data['mail_to_state'] : null;
-        $this->container['mail_to_zip'] = isset($data['mail_to_zip']) ? $data['mail_to_zip'] : null;
-        $this->container['money_order_accounting_code'] = isset($data['money_order_accounting_code']) ? $data['money_order_accounting_code'] : null;
-        $this->container['money_order_deposit_to_account'] = isset($data['money_order_deposit_to_account']) ? $data['money_order_deposit_to_account'] : null;
+        $this->container['mail_to_postal_code'] = isset($data['mail_to_postal_code']) ? $data['mail_to_postal_code'] : null;
+        $this->container['mail_to_store'] = isset($data['mail_to_store']) ? $data['mail_to_store'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
+        $this->container['test_methods'] = isset($data['test_methods']) ? $data['test_methods'] : null;
     }
 
     /**
@@ -295,7 +289,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Sets accept_check_orders
      *
-     * @param bool $accept_check_orders accept_check_orders
+     * @param bool $accept_check_orders Master flag indicating this merchant accepts paper checks
      *
      * @return $this
      */
@@ -307,49 +301,25 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets check_accounting_code
+     * Gets accounting_code
      *
      * @return string
      */
-    public function getCheckAccountingCode()
+    public function getAccountingCode()
     {
-        return $this->container['check_accounting_code'];
+        return $this->container['accounting_code'];
     }
 
     /**
-     * Sets check_accounting_code
+     * Sets accounting_code
      *
-     * @param string $check_accounting_code check_accounting_code
+     * @param string $accounting_code Optional Quickbooks accounting code
      *
      * @return $this
      */
-    public function setCheckAccountingCode($check_accounting_code)
+    public function setAccountingCode($accounting_code)
     {
-        $this->container['check_accounting_code'] = $check_accounting_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets check_deposit_to_account
-     *
-     * @return string
-     */
-    public function getCheckDepositToAccount()
-    {
-        return $this->container['check_deposit_to_account'];
-    }
-
-    /**
-     * Sets check_deposit_to_account
-     *
-     * @param string $check_deposit_to_account check_deposit_to_account
-     *
-     * @return $this
-     */
-    public function setCheckDepositToAccount($check_deposit_to_account)
-    {
-        $this->container['check_deposit_to_account'] = $check_deposit_to_account;
+        $this->container['accounting_code'] = $accounting_code;
 
         return $this;
     }
@@ -367,13 +337,37 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Sets checks_payable_to
      *
-     * @param string $checks_payable_to checks_payable_to
+     * @param string $checks_payable_to This is who the customer makes the check out to
      *
      * @return $this
      */
     public function setChecksPayableTo($checks_payable_to)
     {
         $this->container['checks_payable_to'] = $checks_payable_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets deposit_to_account
+     *
+     * @return string
+     */
+    public function getDepositToAccount()
+    {
+        return $this->container['deposit_to_account'];
+    }
+
+    /**
+     * Sets deposit_to_account
+     *
+     * @param string $deposit_to_account Optional Quickbooks deposit to account
+     *
+     * @return $this
+     */
+    public function setDepositToAccount($deposit_to_account)
+    {
+        $this->container['deposit_to_account'] = $deposit_to_account;
 
         return $this;
     }
@@ -391,7 +385,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Sets mail_to_address1
      *
-     * @param string $mail_to_address1 mail_to_address1
+     * @param string $mail_to_address1 MailTo address line 1
      *
      * @return $this
      */
@@ -415,7 +409,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Sets mail_to_address2
      *
-     * @param string $mail_to_address2 mail_to_address2
+     * @param string $mail_to_address2 MailTo address line 2
      *
      * @return $this
      */
@@ -439,7 +433,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Sets mail_to_city
      *
-     * @param string $mail_to_city mail_to_city
+     * @param string $mail_to_city MailTo city
      *
      * @return $this
      */
@@ -463,7 +457,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Sets mail_to_country
      *
-     * @param string $mail_to_country mail_to_country
+     * @param string $mail_to_country MailTo country
      *
      * @return $this
      */
@@ -487,7 +481,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Sets mail_to_name
      *
-     * @param string $mail_to_name mail_to_name
+     * @param string $mail_to_name MailTo name
      *
      * @return $this
      */
@@ -499,97 +493,49 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets mail_to_state
+     * Gets mail_to_postal_code
      *
      * @return string
      */
-    public function getMailToState()
+    public function getMailToPostalCode()
     {
-        return $this->container['mail_to_state'];
+        return $this->container['mail_to_postal_code'];
     }
 
     /**
-     * Sets mail_to_state
+     * Sets mail_to_postal_code
      *
-     * @param string $mail_to_state mail_to_state
+     * @param string $mail_to_postal_code MailTo postal code
      *
      * @return $this
      */
-    public function setMailToState($mail_to_state)
+    public function setMailToPostalCode($mail_to_postal_code)
     {
-        $this->container['mail_to_state'] = $mail_to_state;
+        $this->container['mail_to_postal_code'] = $mail_to_postal_code;
 
         return $this;
     }
 
     /**
-     * Gets mail_to_zip
+     * Gets mail_to_store
      *
      * @return string
      */
-    public function getMailToZip()
+    public function getMailToStore()
     {
-        return $this->container['mail_to_zip'];
+        return $this->container['mail_to_store'];
     }
 
     /**
-     * Sets mail_to_zip
+     * Sets mail_to_store
      *
-     * @param string $mail_to_zip mail_to_zip
+     * @param string $mail_to_store MailTo store
      *
      * @return $this
      */
-    public function setMailToZip($mail_to_zip)
+    public function setMailToStore($mail_to_store)
     {
-        $this->container['mail_to_zip'] = $mail_to_zip;
-
-        return $this;
-    }
-
-    /**
-     * Gets money_order_accounting_code
-     *
-     * @return string
-     */
-    public function getMoneyOrderAccountingCode()
-    {
-        return $this->container['money_order_accounting_code'];
-    }
-
-    /**
-     * Sets money_order_accounting_code
-     *
-     * @param string $money_order_accounting_code money_order_accounting_code
-     *
-     * @return $this
-     */
-    public function setMoneyOrderAccountingCode($money_order_accounting_code)
-    {
-        $this->container['money_order_accounting_code'] = $money_order_accounting_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets money_order_deposit_to_account
-     *
-     * @return string
-     */
-    public function getMoneyOrderDepositToAccount()
-    {
-        return $this->container['money_order_deposit_to_account'];
-    }
-
-    /**
-     * Sets money_order_deposit_to_account
-     *
-     * @param string $money_order_deposit_to_account money_order_deposit_to_account
-     *
-     * @return $this
-     */
-    public function setMoneyOrderDepositToAccount($money_order_deposit_to_account)
-    {
-        $this->container['money_order_deposit_to_account'] = $money_order_deposit_to_account;
+        $this->container['mail_to_store'] = $mail_to_store;
 
         return $this;
     }
@@ -614,6 +560,30 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
+
+        return $this;
+    }
+
+    /**
+     * Gets test_methods
+     *
+     * @return object
+     */
+    public function getTestMethods()
+    {
+        return $this->container['test_methods'];
+    }
+
+    /**
+     * Sets test_methods
+     *
+     * @param object $test_methods Test methods for this payment method
+     *
+     * @return $this
+     */
+    public function setTestMethods($test_methods)
+    {
+        $this->container['test_methods'] = $test_methods;
 
         return $this;
     }

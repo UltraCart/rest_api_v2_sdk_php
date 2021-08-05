@@ -58,33 +58,33 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_wepay' => 'bool',
-        'hide_credit_cards_non_ultra_cart_payments' => 'bool',
-        'hide_surcharge_content' => 'bool',
+        'account_update_uri' => 'string',
+        'address1' => 'string',
+        'address2' => 'string',
+        'canada_accept_debit_cards' => 'bool',
+        'city' => 'string',
+        'company' => 'string',
+        'company_description' => 'string',
+        'console_hostname' => 'string',
+        'country' => 'string',
+        'currency' => 'string',
+        'expected_revenue' => 'string',
+        'hide_credit_card_non_ultracart_payments' => 'bool',
+        'hide_surcharge_amount' => 'bool',
+        'industry' => 'string',
+        'owner_email' => 'string',
+        'owner_name' => 'string',
+        'owner_phone' => 'string',
+        'postal_code' => 'string',
         'remove_pay_pal_pro' => 'bool',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
-        'short_pay_pal_marketing_text' => 'bool',
-        'show_ultra_cart_payments_disabled' => 'bool',
-        'show_ultra_cart_payments_intro' => 'bool',
-        'show_ultra_cart_payments_verification' => 'bool',
-        'show_ultra_cart_payments_verified' => 'bool',
-        'wepay_account_update_uri' => 'string',
-        'wepay_address1' => 'string',
-        'wepay_address2' => 'string',
-        'wepay_canada_accept_debit_cards' => 'bool',
-        'wepay_city' => 'string',
-        'wepay_company' => 'string',
-        'wepay_company_description' => 'string',
-        'wepay_console_hostname' => 'string',
-        'wepay_country' => 'string',
-        'wepay_currency' => 'string',
-        'wepay_expected_revenue' => 'string',
-        'wepay_industry' => 'string',
-        'wepay_owner_email' => 'string',
-        'wepay_owner_name' => 'string',
-        'wepay_owner_phone' => 'string',
-        'wepay_state' => 'string',
-        'wepay_website_url' => 'string',
-        'wepay_zip' => 'string'
+        'short_paypal_marketing_text' => 'bool',
+        'show_ultracart_payments_disabled' => 'bool',
+        'show_ultracart_payments_intro' => 'bool',
+        'show_ultracart_payments_verification' => 'bool',
+        'show_ultracart_payments_verified' => 'bool',
+        'state' => 'string',
+        'website_url' => 'string'
     ];
 
     /**
@@ -94,33 +94,33 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_wepay' => null,
-        'hide_credit_cards_non_ultra_cart_payments' => null,
-        'hide_surcharge_content' => null,
+        'account_update_uri' => null,
+        'address1' => null,
+        'address2' => null,
+        'canada_accept_debit_cards' => null,
+        'city' => null,
+        'company' => null,
+        'company_description' => null,
+        'console_hostname' => null,
+        'country' => null,
+        'currency' => null,
+        'expected_revenue' => null,
+        'hide_credit_card_non_ultracart_payments' => null,
+        'hide_surcharge_amount' => null,
+        'industry' => null,
+        'owner_email' => null,
+        'owner_name' => null,
+        'owner_phone' => null,
+        'postal_code' => null,
         'remove_pay_pal_pro' => null,
         'restrictions' => null,
-        'short_pay_pal_marketing_text' => null,
-        'show_ultra_cart_payments_disabled' => null,
-        'show_ultra_cart_payments_intro' => null,
-        'show_ultra_cart_payments_verification' => null,
-        'show_ultra_cart_payments_verified' => null,
-        'wepay_account_update_uri' => null,
-        'wepay_address1' => null,
-        'wepay_address2' => null,
-        'wepay_canada_accept_debit_cards' => null,
-        'wepay_city' => null,
-        'wepay_company' => null,
-        'wepay_company_description' => null,
-        'wepay_console_hostname' => null,
-        'wepay_country' => null,
-        'wepay_currency' => null,
-        'wepay_expected_revenue' => null,
-        'wepay_industry' => null,
-        'wepay_owner_email' => null,
-        'wepay_owner_name' => null,
-        'wepay_owner_phone' => null,
-        'wepay_state' => null,
-        'wepay_website_url' => null,
-        'wepay_zip' => null
+        'short_paypal_marketing_text' => null,
+        'show_ultracart_payments_disabled' => null,
+        'show_ultracart_payments_intro' => null,
+        'show_ultracart_payments_verification' => null,
+        'show_ultracart_payments_verified' => null,
+        'state' => null,
+        'website_url' => null
     ];
 
     /**
@@ -150,34 +150,34 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_wepay' => 'acceptWepay',
-        'hide_credit_cards_non_ultra_cart_payments' => 'hideCreditCardsNonUltraCartPayments',
-        'hide_surcharge_content' => 'hideSurchargeContent',
+        'accept_wepay' => 'accept_wepay',
+        'account_update_uri' => 'account_update_uri',
+        'address1' => 'address1',
+        'address2' => 'address2',
+        'canada_accept_debit_cards' => 'canada_accept_debit_cards',
+        'city' => 'city',
+        'company' => 'company',
+        'company_description' => 'company_description',
+        'console_hostname' => 'console_hostname',
+        'country' => 'country',
+        'currency' => 'currency',
+        'expected_revenue' => 'expected_revenue',
+        'hide_credit_card_non_ultracart_payments' => 'hide_credit_card_non_ultracart_payments',
+        'hide_surcharge_amount' => 'hide_surcharge_amount',
+        'industry' => 'industry',
+        'owner_email' => 'owner_email',
+        'owner_name' => 'owner_name',
+        'owner_phone' => 'owner_phone',
+        'postal_code' => 'postal_code',
         'remove_pay_pal_pro' => 'removePayPalPro',
         'restrictions' => 'restrictions',
-        'short_pay_pal_marketing_text' => 'shortPayPalMarketingText',
-        'show_ultra_cart_payments_disabled' => 'showUltraCartPaymentsDisabled',
-        'show_ultra_cart_payments_intro' => 'showUltraCartPaymentsIntro',
-        'show_ultra_cart_payments_verification' => 'showUltraCartPaymentsVerification',
-        'show_ultra_cart_payments_verified' => 'showUltraCartPaymentsVerified',
-        'wepay_account_update_uri' => 'wepayAccountUpdateUri',
-        'wepay_address1' => 'wepayAddress1',
-        'wepay_address2' => 'wepayAddress2',
-        'wepay_canada_accept_debit_cards' => 'wepayCanadaAcceptDebitCards',
-        'wepay_city' => 'wepayCity',
-        'wepay_company' => 'wepayCompany',
-        'wepay_company_description' => 'wepayCompanyDescription',
-        'wepay_console_hostname' => 'wepayConsoleHostname',
-        'wepay_country' => 'wepayCountry',
-        'wepay_currency' => 'wepayCurrency',
-        'wepay_expected_revenue' => 'wepayExpectedRevenue',
-        'wepay_industry' => 'wepayIndustry',
-        'wepay_owner_email' => 'wepayOwnerEmail',
-        'wepay_owner_name' => 'wepayOwnerName',
-        'wepay_owner_phone' => 'wepayOwnerPhone',
-        'wepay_state' => 'wepayState',
-        'wepay_website_url' => 'wepayWebsiteUrl',
-        'wepay_zip' => 'wepayZip'
+        'short_paypal_marketing_text' => 'short_paypal_marketing_text',
+        'show_ultracart_payments_disabled' => 'show_ultracart_payments_disabled',
+        'show_ultracart_payments_intro' => 'show_ultracart_payments_intro',
+        'show_ultracart_payments_verification' => 'show_ultracart_payments_verification',
+        'show_ultracart_payments_verified' => 'show_ultracart_payments_verified',
+        'state' => 'state',
+        'website_url' => 'website_url'
     ];
 
     /**
@@ -187,33 +187,33 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_wepay' => 'setAcceptWepay',
-        'hide_credit_cards_non_ultra_cart_payments' => 'setHideCreditCardsNonUltraCartPayments',
-        'hide_surcharge_content' => 'setHideSurchargeContent',
+        'account_update_uri' => 'setAccountUpdateUri',
+        'address1' => 'setAddress1',
+        'address2' => 'setAddress2',
+        'canada_accept_debit_cards' => 'setCanadaAcceptDebitCards',
+        'city' => 'setCity',
+        'company' => 'setCompany',
+        'company_description' => 'setCompanyDescription',
+        'console_hostname' => 'setConsoleHostname',
+        'country' => 'setCountry',
+        'currency' => 'setCurrency',
+        'expected_revenue' => 'setExpectedRevenue',
+        'hide_credit_card_non_ultracart_payments' => 'setHideCreditCardNonUltracartPayments',
+        'hide_surcharge_amount' => 'setHideSurchargeAmount',
+        'industry' => 'setIndustry',
+        'owner_email' => 'setOwnerEmail',
+        'owner_name' => 'setOwnerName',
+        'owner_phone' => 'setOwnerPhone',
+        'postal_code' => 'setPostalCode',
         'remove_pay_pal_pro' => 'setRemovePayPalPro',
         'restrictions' => 'setRestrictions',
-        'short_pay_pal_marketing_text' => 'setShortPayPalMarketingText',
-        'show_ultra_cart_payments_disabled' => 'setShowUltraCartPaymentsDisabled',
-        'show_ultra_cart_payments_intro' => 'setShowUltraCartPaymentsIntro',
-        'show_ultra_cart_payments_verification' => 'setShowUltraCartPaymentsVerification',
-        'show_ultra_cart_payments_verified' => 'setShowUltraCartPaymentsVerified',
-        'wepay_account_update_uri' => 'setWepayAccountUpdateUri',
-        'wepay_address1' => 'setWepayAddress1',
-        'wepay_address2' => 'setWepayAddress2',
-        'wepay_canada_accept_debit_cards' => 'setWepayCanadaAcceptDebitCards',
-        'wepay_city' => 'setWepayCity',
-        'wepay_company' => 'setWepayCompany',
-        'wepay_company_description' => 'setWepayCompanyDescription',
-        'wepay_console_hostname' => 'setWepayConsoleHostname',
-        'wepay_country' => 'setWepayCountry',
-        'wepay_currency' => 'setWepayCurrency',
-        'wepay_expected_revenue' => 'setWepayExpectedRevenue',
-        'wepay_industry' => 'setWepayIndustry',
-        'wepay_owner_email' => 'setWepayOwnerEmail',
-        'wepay_owner_name' => 'setWepayOwnerName',
-        'wepay_owner_phone' => 'setWepayOwnerPhone',
-        'wepay_state' => 'setWepayState',
-        'wepay_website_url' => 'setWepayWebsiteUrl',
-        'wepay_zip' => 'setWepayZip'
+        'short_paypal_marketing_text' => 'setShortPaypalMarketingText',
+        'show_ultracart_payments_disabled' => 'setShowUltracartPaymentsDisabled',
+        'show_ultracart_payments_intro' => 'setShowUltracartPaymentsIntro',
+        'show_ultracart_payments_verification' => 'setShowUltracartPaymentsVerification',
+        'show_ultracart_payments_verified' => 'setShowUltracartPaymentsVerified',
+        'state' => 'setState',
+        'website_url' => 'setWebsiteUrl'
     ];
 
     /**
@@ -223,33 +223,33 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_wepay' => 'getAcceptWepay',
-        'hide_credit_cards_non_ultra_cart_payments' => 'getHideCreditCardsNonUltraCartPayments',
-        'hide_surcharge_content' => 'getHideSurchargeContent',
+        'account_update_uri' => 'getAccountUpdateUri',
+        'address1' => 'getAddress1',
+        'address2' => 'getAddress2',
+        'canada_accept_debit_cards' => 'getCanadaAcceptDebitCards',
+        'city' => 'getCity',
+        'company' => 'getCompany',
+        'company_description' => 'getCompanyDescription',
+        'console_hostname' => 'getConsoleHostname',
+        'country' => 'getCountry',
+        'currency' => 'getCurrency',
+        'expected_revenue' => 'getExpectedRevenue',
+        'hide_credit_card_non_ultracart_payments' => 'getHideCreditCardNonUltracartPayments',
+        'hide_surcharge_amount' => 'getHideSurchargeAmount',
+        'industry' => 'getIndustry',
+        'owner_email' => 'getOwnerEmail',
+        'owner_name' => 'getOwnerName',
+        'owner_phone' => 'getOwnerPhone',
+        'postal_code' => 'getPostalCode',
         'remove_pay_pal_pro' => 'getRemovePayPalPro',
         'restrictions' => 'getRestrictions',
-        'short_pay_pal_marketing_text' => 'getShortPayPalMarketingText',
-        'show_ultra_cart_payments_disabled' => 'getShowUltraCartPaymentsDisabled',
-        'show_ultra_cart_payments_intro' => 'getShowUltraCartPaymentsIntro',
-        'show_ultra_cart_payments_verification' => 'getShowUltraCartPaymentsVerification',
-        'show_ultra_cart_payments_verified' => 'getShowUltraCartPaymentsVerified',
-        'wepay_account_update_uri' => 'getWepayAccountUpdateUri',
-        'wepay_address1' => 'getWepayAddress1',
-        'wepay_address2' => 'getWepayAddress2',
-        'wepay_canada_accept_debit_cards' => 'getWepayCanadaAcceptDebitCards',
-        'wepay_city' => 'getWepayCity',
-        'wepay_company' => 'getWepayCompany',
-        'wepay_company_description' => 'getWepayCompanyDescription',
-        'wepay_console_hostname' => 'getWepayConsoleHostname',
-        'wepay_country' => 'getWepayCountry',
-        'wepay_currency' => 'getWepayCurrency',
-        'wepay_expected_revenue' => 'getWepayExpectedRevenue',
-        'wepay_industry' => 'getWepayIndustry',
-        'wepay_owner_email' => 'getWepayOwnerEmail',
-        'wepay_owner_name' => 'getWepayOwnerName',
-        'wepay_owner_phone' => 'getWepayOwnerPhone',
-        'wepay_state' => 'getWepayState',
-        'wepay_website_url' => 'getWepayWebsiteUrl',
-        'wepay_zip' => 'getWepayZip'
+        'short_paypal_marketing_text' => 'getShortPaypalMarketingText',
+        'show_ultracart_payments_disabled' => 'getShowUltracartPaymentsDisabled',
+        'show_ultracart_payments_intro' => 'getShowUltracartPaymentsIntro',
+        'show_ultracart_payments_verification' => 'getShowUltracartPaymentsVerification',
+        'show_ultracart_payments_verified' => 'getShowUltracartPaymentsVerified',
+        'state' => 'getState',
+        'website_url' => 'getWebsiteUrl'
     ];
 
     /**
@@ -313,33 +313,33 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_wepay'] = isset($data['accept_wepay']) ? $data['accept_wepay'] : null;
-        $this->container['hide_credit_cards_non_ultra_cart_payments'] = isset($data['hide_credit_cards_non_ultra_cart_payments']) ? $data['hide_credit_cards_non_ultra_cart_payments'] : null;
-        $this->container['hide_surcharge_content'] = isset($data['hide_surcharge_content']) ? $data['hide_surcharge_content'] : null;
+        $this->container['account_update_uri'] = isset($data['account_update_uri']) ? $data['account_update_uri'] : null;
+        $this->container['address1'] = isset($data['address1']) ? $data['address1'] : null;
+        $this->container['address2'] = isset($data['address2']) ? $data['address2'] : null;
+        $this->container['canada_accept_debit_cards'] = isset($data['canada_accept_debit_cards']) ? $data['canada_accept_debit_cards'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
+        $this->container['company_description'] = isset($data['company_description']) ? $data['company_description'] : null;
+        $this->container['console_hostname'] = isset($data['console_hostname']) ? $data['console_hostname'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['expected_revenue'] = isset($data['expected_revenue']) ? $data['expected_revenue'] : null;
+        $this->container['hide_credit_card_non_ultracart_payments'] = isset($data['hide_credit_card_non_ultracart_payments']) ? $data['hide_credit_card_non_ultracart_payments'] : null;
+        $this->container['hide_surcharge_amount'] = isset($data['hide_surcharge_amount']) ? $data['hide_surcharge_amount'] : null;
+        $this->container['industry'] = isset($data['industry']) ? $data['industry'] : null;
+        $this->container['owner_email'] = isset($data['owner_email']) ? $data['owner_email'] : null;
+        $this->container['owner_name'] = isset($data['owner_name']) ? $data['owner_name'] : null;
+        $this->container['owner_phone'] = isset($data['owner_phone']) ? $data['owner_phone'] : null;
+        $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
         $this->container['remove_pay_pal_pro'] = isset($data['remove_pay_pal_pro']) ? $data['remove_pay_pal_pro'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
-        $this->container['short_pay_pal_marketing_text'] = isset($data['short_pay_pal_marketing_text']) ? $data['short_pay_pal_marketing_text'] : null;
-        $this->container['show_ultra_cart_payments_disabled'] = isset($data['show_ultra_cart_payments_disabled']) ? $data['show_ultra_cart_payments_disabled'] : null;
-        $this->container['show_ultra_cart_payments_intro'] = isset($data['show_ultra_cart_payments_intro']) ? $data['show_ultra_cart_payments_intro'] : null;
-        $this->container['show_ultra_cart_payments_verification'] = isset($data['show_ultra_cart_payments_verification']) ? $data['show_ultra_cart_payments_verification'] : null;
-        $this->container['show_ultra_cart_payments_verified'] = isset($data['show_ultra_cart_payments_verified']) ? $data['show_ultra_cart_payments_verified'] : null;
-        $this->container['wepay_account_update_uri'] = isset($data['wepay_account_update_uri']) ? $data['wepay_account_update_uri'] : null;
-        $this->container['wepay_address1'] = isset($data['wepay_address1']) ? $data['wepay_address1'] : null;
-        $this->container['wepay_address2'] = isset($data['wepay_address2']) ? $data['wepay_address2'] : null;
-        $this->container['wepay_canada_accept_debit_cards'] = isset($data['wepay_canada_accept_debit_cards']) ? $data['wepay_canada_accept_debit_cards'] : null;
-        $this->container['wepay_city'] = isset($data['wepay_city']) ? $data['wepay_city'] : null;
-        $this->container['wepay_company'] = isset($data['wepay_company']) ? $data['wepay_company'] : null;
-        $this->container['wepay_company_description'] = isset($data['wepay_company_description']) ? $data['wepay_company_description'] : null;
-        $this->container['wepay_console_hostname'] = isset($data['wepay_console_hostname']) ? $data['wepay_console_hostname'] : null;
-        $this->container['wepay_country'] = isset($data['wepay_country']) ? $data['wepay_country'] : null;
-        $this->container['wepay_currency'] = isset($data['wepay_currency']) ? $data['wepay_currency'] : null;
-        $this->container['wepay_expected_revenue'] = isset($data['wepay_expected_revenue']) ? $data['wepay_expected_revenue'] : null;
-        $this->container['wepay_industry'] = isset($data['wepay_industry']) ? $data['wepay_industry'] : null;
-        $this->container['wepay_owner_email'] = isset($data['wepay_owner_email']) ? $data['wepay_owner_email'] : null;
-        $this->container['wepay_owner_name'] = isset($data['wepay_owner_name']) ? $data['wepay_owner_name'] : null;
-        $this->container['wepay_owner_phone'] = isset($data['wepay_owner_phone']) ? $data['wepay_owner_phone'] : null;
-        $this->container['wepay_state'] = isset($data['wepay_state']) ? $data['wepay_state'] : null;
-        $this->container['wepay_website_url'] = isset($data['wepay_website_url']) ? $data['wepay_website_url'] : null;
-        $this->container['wepay_zip'] = isset($data['wepay_zip']) ? $data['wepay_zip'] : null;
+        $this->container['short_paypal_marketing_text'] = isset($data['short_paypal_marketing_text']) ? $data['short_paypal_marketing_text'] : null;
+        $this->container['show_ultracart_payments_disabled'] = isset($data['show_ultracart_payments_disabled']) ? $data['show_ultracart_payments_disabled'] : null;
+        $this->container['show_ultracart_payments_intro'] = isset($data['show_ultracart_payments_intro']) ? $data['show_ultracart_payments_intro'] : null;
+        $this->container['show_ultracart_payments_verification'] = isset($data['show_ultracart_payments_verification']) ? $data['show_ultracart_payments_verification'] : null;
+        $this->container['show_ultracart_payments_verified'] = isset($data['show_ultracart_payments_verified']) ? $data['show_ultracart_payments_verified'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['website_url'] = isset($data['website_url']) ? $data['website_url'] : null;
     }
 
     /**
@@ -379,7 +379,7 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
     /**
      * Sets accept_wepay
      *
-     * @param bool $accept_wepay accept_wepay
+     * @param bool $accept_wepay Master flag indicating this merchant accepts UltraCart Payments WePay
      *
      * @return $this
      */
@@ -391,49 +391,433 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets hide_credit_cards_non_ultra_cart_payments
+     * Gets account_update_uri
      *
-     * @return bool
+     * @return string
      */
-    public function getHideCreditCardsNonUltraCartPayments()
+    public function getAccountUpdateUri()
     {
-        return $this->container['hide_credit_cards_non_ultra_cart_payments'];
+        return $this->container['account_update_uri'];
     }
 
     /**
-     * Sets hide_credit_cards_non_ultra_cart_payments
+     * Sets account_update_uri
      *
-     * @param bool $hide_credit_cards_non_ultra_cart_payments hide_credit_cards_non_ultra_cart_payments
+     * @param string $account_update_uri URI for updating the WePay account
      *
      * @return $this
      */
-    public function setHideCreditCardsNonUltraCartPayments($hide_credit_cards_non_ultra_cart_payments)
+    public function setAccountUpdateUri($account_update_uri)
     {
-        $this->container['hide_credit_cards_non_ultra_cart_payments'] = $hide_credit_cards_non_ultra_cart_payments;
+        $this->container['account_update_uri'] = $account_update_uri;
 
         return $this;
     }
 
     /**
-     * Gets hide_surcharge_content
+     * Gets address1
      *
-     * @return bool
+     * @return string
      */
-    public function getHideSurchargeContent()
+    public function getAddress1()
     {
-        return $this->container['hide_surcharge_content'];
+        return $this->container['address1'];
     }
 
     /**
-     * Sets hide_surcharge_content
+     * Sets address1
      *
-     * @param bool $hide_surcharge_content hide_surcharge_content
+     * @param string $address1 Address line 1
      *
      * @return $this
      */
-    public function setHideSurchargeContent($hide_surcharge_content)
+    public function setAddress1($address1)
     {
-        $this->container['hide_surcharge_content'] = $hide_surcharge_content;
+        $this->container['address1'] = $address1;
+
+        return $this;
+    }
+
+    /**
+     * Gets address2
+     *
+     * @return string
+     */
+    public function getAddress2()
+    {
+        return $this->container['address2'];
+    }
+
+    /**
+     * Sets address2
+     *
+     * @param string $address2 Address line 2
+     *
+     * @return $this
+     */
+    public function setAddress2($address2)
+    {
+        $this->container['address2'] = $address2;
+
+        return $this;
+    }
+
+    /**
+     * Gets canada_accept_debit_cards
+     *
+     * @return bool
+     */
+    public function getCanadaAcceptDebitCards()
+    {
+        return $this->container['canada_accept_debit_cards'];
+    }
+
+    /**
+     * Sets canada_accept_debit_cards
+     *
+     * @param bool $canada_accept_debit_cards For Canadian merchants, true if they wish to accept debit cards
+     *
+     * @return $this
+     */
+    public function setCanadaAcceptDebitCards($canada_accept_debit_cards)
+    {
+        $this->container['canada_accept_debit_cards'] = $canada_accept_debit_cards;
+
+        return $this;
+    }
+
+    /**
+     * Gets city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string $city City
+     *
+     * @return $this
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets company
+     *
+     * @return string
+     */
+    public function getCompany()
+    {
+        return $this->container['company'];
+    }
+
+    /**
+     * Sets company
+     *
+     * @param string $company Company
+     *
+     * @return $this
+     */
+    public function setCompany($company)
+    {
+        $this->container['company'] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_description
+     *
+     * @return string
+     */
+    public function getCompanyDescription()
+    {
+        return $this->container['company_description'];
+    }
+
+    /**
+     * Sets company_description
+     *
+     * @param string $company_description Company description
+     *
+     * @return $this
+     */
+    public function setCompanyDescription($company_description)
+    {
+        $this->container['company_description'] = $company_description;
+
+        return $this;
+    }
+
+    /**
+     * Gets console_hostname
+     *
+     * @return string
+     */
+    public function getConsoleHostname()
+    {
+        return $this->container['console_hostname'];
+    }
+
+    /**
+     * Sets console_hostname
+     *
+     * @param string $console_hostname Console hostname
+     *
+     * @return $this
+     */
+    public function setConsoleHostname($console_hostname)
+    {
+        $this->container['console_hostname'] = $console_hostname;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string $country Country
+     *
+     * @return $this
+     */
+    public function setCountry($country)
+    {
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency Base currency for transactions
+     *
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets expected_revenue
+     *
+     * @return string
+     */
+    public function getExpectedRevenue()
+    {
+        return $this->container['expected_revenue'];
+    }
+
+    /**
+     * Sets expected_revenue
+     *
+     * @param string $expected_revenue Expected Revenue
+     *
+     * @return $this
+     */
+    public function setExpectedRevenue($expected_revenue)
+    {
+        $this->container['expected_revenue'] = $expected_revenue;
+
+        return $this;
+    }
+
+    /**
+     * Gets hide_credit_card_non_ultracart_payments
+     *
+     * @return bool
+     */
+    public function getHideCreditCardNonUltracartPayments()
+    {
+        return $this->container['hide_credit_card_non_ultracart_payments'];
+    }
+
+    /**
+     * Sets hide_credit_card_non_ultracart_payments
+     *
+     * @param bool $hide_credit_card_non_ultracart_payments Internal flag to aid UI
+     *
+     * @return $this
+     */
+    public function setHideCreditCardNonUltracartPayments($hide_credit_card_non_ultracart_payments)
+    {
+        $this->container['hide_credit_card_non_ultracart_payments'] = $hide_credit_card_non_ultracart_payments;
+
+        return $this;
+    }
+
+    /**
+     * Gets hide_surcharge_amount
+     *
+     * @return bool
+     */
+    public function getHideSurchargeAmount()
+    {
+        return $this->container['hide_surcharge_amount'];
+    }
+
+    /**
+     * Sets hide_surcharge_amount
+     *
+     * @param bool $hide_surcharge_amount Internal flag to aid UI
+     *
+     * @return $this
+     */
+    public function setHideSurchargeAmount($hide_surcharge_amount)
+    {
+        $this->container['hide_surcharge_amount'] = $hide_surcharge_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets industry
+     *
+     * @return string
+     */
+    public function getIndustry()
+    {
+        return $this->container['industry'];
+    }
+
+    /**
+     * Sets industry
+     *
+     * @param string $industry Industry
+     *
+     * @return $this
+     */
+    public function setIndustry($industry)
+    {
+        $this->container['industry'] = $industry;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_email
+     *
+     * @return string
+     */
+    public function getOwnerEmail()
+    {
+        return $this->container['owner_email'];
+    }
+
+    /**
+     * Sets owner_email
+     *
+     * @param string $owner_email Owner email
+     *
+     * @return $this
+     */
+    public function setOwnerEmail($owner_email)
+    {
+        $this->container['owner_email'] = $owner_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_name
+     *
+     * @return string
+     */
+    public function getOwnerName()
+    {
+        return $this->container['owner_name'];
+    }
+
+    /**
+     * Sets owner_name
+     *
+     * @param string $owner_name Owner name
+     *
+     * @return $this
+     */
+    public function setOwnerName($owner_name)
+    {
+        $this->container['owner_name'] = $owner_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_phone
+     *
+     * @return string
+     */
+    public function getOwnerPhone()
+    {
+        return $this->container['owner_phone'];
+    }
+
+    /**
+     * Sets owner_phone
+     *
+     * @param string $owner_phone Owner phone
+     *
+     * @return $this
+     */
+    public function setOwnerPhone($owner_phone)
+    {
+        $this->container['owner_phone'] = $owner_phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets postal_code
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string $postal_code Postal code
+     *
+     * @return $this
+     */
+    public function setPostalCode($postal_code)
+    {
+        $this->container['postal_code'] = $postal_code;
 
         return $this;
     }
@@ -487,553 +871,169 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets short_pay_pal_marketing_text
+     * Gets short_paypal_marketing_text
      *
      * @return bool
      */
-    public function getShortPayPalMarketingText()
+    public function getShortPaypalMarketingText()
     {
-        return $this->container['short_pay_pal_marketing_text'];
+        return $this->container['short_paypal_marketing_text'];
     }
 
     /**
-     * Sets short_pay_pal_marketing_text
+     * Sets short_paypal_marketing_text
      *
-     * @param bool $short_pay_pal_marketing_text short_pay_pal_marketing_text
+     * @param bool $short_paypal_marketing_text Internal UI aid
      *
      * @return $this
      */
-    public function setShortPayPalMarketingText($short_pay_pal_marketing_text)
+    public function setShortPaypalMarketingText($short_paypal_marketing_text)
     {
-        $this->container['short_pay_pal_marketing_text'] = $short_pay_pal_marketing_text;
+        $this->container['short_paypal_marketing_text'] = $short_paypal_marketing_text;
 
         return $this;
     }
 
     /**
-     * Gets show_ultra_cart_payments_disabled
+     * Gets show_ultracart_payments_disabled
      *
      * @return bool
      */
-    public function getShowUltraCartPaymentsDisabled()
+    public function getShowUltracartPaymentsDisabled()
     {
-        return $this->container['show_ultra_cart_payments_disabled'];
+        return $this->container['show_ultracart_payments_disabled'];
     }
 
     /**
-     * Sets show_ultra_cart_payments_disabled
+     * Sets show_ultracart_payments_disabled
      *
-     * @param bool $show_ultra_cart_payments_disabled show_ultra_cart_payments_disabled
+     * @param bool $show_ultracart_payments_disabled Internal flag to aid UI
      *
      * @return $this
      */
-    public function setShowUltraCartPaymentsDisabled($show_ultra_cart_payments_disabled)
+    public function setShowUltracartPaymentsDisabled($show_ultracart_payments_disabled)
     {
-        $this->container['show_ultra_cart_payments_disabled'] = $show_ultra_cart_payments_disabled;
+        $this->container['show_ultracart_payments_disabled'] = $show_ultracart_payments_disabled;
 
         return $this;
     }
 
     /**
-     * Gets show_ultra_cart_payments_intro
+     * Gets show_ultracart_payments_intro
      *
      * @return bool
      */
-    public function getShowUltraCartPaymentsIntro()
+    public function getShowUltracartPaymentsIntro()
     {
-        return $this->container['show_ultra_cart_payments_intro'];
+        return $this->container['show_ultracart_payments_intro'];
     }
 
     /**
-     * Sets show_ultra_cart_payments_intro
+     * Sets show_ultracart_payments_intro
      *
-     * @param bool $show_ultra_cart_payments_intro show_ultra_cart_payments_intro
+     * @param bool $show_ultracart_payments_intro Internal flag to aid UI
      *
      * @return $this
      */
-    public function setShowUltraCartPaymentsIntro($show_ultra_cart_payments_intro)
+    public function setShowUltracartPaymentsIntro($show_ultracart_payments_intro)
     {
-        $this->container['show_ultra_cart_payments_intro'] = $show_ultra_cart_payments_intro;
+        $this->container['show_ultracart_payments_intro'] = $show_ultracart_payments_intro;
 
         return $this;
     }
 
     /**
-     * Gets show_ultra_cart_payments_verification
+     * Gets show_ultracart_payments_verification
      *
      * @return bool
      */
-    public function getShowUltraCartPaymentsVerification()
+    public function getShowUltracartPaymentsVerification()
     {
-        return $this->container['show_ultra_cart_payments_verification'];
+        return $this->container['show_ultracart_payments_verification'];
     }
 
     /**
-     * Sets show_ultra_cart_payments_verification
+     * Sets show_ultracart_payments_verification
      *
-     * @param bool $show_ultra_cart_payments_verification show_ultra_cart_payments_verification
+     * @param bool $show_ultracart_payments_verification Internal flag to aid UI
      *
      * @return $this
      */
-    public function setShowUltraCartPaymentsVerification($show_ultra_cart_payments_verification)
+    public function setShowUltracartPaymentsVerification($show_ultracart_payments_verification)
     {
-        $this->container['show_ultra_cart_payments_verification'] = $show_ultra_cart_payments_verification;
+        $this->container['show_ultracart_payments_verification'] = $show_ultracart_payments_verification;
 
         return $this;
     }
 
     /**
-     * Gets show_ultra_cart_payments_verified
+     * Gets show_ultracart_payments_verified
      *
      * @return bool
      */
-    public function getShowUltraCartPaymentsVerified()
+    public function getShowUltracartPaymentsVerified()
     {
-        return $this->container['show_ultra_cart_payments_verified'];
+        return $this->container['show_ultracart_payments_verified'];
     }
 
     /**
-     * Sets show_ultra_cart_payments_verified
+     * Sets show_ultracart_payments_verified
      *
-     * @param bool $show_ultra_cart_payments_verified show_ultra_cart_payments_verified
+     * @param bool $show_ultracart_payments_verified Internal flag to aid UI
      *
      * @return $this
      */
-    public function setShowUltraCartPaymentsVerified($show_ultra_cart_payments_verified)
+    public function setShowUltracartPaymentsVerified($show_ultracart_payments_verified)
     {
-        $this->container['show_ultra_cart_payments_verified'] = $show_ultra_cart_payments_verified;
+        $this->container['show_ultracart_payments_verified'] = $show_ultracart_payments_verified;
 
         return $this;
     }
 
     /**
-     * Gets wepay_account_update_uri
+     * Gets state
      *
      * @return string
      */
-    public function getWepayAccountUpdateUri()
+    public function getState()
     {
-        return $this->container['wepay_account_update_uri'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets wepay_account_update_uri
+     * Sets state
      *
-     * @param string $wepay_account_update_uri wepay_account_update_uri
+     * @param string $state State
      *
      * @return $this
      */
-    public function setWepayAccountUpdateUri($wepay_account_update_uri)
+    public function setState($state)
     {
-        $this->container['wepay_account_update_uri'] = $wepay_account_update_uri;
+        $this->container['state'] = $state;
 
         return $this;
     }
 
     /**
-     * Gets wepay_address1
+     * Gets website_url
      *
      * @return string
      */
-    public function getWepayAddress1()
+    public function getWebsiteUrl()
     {
-        return $this->container['wepay_address1'];
+        return $this->container['website_url'];
     }
 
     /**
-     * Sets wepay_address1
+     * Sets website_url
      *
-     * @param string $wepay_address1 wepay_address1
+     * @param string $website_url Website URL
      *
      * @return $this
      */
-    public function setWepayAddress1($wepay_address1)
+    public function setWebsiteUrl($website_url)
     {
-        $this->container['wepay_address1'] = $wepay_address1;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_address2
-     *
-     * @return string
-     */
-    public function getWepayAddress2()
-    {
-        return $this->container['wepay_address2'];
-    }
-
-    /**
-     * Sets wepay_address2
-     *
-     * @param string $wepay_address2 wepay_address2
-     *
-     * @return $this
-     */
-    public function setWepayAddress2($wepay_address2)
-    {
-        $this->container['wepay_address2'] = $wepay_address2;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_canada_accept_debit_cards
-     *
-     * @return bool
-     */
-    public function getWepayCanadaAcceptDebitCards()
-    {
-        return $this->container['wepay_canada_accept_debit_cards'];
-    }
-
-    /**
-     * Sets wepay_canada_accept_debit_cards
-     *
-     * @param bool $wepay_canada_accept_debit_cards wepay_canada_accept_debit_cards
-     *
-     * @return $this
-     */
-    public function setWepayCanadaAcceptDebitCards($wepay_canada_accept_debit_cards)
-    {
-        $this->container['wepay_canada_accept_debit_cards'] = $wepay_canada_accept_debit_cards;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_city
-     *
-     * @return string
-     */
-    public function getWepayCity()
-    {
-        return $this->container['wepay_city'];
-    }
-
-    /**
-     * Sets wepay_city
-     *
-     * @param string $wepay_city wepay_city
-     *
-     * @return $this
-     */
-    public function setWepayCity($wepay_city)
-    {
-        $this->container['wepay_city'] = $wepay_city;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_company
-     *
-     * @return string
-     */
-    public function getWepayCompany()
-    {
-        return $this->container['wepay_company'];
-    }
-
-    /**
-     * Sets wepay_company
-     *
-     * @param string $wepay_company wepay_company
-     *
-     * @return $this
-     */
-    public function setWepayCompany($wepay_company)
-    {
-        $this->container['wepay_company'] = $wepay_company;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_company_description
-     *
-     * @return string
-     */
-    public function getWepayCompanyDescription()
-    {
-        return $this->container['wepay_company_description'];
-    }
-
-    /**
-     * Sets wepay_company_description
-     *
-     * @param string $wepay_company_description wepay_company_description
-     *
-     * @return $this
-     */
-    public function setWepayCompanyDescription($wepay_company_description)
-    {
-        $this->container['wepay_company_description'] = $wepay_company_description;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_console_hostname
-     *
-     * @return string
-     */
-    public function getWepayConsoleHostname()
-    {
-        return $this->container['wepay_console_hostname'];
-    }
-
-    /**
-     * Sets wepay_console_hostname
-     *
-     * @param string $wepay_console_hostname wepay_console_hostname
-     *
-     * @return $this
-     */
-    public function setWepayConsoleHostname($wepay_console_hostname)
-    {
-        $this->container['wepay_console_hostname'] = $wepay_console_hostname;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_country
-     *
-     * @return string
-     */
-    public function getWepayCountry()
-    {
-        return $this->container['wepay_country'];
-    }
-
-    /**
-     * Sets wepay_country
-     *
-     * @param string $wepay_country wepay_country
-     *
-     * @return $this
-     */
-    public function setWepayCountry($wepay_country)
-    {
-        $this->container['wepay_country'] = $wepay_country;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_currency
-     *
-     * @return string
-     */
-    public function getWepayCurrency()
-    {
-        return $this->container['wepay_currency'];
-    }
-
-    /**
-     * Sets wepay_currency
-     *
-     * @param string $wepay_currency wepay_currency
-     *
-     * @return $this
-     */
-    public function setWepayCurrency($wepay_currency)
-    {
-        $this->container['wepay_currency'] = $wepay_currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_expected_revenue
-     *
-     * @return string
-     */
-    public function getWepayExpectedRevenue()
-    {
-        return $this->container['wepay_expected_revenue'];
-    }
-
-    /**
-     * Sets wepay_expected_revenue
-     *
-     * @param string $wepay_expected_revenue wepay_expected_revenue
-     *
-     * @return $this
-     */
-    public function setWepayExpectedRevenue($wepay_expected_revenue)
-    {
-        $this->container['wepay_expected_revenue'] = $wepay_expected_revenue;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_industry
-     *
-     * @return string
-     */
-    public function getWepayIndustry()
-    {
-        return $this->container['wepay_industry'];
-    }
-
-    /**
-     * Sets wepay_industry
-     *
-     * @param string $wepay_industry wepay_industry
-     *
-     * @return $this
-     */
-    public function setWepayIndustry($wepay_industry)
-    {
-        $this->container['wepay_industry'] = $wepay_industry;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_owner_email
-     *
-     * @return string
-     */
-    public function getWepayOwnerEmail()
-    {
-        return $this->container['wepay_owner_email'];
-    }
-
-    /**
-     * Sets wepay_owner_email
-     *
-     * @param string $wepay_owner_email wepay_owner_email
-     *
-     * @return $this
-     */
-    public function setWepayOwnerEmail($wepay_owner_email)
-    {
-        $this->container['wepay_owner_email'] = $wepay_owner_email;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_owner_name
-     *
-     * @return string
-     */
-    public function getWepayOwnerName()
-    {
-        return $this->container['wepay_owner_name'];
-    }
-
-    /**
-     * Sets wepay_owner_name
-     *
-     * @param string $wepay_owner_name wepay_owner_name
-     *
-     * @return $this
-     */
-    public function setWepayOwnerName($wepay_owner_name)
-    {
-        $this->container['wepay_owner_name'] = $wepay_owner_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_owner_phone
-     *
-     * @return string
-     */
-    public function getWepayOwnerPhone()
-    {
-        return $this->container['wepay_owner_phone'];
-    }
-
-    /**
-     * Sets wepay_owner_phone
-     *
-     * @param string $wepay_owner_phone wepay_owner_phone
-     *
-     * @return $this
-     */
-    public function setWepayOwnerPhone($wepay_owner_phone)
-    {
-        $this->container['wepay_owner_phone'] = $wepay_owner_phone;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_state
-     *
-     * @return string
-     */
-    public function getWepayState()
-    {
-        return $this->container['wepay_state'];
-    }
-
-    /**
-     * Sets wepay_state
-     *
-     * @param string $wepay_state wepay_state
-     *
-     * @return $this
-     */
-    public function setWepayState($wepay_state)
-    {
-        $this->container['wepay_state'] = $wepay_state;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_website_url
-     *
-     * @return string
-     */
-    public function getWepayWebsiteUrl()
-    {
-        return $this->container['wepay_website_url'];
-    }
-
-    /**
-     * Sets wepay_website_url
-     *
-     * @param string $wepay_website_url wepay_website_url
-     *
-     * @return $this
-     */
-    public function setWepayWebsiteUrl($wepay_website_url)
-    {
-        $this->container['wepay_website_url'] = $wepay_website_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets wepay_zip
-     *
-     * @return string
-     */
-    public function getWepayZip()
-    {
-        return $this->container['wepay_zip'];
-    }
-
-    /**
-     * Sets wepay_zip
-     *
-     * @param string $wepay_zip wepay_zip
-     *
-     * @return $this
-     */
-    public function setWepayZip($wepay_zip)
-    {
-        $this->container['wepay_zip'] = $wepay_zip;
+        $this->container['website_url'] = $website_url;
 
         return $this;
     }

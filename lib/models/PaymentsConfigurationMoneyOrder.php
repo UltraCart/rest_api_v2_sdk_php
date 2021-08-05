@@ -58,6 +58,8 @@ class PaymentsConfigurationMoneyOrder implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_money_orders' => 'bool',
+        'accounting_code' => 'string',
+        'deposit_to_account' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
     ];
 
@@ -68,6 +70,8 @@ class PaymentsConfigurationMoneyOrder implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_money_orders' => null,
+        'accounting_code' => null,
+        'deposit_to_account' => null,
         'restrictions' => null
     ];
 
@@ -98,7 +102,9 @@ class PaymentsConfigurationMoneyOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_money_orders' => 'acceptMoneyOrders',
+        'accept_money_orders' => 'accept_money_orders',
+        'accounting_code' => 'accounting_code',
+        'deposit_to_account' => 'deposit_to_account',
         'restrictions' => 'restrictions'
     ];
 
@@ -109,6 +115,8 @@ class PaymentsConfigurationMoneyOrder implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_money_orders' => 'setAcceptMoneyOrders',
+        'accounting_code' => 'setAccountingCode',
+        'deposit_to_account' => 'setDepositToAccount',
         'restrictions' => 'setRestrictions'
     ];
 
@@ -119,6 +127,8 @@ class PaymentsConfigurationMoneyOrder implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_money_orders' => 'getAcceptMoneyOrders',
+        'accounting_code' => 'getAccountingCode',
+        'deposit_to_account' => 'getDepositToAccount',
         'restrictions' => 'getRestrictions'
     ];
 
@@ -183,6 +193,8 @@ class PaymentsConfigurationMoneyOrder implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_money_orders'] = isset($data['accept_money_orders']) ? $data['accept_money_orders'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
     }
 
@@ -223,13 +235,61 @@ class PaymentsConfigurationMoneyOrder implements ModelInterface, ArrayAccess
     /**
      * Sets accept_money_orders
      *
-     * @param bool $accept_money_orders accept_money_orders
+     * @param bool $accept_money_orders Master flag for this merchant accepting money orders
      *
      * @return $this
      */
     public function setAcceptMoneyOrders($accept_money_orders)
     {
         $this->container['accept_money_orders'] = $accept_money_orders;
+
+        return $this;
+    }
+
+    /**
+     * Gets accounting_code
+     *
+     * @return string
+     */
+    public function getAccountingCode()
+    {
+        return $this->container['accounting_code'];
+    }
+
+    /**
+     * Sets accounting_code
+     *
+     * @param string $accounting_code Optional Quickbooks accounting code
+     *
+     * @return $this
+     */
+    public function setAccountingCode($accounting_code)
+    {
+        $this->container['accounting_code'] = $accounting_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets deposit_to_account
+     *
+     * @return string
+     */
+    public function getDepositToAccount()
+    {
+        return $this->container['deposit_to_account'];
+    }
+
+    /**
+     * Sets deposit_to_account
+     *
+     * @param string $deposit_to_account Optional Quickbooks deposit to account
+     *
+     * @return $this
+     */
+    public function setDepositToAccount($deposit_to_account)
+    {
+        $this->container['deposit_to_account'] = $deposit_to_account;
 
         return $this;
     }

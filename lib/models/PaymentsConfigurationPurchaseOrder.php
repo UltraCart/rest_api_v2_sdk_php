@@ -58,8 +58,8 @@ class PaymentsConfigurationPurchaseOrder implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_purchase_orders' => 'bool',
-        'purchase_order_approved_customers_only' => 'bool',
-        'purchase_order_prevent_duplicate_number' => 'bool',
+        'approved_customers_only' => 'bool',
+        'prevent_duplicate_number' => 'bool',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
     ];
 
@@ -70,8 +70,8 @@ class PaymentsConfigurationPurchaseOrder implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_purchase_orders' => null,
-        'purchase_order_approved_customers_only' => null,
-        'purchase_order_prevent_duplicate_number' => null,
+        'approved_customers_only' => null,
+        'prevent_duplicate_number' => null,
         'restrictions' => null
     ];
 
@@ -102,9 +102,9 @@ class PaymentsConfigurationPurchaseOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_purchase_orders' => 'acceptPurchaseOrders',
-        'purchase_order_approved_customers_only' => 'purchaseOrderApprovedCustomersOnly',
-        'purchase_order_prevent_duplicate_number' => 'purchaseOrderPreventDuplicateNumber',
+        'accept_purchase_orders' => 'accept_purchase_orders',
+        'approved_customers_only' => 'approved_customers_only',
+        'prevent_duplicate_number' => 'prevent_duplicate_number',
         'restrictions' => 'restrictions'
     ];
 
@@ -115,8 +115,8 @@ class PaymentsConfigurationPurchaseOrder implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_purchase_orders' => 'setAcceptPurchaseOrders',
-        'purchase_order_approved_customers_only' => 'setPurchaseOrderApprovedCustomersOnly',
-        'purchase_order_prevent_duplicate_number' => 'setPurchaseOrderPreventDuplicateNumber',
+        'approved_customers_only' => 'setApprovedCustomersOnly',
+        'prevent_duplicate_number' => 'setPreventDuplicateNumber',
         'restrictions' => 'setRestrictions'
     ];
 
@@ -127,8 +127,8 @@ class PaymentsConfigurationPurchaseOrder implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_purchase_orders' => 'getAcceptPurchaseOrders',
-        'purchase_order_approved_customers_only' => 'getPurchaseOrderApprovedCustomersOnly',
-        'purchase_order_prevent_duplicate_number' => 'getPurchaseOrderPreventDuplicateNumber',
+        'approved_customers_only' => 'getApprovedCustomersOnly',
+        'prevent_duplicate_number' => 'getPreventDuplicateNumber',
         'restrictions' => 'getRestrictions'
     ];
 
@@ -193,8 +193,8 @@ class PaymentsConfigurationPurchaseOrder implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_purchase_orders'] = isset($data['accept_purchase_orders']) ? $data['accept_purchase_orders'] : null;
-        $this->container['purchase_order_approved_customers_only'] = isset($data['purchase_order_approved_customers_only']) ? $data['purchase_order_approved_customers_only'] : null;
-        $this->container['purchase_order_prevent_duplicate_number'] = isset($data['purchase_order_prevent_duplicate_number']) ? $data['purchase_order_prevent_duplicate_number'] : null;
+        $this->container['approved_customers_only'] = isset($data['approved_customers_only']) ? $data['approved_customers_only'] : null;
+        $this->container['prevent_duplicate_number'] = isset($data['prevent_duplicate_number']) ? $data['prevent_duplicate_number'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
     }
 
@@ -235,7 +235,7 @@ class PaymentsConfigurationPurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets accept_purchase_orders
      *
-     * @param bool $accept_purchase_orders accept_purchase_orders
+     * @param bool $accept_purchase_orders Master flag indicating this merchant accepts purchase orders
      *
      * @return $this
      */
@@ -247,49 +247,49 @@ class PaymentsConfigurationPurchaseOrder implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets purchase_order_approved_customers_only
+     * Gets approved_customers_only
      *
      * @return bool
      */
-    public function getPurchaseOrderApprovedCustomersOnly()
+    public function getApprovedCustomersOnly()
     {
-        return $this->container['purchase_order_approved_customers_only'];
+        return $this->container['approved_customers_only'];
     }
 
     /**
-     * Sets purchase_order_approved_customers_only
+     * Sets approved_customers_only
      *
-     * @param bool $purchase_order_approved_customers_only purchase_order_approved_customers_only
+     * @param bool $approved_customers_only If true, only approved customers may pay with a purchase order
      *
      * @return $this
      */
-    public function setPurchaseOrderApprovedCustomersOnly($purchase_order_approved_customers_only)
+    public function setApprovedCustomersOnly($approved_customers_only)
     {
-        $this->container['purchase_order_approved_customers_only'] = $purchase_order_approved_customers_only;
+        $this->container['approved_customers_only'] = $approved_customers_only;
 
         return $this;
     }
 
     /**
-     * Gets purchase_order_prevent_duplicate_number
+     * Gets prevent_duplicate_number
      *
      * @return bool
      */
-    public function getPurchaseOrderPreventDuplicateNumber()
+    public function getPreventDuplicateNumber()
     {
-        return $this->container['purchase_order_prevent_duplicate_number'];
+        return $this->container['prevent_duplicate_number'];
     }
 
     /**
-     * Sets purchase_order_prevent_duplicate_number
+     * Sets prevent_duplicate_number
      *
-     * @param bool $purchase_order_prevent_duplicate_number purchase_order_prevent_duplicate_number
+     * @param bool $prevent_duplicate_number If true, customers may not use duplicate PO numbers for any order
      *
      * @return $this
      */
-    public function setPurchaseOrderPreventDuplicateNumber($purchase_order_prevent_duplicate_number)
+    public function setPreventDuplicateNumber($prevent_duplicate_number)
     {
-        $this->container['purchase_order_prevent_duplicate_number'] = $purchase_order_prevent_duplicate_number;
+        $this->container['prevent_duplicate_number'] = $prevent_duplicate_number;
 
         return $this;
     }

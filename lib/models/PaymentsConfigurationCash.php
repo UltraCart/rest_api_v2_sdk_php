@@ -98,7 +98,7 @@ class PaymentsConfigurationCash implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_cash' => 'acceptCash',
+        'accept_cash' => 'accept_cash',
         'restrictions' => 'restrictions'
     ];
 
@@ -223,7 +223,7 @@ class PaymentsConfigurationCash implements ModelInterface, ArrayAccess
     /**
      * Sets accept_cash
      *
-     * @param bool $accept_cash accept_cash
+     * @param bool $accept_cash Master flag indicating this merchant accepts cash
      *
      * @return $this
      */

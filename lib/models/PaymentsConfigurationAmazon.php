@@ -58,13 +58,13 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_amazon' => 'bool',
-        'amazon_access_key_id' => 'string',
-        'amazon_accounting_code' => 'string',
-        'amazon_deposit_to_account' => 'string',
+        'access_key_id' => 'string',
+        'accounting_code' => 'string',
         'amazon_merchant_id' => 'string',
-        'amazon_sandbox' => 'bool',
-        'amazon_secret_access_key' => 'string',
-        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
+        'deposit_to_account' => 'string',
+        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
+        'sandbox' => 'bool',
+        'secret_access_key' => 'string'
     ];
 
     /**
@@ -74,13 +74,13 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_amazon' => null,
-        'amazon_access_key_id' => null,
-        'amazon_accounting_code' => null,
-        'amazon_deposit_to_account' => null,
+        'access_key_id' => null,
+        'accounting_code' => null,
         'amazon_merchant_id' => null,
-        'amazon_sandbox' => null,
-        'amazon_secret_access_key' => null,
-        'restrictions' => null
+        'deposit_to_account' => null,
+        'restrictions' => null,
+        'sandbox' => null,
+        'secret_access_key' => null
     ];
 
     /**
@@ -110,14 +110,14 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_amazon' => 'acceptAmazon',
-        'amazon_access_key_id' => 'amazonAccessKeyId',
-        'amazon_accounting_code' => 'amazonAccountingCode',
-        'amazon_deposit_to_account' => 'amazonDepositToAccount',
-        'amazon_merchant_id' => 'amazonMerchantId',
-        'amazon_sandbox' => 'amazonSandbox',
-        'amazon_secret_access_key' => 'amazonSecretAccessKey',
-        'restrictions' => 'restrictions'
+        'accept_amazon' => 'accept_amazon',
+        'access_key_id' => 'access_key_id',
+        'accounting_code' => 'accounting_code',
+        'amazon_merchant_id' => 'amazon_merchant_id',
+        'deposit_to_account' => 'deposit_to_account',
+        'restrictions' => 'restrictions',
+        'sandbox' => 'sandbox',
+        'secret_access_key' => 'secret_access_key'
     ];
 
     /**
@@ -127,13 +127,13 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_amazon' => 'setAcceptAmazon',
-        'amazon_access_key_id' => 'setAmazonAccessKeyId',
-        'amazon_accounting_code' => 'setAmazonAccountingCode',
-        'amazon_deposit_to_account' => 'setAmazonDepositToAccount',
+        'access_key_id' => 'setAccessKeyId',
+        'accounting_code' => 'setAccountingCode',
         'amazon_merchant_id' => 'setAmazonMerchantId',
-        'amazon_sandbox' => 'setAmazonSandbox',
-        'amazon_secret_access_key' => 'setAmazonSecretAccessKey',
-        'restrictions' => 'setRestrictions'
+        'deposit_to_account' => 'setDepositToAccount',
+        'restrictions' => 'setRestrictions',
+        'sandbox' => 'setSandbox',
+        'secret_access_key' => 'setSecretAccessKey'
     ];
 
     /**
@@ -143,13 +143,13 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_amazon' => 'getAcceptAmazon',
-        'amazon_access_key_id' => 'getAmazonAccessKeyId',
-        'amazon_accounting_code' => 'getAmazonAccountingCode',
-        'amazon_deposit_to_account' => 'getAmazonDepositToAccount',
+        'access_key_id' => 'getAccessKeyId',
+        'accounting_code' => 'getAccountingCode',
         'amazon_merchant_id' => 'getAmazonMerchantId',
-        'amazon_sandbox' => 'getAmazonSandbox',
-        'amazon_secret_access_key' => 'getAmazonSecretAccessKey',
-        'restrictions' => 'getRestrictions'
+        'deposit_to_account' => 'getDepositToAccount',
+        'restrictions' => 'getRestrictions',
+        'sandbox' => 'getSandbox',
+        'secret_access_key' => 'getSecretAccessKey'
     ];
 
     /**
@@ -213,13 +213,13 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_amazon'] = isset($data['accept_amazon']) ? $data['accept_amazon'] : null;
-        $this->container['amazon_access_key_id'] = isset($data['amazon_access_key_id']) ? $data['amazon_access_key_id'] : null;
-        $this->container['amazon_accounting_code'] = isset($data['amazon_accounting_code']) ? $data['amazon_accounting_code'] : null;
-        $this->container['amazon_deposit_to_account'] = isset($data['amazon_deposit_to_account']) ? $data['amazon_deposit_to_account'] : null;
+        $this->container['access_key_id'] = isset($data['access_key_id']) ? $data['access_key_id'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
         $this->container['amazon_merchant_id'] = isset($data['amazon_merchant_id']) ? $data['amazon_merchant_id'] : null;
-        $this->container['amazon_sandbox'] = isset($data['amazon_sandbox']) ? $data['amazon_sandbox'] : null;
-        $this->container['amazon_secret_access_key'] = isset($data['amazon_secret_access_key']) ? $data['amazon_secret_access_key'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
+        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
+        $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
     }
 
     /**
@@ -259,7 +259,7 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     /**
      * Sets accept_amazon
      *
-     * @param bool $accept_amazon accept_amazon
+     * @param bool $accept_amazon Master flag to determine if this merchant accepts Pay by Amazon
      *
      * @return $this
      */
@@ -271,73 +271,49 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets amazon_access_key_id
+     * Gets access_key_id
      *
      * @return string
      */
-    public function getAmazonAccessKeyId()
+    public function getAccessKeyId()
     {
-        return $this->container['amazon_access_key_id'];
+        return $this->container['access_key_id'];
     }
 
     /**
-     * Sets amazon_access_key_id
+     * Sets access_key_id
      *
-     * @param string $amazon_access_key_id amazon_access_key_id
+     * @param string $access_key_id Amazon access key ID
      *
      * @return $this
      */
-    public function setAmazonAccessKeyId($amazon_access_key_id)
+    public function setAccessKeyId($access_key_id)
     {
-        $this->container['amazon_access_key_id'] = $amazon_access_key_id;
+        $this->container['access_key_id'] = $access_key_id;
 
         return $this;
     }
 
     /**
-     * Gets amazon_accounting_code
+     * Gets accounting_code
      *
      * @return string
      */
-    public function getAmazonAccountingCode()
+    public function getAccountingCode()
     {
-        return $this->container['amazon_accounting_code'];
+        return $this->container['accounting_code'];
     }
 
     /**
-     * Sets amazon_accounting_code
+     * Sets accounting_code
      *
-     * @param string $amazon_accounting_code amazon_accounting_code
+     * @param string $accounting_code Optional accounting code for use with Quickbooks integrations
      *
      * @return $this
      */
-    public function setAmazonAccountingCode($amazon_accounting_code)
+    public function setAccountingCode($accounting_code)
     {
-        $this->container['amazon_accounting_code'] = $amazon_accounting_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets amazon_deposit_to_account
-     *
-     * @return string
-     */
-    public function getAmazonDepositToAccount()
-    {
-        return $this->container['amazon_deposit_to_account'];
-    }
-
-    /**
-     * Sets amazon_deposit_to_account
-     *
-     * @param string $amazon_deposit_to_account amazon_deposit_to_account
-     *
-     * @return $this
-     */
-    public function setAmazonDepositToAccount($amazon_deposit_to_account)
-    {
-        $this->container['amazon_deposit_to_account'] = $amazon_deposit_to_account;
+        $this->container['accounting_code'] = $accounting_code;
 
         return $this;
     }
@@ -355,7 +331,7 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     /**
      * Sets amazon_merchant_id
      *
-     * @param string $amazon_merchant_id amazon_merchant_id
+     * @param string $amazon_merchant_id Amazon merchant ID
      *
      * @return $this
      */
@@ -367,49 +343,25 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets amazon_sandbox
-     *
-     * @return bool
-     */
-    public function getAmazonSandbox()
-    {
-        return $this->container['amazon_sandbox'];
-    }
-
-    /**
-     * Sets amazon_sandbox
-     *
-     * @param bool $amazon_sandbox amazon_sandbox
-     *
-     * @return $this
-     */
-    public function setAmazonSandbox($amazon_sandbox)
-    {
-        $this->container['amazon_sandbox'] = $amazon_sandbox;
-
-        return $this;
-    }
-
-    /**
-     * Gets amazon_secret_access_key
+     * Gets deposit_to_account
      *
      * @return string
      */
-    public function getAmazonSecretAccessKey()
+    public function getDepositToAccount()
     {
-        return $this->container['amazon_secret_access_key'];
+        return $this->container['deposit_to_account'];
     }
 
     /**
-     * Sets amazon_secret_access_key
+     * Sets deposit_to_account
      *
-     * @param string $amazon_secret_access_key amazon_secret_access_key
+     * @param string $deposit_to_account Optional deposit to account field for use with Quickbooks integrations
      *
      * @return $this
      */
-    public function setAmazonSecretAccessKey($amazon_secret_access_key)
+    public function setDepositToAccount($deposit_to_account)
     {
-        $this->container['amazon_secret_access_key'] = $amazon_secret_access_key;
+        $this->container['deposit_to_account'] = $deposit_to_account;
 
         return $this;
     }
@@ -434,6 +386,54 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
+
+        return $this;
+    }
+
+    /**
+     * Gets sandbox
+     *
+     * @return bool
+     */
+    public function getSandbox()
+    {
+        return $this->container['sandbox'];
+    }
+
+    /**
+     * Sets sandbox
+     *
+     * @param bool $sandbox True if transactions should run against the Amazon sandbox.  Useful for testing not configurations
+     *
+     * @return $this
+     */
+    public function setSandbox($sandbox)
+    {
+        $this->container['sandbox'] = $sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret_access_key
+     *
+     * @return string
+     */
+    public function getSecretAccessKey()
+    {
+        return $this->container['secret_access_key'];
+    }
+
+    /**
+     * Sets secret_access_key
+     *
+     * @param string $secret_access_key Amazon secret access key
+     *
+     * @return $this
+     */
+    public function setSecretAccessKey($secret_access_key)
+    {
+        $this->container['secret_access_key'] = $secret_access_key;
 
         return $this;
     }

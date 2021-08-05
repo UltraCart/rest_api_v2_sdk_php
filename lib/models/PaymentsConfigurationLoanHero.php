@@ -58,8 +58,8 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_loan_hero' => 'bool',
-        'loan_hero_accounting_code' => 'string',
-        'loan_hero_deposit_to_account' => 'string',
+        'accounting_code' => 'string',
+        'deposit_to_account' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
         'show_loan_hero' => 'bool'
     ];
@@ -71,8 +71,8 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_loan_hero' => null,
-        'loan_hero_accounting_code' => null,
-        'loan_hero_deposit_to_account' => null,
+        'accounting_code' => null,
+        'deposit_to_account' => null,
         'restrictions' => null,
         'show_loan_hero' => null
     ];
@@ -104,11 +104,11 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_loan_hero' => 'acceptLoanHero',
-        'loan_hero_accounting_code' => 'loanHeroAccountingCode',
-        'loan_hero_deposit_to_account' => 'loanHeroDepositToAccount',
+        'accept_loan_hero' => 'accept_loan_hero',
+        'accounting_code' => 'accounting_code',
+        'deposit_to_account' => 'deposit_to_account',
         'restrictions' => 'restrictions',
-        'show_loan_hero' => 'showLoanHero'
+        'show_loan_hero' => 'show_loan_hero'
     ];
 
     /**
@@ -118,8 +118,8 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_loan_hero' => 'setAcceptLoanHero',
-        'loan_hero_accounting_code' => 'setLoanHeroAccountingCode',
-        'loan_hero_deposit_to_account' => 'setLoanHeroDepositToAccount',
+        'accounting_code' => 'setAccountingCode',
+        'deposit_to_account' => 'setDepositToAccount',
         'restrictions' => 'setRestrictions',
         'show_loan_hero' => 'setShowLoanHero'
     ];
@@ -131,8 +131,8 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_loan_hero' => 'getAcceptLoanHero',
-        'loan_hero_accounting_code' => 'getLoanHeroAccountingCode',
-        'loan_hero_deposit_to_account' => 'getLoanHeroDepositToAccount',
+        'accounting_code' => 'getAccountingCode',
+        'deposit_to_account' => 'getDepositToAccount',
         'restrictions' => 'getRestrictions',
         'show_loan_hero' => 'getShowLoanHero'
     ];
@@ -198,8 +198,8 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_loan_hero'] = isset($data['accept_loan_hero']) ? $data['accept_loan_hero'] : null;
-        $this->container['loan_hero_accounting_code'] = isset($data['loan_hero_accounting_code']) ? $data['loan_hero_accounting_code'] : null;
-        $this->container['loan_hero_deposit_to_account'] = isset($data['loan_hero_deposit_to_account']) ? $data['loan_hero_deposit_to_account'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
         $this->container['show_loan_hero'] = isset($data['show_loan_hero']) ? $data['show_loan_hero'] : null;
     }
@@ -241,7 +241,7 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
     /**
      * Sets accept_loan_hero
      *
-     * @param bool $accept_loan_hero accept_loan_hero
+     * @param bool $accept_loan_hero Master flag indicating this merchant accepts Loan Hero
      *
      * @return $this
      */
@@ -253,49 +253,49 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets loan_hero_accounting_code
+     * Gets accounting_code
      *
      * @return string
      */
-    public function getLoanHeroAccountingCode()
+    public function getAccountingCode()
     {
-        return $this->container['loan_hero_accounting_code'];
+        return $this->container['accounting_code'];
     }
 
     /**
-     * Sets loan_hero_accounting_code
+     * Sets accounting_code
      *
-     * @param string $loan_hero_accounting_code loan_hero_accounting_code
+     * @param string $accounting_code Optional Quickbooks accounting code
      *
      * @return $this
      */
-    public function setLoanHeroAccountingCode($loan_hero_accounting_code)
+    public function setAccountingCode($accounting_code)
     {
-        $this->container['loan_hero_accounting_code'] = $loan_hero_accounting_code;
+        $this->container['accounting_code'] = $accounting_code;
 
         return $this;
     }
 
     /**
-     * Gets loan_hero_deposit_to_account
+     * Gets deposit_to_account
      *
      * @return string
      */
-    public function getLoanHeroDepositToAccount()
+    public function getDepositToAccount()
     {
-        return $this->container['loan_hero_deposit_to_account'];
+        return $this->container['deposit_to_account'];
     }
 
     /**
-     * Sets loan_hero_deposit_to_account
+     * Sets deposit_to_account
      *
-     * @param string $loan_hero_deposit_to_account loan_hero_deposit_to_account
+     * @param string $deposit_to_account Optional Quickbooks deposit to account
      *
      * @return $this
      */
-    public function setLoanHeroDepositToAccount($loan_hero_deposit_to_account)
+    public function setDepositToAccount($deposit_to_account)
     {
-        $this->container['loan_hero_deposit_to_account'] = $loan_hero_deposit_to_account;
+        $this->container['deposit_to_account'] = $deposit_to_account;
 
         return $this;
     }
@@ -337,7 +337,7 @@ class PaymentsConfigurationLoanHero implements ModelInterface, ArrayAccess
     /**
      * Sets show_loan_hero
      *
-     * @param bool $show_loan_hero show_loan_hero
+     * @param bool $show_loan_hero Internal field to aid UI
      *
      * @return $this
      */

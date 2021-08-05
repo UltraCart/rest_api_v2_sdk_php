@@ -58,12 +58,12 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_affirm' => 'bool',
-        'affirm_accounting_code' => 'string',
-        'affirm_deposit_to_account' => 'string',
-        'affirm_environment' => 'string',
-        'affirm_financial_product_key' => 'string',
-        'affirm_private_api_key' => 'string',
-        'affirm_public_api_key' => 'string',
+        'accounting_code' => 'string',
+        'deposit_to_account' => 'string',
+        'environment' => 'string',
+        'financial_product_key' => 'string',
+        'private_api_key' => 'string',
+        'public_api_key' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
     ];
 
@@ -74,12 +74,12 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_affirm' => null,
-        'affirm_accounting_code' => null,
-        'affirm_deposit_to_account' => null,
-        'affirm_environment' => null,
-        'affirm_financial_product_key' => null,
-        'affirm_private_api_key' => null,
-        'affirm_public_api_key' => null,
+        'accounting_code' => null,
+        'deposit_to_account' => null,
+        'environment' => null,
+        'financial_product_key' => null,
+        'private_api_key' => null,
+        'public_api_key' => null,
         'restrictions' => null
     ];
 
@@ -110,13 +110,13 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_affirm' => 'acceptAffirm',
-        'affirm_accounting_code' => 'affirmAccountingCode',
-        'affirm_deposit_to_account' => 'affirmDepositToAccount',
-        'affirm_environment' => 'affirmEnvironment',
-        'affirm_financial_product_key' => 'affirmFinancialProductKey',
-        'affirm_private_api_key' => 'affirmPrivateApiKey',
-        'affirm_public_api_key' => 'affirmPublicApiKey',
+        'accept_affirm' => 'accept_affirm',
+        'accounting_code' => 'accounting_code',
+        'deposit_to_account' => 'deposit_to_account',
+        'environment' => 'environment',
+        'financial_product_key' => 'financial_product_key',
+        'private_api_key' => 'private_api_key',
+        'public_api_key' => 'public_api_key',
         'restrictions' => 'restrictions'
     ];
 
@@ -127,12 +127,12 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_affirm' => 'setAcceptAffirm',
-        'affirm_accounting_code' => 'setAffirmAccountingCode',
-        'affirm_deposit_to_account' => 'setAffirmDepositToAccount',
-        'affirm_environment' => 'setAffirmEnvironment',
-        'affirm_financial_product_key' => 'setAffirmFinancialProductKey',
-        'affirm_private_api_key' => 'setAffirmPrivateApiKey',
-        'affirm_public_api_key' => 'setAffirmPublicApiKey',
+        'accounting_code' => 'setAccountingCode',
+        'deposit_to_account' => 'setDepositToAccount',
+        'environment' => 'setEnvironment',
+        'financial_product_key' => 'setFinancialProductKey',
+        'private_api_key' => 'setPrivateApiKey',
+        'public_api_key' => 'setPublicApiKey',
         'restrictions' => 'setRestrictions'
     ];
 
@@ -143,12 +143,12 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_affirm' => 'getAcceptAffirm',
-        'affirm_accounting_code' => 'getAffirmAccountingCode',
-        'affirm_deposit_to_account' => 'getAffirmDepositToAccount',
-        'affirm_environment' => 'getAffirmEnvironment',
-        'affirm_financial_product_key' => 'getAffirmFinancialProductKey',
-        'affirm_private_api_key' => 'getAffirmPrivateApiKey',
-        'affirm_public_api_key' => 'getAffirmPublicApiKey',
+        'accounting_code' => 'getAccountingCode',
+        'deposit_to_account' => 'getDepositToAccount',
+        'environment' => 'getEnvironment',
+        'financial_product_key' => 'getFinancialProductKey',
+        'private_api_key' => 'getPrivateApiKey',
+        'public_api_key' => 'getPublicApiKey',
         'restrictions' => 'getRestrictions'
     ];
 
@@ -193,8 +193,23 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ENVIRONMENT_LIVE = 'Live';
+    const ENVIRONMENT_SANDBOX = 'Sandbox';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEnvironmentAllowableValues()
+    {
+        return [
+            self::ENVIRONMENT_LIVE,
+            self::ENVIRONMENT_SANDBOX,
+        ];
+    }
     
 
     /**
@@ -213,12 +228,12 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_affirm'] = isset($data['accept_affirm']) ? $data['accept_affirm'] : null;
-        $this->container['affirm_accounting_code'] = isset($data['affirm_accounting_code']) ? $data['affirm_accounting_code'] : null;
-        $this->container['affirm_deposit_to_account'] = isset($data['affirm_deposit_to_account']) ? $data['affirm_deposit_to_account'] : null;
-        $this->container['affirm_environment'] = isset($data['affirm_environment']) ? $data['affirm_environment'] : null;
-        $this->container['affirm_financial_product_key'] = isset($data['affirm_financial_product_key']) ? $data['affirm_financial_product_key'] : null;
-        $this->container['affirm_private_api_key'] = isset($data['affirm_private_api_key']) ? $data['affirm_private_api_key'] : null;
-        $this->container['affirm_public_api_key'] = isset($data['affirm_public_api_key']) ? $data['affirm_public_api_key'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
+        $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
+        $this->container['financial_product_key'] = isset($data['financial_product_key']) ? $data['financial_product_key'] : null;
+        $this->container['private_api_key'] = isset($data['private_api_key']) ? $data['private_api_key'] : null;
+        $this->container['public_api_key'] = isset($data['public_api_key']) ? $data['public_api_key'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
     }
 
@@ -230,6 +245,14 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getEnvironmentAllowableValues();
+        if (!is_null($this->container['environment']) && !in_array($this->container['environment'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'environment', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -259,7 +282,7 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
     /**
      * Sets accept_affirm
      *
-     * @param bool $accept_affirm accept_affirm
+     * @param bool $accept_affirm Master flag indicating this merchant accepts Affirm payments
      *
      * @return $this
      */
@@ -271,145 +294,154 @@ class PaymentsConfigurationAffirm implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets affirm_accounting_code
+     * Gets accounting_code
      *
      * @return string
      */
-    public function getAffirmAccountingCode()
+    public function getAccountingCode()
     {
-        return $this->container['affirm_accounting_code'];
+        return $this->container['accounting_code'];
     }
 
     /**
-     * Sets affirm_accounting_code
+     * Sets accounting_code
      *
-     * @param string $affirm_accounting_code affirm_accounting_code
+     * @param string $accounting_code Optional Quickbooks code for this payment method
      *
      * @return $this
      */
-    public function setAffirmAccountingCode($affirm_accounting_code)
+    public function setAccountingCode($accounting_code)
     {
-        $this->container['affirm_accounting_code'] = $affirm_accounting_code;
+        $this->container['accounting_code'] = $accounting_code;
 
         return $this;
     }
 
     /**
-     * Gets affirm_deposit_to_account
+     * Gets deposit_to_account
      *
      * @return string
      */
-    public function getAffirmDepositToAccount()
+    public function getDepositToAccount()
     {
-        return $this->container['affirm_deposit_to_account'];
+        return $this->container['deposit_to_account'];
     }
 
     /**
-     * Sets affirm_deposit_to_account
+     * Sets deposit_to_account
      *
-     * @param string $affirm_deposit_to_account affirm_deposit_to_account
+     * @param string $deposit_to_account Optional Quickbooks Deposit to Account value
      *
      * @return $this
      */
-    public function setAffirmDepositToAccount($affirm_deposit_to_account)
+    public function setDepositToAccount($deposit_to_account)
     {
-        $this->container['affirm_deposit_to_account'] = $affirm_deposit_to_account;
+        $this->container['deposit_to_account'] = $deposit_to_account;
 
         return $this;
     }
 
     /**
-     * Gets affirm_environment
+     * Gets environment
      *
      * @return string
      */
-    public function getAffirmEnvironment()
+    public function getEnvironment()
     {
-        return $this->container['affirm_environment'];
+        return $this->container['environment'];
     }
 
     /**
-     * Sets affirm_environment
+     * Sets environment
      *
-     * @param string $affirm_environment affirm_environment
+     * @param string $environment Environment
      *
      * @return $this
      */
-    public function setAffirmEnvironment($affirm_environment)
+    public function setEnvironment($environment)
     {
-        $this->container['affirm_environment'] = $affirm_environment;
+        $allowedValues = $this->getEnvironmentAllowableValues();
+        if (!is_null($environment) && !in_array($environment, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'environment', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['environment'] = $environment;
 
         return $this;
     }
 
     /**
-     * Gets affirm_financial_product_key
+     * Gets financial_product_key
      *
      * @return string
      */
-    public function getAffirmFinancialProductKey()
+    public function getFinancialProductKey()
     {
-        return $this->container['affirm_financial_product_key'];
+        return $this->container['financial_product_key'];
     }
 
     /**
-     * Sets affirm_financial_product_key
+     * Sets financial_product_key
      *
-     * @param string $affirm_financial_product_key affirm_financial_product_key
+     * @param string $financial_product_key Financial product key
      *
      * @return $this
      */
-    public function setAffirmFinancialProductKey($affirm_financial_product_key)
+    public function setFinancialProductKey($financial_product_key)
     {
-        $this->container['affirm_financial_product_key'] = $affirm_financial_product_key;
+        $this->container['financial_product_key'] = $financial_product_key;
 
         return $this;
     }
 
     /**
-     * Gets affirm_private_api_key
+     * Gets private_api_key
      *
      * @return string
      */
-    public function getAffirmPrivateApiKey()
+    public function getPrivateApiKey()
     {
-        return $this->container['affirm_private_api_key'];
+        return $this->container['private_api_key'];
     }
 
     /**
-     * Sets affirm_private_api_key
+     * Sets private_api_key
      *
-     * @param string $affirm_private_api_key affirm_private_api_key
+     * @param string $private_api_key Private API key
      *
      * @return $this
      */
-    public function setAffirmPrivateApiKey($affirm_private_api_key)
+    public function setPrivateApiKey($private_api_key)
     {
-        $this->container['affirm_private_api_key'] = $affirm_private_api_key;
+        $this->container['private_api_key'] = $private_api_key;
 
         return $this;
     }
 
     /**
-     * Gets affirm_public_api_key
+     * Gets public_api_key
      *
      * @return string
      */
-    public function getAffirmPublicApiKey()
+    public function getPublicApiKey()
     {
-        return $this->container['affirm_public_api_key'];
+        return $this->container['public_api_key'];
     }
 
     /**
-     * Sets affirm_public_api_key
+     * Sets public_api_key
      *
-     * @param string $affirm_public_api_key affirm_public_api_key
+     * @param string $public_api_key Public API key
      *
      * @return $this
      */
-    public function setAffirmPublicApiKey($affirm_public_api_key)
+    public function setPublicApiKey($public_api_key)
     {
-        $this->container['affirm_public_api_key'] = $affirm_public_api_key;
+        $this->container['public_api_key'] = $public_api_key;
 
         return $this;
     }

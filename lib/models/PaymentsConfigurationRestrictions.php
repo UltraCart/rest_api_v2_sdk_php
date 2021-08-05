@@ -118,18 +118,18 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'maximum_subtotal' => 'maximumSubtotal',
-        'minimum_subtotal' => 'minimumSubtotal',
-        'payment_method' => 'paymentMethod',
-        'restriction_alaska_hawaii' => 'restrictionAlaskaHawaii',
-        'restriction_apo_fpo' => 'restrictionApoFpo',
-        'restriction_canada' => 'restrictionCanada',
-        'restriction_continental_us' => 'restrictionContinentalUS',
-        'restriction_domestic_only' => 'restrictionDomesticOnly',
-        'restriction_international_only' => 'restrictionInternationalOnly',
-        'restriction_po_box' => 'restrictionPoBox',
-        'restriction_puerto_rico' => 'restrictionPuertoRico',
-        'restriction_us_territories' => 'restrictionUSTerritories'
+        'maximum_subtotal' => 'maximum_subtotal',
+        'minimum_subtotal' => 'minimum_subtotal',
+        'payment_method' => 'payment_method',
+        'restriction_alaska_hawaii' => 'restriction_alaska_hawaii',
+        'restriction_apo_fpo' => 'restriction_apo_fpo',
+        'restriction_canada' => 'restriction_canada',
+        'restriction_continental_us' => 'restriction_continental_us',
+        'restriction_domestic_only' => 'restriction_domestic_only',
+        'restriction_international_only' => 'restriction_international_only',
+        'restriction_po_box' => 'restriction_po_box',
+        'restriction_puerto_rico' => 'restriction_puerto_rico',
+        'restriction_us_territories' => 'restriction_us_territories'
     ];
 
     /**
@@ -283,7 +283,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets maximum_subtotal
      *
-     * @param string $maximum_subtotal maximum_subtotal
+     * @param string $maximum_subtotal Maximum subtotal
      *
      * @return $this
      */
@@ -307,7 +307,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets minimum_subtotal
      *
-     * @param string $minimum_subtotal minimum_subtotal
+     * @param string $minimum_subtotal Minimum subtotal
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets payment_method
      *
-     * @param string $payment_method payment_method
+     * @param string $payment_method Payment method
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_alaska_hawaii
      *
-     * @param string $restriction_alaska_hawaii restriction_alaska_hawaii
+     * @param string $restriction_alaska_hawaii Alaska and Hawaii restriction
      *
      * @return $this
      */
@@ -379,7 +379,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_apo_fpo
      *
-     * @param string $restriction_apo_fpo restriction_apo_fpo
+     * @param string $restriction_apo_fpo APO/FPO restriction
      *
      * @return $this
      */
@@ -403,7 +403,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_canada
      *
-     * @param string $restriction_canada restriction_canada
+     * @param string $restriction_canada Canada restriction
      *
      * @return $this
      */
@@ -427,7 +427,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_continental_us
      *
-     * @param string $restriction_continental_us restriction_continental_us
+     * @param string $restriction_continental_us Continental US restriction
      *
      * @return $this
      */
@@ -451,7 +451,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_domestic_only
      *
-     * @param string $restriction_domestic_only restriction_domestic_only
+     * @param string $restriction_domestic_only Domestic only restriction
      *
      * @return $this
      */
@@ -475,7 +475,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_international_only
      *
-     * @param string $restriction_international_only restriction_international_only
+     * @param string $restriction_international_only International only restriction
      *
      * @return $this
      */
@@ -499,7 +499,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_po_box
      *
-     * @param string $restriction_po_box restriction_po_box
+     * @param string $restriction_po_box PO Box restriction
      *
      * @return $this
      */
@@ -523,7 +523,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_puerto_rico
      *
-     * @param string $restriction_puerto_rico restriction_puerto_rico
+     * @param string $restriction_puerto_rico Puerto Rico restriction
      *
      * @return $this
      */
@@ -547,7 +547,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets restriction_us_territories
      *
-     * @param string $restriction_us_territories restriction_us_territories
+     * @param string $restriction_us_territories US Territories restriction
      *
      * @return $this
      */

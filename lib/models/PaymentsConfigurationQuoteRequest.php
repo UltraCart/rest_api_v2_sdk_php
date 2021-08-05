@@ -58,7 +58,7 @@ class PaymentsConfigurationQuoteRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_quote_requests' => 'bool',
-        'quote_request_approved_customers_only' => 'bool',
+        'approved_customers_only' => 'bool',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
     ];
 
@@ -69,7 +69,7 @@ class PaymentsConfigurationQuoteRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_quote_requests' => null,
-        'quote_request_approved_customers_only' => null,
+        'approved_customers_only' => null,
         'restrictions' => null
     ];
 
@@ -100,8 +100,8 @@ class PaymentsConfigurationQuoteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_quote_requests' => 'acceptQuoteRequests',
-        'quote_request_approved_customers_only' => 'quoteRequestApprovedCustomersOnly',
+        'accept_quote_requests' => 'accept_quote_requests',
+        'approved_customers_only' => 'approved_customers_only',
         'restrictions' => 'restrictions'
     ];
 
@@ -112,7 +112,7 @@ class PaymentsConfigurationQuoteRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_quote_requests' => 'setAcceptQuoteRequests',
-        'quote_request_approved_customers_only' => 'setQuoteRequestApprovedCustomersOnly',
+        'approved_customers_only' => 'setApprovedCustomersOnly',
         'restrictions' => 'setRestrictions'
     ];
 
@@ -123,7 +123,7 @@ class PaymentsConfigurationQuoteRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_quote_requests' => 'getAcceptQuoteRequests',
-        'quote_request_approved_customers_only' => 'getQuoteRequestApprovedCustomersOnly',
+        'approved_customers_only' => 'getApprovedCustomersOnly',
         'restrictions' => 'getRestrictions'
     ];
 
@@ -188,7 +188,7 @@ class PaymentsConfigurationQuoteRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_quote_requests'] = isset($data['accept_quote_requests']) ? $data['accept_quote_requests'] : null;
-        $this->container['quote_request_approved_customers_only'] = isset($data['quote_request_approved_customers_only']) ? $data['quote_request_approved_customers_only'] : null;
+        $this->container['approved_customers_only'] = isset($data['approved_customers_only']) ? $data['approved_customers_only'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
     }
 
@@ -229,7 +229,7 @@ class PaymentsConfigurationQuoteRequest implements ModelInterface, ArrayAccess
     /**
      * Sets accept_quote_requests
      *
-     * @param bool $accept_quote_requests accept_quote_requests
+     * @param bool $accept_quote_requests Master flag indicating this merchant accepts quote requests
      *
      * @return $this
      */
@@ -241,25 +241,25 @@ class PaymentsConfigurationQuoteRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets quote_request_approved_customers_only
+     * Gets approved_customers_only
      *
      * @return bool
      */
-    public function getQuoteRequestApprovedCustomersOnly()
+    public function getApprovedCustomersOnly()
     {
-        return $this->container['quote_request_approved_customers_only'];
+        return $this->container['approved_customers_only'];
     }
 
     /**
-     * Sets quote_request_approved_customers_only
+     * Sets approved_customers_only
      *
-     * @param bool $quote_request_approved_customers_only quote_request_approved_customers_only
+     * @param bool $approved_customers_only If true, only approved customers may use quote requests
      *
      * @return $this
      */
-    public function setQuoteRequestApprovedCustomersOnly($quote_request_approved_customers_only)
+    public function setApprovedCustomersOnly($approved_customers_only)
     {
-        $this->container['quote_request_approved_customers_only'] = $quote_request_approved_customers_only;
+        $this->container['approved_customers_only'] = $approved_customers_only;
 
         return $this;
     }

@@ -58,11 +58,11 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'accept_cod' => 'bool',
-        'cod_approved_customers_only' => 'bool',
-        'cod_surcharge_accounting_code' => 'string',
-        'cod_surcharge_fee' => 'string',
-        'cod_surcharge_perc' => 'string',
-        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
+        'approved_customers_only' => 'bool',
+        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
+        'surcharge_accounting_code' => 'string',
+        'surcharge_fee' => 'string',
+        'surcharge_percentage' => 'string'
     ];
 
     /**
@@ -72,11 +72,11 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'accept_cod' => null,
-        'cod_approved_customers_only' => null,
-        'cod_surcharge_accounting_code' => null,
-        'cod_surcharge_fee' => null,
-        'cod_surcharge_perc' => null,
-        'restrictions' => null
+        'approved_customers_only' => null,
+        'restrictions' => null,
+        'surcharge_accounting_code' => null,
+        'surcharge_fee' => null,
+        'surcharge_percentage' => null
     ];
 
     /**
@@ -106,12 +106,12 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_cod' => 'acceptCod',
-        'cod_approved_customers_only' => 'codApprovedCustomersOnly',
-        'cod_surcharge_accounting_code' => 'codSurchargeAccountingCode',
-        'cod_surcharge_fee' => 'codSurchargeFee',
-        'cod_surcharge_perc' => 'codSurchargePerc',
-        'restrictions' => 'restrictions'
+        'accept_cod' => 'accept_cod',
+        'approved_customers_only' => 'approved_customers_only',
+        'restrictions' => 'restrictions',
+        'surcharge_accounting_code' => 'surcharge_accounting_code',
+        'surcharge_fee' => 'surcharge_fee',
+        'surcharge_percentage' => 'surcharge_percentage'
     ];
 
     /**
@@ -121,11 +121,11 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'accept_cod' => 'setAcceptCod',
-        'cod_approved_customers_only' => 'setCodApprovedCustomersOnly',
-        'cod_surcharge_accounting_code' => 'setCodSurchargeAccountingCode',
-        'cod_surcharge_fee' => 'setCodSurchargeFee',
-        'cod_surcharge_perc' => 'setCodSurchargePerc',
-        'restrictions' => 'setRestrictions'
+        'approved_customers_only' => 'setApprovedCustomersOnly',
+        'restrictions' => 'setRestrictions',
+        'surcharge_accounting_code' => 'setSurchargeAccountingCode',
+        'surcharge_fee' => 'setSurchargeFee',
+        'surcharge_percentage' => 'setSurchargePercentage'
     ];
 
     /**
@@ -135,11 +135,11 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'accept_cod' => 'getAcceptCod',
-        'cod_approved_customers_only' => 'getCodApprovedCustomersOnly',
-        'cod_surcharge_accounting_code' => 'getCodSurchargeAccountingCode',
-        'cod_surcharge_fee' => 'getCodSurchargeFee',
-        'cod_surcharge_perc' => 'getCodSurchargePerc',
-        'restrictions' => 'getRestrictions'
+        'approved_customers_only' => 'getApprovedCustomersOnly',
+        'restrictions' => 'getRestrictions',
+        'surcharge_accounting_code' => 'getSurchargeAccountingCode',
+        'surcharge_fee' => 'getSurchargeFee',
+        'surcharge_percentage' => 'getSurchargePercentage'
     ];
 
     /**
@@ -203,11 +203,11 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['accept_cod'] = isset($data['accept_cod']) ? $data['accept_cod'] : null;
-        $this->container['cod_approved_customers_only'] = isset($data['cod_approved_customers_only']) ? $data['cod_approved_customers_only'] : null;
-        $this->container['cod_surcharge_accounting_code'] = isset($data['cod_surcharge_accounting_code']) ? $data['cod_surcharge_accounting_code'] : null;
-        $this->container['cod_surcharge_fee'] = isset($data['cod_surcharge_fee']) ? $data['cod_surcharge_fee'] : null;
-        $this->container['cod_surcharge_perc'] = isset($data['cod_surcharge_perc']) ? $data['cod_surcharge_perc'] : null;
+        $this->container['approved_customers_only'] = isset($data['approved_customers_only']) ? $data['approved_customers_only'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
+        $this->container['surcharge_accounting_code'] = isset($data['surcharge_accounting_code']) ? $data['surcharge_accounting_code'] : null;
+        $this->container['surcharge_fee'] = isset($data['surcharge_fee']) ? $data['surcharge_fee'] : null;
+        $this->container['surcharge_percentage'] = isset($data['surcharge_percentage']) ? $data['surcharge_percentage'] : null;
     }
 
     /**
@@ -247,7 +247,7 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
     /**
      * Sets accept_cod
      *
-     * @param bool $accept_cod accept_cod
+     * @param bool $accept_cod Master flag indicating this merchant accepts COD
      *
      * @return $this
      */
@@ -259,97 +259,25 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets cod_approved_customers_only
+     * Gets approved_customers_only
      *
      * @return bool
      */
-    public function getCodApprovedCustomersOnly()
+    public function getApprovedCustomersOnly()
     {
-        return $this->container['cod_approved_customers_only'];
+        return $this->container['approved_customers_only'];
     }
 
     /**
-     * Sets cod_approved_customers_only
+     * Sets approved_customers_only
      *
-     * @param bool $cod_approved_customers_only cod_approved_customers_only
+     * @param bool $approved_customers_only If true, only approved customers may pay with COD
      *
      * @return $this
      */
-    public function setCodApprovedCustomersOnly($cod_approved_customers_only)
+    public function setApprovedCustomersOnly($approved_customers_only)
     {
-        $this->container['cod_approved_customers_only'] = $cod_approved_customers_only;
-
-        return $this;
-    }
-
-    /**
-     * Gets cod_surcharge_accounting_code
-     *
-     * @return string
-     */
-    public function getCodSurchargeAccountingCode()
-    {
-        return $this->container['cod_surcharge_accounting_code'];
-    }
-
-    /**
-     * Sets cod_surcharge_accounting_code
-     *
-     * @param string $cod_surcharge_accounting_code cod_surcharge_accounting_code
-     *
-     * @return $this
-     */
-    public function setCodSurchargeAccountingCode($cod_surcharge_accounting_code)
-    {
-        $this->container['cod_surcharge_accounting_code'] = $cod_surcharge_accounting_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets cod_surcharge_fee
-     *
-     * @return string
-     */
-    public function getCodSurchargeFee()
-    {
-        return $this->container['cod_surcharge_fee'];
-    }
-
-    /**
-     * Sets cod_surcharge_fee
-     *
-     * @param string $cod_surcharge_fee cod_surcharge_fee
-     *
-     * @return $this
-     */
-    public function setCodSurchargeFee($cod_surcharge_fee)
-    {
-        $this->container['cod_surcharge_fee'] = $cod_surcharge_fee;
-
-        return $this;
-    }
-
-    /**
-     * Gets cod_surcharge_perc
-     *
-     * @return string
-     */
-    public function getCodSurchargePerc()
-    {
-        return $this->container['cod_surcharge_perc'];
-    }
-
-    /**
-     * Sets cod_surcharge_perc
-     *
-     * @param string $cod_surcharge_perc cod_surcharge_perc
-     *
-     * @return $this
-     */
-    public function setCodSurchargePerc($cod_surcharge_perc)
-    {
-        $this->container['cod_surcharge_perc'] = $cod_surcharge_perc;
+        $this->container['approved_customers_only'] = $approved_customers_only;
 
         return $this;
     }
@@ -374,6 +302,78 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
+
+        return $this;
+    }
+
+    /**
+     * Gets surcharge_accounting_code
+     *
+     * @return string
+     */
+    public function getSurchargeAccountingCode()
+    {
+        return $this->container['surcharge_accounting_code'];
+    }
+
+    /**
+     * Sets surcharge_accounting_code
+     *
+     * @param string $surcharge_accounting_code Optional field, if surcharge is set, this is the accounting code the surcharge is tagged with when sent to Quickbooks
+     *
+     * @return $this
+     */
+    public function setSurchargeAccountingCode($surcharge_accounting_code)
+    {
+        $this->container['surcharge_accounting_code'] = $surcharge_accounting_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets surcharge_fee
+     *
+     * @return string
+     */
+    public function getSurchargeFee()
+    {
+        return $this->container['surcharge_fee'];
+    }
+
+    /**
+     * Sets surcharge_fee
+     *
+     * @param string $surcharge_fee Additional cost for using COD
+     *
+     * @return $this
+     */
+    public function setSurchargeFee($surcharge_fee)
+    {
+        $this->container['surcharge_fee'] = $surcharge_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets surcharge_percentage
+     *
+     * @return string
+     */
+    public function getSurchargePercentage()
+    {
+        return $this->container['surcharge_percentage'];
+    }
+
+    /**
+     * Sets surcharge_percentage
+     *
+     * @param string $surcharge_percentage Additional percentage cost for using COD
+     *
+     * @return $this
+     */
+    public function setSurchargePercentage($surcharge_percentage)
+    {
+        $this->container['surcharge_percentage'] = $surcharge_percentage;
 
         return $this;
     }

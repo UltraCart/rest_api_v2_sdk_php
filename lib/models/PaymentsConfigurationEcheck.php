@@ -57,9 +57,9 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'accept_e_check' => 'bool',
-        'e_check_accounting_code' => 'string',
-        'e_check_deposit_to_account' => 'string',
+        'accept_echeck' => 'bool',
+        'accounting_code' => 'string',
+        'deposit_to_account' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
     ];
 
@@ -69,9 +69,9 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'accept_e_check' => null,
-        'e_check_accounting_code' => null,
-        'e_check_deposit_to_account' => null,
+        'accept_echeck' => null,
+        'accounting_code' => null,
+        'deposit_to_account' => null,
         'restrictions' => null
     ];
 
@@ -102,9 +102,9 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accept_e_check' => 'acceptECheck',
-        'e_check_accounting_code' => 'eCheckAccountingCode',
-        'e_check_deposit_to_account' => 'eCheckDepositToAccount',
+        'accept_echeck' => 'accept_echeck',
+        'accounting_code' => 'accounting_code',
+        'deposit_to_account' => 'deposit_to_account',
         'restrictions' => 'restrictions'
     ];
 
@@ -114,9 +114,9 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accept_e_check' => 'setAcceptECheck',
-        'e_check_accounting_code' => 'setECheckAccountingCode',
-        'e_check_deposit_to_account' => 'setECheckDepositToAccount',
+        'accept_echeck' => 'setAcceptEcheck',
+        'accounting_code' => 'setAccountingCode',
+        'deposit_to_account' => 'setDepositToAccount',
         'restrictions' => 'setRestrictions'
     ];
 
@@ -126,9 +126,9 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accept_e_check' => 'getAcceptECheck',
-        'e_check_accounting_code' => 'getECheckAccountingCode',
-        'e_check_deposit_to_account' => 'getECheckDepositToAccount',
+        'accept_echeck' => 'getAcceptEcheck',
+        'accounting_code' => 'getAccountingCode',
+        'deposit_to_account' => 'getDepositToAccount',
         'restrictions' => 'getRestrictions'
     ];
 
@@ -192,9 +192,9 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['accept_e_check'] = isset($data['accept_e_check']) ? $data['accept_e_check'] : null;
-        $this->container['e_check_accounting_code'] = isset($data['e_check_accounting_code']) ? $data['e_check_accounting_code'] : null;
-        $this->container['e_check_deposit_to_account'] = isset($data['e_check_deposit_to_account']) ? $data['e_check_deposit_to_account'] : null;
+        $this->container['accept_echeck'] = isset($data['accept_echeck']) ? $data['accept_echeck'] : null;
+        $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
+        $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
     }
 
@@ -223,73 +223,73 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets accept_e_check
+     * Gets accept_echeck
      *
      * @return bool
      */
-    public function getAcceptECheck()
+    public function getAcceptEcheck()
     {
-        return $this->container['accept_e_check'];
+        return $this->container['accept_echeck'];
     }
 
     /**
-     * Sets accept_e_check
+     * Sets accept_echeck
      *
-     * @param bool $accept_e_check accept_e_check
+     * @param bool $accept_echeck Master flag indicating this merchant accepts eChecks
      *
      * @return $this
      */
-    public function setAcceptECheck($accept_e_check)
+    public function setAcceptEcheck($accept_echeck)
     {
-        $this->container['accept_e_check'] = $accept_e_check;
+        $this->container['accept_echeck'] = $accept_echeck;
 
         return $this;
     }
 
     /**
-     * Gets e_check_accounting_code
+     * Gets accounting_code
      *
      * @return string
      */
-    public function getECheckAccountingCode()
+    public function getAccountingCode()
     {
-        return $this->container['e_check_accounting_code'];
+        return $this->container['accounting_code'];
     }
 
     /**
-     * Sets e_check_accounting_code
+     * Sets accounting_code
      *
-     * @param string $e_check_accounting_code e_check_accounting_code
+     * @param string $accounting_code Optional Quickbooks accounting code
      *
      * @return $this
      */
-    public function setECheckAccountingCode($e_check_accounting_code)
+    public function setAccountingCode($accounting_code)
     {
-        $this->container['e_check_accounting_code'] = $e_check_accounting_code;
+        $this->container['accounting_code'] = $accounting_code;
 
         return $this;
     }
 
     /**
-     * Gets e_check_deposit_to_account
+     * Gets deposit_to_account
      *
      * @return string
      */
-    public function getECheckDepositToAccount()
+    public function getDepositToAccount()
     {
-        return $this->container['e_check_deposit_to_account'];
+        return $this->container['deposit_to_account'];
     }
 
     /**
-     * Sets e_check_deposit_to_account
+     * Sets deposit_to_account
      *
-     * @param string $e_check_deposit_to_account e_check_deposit_to_account
+     * @param string $deposit_to_account Optional Quickbooks deposit to account
      *
      * @return $this
      */
-    public function setECheckDepositToAccount($e_check_deposit_to_account)
+    public function setDepositToAccount($deposit_to_account)
     {
-        $this->container['e_check_deposit_to_account'] = $e_check_deposit_to_account;
+        $this->container['deposit_to_account'] = $deposit_to_account;
 
         return $this;
     }
