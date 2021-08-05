@@ -57,6 +57,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'descriptions' => 'string[]',
         'maximum_subtotal' => 'string',
         'minimum_subtotal' => 'string',
         'payment_method' => 'string',
@@ -68,7 +69,8 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
         'restriction_international_only' => 'string',
         'restriction_po_box' => 'string',
         'restriction_puerto_rico' => 'string',
-        'restriction_us_territories' => 'string'
+        'restriction_us_territories' => 'string',
+        'themes' => '\ultracart\v2\models\PaymentsConfigurationRestrictionsTheme[]'
     ];
 
     /**
@@ -77,6 +79,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'descriptions' => null,
         'maximum_subtotal' => null,
         'minimum_subtotal' => null,
         'payment_method' => null,
@@ -88,7 +91,8 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
         'restriction_international_only' => null,
         'restriction_po_box' => null,
         'restriction_puerto_rico' => null,
-        'restriction_us_territories' => null
+        'restriction_us_territories' => null,
+        'themes' => null
     ];
 
     /**
@@ -118,6 +122,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'descriptions' => 'descriptions',
         'maximum_subtotal' => 'maximum_subtotal',
         'minimum_subtotal' => 'minimum_subtotal',
         'payment_method' => 'payment_method',
@@ -129,7 +134,8 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
         'restriction_international_only' => 'restriction_international_only',
         'restriction_po_box' => 'restriction_po_box',
         'restriction_puerto_rico' => 'restriction_puerto_rico',
-        'restriction_us_territories' => 'restriction_us_territories'
+        'restriction_us_territories' => 'restriction_us_territories',
+        'themes' => 'themes'
     ];
 
     /**
@@ -138,6 +144,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'descriptions' => 'setDescriptions',
         'maximum_subtotal' => 'setMaximumSubtotal',
         'minimum_subtotal' => 'setMinimumSubtotal',
         'payment_method' => 'setPaymentMethod',
@@ -149,7 +156,8 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
         'restriction_international_only' => 'setRestrictionInternationalOnly',
         'restriction_po_box' => 'setRestrictionPoBox',
         'restriction_puerto_rico' => 'setRestrictionPuertoRico',
-        'restriction_us_territories' => 'setRestrictionUsTerritories'
+        'restriction_us_territories' => 'setRestrictionUsTerritories',
+        'themes' => 'setThemes'
     ];
 
     /**
@@ -158,6 +166,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'descriptions' => 'getDescriptions',
         'maximum_subtotal' => 'getMaximumSubtotal',
         'minimum_subtotal' => 'getMinimumSubtotal',
         'payment_method' => 'getPaymentMethod',
@@ -169,7 +178,8 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
         'restriction_international_only' => 'getRestrictionInternationalOnly',
         'restriction_po_box' => 'getRestrictionPoBox',
         'restriction_puerto_rico' => 'getRestrictionPuertoRico',
-        'restriction_us_territories' => 'getRestrictionUsTerritories'
+        'restriction_us_territories' => 'getRestrictionUsTerritories',
+        'themes' => 'getThemes'
     ];
 
     /**
@@ -232,6 +242,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['descriptions'] = isset($data['descriptions']) ? $data['descriptions'] : null;
         $this->container['maximum_subtotal'] = isset($data['maximum_subtotal']) ? $data['maximum_subtotal'] : null;
         $this->container['minimum_subtotal'] = isset($data['minimum_subtotal']) ? $data['minimum_subtotal'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
@@ -244,6 +255,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
         $this->container['restriction_po_box'] = isset($data['restriction_po_box']) ? $data['restriction_po_box'] : null;
         $this->container['restriction_puerto_rico'] = isset($data['restriction_puerto_rico']) ? $data['restriction_puerto_rico'] : null;
         $this->container['restriction_us_territories'] = isset($data['restriction_us_territories']) ? $data['restriction_us_territories'] : null;
+        $this->container['themes'] = isset($data['themes']) ? $data['themes'] : null;
     }
 
     /**
@@ -269,6 +281,30 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets descriptions
+     *
+     * @return string[]
+     */
+    public function getDescriptions()
+    {
+        return $this->container['descriptions'];
+    }
+
+    /**
+     * Sets descriptions
+     *
+     * @param string[] $descriptions descriptions
+     *
+     * @return $this
+     */
+    public function setDescriptions($descriptions)
+    {
+        $this->container['descriptions'] = $descriptions;
+
+        return $this;
+    }
 
     /**
      * Gets maximum_subtotal
@@ -554,6 +590,30 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     public function setRestrictionUsTerritories($restriction_us_territories)
     {
         $this->container['restriction_us_territories'] = $restriction_us_territories;
+
+        return $this;
+    }
+
+    /**
+     * Gets themes
+     *
+     * @return \ultracart\v2\models\PaymentsConfigurationRestrictionsTheme[]
+     */
+    public function getThemes()
+    {
+        return $this->container['themes'];
+    }
+
+    /**
+     * Sets themes
+     *
+     * @param \ultracart\v2\models\PaymentsConfigurationRestrictionsTheme[] $themes themes
+     *
+     * @return $this
+     */
+    public function setThemes($themes)
+    {
+        $this->container['themes'] = $themes;
 
         return $this;
     }

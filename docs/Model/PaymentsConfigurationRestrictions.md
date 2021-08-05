@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**descriptions** | **string[]** |  | [optional] 
 **maximum_subtotal** | **string** | Maximum subtotal | [optional] 
 **minimum_subtotal** | **string** | Minimum subtotal | [optional] 
 **payment_method** | **string** | Payment method | [optional] 
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **restriction_po_box** | **string** | PO Box restriction | [optional] 
 **restriction_puerto_rico** | **string** | Puerto Rico restriction | [optional] 
 **restriction_us_territories** | **string** | US Territories restriction | [optional] 
+**themes** | [**\ultracart\v2\models\PaymentsConfigurationRestrictionsTheme[]**](PaymentsConfigurationRestrictionsTheme.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

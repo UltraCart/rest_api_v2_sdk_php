@@ -69,7 +69,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
         'mail_to_postal_code' => 'string',
         'mail_to_store' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
-        'test_methods' => 'object'
+        'test_methods' => '\ultracart\v2\models\PaymentsConfigurationTestMethod[]'
     ];
 
     /**
@@ -567,7 +567,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Gets test_methods
      *
-     * @return object
+     * @return \ultracart\v2\models\PaymentsConfigurationTestMethod[]
      */
     public function getTestMethods()
     {
@@ -577,7 +577,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     /**
      * Sets test_methods
      *
-     * @param object $test_methods Test methods for this payment method
+     * @param \ultracart\v2\models\PaymentsConfigurationTestMethod[] $test_methods Test methods for this payment method
      *
      * @return $this
      */

@@ -62,7 +62,7 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
         'business_id' => 'string',
         'deposit_to_account' => 'string',
         'environment' => 'string',
-        'environments' => 'object',
+        'environments' => 'string[]',
         'private_api_key' => 'string',
         'public_api_key' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
@@ -407,7 +407,7 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
     /**
      * Gets environments
      *
-     * @return object
+     * @return string[]
      */
     public function getEnvironments()
     {
@@ -417,7 +417,7 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
     /**
      * Sets environments
      *
-     * @param object $environments List of environments possible
+     * @param string[] $environments List of environments possible
      *
      * @return $this
      */

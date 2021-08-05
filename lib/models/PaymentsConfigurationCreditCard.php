@@ -64,10 +64,10 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateway_details' => 'string',
         'failed_attempts' => 'string',
         'hide_connect_single_gateway' => 'bool',
-        'restrictions' => 'object',
+        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions[]',
         'send_customer_billing_update_on_decline' => 'bool',
-        'supported_cards' => 'object',
-        'test_methods' => 'object'
+        'supported_cards' => '\ultracart\v2\models\PaymentsConfigurationCreditCardType[]',
+        'test_methods' => '\ultracart\v2\models\PaymentsConfigurationTestMethod[]'
     ];
 
     /**
@@ -435,7 +435,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     /**
      * Gets restrictions
      *
-     * @return object
+     * @return \ultracart\v2\models\PaymentsConfigurationRestrictions[]
      */
     public function getRestrictions()
     {
@@ -445,7 +445,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     /**
      * Sets restrictions
      *
-     * @param object $restrictions Restrictions for this payment method
+     * @param \ultracart\v2\models\PaymentsConfigurationRestrictions[] $restrictions Restrictions for this payment method
      *
      * @return $this
      */
@@ -483,7 +483,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     /**
      * Gets supported_cards
      *
-     * @return object
+     * @return \ultracart\v2\models\PaymentsConfigurationCreditCardType[]
      */
     public function getSupportedCards()
     {
@@ -493,7 +493,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     /**
      * Sets supported_cards
      *
-     * @param object $supported_cards A list of credit cards the merchant wishes to accept.
+     * @param \ultracart\v2\models\PaymentsConfigurationCreditCardType[] $supported_cards A list of credit cards the merchant wishes to accept.
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     /**
      * Gets test_methods
      *
-     * @return object
+     * @return \ultracart\v2\models\PaymentsConfigurationTestMethod[]
      */
     public function getTestMethods()
     {
@@ -517,7 +517,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     /**
      * Sets test_methods
      *
-     * @param object $test_methods An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders
+     * @param \ultracart\v2\models\PaymentsConfigurationTestMethod[] $test_methods An array of test methods for placing test orders.  The cards defined here may be real or fake, but any order placed with them will be marked as Test orders
      *
      * @return $this
      */
