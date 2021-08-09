@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **descriptions** | **string[]** |  | [optional] 
-**maximum_subtotal** | **string** | Maximum subtotal | [optional] 
-**minimum_subtotal** | **string** | Minimum subtotal | [optional] 
+**maximum_subtotal** | **float** | Maximum subtotal | [optional] 
+**minimum_subtotal** | **float** | Minimum subtotal | [optional] 
 **payment_method** | **string** | Payment method | [optional] 
 **restriction_alaska_hawaii** | **string** | Alaska and Hawaii restriction | [optional] 
 **restriction_apo_fpo** | **string** | APO/FPO restriction | [optional] 

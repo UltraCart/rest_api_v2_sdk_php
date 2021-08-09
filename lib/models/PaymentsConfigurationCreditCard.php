@@ -62,7 +62,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'charge_during_checkout' => 'bool',
         'collect_cvv2' => 'bool',
         'configured_gateway_details' => 'string',
-        'failed_attempts' => 'string',
+        'failed_attempts' => 'int',
         'hide_connect_single_gateway' => 'bool',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions[]',
         'send_customer_billing_update_on_decline' => 'bool',
@@ -81,7 +81,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'charge_during_checkout' => null,
         'collect_cvv2' => null,
         'configured_gateway_details' => null,
-        'failed_attempts' => null,
+        'failed_attempts' => 'int32',
         'hide_connect_single_gateway' => null,
         'restrictions' => null,
         'send_customer_billing_update_on_decline' => null,
@@ -387,7 +387,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     /**
      * Gets failed_attempts
      *
-     * @return string
+     * @return int
      */
     public function getFailedAttempts()
     {
@@ -397,7 +397,7 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     /**
      * Sets failed_attempts
      *
-     * @param string $failed_attempts The number of failed attempts before the order is placed into Accounts Receivable for manual intervention
+     * @param int $failed_attempts The number of failed attempts before the order is placed into Accounts Receivable for manual intervention
      *
      * @return $this
      */

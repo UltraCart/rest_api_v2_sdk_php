@@ -58,8 +58,8 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'descriptions' => 'string[]',
-        'maximum_subtotal' => 'string',
-        'minimum_subtotal' => 'string',
+        'maximum_subtotal' => 'float',
+        'minimum_subtotal' => 'float',
         'payment_method' => 'string',
         'restriction_alaska_hawaii' => 'string',
         'restriction_apo_fpo' => 'string',
@@ -309,7 +309,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Gets maximum_subtotal
      *
-     * @return string
+     * @return float
      */
     public function getMaximumSubtotal()
     {
@@ -319,7 +319,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets maximum_subtotal
      *
-     * @param string $maximum_subtotal Maximum subtotal
+     * @param float $maximum_subtotal Maximum subtotal
      *
      * @return $this
      */
@@ -333,7 +333,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Gets minimum_subtotal
      *
-     * @return string
+     * @return float
      */
     public function getMinimumSubtotal()
     {
@@ -343,7 +343,7 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     /**
      * Sets minimum_subtotal
      *
-     * @param string $minimum_subtotal Minimum subtotal
+     * @param float $minimum_subtotal Minimum subtotal
      *
      * @return $this
      */
