@@ -325,6 +325,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseqStatOverall**](docs/Api/StorefrontApi.md#getemailcommseqstatoverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 *StorefrontApi* | [**getEmailCommseqStepStats**](docs/Api/StorefrontApi.md#getemailcommseqstepstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 *StorefrontApi* | [**getEmailCommseqStepWaiting**](docs/Api/StorefrontApi.md#getemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
+*StorefrontApi* | [**getEmailCommseqWebhookEditorValues**](docs/Api/StorefrontApi.md#getemailcommseqwebhookeditorvalues) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/webhookEditorValues | Get email webhook editor values
 *StorefrontApi* | [**getEmailCommseqs**](docs/Api/StorefrontApi.md#getemailcommseqs) | **GET** /storefront/{storefront_oid}/email/commseqs | Get email commseqs
 *StorefrontApi* | [**getEmailCustomerEditorUrl**](docs/Api/StorefrontApi.md#getemailcustomereditorurl) | **GET** /storefront/{storefront_oid}/email/customers/{email_customer_uuid}/editor_url | Get customers editor URL
 *StorefrontApi* | [**getEmailCustomers**](docs/Api/StorefrontApi.md#getemailcustomers) | **GET** /storefront/{storefront_oid}/email/customers | Get email customers
@@ -787,6 +788,7 @@ Class | Method | HTTP request | Description
  - [EmailVerifyTokenResponse](docs/Model/EmailVerifyTokenResponse.md)
  - [EmailVerifyTokenValidateRequest](docs/Model/EmailVerifyTokenValidateRequest.md)
  - [EmailVerifyTokenValidateResponse](docs/Model/EmailVerifyTokenValidateResponse.md)
+ - [EmailWebhookEditorValuesResponse](docs/Model/EmailWebhookEditorValuesResponse.md)
  - [Error](docs/Model/Error.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Experiment](docs/Model/Experiment.md)
@@ -1189,6 +1191,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.12 | 08/10/2021 | email engine - added webhook editor values for internal ui  | 
 | 3.4.9 | 08/05/2021 | configuration api - updated annotations for method names | 
 | 3.4.8 | 08/04/2021 | configuration api - payments config refactoring | 
 | 3.4.7 | 08/04/2021 | esp folders for lists/segments | 

@@ -62,11 +62,11 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
         'credit_card' => 'string',
         'deposit_to_account' => 'string',
         'enabled' => 'bool',
-        'processing_fee' => 'string',
-        'processing_percentage' => 'string',
+        'processing_fee' => 'float',
+        'processing_percentage' => 'float',
         'surcharge_accounting_code' => 'string',
-        'transaction_fee' => 'string',
-        'transaction_percentage' => 'string'
+        'transaction_fee' => 'float',
+        'transaction_percentage' => 'float'
     ];
 
     /**
@@ -421,7 +421,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     /**
      * Gets processing_fee
      *
-     * @return string
+     * @return float
      */
     public function getProcessingFee()
     {
@@ -431,7 +431,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     /**
      * Sets processing_fee
      *
-     * @param string $processing_fee Optional additional fee applied to order for this card
+     * @param float $processing_fee Optional additional fee applied to order for this card
      *
      * @return $this
      */
@@ -445,7 +445,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     /**
      * Gets processing_percentage
      *
-     * @return string
+     * @return float
      */
     public function getProcessingPercentage()
     {
@@ -455,7 +455,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     /**
      * Sets processing_percentage
      *
-     * @param string $processing_percentage Optional additional fee applied to order for this card
+     * @param float $processing_percentage Optional additional fee applied to order for this card
      *
      * @return $this
      */
@@ -493,7 +493,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_fee
      *
-     * @return string
+     * @return float
      */
     public function getTransactionFee()
     {
@@ -503,7 +503,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_fee
      *
-     * @param string $transaction_fee An optional additional fee to charge the customer for using this card.
+     * @param float $transaction_fee An optional additional fee to charge the customer for using this card.
      *
      * @return $this
      */
@@ -517,7 +517,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_percentage
      *
-     * @return string
+     * @return float
      */
     public function getTransactionPercentage()
     {
@@ -527,7 +527,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_percentage
      *
-     * @param string $transaction_percentage An optional transaction percentage to charge the customer for using this card
+     * @param float $transaction_percentage An optional transaction percentage to charge the customer for using this card
      *
      * @return $this
      */
