@@ -1191,6 +1191,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.4.13 | 08/10/2021 | configuration api - changed some field types form string to number | 
 | 3.4.12 | 08/10/2021 | email engine - added webhook editor values for internal ui  | 
 | 3.4.9 | 08/05/2021 | configuration api - updated annotations for method names | 
 | 3.4.8 | 08/04/2021 | configuration api - payments config refactoring | 
