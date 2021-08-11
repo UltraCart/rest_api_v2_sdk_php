@@ -415,6 +415,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**searchSharedItems**](docs/Api/StorefrontApi.md#searchshareditems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 *StorefrontApi* | [**sendEmailTest**](docs/Api/StorefrontApi.md#sendemailtest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**sendPostcardTest**](docs/Api/StorefrontApi.md#sendpostcardtest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
+*StorefrontApi* | [**sendWebhookTest**](docs/Api/StorefrontApi.md#sendwebhooktest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
 *StorefrontApi* | [**startEmailCampaign**](docs/Api/StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/Api/StorefrontApi.md#subscribetoemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 *StorefrontApi* | [**unfavoriteScreenRecording**](docs/Api/StorefrontApi.md#unfavoritescreenrecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
@@ -711,6 +712,7 @@ Class | Method | HTTP request | Description
  - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
  - [EmailCommseqStepLog](docs/Model/EmailCommseqStepLog.md)
  - [EmailCommseqStepLogsResponse](docs/Model/EmailCommseqStepLogsResponse.md)
+ - [EmailCommseqWebhookSendTestRequest](docs/Model/EmailCommseqWebhookSendTestRequest.md)
  - [EmailCommseqsResponse](docs/Model/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/Model/EmailCustomer.md)
  - [EmailCustomerEditorUrlResponse](docs/Model/EmailCustomerEditorUrlResponse.md)
@@ -1191,6 +1193,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.5.1 | 08/11/2021 | email webhook test method | 
 | 3.5.0 | 08/11/2021 | RestOrderChannelPartner.store_completed was incorrectly defaulting to true | 
 | 3.4.13 | 08/10/2021 | configuration api - changed some field types form string to number | 
 | 3.4.12 | 08/10/2021 | email engine - added webhook editor values for internal ui  | 
