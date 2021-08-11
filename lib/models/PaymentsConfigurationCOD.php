@@ -61,8 +61,8 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
         'approved_customers_only' => 'bool',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
         'surcharge_accounting_code' => 'string',
-        'surcharge_fee' => 'string',
-        'surcharge_percentage' => 'string'
+        'surcharge_fee' => 'float',
+        'surcharge_percentage' => 'float'
     ];
 
     /**
@@ -333,7 +333,7 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
     /**
      * Gets surcharge_fee
      *
-     * @return string
+     * @return float
      */
     public function getSurchargeFee()
     {
@@ -343,7 +343,7 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
     /**
      * Sets surcharge_fee
      *
-     * @param string $surcharge_fee Additional cost for using COD
+     * @param float $surcharge_fee Additional cost for using COD
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
     /**
      * Gets surcharge_percentage
      *
-     * @return string
+     * @return float
      */
     public function getSurchargePercentage()
     {
@@ -367,7 +367,7 @@ class PaymentsConfigurationCOD implements ModelInterface, ArrayAccess
     /**
      * Sets surcharge_percentage
      *
-     * @param string $surcharge_percentage Additional percentage cost for using COD
+     * @param float $surcharge_percentage Additional percentage cost for using COD
      *
      * @return $this
      */

@@ -469,7 +469,7 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
     /**
      * Sets store_completed
      *
-     * @param bool $store_completed Instructs UltraCart to skip shipping department and mark this order as fully complete.  Set this flag if you have already shipped product for this order.
+     * @param bool $store_completed Instructs UltraCart to skip shipping department and mark this order as fully complete.  This flag defaults to true.  Set this flag to false to shipped product for this order.
      *
      * @return $this
      */

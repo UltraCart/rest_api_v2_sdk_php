@@ -73,8 +73,8 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
         'landing_page' => 'string',
         'mode' => 'string',
         'private_key_password' => 'string',
-        'processing_fee' => 'string',
-        'processing_percentage' => 'string',
+        'processing_fee' => 'float',
+        'processing_percentage' => 'float',
         'push_paypal' => 'bool',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
         'send_recurring' => 'bool',
@@ -878,7 +878,7 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
     /**
      * Gets processing_fee
      *
-     * @return string
+     * @return float
      */
     public function getProcessingFee()
     {
@@ -888,7 +888,7 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
     /**
      * Sets processing_fee
      *
-     * @param string $processing_fee Optional additional fee to charge if PayPal is used.  It is rare for this to be used.
+     * @param float $processing_fee Optional additional fee to charge if PayPal is used.  It is rare for this to be used.
      *
      * @return $this
      */
@@ -902,7 +902,7 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
     /**
      * Gets processing_percentage
      *
-     * @return string
+     * @return float
      */
     public function getProcessingPercentage()
     {
@@ -912,7 +912,7 @@ class PaymentsConfigurationPayPal implements ModelInterface, ArrayAccess
     /**
      * Sets processing_percentage
      *
-     * @param string $processing_percentage The processing percentage charged by PayPal
+     * @param float $processing_percentage The processing percentage charged by PayPal
      *
      * @return $this
      */

@@ -66,8 +66,8 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
         'routing_number' => 'string',
         'surcharge_accounting_code' => 'string',
-        'surcharge_fee' => 'string',
-        'surcharge_percentage' => 'string'
+        'surcharge_fee' => 'float',
+        'surcharge_percentage' => 'float'
     ];
 
     /**
@@ -483,7 +483,7 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
     /**
      * Gets surcharge_fee
      *
-     * @return string
+     * @return float
      */
     public function getSurchargeFee()
     {
@@ -493,7 +493,7 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets surcharge_fee
      *
-     * @param string $surcharge_fee surcharge_fee
+     * @param float $surcharge_fee surcharge_fee
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
     /**
      * Gets surcharge_percentage
      *
-     * @return string
+     * @return float
      */
     public function getSurchargePercentage()
     {
@@ -517,7 +517,7 @@ class PaymentsConfigurationWireTransfer implements ModelInterface, ArrayAccess
     /**
      * Sets surcharge_percentage
      *
-     * @param string $surcharge_percentage surcharge_percentage
+     * @param float $surcharge_percentage surcharge_percentage
      *
      * @return $this
      */

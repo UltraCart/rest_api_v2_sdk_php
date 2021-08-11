@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **restrictions** | [**\ultracart\v2\models\PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 **routing_number** | **string** | Routing number | [optional] 
 **surcharge_accounting_code** | **string** | If a surcharge is present and this merchant is integrated with Quickbooks, this is the accounting code for the surcharge amount | [optional] 
-**surcharge_fee** | **string** | surcharge_fee | [optional] 
-**surcharge_percentage** | **string** | surcharge_percentage | [optional] 
+**surcharge_fee** | **float** | surcharge_fee | [optional] 
+**surcharge_percentage** | **float** | surcharge_percentage | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
