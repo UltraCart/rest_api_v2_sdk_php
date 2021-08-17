@@ -64,6 +64,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
         'enabled' => 'bool',
         'processing_fee' => 'float',
         'processing_percentage' => 'float',
+        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
         'surcharge_accounting_code' => 'string',
         'transaction_fee' => 'float',
         'transaction_percentage' => 'float'
@@ -82,6 +83,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
         'enabled' => null,
         'processing_fee' => null,
         'processing_percentage' => null,
+        'restrictions' => null,
         'surcharge_accounting_code' => null,
         'transaction_fee' => null,
         'transaction_percentage' => null
@@ -121,6 +123,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
         'enabled' => 'enabled',
         'processing_fee' => 'processing_fee',
         'processing_percentage' => 'processing_percentage',
+        'restrictions' => 'restrictions',
         'surcharge_accounting_code' => 'surcharge_accounting_code',
         'transaction_fee' => 'transaction_fee',
         'transaction_percentage' => 'transaction_percentage'
@@ -139,6 +142,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
         'enabled' => 'setEnabled',
         'processing_fee' => 'setProcessingFee',
         'processing_percentage' => 'setProcessingPercentage',
+        'restrictions' => 'setRestrictions',
         'surcharge_accounting_code' => 'setSurchargeAccountingCode',
         'transaction_fee' => 'setTransactionFee',
         'transaction_percentage' => 'setTransactionPercentage'
@@ -157,6 +161,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
         'enabled' => 'getEnabled',
         'processing_fee' => 'getProcessingFee',
         'processing_percentage' => 'getProcessingPercentage',
+        'restrictions' => 'getRestrictions',
         'surcharge_accounting_code' => 'getSurchargeAccountingCode',
         'transaction_fee' => 'getTransactionFee',
         'transaction_percentage' => 'getTransactionPercentage'
@@ -252,6 +257,7 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['processing_fee'] = isset($data['processing_fee']) ? $data['processing_fee'] : null;
         $this->container['processing_percentage'] = isset($data['processing_percentage']) ? $data['processing_percentage'] : null;
+        $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
         $this->container['surcharge_accounting_code'] = isset($data['surcharge_accounting_code']) ? $data['surcharge_accounting_code'] : null;
         $this->container['transaction_fee'] = isset($data['transaction_fee']) ? $data['transaction_fee'] : null;
         $this->container['transaction_percentage'] = isset($data['transaction_percentage']) ? $data['transaction_percentage'] : null;
@@ -462,6 +468,30 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     public function setProcessingPercentage($processing_percentage)
     {
         $this->container['processing_percentage'] = $processing_percentage;
+
+        return $this;
+    }
+
+    /**
+     * Gets restrictions
+     *
+     * @return \ultracart\v2\models\PaymentsConfigurationRestrictions
+     */
+    public function getRestrictions()
+    {
+        return $this->container['restrictions'];
+    }
+
+    /**
+     * Sets restrictions
+     *
+     * @param \ultracart\v2\models\PaymentsConfigurationRestrictions $restrictions restrictions
+     *
+     * @return $this
+     */
+    public function setRestrictions($restrictions)
+    {
+        $this->container['restrictions'] = $restrictions;
 
         return $this;
     }

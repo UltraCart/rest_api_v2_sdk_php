@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **enabled** | **bool** | If true, this card type will be accepted during checkout | [optional] 
 **processing_fee** | **float** | Optional additional fee applied to order for this card | [optional] 
 **processing_percentage** | **float** | Optional additional fee applied to order for this card | [optional] 
+**restrictions** | [**\ultracart\v2\models\PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 **surcharge_accounting_code** | **string** | Optional field. If integrated with Quickbooks, this code will be used when informing Quickbooks about any surcharges applied to orders | [optional] 
 **transaction_fee** | **float** | An optional additional fee to charge the customer for using this card. | [optional] 
 **transaction_percentage** | **float** | An optional transaction percentage to charge the customer for using this card | [optional] 

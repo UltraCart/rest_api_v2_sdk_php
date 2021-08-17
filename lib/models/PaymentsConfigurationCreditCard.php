@@ -64,7 +64,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateway_details' => 'string',
         'failed_attempts' => 'int',
         'hide_connect_single_gateway' => 'bool',
-        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions[]',
         'send_customer_billing_update_on_decline' => 'bool',
         'supported_cards' => '\ultracart\v2\models\PaymentsConfigurationCreditCardType[]',
         'test_methods' => '\ultracart\v2\models\PaymentsConfigurationTestMethod[]'
@@ -83,7 +82,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateway_details' => null,
         'failed_attempts' => 'int32',
         'hide_connect_single_gateway' => null,
-        'restrictions' => null,
         'send_customer_billing_update_on_decline' => null,
         'supported_cards' => null,
         'test_methods' => null
@@ -123,7 +121,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateway_details' => 'configured_gateway_details',
         'failed_attempts' => 'failed_attempts',
         'hide_connect_single_gateway' => 'hide_connect_single_gateway',
-        'restrictions' => 'restrictions',
         'send_customer_billing_update_on_decline' => 'send_customer_billing_update_on_decline',
         'supported_cards' => 'supported_cards',
         'test_methods' => 'test_methods'
@@ -142,7 +139,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateway_details' => 'setConfiguredGatewayDetails',
         'failed_attempts' => 'setFailedAttempts',
         'hide_connect_single_gateway' => 'setHideConnectSingleGateway',
-        'restrictions' => 'setRestrictions',
         'send_customer_billing_update_on_decline' => 'setSendCustomerBillingUpdateOnDecline',
         'supported_cards' => 'setSupportedCards',
         'test_methods' => 'setTestMethods'
@@ -161,7 +157,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         'configured_gateway_details' => 'getConfiguredGatewayDetails',
         'failed_attempts' => 'getFailedAttempts',
         'hide_connect_single_gateway' => 'getHideConnectSingleGateway',
-        'restrictions' => 'getRestrictions',
         'send_customer_billing_update_on_decline' => 'getSendCustomerBillingUpdateOnDecline',
         'supported_cards' => 'getSupportedCards',
         'test_methods' => 'getTestMethods'
@@ -234,7 +229,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
         $this->container['configured_gateway_details'] = isset($data['configured_gateway_details']) ? $data['configured_gateway_details'] : null;
         $this->container['failed_attempts'] = isset($data['failed_attempts']) ? $data['failed_attempts'] : null;
         $this->container['hide_connect_single_gateway'] = isset($data['hide_connect_single_gateway']) ? $data['hide_connect_single_gateway'] : null;
-        $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
         $this->container['send_customer_billing_update_on_decline'] = isset($data['send_customer_billing_update_on_decline']) ? $data['send_customer_billing_update_on_decline'] : null;
         $this->container['supported_cards'] = isset($data['supported_cards']) ? $data['supported_cards'] : null;
         $this->container['test_methods'] = isset($data['test_methods']) ? $data['test_methods'] : null;
@@ -428,30 +422,6 @@ class PaymentsConfigurationCreditCard implements ModelInterface, ArrayAccess
     public function setHideConnectSingleGateway($hide_connect_single_gateway)
     {
         $this->container['hide_connect_single_gateway'] = $hide_connect_single_gateway;
-
-        return $this;
-    }
-
-    /**
-     * Gets restrictions
-     *
-     * @return \ultracart\v2\models\PaymentsConfigurationRestrictions[]
-     */
-    public function getRestrictions()
-    {
-        return $this->container['restrictions'];
-    }
-
-    /**
-     * Sets restrictions
-     *
-     * @param \ultracart\v2\models\PaymentsConfigurationRestrictions[] $restrictions Restrictions for this payment method
-     *
-     * @return $this
-     */
-    public function setRestrictions($restrictions)
-    {
-        $this->container['restrictions'] = $restrictions;
 
         return $this;
     }

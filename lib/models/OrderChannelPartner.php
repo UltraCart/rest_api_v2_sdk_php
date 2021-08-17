@@ -249,6 +249,10 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['channel_partner_order_id']) && (mb_strlen($this->container['channel_partner_order_id']) > 50)) {
+            $invalidProperties[] = "invalid value for 'channel_partner_order_id', the character length must be smaller than or equal to 50.";
+        }
+
         return $invalidProperties;
     }
 
@@ -373,12 +377,16 @@ class OrderChannelPartner implements ModelInterface, ArrayAccess
     /**
      * Sets channel_partner_order_id
      *
-     * @param string $channel_partner_order_id The order ID assigned by the channel partner for this order
+     * @param string $channel_partner_order_id The order ID assigned by the channel partner for this order.
      *
      * @return $this
      */
     public function setChannelPartnerOrderId($channel_partner_order_id)
     {
+        if (!is_null($channel_partner_order_id) && (mb_strlen($channel_partner_order_id) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $channel_partner_order_id when calling OrderChannelPartner., must be smaller than or equal to 50.');
+        }
+
         $this->container['channel_partner_order_id'] = $channel_partner_order_id;
 
         return $this;

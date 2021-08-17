@@ -223,8 +223,161 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const RESTRICTION_ALASKA_HAWAII_INVALID = 'invalid';
+    const RESTRICTION_ALASKA_HAWAII_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_ALASKA_HAWAII_VALID = 'valid';
+    const RESTRICTION_APO_FPO_INVALID = 'invalid';
+    const RESTRICTION_APO_FPO_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_APO_FPO_VALID = 'valid';
+    const RESTRICTION_CANADA_INVALID = 'invalid';
+    const RESTRICTION_CANADA_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_CANADA_VALID = 'valid';
+    const RESTRICTION_CONTINENTAL_US_INVALID = 'invalid';
+    const RESTRICTION_CONTINENTAL_US_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_CONTINENTAL_US_VALID = 'valid';
+    const RESTRICTION_DOMESTIC_ONLY_INVALID = 'invalid';
+    const RESTRICTION_DOMESTIC_ONLY_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_DOMESTIC_ONLY_VALID = 'valid';
+    const RESTRICTION_INTERNATIONAL_ONLY_INVALID = 'invalid';
+    const RESTRICTION_INTERNATIONAL_ONLY_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_INTERNATIONAL_ONLY_VALID = 'valid';
+    const RESTRICTION_PO_BOX_INVALID = 'invalid';
+    const RESTRICTION_PO_BOX_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_PO_BOX_VALID = 'valid';
+    const RESTRICTION_PUERTO_RICO_INVALID = 'invalid';
+    const RESTRICTION_PUERTO_RICO_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_PUERTO_RICO_VALID = 'valid';
+    const RESTRICTION_US_TERRITORIES_INVALID = 'invalid';
+    const RESTRICTION_US_TERRITORIES_INVALID_ONLY = 'invalidOnly';
+    const RESTRICTION_US_TERRITORIES_VALID = 'valid';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionAlaskaHawaiiAllowableValues()
+    {
+        return [
+            self::RESTRICTION_ALASKA_HAWAII_INVALID,
+            self::RESTRICTION_ALASKA_HAWAII_INVALID_ONLY,
+            self::RESTRICTION_ALASKA_HAWAII_VALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionApoFpoAllowableValues()
+    {
+        return [
+            self::RESTRICTION_APO_FPO_INVALID,
+            self::RESTRICTION_APO_FPO_INVALID_ONLY,
+            self::RESTRICTION_APO_FPO_VALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionCanadaAllowableValues()
+    {
+        return [
+            self::RESTRICTION_CANADA_INVALID,
+            self::RESTRICTION_CANADA_INVALID_ONLY,
+            self::RESTRICTION_CANADA_VALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionContinentalUsAllowableValues()
+    {
+        return [
+            self::RESTRICTION_CONTINENTAL_US_INVALID,
+            self::RESTRICTION_CONTINENTAL_US_INVALID_ONLY,
+            self::RESTRICTION_CONTINENTAL_US_VALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionDomesticOnlyAllowableValues()
+    {
+        return [
+            self::RESTRICTION_DOMESTIC_ONLY_INVALID,
+            self::RESTRICTION_DOMESTIC_ONLY_INVALID_ONLY,
+            self::RESTRICTION_DOMESTIC_ONLY_VALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionInternationalOnlyAllowableValues()
+    {
+        return [
+            self::RESTRICTION_INTERNATIONAL_ONLY_INVALID,
+            self::RESTRICTION_INTERNATIONAL_ONLY_INVALID_ONLY,
+            self::RESTRICTION_INTERNATIONAL_ONLY_VALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionPoBoxAllowableValues()
+    {
+        return [
+            self::RESTRICTION_PO_BOX_INVALID,
+            self::RESTRICTION_PO_BOX_INVALID_ONLY,
+            self::RESTRICTION_PO_BOX_VALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionPuertoRicoAllowableValues()
+    {
+        return [
+            self::RESTRICTION_PUERTO_RICO_INVALID,
+            self::RESTRICTION_PUERTO_RICO_INVALID_ONLY,
+            self::RESTRICTION_PUERTO_RICO_VALID,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRestrictionUsTerritoriesAllowableValues()
+    {
+        return [
+            self::RESTRICTION_US_TERRITORIES_INVALID,
+            self::RESTRICTION_US_TERRITORIES_INVALID_ONLY,
+            self::RESTRICTION_US_TERRITORIES_VALID,
+        ];
+    }
     
 
     /**
@@ -266,6 +419,78 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getRestrictionAlaskaHawaiiAllowableValues();
+        if (!is_null($this->container['restriction_alaska_hawaii']) && !in_array($this->container['restriction_alaska_hawaii'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_alaska_hawaii', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRestrictionApoFpoAllowableValues();
+        if (!is_null($this->container['restriction_apo_fpo']) && !in_array($this->container['restriction_apo_fpo'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_apo_fpo', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRestrictionCanadaAllowableValues();
+        if (!is_null($this->container['restriction_canada']) && !in_array($this->container['restriction_canada'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_canada', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRestrictionContinentalUsAllowableValues();
+        if (!is_null($this->container['restriction_continental_us']) && !in_array($this->container['restriction_continental_us'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_continental_us', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRestrictionDomesticOnlyAllowableValues();
+        if (!is_null($this->container['restriction_domestic_only']) && !in_array($this->container['restriction_domestic_only'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_domestic_only', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRestrictionInternationalOnlyAllowableValues();
+        if (!is_null($this->container['restriction_international_only']) && !in_array($this->container['restriction_international_only'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_international_only', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRestrictionPoBoxAllowableValues();
+        if (!is_null($this->container['restriction_po_box']) && !in_array($this->container['restriction_po_box'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_po_box', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRestrictionPuertoRicoAllowableValues();
+        if (!is_null($this->container['restriction_puerto_rico']) && !in_array($this->container['restriction_puerto_rico'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_puerto_rico', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getRestrictionUsTerritoriesAllowableValues();
+        if (!is_null($this->container['restriction_us_territories']) && !in_array($this->container['restriction_us_territories'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'restriction_us_territories', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -397,6 +622,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionAlaskaHawaii($restriction_alaska_hawaii)
     {
+        $allowedValues = $this->getRestrictionAlaskaHawaiiAllowableValues();
+        if (!is_null($restriction_alaska_hawaii) && !in_array($restriction_alaska_hawaii, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_alaska_hawaii', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_alaska_hawaii'] = $restriction_alaska_hawaii;
 
         return $this;
@@ -421,6 +655,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionApoFpo($restriction_apo_fpo)
     {
+        $allowedValues = $this->getRestrictionApoFpoAllowableValues();
+        if (!is_null($restriction_apo_fpo) && !in_array($restriction_apo_fpo, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_apo_fpo', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_apo_fpo'] = $restriction_apo_fpo;
 
         return $this;
@@ -445,6 +688,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionCanada($restriction_canada)
     {
+        $allowedValues = $this->getRestrictionCanadaAllowableValues();
+        if (!is_null($restriction_canada) && !in_array($restriction_canada, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_canada', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_canada'] = $restriction_canada;
 
         return $this;
@@ -469,6 +721,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionContinentalUs($restriction_continental_us)
     {
+        $allowedValues = $this->getRestrictionContinentalUsAllowableValues();
+        if (!is_null($restriction_continental_us) && !in_array($restriction_continental_us, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_continental_us', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_continental_us'] = $restriction_continental_us;
 
         return $this;
@@ -493,6 +754,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionDomesticOnly($restriction_domestic_only)
     {
+        $allowedValues = $this->getRestrictionDomesticOnlyAllowableValues();
+        if (!is_null($restriction_domestic_only) && !in_array($restriction_domestic_only, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_domestic_only', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_domestic_only'] = $restriction_domestic_only;
 
         return $this;
@@ -517,6 +787,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionInternationalOnly($restriction_international_only)
     {
+        $allowedValues = $this->getRestrictionInternationalOnlyAllowableValues();
+        if (!is_null($restriction_international_only) && !in_array($restriction_international_only, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_international_only', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_international_only'] = $restriction_international_only;
 
         return $this;
@@ -541,6 +820,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionPoBox($restriction_po_box)
     {
+        $allowedValues = $this->getRestrictionPoBoxAllowableValues();
+        if (!is_null($restriction_po_box) && !in_array($restriction_po_box, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_po_box', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_po_box'] = $restriction_po_box;
 
         return $this;
@@ -565,6 +853,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionPuertoRico($restriction_puerto_rico)
     {
+        $allowedValues = $this->getRestrictionPuertoRicoAllowableValues();
+        if (!is_null($restriction_puerto_rico) && !in_array($restriction_puerto_rico, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_puerto_rico', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_puerto_rico'] = $restriction_puerto_rico;
 
         return $this;
@@ -589,6 +886,15 @@ class PaymentsConfigurationRestrictions implements ModelInterface, ArrayAccess
      */
     public function setRestrictionUsTerritories($restriction_us_territories)
     {
+        $allowedValues = $this->getRestrictionUsTerritoriesAllowableValues();
+        if (!is_null($restriction_us_territories) && !in_array($restriction_us_territories, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'restriction_us_territories', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['restriction_us_territories'] = $restriction_us_territories;
 
         return $this;
