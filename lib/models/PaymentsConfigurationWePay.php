@@ -67,6 +67,7 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'company_description' => 'string',
         'console_hostname' => 'string',
         'country' => 'string',
+        'credit_card_rate' => 'string',
         'currency' => 'string',
         'expected_revenue' => 'string',
         'hide_credit_card_non_ultracart_payments' => 'bool',
@@ -103,6 +104,7 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'company_description' => null,
         'console_hostname' => null,
         'country' => null,
+        'credit_card_rate' => null,
         'currency' => null,
         'expected_revenue' => null,
         'hide_credit_card_non_ultracart_payments' => null,
@@ -160,6 +162,7 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'company_description' => 'company_description',
         'console_hostname' => 'console_hostname',
         'country' => 'country',
+        'credit_card_rate' => 'credit_card_rate',
         'currency' => 'currency',
         'expected_revenue' => 'expected_revenue',
         'hide_credit_card_non_ultracart_payments' => 'hide_credit_card_non_ultracart_payments',
@@ -196,6 +199,7 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'company_description' => 'setCompanyDescription',
         'console_hostname' => 'setConsoleHostname',
         'country' => 'setCountry',
+        'credit_card_rate' => 'setCreditCardRate',
         'currency' => 'setCurrency',
         'expected_revenue' => 'setExpectedRevenue',
         'hide_credit_card_non_ultracart_payments' => 'setHideCreditCardNonUltracartPayments',
@@ -232,6 +236,7 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'company_description' => 'getCompanyDescription',
         'console_hostname' => 'getConsoleHostname',
         'country' => 'getCountry',
+        'credit_card_rate' => 'getCreditCardRate',
         'currency' => 'getCurrency',
         'expected_revenue' => 'getExpectedRevenue',
         'hide_credit_card_non_ultracart_payments' => 'getHideCreditCardNonUltracartPayments',
@@ -322,6 +327,7 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         $this->container['company_description'] = isset($data['company_description']) ? $data['company_description'] : null;
         $this->container['console_hostname'] = isset($data['console_hostname']) ? $data['console_hostname'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['credit_card_rate'] = isset($data['credit_card_rate']) ? $data['credit_card_rate'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['expected_revenue'] = isset($data['expected_revenue']) ? $data['expected_revenue'] : null;
         $this->container['hide_credit_card_non_ultracart_payments'] = isset($data['hide_credit_card_non_ultracart_payments']) ? $data['hide_credit_card_non_ultracart_payments'] : null;
@@ -602,6 +608,30 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
     public function setCountry($country)
     {
         $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets credit_card_rate
+     *
+     * @return string
+     */
+    public function getCreditCardRate()
+    {
+        return $this->container['credit_card_rate'];
+    }
+
+    /**
+     * Sets credit_card_rate
+     *
+     * @param string $credit_card_rate WePay credit card rate
+     *
+     * @return $this
+     */
+    public function setCreditCardRate($credit_card_rate)
+    {
+        $this->container['credit_card_rate'] = $credit_card_rate;
 
         return $this;
     }
