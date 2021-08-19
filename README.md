@@ -646,7 +646,7 @@ Class | Method | HTTP request | Description
  - [CouponTierPercent](docs/Model/CouponTierPercent.md)
  - [CouponTierQuantityAmount](docs/Model/CouponTierQuantityAmount.md)
  - [CouponTierQuantityPercent](docs/Model/CouponTierQuantityPercent.md)
- - [CouponTieredAmountOffItem](docs/Model/CouponTieredAmountOffItem.md)
+ - [CouponTieredAmountOffItems](docs/Model/CouponTieredAmountOffItems.md)
  - [CouponTieredAmountOffSubtotal](docs/Model/CouponTieredAmountOffSubtotal.md)
  - [CouponTieredPercentOffItems](docs/Model/CouponTieredPercentOffItems.md)
  - [CouponTieredPercentOffShipping](docs/Model/CouponTieredPercentOffShipping.md)
@@ -1193,6 +1193,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.0 | 08/19/2021 | coupon api - changed tieredAmountOffItem to support mulitple items | 
 | 3.5.3 | 08/18/2021 | configuration api - added credit card rate to UltraCart Payments object | 
 | 3.5.1 | 08/11/2021 | email webhook test method | 
 | 3.5.0 | 08/11/2021 | RestOrderChannelPartner.store_completed was incorrectly defaulting to true | 

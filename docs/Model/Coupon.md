@@ -56,7 +56,7 @@ Name | Type | Description | Notes
 **restrict_by_storefronts** | [**\ultracart\v2\models\CouponRestriction[]**](CouponRestriction.md) | Optional list of storefronts to limit coupon use to only those storefronts. | [optional] 
 **start_dts** | **string** | Date/time when coupon is valid | [optional] 
 **super_coupon** | **bool** | If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration | [optional] 
-**tiered_amount_off_item** | [**\ultracart\v2\models\CouponTieredAmountOffItem**](CouponTieredAmountOffItem.md) |  | [optional] 
+**tiered_amount_off_items** | [**\ultracart\v2\models\CouponTieredAmountOffItems**](CouponTieredAmountOffItems.md) |  | [optional] 
 **tiered_amount_off_subtotal** | [**\ultracart\v2\models\CouponTieredAmountOffSubtotal**](CouponTieredAmountOffSubtotal.md) |  | [optional] 
 **tiered_percent_off_items** | [**\ultracart\v2\models\CouponTieredPercentOffItems**](CouponTieredPercentOffItems.md) |  | [optional] 
 **tiered_percent_off_shipping** | [**\ultracart\v2\models\CouponTieredPercentOffShipping**](CouponTieredPercentOffShipping.md) |  | [optional] 

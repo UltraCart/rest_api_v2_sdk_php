@@ -1,6 +1,6 @@
 <?php
 /**
- * CouponTieredAmountOffItem
+ * CouponTieredAmountOffItems
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CouponTieredAmountOffItem Class Doc Comment
+ * CouponTieredAmountOffItems Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
+class CouponTieredAmountOffItems implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CouponTieredAmountOffItem';
+    protected static $swaggerModelName = 'CouponTieredAmountOffItems';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'item' => 'string',
+        'items' => 'string[]',
         'limit' => 'float',
         'tiers' => '\ultracart\v2\models\CouponTierQuantityAmount[]'
     ];
@@ -68,7 +68,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'item' => null,
+        'items' => null,
         'limit' => null,
         'tiers' => null
     ];
@@ -100,7 +100,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'item' => 'item',
+        'items' => 'items',
         'limit' => 'limit',
         'tiers' => 'tiers'
     ];
@@ -111,7 +111,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'item' => 'setItem',
+        'items' => 'setItems',
         'limit' => 'setLimit',
         'tiers' => 'setTiers'
     ];
@@ -122,7 +122,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'item' => 'getItem',
+        'items' => 'getItems',
         'limit' => 'getLimit',
         'tiers' => 'getTiers'
     ];
@@ -187,7 +187,7 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['item'] = isset($data['item']) ? $data['item'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['tiers'] = isset($data['tiers']) ? $data['tiers'] : null;
     }
@@ -217,25 +217,25 @@ class CouponTieredAmountOffItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets item
+     * Gets items
      *
-     * @return string
+     * @return string[]
      */
-    public function getItem()
+    public function getItems()
     {
-        return $this->container['item'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets item
+     * Sets items
      *
-     * @param string $item The item being discounted by this coupon.
+     * @param string[] $items The items being discounted by this coupon.
      *
      * @return $this
      */
-    public function setItem($item)
+    public function setItems($items)
     {
-        $this->container['item'] = $item;
+        $this->container['items'] = $items;
 
         return $this;
     }

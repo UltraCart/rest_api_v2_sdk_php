@@ -110,7 +110,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_storefronts' => '\ultracart\v2\models\CouponRestriction[]',
         'start_dts' => 'string',
         'super_coupon' => 'bool',
-        'tiered_amount_off_item' => '\ultracart\v2\models\CouponTieredAmountOffItem',
+        'tiered_amount_off_items' => '\ultracart\v2\models\CouponTieredAmountOffItems',
         'tiered_amount_off_subtotal' => '\ultracart\v2\models\CouponTieredAmountOffSubtotal',
         'tiered_percent_off_items' => '\ultracart\v2\models\CouponTieredPercentOffItems',
         'tiered_percent_off_shipping' => '\ultracart\v2\models\CouponTieredPercentOffShipping',
@@ -177,7 +177,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_storefronts' => null,
         'start_dts' => 'dateTime',
         'super_coupon' => null,
-        'tiered_amount_off_item' => null,
+        'tiered_amount_off_items' => null,
         'tiered_amount_off_subtotal' => null,
         'tiered_percent_off_items' => null,
         'tiered_percent_off_shipping' => null,
@@ -265,7 +265,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_storefronts' => 'restrict_by_storefronts',
         'start_dts' => 'start_dts',
         'super_coupon' => 'super_coupon',
-        'tiered_amount_off_item' => 'tiered_amount_off_item',
+        'tiered_amount_off_items' => 'tiered_amount_off_items',
         'tiered_amount_off_subtotal' => 'tiered_amount_off_subtotal',
         'tiered_percent_off_items' => 'tiered_percent_off_items',
         'tiered_percent_off_shipping' => 'tiered_percent_off_shipping',
@@ -332,7 +332,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_storefronts' => 'setRestrictByStorefronts',
         'start_dts' => 'setStartDts',
         'super_coupon' => 'setSuperCoupon',
-        'tiered_amount_off_item' => 'setTieredAmountOffItem',
+        'tiered_amount_off_items' => 'setTieredAmountOffItems',
         'tiered_amount_off_subtotal' => 'setTieredAmountOffSubtotal',
         'tiered_percent_off_items' => 'setTieredPercentOffItems',
         'tiered_percent_off_shipping' => 'setTieredPercentOffShipping',
@@ -399,7 +399,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_storefronts' => 'getRestrictByStorefronts',
         'start_dts' => 'getStartDts',
         'super_coupon' => 'getSuperCoupon',
-        'tiered_amount_off_item' => 'getTieredAmountOffItem',
+        'tiered_amount_off_items' => 'getTieredAmountOffItems',
         'tiered_amount_off_subtotal' => 'getTieredAmountOffSubtotal',
         'tiered_percent_off_items' => 'getTieredPercentOffItems',
         'tiered_percent_off_shipping' => 'getTieredPercentOffShipping',
@@ -520,7 +520,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['restrict_by_storefronts'] = isset($data['restrict_by_storefronts']) ? $data['restrict_by_storefronts'] : null;
         $this->container['start_dts'] = isset($data['start_dts']) ? $data['start_dts'] : null;
         $this->container['super_coupon'] = isset($data['super_coupon']) ? $data['super_coupon'] : null;
-        $this->container['tiered_amount_off_item'] = isset($data['tiered_amount_off_item']) ? $data['tiered_amount_off_item'] : null;
+        $this->container['tiered_amount_off_items'] = isset($data['tiered_amount_off_items']) ? $data['tiered_amount_off_items'] : null;
         $this->container['tiered_amount_off_subtotal'] = isset($data['tiered_amount_off_subtotal']) ? $data['tiered_amount_off_subtotal'] : null;
         $this->container['tiered_percent_off_items'] = isset($data['tiered_percent_off_items']) ? $data['tiered_percent_off_items'] : null;
         $this->container['tiered_percent_off_shipping'] = isset($data['tiered_percent_off_shipping']) ? $data['tiered_percent_off_shipping'] : null;
@@ -1869,25 +1869,25 @@ class Coupon implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tiered_amount_off_item
+     * Gets tiered_amount_off_items
      *
-     * @return \ultracart\v2\models\CouponTieredAmountOffItem
+     * @return \ultracart\v2\models\CouponTieredAmountOffItems
      */
-    public function getTieredAmountOffItem()
+    public function getTieredAmountOffItems()
     {
-        return $this->container['tiered_amount_off_item'];
+        return $this->container['tiered_amount_off_items'];
     }
 
     /**
-     * Sets tiered_amount_off_item
+     * Sets tiered_amount_off_items
      *
-     * @param \ultracart\v2\models\CouponTieredAmountOffItem $tiered_amount_off_item tiered_amount_off_item
+     * @param \ultracart\v2\models\CouponTieredAmountOffItems $tiered_amount_off_items tiered_amount_off_items
      *
      * @return $this
      */
-    public function setTieredAmountOffItem($tiered_amount_off_item)
+    public function setTieredAmountOffItems($tiered_amount_off_items)
     {
-        $this->container['tiered_amount_off_item'] = $tiered_amount_off_item;
+        $this->container['tiered_amount_off_items'] = $tiered_amount_off_items;
 
         return $this;
     }

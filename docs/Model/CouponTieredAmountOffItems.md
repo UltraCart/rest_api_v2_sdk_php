@@ -1,9 +1,9 @@
-# CouponTieredAmountOffItem
+# CouponTieredAmountOffItems
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**item** | **string** | The item being discounted by this coupon. | [optional] 
+**items** | **string[]** | The items being discounted by this coupon. | [optional] 
 **limit** | **float** | The maximum number of discounted items. | [optional] 
 **tiers** | [**\ultracart\v2\models\CouponTierQuantityAmount[]**](CouponTierQuantityAmount.md) | A list of discount tiers. | [optional] 
 
