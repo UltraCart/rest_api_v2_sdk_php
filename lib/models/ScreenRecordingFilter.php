@@ -80,6 +80,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'placed_order' => 'bool',
         'preferred_language' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'referrer_domain' => 'string',
+        'return_filter_values' => 'string[]',
         'screen_recording_uuids' => 'string[]',
         'screen_sizes' => 'string[]',
         'skip_filter_values' => 'bool',
@@ -128,6 +129,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'placed_order' => null,
         'preferred_language' => null,
         'referrer_domain' => null,
+        'return_filter_values' => null,
         'screen_recording_uuids' => null,
         'screen_sizes' => null,
         'skip_filter_values' => null,
@@ -197,6 +199,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'placed_order' => 'placed_order',
         'preferred_language' => 'preferred_language',
         'referrer_domain' => 'referrer_domain',
+        'return_filter_values' => 'return_filter_values',
         'screen_recording_uuids' => 'screen_recording_uuids',
         'screen_sizes' => 'screen_sizes',
         'skip_filter_values' => 'skip_filter_values',
@@ -245,6 +248,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'placed_order' => 'setPlacedOrder',
         'preferred_language' => 'setPreferredLanguage',
         'referrer_domain' => 'setReferrerDomain',
+        'return_filter_values' => 'setReturnFilterValues',
         'screen_recording_uuids' => 'setScreenRecordingUuids',
         'screen_sizes' => 'setScreenSizes',
         'skip_filter_values' => 'setSkipFilterValues',
@@ -293,6 +297,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         'placed_order' => 'getPlacedOrder',
         'preferred_language' => 'getPreferredLanguage',
         'referrer_domain' => 'getReferrerDomain',
+        'return_filter_values' => 'getReturnFilterValues',
         'screen_recording_uuids' => 'getScreenRecordingUuids',
         'screen_sizes' => 'getScreenSizes',
         'skip_filter_values' => 'getSkipFilterValues',
@@ -395,6 +400,7 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
         $this->container['placed_order'] = isset($data['placed_order']) ? $data['placed_order'] : null;
         $this->container['preferred_language'] = isset($data['preferred_language']) ? $data['preferred_language'] : null;
         $this->container['referrer_domain'] = isset($data['referrer_domain']) ? $data['referrer_domain'] : null;
+        $this->container['return_filter_values'] = isset($data['return_filter_values']) ? $data['return_filter_values'] : null;
         $this->container['screen_recording_uuids'] = isset($data['screen_recording_uuids']) ? $data['screen_recording_uuids'] : null;
         $this->container['screen_sizes'] = isset($data['screen_sizes']) ? $data['screen_sizes'] : null;
         $this->container['skip_filter_values'] = isset($data['skip_filter_values']) ? $data['skip_filter_values'] : null;
@@ -986,6 +992,30 @@ class ScreenRecordingFilter implements ModelInterface, ArrayAccess
     public function setReferrerDomain($referrer_domain)
     {
         $this->container['referrer_domain'] = $referrer_domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_filter_values
+     *
+     * @return string[]
+     */
+    public function getReturnFilterValues()
+    {
+        return $this->container['return_filter_values'];
+    }
+
+    /**
+     * Sets return_filter_values
+     *
+     * @param string[] $return_filter_values return_filter_values
+     *
+     * @return $this
+     */
+    public function setReturnFilterValues($return_filter_values)
+    {
+        $this->container['return_filter_values'] = $return_filter_values;
 
         return $this;
     }

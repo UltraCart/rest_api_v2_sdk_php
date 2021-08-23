@@ -209,11 +209,11 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     }
 
     const CREDIT_CARD_AMEX = 'AMEX';
-    const CREDIT_CARD_VISA = 'Visa';
     const CREDIT_CARD_DINERS_CLUB = 'Diners Club';
     const CREDIT_CARD_DISCOVER = 'Discover';
-    const CREDIT_CARD_JCB = 'JCB';
     const CREDIT_CARD_MASTER_CARD = 'MasterCard';
+    const CREDIT_CARD_JCB = 'JCB';
+    const CREDIT_CARD_VISA = 'VISA';
     
 
     
@@ -226,11 +226,11 @@ class PaymentsConfigurationCreditCardType implements ModelInterface, ArrayAccess
     {
         return [
             self::CREDIT_CARD_AMEX,
-            self::CREDIT_CARD_VISA,
             self::CREDIT_CARD_DINERS_CLUB,
             self::CREDIT_CARD_DISCOVER,
-            self::CREDIT_CARD_JCB,
             self::CREDIT_CARD_MASTER_CARD,
+            self::CREDIT_CARD_JCB,
+            self::CREDIT_CARD_VISA,
         ];
     }
     

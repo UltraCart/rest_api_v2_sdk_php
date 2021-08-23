@@ -63,6 +63,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
         'referrer' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'referrer_params' => '\ultracart\v2\models\ScreenRecordingFilterPageViewReferrerParam[]',
         'referrer_raw' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
+        'return_filter_values' => 'string[]',
         'time_on_page' => '\ultracart\v2\models\ScreenRecordingFilterRangeInteger',
         'url' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch'
     ];
@@ -79,6 +80,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
         'referrer' => null,
         'referrer_params' => null,
         'referrer_raw' => null,
+        'return_filter_values' => null,
         'time_on_page' => null,
         'url' => null
     ];
@@ -116,6 +118,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
         'referrer' => 'referrer',
         'referrer_params' => 'referrer_params',
         'referrer_raw' => 'referrer_raw',
+        'return_filter_values' => 'return_filter_values',
         'time_on_page' => 'time_on_page',
         'url' => 'url'
     ];
@@ -132,6 +135,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
         'referrer' => 'setReferrer',
         'referrer_params' => 'setReferrerParams',
         'referrer_raw' => 'setReferrerRaw',
+        'return_filter_values' => 'setReturnFilterValues',
         'time_on_page' => 'setTimeOnPage',
         'url' => 'setUrl'
     ];
@@ -148,6 +152,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
         'referrer' => 'getReferrer',
         'referrer_params' => 'getReferrerParams',
         'referrer_raw' => 'getReferrerRaw',
+        'return_filter_values' => 'getReturnFilterValues',
         'time_on_page' => 'getTimeOnPage',
         'url' => 'getUrl'
     ];
@@ -218,6 +223,7 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
         $this->container['referrer'] = isset($data['referrer']) ? $data['referrer'] : null;
         $this->container['referrer_params'] = isset($data['referrer_params']) ? $data['referrer_params'] : null;
         $this->container['referrer_raw'] = isset($data['referrer_raw']) ? $data['referrer_raw'] : null;
+        $this->container['return_filter_values'] = isset($data['return_filter_values']) ? $data['return_filter_values'] : null;
         $this->container['time_on_page'] = isset($data['time_on_page']) ? $data['time_on_page'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
@@ -386,6 +392,30 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     public function setReferrerRaw($referrer_raw)
     {
         $this->container['referrer_raw'] = $referrer_raw;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_filter_values
+     *
+     * @return string[]
+     */
+    public function getReturnFilterValues()
+    {
+        return $this->container['return_filter_values'];
+    }
+
+    /**
+     * Sets return_filter_values
+     *
+     * @param string[] $return_filter_values return_filter_values
+     *
+     * @return $this
+     */
+    public function setReturnFilterValues($return_filter_values)
+    {
+        $this->container['return_filter_values'] = $return_filter_values;
 
         return $this;
     }

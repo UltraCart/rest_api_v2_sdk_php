@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **placed_order** | **bool** |  | [optional] 
 **preferred_language** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **referrer_domain** | **string** |  | [optional] 
+**return_filter_values** | **string[]** |  | [optional] 
 **screen_recording_uuids** | **string[]** |  | [optional] 
 **screen_sizes** | **string[]** |  | [optional] 
 **skip_filter_values** | **bool** |  | [optional] 

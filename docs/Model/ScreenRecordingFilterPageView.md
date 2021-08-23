@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **referrer** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 **referrer_params** | [**\ultracart\v2\models\ScreenRecordingFilterPageViewReferrerParam[]**](ScreenRecordingFilterPageViewReferrerParam.md) |  | [optional] 
 **referrer_raw** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
+**return_filter_values** | **string[]** |  | [optional] 
 **time_on_page** | [**\ultracart\v2\models\ScreenRecordingFilterRangeInteger**](ScreenRecordingFilterRangeInteger.md) |  | [optional] 
 **url** | [**\ultracart\v2\models\ScreenRecordingFilterStringSearch**](ScreenRecordingFilterStringSearch.md) |  | [optional] 
 

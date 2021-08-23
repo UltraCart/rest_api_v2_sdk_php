@@ -1193,6 +1193,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.1 | 08/23/2021 | configuration api - enum problems | 
 | 3.6.0 | 08/19/2021 | coupon api - changed tieredAmountOffItem to support mulitple items | 
 | 3.5.3 | 08/18/2021 | configuration api - added credit card rate to UltraCart Payments object | 
 | 3.5.1 | 08/11/2021 | email webhook test method | 
