@@ -106,6 +106,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'taxable_cost' => '\ultracart\v2\models\Currency',
         'total_cost_with_discount' => '\ultracart\v2\models\Currency',
         'total_refunded' => '\ultracart\v2\models\Currency',
+        'tracking_number' => 'string',
         'transmitted_to_distribution_center_dts' => 'string',
         'unit_cost_with_discount' => '\ultracart\v2\models\Currency',
         'upsell' => 'bool',
@@ -168,6 +169,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'taxable_cost' => null,
         'total_cost_with_discount' => null,
         'total_refunded' => null,
+        'tracking_number' => null,
         'transmitted_to_distribution_center_dts' => 'dateTime',
         'unit_cost_with_discount' => null,
         'upsell' => null,
@@ -251,6 +253,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'taxable_cost' => 'taxable_cost',
         'total_cost_with_discount' => 'total_cost_with_discount',
         'total_refunded' => 'total_refunded',
+        'tracking_number' => 'tracking_number',
         'transmitted_to_distribution_center_dts' => 'transmitted_to_distribution_center_dts',
         'unit_cost_with_discount' => 'unit_cost_with_discount',
         'upsell' => 'upsell',
@@ -313,6 +316,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'taxable_cost' => 'setTaxableCost',
         'total_cost_with_discount' => 'setTotalCostWithDiscount',
         'total_refunded' => 'setTotalRefunded',
+        'tracking_number' => 'setTrackingNumber',
         'transmitted_to_distribution_center_dts' => 'setTransmittedToDistributionCenterDts',
         'unit_cost_with_discount' => 'setUnitCostWithDiscount',
         'upsell' => 'setUpsell',
@@ -375,6 +379,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'taxable_cost' => 'getTaxableCost',
         'total_cost_with_discount' => 'getTotalCostWithDiscount',
         'total_refunded' => 'getTotalRefunded',
+        'tracking_number' => 'getTrackingNumber',
         'transmitted_to_distribution_center_dts' => 'getTransmittedToDistributionCenterDts',
         'unit_cost_with_discount' => 'getUnitCostWithDiscount',
         'upsell' => 'getUpsell',
@@ -491,6 +496,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         $this->container['taxable_cost'] = isset($data['taxable_cost']) ? $data['taxable_cost'] : null;
         $this->container['total_cost_with_discount'] = isset($data['total_cost_with_discount']) ? $data['total_cost_with_discount'] : null;
         $this->container['total_refunded'] = isset($data['total_refunded']) ? $data['total_refunded'] : null;
+        $this->container['tracking_number'] = isset($data['tracking_number']) ? $data['tracking_number'] : null;
         $this->container['transmitted_to_distribution_center_dts'] = isset($data['transmitted_to_distribution_center_dts']) ? $data['transmitted_to_distribution_center_dts'] : null;
         $this->container['unit_cost_with_discount'] = isset($data['unit_cost_with_discount']) ? $data['unit_cost_with_discount'] : null;
         $this->container['upsell'] = isset($data['upsell']) ? $data['upsell'] : null;
@@ -1742,6 +1748,30 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function setTotalRefunded($total_refunded)
     {
         $this->container['total_refunded'] = $total_refunded;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_number
+     *
+     * @return string
+     */
+    public function getTrackingNumber()
+    {
+        return $this->container['tracking_number'];
+    }
+
+    /**
+     * Sets tracking_number
+     *
+     * @param string $tracking_number Tracking number, if null or missing, use order level tracking number(s). Used if there are multiple shipments for one order
+     *
+     * @return $this
+     */
+    public function setTrackingNumber($tracking_number)
+    {
+        $this->container['tracking_number'] = $tracking_number;
 
         return $this;
     }
