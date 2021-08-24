@@ -58,14 +58,22 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'domain' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
+        'domain_filter' => 'bool',
+        'event_name_filter' => 'bool',
+        'event_param_name_filter' => 'bool',
+        'event_param_value_filter' => 'bool',
         'events' => '\ultracart\v2\models\ScreenRecordingFilterPageViewEvent[]',
+        'param_name_filter' => 'bool',
+        'param_value_filter' => 'bool',
         'params' => '\ultracart\v2\models\ScreenRecordingFilterPageViewParam[]',
         'referrer' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
         'referrer_params' => '\ultracart\v2\models\ScreenRecordingFilterPageViewReferrerParam[]',
         'referrer_raw' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
-        'return_filter_values' => 'string[]',
         'time_on_page' => '\ultracart\v2\models\ScreenRecordingFilterRangeInteger',
-        'url' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch'
+        'time_on_page_max_filter' => 'bool',
+        'time_on_page_min_filter' => 'bool',
+        'url' => '\ultracart\v2\models\ScreenRecordingFilterStringSearch',
+        'url_filter' => 'bool'
     ];
 
     /**
@@ -75,14 +83,22 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'domain' => null,
+        'domain_filter' => null,
+        'event_name_filter' => null,
+        'event_param_name_filter' => null,
+        'event_param_value_filter' => null,
         'events' => null,
+        'param_name_filter' => null,
+        'param_value_filter' => null,
         'params' => null,
         'referrer' => null,
         'referrer_params' => null,
         'referrer_raw' => null,
-        'return_filter_values' => null,
         'time_on_page' => null,
-        'url' => null
+        'time_on_page_max_filter' => null,
+        'time_on_page_min_filter' => null,
+        'url' => null,
+        'url_filter' => null
     ];
 
     /**
@@ -113,14 +129,22 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'domain' => 'domain',
+        'domain_filter' => 'domain_filter',
+        'event_name_filter' => 'event_name_filter',
+        'event_param_name_filter' => 'event_param_name_filter',
+        'event_param_value_filter' => 'event_param_value_filter',
         'events' => 'events',
+        'param_name_filter' => 'param_name_filter',
+        'param_value_filter' => 'param_value_filter',
         'params' => 'params',
         'referrer' => 'referrer',
         'referrer_params' => 'referrer_params',
         'referrer_raw' => 'referrer_raw',
-        'return_filter_values' => 'return_filter_values',
         'time_on_page' => 'time_on_page',
-        'url' => 'url'
+        'time_on_page_max_filter' => 'time_on_page_max_filter',
+        'time_on_page_min_filter' => 'time_on_page_min_filter',
+        'url' => 'url',
+        'url_filter' => 'url_filter'
     ];
 
     /**
@@ -130,14 +154,22 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'domain' => 'setDomain',
+        'domain_filter' => 'setDomainFilter',
+        'event_name_filter' => 'setEventNameFilter',
+        'event_param_name_filter' => 'setEventParamNameFilter',
+        'event_param_value_filter' => 'setEventParamValueFilter',
         'events' => 'setEvents',
+        'param_name_filter' => 'setParamNameFilter',
+        'param_value_filter' => 'setParamValueFilter',
         'params' => 'setParams',
         'referrer' => 'setReferrer',
         'referrer_params' => 'setReferrerParams',
         'referrer_raw' => 'setReferrerRaw',
-        'return_filter_values' => 'setReturnFilterValues',
         'time_on_page' => 'setTimeOnPage',
-        'url' => 'setUrl'
+        'time_on_page_max_filter' => 'setTimeOnPageMaxFilter',
+        'time_on_page_min_filter' => 'setTimeOnPageMinFilter',
+        'url' => 'setUrl',
+        'url_filter' => 'setUrlFilter'
     ];
 
     /**
@@ -147,14 +179,22 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'domain' => 'getDomain',
+        'domain_filter' => 'getDomainFilter',
+        'event_name_filter' => 'getEventNameFilter',
+        'event_param_name_filter' => 'getEventParamNameFilter',
+        'event_param_value_filter' => 'getEventParamValueFilter',
         'events' => 'getEvents',
+        'param_name_filter' => 'getParamNameFilter',
+        'param_value_filter' => 'getParamValueFilter',
         'params' => 'getParams',
         'referrer' => 'getReferrer',
         'referrer_params' => 'getReferrerParams',
         'referrer_raw' => 'getReferrerRaw',
-        'return_filter_values' => 'getReturnFilterValues',
         'time_on_page' => 'getTimeOnPage',
-        'url' => 'getUrl'
+        'time_on_page_max_filter' => 'getTimeOnPageMaxFilter',
+        'time_on_page_min_filter' => 'getTimeOnPageMinFilter',
+        'url' => 'getUrl',
+        'url_filter' => 'getUrlFilter'
     ];
 
     /**
@@ -218,14 +258,22 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['domain_filter'] = isset($data['domain_filter']) ? $data['domain_filter'] : null;
+        $this->container['event_name_filter'] = isset($data['event_name_filter']) ? $data['event_name_filter'] : null;
+        $this->container['event_param_name_filter'] = isset($data['event_param_name_filter']) ? $data['event_param_name_filter'] : null;
+        $this->container['event_param_value_filter'] = isset($data['event_param_value_filter']) ? $data['event_param_value_filter'] : null;
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
+        $this->container['param_name_filter'] = isset($data['param_name_filter']) ? $data['param_name_filter'] : null;
+        $this->container['param_value_filter'] = isset($data['param_value_filter']) ? $data['param_value_filter'] : null;
         $this->container['params'] = isset($data['params']) ? $data['params'] : null;
         $this->container['referrer'] = isset($data['referrer']) ? $data['referrer'] : null;
         $this->container['referrer_params'] = isset($data['referrer_params']) ? $data['referrer_params'] : null;
         $this->container['referrer_raw'] = isset($data['referrer_raw']) ? $data['referrer_raw'] : null;
-        $this->container['return_filter_values'] = isset($data['return_filter_values']) ? $data['return_filter_values'] : null;
         $this->container['time_on_page'] = isset($data['time_on_page']) ? $data['time_on_page'] : null;
+        $this->container['time_on_page_max_filter'] = isset($data['time_on_page_max_filter']) ? $data['time_on_page_max_filter'] : null;
+        $this->container['time_on_page_min_filter'] = isset($data['time_on_page_min_filter']) ? $data['time_on_page_min_filter'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['url_filter'] = isset($data['url_filter']) ? $data['url_filter'] : null;
     }
 
     /**
@@ -277,6 +325,102 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets domain_filter
+     *
+     * @return bool
+     */
+    public function getDomainFilter()
+    {
+        return $this->container['domain_filter'];
+    }
+
+    /**
+     * Sets domain_filter
+     *
+     * @param bool $domain_filter domain_filter
+     *
+     * @return $this
+     */
+    public function setDomainFilter($domain_filter)
+    {
+        $this->container['domain_filter'] = $domain_filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_name_filter
+     *
+     * @return bool
+     */
+    public function getEventNameFilter()
+    {
+        return $this->container['event_name_filter'];
+    }
+
+    /**
+     * Sets event_name_filter
+     *
+     * @param bool $event_name_filter event_name_filter
+     *
+     * @return $this
+     */
+    public function setEventNameFilter($event_name_filter)
+    {
+        $this->container['event_name_filter'] = $event_name_filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_param_name_filter
+     *
+     * @return bool
+     */
+    public function getEventParamNameFilter()
+    {
+        return $this->container['event_param_name_filter'];
+    }
+
+    /**
+     * Sets event_param_name_filter
+     *
+     * @param bool $event_param_name_filter event_param_name_filter
+     *
+     * @return $this
+     */
+    public function setEventParamNameFilter($event_param_name_filter)
+    {
+        $this->container['event_param_name_filter'] = $event_param_name_filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_param_value_filter
+     *
+     * @return bool
+     */
+    public function getEventParamValueFilter()
+    {
+        return $this->container['event_param_value_filter'];
+    }
+
+    /**
+     * Sets event_param_value_filter
+     *
+     * @param bool $event_param_value_filter event_param_value_filter
+     *
+     * @return $this
+     */
+    public function setEventParamValueFilter($event_param_value_filter)
+    {
+        $this->container['event_param_value_filter'] = $event_param_value_filter;
+
+        return $this;
+    }
+
+    /**
      * Gets events
      *
      * @return \ultracart\v2\models\ScreenRecordingFilterPageViewEvent[]
@@ -296,6 +440,54 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     public function setEvents($events)
     {
         $this->container['events'] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Gets param_name_filter
+     *
+     * @return bool
+     */
+    public function getParamNameFilter()
+    {
+        return $this->container['param_name_filter'];
+    }
+
+    /**
+     * Sets param_name_filter
+     *
+     * @param bool $param_name_filter param_name_filter
+     *
+     * @return $this
+     */
+    public function setParamNameFilter($param_name_filter)
+    {
+        $this->container['param_name_filter'] = $param_name_filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets param_value_filter
+     *
+     * @return bool
+     */
+    public function getParamValueFilter()
+    {
+        return $this->container['param_value_filter'];
+    }
+
+    /**
+     * Sets param_value_filter
+     *
+     * @param bool $param_value_filter param_value_filter
+     *
+     * @return $this
+     */
+    public function setParamValueFilter($param_value_filter)
+    {
+        $this->container['param_value_filter'] = $param_value_filter;
 
         return $this;
     }
@@ -397,30 +589,6 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets return_filter_values
-     *
-     * @return string[]
-     */
-    public function getReturnFilterValues()
-    {
-        return $this->container['return_filter_values'];
-    }
-
-    /**
-     * Sets return_filter_values
-     *
-     * @param string[] $return_filter_values return_filter_values
-     *
-     * @return $this
-     */
-    public function setReturnFilterValues($return_filter_values)
-    {
-        $this->container['return_filter_values'] = $return_filter_values;
-
-        return $this;
-    }
-
-    /**
      * Gets time_on_page
      *
      * @return \ultracart\v2\models\ScreenRecordingFilterRangeInteger
@@ -445,6 +613,54 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets time_on_page_max_filter
+     *
+     * @return bool
+     */
+    public function getTimeOnPageMaxFilter()
+    {
+        return $this->container['time_on_page_max_filter'];
+    }
+
+    /**
+     * Sets time_on_page_max_filter
+     *
+     * @param bool $time_on_page_max_filter time_on_page_max_filter
+     *
+     * @return $this
+     */
+    public function setTimeOnPageMaxFilter($time_on_page_max_filter)
+    {
+        $this->container['time_on_page_max_filter'] = $time_on_page_max_filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_on_page_min_filter
+     *
+     * @return bool
+     */
+    public function getTimeOnPageMinFilter()
+    {
+        return $this->container['time_on_page_min_filter'];
+    }
+
+    /**
+     * Sets time_on_page_min_filter
+     *
+     * @param bool $time_on_page_min_filter time_on_page_min_filter
+     *
+     * @return $this
+     */
+    public function setTimeOnPageMinFilter($time_on_page_min_filter)
+    {
+        $this->container['time_on_page_min_filter'] = $time_on_page_min_filter;
+
+        return $this;
+    }
+
+    /**
      * Gets url
      *
      * @return \ultracart\v2\models\ScreenRecordingFilterStringSearch
@@ -464,6 +680,30 @@ class ScreenRecordingFilterPageView implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_filter
+     *
+     * @return bool
+     */
+    public function getUrlFilter()
+    {
+        return $this->container['url_filter'];
+    }
+
+    /**
+     * Sets url_filter
+     *
+     * @param bool $url_filter url_filter
+     *
+     * @return $this
+     */
+    public function setUrlFilter($url_filter)
+    {
+        $this->container['url_filter'] = $url_filter;
 
         return $this;
     }

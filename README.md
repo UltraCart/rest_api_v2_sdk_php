@@ -945,6 +945,7 @@ Class | Method | HTTP request | Description
  - [OrderPaymentCheck](docs/Model/OrderPaymentCheck.md)
  - [OrderPaymentCreditCard](docs/Model/OrderPaymentCreditCard.md)
  - [OrderPaymentECheck](docs/Model/OrderPaymentECheck.md)
+ - [OrderPaymentInsurance](docs/Model/OrderPaymentInsurance.md)
  - [OrderPaymentPurchaseOrder](docs/Model/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/Model/OrderPaymentTransaction.md)
  - [OrderPaymentTransactionDetail](docs/Model/OrderPaymentTransactionDetail.md)
@@ -976,6 +977,7 @@ Class | Method | HTTP request | Description
  - [PaymentsConfigurationCreditCard](docs/Model/PaymentsConfigurationCreditCard.md)
  - [PaymentsConfigurationCreditCardType](docs/Model/PaymentsConfigurationCreditCardType.md)
  - [PaymentsConfigurationEcheck](docs/Model/PaymentsConfigurationEcheck.md)
+ - [PaymentsConfigurationInsurance](docs/Model/PaymentsConfigurationInsurance.md)
  - [PaymentsConfigurationLoanHero](docs/Model/PaymentsConfigurationLoanHero.md)
  - [PaymentsConfigurationMoneyOrder](docs/Model/PaymentsConfigurationMoneyOrder.md)
  - [PaymentsConfigurationPayPal](docs/Model/PaymentsConfigurationPayPal.md)
@@ -1193,6 +1195,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.4 | 08/24/2021 | configuration api - new payment method named insurance | 
 | 3.6.1 | 08/23/2021 | configuration api - enum problems, also added order.item.tracking_number to support line item tracking numbers | 
 | 3.6.0 | 08/19/2021 | coupon api - changed tieredAmountOffItem to support mulitple items | 
 | 3.5.3 | 08/18/2021 | configuration api - added credit card rate to UltraCart Payments object | 

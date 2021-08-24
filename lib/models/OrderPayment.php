@@ -61,6 +61,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
         'credit_card' => '\ultracart\v2\models\OrderPaymentCreditCard',
         'echeck' => '\ultracart\v2\models\OrderPaymentECheck',
         'hold_for_fraud_review' => 'bool',
+        'insurance' => '\ultracart\v2\models\OrderPaymentInsurance',
         'payment_dts' => 'string',
         'payment_method' => 'string',
         'payment_method_accounting_code' => 'string',
@@ -86,6 +87,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
         'credit_card' => null,
         'echeck' => null,
         'hold_for_fraud_review' => null,
+        'insurance' => null,
         'payment_dts' => 'dateTime',
         'payment_method' => null,
         'payment_method_accounting_code' => null,
@@ -132,6 +134,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
         'credit_card' => 'credit_card',
         'echeck' => 'echeck',
         'hold_for_fraud_review' => 'hold_for_fraud_review',
+        'insurance' => 'insurance',
         'payment_dts' => 'payment_dts',
         'payment_method' => 'payment_method',
         'payment_method_accounting_code' => 'payment_method_accounting_code',
@@ -157,6 +160,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
         'credit_card' => 'setCreditCard',
         'echeck' => 'setEcheck',
         'hold_for_fraud_review' => 'setHoldForFraudReview',
+        'insurance' => 'setInsurance',
         'payment_dts' => 'setPaymentDts',
         'payment_method' => 'setPaymentMethod',
         'payment_method_accounting_code' => 'setPaymentMethodAccountingCode',
@@ -182,6 +186,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
         'credit_card' => 'getCreditCard',
         'echeck' => 'getEcheck',
         'hold_for_fraud_review' => 'getHoldForFraudReview',
+        'insurance' => 'getInsurance',
         'payment_dts' => 'getPaymentDts',
         'payment_method' => 'getPaymentMethod',
         'payment_method_accounting_code' => 'getPaymentMethodAccountingCode',
@@ -247,6 +252,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_CREDIT_CARD = 'Credit Card';
     const PAYMENT_METHOD_E_BAY = 'eBay';
     const PAYMENT_METHOD_E_CHECK = 'eCheck';
+    const PAYMENT_METHOD_INSURANCE = 'Insurance';
     const PAYMENT_METHOD_LOAN_HERO = 'LoanHero';
     const PAYMENT_METHOD_MONEY_ORDER = 'Money Order';
     const PAYMENT_METHOD_PAY_PAL = 'PayPal';
@@ -283,6 +289,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_CREDIT_CARD,
             self::PAYMENT_METHOD_E_BAY,
             self::PAYMENT_METHOD_E_CHECK,
+            self::PAYMENT_METHOD_INSURANCE,
             self::PAYMENT_METHOD_LOAN_HERO,
             self::PAYMENT_METHOD_MONEY_ORDER,
             self::PAYMENT_METHOD_PAY_PAL,
@@ -333,6 +340,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
         $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
         $this->container['echeck'] = isset($data['echeck']) ? $data['echeck'] : null;
         $this->container['hold_for_fraud_review'] = isset($data['hold_for_fraud_review']) ? $data['hold_for_fraud_review'] : null;
+        $this->container['insurance'] = isset($data['insurance']) ? $data['insurance'] : null;
         $this->container['payment_dts'] = isset($data['payment_dts']) ? $data['payment_dts'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['payment_method_accounting_code'] = isset($data['payment_method_accounting_code']) ? $data['payment_method_accounting_code'] : null;
@@ -480,6 +488,30 @@ class OrderPayment implements ModelInterface, ArrayAccess
     public function setHoldForFraudReview($hold_for_fraud_review)
     {
         $this->container['hold_for_fraud_review'] = $hold_for_fraud_review;
+
+        return $this;
+    }
+
+    /**
+     * Gets insurance
+     *
+     * @return \ultracart\v2\models\OrderPaymentInsurance
+     */
+    public function getInsurance()
+    {
+        return $this->container['insurance'];
+    }
+
+    /**
+     * Sets insurance
+     *
+     * @param \ultracart\v2\models\OrderPaymentInsurance $insurance insurance
+     *
+     * @return $this
+     */
+    public function setInsurance($insurance)
+    {
+        $this->container['insurance'] = $insurance;
 
         return $this;
     }

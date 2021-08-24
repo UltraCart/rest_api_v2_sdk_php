@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **cod** | [**\ultracart\v2\models\PaymentsConfigurationCOD**](PaymentsConfigurationCOD.md) |  | [optional] 
 **credit_card** | [**\ultracart\v2\models\PaymentsConfigurationCreditCard**](PaymentsConfigurationCreditCard.md) |  | [optional] 
 **echeck** | [**\ultracart\v2\models\PaymentsConfigurationEcheck**](PaymentsConfigurationEcheck.md) |  | [optional] 
+**insurance** | [**\ultracart\v2\models\PaymentsConfigurationInsurance**](PaymentsConfigurationInsurance.md) |  | [optional] 
 **loan_hero** | [**\ultracart\v2\models\PaymentsConfigurationLoanHero**](PaymentsConfigurationLoanHero.md) |  | [optional] 
 **money_order** | [**\ultracart\v2\models\PaymentsConfigurationMoneyOrder**](PaymentsConfigurationMoneyOrder.md) |  | [optional] 
 **paypal** | [**\ultracart\v2\models\PaymentsConfigurationPayPal**](PaymentsConfigurationPayPal.md) |  | [optional] 

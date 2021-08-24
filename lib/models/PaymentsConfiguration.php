@@ -64,6 +64,7 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'cod' => '\ultracart\v2\models\PaymentsConfigurationCOD',
         'credit_card' => '\ultracart\v2\models\PaymentsConfigurationCreditCard',
         'echeck' => '\ultracart\v2\models\PaymentsConfigurationEcheck',
+        'insurance' => '\ultracart\v2\models\PaymentsConfigurationInsurance',
         'loan_hero' => '\ultracart\v2\models\PaymentsConfigurationLoanHero',
         'money_order' => '\ultracart\v2\models\PaymentsConfigurationMoneyOrder',
         'paypal' => '\ultracart\v2\models\PaymentsConfigurationPayPal',
@@ -90,6 +91,7 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'cod' => null,
         'credit_card' => null,
         'echeck' => null,
+        'insurance' => null,
         'loan_hero' => null,
         'money_order' => null,
         'paypal' => null,
@@ -137,6 +139,7 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'cod' => 'cod',
         'credit_card' => 'credit_card',
         'echeck' => 'echeck',
+        'insurance' => 'insurance',
         'loan_hero' => 'loan_hero',
         'money_order' => 'money_order',
         'paypal' => 'paypal',
@@ -163,6 +166,7 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'cod' => 'setCod',
         'credit_card' => 'setCreditCard',
         'echeck' => 'setEcheck',
+        'insurance' => 'setInsurance',
         'loan_hero' => 'setLoanHero',
         'money_order' => 'setMoneyOrder',
         'paypal' => 'setPaypal',
@@ -189,6 +193,7 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'cod' => 'getCod',
         'credit_card' => 'getCreditCard',
         'echeck' => 'getEcheck',
+        'insurance' => 'getInsurance',
         'loan_hero' => 'getLoanHero',
         'money_order' => 'getMoneyOrder',
         'paypal' => 'getPaypal',
@@ -269,6 +274,7 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         $this->container['cod'] = isset($data['cod']) ? $data['cod'] : null;
         $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
         $this->container['echeck'] = isset($data['echeck']) ? $data['echeck'] : null;
+        $this->container['insurance'] = isset($data['insurance']) ? $data['insurance'] : null;
         $this->container['loan_hero'] = isset($data['loan_hero']) ? $data['loan_hero'] : null;
         $this->container['money_order'] = isset($data['money_order']) ? $data['money_order'] : null;
         $this->container['paypal'] = isset($data['paypal']) ? $data['paypal'] : null;
@@ -470,6 +476,30 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
     public function setEcheck($echeck)
     {
         $this->container['echeck'] = $echeck;
+
+        return $this;
+    }
+
+    /**
+     * Gets insurance
+     *
+     * @return \ultracart\v2\models\PaymentsConfigurationInsurance
+     */
+    public function getInsurance()
+    {
+        return $this->container['insurance'];
+    }
+
+    /**
+     * Sets insurance
+     *
+     * @param \ultracart\v2\models\PaymentsConfigurationInsurance $insurance insurance
+     *
+     * @return $this
+     */
+    public function setInsurance($insurance)
+    {
+        $this->container['insurance'] = $insurance;
 
         return $this;
     }

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **credit_card** | [**\ultracart\v2\models\OrderPaymentCreditCard**](OrderPaymentCreditCard.md) |  | [optional] 
 **echeck** | [**\ultracart\v2\models\OrderPaymentECheck**](OrderPaymentECheck.md) |  | [optional] 
 **hold_for_fraud_review** | **bool** | True if order has been held for fraud review | [optional] 
+**insurance** | [**\ultracart\v2\models\OrderPaymentInsurance**](OrderPaymentInsurance.md) |  | [optional] 
 **payment_dts** | **string** | Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true | [optional] 
 **payment_method** | **string** | Payment method | [optional] 
 **payment_method_accounting_code** | **string** | Payment method QuickBooks code | [optional] 
