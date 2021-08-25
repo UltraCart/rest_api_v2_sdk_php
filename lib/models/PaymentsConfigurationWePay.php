@@ -77,7 +77,6 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'owner_name' => 'string',
         'owner_phone' => 'string',
         'postal_code' => 'string',
-        'remove_pay_pal_pro' => 'bool',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
         'short_paypal_marketing_text' => 'bool',
         'show_ultracart_payments_disabled' => 'bool',
@@ -114,7 +113,6 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'owner_name' => null,
         'owner_phone' => null,
         'postal_code' => null,
-        'remove_pay_pal_pro' => null,
         'restrictions' => null,
         'short_paypal_marketing_text' => null,
         'show_ultracart_payments_disabled' => null,
@@ -172,7 +170,6 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'owner_name' => 'owner_name',
         'owner_phone' => 'owner_phone',
         'postal_code' => 'postal_code',
-        'remove_pay_pal_pro' => 'removePayPalPro',
         'restrictions' => 'restrictions',
         'short_paypal_marketing_text' => 'short_paypal_marketing_text',
         'show_ultracart_payments_disabled' => 'show_ultracart_payments_disabled',
@@ -209,7 +206,6 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'owner_name' => 'setOwnerName',
         'owner_phone' => 'setOwnerPhone',
         'postal_code' => 'setPostalCode',
-        'remove_pay_pal_pro' => 'setRemovePayPalPro',
         'restrictions' => 'setRestrictions',
         'short_paypal_marketing_text' => 'setShortPaypalMarketingText',
         'show_ultracart_payments_disabled' => 'setShowUltracartPaymentsDisabled',
@@ -246,7 +242,6 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         'owner_name' => 'getOwnerName',
         'owner_phone' => 'getOwnerPhone',
         'postal_code' => 'getPostalCode',
-        'remove_pay_pal_pro' => 'getRemovePayPalPro',
         'restrictions' => 'getRestrictions',
         'short_paypal_marketing_text' => 'getShortPaypalMarketingText',
         'show_ultracart_payments_disabled' => 'getShowUltracartPaymentsDisabled',
@@ -337,7 +332,6 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
         $this->container['owner_name'] = isset($data['owner_name']) ? $data['owner_name'] : null;
         $this->container['owner_phone'] = isset($data['owner_phone']) ? $data['owner_phone'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
-        $this->container['remove_pay_pal_pro'] = isset($data['remove_pay_pal_pro']) ? $data['remove_pay_pal_pro'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
         $this->container['short_paypal_marketing_text'] = isset($data['short_paypal_marketing_text']) ? $data['short_paypal_marketing_text'] : null;
         $this->container['show_ultracart_payments_disabled'] = isset($data['show_ultracart_payments_disabled']) ? $data['show_ultracart_payments_disabled'] : null;
@@ -848,30 +842,6 @@ class PaymentsConfigurationWePay implements ModelInterface, ArrayAccess
     public function setPostalCode($postal_code)
     {
         $this->container['postal_code'] = $postal_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets remove_pay_pal_pro
-     *
-     * @return bool
-     */
-    public function getRemovePayPalPro()
-    {
-        return $this->container['remove_pay_pal_pro'];
-    }
-
-    /**
-     * Sets remove_pay_pal_pro
-     *
-     * @param bool $remove_pay_pal_pro remove_pay_pal_pro
-     *
-     * @return $this
-     */
-    public function setRemovePayPalPro($remove_pay_pal_pro)
-    {
-        $this->container['remove_pay_pal_pro'] = $remove_pay_pal_pro;
 
         return $this;
     }

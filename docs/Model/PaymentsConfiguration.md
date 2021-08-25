@@ -18,8 +18,6 @@ Name | Type | Description | Notes
 **quote_request** | [**\ultracart\v2\models\PaymentsConfigurationQuoteRequest**](PaymentsConfigurationQuoteRequest.md) |  | [optional] 
 **sezzle** | [**\ultracart\v2\models\PaymentsConfigurationSezzle**](PaymentsConfigurationSezzle.md) |  | [optional] 
 **show_accounting_code** | **bool** | Internal flag used to determine if accounting codes should be shown on the screen or not.  This flag is true if the merchant has a Quickbooks integration configured. | [optional] 
-**switch_to_sub_tab** | **string** |  | [optional] 
-**switch_to_tab** | **string** |  | [optional] 
 **ultracart_payments_wepay** | [**\ultracart\v2\models\PaymentsConfigurationWePay**](PaymentsConfigurationWePay.md) |  | [optional] 
 **wire_transfer** | [**\ultracart\v2\models\PaymentsConfigurationWireTransfer**](PaymentsConfigurationWireTransfer.md) |  | [optional] 
 

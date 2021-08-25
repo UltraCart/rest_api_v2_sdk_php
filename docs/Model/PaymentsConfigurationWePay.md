@@ -23,7 +23,6 @@ Name | Type | Description | Notes
 **owner_name** | **string** | Owner name | [optional] 
 **owner_phone** | **string** | Owner phone | [optional] 
 **postal_code** | **string** | Postal code | [optional] 
-**remove_pay_pal_pro** | **bool** |  | [optional] 
 **restrictions** | [**\ultracart\v2\models\PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
 **short_paypal_marketing_text** | **bool** | Internal UI aid | [optional] 
 **show_ultracart_payments_disabled** | **bool** | Internal flag to aid UI | [optional] 

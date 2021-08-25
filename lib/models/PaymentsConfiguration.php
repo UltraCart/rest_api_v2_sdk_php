@@ -72,8 +72,6 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'quote_request' => '\ultracart\v2\models\PaymentsConfigurationQuoteRequest',
         'sezzle' => '\ultracart\v2\models\PaymentsConfigurationSezzle',
         'show_accounting_code' => 'bool',
-        'switch_to_sub_tab' => 'string',
-        'switch_to_tab' => 'string',
         'ultracart_payments_wepay' => '\ultracart\v2\models\PaymentsConfigurationWePay',
         'wire_transfer' => '\ultracart\v2\models\PaymentsConfigurationWireTransfer'
     ];
@@ -99,8 +97,6 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'quote_request' => null,
         'sezzle' => null,
         'show_accounting_code' => null,
-        'switch_to_sub_tab' => null,
-        'switch_to_tab' => null,
         'ultracart_payments_wepay' => null,
         'wire_transfer' => null
     ];
@@ -147,8 +143,6 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'quote_request' => 'quote_request',
         'sezzle' => 'sezzle',
         'show_accounting_code' => 'show_accounting_code',
-        'switch_to_sub_tab' => 'switchToSubTab',
-        'switch_to_tab' => 'switchToTab',
         'ultracart_payments_wepay' => 'ultracart_payments_wepay',
         'wire_transfer' => 'wire_transfer'
     ];
@@ -174,8 +168,6 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'quote_request' => 'setQuoteRequest',
         'sezzle' => 'setSezzle',
         'show_accounting_code' => 'setShowAccountingCode',
-        'switch_to_sub_tab' => 'setSwitchToSubTab',
-        'switch_to_tab' => 'setSwitchToTab',
         'ultracart_payments_wepay' => 'setUltracartPaymentsWepay',
         'wire_transfer' => 'setWireTransfer'
     ];
@@ -201,8 +193,6 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         'quote_request' => 'getQuoteRequest',
         'sezzle' => 'getSezzle',
         'show_accounting_code' => 'getShowAccountingCode',
-        'switch_to_sub_tab' => 'getSwitchToSubTab',
-        'switch_to_tab' => 'getSwitchToTab',
         'ultracart_payments_wepay' => 'getUltracartPaymentsWepay',
         'wire_transfer' => 'getWireTransfer'
     ];
@@ -282,8 +272,6 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
         $this->container['quote_request'] = isset($data['quote_request']) ? $data['quote_request'] : null;
         $this->container['sezzle'] = isset($data['sezzle']) ? $data['sezzle'] : null;
         $this->container['show_accounting_code'] = isset($data['show_accounting_code']) ? $data['show_accounting_code'] : null;
-        $this->container['switch_to_sub_tab'] = isset($data['switch_to_sub_tab']) ? $data['switch_to_sub_tab'] : null;
-        $this->container['switch_to_tab'] = isset($data['switch_to_tab']) ? $data['switch_to_tab'] : null;
         $this->container['ultracart_payments_wepay'] = isset($data['ultracart_payments_wepay']) ? $data['ultracart_payments_wepay'] : null;
         $this->container['wire_transfer'] = isset($data['wire_transfer']) ? $data['wire_transfer'] : null;
     }
@@ -668,54 +656,6 @@ class PaymentsConfiguration implements ModelInterface, ArrayAccess
     public function setShowAccountingCode($show_accounting_code)
     {
         $this->container['show_accounting_code'] = $show_accounting_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets switch_to_sub_tab
-     *
-     * @return string
-     */
-    public function getSwitchToSubTab()
-    {
-        return $this->container['switch_to_sub_tab'];
-    }
-
-    /**
-     * Sets switch_to_sub_tab
-     *
-     * @param string $switch_to_sub_tab switch_to_sub_tab
-     *
-     * @return $this
-     */
-    public function setSwitchToSubTab($switch_to_sub_tab)
-    {
-        $this->container['switch_to_sub_tab'] = $switch_to_sub_tab;
-
-        return $this;
-    }
-
-    /**
-     * Gets switch_to_tab
-     *
-     * @return string
-     */
-    public function getSwitchToTab()
-    {
-        return $this->container['switch_to_tab'];
-    }
-
-    /**
-     * Sets switch_to_tab
-     *
-     * @param string $switch_to_tab switch_to_tab
-     *
-     * @return $this
-     */
-    public function setSwitchToTab($switch_to_tab)
-    {
-        $this->container['switch_to_tab'] = $switch_to_tab;
 
         return $this;
     }
