@@ -62,8 +62,8 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
         'accounting_code' => 'string',
         'amazon_merchant_id' => 'string',
         'deposit_to_account' => 'string',
+        'environment' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
-        'sandbox' => 'bool',
         'secret_access_key' => 'string'
     ];
 
@@ -78,8 +78,8 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
         'accounting_code' => null,
         'amazon_merchant_id' => null,
         'deposit_to_account' => null,
+        'environment' => null,
         'restrictions' => null,
-        'sandbox' => null,
         'secret_access_key' => null
     ];
 
@@ -115,8 +115,8 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
         'accounting_code' => 'accounting_code',
         'amazon_merchant_id' => 'amazon_merchant_id',
         'deposit_to_account' => 'deposit_to_account',
+        'environment' => 'environment',
         'restrictions' => 'restrictions',
-        'sandbox' => 'sandbox',
         'secret_access_key' => 'secret_access_key'
     ];
 
@@ -131,8 +131,8 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
         'accounting_code' => 'setAccountingCode',
         'amazon_merchant_id' => 'setAmazonMerchantId',
         'deposit_to_account' => 'setDepositToAccount',
+        'environment' => 'setEnvironment',
         'restrictions' => 'setRestrictions',
-        'sandbox' => 'setSandbox',
         'secret_access_key' => 'setSecretAccessKey'
     ];
 
@@ -147,8 +147,8 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
         'accounting_code' => 'getAccountingCode',
         'amazon_merchant_id' => 'getAmazonMerchantId',
         'deposit_to_account' => 'getDepositToAccount',
+        'environment' => 'getEnvironment',
         'restrictions' => 'getRestrictions',
-        'sandbox' => 'getSandbox',
         'secret_access_key' => 'getSecretAccessKey'
     ];
 
@@ -193,8 +193,23 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const ENVIRONMENT_LIVE = 'Live';
+    const ENVIRONMENT_SANDBOX = 'Sandbox';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEnvironmentAllowableValues()
+    {
+        return [
+            self::ENVIRONMENT_LIVE,
+            self::ENVIRONMENT_SANDBOX,
+        ];
+    }
     
 
     /**
@@ -217,8 +232,8 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
         $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
         $this->container['amazon_merchant_id'] = isset($data['amazon_merchant_id']) ? $data['amazon_merchant_id'] : null;
         $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
+        $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
-        $this->container['sandbox'] = isset($data['sandbox']) ? $data['sandbox'] : null;
         $this->container['secret_access_key'] = isset($data['secret_access_key']) ? $data['secret_access_key'] : null;
     }
 
@@ -230,6 +245,14 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getEnvironmentAllowableValues();
+        if (!is_null($this->container['environment']) && !in_array($this->container['environment'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'environment', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -367,6 +390,39 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets environment
+     *
+     * @return string
+     */
+    public function getEnvironment()
+    {
+        return $this->container['environment'];
+    }
+
+    /**
+     * Sets environment
+     *
+     * @param string $environment Environment
+     *
+     * @return $this
+     */
+    public function setEnvironment($environment)
+    {
+        $allowedValues = $this->getEnvironmentAllowableValues();
+        if (!is_null($environment) && !in_array($environment, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'environment', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['environment'] = $environment;
+
+        return $this;
+    }
+
+    /**
      * Gets restrictions
      *
      * @return \ultracart\v2\models\PaymentsConfigurationRestrictions
@@ -386,30 +442,6 @@ class PaymentsConfigurationAmazon implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
-
-        return $this;
-    }
-
-    /**
-     * Gets sandbox
-     *
-     * @return bool
-     */
-    public function getSandbox()
-    {
-        return $this->container['sandbox'];
-    }
-
-    /**
-     * Sets sandbox
-     *
-     * @param bool $sandbox True if transactions should run against the Amazon sandbox.  Useful for testing not configurations
-     *
-     * @return $this
-     */
-    public function setSandbox($sandbox)
-    {
-        $this->container['sandbox'] = $sandbox;
 
         return $this;
     }

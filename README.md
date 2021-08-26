@@ -1195,6 +1195,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.6 | 08/26/2021 | configuration api - more field changes for UI | 
 | 3.6.5 | 08/25/2021 | configuration api - removed some internal fields from sdk | 
 | 3.6.4 | 08/24/2021 | configuration api - new payment method named insurance | 
 | 3.6.1 | 08/23/2021 | configuration api - enum problems, also added order.item.tracking_number to support line item tracking numbers | 

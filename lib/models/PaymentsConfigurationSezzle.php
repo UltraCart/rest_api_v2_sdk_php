@@ -62,7 +62,6 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
         'business_id' => 'string',
         'deposit_to_account' => 'string',
         'environment' => 'string',
-        'environments' => 'string[]',
         'private_api_key' => 'string',
         'public_api_key' => 'string',
         'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
@@ -79,7 +78,6 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
         'business_id' => null,
         'deposit_to_account' => null,
         'environment' => null,
-        'environments' => null,
         'private_api_key' => null,
         'public_api_key' => null,
         'restrictions' => null
@@ -117,7 +115,6 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
         'business_id' => 'business_id',
         'deposit_to_account' => 'deposit_to_account',
         'environment' => 'environment',
-        'environments' => 'environments',
         'private_api_key' => 'private_api_key',
         'public_api_key' => 'public_api_key',
         'restrictions' => 'restrictions'
@@ -134,7 +131,6 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
         'business_id' => 'setBusinessId',
         'deposit_to_account' => 'setDepositToAccount',
         'environment' => 'setEnvironment',
-        'environments' => 'setEnvironments',
         'private_api_key' => 'setPrivateApiKey',
         'public_api_key' => 'setPublicApiKey',
         'restrictions' => 'setRestrictions'
@@ -151,7 +147,6 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
         'business_id' => 'getBusinessId',
         'deposit_to_account' => 'getDepositToAccount',
         'environment' => 'getEnvironment',
-        'environments' => 'getEnvironments',
         'private_api_key' => 'getPrivateApiKey',
         'public_api_key' => 'getPublicApiKey',
         'restrictions' => 'getRestrictions'
@@ -237,7 +232,6 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
         $this->container['business_id'] = isset($data['business_id']) ? $data['business_id'] : null;
         $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
         $this->container['environment'] = isset($data['environment']) ? $data['environment'] : null;
-        $this->container['environments'] = isset($data['environments']) ? $data['environments'] : null;
         $this->container['private_api_key'] = isset($data['private_api_key']) ? $data['private_api_key'] : null;
         $this->container['public_api_key'] = isset($data['public_api_key']) ? $data['public_api_key'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
@@ -400,30 +394,6 @@ class PaymentsConfigurationSezzle implements ModelInterface, ArrayAccess
             );
         }
         $this->container['environment'] = $environment;
-
-        return $this;
-    }
-
-    /**
-     * Gets environments
-     *
-     * @return string[]
-     */
-    public function getEnvironments()
-    {
-        return $this->container['environments'];
-    }
-
-    /**
-     * Sets environments
-     *
-     * @param string[] $environments List of environments possible
-     *
-     * @return $this
-     */
-    public function setEnvironments($environments)
-    {
-        $this->container['environments'] = $environments;
 
         return $this;
     }
