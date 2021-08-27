@@ -58,7 +58,9 @@ class CustomerAffiliate implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'affiliate_oid' => 'int',
-        'email' => 'string'
+        'email' => 'string',
+        'first_name' => 'string',
+        'last_name' => 'string'
     ];
 
     /**
@@ -68,7 +70,9 @@ class CustomerAffiliate implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'affiliate_oid' => 'int32',
-        'email' => null
+        'email' => null,
+        'first_name' => null,
+        'last_name' => null
     ];
 
     /**
@@ -99,7 +103,9 @@ class CustomerAffiliate implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'affiliate_oid' => 'affiliate_oid',
-        'email' => 'email'
+        'email' => 'email',
+        'first_name' => 'first_name',
+        'last_name' => 'last_name'
     ];
 
     /**
@@ -109,7 +115,9 @@ class CustomerAffiliate implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'affiliate_oid' => 'setAffiliateOid',
-        'email' => 'setEmail'
+        'email' => 'setEmail',
+        'first_name' => 'setFirstName',
+        'last_name' => 'setLastName'
     ];
 
     /**
@@ -119,7 +127,9 @@ class CustomerAffiliate implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'affiliate_oid' => 'getAffiliateOid',
-        'email' => 'getEmail'
+        'email' => 'getEmail',
+        'first_name' => 'getFirstName',
+        'last_name' => 'getLastName'
     ];
 
     /**
@@ -184,6 +194,8 @@ class CustomerAffiliate implements ModelInterface, ArrayAccess
     {
         $this->container['affiliate_oid'] = isset($data['affiliate_oid']) ? $data['affiliate_oid'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
+        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
     }
 
     /**
@@ -254,6 +266,54 @@ class CustomerAffiliate implements ModelInterface, ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_name
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string $first_name First name
+     *
+     * @return $this
+     */
+    public function setFirstName($first_name)
+    {
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_name
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->container['last_name'];
+    }
+
+    /**
+     * Sets last_name
+     *
+     * @param string $last_name Last name
+     *
+     * @return $this
+     */
+    public function setLastName($last_name)
+    {
+        $this->container['last_name'] = $last_name;
 
         return $this;
     }
