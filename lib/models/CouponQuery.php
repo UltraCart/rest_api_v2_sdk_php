@@ -64,6 +64,7 @@ class CouponQuery implements ModelInterface, ArrayAccess
         'expiration_dts_begin' => 'string',
         'expiration_dts_end' => 'string',
         'merchant_code' => 'string',
+        'merchant_code_or_description' => 'string',
         'start_dts_begin' => 'string',
         'start_dts_end' => 'string'
     ];
@@ -81,6 +82,7 @@ class CouponQuery implements ModelInterface, ArrayAccess
         'expiration_dts_begin' => 'dateTime',
         'expiration_dts_end' => 'dateTime',
         'merchant_code' => null,
+        'merchant_code_or_description' => null,
         'start_dts_begin' => 'dateTime',
         'start_dts_end' => 'dateTime'
     ];
@@ -119,6 +121,7 @@ class CouponQuery implements ModelInterface, ArrayAccess
         'expiration_dts_begin' => 'expiration_dts_begin',
         'expiration_dts_end' => 'expiration_dts_end',
         'merchant_code' => 'merchant_code',
+        'merchant_code_or_description' => 'merchant_code_or_description',
         'start_dts_begin' => 'start_dts_begin',
         'start_dts_end' => 'start_dts_end'
     ];
@@ -136,6 +139,7 @@ class CouponQuery implements ModelInterface, ArrayAccess
         'expiration_dts_begin' => 'setExpirationDtsBegin',
         'expiration_dts_end' => 'setExpirationDtsEnd',
         'merchant_code' => 'setMerchantCode',
+        'merchant_code_or_description' => 'setMerchantCodeOrDescription',
         'start_dts_begin' => 'setStartDtsBegin',
         'start_dts_end' => 'setStartDtsEnd'
     ];
@@ -153,6 +157,7 @@ class CouponQuery implements ModelInterface, ArrayAccess
         'expiration_dts_begin' => 'getExpirationDtsBegin',
         'expiration_dts_end' => 'getExpirationDtsEnd',
         'merchant_code' => 'getMerchantCode',
+        'merchant_code_or_description' => 'getMerchantCodeOrDescription',
         'start_dts_begin' => 'getStartDtsBegin',
         'start_dts_end' => 'getStartDtsEnd'
     ];
@@ -224,6 +229,7 @@ class CouponQuery implements ModelInterface, ArrayAccess
         $this->container['expiration_dts_begin'] = isset($data['expiration_dts_begin']) ? $data['expiration_dts_begin'] : null;
         $this->container['expiration_dts_end'] = isset($data['expiration_dts_end']) ? $data['expiration_dts_end'] : null;
         $this->container['merchant_code'] = isset($data['merchant_code']) ? $data['merchant_code'] : null;
+        $this->container['merchant_code_or_description'] = isset($data['merchant_code_or_description']) ? $data['merchant_code_or_description'] : null;
         $this->container['start_dts_begin'] = isset($data['start_dts_begin']) ? $data['start_dts_begin'] : null;
         $this->container['start_dts_end'] = isset($data['start_dts_end']) ? $data['start_dts_end'] : null;
     }
@@ -416,6 +422,30 @@ class CouponQuery implements ModelInterface, ArrayAccess
     public function setMerchantCode($merchant_code)
     {
         $this->container['merchant_code'] = $merchant_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_code_or_description
+     *
+     * @return string
+     */
+    public function getMerchantCodeOrDescription()
+    {
+        return $this->container['merchant_code_or_description'];
+    }
+
+    /**
+     * Sets merchant_code_or_description
+     *
+     * @param string $merchant_code_or_description Merchant code description used for searching
+     *
+     * @return $this
+     */
+    public function setMerchantCodeOrDescription($merchant_code_or_description)
+    {
+        $this->container['merchant_code_or_description'] = $merchant_code_or_description;
 
         return $this;
     }

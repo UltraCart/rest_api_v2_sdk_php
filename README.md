@@ -1195,6 +1195,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.8 | 08/31/2021 | coupon query field to allow merchant code and description to be searched  | 
 | 3.6.7 | 08/27/2021 | customer profile affiliate information now contains affiliate first and last name | 
 | 3.6.6 | 08/26/2021 | configuration api - more field changes for UI | 
 | 3.6.5 | 08/25/2021 | configuration api - removed some internal fields from sdk | 

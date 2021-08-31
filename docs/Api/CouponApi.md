@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCoupons**
-> \ultracart\v2\models\CouponsResponse getCoupons($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand)
+> \ultracart\v2\models\CouponsResponse getCoupons($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $merchant_code_or_description, $_limit, $_offset, $_sort, $_expand)
 
 Retrieve coupons
 
@@ -483,13 +483,14 @@ $expiration_date_begin = "expiration_date_begin_example"; // string | Expiration
 $expiration_date_end = "expiration_date_end_example"; // string | Expiration date end
 $affiliate_oid = 56; // int | Affiliate oid
 $exclude_expired = true; // bool | Exclude expired
+$merchant_code_or_description = "merchant_code_or_description_example"; // string | Merchant code or description
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 $_sort = "_sort_example"; // string | The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $apiInstance->getCoupons($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
+    $result = $apiInstance->getCoupons($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $merchant_code_or_description, $_limit, $_offset, $_sort, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CouponApi->getCoupons: ', $e->getMessage(), PHP_EOL;
@@ -510,6 +511,7 @@ Name | Type | Description  | Notes
  **expiration_date_end** | **string**| Expiration date end | [optional]
  **affiliate_oid** | **int**| Affiliate oid | [optional]
  **exclude_expired** | **bool**| Exclude expired | [optional]
+ **merchant_code_or_description** | **string**| Merchant code or description | [optional]
  **_limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
  **_sort** | **string**| The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
