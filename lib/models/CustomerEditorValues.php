@@ -64,6 +64,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'countries' => '\ultracart\v2\models\Country[]',
         'qb_classes' => 'string[]',
         'sales_rep_codes' => 'string[]',
+        'state_optional_countries' => '\ultracart\v2\models\Country[]',
         'terms' => 'string[]'
     ];
 
@@ -80,6 +81,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'countries' => null,
         'qb_classes' => null,
         'sales_rep_codes' => null,
+        'state_optional_countries' => null,
         'terms' => null
     ];
 
@@ -117,6 +119,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'countries' => 'countries',
         'qb_classes' => 'qb_classes',
         'sales_rep_codes' => 'sales_rep_codes',
+        'state_optional_countries' => 'state_optional_countries',
         'terms' => 'terms'
     ];
 
@@ -133,6 +136,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'countries' => 'setCountries',
         'qb_classes' => 'setQbClasses',
         'sales_rep_codes' => 'setSalesRepCodes',
+        'state_optional_countries' => 'setStateOptionalCountries',
         'terms' => 'setTerms'
     ];
 
@@ -149,6 +153,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'countries' => 'getCountries',
         'qb_classes' => 'getQbClasses',
         'sales_rep_codes' => 'getSalesRepCodes',
+        'state_optional_countries' => 'getStateOptionalCountries',
         'terms' => 'getTerms'
     ];
 
@@ -219,6 +224,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
         $this->container['qb_classes'] = isset($data['qb_classes']) ? $data['qb_classes'] : null;
         $this->container['sales_rep_codes'] = isset($data['sales_rep_codes']) ? $data['sales_rep_codes'] : null;
+        $this->container['state_optional_countries'] = isset($data['state_optional_countries']) ? $data['state_optional_countries'] : null;
         $this->container['terms'] = isset($data['terms']) ? $data['terms'] : null;
     }
 
@@ -410,6 +416,30 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     public function setSalesRepCodes($sales_rep_codes)
     {
         $this->container['sales_rep_codes'] = $sales_rep_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_optional_countries
+     *
+     * @return \ultracart\v2\models\Country[]
+     */
+    public function getStateOptionalCountries()
+    {
+        return $this->container['state_optional_countries'];
+    }
+
+    /**
+     * Sets state_optional_countries
+     *
+     * @param \ultracart\v2\models\Country[] $state_optional_countries state_optional_countries
+     *
+     * @return $this
+     */
+    public function setStateOptionalCountries($state_optional_countries)
+    {
+        $this->container['state_optional_countries'] = $state_optional_countries;
 
         return $this;
     }

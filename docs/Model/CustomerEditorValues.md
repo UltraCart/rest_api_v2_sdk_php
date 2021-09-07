@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **countries** | [**\ultracart\v2\models\Country[]**](Country.md) | countries | [optional] 
 **qb_classes** | **string[]** | qb_classes | [optional] 
 **sales_rep_codes** | **string[]** | sales_rep_codes | [optional] 
+**state_optional_countries** | [**\ultracart\v2\models\Country[]**](Country.md) | state_optional_countries | [optional] 
 **terms** | **string[]** | terms | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
