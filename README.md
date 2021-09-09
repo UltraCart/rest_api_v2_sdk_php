@@ -1195,6 +1195,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.10 | 09/09/2021 | added constants for Google Shopping payment method (still in development)  | 
 | 3.6.9 | 09/07/2021 | customer profile editor values have new list of state optional countries  | 
 | 3.6.8 | 08/31/2021 | coupon query field to allow merchant code and description to be searched  | 
 | 3.6.7 | 08/27/2021 | customer profile affiliate information now contains affiliate first and last name | 
