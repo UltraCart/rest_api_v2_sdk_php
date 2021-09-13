@@ -3070,7 +3070,6 @@ class CouponApi
      * @param  string $expiration_date_end Expiration date end (optional)
      * @param  int $affiliate_oid Affiliate oid (optional)
      * @param  bool $exclude_expired Exclude expired (optional)
-     * @param  string $merchant_code_or_description Merchant code or description (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3080,9 +3079,9 @@ class CouponApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\CouponsResponse
      */
-    public function getCoupons($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $merchant_code_or_description = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getCoupons($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        list($response) = $this->getCouponsWithHttpInfo($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $merchant_code_or_description, $_limit, $_offset, $_sort, $_expand);
+        list($response) = $this->getCouponsWithHttpInfo($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
         return $response;
     }
 
@@ -3101,7 +3100,6 @@ class CouponApi
      * @param  string $expiration_date_end Expiration date end (optional)
      * @param  int $affiliate_oid Affiliate oid (optional)
      * @param  bool $exclude_expired Exclude expired (optional)
-     * @param  string $merchant_code_or_description Merchant code or description (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3111,9 +3109,9 @@ class CouponApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $merchant_code_or_description = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getCouponsWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        return $this->getCouponsWithHttpInfoRetry(true ,   $merchant_code,   $description,   $coupon_type,   $start_date_begin,   $start_date_end,   $expiration_date_begin,   $expiration_date_end,   $affiliate_oid,   $exclude_expired,   $merchant_code_or_description,   $_limit,   $_offset,   $_sort,   $_expand);
+        return $this->getCouponsWithHttpInfoRetry(true ,   $merchant_code,   $description,   $coupon_type,   $start_date_begin,   $start_date_end,   $expiration_date_begin,   $expiration_date_end,   $affiliate_oid,   $exclude_expired,   $_limit,   $_offset,   $_sort,   $_expand);
     }
 
 
@@ -3132,7 +3130,6 @@ class CouponApi
      * @param  string $expiration_date_end Expiration date end (optional)
      * @param  int $affiliate_oid Affiliate oid (optional)
      * @param  bool $exclude_expired Exclude expired (optional)
-     * @param  string $merchant_code_or_description Merchant code or description (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3142,10 +3139,10 @@ class CouponApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\CouponsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCouponsWithHttpInfoRetry($retry ,  $merchant_code = null,  $description = null,  $coupon_type = null,  $start_date_begin = null,  $start_date_end = null,  $expiration_date_begin = null,  $expiration_date_end = null,  $affiliate_oid = null,  $exclude_expired = null,  $merchant_code_or_description = null,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
+    public function getCouponsWithHttpInfoRetry($retry ,  $merchant_code = null,  $description = null,  $coupon_type = null,  $start_date_begin = null,  $start_date_end = null,  $expiration_date_begin = null,  $expiration_date_end = null,  $affiliate_oid = null,  $exclude_expired = null,  $_limit = '100',  $_offset = '0',  $_sort = null,  $_expand = null)
     {
         $returnType = '\ultracart\v2\models\CouponsResponse';
-        $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $merchant_code_or_description, $_limit, $_offset, $_sort, $_expand);
+        $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3164,7 +3161,7 @@ class CouponApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getCouponsWithHttpInfoRetry(false ,   $merchant_code,   $description,   $coupon_type,   $start_date_begin,   $start_date_end,   $expiration_date_begin,   $expiration_date_end,   $affiliate_oid,   $exclude_expired,   $merchant_code_or_description,   $_limit,   $_offset,   $_sort,   $_expand);
+                        return $this->getCouponsWithHttpInfoRetry(false ,   $merchant_code,   $description,   $coupon_type,   $start_date_begin,   $start_date_end,   $expiration_date_begin,   $expiration_date_end,   $affiliate_oid,   $exclude_expired,   $_limit,   $_offset,   $_sort,   $_expand);
                     }
                 }
 
@@ -3261,7 +3258,6 @@ class CouponApi
      * @param  string $expiration_date_end Expiration date end (optional)
      * @param  int $affiliate_oid Affiliate oid (optional)
      * @param  bool $exclude_expired Exclude expired (optional)
-     * @param  string $merchant_code_or_description Merchant code or description (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3270,9 +3266,9 @@ class CouponApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsAsync($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $merchant_code_or_description = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getCouponsAsync($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
-        return $this->getCouponsAsyncWithHttpInfo($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $merchant_code_or_description, $_limit, $_offset, $_sort, $_expand)
+        return $this->getCouponsAsyncWithHttpInfo($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3294,7 +3290,6 @@ class CouponApi
      * @param  string $expiration_date_end Expiration date end (optional)
      * @param  int $affiliate_oid Affiliate oid (optional)
      * @param  bool $exclude_expired Exclude expired (optional)
-     * @param  string $merchant_code_or_description Merchant code or description (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3303,10 +3298,10 @@ class CouponApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCouponsAsyncWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $merchant_code_or_description = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    public function getCouponsAsyncWithHttpInfo($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\CouponsResponse';
-        $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $merchant_code_or_description, $_limit, $_offset, $_sort, $_expand);
+        $request = $this->getCouponsRequest($merchant_code, $description, $coupon_type, $start_date_begin, $start_date_end, $expiration_date_begin, $expiration_date_end, $affiliate_oid, $exclude_expired, $_limit, $_offset, $_sort, $_expand);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3357,7 +3352,6 @@ class CouponApi
      * @param  string $expiration_date_end Expiration date end (optional)
      * @param  int $affiliate_oid Affiliate oid (optional)
      * @param  bool $exclude_expired Exclude expired (optional)
-     * @param  string $merchant_code_or_description Merchant code or description (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      * @param  string $_sort The sort order of the coupons.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
@@ -3366,7 +3360,7 @@ class CouponApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCouponsRequest($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $merchant_code_or_description = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
+    protected function getCouponsRequest($merchant_code = null, $description = null, $coupon_type = null, $start_date_begin = null, $start_date_end = null, $expiration_date_begin = null, $expiration_date_end = null, $affiliate_oid = null, $exclude_expired = null, $_limit = '100', $_offset = '0', $_sort = null, $_expand = null)
     {
 
         $resourcePath = '/coupon/coupons';
@@ -3411,10 +3405,6 @@ class CouponApi
         // query params
         if ($exclude_expired !== null) {
             $queryParams['exclude_expired'] = ObjectSerializer::toQueryValue($exclude_expired);
-        }
-        // query params
-        if ($merchant_code_or_description !== null) {
-            $queryParams['merchant_code_or_description'] = ObjectSerializer::toQueryValue($merchant_code_or_description);
         }
         // query params
         if ($_limit !== null) {
