@@ -216,7 +216,7 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**getCoupon**](docs/Api/CouponApi.md#getcoupon) | **GET** /coupon/coupons/{coupon_oid} | Retrieve a coupon
 *CouponApi* | [**getCouponByMerchantCode**](docs/Api/CouponApi.md#getcouponbymerchantcode) | **GET** /coupon/coupons/merchant_code/{merchant_code} | Retrieve a coupon by merchant code
 *CouponApi* | [**getCoupons**](docs/Api/CouponApi.md#getcoupons) | **GET** /coupon/coupons | Retrieve coupons
-*CouponApi* | [**getCouponsByQuery**](docs/Api/CouponApi.md#getcouponsbyquery) | **GET** /coupon/coupons/query | Retrieve coupons by query
+*CouponApi* | [**getCouponsByQuery**](docs/Api/CouponApi.md#getcouponsbyquery) | **POST** /coupon/coupons/query | Retrieve coupons by query
 *CouponApi* | [**getEditorValues**](docs/Api/CouponApi.md#geteditorvalues) | **GET** /coupon/editor_values | Retrieve values needed for a coupon editor
 *CouponApi* | [**insertCoupon**](docs/Api/CouponApi.md#insertcoupon) | **POST** /coupon/coupons | Insert a coupon
 *CouponApi* | [**insertCoupons**](docs/Api/CouponApi.md#insertcoupons) | **POST** /coupon/coupons/batch | Insert multiple coupons
@@ -1195,6 +1195,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.12 | 09/20/2021 | fix method for getCouponsByQuery to be POST instead of GET since it uses a JSON body  | 
 | 3.6.11 | 09/13/2021 | fix for CouponApi, broke due to inadvertent parameter inclusion   | 
 | 3.6.10 | 09/09/2021 | added constants for Google Shopping payment method (still in development)  | 
 | 3.6.9 | 09/07/2021 | customer profile editor values have new list of state optional countries  | 
