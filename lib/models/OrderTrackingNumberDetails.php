@@ -60,6 +60,7 @@ class OrderTrackingNumberDetails implements ModelInterface, ArrayAccess
         'actual_delivery_date' => 'string',
         'actual_delivery_date_formatted' => 'string',
         'details' => '\ultracart\v2\models\OrderTrackingNumberDetail[]',
+        'easypost_tracker_id' => 'string',
         'expected_delivery_date' => 'string',
         'expected_delivery_date_formatted' => 'string',
         'map_url' => 'string',
@@ -85,6 +86,7 @@ class OrderTrackingNumberDetails implements ModelInterface, ArrayAccess
         'actual_delivery_date' => null,
         'actual_delivery_date_formatted' => null,
         'details' => null,
+        'easypost_tracker_id' => null,
         'expected_delivery_date' => null,
         'expected_delivery_date_formatted' => null,
         'map_url' => null,
@@ -131,6 +133,7 @@ class OrderTrackingNumberDetails implements ModelInterface, ArrayAccess
         'actual_delivery_date' => 'actual_delivery_date',
         'actual_delivery_date_formatted' => 'actual_delivery_date_formatted',
         'details' => 'details',
+        'easypost_tracker_id' => 'easypost_tracker_id',
         'expected_delivery_date' => 'expected_delivery_date',
         'expected_delivery_date_formatted' => 'expected_delivery_date_formatted',
         'map_url' => 'map_url',
@@ -156,6 +159,7 @@ class OrderTrackingNumberDetails implements ModelInterface, ArrayAccess
         'actual_delivery_date' => 'setActualDeliveryDate',
         'actual_delivery_date_formatted' => 'setActualDeliveryDateFormatted',
         'details' => 'setDetails',
+        'easypost_tracker_id' => 'setEasypostTrackerId',
         'expected_delivery_date' => 'setExpectedDeliveryDate',
         'expected_delivery_date_formatted' => 'setExpectedDeliveryDateFormatted',
         'map_url' => 'setMapUrl',
@@ -181,6 +185,7 @@ class OrderTrackingNumberDetails implements ModelInterface, ArrayAccess
         'actual_delivery_date' => 'getActualDeliveryDate',
         'actual_delivery_date_formatted' => 'getActualDeliveryDateFormatted',
         'details' => 'getDetails',
+        'easypost_tracker_id' => 'getEasypostTrackerId',
         'expected_delivery_date' => 'getExpectedDeliveryDate',
         'expected_delivery_date_formatted' => 'getExpectedDeliveryDateFormatted',
         'map_url' => 'getMapUrl',
@@ -260,6 +265,7 @@ class OrderTrackingNumberDetails implements ModelInterface, ArrayAccess
         $this->container['actual_delivery_date'] = isset($data['actual_delivery_date']) ? $data['actual_delivery_date'] : null;
         $this->container['actual_delivery_date_formatted'] = isset($data['actual_delivery_date_formatted']) ? $data['actual_delivery_date_formatted'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['easypost_tracker_id'] = isset($data['easypost_tracker_id']) ? $data['easypost_tracker_id'] : null;
         $this->container['expected_delivery_date'] = isset($data['expected_delivery_date']) ? $data['expected_delivery_date'] : null;
         $this->container['expected_delivery_date_formatted'] = isset($data['expected_delivery_date_formatted']) ? $data['expected_delivery_date_formatted'] : null;
         $this->container['map_url'] = isset($data['map_url']) ? $data['map_url'] : null;
@@ -368,6 +374,30 @@ class OrderTrackingNumberDetails implements ModelInterface, ArrayAccess
     public function setDetails($details)
     {
         $this->container['details'] = $details;
+
+        return $this;
+    }
+
+    /**
+     * Gets easypost_tracker_id
+     *
+     * @return string
+     */
+    public function getEasypostTrackerId()
+    {
+        return $this->container['easypost_tracker_id'];
+    }
+
+    /**
+     * Sets easypost_tracker_id
+     *
+     * @param string $easypost_tracker_id easypost_tracker_id
+     *
+     * @return $this
+     */
+    public function setEasypostTrackerId($easypost_tracker_id)
+    {
+        $this->container['easypost_tracker_id'] = $easypost_tracker_id;
 
         return $this;
     }

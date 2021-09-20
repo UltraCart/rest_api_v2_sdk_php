@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **actual_delivery_date** | **string** |  | [optional] 
 **actual_delivery_date_formatted** | **string** |  | [optional] 
 **details** | [**\ultracart\v2\models\OrderTrackingNumberDetail[]**](OrderTrackingNumberDetail.md) |  | [optional] 
+**easypost_tracker_id** | **string** |  | [optional] 
 **expected_delivery_date** | **string** |  | [optional] 
 **expected_delivery_date_formatted** | **string** |  | [optional] 
 **map_url** | **string** |  | [optional] 
