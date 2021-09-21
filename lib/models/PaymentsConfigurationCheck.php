@@ -68,8 +68,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
         'mail_to_name' => 'string',
         'mail_to_postal_code' => 'string',
         'mail_to_store' => 'string',
-        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
-        'test_methods' => '\ultracart\v2\models\PaymentsConfigurationTestMethod[]'
+        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
     ];
 
     /**
@@ -89,8 +88,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
         'mail_to_name' => null,
         'mail_to_postal_code' => null,
         'mail_to_store' => null,
-        'restrictions' => null,
-        'test_methods' => null
+        'restrictions' => null
     ];
 
     /**
@@ -131,8 +129,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
         'mail_to_name' => 'mail_to_name',
         'mail_to_postal_code' => 'mail_to_postal_code',
         'mail_to_store' => 'mail_to_store',
-        'restrictions' => 'restrictions',
-        'test_methods' => 'test_methods'
+        'restrictions' => 'restrictions'
     ];
 
     /**
@@ -152,8 +149,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
         'mail_to_name' => 'setMailToName',
         'mail_to_postal_code' => 'setMailToPostalCode',
         'mail_to_store' => 'setMailToStore',
-        'restrictions' => 'setRestrictions',
-        'test_methods' => 'setTestMethods'
+        'restrictions' => 'setRestrictions'
     ];
 
     /**
@@ -173,8 +169,7 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
         'mail_to_name' => 'getMailToName',
         'mail_to_postal_code' => 'getMailToPostalCode',
         'mail_to_store' => 'getMailToStore',
-        'restrictions' => 'getRestrictions',
-        'test_methods' => 'getTestMethods'
+        'restrictions' => 'getRestrictions'
     ];
 
     /**
@@ -249,7 +244,6 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
         $this->container['mail_to_postal_code'] = isset($data['mail_to_postal_code']) ? $data['mail_to_postal_code'] : null;
         $this->container['mail_to_store'] = isset($data['mail_to_store']) ? $data['mail_to_store'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
-        $this->container['test_methods'] = isset($data['test_methods']) ? $data['test_methods'] : null;
     }
 
     /**
@@ -560,30 +554,6 @@ class PaymentsConfigurationCheck implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
-
-        return $this;
-    }
-
-    /**
-     * Gets test_methods
-     *
-     * @return \ultracart\v2\models\PaymentsConfigurationTestMethod[]
-     */
-    public function getTestMethods()
-    {
-        return $this->container['test_methods'];
-    }
-
-    /**
-     * Sets test_methods
-     *
-     * @param \ultracart\v2\models\PaymentsConfigurationTestMethod[] $test_methods Test methods for this payment method
-     *
-     * @return $this
-     */
-    public function setTestMethods($test_methods)
-    {
-        $this->container['test_methods'] = $test_methods;
 
         return $this;
     }

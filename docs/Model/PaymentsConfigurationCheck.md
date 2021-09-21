@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **mail_to_postal_code** | **string** | MailTo postal code | [optional] 
 **mail_to_store** | **string** | MailTo store | [optional] 
 **restrictions** | [**\ultracart\v2\models\PaymentsConfigurationRestrictions**](PaymentsConfigurationRestrictions.md) |  | [optional] 
-**test_methods** | [**\ultracart\v2\models\PaymentsConfigurationTestMethod[]**](PaymentsConfigurationTestMethod.md) | Test methods for this payment method | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

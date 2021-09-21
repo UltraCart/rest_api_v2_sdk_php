@@ -60,7 +60,8 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
         'accept_echeck' => 'bool',
         'accounting_code' => 'string',
         'deposit_to_account' => 'string',
-        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions'
+        'restrictions' => '\ultracart\v2\models\PaymentsConfigurationRestrictions',
+        'test_methods' => '\ultracart\v2\models\PaymentsConfigurationTestMethod[]'
     ];
 
     /**
@@ -72,7 +73,8 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
         'accept_echeck' => null,
         'accounting_code' => null,
         'deposit_to_account' => null,
-        'restrictions' => null
+        'restrictions' => null,
+        'test_methods' => null
     ];
 
     /**
@@ -105,7 +107,8 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
         'accept_echeck' => 'accept_echeck',
         'accounting_code' => 'accounting_code',
         'deposit_to_account' => 'deposit_to_account',
-        'restrictions' => 'restrictions'
+        'restrictions' => 'restrictions',
+        'test_methods' => 'test_methods'
     ];
 
     /**
@@ -117,7 +120,8 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
         'accept_echeck' => 'setAcceptEcheck',
         'accounting_code' => 'setAccountingCode',
         'deposit_to_account' => 'setDepositToAccount',
-        'restrictions' => 'setRestrictions'
+        'restrictions' => 'setRestrictions',
+        'test_methods' => 'setTestMethods'
     ];
 
     /**
@@ -129,7 +133,8 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
         'accept_echeck' => 'getAcceptEcheck',
         'accounting_code' => 'getAccountingCode',
         'deposit_to_account' => 'getDepositToAccount',
-        'restrictions' => 'getRestrictions'
+        'restrictions' => 'getRestrictions',
+        'test_methods' => 'getTestMethods'
     ];
 
     /**
@@ -196,6 +201,7 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
         $this->container['accounting_code'] = isset($data['accounting_code']) ? $data['accounting_code'] : null;
         $this->container['deposit_to_account'] = isset($data['deposit_to_account']) ? $data['deposit_to_account'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
+        $this->container['test_methods'] = isset($data['test_methods']) ? $data['test_methods'] : null;
     }
 
     /**
@@ -314,6 +320,30 @@ class PaymentsConfigurationEcheck implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
+
+        return $this;
+    }
+
+    /**
+     * Gets test_methods
+     *
+     * @return \ultracart\v2\models\PaymentsConfigurationTestMethod[]
+     */
+    public function getTestMethods()
+    {
+        return $this->container['test_methods'];
+    }
+
+    /**
+     * Sets test_methods
+     *
+     * @param \ultracart\v2\models\PaymentsConfigurationTestMethod[] $test_methods Test methods for this payment method
+     *
+     * @return $this
+     */
+    public function setTestMethods($test_methods)
+    {
+        $this->container['test_methods'] = $test_methods;
 
         return $this;
     }
