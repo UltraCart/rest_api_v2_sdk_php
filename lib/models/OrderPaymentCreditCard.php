@@ -476,7 +476,7 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
     /**
      * Sets card_number_token
      *
-     * @param string $card_number_token Card number token from hosted fields used to update the cart number
+     * @param string $card_number_token Card number token from hosted fields used to update the card number
      *
      * @return $this
      */

@@ -58,7 +58,8 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'application_id' => 'string',
-        'claim_id' => 'string'
+        'claim_id' => 'string',
+        'refund_claim_id' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'application_id' => null,
-        'claim_id' => null
+        'claim_id' => null,
+        'refund_claim_id' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'application_id' => 'application_id',
-        'claim_id' => 'claim_id'
+        'claim_id' => 'claim_id',
+        'refund_claim_id' => 'refund_claim_id'
     ];
 
     /**
@@ -109,7 +112,8 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'application_id' => 'setApplicationId',
-        'claim_id' => 'setClaimId'
+        'claim_id' => 'setClaimId',
+        'refund_claim_id' => 'setRefundClaimId'
     ];
 
     /**
@@ -119,7 +123,8 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'application_id' => 'getApplicationId',
-        'claim_id' => 'getClaimId'
+        'claim_id' => 'getClaimId',
+        'refund_claim_id' => 'getRefundClaimId'
     ];
 
     /**
@@ -184,6 +189,7 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     {
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['claim_id'] = isset($data['claim_id']) ? $data['claim_id'] : null;
+        $this->container['refund_claim_id'] = isset($data['refund_claim_id']) ? $data['refund_claim_id'] : null;
     }
 
     /**
@@ -254,6 +260,30 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     public function setClaimId($claim_id)
     {
         $this->container['claim_id'] = $claim_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets refund_claim_id
+     *
+     * @return string
+     */
+    public function getRefundClaimId()
+    {
+        return $this->container['refund_claim_id'];
+    }
+
+    /**
+     * Sets refund_claim_id
+     *
+     * @param string $refund_claim_id refund claim id
+     *
+     * @return $this
+     */
+    public function setRefundClaimId($refund_claim_id)
+    {
+        $this->container['refund_claim_id'] = $refund_claim_id;
 
         return $this;
     }

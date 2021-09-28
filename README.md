@@ -1195,6 +1195,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.15 | 09/28/2021 | added refund_claim_id to insurance object  | 
 | 3.6.14 | 09/21/2021 | configuration api fix.  the echeck test methods were attached to the paper check object  | 
 | 3.6.13 | 09/20/2021 | expose EasyPost tracker id if available on shipment tracking details  | 
 | 3.6.12 | 09/20/2021 | fix method for getCouponsByQuery to be POST instead of GET since it uses a JSON body  | 
