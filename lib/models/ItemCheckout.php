@@ -59,6 +59,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'suppress_buysafe' => 'bool',
         'terms' => 'string',
+        'terms_if_auto_order' => 'bool',
         'terms_translated_text_instance_oid' => 'int'
     ];
 
@@ -70,6 +71,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'suppress_buysafe' => null,
         'terms' => null,
+        'terms_if_auto_order' => null,
         'terms_translated_text_instance_oid' => 'int32'
     ];
 
@@ -102,6 +104,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'suppress_buysafe' => 'suppress_buysafe',
         'terms' => 'terms',
+        'terms_if_auto_order' => 'terms_if_auto_order',
         'terms_translated_text_instance_oid' => 'terms_translated_text_instance_oid'
     ];
 
@@ -113,6 +116,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     protected static $setters = [
         'suppress_buysafe' => 'setSuppressBuysafe',
         'terms' => 'setTerms',
+        'terms_if_auto_order' => 'setTermsIfAutoOrder',
         'terms_translated_text_instance_oid' => 'setTermsTranslatedTextInstanceOid'
     ];
 
@@ -124,6 +128,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     protected static $getters = [
         'suppress_buysafe' => 'getSuppressBuysafe',
         'terms' => 'getTerms',
+        'terms_if_auto_order' => 'getTermsIfAutoOrder',
         'terms_translated_text_instance_oid' => 'getTermsTranslatedTextInstanceOid'
     ];
 
@@ -189,6 +194,7 @@ class ItemCheckout implements ModelInterface, ArrayAccess
     {
         $this->container['suppress_buysafe'] = isset($data['suppress_buysafe']) ? $data['suppress_buysafe'] : null;
         $this->container['terms'] = isset($data['terms']) ? $data['terms'] : null;
+        $this->container['terms_if_auto_order'] = isset($data['terms_if_auto_order']) ? $data['terms_if_auto_order'] : null;
         $this->container['terms_translated_text_instance_oid'] = isset($data['terms_translated_text_instance_oid']) ? $data['terms_translated_text_instance_oid'] : null;
     }
 
@@ -268,6 +274,30 @@ class ItemCheckout implements ModelInterface, ArrayAccess
         }
 
         $this->container['terms'] = $terms;
+
+        return $this;
+    }
+
+    /**
+     * Gets terms_if_auto_order
+     *
+     * @return bool
+     */
+    public function getTermsIfAutoOrder()
+    {
+        return $this->container['terms_if_auto_order'];
+    }
+
+    /**
+     * Sets terms_if_auto_order
+     *
+     * @param bool $terms_if_auto_order Terms only apply if the item is on auto order
+     *
+     * @return $this
+     */
+    public function setTermsIfAutoOrder($terms_if_auto_order)
+    {
+        $this->container['terms_if_auto_order'] = $terms_if_auto_order;
 
         return $this;
     }
