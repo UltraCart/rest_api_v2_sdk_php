@@ -1195,6 +1195,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.16 | 09/30/2021 | item exclude from sitemap field  | 
 | 3.6.15 | 09/28/2021 | added refund_claim_id to insurance object  | 
 | 3.6.14 | 09/21/2021 | configuration api fix.  the echeck test methods were attached to the paper check object  | 
 | 3.6.13 | 09/20/2021 | expose EasyPost tracker id if available on shipment tracking details  | 
