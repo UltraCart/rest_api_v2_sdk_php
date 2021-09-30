@@ -61,6 +61,7 @@ class ItemContent implements ModelInterface, ArrayAccess
         'attributes' => '\ultracart\v2\models\ItemContentAttribute[]',
         'custom_thank_you_url' => 'string',
         'exclude_from_search' => 'bool',
+        'exclude_from_sitemap' => 'bool',
         'exclude_from_top_sellers' => 'bool',
         'extended_description' => 'string',
         'extended_description_translated_text_instance_oid' => 'int',
@@ -81,6 +82,7 @@ class ItemContent implements ModelInterface, ArrayAccess
         'attributes' => null,
         'custom_thank_you_url' => null,
         'exclude_from_search' => null,
+        'exclude_from_sitemap' => null,
         'exclude_from_top_sellers' => null,
         'extended_description' => null,
         'extended_description_translated_text_instance_oid' => 'int32',
@@ -122,6 +124,7 @@ class ItemContent implements ModelInterface, ArrayAccess
         'attributes' => 'attributes',
         'custom_thank_you_url' => 'custom_thank_you_url',
         'exclude_from_search' => 'exclude_from_search',
+        'exclude_from_sitemap' => 'exclude_from_sitemap',
         'exclude_from_top_sellers' => 'exclude_from_top_sellers',
         'extended_description' => 'extended_description',
         'extended_description_translated_text_instance_oid' => 'extended_description_translated_text_instance_oid',
@@ -142,6 +145,7 @@ class ItemContent implements ModelInterface, ArrayAccess
         'attributes' => 'setAttributes',
         'custom_thank_you_url' => 'setCustomThankYouUrl',
         'exclude_from_search' => 'setExcludeFromSearch',
+        'exclude_from_sitemap' => 'setExcludeFromSitemap',
         'exclude_from_top_sellers' => 'setExcludeFromTopSellers',
         'extended_description' => 'setExtendedDescription',
         'extended_description_translated_text_instance_oid' => 'setExtendedDescriptionTranslatedTextInstanceOid',
@@ -162,6 +166,7 @@ class ItemContent implements ModelInterface, ArrayAccess
         'attributes' => 'getAttributes',
         'custom_thank_you_url' => 'getCustomThankYouUrl',
         'exclude_from_search' => 'getExcludeFromSearch',
+        'exclude_from_sitemap' => 'getExcludeFromSitemap',
         'exclude_from_top_sellers' => 'getExcludeFromTopSellers',
         'extended_description' => 'getExtendedDescription',
         'extended_description_translated_text_instance_oid' => 'getExtendedDescriptionTranslatedTextInstanceOid',
@@ -236,6 +241,7 @@ class ItemContent implements ModelInterface, ArrayAccess
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['custom_thank_you_url'] = isset($data['custom_thank_you_url']) ? $data['custom_thank_you_url'] : null;
         $this->container['exclude_from_search'] = isset($data['exclude_from_search']) ? $data['exclude_from_search'] : null;
+        $this->container['exclude_from_sitemap'] = isset($data['exclude_from_sitemap']) ? $data['exclude_from_sitemap'] : null;
         $this->container['exclude_from_top_sellers'] = isset($data['exclude_from_top_sellers']) ? $data['exclude_from_top_sellers'] : null;
         $this->container['extended_description'] = isset($data['extended_description']) ? $data['extended_description'] : null;
         $this->container['extended_description_translated_text_instance_oid'] = isset($data['extended_description_translated_text_instance_oid']) ? $data['extended_description_translated_text_instance_oid'] : null;
@@ -366,6 +372,30 @@ class ItemContent implements ModelInterface, ArrayAccess
     public function setExcludeFromSearch($exclude_from_search)
     {
         $this->container['exclude_from_search'] = $exclude_from_search;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_from_sitemap
+     *
+     * @return bool
+     */
+    public function getExcludeFromSitemap()
+    {
+        return $this->container['exclude_from_sitemap'];
+    }
+
+    /**
+     * Sets exclude_from_sitemap
+     *
+     * @param bool $exclude_from_sitemap Exclude from the sitemap for the StoreFront
+     *
+     * @return $this
+     */
+    public function setExcludeFromSitemap($exclude_from_sitemap)
+    {
+        $this->container['exclude_from_sitemap'] = $exclude_from_sitemap;
 
         return $this;
     }

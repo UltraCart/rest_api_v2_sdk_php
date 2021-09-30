@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **attributes** | [**\ultracart\v2\models\ItemContentAttribute[]**](ItemContentAttribute.md) | StoreFront attributes | [optional] 
 **custom_thank_you_url** | **string** | Custom Thank You URL | [optional] 
 **exclude_from_search** | **bool** | Exclude from search | [optional] 
+**exclude_from_sitemap** | **bool** | Exclude from the sitemap for the StoreFront | [optional] 
 **exclude_from_top_sellers** | **bool** | Exclude from the top sellers list in the StoreFront | [optional] 
 **extended_description** | **string** | Extended description (max 10000 characters) | [optional] 
 **extended_description_translated_text_instance_oid** | **int** | Extneded description text translation instance identifier | [optional] 
