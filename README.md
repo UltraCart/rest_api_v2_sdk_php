@@ -843,6 +843,7 @@ Class | Method | HTTP request | Description
  - [ItemEbayMarketPlaceAnalysis](docs/Model/ItemEbayMarketPlaceAnalysis.md)
  - [ItemEmailNotifications](docs/Model/ItemEmailNotifications.md)
  - [ItemEnrollment123](docs/Model/ItemEnrollment123.md)
+ - [ItemFulfillmentAddon](docs/Model/ItemFulfillmentAddon.md)
  - [ItemGiftCertificate](docs/Model/ItemGiftCertificate.md)
  - [ItemGoogleProductSearch](docs/Model/ItemGoogleProductSearch.md)
  - [ItemIdentifiers](docs/Model/ItemIdentifiers.md)
@@ -1195,6 +1196,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.19 | 10/05/2021 | item fulfillment add ons  | 
 | 3.6.18 | 09/30/2021 | terms if auto order flag added  | 
 | 3.6.16 | 09/30/2021 | item exclude from sitemap field  | 
 | 3.6.15 | 09/28/2021 | added refund_claim_id to insurance object  | 

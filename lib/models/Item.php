@@ -72,6 +72,7 @@ class Item implements ModelInterface, ArrayAccess
         'ebay' => '\ultracart\v2\models\ItemEbay',
         'email_notifications' => '\ultracart\v2\models\ItemEmailNotifications',
         'enrollment123' => '\ultracart\v2\models\ItemEnrollment123',
+        'fulfillment_addons' => '\ultracart\v2\models\ItemFulfillmentAddon[]',
         'gift_certificate' => '\ultracart\v2\models\ItemGiftCertificate',
         'google_product_search' => '\ultracart\v2\models\ItemGoogleProductSearch',
         'identifiers' => '\ultracart\v2\models\ItemIdentifiers',
@@ -130,6 +131,7 @@ class Item implements ModelInterface, ArrayAccess
         'ebay' => null,
         'email_notifications' => null,
         'enrollment123' => null,
+        'fulfillment_addons' => null,
         'gift_certificate' => null,
         'google_product_search' => null,
         'identifiers' => null,
@@ -209,6 +211,7 @@ class Item implements ModelInterface, ArrayAccess
         'ebay' => 'ebay',
         'email_notifications' => 'email_notifications',
         'enrollment123' => 'enrollment123',
+        'fulfillment_addons' => 'fulfillment_addons',
         'gift_certificate' => 'gift_certificate',
         'google_product_search' => 'google_product_search',
         'identifiers' => 'identifiers',
@@ -267,6 +270,7 @@ class Item implements ModelInterface, ArrayAccess
         'ebay' => 'setEbay',
         'email_notifications' => 'setEmailNotifications',
         'enrollment123' => 'setEnrollment123',
+        'fulfillment_addons' => 'setFulfillmentAddons',
         'gift_certificate' => 'setGiftCertificate',
         'google_product_search' => 'setGoogleProductSearch',
         'identifiers' => 'setIdentifiers',
@@ -325,6 +329,7 @@ class Item implements ModelInterface, ArrayAccess
         'ebay' => 'getEbay',
         'email_notifications' => 'getEmailNotifications',
         'enrollment123' => 'getEnrollment123',
+        'fulfillment_addons' => 'getFulfillmentAddons',
         'gift_certificate' => 'getGiftCertificate',
         'google_product_search' => 'getGoogleProductSearch',
         'identifiers' => 'getIdentifiers',
@@ -437,6 +442,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['ebay'] = isset($data['ebay']) ? $data['ebay'] : null;
         $this->container['email_notifications'] = isset($data['email_notifications']) ? $data['email_notifications'] : null;
         $this->container['enrollment123'] = isset($data['enrollment123']) ? $data['enrollment123'] : null;
+        $this->container['fulfillment_addons'] = isset($data['fulfillment_addons']) ? $data['fulfillment_addons'] : null;
         $this->container['gift_certificate'] = isset($data['gift_certificate']) ? $data['gift_certificate'] : null;
         $this->container['google_product_search'] = isset($data['google_product_search']) ? $data['google_product_search'] : null;
         $this->container['identifiers'] = isset($data['identifiers']) ? $data['identifiers'] : null;
@@ -870,6 +876,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setEnrollment123($enrollment123)
     {
         $this->container['enrollment123'] = $enrollment123;
+
+        return $this;
+    }
+
+    /**
+     * Gets fulfillment_addons
+     *
+     * @return \ultracart\v2\models\ItemFulfillmentAddon[]
+     */
+    public function getFulfillmentAddons()
+    {
+        return $this->container['fulfillment_addons'];
+    }
+
+    /**
+     * Sets fulfillment_addons
+     *
+     * @param \ultracart\v2\models\ItemFulfillmentAddon[] $fulfillment_addons Fulfillment Add-ons
+     *
+     * @return $this
+     */
+    public function setFulfillmentAddons($fulfillment_addons)
+    {
+        $this->container['fulfillment_addons'] = $fulfillment_addons;
 
         return $this;
     }

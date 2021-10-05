@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **ebay** | [**\ultracart\v2\models\ItemEbay**](ItemEbay.md) |  | [optional] 
 **email_notifications** | [**\ultracart\v2\models\ItemEmailNotifications**](ItemEmailNotifications.md) |  | [optional] 
 **enrollment123** | [**\ultracart\v2\models\ItemEnrollment123**](ItemEnrollment123.md) |  | [optional] 
+**fulfillment_addons** | [**\ultracart\v2\models\ItemFulfillmentAddon[]**](ItemFulfillmentAddon.md) | Fulfillment Add-ons | [optional] 
 **gift_certificate** | [**\ultracart\v2\models\ItemGiftCertificate**](ItemGiftCertificate.md) |  | [optional] 
 **google_product_search** | [**\ultracart\v2\models\ItemGoogleProductSearch**](ItemGoogleProductSearch.md) |  | [optional] 
 **identifiers** | [**\ultracart\v2\models\ItemIdentifiers**](ItemIdentifiers.md) |  | [optional] 
