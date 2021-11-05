@@ -796,6 +796,7 @@ Class | Method | HTTP request | Description
  - [Experiment](docs/Model/Experiment.md)
  - [ExperimentResponse](docs/Model/ExperimentResponse.md)
  - [ExperimentVariation](docs/Model/ExperimentVariation.md)
+ - [ExperimentVariationStat](docs/Model/ExperimentVariationStat.md)
  - [ExperimentsResponse](docs/Model/ExperimentsResponse.md)
  - [FulfillmentInventory](docs/Model/FulfillmentInventory.md)
  - [FulfillmentShipment](docs/Model/FulfillmentShipment.md)
@@ -1196,6 +1197,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.20 | 11/05/2021 | additional item auto order step types  | 
 | 3.6.19 | 10/05/2021 | item fulfillment add ons  | 
 | 3.6.18 | 09/30/2021 | terms if auto order flag added  | 
 | 3.6.16 | 09/30/2021 | item exclude from sitemap field  | 

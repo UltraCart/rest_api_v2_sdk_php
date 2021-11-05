@@ -58,6 +58,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'affiliate_click_oid' => 'int',
+        'affiliate_ledger_oid' => 'int',
         'affiliate_link_oid' => 'int',
         'affiliate_oid' => 'int',
         'assigned_by_user' => 'string',
@@ -68,12 +69,12 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
         'order_id' => 'string',
         'original_transaction_dts' => 'string',
         'sub_id' => 'string',
-        'tier_number' => 'string',
+        'tier_number' => 'int',
         'transaction_amount' => 'float',
         'transaction_amount_paid' => 'float',
         'transaction_dts' => 'string',
         'transaction_memo' => 'string',
-        'transaction_percentage' => 'string',
+        'transaction_percentage' => 'float',
         'transaction_state' => 'string'
     ];
 
@@ -84,22 +85,23 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'affiliate_click_oid' => 'int32',
+        'affiliate_ledger_oid' => 'int32',
         'affiliate_link_oid' => 'int32',
         'affiliate_oid' => 'int32',
         'assigned_by_user' => null,
         'click' => null,
-        'item_id' => 'dateTime',
+        'item_id' => null,
         'link' => null,
         'order' => null,
         'order_id' => null,
         'original_transaction_dts' => 'dateTime',
         'sub_id' => null,
-        'tier_number' => 'dateTime',
+        'tier_number' => 'int32',
         'transaction_amount' => null,
         'transaction_amount_paid' => null,
         'transaction_dts' => 'dateTime',
         'transaction_memo' => null,
-        'transaction_percentage' => 'dateTime',
+        'transaction_percentage' => null,
         'transaction_state' => null
     ];
 
@@ -131,6 +133,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'affiliate_click_oid' => 'affiliate_click_oid',
+        'affiliate_ledger_oid' => 'affiliate_ledger_oid',
         'affiliate_link_oid' => 'affiliate_link_oid',
         'affiliate_oid' => 'affiliate_oid',
         'assigned_by_user' => 'assigned_by_user',
@@ -157,6 +160,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'affiliate_click_oid' => 'setAffiliateClickOid',
+        'affiliate_ledger_oid' => 'setAffiliateLedgerOid',
         'affiliate_link_oid' => 'setAffiliateLinkOid',
         'affiliate_oid' => 'setAffiliateOid',
         'assigned_by_user' => 'setAssignedByUser',
@@ -183,6 +187,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'affiliate_click_oid' => 'getAffiliateClickOid',
+        'affiliate_ledger_oid' => 'getAffiliateLedgerOid',
         'affiliate_link_oid' => 'getAffiliateLinkOid',
         'affiliate_oid' => 'getAffiliateOid',
         'assigned_by_user' => 'getAssignedByUser',
@@ -286,6 +291,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['affiliate_click_oid'] = isset($data['affiliate_click_oid']) ? $data['affiliate_click_oid'] : null;
+        $this->container['affiliate_ledger_oid'] = isset($data['affiliate_ledger_oid']) ? $data['affiliate_ledger_oid'] : null;
         $this->container['affiliate_link_oid'] = isset($data['affiliate_link_oid']) ? $data['affiliate_link_oid'] : null;
         $this->container['affiliate_oid'] = isset($data['affiliate_oid']) ? $data['affiliate_oid'] : null;
         $this->container['assigned_by_user'] = isset($data['assigned_by_user']) ? $data['assigned_by_user'] : null;
@@ -357,6 +363,30 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     public function setAffiliateClickOid($affiliate_click_oid)
     {
         $this->container['affiliate_click_oid'] = $affiliate_click_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets affiliate_ledger_oid
+     *
+     * @return int
+     */
+    public function getAffiliateLedgerOid()
+    {
+        return $this->container['affiliate_ledger_oid'];
+    }
+
+    /**
+     * Sets affiliate_ledger_oid
+     *
+     * @param int $affiliate_ledger_oid Affiliate ledger object ID associated with this ledger
+     *
+     * @return $this
+     */
+    public function setAffiliateLedgerOid($affiliate_ledger_oid)
+    {
+        $this->container['affiliate_ledger_oid'] = $affiliate_ledger_oid;
 
         return $this;
     }
@@ -604,7 +634,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Gets tier_number
      *
-     * @return string
+     * @return int
      */
     public function getTierNumber()
     {
@@ -614,7 +644,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Sets tier_number
      *
-     * @param string $tier_number Tier number that this transaction earned
+     * @param int $tier_number Tier number that this transaction earned
      *
      * @return $this
      */
@@ -724,7 +754,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_percentage
      *
-     * @return string
+     * @return float
      */
     public function getTransactionPercentage()
     {
@@ -734,7 +764,7 @@ class AffiliateLedger implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_percentage
      *
-     * @param string $transaction_percentage Percentage associated with this transaction
+     * @param float $transaction_percentage Percentage associated with this transaction
      *
      * @return $this
      */

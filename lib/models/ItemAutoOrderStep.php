@@ -230,6 +230,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
 
     const TYPE_ITEM = 'item';
     const TYPE_PAUSE = 'pause';
+    const TYPE_LOOP = 'loop';
+    const TYPE_KIT_ONLY = 'kit only';
     
 
     
@@ -243,6 +245,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
         return [
             self::TYPE_ITEM,
             self::TYPE_PAUSE,
+            self::TYPE_LOOP,
+            self::TYPE_KIT_ONLY,
         ];
     }
     
@@ -668,7 +672,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Type of step (item or pause)
+     * @param string $type Type of step (item, kit only, loop or pause)
      *
      * @return $this
      */

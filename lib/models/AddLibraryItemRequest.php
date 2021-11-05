@@ -325,7 +325,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets content_type
      *
-     * @param string $content_type flow, campaign, cjson, email, transactional_email or upsell
+     * @param string $content_type flow, campaign, cjson, email, transactional_email, postcard or upsell
      *
      * @return $this
      */
@@ -517,7 +517,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     /**
      * Sets uuid
      *
-     * @param string $uuid UUID of communication flow, campaign, email, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name
+     * @param string $uuid UUID of communication flow, campaign, email, postcard, or null if this item is something else. transactional_email do not have a uuid because they are singleton objects within a storefront and easily identifiable by name
      *
      * @return $this
      */

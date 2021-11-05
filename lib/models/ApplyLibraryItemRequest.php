@@ -59,6 +59,7 @@ class ApplyLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'email_uuid' => 'string',
         'library_item_oid' => 'int',
+        'postcard_uuid' => 'string',
         'storefront_oid' => 'int'
     ];
 
@@ -70,6 +71,7 @@ class ApplyLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'email_uuid' => null,
         'library_item_oid' => 'int32',
+        'postcard_uuid' => null,
         'storefront_oid' => 'int32'
     ];
 
@@ -102,6 +104,7 @@ class ApplyLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'email_uuid' => 'email_uuid',
         'library_item_oid' => 'library_item_oid',
+        'postcard_uuid' => 'postcard_uuid',
         'storefront_oid' => 'storefront_oid'
     ];
 
@@ -113,6 +116,7 @@ class ApplyLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'email_uuid' => 'setEmailUuid',
         'library_item_oid' => 'setLibraryItemOid',
+        'postcard_uuid' => 'setPostcardUuid',
         'storefront_oid' => 'setStorefrontOid'
     ];
 
@@ -124,6 +128,7 @@ class ApplyLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'email_uuid' => 'getEmailUuid',
         'library_item_oid' => 'getLibraryItemOid',
+        'postcard_uuid' => 'getPostcardUuid',
         'storefront_oid' => 'getStorefrontOid'
     ];
 
@@ -189,6 +194,7 @@ class ApplyLibraryItemRequest implements ModelInterface, ArrayAccess
     {
         $this->container['email_uuid'] = isset($data['email_uuid']) ? $data['email_uuid'] : null;
         $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
+        $this->container['postcard_uuid'] = isset($data['postcard_uuid']) ? $data['postcard_uuid'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
     }
 
@@ -260,6 +266,30 @@ class ApplyLibraryItemRequest implements ModelInterface, ArrayAccess
     public function setLibraryItemOid($library_item_oid)
     {
         $this->container['library_item_oid'] = $library_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets postcard_uuid
+     *
+     * @return string
+     */
+    public function getPostcardUuid()
+    {
+        return $this->container['postcard_uuid'];
+    }
+
+    /**
+     * Sets postcard_uuid
+     *
+     * @param string $postcard_uuid The postcard uuid you wish to apply to a given StoreFront.
+     *
+     * @return $this
+     */
+    public function setPostcardUuid($postcard_uuid)
+    {
+        $this->container['postcard_uuid'] = $postcard_uuid;
 
         return $this;
     }

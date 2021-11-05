@@ -366,7 +366,6 @@ class OrderQuery implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_COD = 'COD';
     const PAYMENT_METHOD_CREDIT_CARD = 'Credit Card';
     const PAYMENT_METHOD_E_CHECK = 'eCheck';
-    const PAYMENT_METHOD_GOOGLE_SHOPPING = 'Google Shopping';
     const PAYMENT_METHOD_LOAN_HERO = 'LoanHero';
     const PAYMENT_METHOD_MONEY_ORDER = 'Money Order';
     const PAYMENT_METHOD_PAY_PAL = 'PayPal';
@@ -414,7 +413,6 @@ class OrderQuery implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_COD,
             self::PAYMENT_METHOD_CREDIT_CARD,
             self::PAYMENT_METHOD_E_CHECK,
-            self::PAYMENT_METHOD_GOOGLE_SHOPPING,
             self::PAYMENT_METHOD_LOAN_HERO,
             self::PAYMENT_METHOD_MONEY_ORDER,
             self::PAYMENT_METHOD_PAY_PAL,

@@ -325,7 +325,7 @@ class ApplyLibraryItemResponse implements ModelInterface, ArrayAccess
     /**
      * Sets content_type
      *
-     * @param string $content_type flow, campaign, cjson, upsell, transactional_email or email
+     * @param string $content_type flow, campaign, cjson, upsell, postcard, transactional_email or email
      *
      * @return $this
      */

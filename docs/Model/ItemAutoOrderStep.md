@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **schedule** | **string** | Frequency of the rebill | [optional] 
 **subscribe_email_list_name** | **string** | Email list name to subscribe the customer to when the rebill occurs | [optional] 
 **subscribe_email_list_oid** | **int** | Email list identifier to subscribe the customer to when this rebill occurs | [optional] 
-**type** | **string** | Type of step (item or pause) | [optional] 
+**type** | **string** | Type of step (item, kit only, loop or pause) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

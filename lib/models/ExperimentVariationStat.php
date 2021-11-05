@@ -1,6 +1,6 @@
 <?php
 /**
- * ExperimentVariation
+ * ExperimentVariationStat
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ExperimentVariation Class Doc Comment
+ * ExperimentVariationStat Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ExperimentVariation implements ModelInterface, ArrayAccess
+class ExperimentVariationStat implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ExperimentVariation';
+    protected static $swaggerModelName = 'ExperimentVariationStat';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,26 +58,16 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'add_to_cart_count' => 'int',
-        'average_duration_seconds' => 'int',
-        'average_objective_per_session' => 'float',
-        'average_order_value' => 'float',
         'bounce_count' => 'int',
-        'conversion_rate' => 'float',
-        'daily_statistics' => '\ultracart\v2\models\ExperimentVariationStat[]',
         'duration_seconds_sum' => 'int',
         'event_count' => 'int',
         'initiate_checkout_count' => 'int',
         'order_count' => 'int',
         'order_item_count' => 'int',
-        'original_traffic_percentage' => 'float',
         'page_view_count' => 'int',
         'revenue' => 'float',
         'session_count' => 'int',
-        'traffic_percentage' => 'float',
-        'url' => 'string',
-        'variation_name' => 'string',
-        'variation_number' => 'int',
-        'winner' => 'bool'
+        'stat_dts' => 'string'
     ];
 
     /**
@@ -87,26 +77,16 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'add_to_cart_count' => 'int32',
-        'average_duration_seconds' => 'int32',
-        'average_objective_per_session' => null,
-        'average_order_value' => null,
         'bounce_count' => 'int32',
-        'conversion_rate' => null,
-        'daily_statistics' => null,
         'duration_seconds_sum' => 'int64',
         'event_count' => 'int32',
         'initiate_checkout_count' => 'int32',
         'order_count' => 'int32',
         'order_item_count' => 'int32',
-        'original_traffic_percentage' => null,
         'page_view_count' => 'int32',
         'revenue' => null,
         'session_count' => 'int32',
-        'traffic_percentage' => null,
-        'url' => null,
-        'variation_name' => null,
-        'variation_number' => 'int32',
-        'winner' => null
+        'stat_dts' => 'dateTime'
     ];
 
     /**
@@ -137,26 +117,16 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'add_to_cart_count' => 'add_to_cart_count',
-        'average_duration_seconds' => 'average_duration_seconds',
-        'average_objective_per_session' => 'average_objective_per_session',
-        'average_order_value' => 'average_order_value',
         'bounce_count' => 'bounce_count',
-        'conversion_rate' => 'conversion_rate',
-        'daily_statistics' => 'daily_statistics',
         'duration_seconds_sum' => 'duration_seconds_sum',
         'event_count' => 'event_count',
         'initiate_checkout_count' => 'initiate_checkout_count',
         'order_count' => 'order_count',
         'order_item_count' => 'order_item_count',
-        'original_traffic_percentage' => 'original_traffic_percentage',
         'page_view_count' => 'page_view_count',
         'revenue' => 'revenue',
         'session_count' => 'session_count',
-        'traffic_percentage' => 'traffic_percentage',
-        'url' => 'url',
-        'variation_name' => 'variation_name',
-        'variation_number' => 'variation_number',
-        'winner' => 'winner'
+        'stat_dts' => 'stat_dts'
     ];
 
     /**
@@ -166,26 +136,16 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'add_to_cart_count' => 'setAddToCartCount',
-        'average_duration_seconds' => 'setAverageDurationSeconds',
-        'average_objective_per_session' => 'setAverageObjectivePerSession',
-        'average_order_value' => 'setAverageOrderValue',
         'bounce_count' => 'setBounceCount',
-        'conversion_rate' => 'setConversionRate',
-        'daily_statistics' => 'setDailyStatistics',
         'duration_seconds_sum' => 'setDurationSecondsSum',
         'event_count' => 'setEventCount',
         'initiate_checkout_count' => 'setInitiateCheckoutCount',
         'order_count' => 'setOrderCount',
         'order_item_count' => 'setOrderItemCount',
-        'original_traffic_percentage' => 'setOriginalTrafficPercentage',
         'page_view_count' => 'setPageViewCount',
         'revenue' => 'setRevenue',
         'session_count' => 'setSessionCount',
-        'traffic_percentage' => 'setTrafficPercentage',
-        'url' => 'setUrl',
-        'variation_name' => 'setVariationName',
-        'variation_number' => 'setVariationNumber',
-        'winner' => 'setWinner'
+        'stat_dts' => 'setStatDts'
     ];
 
     /**
@@ -195,26 +155,16 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'add_to_cart_count' => 'getAddToCartCount',
-        'average_duration_seconds' => 'getAverageDurationSeconds',
-        'average_objective_per_session' => 'getAverageObjectivePerSession',
-        'average_order_value' => 'getAverageOrderValue',
         'bounce_count' => 'getBounceCount',
-        'conversion_rate' => 'getConversionRate',
-        'daily_statistics' => 'getDailyStatistics',
         'duration_seconds_sum' => 'getDurationSecondsSum',
         'event_count' => 'getEventCount',
         'initiate_checkout_count' => 'getInitiateCheckoutCount',
         'order_count' => 'getOrderCount',
         'order_item_count' => 'getOrderItemCount',
-        'original_traffic_percentage' => 'getOriginalTrafficPercentage',
         'page_view_count' => 'getPageViewCount',
         'revenue' => 'getRevenue',
         'session_count' => 'getSessionCount',
-        'traffic_percentage' => 'getTrafficPercentage',
-        'url' => 'getUrl',
-        'variation_name' => 'getVariationName',
-        'variation_number' => 'getVariationNumber',
-        'winner' => 'getWinner'
+        'stat_dts' => 'getStatDts'
     ];
 
     /**
@@ -278,26 +228,16 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['add_to_cart_count'] = isset($data['add_to_cart_count']) ? $data['add_to_cart_count'] : null;
-        $this->container['average_duration_seconds'] = isset($data['average_duration_seconds']) ? $data['average_duration_seconds'] : null;
-        $this->container['average_objective_per_session'] = isset($data['average_objective_per_session']) ? $data['average_objective_per_session'] : null;
-        $this->container['average_order_value'] = isset($data['average_order_value']) ? $data['average_order_value'] : null;
         $this->container['bounce_count'] = isset($data['bounce_count']) ? $data['bounce_count'] : null;
-        $this->container['conversion_rate'] = isset($data['conversion_rate']) ? $data['conversion_rate'] : null;
-        $this->container['daily_statistics'] = isset($data['daily_statistics']) ? $data['daily_statistics'] : null;
         $this->container['duration_seconds_sum'] = isset($data['duration_seconds_sum']) ? $data['duration_seconds_sum'] : null;
         $this->container['event_count'] = isset($data['event_count']) ? $data['event_count'] : null;
         $this->container['initiate_checkout_count'] = isset($data['initiate_checkout_count']) ? $data['initiate_checkout_count'] : null;
         $this->container['order_count'] = isset($data['order_count']) ? $data['order_count'] : null;
         $this->container['order_item_count'] = isset($data['order_item_count']) ? $data['order_item_count'] : null;
-        $this->container['original_traffic_percentage'] = isset($data['original_traffic_percentage']) ? $data['original_traffic_percentage'] : null;
         $this->container['page_view_count'] = isset($data['page_view_count']) ? $data['page_view_count'] : null;
         $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
         $this->container['session_count'] = isset($data['session_count']) ? $data['session_count'] : null;
-        $this->container['traffic_percentage'] = isset($data['traffic_percentage']) ? $data['traffic_percentage'] : null;
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['variation_name'] = isset($data['variation_name']) ? $data['variation_name'] : null;
-        $this->container['variation_number'] = isset($data['variation_number']) ? $data['variation_number'] : null;
-        $this->container['winner'] = isset($data['winner']) ? $data['winner'] : null;
+        $this->container['stat_dts'] = isset($data['stat_dts']) ? $data['stat_dts'] : null;
     }
 
     /**
@@ -349,78 +289,6 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets average_duration_seconds
-     *
-     * @return int
-     */
-    public function getAverageDurationSeconds()
-    {
-        return $this->container['average_duration_seconds'];
-    }
-
-    /**
-     * Sets average_duration_seconds
-     *
-     * @param int $average_duration_seconds Average duration seconds per session for this variation
-     *
-     * @return $this
-     */
-    public function setAverageDurationSeconds($average_duration_seconds)
-    {
-        $this->container['average_duration_seconds'] = $average_duration_seconds;
-
-        return $this;
-    }
-
-    /**
-     * Gets average_objective_per_session
-     *
-     * @return float
-     */
-    public function getAverageObjectivePerSession()
-    {
-        return $this->container['average_objective_per_session'];
-    }
-
-    /**
-     * Sets average_objective_per_session
-     *
-     * @param float $average_objective_per_session Average objective value per session for this variation
-     *
-     * @return $this
-     */
-    public function setAverageObjectivePerSession($average_objective_per_session)
-    {
-        $this->container['average_objective_per_session'] = $average_objective_per_session;
-
-        return $this;
-    }
-
-    /**
-     * Gets average_order_value
-     *
-     * @return float
-     */
-    public function getAverageOrderValue()
-    {
-        return $this->container['average_order_value'];
-    }
-
-    /**
-     * Sets average_order_value
-     *
-     * @param float $average_order_value Average order value for this variation
-     *
-     * @return $this
-     */
-    public function setAverageOrderValue($average_order_value)
-    {
-        $this->container['average_order_value'] = $average_order_value;
-
-        return $this;
-    }
-
-    /**
      * Gets bounce_count
      *
      * @return int
@@ -440,54 +308,6 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     public function setBounceCount($bounce_count)
     {
         $this->container['bounce_count'] = $bounce_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversion_rate
-     *
-     * @return float
-     */
-    public function getConversionRate()
-    {
-        return $this->container['conversion_rate'];
-    }
-
-    /**
-     * Sets conversion_rate
-     *
-     * @param float $conversion_rate Conversion rate for this variation
-     *
-     * @return $this
-     */
-    public function setConversionRate($conversion_rate)
-    {
-        $this->container['conversion_rate'] = $conversion_rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets daily_statistics
-     *
-     * @return \ultracart\v2\models\ExperimentVariationStat[]
-     */
-    public function getDailyStatistics()
-    {
-        return $this->container['daily_statistics'];
-    }
-
-    /**
-     * Sets daily_statistics
-     *
-     * @param \ultracart\v2\models\ExperimentVariationStat[] $daily_statistics Array of daily statistics for this variation
-     *
-     * @return $this
-     */
-    public function setDailyStatistics($daily_statistics)
-    {
-        $this->container['daily_statistics'] = $daily_statistics;
 
         return $this;
     }
@@ -529,7 +349,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     /**
      * Sets event_count
      *
-     * @param int $event_count Total event ocunt for this variation
+     * @param int $event_count Total event count for this variation
      *
      * @return $this
      */
@@ -613,30 +433,6 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets original_traffic_percentage
-     *
-     * @return float
-     */
-    public function getOriginalTrafficPercentage()
-    {
-        return $this->container['original_traffic_percentage'];
-    }
-
-    /**
-     * Sets original_traffic_percentage
-     *
-     * @param float $original_traffic_percentage Percentage of the traffic the variation originally started out with
-     *
-     * @return $this
-     */
-    public function setOriginalTrafficPercentage($original_traffic_percentage)
-    {
-        $this->container['original_traffic_percentage'] = $original_traffic_percentage;
-
-        return $this;
-    }
-
-    /**
      * Gets page_view_count
      *
      * @return int
@@ -709,121 +505,25 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets traffic_percentage
-     *
-     * @return float
-     */
-    public function getTrafficPercentage()
-    {
-        return $this->container['traffic_percentage'];
-    }
-
-    /**
-     * Sets traffic_percentage
-     *
-     * @param float $traffic_percentage Percentage of the traffic this variation is currently receiving
-     *
-     * @return $this
-     */
-    public function setTrafficPercentage($traffic_percentage)
-    {
-        $this->container['traffic_percentage'] = $traffic_percentage;
-
-        return $this;
-    }
-
-    /**
-     * Gets url
+     * Gets stat_dts
      *
      * @return string
      */
-    public function getUrl()
+    public function getStatDts()
     {
-        return $this->container['url'];
+        return $this->container['stat_dts'];
     }
 
     /**
-     * Sets url
+     * Sets stat_dts
      *
-     * @param string $url Url of the variation if this experiment is a url experiment.
+     * @param string $stat_dts Date/time that the statistic was created
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setStatDts($stat_dts)
     {
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets variation_name
-     *
-     * @return string
-     */
-    public function getVariationName()
-    {
-        return $this->container['variation_name'];
-    }
-
-    /**
-     * Sets variation_name
-     *
-     * @param string $variation_name Name of the variation
-     *
-     * @return $this
-     */
-    public function setVariationName($variation_name)
-    {
-        $this->container['variation_name'] = $variation_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets variation_number
-     *
-     * @return int
-     */
-    public function getVariationNumber()
-    {
-        return $this->container['variation_number'];
-    }
-
-    /**
-     * Sets variation_number
-     *
-     * @param int $variation_number Variation number
-     *
-     * @return $this
-     */
-    public function setVariationNumber($variation_number)
-    {
-        $this->container['variation_number'] = $variation_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets winner
-     *
-     * @return bool
-     */
-    public function getWinner()
-    {
-        return $this->container['winner'];
-    }
-
-    /**
-     * Sets winner
-     *
-     * @param bool $winner True if this variation has been declared the winner
-     *
-     * @return $this
-     */
-    public function setWinner($winner)
-    {
-        $this->container['winner'] = $winner;
+        $this->container['stat_dts'] = $stat_dts;
 
         return $this;
     }
