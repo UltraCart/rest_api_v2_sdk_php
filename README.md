@@ -1197,6 +1197,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.21 | 11/08/2021 | item shipping distribution center level CostOfGoodsSold | 
 | 3.6.20 | 11/05/2021 | additional item auto order step types  | 
 | 3.6.19 | 10/05/2021 | item fulfillment add ons  | 
 | 3.6.18 | 09/30/2021 | terms if auto order flag added  | 

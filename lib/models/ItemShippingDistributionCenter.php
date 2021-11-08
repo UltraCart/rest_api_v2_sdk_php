@@ -60,6 +60,7 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
         'allocated_to_placed_orders' => 'float',
         'allocated_to_shopping_carts' => 'float',
         'available_to_allocate' => 'float',
+        'cogs' => 'float',
         'desired_inventory_level' => 'float',
         'distribution_center_code' => 'string',
         'distribution_center_oid' => 'int',
@@ -81,6 +82,7 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
         'allocated_to_placed_orders' => null,
         'allocated_to_shopping_carts' => null,
         'available_to_allocate' => null,
+        'cogs' => null,
         'desired_inventory_level' => null,
         'distribution_center_code' => null,
         'distribution_center_oid' => 'int32',
@@ -123,6 +125,7 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
         'allocated_to_placed_orders' => 'allocated_to_placed_orders',
         'allocated_to_shopping_carts' => 'allocated_to_shopping_carts',
         'available_to_allocate' => 'available_to_allocate',
+        'cogs' => 'cogs',
         'desired_inventory_level' => 'desired_inventory_level',
         'distribution_center_code' => 'distribution_center_code',
         'distribution_center_oid' => 'distribution_center_oid',
@@ -144,6 +147,7 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
         'allocated_to_placed_orders' => 'setAllocatedToPlacedOrders',
         'allocated_to_shopping_carts' => 'setAllocatedToShoppingCarts',
         'available_to_allocate' => 'setAvailableToAllocate',
+        'cogs' => 'setCogs',
         'desired_inventory_level' => 'setDesiredInventoryLevel',
         'distribution_center_code' => 'setDistributionCenterCode',
         'distribution_center_oid' => 'setDistributionCenterOid',
@@ -165,6 +169,7 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
         'allocated_to_placed_orders' => 'getAllocatedToPlacedOrders',
         'allocated_to_shopping_carts' => 'getAllocatedToShoppingCarts',
         'available_to_allocate' => 'getAvailableToAllocate',
+        'cogs' => 'getCogs',
         'desired_inventory_level' => 'getDesiredInventoryLevel',
         'distribution_center_code' => 'getDistributionCenterCode',
         'distribution_center_oid' => 'getDistributionCenterOid',
@@ -240,6 +245,7 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
         $this->container['allocated_to_placed_orders'] = isset($data['allocated_to_placed_orders']) ? $data['allocated_to_placed_orders'] : null;
         $this->container['allocated_to_shopping_carts'] = isset($data['allocated_to_shopping_carts']) ? $data['allocated_to_shopping_carts'] : null;
         $this->container['available_to_allocate'] = isset($data['available_to_allocate']) ? $data['available_to_allocate'] : null;
+        $this->container['cogs'] = isset($data['cogs']) ? $data['cogs'] : null;
         $this->container['desired_inventory_level'] = isset($data['desired_inventory_level']) ? $data['desired_inventory_level'] : null;
         $this->container['distribution_center_code'] = isset($data['distribution_center_code']) ? $data['distribution_center_code'] : null;
         $this->container['distribution_center_oid'] = isset($data['distribution_center_oid']) ? $data['distribution_center_oid'] : null;
@@ -352,6 +358,30 @@ class ItemShippingDistributionCenter implements ModelInterface, ArrayAccess
     public function setAvailableToAllocate($available_to_allocate)
     {
         $this->container['available_to_allocate'] = $available_to_allocate;
+
+        return $this;
+    }
+
+    /**
+     * Gets cogs
+     *
+     * @return float
+     */
+    public function getCogs()
+    {
+        return $this->container['cogs'];
+    }
+
+    /**
+     * Sets cogs
+     *
+     * @param float $cogs Cost of goods sold override at the distribution center level
+     *
+     * @return $this
+     */
+    public function setCogs($cogs)
+    {
+        $this->container['cogs'] = $cogs;
 
         return $this;
     }
