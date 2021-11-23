@@ -294,6 +294,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**cloneEmailCampaign**](docs/Api/StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/Api/StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
 *StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+*StorefrontApi* | [**createTwilioAccount**](docs/Api/StorefrontApi.md#createtwilioaccount) | **POST** /storefront/twilio/accounts | Create Twilio account
 *StorefrontApi* | [**deleteEmailCampaignFolder**](docs/Api/StorefrontApi.md#deleteemailcampaignfolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 *StorefrontApi* | [**deleteEmailCommseqStat**](docs/Api/StorefrontApi.md#deleteemailcommseqstat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 *StorefrontApi* | [**deleteEmailEmail**](docs/Api/StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -307,6 +308,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteLibraryItem**](docs/Api/StorefrontApi.md#deletelibraryitem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 *StorefrontApi* | [**deleteLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#deletelibraryitempublishedversions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
 *StorefrontApi* | [**deleteScreenRecordingSegment**](docs/Api/StorefrontApi.md#deletescreenrecordingsegment) | **DELETE** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid} | Delete screen recording segment
+*StorefrontApi* | [**deleteTwilioAccount**](docs/Api/StorefrontApi.md#deletetwilioaccount) | **DELETE** /storefront/twilio/accounts/{esp_twilio_uuid} | delete Twilio account
 *StorefrontApi* | [**duplicateLibraryItem**](docs/Api/StorefrontApi.md#duplicatelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 *StorefrontApi* | [**favoriteScreenRecording**](docs/Api/StorefrontApi.md#favoritescreenrecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 *StorefrontApi* | [**geocodeAddress**](docs/Api/StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
@@ -387,6 +389,8 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getTransactionEmail**](docs/Api/StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
 *StorefrontApi* | [**getTransactionEmailScreenshots**](docs/Api/StorefrontApi.md#gettransactionemailscreenshots) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots | Get transactional email screenshots
+*StorefrontApi* | [**getTwilioAccount**](docs/Api/StorefrontApi.md#gettwilioaccount) | **GET** /storefront/twilio/accounts/{esp_twilio_uuid} | Get Twilio account
+*StorefrontApi* | [**getTwilioAccounts**](docs/Api/StorefrontApi.md#gettwilioaccounts) | **GET** /storefront/twilio/accounts | Get all Twilio accounts
 *StorefrontApi* | [**globalUnsubscribe**](docs/Api/StorefrontApi.md#globalunsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
 *StorefrontApi* | [**importEmailThirdPartyProviderList**](docs/Api/StorefrontApi.md#importemailthirdpartyproviderlist) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 *StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
@@ -440,6 +444,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateScreenRecordingSettings**](docs/Api/StorefrontApi.md#updatescreenrecordingsettings) | **POST** /storefront/{storefront_oid}/screen_recordings/settings | Update screen recording settings
 *StorefrontApi* | [**updateScreenRecordingTags**](docs/Api/StorefrontApi.md#updatescreenrecordingtags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 *StorefrontApi* | [**updateTransactionEmail**](docs/Api/StorefrontApi.md#updatetransactionemail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
+*StorefrontApi* | [**updateTwilioAccount**](docs/Api/StorefrontApi.md#updatetwilioaccount) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/Api/TaxApi.md#deletetaxproviderselfcountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/Api/TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
@@ -1104,6 +1109,9 @@ Class | Method | HTTP request | Description
  - [TransactionGateway](docs/Model/TransactionGateway.md)
  - [TransactionGatewaysRequest](docs/Model/TransactionGatewaysRequest.md)
  - [TransactionGatewaysResponse](docs/Model/TransactionGatewaysResponse.md)
+ - [Twilio](docs/Model/Twilio.md)
+ - [TwilioResponse](docs/Model/TwilioResponse.md)
+ - [TwiliosResponse](docs/Model/TwiliosResponse.md)
  - [UltraCartConfig](docs/Model/UltraCartConfig.md)
  - [UploadCouponCodesRequest](docs/Model/UploadCouponCodesRequest.md)
  - [UploadCouponCodesResponse](docs/Model/UploadCouponCodesResponse.md)
@@ -1197,6 +1205,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.22 | 11/23/2021 | new storefront methods for twilio configuration | 
 | 3.6.21 | 11/08/2021 | item shipping distribution center level CostOfGoodsSold | 
 | 3.6.20 | 11/05/2021 | additional item auto order step types  | 
 | 3.6.19 | 10/05/2021 | item fulfillment add ons  | 
