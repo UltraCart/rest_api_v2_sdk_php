@@ -63,6 +63,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_item_oid' => 'int',
         'auto_order_downgrade_items' => 'string[]',
         'auto_order_paused' => 'bool',
+        'auto_order_prohibit_expiring_cards' => 'int',
         'auto_order_schedules' => 'string[]',
         'auto_order_upgrade_items' => 'string[]',
         'auto_order_upsell' => 'bool',
@@ -87,6 +88,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_item_oid' => 'int32',
         'auto_order_downgrade_items' => null,
         'auto_order_paused' => null,
+        'auto_order_prohibit_expiring_cards' => 'int32',
         'auto_order_schedules' => null,
         'auto_order_upgrade_items' => null,
         'auto_order_upsell' => null,
@@ -132,6 +134,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_item_oid' => 'auto_order_cancel_item_oid',
         'auto_order_downgrade_items' => 'auto_order_downgrade_items',
         'auto_order_paused' => 'auto_order_paused',
+        'auto_order_prohibit_expiring_cards' => 'auto_order_prohibit_expiring_cards',
         'auto_order_schedules' => 'auto_order_schedules',
         'auto_order_upgrade_items' => 'auto_order_upgrade_items',
         'auto_order_upsell' => 'auto_order_upsell',
@@ -156,6 +159,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_item_oid' => 'setAutoOrderCancelItemOid',
         'auto_order_downgrade_items' => 'setAutoOrderDowngradeItems',
         'auto_order_paused' => 'setAutoOrderPaused',
+        'auto_order_prohibit_expiring_cards' => 'setAutoOrderProhibitExpiringCards',
         'auto_order_schedules' => 'setAutoOrderSchedules',
         'auto_order_upgrade_items' => 'setAutoOrderUpgradeItems',
         'auto_order_upsell' => 'setAutoOrderUpsell',
@@ -180,6 +184,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_item_oid' => 'getAutoOrderCancelItemOid',
         'auto_order_downgrade_items' => 'getAutoOrderDowngradeItems',
         'auto_order_paused' => 'getAutoOrderPaused',
+        'auto_order_prohibit_expiring_cards' => 'getAutoOrderProhibitExpiringCards',
         'auto_order_schedules' => 'getAutoOrderSchedules',
         'auto_order_upgrade_items' => 'getAutoOrderUpgradeItems',
         'auto_order_upsell' => 'getAutoOrderUpsell',
@@ -258,6 +263,7 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         $this->container['auto_order_cancel_item_oid'] = isset($data['auto_order_cancel_item_oid']) ? $data['auto_order_cancel_item_oid'] : null;
         $this->container['auto_order_downgrade_items'] = isset($data['auto_order_downgrade_items']) ? $data['auto_order_downgrade_items'] : null;
         $this->container['auto_order_paused'] = isset($data['auto_order_paused']) ? $data['auto_order_paused'] : null;
+        $this->container['auto_order_prohibit_expiring_cards'] = isset($data['auto_order_prohibit_expiring_cards']) ? $data['auto_order_prohibit_expiring_cards'] : null;
         $this->container['auto_order_schedules'] = isset($data['auto_order_schedules']) ? $data['auto_order_schedules'] : null;
         $this->container['auto_order_upgrade_items'] = isset($data['auto_order_upgrade_items']) ? $data['auto_order_upgrade_items'] : null;
         $this->container['auto_order_upsell'] = isset($data['auto_order_upsell']) ? $data['auto_order_upsell'] : null;
@@ -442,6 +448,30 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
     public function setAutoOrderPaused($auto_order_paused)
     {
         $this->container['auto_order_paused'] = $auto_order_paused;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_prohibit_expiring_cards
+     *
+     * @return int
+     */
+    public function getAutoOrderProhibitExpiringCards()
+    {
+        return $this->container['auto_order_prohibit_expiring_cards'];
+    }
+
+    /**
+     * Sets auto_order_prohibit_expiring_cards
+     *
+     * @param int $auto_order_prohibit_expiring_cards Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable.
+     *
+     * @return $this
+     */
+    public function setAutoOrderProhibitExpiringCards($auto_order_prohibit_expiring_cards)
+    {
+        $this->container['auto_order_prohibit_expiring_cards'] = $auto_order_prohibit_expiring_cards;
 
         return $this;
     }

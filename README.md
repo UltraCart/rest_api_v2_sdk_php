@@ -1205,6 +1205,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.23 | 11/29/2021 | Item auto order prohibit cards that expire in months setting. | 
 | 3.6.22 | 11/23/2021 | new storefront methods for twilio configuration | 
 | 3.6.21 | 11/08/2021 | item shipping distribution center level CostOfGoodsSold | 
 | 3.6.20 | 11/05/2021 | additional item auto order step types  | 
