@@ -59,6 +59,7 @@ class CouponResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'coupon' => '\ultracart\v2\models\Coupon',
         'error' => '\ultracart\v2\models\Error',
+        'items_invalid_for_coupons' => 'string[]',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
@@ -72,6 +73,7 @@ class CouponResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'coupon' => null,
         'error' => null,
+        'items_invalid_for_coupons' => null,
         'metadata' => null,
         'success' => null,
         'warning' => null
@@ -106,6 +108,7 @@ class CouponResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'coupon' => 'coupon',
         'error' => 'error',
+        'items_invalid_for_coupons' => 'items_invalid_for_coupons',
         'metadata' => 'metadata',
         'success' => 'success',
         'warning' => 'warning'
@@ -119,6 +122,7 @@ class CouponResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'coupon' => 'setCoupon',
         'error' => 'setError',
+        'items_invalid_for_coupons' => 'setItemsInvalidForCoupons',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
@@ -132,6 +136,7 @@ class CouponResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'coupon' => 'getCoupon',
         'error' => 'getError',
+        'items_invalid_for_coupons' => 'getItemsInvalidForCoupons',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
@@ -199,6 +204,7 @@ class CouponResponse implements ModelInterface, ArrayAccess
     {
         $this->container['coupon'] = isset($data['coupon']) ? $data['coupon'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['items_invalid_for_coupons'] = isset($data['items_invalid_for_coupons']) ? $data['items_invalid_for_coupons'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
@@ -272,6 +278,30 @@ class CouponResponse implements ModelInterface, ArrayAccess
     public function setError($error)
     {
         $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets items_invalid_for_coupons
+     *
+     * @return string[]
+     */
+    public function getItemsInvalidForCoupons()
+    {
+        return $this->container['items_invalid_for_coupons'];
+    }
+
+    /**
+     * Sets items_invalid_for_coupons
+     *
+     * @param string[] $items_invalid_for_coupons Items invalid for coupons.  These will display as warnings within the UI.
+     *
+     * @return $this
+     */
+    public function setItemsInvalidForCoupons($items_invalid_for_coupons)
+    {
+        $this->container['items_invalid_for_coupons'] = $items_invalid_for_coupons;
 
         return $this;
     }
