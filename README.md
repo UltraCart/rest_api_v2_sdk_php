@@ -1205,6 +1205,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.32 | 12/10/2021 | testing automation - message 4 |
 | 3.6.25 | 12/06/2021 | sdk automation testing.  no changes to actual sdk | 
 | 3.6.24 | 11/30/2021 | return items_invalid_for_coupons for CouponResponse object to drive UI warnings | 
 | 3.6.23 | 11/29/2021 | Item auto order prohibit cards that expire in months setting. | 
