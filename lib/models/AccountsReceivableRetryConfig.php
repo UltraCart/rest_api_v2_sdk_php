@@ -59,6 +59,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'active' => 'bool',
         'allow_process_linked_accounts' => 'bool',
+        'cancel_auto_order' => 'bool',
         'current_service_plan' => 'string',
         'daily_activity_list' => '\ultracart\v2\models\AccountsReceivableRetryDayActivity[]',
         'managed_by_linked_account_merchant_id' => 'bool',
@@ -81,6 +82,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'active' => null,
         'allow_process_linked_accounts' => null,
+        'cancel_auto_order' => null,
         'current_service_plan' => null,
         'daily_activity_list' => null,
         'managed_by_linked_account_merchant_id' => null,
@@ -124,6 +126,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'active' => 'active',
         'allow_process_linked_accounts' => 'allow_process_linked_accounts',
+        'cancel_auto_order' => 'cancel_auto_order',
         'current_service_plan' => 'current_service_plan',
         'daily_activity_list' => 'daily_activity_list',
         'managed_by_linked_account_merchant_id' => 'managed_by_linked_account_merchant_id',
@@ -146,6 +149,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     protected static $setters = [
         'active' => 'setActive',
         'allow_process_linked_accounts' => 'setAllowProcessLinkedAccounts',
+        'cancel_auto_order' => 'setCancelAutoOrder',
         'current_service_plan' => 'setCurrentServicePlan',
         'daily_activity_list' => 'setDailyActivityList',
         'managed_by_linked_account_merchant_id' => 'setManagedByLinkedAccountMerchantId',
@@ -168,6 +172,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     protected static $getters = [
         'active' => 'getActive',
         'allow_process_linked_accounts' => 'getAllowProcessLinkedAccounts',
+        'cancel_auto_order' => 'getCancelAutoOrder',
         'current_service_plan' => 'getCurrentServicePlan',
         'daily_activity_list' => 'getDailyActivityList',
         'managed_by_linked_account_merchant_id' => 'getManagedByLinkedAccountMerchantId',
@@ -244,6 +249,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     {
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['allow_process_linked_accounts'] = isset($data['allow_process_linked_accounts']) ? $data['allow_process_linked_accounts'] : null;
+        $this->container['cancel_auto_order'] = isset($data['cancel_auto_order']) ? $data['cancel_auto_order'] : null;
         $this->container['current_service_plan'] = isset($data['current_service_plan']) ? $data['current_service_plan'] : null;
         $this->container['daily_activity_list'] = isset($data['daily_activity_list']) ? $data['daily_activity_list'] : null;
         $this->container['managed_by_linked_account_merchant_id'] = isset($data['managed_by_linked_account_merchant_id']) ? $data['managed_by_linked_account_merchant_id'] : null;
@@ -326,6 +332,30 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess
     public function setAllowProcessLinkedAccounts($allow_process_linked_accounts)
     {
         $this->container['allow_process_linked_accounts'] = $allow_process_linked_accounts;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancel_auto_order
+     *
+     * @return bool
+     */
+    public function getCancelAutoOrder()
+    {
+        return $this->container['cancel_auto_order'];
+    }
+
+    /**
+     * Sets cancel_auto_order
+     *
+     * @param bool $cancel_auto_order If true also cancel the auto order if the order is rejected at the end
+     *
+     * @return $this
+     */
+    public function setCancelAutoOrder($cancel_auto_order)
+    {
+        $this->container['cancel_auto_order'] = $cancel_auto_order;
 
         return $this;
     }

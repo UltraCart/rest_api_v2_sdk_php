@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **bool** | True if the retry should run daily.  False puts the retry service into an inactive state for this merchant. | [optional] 
 **allow_process_linked_accounts** | **bool** | True if this account has linked accounts that it can process. | [optional] 
+**cancel_auto_order** | **bool** | If true also cancel the auto order if the order is rejected at the end | [optional] 
 **current_service_plan** | **string** | The current service plan that the account is on. | [optional] 
 **daily_activity_list** | [**\ultracart\v2\models\AccountsReceivableRetryDayActivity[]**](AccountsReceivableRetryDayActivity.md) | A list of days and what actions should take place on those days after an order reaches accounts receivable | [optional] 
 **managed_by_linked_account_merchant_id** | **bool** | If not null, this account is managed by the specified parent merchant id. | [optional] 
