@@ -67,6 +67,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'day_phone_e164' => 'string',
         'email' => 'string',
         'evening_phone' => 'string',
+        'evening_phone_e164' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
         'postal_code' => 'string',
@@ -90,6 +91,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'day_phone_e164' => null,
         'email' => null,
         'evening_phone' => null,
+        'evening_phone_e164' => null,
         'first_name' => null,
         'last_name' => null,
         'postal_code' => null,
@@ -134,6 +136,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'day_phone_e164' => 'day_phone_e164',
         'email' => 'email',
         'evening_phone' => 'evening_phone',
+        'evening_phone_e164' => 'evening_phone_e164',
         'first_name' => 'first_name',
         'last_name' => 'last_name',
         'postal_code' => 'postal_code',
@@ -157,6 +160,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'day_phone_e164' => 'setDayPhoneE164',
         'email' => 'setEmail',
         'evening_phone' => 'setEveningPhone',
+        'evening_phone_e164' => 'setEveningPhoneE164',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
         'postal_code' => 'setPostalCode',
@@ -180,6 +184,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         'day_phone_e164' => 'getDayPhoneE164',
         'email' => 'getEmail',
         'evening_phone' => 'getEveningPhone',
+        'evening_phone_e164' => 'getEveningPhoneE164',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
         'postal_code' => 'getPostalCode',
@@ -257,6 +262,7 @@ class OrderBilling implements ModelInterface, ArrayAccess
         $this->container['day_phone_e164'] = isset($data['day_phone_e164']) ? $data['day_phone_e164'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['evening_phone'] = isset($data['evening_phone']) ? $data['evening_phone'] : null;
+        $this->container['evening_phone_e164'] = isset($data['evening_phone_e164']) ? $data['evening_phone_e164'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
@@ -307,6 +313,10 @@ class OrderBilling implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['evening_phone']) && (mb_strlen($this->container['evening_phone']) > 25)) {
             $invalidProperties[] = "invalid value for 'evening_phone', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['evening_phone_e164']) && (mb_strlen($this->container['evening_phone_e164']) > 25)) {
+            $invalidProperties[] = "invalid value for 'evening_phone_e164', the character length must be smaller than or equal to 25.";
         }
 
         if (!is_null($this->container['first_name']) && (mb_strlen($this->container['first_name']) > 30)) {
@@ -616,6 +626,34 @@ class OrderBilling implements ModelInterface, ArrayAccess
         }
 
         $this->container['evening_phone'] = $evening_phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets evening_phone_e164
+     *
+     * @return string
+     */
+    public function getEveningPhoneE164()
+    {
+        return $this->container['evening_phone_e164'];
+    }
+
+    /**
+     * Sets evening_phone_e164
+     *
+     * @param string $evening_phone_e164 Evening phone (E164 format)
+     *
+     * @return $this
+     */
+    public function setEveningPhoneE164($evening_phone_e164)
+    {
+        if (!is_null($evening_phone_e164) && (mb_strlen($evening_phone_e164) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $evening_phone_e164 when calling OrderBilling., must be smaller than or equal to 25.');
+        }
+
+        $this->container['evening_phone_e164'] = $evening_phone_e164;
 
         return $this;
     }

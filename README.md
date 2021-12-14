@@ -1205,6 +1205,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.34 | 12/14/2021 | add evening phone E.164 fields to order billing/shipping objects |
 | 3.6.33 | 12/13/2021 | automation testing |
 | 3.6.32 | 12/10/2021 | testing automation - message 4 |
 | 3.6.25 | 12/06/2021 | sdk automation testing.  no changes to actual sdk | 

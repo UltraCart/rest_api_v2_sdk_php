@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **day_phone_e164** | **string** | Day time phone (E164 format) | [optional] 
 **delivery_date** | **string** | Date the customer is requesting delivery on.  Typically used for perishable product delivery. | [optional] 
 **evening_phone** | **string** | Evening phone | [optional] 
+**evening_phone_e164** | **string** | Evening phone (E164 format) | [optional] 
 **first_name** | **string** | First name | [optional] 
 **last_name** | **string** | Last name | [optional] 
 **least_cost_route** | **bool** | If true, instructs UltraCart to apply the cheapest shipping method to this order.  Used only for channel partner order inserts. | [optional] 
