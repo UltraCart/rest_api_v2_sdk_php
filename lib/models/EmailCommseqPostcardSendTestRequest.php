@@ -65,6 +65,7 @@ class EmailCommseqPostcardSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_postcard_uuid' => 'string',
         'esp_commseq_step_uuid' => 'string',
         'esp_commseq_uuid' => 'string',
+        'mail_card' => 'bool',
         'name' => 'string',
         'order_id' => 'string',
         'postal_code' => 'string',
@@ -85,6 +86,7 @@ class EmailCommseqPostcardSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_postcard_uuid' => null,
         'esp_commseq_step_uuid' => null,
         'esp_commseq_uuid' => null,
+        'mail_card' => null,
         'name' => null,
         'order_id' => null,
         'postal_code' => null,
@@ -126,6 +128,7 @@ class EmailCommseqPostcardSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_postcard_uuid' => 'esp_commseq_postcard_uuid',
         'esp_commseq_step_uuid' => 'esp_commseq_step_uuid',
         'esp_commseq_uuid' => 'esp_commseq_uuid',
+        'mail_card' => 'mail_card',
         'name' => 'name',
         'order_id' => 'order_id',
         'postal_code' => 'postal_code',
@@ -146,6 +149,7 @@ class EmailCommseqPostcardSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_postcard_uuid' => 'setEspCommseqPostcardUuid',
         'esp_commseq_step_uuid' => 'setEspCommseqStepUuid',
         'esp_commseq_uuid' => 'setEspCommseqUuid',
+        'mail_card' => 'setMailCard',
         'name' => 'setName',
         'order_id' => 'setOrderId',
         'postal_code' => 'setPostalCode',
@@ -166,6 +170,7 @@ class EmailCommseqPostcardSendTestRequest implements ModelInterface, ArrayAccess
         'esp_commseq_postcard_uuid' => 'getEspCommseqPostcardUuid',
         'esp_commseq_step_uuid' => 'getEspCommseqStepUuid',
         'esp_commseq_uuid' => 'getEspCommseqUuid',
+        'mail_card' => 'getMailCard',
         'name' => 'getName',
         'order_id' => 'getOrderId',
         'postal_code' => 'getPostalCode',
@@ -240,6 +245,7 @@ class EmailCommseqPostcardSendTestRequest implements ModelInterface, ArrayAccess
         $this->container['esp_commseq_postcard_uuid'] = isset($data['esp_commseq_postcard_uuid']) ? $data['esp_commseq_postcard_uuid'] : null;
         $this->container['esp_commseq_step_uuid'] = isset($data['esp_commseq_step_uuid']) ? $data['esp_commseq_step_uuid'] : null;
         $this->container['esp_commseq_uuid'] = isset($data['esp_commseq_uuid']) ? $data['esp_commseq_uuid'] : null;
+        $this->container['mail_card'] = isset($data['mail_card']) ? $data['mail_card'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
@@ -458,6 +464,30 @@ class EmailCommseqPostcardSendTestRequest implements ModelInterface, ArrayAccess
     public function setEspCommseqUuid($esp_commseq_uuid)
     {
         $this->container['esp_commseq_uuid'] = $esp_commseq_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets mail_card
+     *
+     * @return bool
+     */
+    public function getMailCard()
+    {
+        return $this->container['mail_card'];
+    }
+
+    /**
+     * Sets mail_card
+     *
+     * @param bool $mail_card mail_card
+     *
+     * @return $this
+     */
+    public function setMailCard($mail_card)
+    {
+        $this->container['mail_card'] = $mail_card;
 
         return $this;
     }
