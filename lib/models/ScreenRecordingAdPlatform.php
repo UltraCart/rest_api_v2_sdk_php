@@ -62,7 +62,8 @@ class ScreenRecordingAdPlatform implements ModelInterface, ArrayAccess
         'fbp' => 'string',
         'gacid' => 'string',
         'glcid' => 'string',
-        'msclkid' => 'string'
+        'msclkid' => 'string',
+        'ttclid' => 'string'
     ];
 
     /**
@@ -76,7 +77,8 @@ class ScreenRecordingAdPlatform implements ModelInterface, ArrayAccess
         'fbp' => null,
         'gacid' => null,
         'glcid' => null,
-        'msclkid' => null
+        'msclkid' => null,
+        'ttclid' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class ScreenRecordingAdPlatform implements ModelInterface, ArrayAccess
         'fbp' => 'fbp',
         'gacid' => 'gacid',
         'glcid' => 'glcid',
-        'msclkid' => 'msclkid'
+        'msclkid' => 'msclkid',
+        'ttclid' => 'ttclid'
     ];
 
     /**
@@ -125,7 +128,8 @@ class ScreenRecordingAdPlatform implements ModelInterface, ArrayAccess
         'fbp' => 'setFbp',
         'gacid' => 'setGacid',
         'glcid' => 'setGlcid',
-        'msclkid' => 'setMsclkid'
+        'msclkid' => 'setMsclkid',
+        'ttclid' => 'setTtclid'
     ];
 
     /**
@@ -139,7 +143,8 @@ class ScreenRecordingAdPlatform implements ModelInterface, ArrayAccess
         'fbp' => 'getFbp',
         'gacid' => 'getGacid',
         'glcid' => 'getGlcid',
-        'msclkid' => 'getMsclkid'
+        'msclkid' => 'getMsclkid',
+        'ttclid' => 'getTtclid'
     ];
 
     /**
@@ -208,6 +213,7 @@ class ScreenRecordingAdPlatform implements ModelInterface, ArrayAccess
         $this->container['gacid'] = isset($data['gacid']) ? $data['gacid'] : null;
         $this->container['glcid'] = isset($data['glcid']) ? $data['glcid'] : null;
         $this->container['msclkid'] = isset($data['msclkid']) ? $data['msclkid'] : null;
+        $this->container['ttclid'] = isset($data['ttclid']) ? $data['ttclid'] : null;
     }
 
     /**
@@ -374,6 +380,30 @@ class ScreenRecordingAdPlatform implements ModelInterface, ArrayAccess
     public function setMsclkid($msclkid)
     {
         $this->container['msclkid'] = $msclkid;
+
+        return $this;
+    }
+
+    /**
+     * Gets ttclid
+     *
+     * @return string
+     */
+    public function getTtclid()
+    {
+        return $this->container['ttclid'];
+    }
+
+    /**
+     * Sets ttclid
+     *
+     * @param string $ttclid TikTok Click Id (Parameter
+     *
+     * @return $this
+     */
+    public function setTtclid($ttclid)
+    {
+        $this->container['ttclid'] = $ttclid;
 
         return $this;
     }

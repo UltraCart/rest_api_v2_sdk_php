@@ -59,6 +59,7 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'application_id' => 'string',
         'claim_id' => 'string',
+        'insurance_type' => 'string',
         'refund_claim_id' => 'string'
     ];
 
@@ -70,6 +71,7 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'application_id' => null,
         'claim_id' => null,
+        'insurance_type' => null,
         'refund_claim_id' => null
     ];
 
@@ -102,6 +104,7 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'application_id' => 'application_id',
         'claim_id' => 'claim_id',
+        'insurance_type' => 'insurance_type',
         'refund_claim_id' => 'refund_claim_id'
     ];
 
@@ -113,6 +116,7 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     protected static $setters = [
         'application_id' => 'setApplicationId',
         'claim_id' => 'setClaimId',
+        'insurance_type' => 'setInsuranceType',
         'refund_claim_id' => 'setRefundClaimId'
     ];
 
@@ -124,6 +128,7 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     protected static $getters = [
         'application_id' => 'getApplicationId',
         'claim_id' => 'getClaimId',
+        'insurance_type' => 'getInsuranceType',
         'refund_claim_id' => 'getRefundClaimId'
     ];
 
@@ -189,6 +194,7 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     {
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
         $this->container['claim_id'] = isset($data['claim_id']) ? $data['claim_id'] : null;
+        $this->container['insurance_type'] = isset($data['insurance_type']) ? $data['insurance_type'] : null;
         $this->container['refund_claim_id'] = isset($data['refund_claim_id']) ? $data['refund_claim_id'] : null;
     }
 
@@ -260,6 +266,30 @@ class OrderPaymentInsurance implements ModelInterface, ArrayAccess
     public function setClaimId($claim_id)
     {
         $this->container['claim_id'] = $claim_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets insurance_type
+     *
+     * @return string
+     */
+    public function getInsuranceType()
+    {
+        return $this->container['insurance_type'];
+    }
+
+    /**
+     * Sets insurance_type
+     *
+     * @param string $insurance_type insurance type
+     *
+     * @return $this
+     */
+    public function setInsuranceType($insurance_type)
+    {
+        $this->container['insurance_type'] = $insurance_type;
 
         return $this;
     }
