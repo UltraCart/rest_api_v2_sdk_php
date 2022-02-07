@@ -520,6 +520,7 @@ Class | Method | HTTP request | Description
  - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
  - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
  - [AutoOrderItemSimpleSchedule](docs/Model/AutoOrderItemSimpleSchedule.md)
+ - [AutoOrderLog](docs/Model/AutoOrderLog.md)
  - [AutoOrderQuery](docs/Model/AutoOrderQuery.md)
  - [AutoOrderQueryBatch](docs/Model/AutoOrderQueryBatch.md)
  - [AutoOrderResponse](docs/Model/AutoOrderResponse.md)
@@ -1205,6 +1206,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.6.38 | 02/07/2022 | Exposed auto order logs |
 | 3.6.37 | 02/04/2022 | insurance type for insurance payments |
 | 3.6.36 | 12/29/2021 | Mail actual post card flag added to test method |
 | 3.6.35 | 12/14/2021 | Add cancel_auto_order option to the accounts receivable retry configuration |
