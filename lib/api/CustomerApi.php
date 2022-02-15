@@ -114,12 +114,11 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\CustomerResponse
+     * @return void
      */
     public function deleteCustomer($customer_profile_oid)
     {
-        list($response) = $this->deleteCustomerWithHttpInfo($customer_profile_oid);
-        return $response;
+        $this->deleteCustomerWithHttpInfo($customer_profile_oid);
     }
 
 
@@ -132,11 +131,11 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCustomerWithHttpInfo($customer_profile_oid)
     {
-        return $this->deleteCustomerWithHttpInfoRetry(true ,   $customer_profile_oid);
+        $this->deleteCustomerWithHttpInfoRetry(true ,   $customer_profile_oid);
     }
 
 
@@ -150,11 +149,11 @@ class CustomerApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\CustomerResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteCustomerWithHttpInfoRetry($retry ,  $customer_profile_oid)
     {
-        $returnType = '\ultracart\v2\models\CustomerResponse';
+        $returnType = '';
         $request = $this->deleteCustomerRequest($customer_profile_oid);
 
         try {
@@ -174,7 +173,7 @@ class CustomerApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->deleteCustomerWithHttpInfoRetry(false ,   $customer_profile_oid);
+                        $this->deleteCustomerWithHttpInfoRetry(false ,   $customer_profile_oid);
                     }
                 }
 
@@ -186,32 +185,10 @@ class CustomerApi
                 );
             }
 
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return [null, $response->getStatusCode(), $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\ultracart\v2\models\CustomerResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -289,28 +266,14 @@ class CustomerApi
      */
     public function deleteCustomerAsyncWithHttpInfo($customer_profile_oid)
     {
-        $returnType = '\ultracart\v2\models\CustomerResponse';
+        $returnType = '';
         $request = $this->deleteCustomerRequest($customer_profile_oid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();

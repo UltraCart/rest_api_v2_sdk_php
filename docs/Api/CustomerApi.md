@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **deleteCustomer**
-> \ultracart\v2\models\CustomerResponse deleteCustomer($customer_profile_oid)
+> deleteCustomer($customer_profile_oid)
 
 Delete a customer
 
@@ -38,8 +38,7 @@ $api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
 $customer_profile_oid = 56; // int | The customer_profile_oid to delete.
 
 try {
-    $result = $apiInstance->deleteCustomer($customer_profile_oid);
-    print_r($result);
+    $apiInstance->deleteCustomer($customer_profile_oid);
 } catch (Exception $e) {
     echo 'Exception when calling CustomerApi->deleteCustomer: ', $e->getMessage(), PHP_EOL;
 }
@@ -54,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+void (empty response body)
 
 ### Authorization
 

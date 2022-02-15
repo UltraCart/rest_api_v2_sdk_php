@@ -1206,6 +1206,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.7.38 | 02/15/2022 | gift certificate api (currently in testing) |
 | 3.6.38 | 02/07/2022 | Exposed auto order logs |
 | 3.6.37 | 02/04/2022 | insurance type for insurance payments |
 | 3.6.36 | 12/29/2021 | Mail actual post card flag added to test method |

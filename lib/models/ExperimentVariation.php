@@ -71,6 +71,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'order_item_count' => 'int',
         'original_traffic_percentage' => 'float',
         'page_view_count' => 'int',
+        'paused' => 'bool',
         'revenue' => 'float',
         'session_count' => 'int',
         'traffic_percentage' => 'float',
@@ -100,6 +101,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'order_item_count' => 'int32',
         'original_traffic_percentage' => null,
         'page_view_count' => 'int32',
+        'paused' => null,
         'revenue' => null,
         'session_count' => 'int32',
         'traffic_percentage' => null,
@@ -150,6 +152,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'order_item_count' => 'order_item_count',
         'original_traffic_percentage' => 'original_traffic_percentage',
         'page_view_count' => 'page_view_count',
+        'paused' => 'paused',
         'revenue' => 'revenue',
         'session_count' => 'session_count',
         'traffic_percentage' => 'traffic_percentage',
@@ -179,6 +182,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'order_item_count' => 'setOrderItemCount',
         'original_traffic_percentage' => 'setOriginalTrafficPercentage',
         'page_view_count' => 'setPageViewCount',
+        'paused' => 'setPaused',
         'revenue' => 'setRevenue',
         'session_count' => 'setSessionCount',
         'traffic_percentage' => 'setTrafficPercentage',
@@ -208,6 +212,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'order_item_count' => 'getOrderItemCount',
         'original_traffic_percentage' => 'getOriginalTrafficPercentage',
         'page_view_count' => 'getPageViewCount',
+        'paused' => 'getPaused',
         'revenue' => 'getRevenue',
         'session_count' => 'getSessionCount',
         'traffic_percentage' => 'getTrafficPercentage',
@@ -291,6 +296,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         $this->container['order_item_count'] = isset($data['order_item_count']) ? $data['order_item_count'] : null;
         $this->container['original_traffic_percentage'] = isset($data['original_traffic_percentage']) ? $data['original_traffic_percentage'] : null;
         $this->container['page_view_count'] = isset($data['page_view_count']) ? $data['page_view_count'] : null;
+        $this->container['paused'] = isset($data['paused']) ? $data['paused'] : null;
         $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
         $this->container['session_count'] = isset($data['session_count']) ? $data['session_count'] : null;
         $this->container['traffic_percentage'] = isset($data['traffic_percentage']) ? $data['traffic_percentage'] : null;
@@ -656,6 +662,30 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     public function setPageViewCount($page_view_count)
     {
         $this->container['page_view_count'] = $page_view_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets paused
+     *
+     * @return bool
+     */
+    public function getPaused()
+    {
+        return $this->container['paused'];
+    }
+
+    /**
+     * Sets paused
+     *
+     * @param bool $paused True if traffic should be paused to this variation
+     *
+     * @return $this
+     */
+    public function setPaused($paused)
+    {
+        $this->container['paused'] = $paused;
 
         return $this;
     }
