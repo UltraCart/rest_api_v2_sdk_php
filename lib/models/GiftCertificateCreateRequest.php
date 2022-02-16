@@ -58,6 +58,7 @@ class GiftCertificateCreateRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'amount' => 'float',
+        'email' => 'string',
         'expiration_dts' => 'string',
         'initial_ledger_description' => 'string',
         'merchant_note' => 'string'
@@ -70,6 +71,7 @@ class GiftCertificateCreateRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'amount' => null,
+        'email' => null,
         'expiration_dts' => 'dateTime',
         'initial_ledger_description' => null,
         'merchant_note' => null
@@ -103,6 +105,7 @@ class GiftCertificateCreateRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'amount' => 'amount',
+        'email' => 'email',
         'expiration_dts' => 'expiration_dts',
         'initial_ledger_description' => 'initial_ledger_description',
         'merchant_note' => 'merchant_note'
@@ -115,6 +118,7 @@ class GiftCertificateCreateRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'amount' => 'setAmount',
+        'email' => 'setEmail',
         'expiration_dts' => 'setExpirationDts',
         'initial_ledger_description' => 'setInitialLedgerDescription',
         'merchant_note' => 'setMerchantNote'
@@ -127,6 +131,7 @@ class GiftCertificateCreateRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'amount' => 'getAmount',
+        'email' => 'getEmail',
         'expiration_dts' => 'getExpirationDts',
         'initial_ledger_description' => 'getInitialLedgerDescription',
         'merchant_note' => 'getMerchantNote'
@@ -193,6 +198,7 @@ class GiftCertificateCreateRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
         $this->container['initial_ledger_description'] = isset($data['initial_ledger_description']) ? $data['initial_ledger_description'] : null;
         $this->container['merchant_note'] = isset($data['merchant_note']) ? $data['merchant_note'] : null;
@@ -242,6 +248,30 @@ class GiftCertificateCreateRequest implements ModelInterface, ArrayAccess
     public function setAmount($amount)
     {
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email The email address (customer/owner) associated with this gift certificate.
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
 
         return $this;
     }

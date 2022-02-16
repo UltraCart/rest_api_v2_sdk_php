@@ -219,6 +219,10 @@ class GiftCertificateLedgerEntry implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 50)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 50.";
+        }
+
         return $invalidProperties;
     }
 
@@ -277,6 +281,10 @@ class GiftCertificateLedgerEntry implements ModelInterface, ArrayAccess
      */
     public function setDescription($description)
     {
+        if (!is_null($description) && (mb_strlen($description) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling GiftCertificateLedgerEntry., must be smaller than or equal to 50.');
+        }
+
         $this->container['description'] = $description;
 
         return $this;

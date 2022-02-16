@@ -1222,6 +1222,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.8.2 | 02/16/2022 | create gift certificate method was missing email |
 | 3.8.1 | 02/16/2022 | auto order item level pause flag |
 | 3.8.0 | 02/16/2022 | gift certificate api (testing) |
 | 3.7.38 | 02/15/2022 | gift certificate api (currently in testing) |
