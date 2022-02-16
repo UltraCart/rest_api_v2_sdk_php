@@ -1183,6 +1183,8 @@ Class | Method | HTTP request | Description
  - **customer_write**: Allows you to write customer information.
  - **fulfillment_read**: Allows you to read fulfillment information.
  - **fulfillment_write**: Allows you to write fulfillment information.
+ - **gift_certificate_read**: Allows you to read gift certificate information.
+ - **gift_certificate_write**: Allows you to write gift certificate information.
  - **integration_log_read**: Allows you to read integration log information.
  - **integration_log_write**: Allows you to write integration log information.
  - **order_read**: Allows you to read order information.
@@ -1220,6 +1222,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.8.1 | 02/16/2022 | auto order item level pause flag |
 | 3.8.0 | 02/16/2022 | gift certificate api (testing) |
 | 3.7.38 | 02/15/2022 | gift certificate api (currently in testing) |
 | 3.6.38 | 02/07/2022 | Exposed auto order logs |
