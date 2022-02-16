@@ -244,6 +244,14 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**getDistributionCenters**](docs/Api/FulfillmentApi.md#getdistributioncenters) | **GET** /fulfillment/distribution_centers | Retrieve distribution centers
 *FulfillmentApi* | [**shipOrders**](docs/Api/FulfillmentApi.md#shiporders) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/shipments | Mark orders as shipped
 *FulfillmentApi* | [**updateInventory**](docs/Api/FulfillmentApi.md#updateinventory) | **POST** /fulfillment/distribution_centers/{distribution_center_code}/inventory | Update inventory
+*GiftCertificateApi* | [**addGiftCertificateLedgerEntry**](docs/Api/GiftCertificateApi.md#addgiftcertificateledgerentry) | **POST** /gift_certificate/gift_certificates/{gift_certificate_oid}/ledger_entry | Add a gift certificate ledger entry
+*GiftCertificateApi* | [**createGiftCertificate**](docs/Api/GiftCertificateApi.md#creategiftcertificate) | **POST** /gift_certificate/gift_certificates | Create a gift certificate
+*GiftCertificateApi* | [**deleteGiftCertificate**](docs/Api/GiftCertificateApi.md#deletegiftcertificate) | **DELETE** /gift_certificate/gift_certificates/{gift_certificate_oid} | Delete a gift certificate
+*GiftCertificateApi* | [**getGiftCertificateByCode**](docs/Api/GiftCertificateApi.md#getgiftcertificatebycode) | **POST** /gift_certificate/gift_certificates/by_code/{code} | Retrieve gift certificate by code
+*GiftCertificateApi* | [**getGiftCertificateByOid**](docs/Api/GiftCertificateApi.md#getgiftcertificatebyoid) | **POST** /gift_certificate/gift_certificates/{gift_certificate_oid} | Retrieve gift certificate by oid
+*GiftCertificateApi* | [**getGiftCertificatesByEmail**](docs/Api/GiftCertificateApi.md#getgiftcertificatesbyemail) | **POST** /gift_certificate/gift_certificates/by_email/{email} | Retrieve gift certificate by email
+*GiftCertificateApi* | [**getGiftCertificatesByQuery**](docs/Api/GiftCertificateApi.md#getgiftcertificatesbyquery) | **POST** /gift_certificate/gift_certificates/query | Retrieve gift certificates by query
+*GiftCertificateApi* | [**updateGiftCertificate**](docs/Api/GiftCertificateApi.md#updategiftcertificate) | **PUT** /gift_certificate/gift_certificates/{gift_certificate_oid} | Update a gift certificate
 *IntegrationLogApi* | [**getIntegrationLog**](docs/Api/IntegrationLogApi.md#getintegrationlog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
 *IntegrationLogApi* | [**getIntegrationLogFile**](docs/Api/IntegrationLogApi.md#getintegrationlogfile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
 *IntegrationLogApi* | [**getIntegrationLogSummariesQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsummariesquery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
@@ -809,6 +817,12 @@ Class | Method | HTTP request | Description
  - [GeoPoint](docs/Model/GeoPoint.md)
  - [GeocodeRequest](docs/Model/GeocodeRequest.md)
  - [GeocodeResponse](docs/Model/GeocodeResponse.md)
+ - [GiftCertificate](docs/Model/GiftCertificate.md)
+ - [GiftCertificateCreateRequest](docs/Model/GiftCertificateCreateRequest.md)
+ - [GiftCertificateLedgerEntry](docs/Model/GiftCertificateLedgerEntry.md)
+ - [GiftCertificateQuery](docs/Model/GiftCertificateQuery.md)
+ - [GiftCertificateResponse](docs/Model/GiftCertificateResponse.md)
+ - [GiftCertificatesResponse](docs/Model/GiftCertificatesResponse.md)
  - [Group](docs/Model/Group.md)
  - [GroupResponse](docs/Model/GroupResponse.md)
  - [GroupUserMembership](docs/Model/GroupUserMembership.md)
@@ -1206,6 +1220,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.8.0 | 02/16/2022 | gift certificate api (testing) |
 | 3.7.38 | 02/15/2022 | gift certificate api (currently in testing) |
 | 3.6.38 | 02/07/2022 | Exposed auto order logs |
 | 3.6.37 | 02/04/2022 | insurance type for insurance payments |
