@@ -616,6 +616,7 @@ Class | Method | HTTP request | Description
  - [CouponAmountOffSubtotalWithBlockPurchase](docs/Model/CouponAmountOffSubtotalWithBlockPurchase.md)
  - [CouponAmountOffSubtotalWithItemsPurchase](docs/Model/CouponAmountOffSubtotalWithItemsPurchase.md)
  - [CouponAmountOffSubtotalWithPurchase](docs/Model/CouponAmountOffSubtotalWithPurchase.md)
+ - [CouponAmountShippingWithSubtotal](docs/Model/CouponAmountShippingWithSubtotal.md)
  - [CouponAutoApplyCondition](docs/Model/CouponAutoApplyCondition.md)
  - [CouponAutoApplyConditions](docs/Model/CouponAutoApplyConditions.md)
  - [CouponAutomaticallyApplyCouponCodes](docs/Model/CouponAutomaticallyApplyCouponCodes.md)
@@ -1222,6 +1223,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.8.5 | 02/25/2022 | new coupon for fixed cost shipping method |
 | 3.8.2 | 02/16/2022 | create gift certificate method was missing email |
 | 3.8.1 | 02/16/2022 | auto order item level pause flag |
 | 3.8.0 | 02/16/2022 | gift certificate api (testing) |

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **amount_off_subtotal_with_block_purchase** | [**\ultracart\v2\models\CouponAmountOffSubtotalWithBlockPurchase**](CouponAmountOffSubtotalWithBlockPurchase.md) |  | [optional] 
 **amount_off_subtotal_with_items_purchase** | [**\ultracart\v2\models\CouponAmountOffSubtotalWithItemsPurchase**](CouponAmountOffSubtotalWithItemsPurchase.md) |  | [optional] 
 **amount_off_subtotal_with_purchase** | [**\ultracart\v2\models\CouponAmountOffSubtotalWithPurchase**](CouponAmountOffSubtotalWithPurchase.md) |  | [optional] 
+**amount_shipping_with_subtotal** | [**\ultracart\v2\models\CouponAmountShippingWithSubtotal**](CouponAmountShippingWithSubtotal.md) |  | [optional] 
 **automatically_apply_coupon_codes** | [**\ultracart\v2\models\CouponAutomaticallyApplyCouponCodes**](CouponAutomaticallyApplyCouponCodes.md) |  | [optional] 
 **buy_one_get_one** | [**\ultracart\v2\models\CouponBuyOneGetOneLimit**](CouponBuyOneGetOneLimit.md) |  | [optional] 
 **calculated_description** | **string** | Calculated description displayed to the customer if no description is specified. | [optional] 
