@@ -1223,6 +1223,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.8.6 | 03/02/2022 | bug fix for ruby sdk, uri.escape deprecated in 3.x |
 | 3.8.5 | 02/25/2022 | new coupon for fixed cost shipping method |
 | 3.8.2 | 02/16/2022 | create gift certificate method was missing email |
 | 3.8.1 | 02/16/2022 | auto order item level pause flag |
