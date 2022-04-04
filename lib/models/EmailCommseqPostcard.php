@@ -67,6 +67,14 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'string',
         'postcard_front_container_cjson' => 'string',
         'postcard_front_container_uuid' => 'string',
+        'screenshot_back_large_full_url' => 'string',
+        'screenshot_back_large_viewport_url' => 'string',
+        'screenshot_back_small_full_url' => 'string',
+        'screenshot_back_small_viewport_url' => 'string',
+        'screenshot_large_full_url' => 'string',
+        'screenshot_large_viewport_url' => 'string',
+        'screenshot_small_full_url' => 'string',
+        'screenshot_small_viewport_url' => 'string',
         'storefront_oid' => 'int'
     ];
 
@@ -86,6 +94,14 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'dateTime',
         'postcard_front_container_cjson' => null,
         'postcard_front_container_uuid' => null,
+        'screenshot_back_large_full_url' => null,
+        'screenshot_back_large_viewport_url' => null,
+        'screenshot_back_small_full_url' => null,
+        'screenshot_back_small_viewport_url' => null,
+        'screenshot_large_full_url' => null,
+        'screenshot_large_viewport_url' => null,
+        'screenshot_small_full_url' => null,
+        'screenshot_small_viewport_url' => null,
         'storefront_oid' => 'int32'
     ];
 
@@ -126,6 +142,14 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'postcard_container_cjson_last_modified_dts',
         'postcard_front_container_cjson' => 'postcard_front_container_cjson',
         'postcard_front_container_uuid' => 'postcard_front_container_uuid',
+        'screenshot_back_large_full_url' => 'screenshot_back_large_full_url',
+        'screenshot_back_large_viewport_url' => 'screenshot_back_large_viewport_url',
+        'screenshot_back_small_full_url' => 'screenshot_back_small_full_url',
+        'screenshot_back_small_viewport_url' => 'screenshot_back_small_viewport_url',
+        'screenshot_large_full_url' => 'screenshot_large_full_url',
+        'screenshot_large_viewport_url' => 'screenshot_large_viewport_url',
+        'screenshot_small_full_url' => 'screenshot_small_full_url',
+        'screenshot_small_viewport_url' => 'screenshot_small_viewport_url',
         'storefront_oid' => 'storefront_oid'
     ];
 
@@ -145,6 +169,14 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'setPostcardContainerCjsonLastModifiedDts',
         'postcard_front_container_cjson' => 'setPostcardFrontContainerCjson',
         'postcard_front_container_uuid' => 'setPostcardFrontContainerUuid',
+        'screenshot_back_large_full_url' => 'setScreenshotBackLargeFullUrl',
+        'screenshot_back_large_viewport_url' => 'setScreenshotBackLargeViewportUrl',
+        'screenshot_back_small_full_url' => 'setScreenshotBackSmallFullUrl',
+        'screenshot_back_small_viewport_url' => 'setScreenshotBackSmallViewportUrl',
+        'screenshot_large_full_url' => 'setScreenshotLargeFullUrl',
+        'screenshot_large_viewport_url' => 'setScreenshotLargeViewportUrl',
+        'screenshot_small_full_url' => 'setScreenshotSmallFullUrl',
+        'screenshot_small_viewport_url' => 'setScreenshotSmallViewportUrl',
         'storefront_oid' => 'setStorefrontOid'
     ];
 
@@ -164,6 +196,14 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'getPostcardContainerCjsonLastModifiedDts',
         'postcard_front_container_cjson' => 'getPostcardFrontContainerCjson',
         'postcard_front_container_uuid' => 'getPostcardFrontContainerUuid',
+        'screenshot_back_large_full_url' => 'getScreenshotBackLargeFullUrl',
+        'screenshot_back_large_viewport_url' => 'getScreenshotBackLargeViewportUrl',
+        'screenshot_back_small_full_url' => 'getScreenshotBackSmallFullUrl',
+        'screenshot_back_small_viewport_url' => 'getScreenshotBackSmallViewportUrl',
+        'screenshot_large_full_url' => 'getScreenshotLargeFullUrl',
+        'screenshot_large_viewport_url' => 'getScreenshotLargeViewportUrl',
+        'screenshot_small_full_url' => 'getScreenshotSmallFullUrl',
+        'screenshot_small_viewport_url' => 'getScreenshotSmallViewportUrl',
         'storefront_oid' => 'getStorefrontOid'
     ];
 
@@ -237,6 +277,14 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         $this->container['postcard_container_cjson_last_modified_dts'] = isset($data['postcard_container_cjson_last_modified_dts']) ? $data['postcard_container_cjson_last_modified_dts'] : null;
         $this->container['postcard_front_container_cjson'] = isset($data['postcard_front_container_cjson']) ? $data['postcard_front_container_cjson'] : null;
         $this->container['postcard_front_container_uuid'] = isset($data['postcard_front_container_uuid']) ? $data['postcard_front_container_uuid'] : null;
+        $this->container['screenshot_back_large_full_url'] = isset($data['screenshot_back_large_full_url']) ? $data['screenshot_back_large_full_url'] : null;
+        $this->container['screenshot_back_large_viewport_url'] = isset($data['screenshot_back_large_viewport_url']) ? $data['screenshot_back_large_viewport_url'] : null;
+        $this->container['screenshot_back_small_full_url'] = isset($data['screenshot_back_small_full_url']) ? $data['screenshot_back_small_full_url'] : null;
+        $this->container['screenshot_back_small_viewport_url'] = isset($data['screenshot_back_small_viewport_url']) ? $data['screenshot_back_small_viewport_url'] : null;
+        $this->container['screenshot_large_full_url'] = isset($data['screenshot_large_full_url']) ? $data['screenshot_large_full_url'] : null;
+        $this->container['screenshot_large_viewport_url'] = isset($data['screenshot_large_viewport_url']) ? $data['screenshot_large_viewport_url'] : null;
+        $this->container['screenshot_small_full_url'] = isset($data['screenshot_small_full_url']) ? $data['screenshot_small_full_url'] : null;
+        $this->container['screenshot_small_viewport_url'] = isset($data['screenshot_small_viewport_url']) ? $data['screenshot_small_viewport_url'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
     }
 
@@ -500,6 +548,198 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
     public function setPostcardFrontContainerUuid($postcard_front_container_uuid)
     {
         $this->container['postcard_front_container_uuid'] = $postcard_front_container_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_back_large_full_url
+     *
+     * @return string
+     */
+    public function getScreenshotBackLargeFullUrl()
+    {
+        return $this->container['screenshot_back_large_full_url'];
+    }
+
+    /**
+     * Sets screenshot_back_large_full_url
+     *
+     * @param string $screenshot_back_large_full_url URL to screenshot (back) in large form factor full page
+     *
+     * @return $this
+     */
+    public function setScreenshotBackLargeFullUrl($screenshot_back_large_full_url)
+    {
+        $this->container['screenshot_back_large_full_url'] = $screenshot_back_large_full_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_back_large_viewport_url
+     *
+     * @return string
+     */
+    public function getScreenshotBackLargeViewportUrl()
+    {
+        return $this->container['screenshot_back_large_viewport_url'];
+    }
+
+    /**
+     * Sets screenshot_back_large_viewport_url
+     *
+     * @param string $screenshot_back_large_viewport_url URL to screenshot (back) in large form factor viewport
+     *
+     * @return $this
+     */
+    public function setScreenshotBackLargeViewportUrl($screenshot_back_large_viewport_url)
+    {
+        $this->container['screenshot_back_large_viewport_url'] = $screenshot_back_large_viewport_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_back_small_full_url
+     *
+     * @return string
+     */
+    public function getScreenshotBackSmallFullUrl()
+    {
+        return $this->container['screenshot_back_small_full_url'];
+    }
+
+    /**
+     * Sets screenshot_back_small_full_url
+     *
+     * @param string $screenshot_back_small_full_url URL to screenshot (back) in small form factor full page
+     *
+     * @return $this
+     */
+    public function setScreenshotBackSmallFullUrl($screenshot_back_small_full_url)
+    {
+        $this->container['screenshot_back_small_full_url'] = $screenshot_back_small_full_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_back_small_viewport_url
+     *
+     * @return string
+     */
+    public function getScreenshotBackSmallViewportUrl()
+    {
+        return $this->container['screenshot_back_small_viewport_url'];
+    }
+
+    /**
+     * Sets screenshot_back_small_viewport_url
+     *
+     * @param string $screenshot_back_small_viewport_url URL to screenshot (back) in small form factor viewport
+     *
+     * @return $this
+     */
+    public function setScreenshotBackSmallViewportUrl($screenshot_back_small_viewport_url)
+    {
+        $this->container['screenshot_back_small_viewport_url'] = $screenshot_back_small_viewport_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_large_full_url
+     *
+     * @return string
+     */
+    public function getScreenshotLargeFullUrl()
+    {
+        return $this->container['screenshot_large_full_url'];
+    }
+
+    /**
+     * Sets screenshot_large_full_url
+     *
+     * @param string $screenshot_large_full_url URL to screenshot in large form factor full page
+     *
+     * @return $this
+     */
+    public function setScreenshotLargeFullUrl($screenshot_large_full_url)
+    {
+        $this->container['screenshot_large_full_url'] = $screenshot_large_full_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_large_viewport_url
+     *
+     * @return string
+     */
+    public function getScreenshotLargeViewportUrl()
+    {
+        return $this->container['screenshot_large_viewport_url'];
+    }
+
+    /**
+     * Sets screenshot_large_viewport_url
+     *
+     * @param string $screenshot_large_viewport_url URL to screenshot in large form factor viewport
+     *
+     * @return $this
+     */
+    public function setScreenshotLargeViewportUrl($screenshot_large_viewport_url)
+    {
+        $this->container['screenshot_large_viewport_url'] = $screenshot_large_viewport_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_small_full_url
+     *
+     * @return string
+     */
+    public function getScreenshotSmallFullUrl()
+    {
+        return $this->container['screenshot_small_full_url'];
+    }
+
+    /**
+     * Sets screenshot_small_full_url
+     *
+     * @param string $screenshot_small_full_url URL to screenshot in small form factor full page
+     *
+     * @return $this
+     */
+    public function setScreenshotSmallFullUrl($screenshot_small_full_url)
+    {
+        $this->container['screenshot_small_full_url'] = $screenshot_small_full_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets screenshot_small_viewport_url
+     *
+     * @return string
+     */
+    public function getScreenshotSmallViewportUrl()
+    {
+        return $this->container['screenshot_small_viewport_url'];
+    }
+
+    /**
+     * Sets screenshot_small_viewport_url
+     *
+     * @param string $screenshot_small_viewport_url URL to screenshot in small form factor viewport
+     *
+     * @return $this
+     */
+    public function setScreenshotSmallViewportUrl($screenshot_small_viewport_url)
+    {
+        $this->container['screenshot_small_viewport_url'] = $screenshot_small_viewport_url;
 
         return $this;
     }

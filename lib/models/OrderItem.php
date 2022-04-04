@@ -103,6 +103,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'special_product_type' => 'string',
         'tags' => '\ultracart\v2\models\OrderItemTag[]',
         'tax_free' => 'bool',
+        'tax_product_type' => 'string',
         'taxable_cost' => '\ultracart\v2\models\Currency',
         'total_cost_with_discount' => '\ultracart\v2\models\Currency',
         'total_refunded' => '\ultracart\v2\models\Currency',
@@ -165,6 +166,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'special_product_type' => null,
         'tags' => null,
         'tax_free' => null,
+        'tax_product_type' => null,
         'taxable_cost' => null,
         'total_cost_with_discount' => null,
         'total_refunded' => null,
@@ -248,6 +250,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'special_product_type' => 'special_product_type',
         'tags' => 'tags',
         'tax_free' => 'tax_free',
+        'tax_product_type' => 'tax_product_type',
         'taxable_cost' => 'taxable_cost',
         'total_cost_with_discount' => 'total_cost_with_discount',
         'total_refunded' => 'total_refunded',
@@ -310,6 +313,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'special_product_type' => 'setSpecialProductType',
         'tags' => 'setTags',
         'tax_free' => 'setTaxFree',
+        'tax_product_type' => 'setTaxProductType',
         'taxable_cost' => 'setTaxableCost',
         'total_cost_with_discount' => 'setTotalCostWithDiscount',
         'total_refunded' => 'setTotalRefunded',
@@ -372,6 +376,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'special_product_type' => 'getSpecialProductType',
         'tags' => 'getTags',
         'tax_free' => 'getTaxFree',
+        'tax_product_type' => 'getTaxProductType',
         'taxable_cost' => 'getTaxableCost',
         'total_cost_with_discount' => 'getTotalCostWithDiscount',
         'total_refunded' => 'getTotalRefunded',
@@ -423,8 +428,27 @@ class OrderItem implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TAX_PRODUCT_TYPE_EMPTY = '';
+    const TAX_PRODUCT_TYPE_DIGITAL = 'digital';
+    const TAX_PRODUCT_TYPE_PHYSICAL = 'physical';
+    const TAX_PRODUCT_TYPE_SERVICE = 'service';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTaxProductTypeAllowableValues()
+    {
+        return [
+            self::TAX_PRODUCT_TYPE_EMPTY,
+            self::TAX_PRODUCT_TYPE_DIGITAL,
+            self::TAX_PRODUCT_TYPE_PHYSICAL,
+            self::TAX_PRODUCT_TYPE_SERVICE,
+        ];
+    }
     
 
     /**
@@ -488,6 +512,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         $this->container['special_product_type'] = isset($data['special_product_type']) ? $data['special_product_type'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tax_free'] = isset($data['tax_free']) ? $data['tax_free'] : null;
+        $this->container['tax_product_type'] = isset($data['tax_product_type']) ? $data['tax_product_type'] : null;
         $this->container['taxable_cost'] = isset($data['taxable_cost']) ? $data['taxable_cost'] : null;
         $this->container['total_cost_with_discount'] = isset($data['total_cost_with_discount']) ? $data['total_cost_with_discount'] : null;
         $this->container['total_refunded'] = isset($data['total_refunded']) ? $data['total_refunded'] : null;
@@ -529,6 +554,14 @@ class OrderItem implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['quickbooks_class']) && (mb_strlen($this->container['quickbooks_class']) > 31)) {
             $invalidProperties[] = "invalid value for 'quickbooks_class', the character length must be smaller than or equal to 31.";
+        }
+
+        $allowedValues = $this->getTaxProductTypeAllowableValues();
+        if (!is_null($this->container['tax_product_type']) && !in_array($this->container['tax_product_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'tax_product_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         return $invalidProperties;
@@ -1670,6 +1703,39 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function setTaxFree($tax_free)
     {
         $this->container['tax_free'] = $tax_free;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_product_type
+     *
+     * @return string
+     */
+    public function getTaxProductType()
+    {
+        return $this->container['tax_product_type'];
+    }
+
+    /**
+     * Sets tax_product_type
+     *
+     * @param string $tax_product_type Type of product for tax purposes (self or UltraCart Managed taxes)
+     *
+     * @return $this
+     */
+    public function setTaxProductType($tax_product_type)
+    {
+        $allowedValues = $this->getTaxProductTypeAllowableValues();
+        if (!is_null($tax_product_type) && !in_array($tax_product_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'tax_product_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['tax_product_type'] = $tax_product_type;
 
         return $this;
     }

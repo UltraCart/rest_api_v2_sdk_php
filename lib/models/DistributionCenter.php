@@ -90,6 +90,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'shipment_cutoff_time_tuesday' => 'string',
         'shipment_cutoff_time_wednesday' => 'string',
         'state' => 'string',
+        'transmit_blank_costs' => 'bool',
         'transport' => 'string'
     ];
 
@@ -132,6 +133,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'shipment_cutoff_time_tuesday' => null,
         'shipment_cutoff_time_wednesday' => null,
         'state' => null,
+        'transmit_blank_costs' => null,
         'transport' => null
     ];
 
@@ -195,6 +197,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'shipment_cutoff_time_tuesday' => 'shipment_cutoff_time_tuesday',
         'shipment_cutoff_time_wednesday' => 'shipment_cutoff_time_wednesday',
         'state' => 'state',
+        'transmit_blank_costs' => 'transmit_blank_costs',
         'transport' => 'transport'
     ];
 
@@ -237,6 +240,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'shipment_cutoff_time_tuesday' => 'setShipmentCutoffTimeTuesday',
         'shipment_cutoff_time_wednesday' => 'setShipmentCutoffTimeWednesday',
         'state' => 'setState',
+        'transmit_blank_costs' => 'setTransmitBlankCosts',
         'transport' => 'setTransport'
     ];
 
@@ -279,6 +283,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         'shipment_cutoff_time_tuesday' => 'getShipmentCutoffTimeTuesday',
         'shipment_cutoff_time_wednesday' => 'getShipmentCutoffTimeWednesday',
         'state' => 'getState',
+        'transmit_blank_costs' => 'getTransmitBlankCosts',
         'transport' => 'getTransport'
     ];
 
@@ -375,6 +380,7 @@ class DistributionCenter implements ModelInterface, ArrayAccess
         $this->container['shipment_cutoff_time_tuesday'] = isset($data['shipment_cutoff_time_tuesday']) ? $data['shipment_cutoff_time_tuesday'] : null;
         $this->container['shipment_cutoff_time_wednesday'] = isset($data['shipment_cutoff_time_wednesday']) ? $data['shipment_cutoff_time_wednesday'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['transmit_blank_costs'] = isset($data['transmit_blank_costs']) ? $data['transmit_blank_costs'] : null;
         $this->container['transport'] = isset($data['transport']) ? $data['transport'] : null;
     }
 
@@ -1190,6 +1196,30 @@ class DistributionCenter implements ModelInterface, ArrayAccess
     public function setState($state)
     {
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets transmit_blank_costs
+     *
+     * @return bool
+     */
+    public function getTransmitBlankCosts()
+    {
+        return $this->container['transmit_blank_costs'];
+    }
+
+    /**
+     * Sets transmit_blank_costs
+     *
+     * @param bool $transmit_blank_costs True if monetary amounts should be zeroed before transmission
+     *
+     * @return $this
+     */
+    public function setTransmitBlankCosts($transmit_blank_costs)
+    {
+        $this->container['transmit_blank_costs'] = $transmit_blank_costs;
 
         return $this;
     }

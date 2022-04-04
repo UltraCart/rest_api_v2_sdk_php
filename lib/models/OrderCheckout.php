@@ -57,6 +57,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'browser' => '\ultracart\v2\models\Browser',
         'comments' => 'string',
         'custom_field1' => 'string',
         'custom_field2' => 'string',
@@ -67,6 +68,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => 'string',
         'customer_ip_address' => 'string',
         'screen_branding_theme_code' => 'string',
+        'screen_size' => 'string',
         'storefront_host_name' => 'string',
         'upsell_path_code' => 'string'
     ];
@@ -77,6 +79,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'browser' => null,
         'comments' => null,
         'custom_field1' => null,
         'custom_field2' => null,
@@ -87,6 +90,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => null,
         'customer_ip_address' => null,
         'screen_branding_theme_code' => null,
+        'screen_size' => null,
         'storefront_host_name' => null,
         'upsell_path_code' => null
     ];
@@ -118,6 +122,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'browser' => 'browser',
         'comments' => 'comments',
         'custom_field1' => 'custom_field1',
         'custom_field2' => 'custom_field2',
@@ -128,6 +133,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => 'custom_field7',
         'customer_ip_address' => 'customer_ip_address',
         'screen_branding_theme_code' => 'screen_branding_theme_code',
+        'screen_size' => 'screen_size',
         'storefront_host_name' => 'storefront_host_name',
         'upsell_path_code' => 'upsell_path_code'
     ];
@@ -138,6 +144,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'browser' => 'setBrowser',
         'comments' => 'setComments',
         'custom_field1' => 'setCustomField1',
         'custom_field2' => 'setCustomField2',
@@ -148,6 +155,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => 'setCustomField7',
         'customer_ip_address' => 'setCustomerIpAddress',
         'screen_branding_theme_code' => 'setScreenBrandingThemeCode',
+        'screen_size' => 'setScreenSize',
         'storefront_host_name' => 'setStorefrontHostName',
         'upsell_path_code' => 'setUpsellPathCode'
     ];
@@ -158,6 +166,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'browser' => 'getBrowser',
         'comments' => 'getComments',
         'custom_field1' => 'getCustomField1',
         'custom_field2' => 'getCustomField2',
@@ -168,6 +177,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'custom_field7' => 'getCustomField7',
         'customer_ip_address' => 'getCustomerIpAddress',
         'screen_branding_theme_code' => 'getScreenBrandingThemeCode',
+        'screen_size' => 'getScreenSize',
         'storefront_host_name' => 'getStorefrontHostName',
         'upsell_path_code' => 'getUpsellPathCode'
     ];
@@ -232,6 +242,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['browser'] = isset($data['browser']) ? $data['browser'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['custom_field1'] = isset($data['custom_field1']) ? $data['custom_field1'] : null;
         $this->container['custom_field2'] = isset($data['custom_field2']) ? $data['custom_field2'] : null;
@@ -242,6 +253,7 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         $this->container['custom_field7'] = isset($data['custom_field7']) ? $data['custom_field7'] : null;
         $this->container['customer_ip_address'] = isset($data['customer_ip_address']) ? $data['customer_ip_address'] : null;
         $this->container['screen_branding_theme_code'] = isset($data['screen_branding_theme_code']) ? $data['screen_branding_theme_code'] : null;
+        $this->container['screen_size'] = isset($data['screen_size']) ? $data['screen_size'] : null;
         $this->container['storefront_host_name'] = isset($data['storefront_host_name']) ? $data['storefront_host_name'] : null;
         $this->container['upsell_path_code'] = isset($data['upsell_path_code']) ? $data['upsell_path_code'] : null;
     }
@@ -301,6 +313,30 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets browser
+     *
+     * @return \ultracart\v2\models\Browser
+     */
+    public function getBrowser()
+    {
+        return $this->container['browser'];
+    }
+
+    /**
+     * Sets browser
+     *
+     * @param \ultracart\v2\models\Browser $browser browser
+     *
+     * @return $this
+     */
+    public function setBrowser($browser)
+    {
+        $this->container['browser'] = $browser;
+
+        return $this;
+    }
 
     /**
      * Gets comments
@@ -570,6 +606,30 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         }
 
         $this->container['screen_branding_theme_code'] = $screen_branding_theme_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets screen_size
+     *
+     * @return string
+     */
+    public function getScreenSize()
+    {
+        return $this->container['screen_size'];
+    }
+
+    /**
+     * Sets screen_size
+     *
+     * @param string $screen_size Screen size small, medium or large
+     *
+     * @return $this
+     */
+    public function setScreenSize($screen_size)
+    {
+        $this->container['screen_size'] = $screen_size;
 
         return $this;
     }

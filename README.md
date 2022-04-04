@@ -536,6 +536,10 @@ Class | Method | HTTP request | Description
  - [AutoOrdersResponse](docs/Model/AutoOrdersResponse.md)
  - [AvalaraConfig](docs/Model/AvalaraConfig.md)
  - [BaseResponse](docs/Model/BaseResponse.md)
+ - [Browser](docs/Model/Browser.md)
+ - [BrowserDevice](docs/Model/BrowserDevice.md)
+ - [BrowserOS](docs/Model/BrowserOS.md)
+ - [BrowserUserAgent](docs/Model/BrowserUserAgent.md)
  - [Cart](docs/Model/Cart.md)
  - [CartAffiliate](docs/Model/CartAffiliate.md)
  - [CartAffirmCheckoutResponse](docs/Model/CartAffirmCheckoutResponse.md)
@@ -1184,8 +1188,6 @@ Class | Method | HTTP request | Description
  - **customer_write**: Allows you to write customer information.
  - **fulfillment_read**: Allows you to read fulfillment information.
  - **fulfillment_write**: Allows you to write fulfillment information.
- - **gift_certificate_read**: Allows you to read gift certificate information.
- - **gift_certificate_write**: Allows you to write gift certificate information.
  - **integration_log_read**: Allows you to read integration log information.
  - **integration_log_write**: Allows you to write integration log information.
  - **order_read**: Allows you to read order information.
@@ -1202,6 +1204,8 @@ Class | Method | HTTP request | Description
  - **ultrabooks_write**: 2 of 2 required to use UltraBooks
  - **user_read**: Allows you to read user information.
  - **user_write**: Allows you to write user information.
+ - **gift_certificate_read**: Allows you to read gift certificate information.
+ - **gift_certificate_write**: Allows you to write gift certificate information.
 
 ## ultraCartSimpleApiKey
 
@@ -1223,6 +1227,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.9.2 | 04/04/2022 | user.email field extended and postcard screenshot fields |
 | 3.9.1 | 03/03/2022 | javascript sdk package.json bug fix |
 | 3.9.0 | 03/03/2022 | removed  ultra_cart_rest_api_v2.d.ts from javascript sdk because typescript sdk exists now |
 | 3.8.8 | 03/02/2022 | bug fix for ruby sdk, uri.escape deprecated in 3.x |

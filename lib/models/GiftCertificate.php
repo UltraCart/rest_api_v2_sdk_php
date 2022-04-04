@@ -59,10 +59,12 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'activated' => 'bool',
         'code' => 'string',
+        'customer_profile_oid' => 'int',
         'deleted' => 'bool',
         'email' => 'string',
         'expiration_dts' => 'string',
         'gift_certificate_oid' => 'int',
+        'internal' => 'bool',
         'ledger_entries' => '\ultracart\v2\models\GiftCertificateLedgerEntry[]',
         'merchant_id' => 'string',
         'merchant_note' => 'string',
@@ -79,10 +81,12 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'activated' => null,
         'code' => null,
+        'customer_profile_oid' => 'int32',
         'deleted' => null,
         'email' => null,
         'expiration_dts' => 'dateTime',
         'gift_certificate_oid' => 'int32',
+        'internal' => null,
         'ledger_entries' => null,
         'merchant_id' => null,
         'merchant_note' => null,
@@ -120,10 +124,12 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'activated' => 'activated',
         'code' => 'code',
+        'customer_profile_oid' => 'customer_profile_oid',
         'deleted' => 'deleted',
         'email' => 'email',
         'expiration_dts' => 'expiration_dts',
         'gift_certificate_oid' => 'gift_certificate_oid',
+        'internal' => 'internal',
         'ledger_entries' => 'ledger_entries',
         'merchant_id' => 'merchant_id',
         'merchant_note' => 'merchant_note',
@@ -140,10 +146,12 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     protected static $setters = [
         'activated' => 'setActivated',
         'code' => 'setCode',
+        'customer_profile_oid' => 'setCustomerProfileOid',
         'deleted' => 'setDeleted',
         'email' => 'setEmail',
         'expiration_dts' => 'setExpirationDts',
         'gift_certificate_oid' => 'setGiftCertificateOid',
+        'internal' => 'setInternal',
         'ledger_entries' => 'setLedgerEntries',
         'merchant_id' => 'setMerchantId',
         'merchant_note' => 'setMerchantNote',
@@ -160,10 +168,12 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     protected static $getters = [
         'activated' => 'getActivated',
         'code' => 'getCode',
+        'customer_profile_oid' => 'getCustomerProfileOid',
         'deleted' => 'getDeleted',
         'email' => 'getEmail',
         'expiration_dts' => 'getExpirationDts',
         'gift_certificate_oid' => 'getGiftCertificateOid',
+        'internal' => 'getInternal',
         'ledger_entries' => 'getLedgerEntries',
         'merchant_id' => 'getMerchantId',
         'merchant_note' => 'getMerchantNote',
@@ -234,10 +244,12 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     {
         $this->container['activated'] = isset($data['activated']) ? $data['activated'] : null;
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
         $this->container['gift_certificate_oid'] = isset($data['gift_certificate_oid']) ? $data['gift_certificate_oid'] : null;
+        $this->container['internal'] = isset($data['internal']) ? $data['internal'] : null;
         $this->container['ledger_entries'] = isset($data['ledger_entries']) ? $data['ledger_entries'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['merchant_note'] = isset($data['merchant_note']) ? $data['merchant_note'] : null;
@@ -254,6 +266,10 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 100)) {
+            $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 100.";
+        }
 
         return $invalidProperties;
     }
@@ -319,6 +335,30 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets customer_profile_oid
+     *
+     * @return int
+     */
+    public function getCustomerProfileOid()
+    {
+        return $this->container['customer_profile_oid'];
+    }
+
+    /**
+     * Sets customer_profile_oid
+     *
+     * @param int $customer_profile_oid This is the customer profile oid associated with this internally managed gift certificate.
+     *
+     * @return $this
+     */
+    public function setCustomerProfileOid($customer_profile_oid)
+    {
+        $this->container['customer_profile_oid'] = $customer_profile_oid;
+
+        return $this;
+    }
+
+    /**
      * Gets deleted
      *
      * @return bool
@@ -361,6 +401,10 @@ class GiftCertificate implements ModelInterface, ArrayAccess
      */
     public function setEmail($email)
     {
+        if (!is_null($email) && (mb_strlen($email) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $email when calling GiftCertificate., must be smaller than or equal to 100.');
+        }
+
         $this->container['email'] = $email;
 
         return $this;
@@ -410,6 +454,30 @@ class GiftCertificate implements ModelInterface, ArrayAccess
     public function setGiftCertificateOid($gift_certificate_oid)
     {
         $this->container['gift_certificate_oid'] = $gift_certificate_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets internal
+     *
+     * @return bool
+     */
+    public function getInternal()
+    {
+        return $this->container['internal'];
+    }
+
+    /**
+     * Sets internal
+     *
+     * @param bool $internal This is an internally managed gift certificate associated with the loyalty cash rewards program.
+     *
+     * @return $this
+     */
+    public function setInternal($internal)
+    {
+        $this->container['internal'] = $internal;
 
         return $this;
     }

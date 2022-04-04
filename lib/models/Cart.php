@@ -58,6 +58,7 @@ class Cart implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'affiliate' => '\ultracart\v2\models\CartAffiliate',
+        'affiliate_network_pixel_oid' => 'int',
         'base_currency_code' => 'string',
         'billing' => '\ultracart\v2\models\CartBilling',
         'buysafe' => '\ultracart\v2\models\CartBuysafe',
@@ -91,6 +92,7 @@ class Cart implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'affiliate' => null,
+        'affiliate_network_pixel_oid' => 'int32',
         'base_currency_code' => null,
         'billing' => null,
         'buysafe' => null,
@@ -145,6 +147,7 @@ class Cart implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'affiliate' => 'affiliate',
+        'affiliate_network_pixel_oid' => 'affiliate_network_pixel_oid',
         'base_currency_code' => 'base_currency_code',
         'billing' => 'billing',
         'buysafe' => 'buysafe',
@@ -178,6 +181,7 @@ class Cart implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'affiliate' => 'setAffiliate',
+        'affiliate_network_pixel_oid' => 'setAffiliateNetworkPixelOid',
         'base_currency_code' => 'setBaseCurrencyCode',
         'billing' => 'setBilling',
         'buysafe' => 'setBuysafe',
@@ -211,6 +215,7 @@ class Cart implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'affiliate' => 'getAffiliate',
+        'affiliate_network_pixel_oid' => 'getAffiliateNetworkPixelOid',
         'base_currency_code' => 'getBaseCurrencyCode',
         'billing' => 'getBilling',
         'buysafe' => 'getBuysafe',
@@ -298,6 +303,7 @@ class Cart implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['affiliate'] = isset($data['affiliate']) ? $data['affiliate'] : null;
+        $this->container['affiliate_network_pixel_oid'] = isset($data['affiliate_network_pixel_oid']) ? $data['affiliate_network_pixel_oid'] : null;
         $this->container['base_currency_code'] = isset($data['base_currency_code']) ? $data['base_currency_code'] : null;
         $this->container['billing'] = isset($data['billing']) ? $data['billing'] : null;
         $this->container['buysafe'] = isset($data['buysafe']) ? $data['buysafe'] : null;
@@ -380,6 +386,30 @@ class Cart implements ModelInterface, ArrayAccess
     public function setAffiliate($affiliate)
     {
         $this->container['affiliate'] = $affiliate;
+
+        return $this;
+    }
+
+    /**
+     * Gets affiliate_network_pixel_oid
+     *
+     * @return int
+     */
+    public function getAffiliateNetworkPixelOid()
+    {
+        return $this->container['affiliate_network_pixel_oid'];
+    }
+
+    /**
+     * Sets affiliate_network_pixel_oid
+     *
+     * @param int $affiliate_network_pixel_oid The affiliate network pixel identifier associated with the cart
+     *
+     * @return $this
+     */
+    public function setAffiliateNetworkPixelOid($affiliate_network_pixel_oid)
+    {
+        $this->container['affiliate_network_pixel_oid'] = $affiliate_network_pixel_oid;
 
         return $this;
     }

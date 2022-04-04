@@ -189,8 +189,8 @@ class CustomerTag implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['tag_value']) && (mb_strlen($this->container['tag_value']) > 100)) {
-            $invalidProperties[] = "invalid value for 'tag_value', the character length must be smaller than or equal to 100.";
+        if (!is_null($this->container['tag_value']) && (mb_strlen($this->container['tag_value']) > 250)) {
+            $invalidProperties[] = "invalid value for 'tag_value', the character length must be smaller than or equal to 250.";
         }
 
         return $invalidProperties;
@@ -227,8 +227,8 @@ class CustomerTag implements ModelInterface, ArrayAccess
      */
     public function setTagValue($tag_value)
     {
-        if (!is_null($tag_value) && (mb_strlen($tag_value) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $tag_value when calling CustomerTag., must be smaller than or equal to 100.');
+        if (!is_null($tag_value) && (mb_strlen($tag_value) > 250)) {
+            throw new \InvalidArgumentException('invalid length for $tag_value when calling CustomerTag., must be smaller than or equal to 250.');
         }
 
         $this->container['tag_value'] = $tag_value;

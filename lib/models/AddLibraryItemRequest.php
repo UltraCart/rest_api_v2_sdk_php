@@ -59,6 +59,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'attributes' => '\ultracart\v2\models\LibraryItemAttribute[]',
         'cjson' => 'string',
+        'cjson2' => 'string',
         'content_type' => 'string',
         'description' => 'string',
         'email_name' => 'string',
@@ -78,6 +79,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'attributes' => null,
         'cjson' => null,
+        'cjson2' => null,
         'content_type' => null,
         'description' => null,
         'email_name' => null,
@@ -118,6 +120,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'attributes' => 'attributes',
         'cjson' => 'cjson',
+        'cjson2' => 'cjson2',
         'content_type' => 'content_type',
         'description' => 'description',
         'email_name' => 'email_name',
@@ -137,6 +140,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $setters = [
         'attributes' => 'setAttributes',
         'cjson' => 'setCjson',
+        'cjson2' => 'setCjson2',
         'content_type' => 'setContentType',
         'description' => 'setDescription',
         'email_name' => 'setEmailName',
@@ -156,6 +160,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     protected static $getters = [
         'attributes' => 'getAttributes',
         'cjson' => 'getCjson',
+        'cjson2' => 'getCjson2',
         'content_type' => 'getContentType',
         'description' => 'getDescription',
         'email_name' => 'getEmailName',
@@ -229,6 +234,7 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     {
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
         $this->container['cjson'] = isset($data['cjson']) ? $data['cjson'] : null;
+        $this->container['cjson2'] = isset($data['cjson2']) ? $data['cjson2'] : null;
         $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['email_name'] = isset($data['email_name']) ? $data['email_name'] : null;
@@ -308,6 +314,30 @@ class AddLibraryItemRequest implements ModelInterface, ArrayAccess
     public function setCjson($cjson)
     {
         $this->container['cjson'] = $cjson;
+
+        return $this;
+    }
+
+    /**
+     * Gets cjson2
+     *
+     * @return string
+     */
+    public function getCjson2()
+    {
+        return $this->container['cjson2'];
+    }
+
+    /**
+     * Sets cjson2
+     *
+     * @param string $cjson2 Additional Cjson to be added to library, notably for the postcard which has a front and back.
+     *
+     * @return $this
+     */
+    public function setCjson2($cjson2)
+    {
+        $this->container['cjson2'] = $cjson2;
 
         return $this;
     }

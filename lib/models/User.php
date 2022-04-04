@@ -267,6 +267,10 @@ class User implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 150)) {
+            $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 150.";
+        }
+
         return $invalidProperties;
     }
 
@@ -373,6 +377,10 @@ class User implements ModelInterface, ArrayAccess
      */
     public function setEmail($email)
     {
+        if (!is_null($email) && (mb_strlen($email) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $email when calling User., must be smaller than or equal to 150.');
+        }
+
         $this->container['email'] = $email;
 
         return $this;

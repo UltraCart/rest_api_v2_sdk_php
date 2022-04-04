@@ -1,6 +1,6 @@
 <?php
 /**
- * ItemTax
+ * BrowserDevice
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ItemTax Class Doc Comment
+ * BrowserDevice Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ItemTax implements ModelInterface, ArrayAccess
+class BrowserDevice implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ItemTax implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItemTax';
+    protected static $swaggerModelName = 'BrowserDevice';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,7 @@ class ItemTax implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'exemptions' => '\ultracart\v2\models\ItemTaxExemption[]',
-        'tax_free' => 'bool',
-        'tax_product_type' => 'string',
-        'taxable_cost' => 'float'
+        'family' => 'string'
     ];
 
     /**
@@ -69,10 +66,7 @@ class ItemTax implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'exemptions' => null,
-        'tax_free' => null,
-        'tax_product_type' => null,
-        'taxable_cost' => null
+        'family' => null
     ];
 
     /**
@@ -102,10 +96,7 @@ class ItemTax implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exemptions' => 'exemptions',
-        'tax_free' => 'tax_free',
-        'tax_product_type' => 'tax_product_type',
-        'taxable_cost' => 'taxable_cost'
+        'family' => 'family'
     ];
 
     /**
@@ -114,10 +105,7 @@ class ItemTax implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exemptions' => 'setExemptions',
-        'tax_free' => 'setTaxFree',
-        'tax_product_type' => 'setTaxProductType',
-        'taxable_cost' => 'setTaxableCost'
+        'family' => 'setFamily'
     ];
 
     /**
@@ -126,10 +114,7 @@ class ItemTax implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exemptions' => 'getExemptions',
-        'tax_free' => 'getTaxFree',
-        'tax_product_type' => 'getTaxProductType',
-        'taxable_cost' => 'getTaxableCost'
+        'family' => 'getFamily'
     ];
 
     /**
@@ -173,27 +158,8 @@ class ItemTax implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TAX_PRODUCT_TYPE_EMPTY = '';
-    const TAX_PRODUCT_TYPE_DIGITAL = 'digital';
-    const TAX_PRODUCT_TYPE_PHYSICAL = 'physical';
-    const TAX_PRODUCT_TYPE_SERVICE = 'service';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTaxProductTypeAllowableValues()
-    {
-        return [
-            self::TAX_PRODUCT_TYPE_EMPTY,
-            self::TAX_PRODUCT_TYPE_DIGITAL,
-            self::TAX_PRODUCT_TYPE_PHYSICAL,
-            self::TAX_PRODUCT_TYPE_SERVICE,
-        ];
-    }
     
 
     /**
@@ -211,10 +177,7 @@ class ItemTax implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exemptions'] = isset($data['exemptions']) ? $data['exemptions'] : null;
-        $this->container['tax_free'] = isset($data['tax_free']) ? $data['tax_free'] : null;
-        $this->container['tax_product_type'] = isset($data['tax_product_type']) ? $data['tax_product_type'] : null;
-        $this->container['taxable_cost'] = isset($data['taxable_cost']) ? $data['taxable_cost'] : null;
+        $this->container['family'] = isset($data['family']) ? $data['family'] : null;
     }
 
     /**
@@ -225,14 +188,6 @@ class ItemTax implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTaxProductTypeAllowableValues();
-        if (!is_null($this->container['tax_product_type']) && !in_array($this->container['tax_product_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'tax_product_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -250,106 +205,25 @@ class ItemTax implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exemptions
-     *
-     * @return \ultracart\v2\models\ItemTaxExemption[]
-     */
-    public function getExemptions()
-    {
-        return $this->container['exemptions'];
-    }
-
-    /**
-     * Sets exemptions
-     *
-     * @param \ultracart\v2\models\ItemTaxExemption[] $exemptions Exemptions
-     *
-     * @return $this
-     */
-    public function setExemptions($exemptions)
-    {
-        $this->container['exemptions'] = $exemptions;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_free
-     *
-     * @return bool
-     */
-    public function getTaxFree()
-    {
-        return $this->container['tax_free'];
-    }
-
-    /**
-     * Sets tax_free
-     *
-     * @param bool $tax_free True if tax free
-     *
-     * @return $this
-     */
-    public function setTaxFree($tax_free)
-    {
-        $this->container['tax_free'] = $tax_free;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_product_type
+     * Gets family
      *
      * @return string
      */
-    public function getTaxProductType()
+    public function getFamily()
     {
-        return $this->container['tax_product_type'];
+        return $this->container['family'];
     }
 
     /**
-     * Sets tax_product_type
+     * Sets family
      *
-     * @param string $tax_product_type Tax product type
+     * @param string $family family
      *
      * @return $this
      */
-    public function setTaxProductType($tax_product_type)
+    public function setFamily($family)
     {
-        $allowedValues = $this->getTaxProductTypeAllowableValues();
-        if (!is_null($tax_product_type) && !in_array($tax_product_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'tax_product_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['tax_product_type'] = $tax_product_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets taxable_cost
-     *
-     * @return float
-     */
-    public function getTaxableCost()
-    {
-        return $this->container['taxable_cost'];
-    }
-
-    /**
-     * Sets taxable_cost
-     *
-     * @param float $taxable_cost Taxable cost if different than regular cost
-     *
-     * @return $this
-     */
-    public function setTaxableCost($taxable_cost)
-    {
-        $this->container['taxable_cost'] = $taxable_cost;
+        $this->container['family'] = $family;
 
         return $this;
     }

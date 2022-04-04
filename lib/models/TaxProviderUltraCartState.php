@@ -58,6 +58,9 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'enabled' => 'bool',
+        'exempt_digital_items' => 'bool',
+        'exempt_physical_items' => 'bool',
+        'exempt_service_items' => 'bool',
         'state_code' => 'string',
         'state_name' => 'string',
         'tax_gift_charge' => 'bool',
@@ -73,6 +76,9 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'enabled' => null,
+        'exempt_digital_items' => null,
+        'exempt_physical_items' => null,
+        'exempt_service_items' => null,
         'state_code' => null,
         'state_name' => null,
         'tax_gift_charge' => null,
@@ -109,6 +115,9 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'enabled' => 'enabled',
+        'exempt_digital_items' => 'exempt_digital_items',
+        'exempt_physical_items' => 'exempt_physical_items',
+        'exempt_service_items' => 'exempt_service_items',
         'state_code' => 'state_code',
         'state_name' => 'state_name',
         'tax_gift_charge' => 'tax_gift_charge',
@@ -124,6 +133,9 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'enabled' => 'setEnabled',
+        'exempt_digital_items' => 'setExemptDigitalItems',
+        'exempt_physical_items' => 'setExemptPhysicalItems',
+        'exempt_service_items' => 'setExemptServiceItems',
         'state_code' => 'setStateCode',
         'state_name' => 'setStateName',
         'tax_gift_charge' => 'setTaxGiftCharge',
@@ -139,6 +151,9 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'enabled' => 'getEnabled',
+        'exempt_digital_items' => 'getExemptDigitalItems',
+        'exempt_physical_items' => 'getExemptPhysicalItems',
+        'exempt_service_items' => 'getExemptServiceItems',
         'state_code' => 'getStateCode',
         'state_name' => 'getStateName',
         'tax_gift_charge' => 'getTaxGiftCharge',
@@ -208,6 +223,9 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
+        $this->container['exempt_digital_items'] = isset($data['exempt_digital_items']) ? $data['exempt_digital_items'] : null;
+        $this->container['exempt_physical_items'] = isset($data['exempt_physical_items']) ? $data['exempt_physical_items'] : null;
+        $this->container['exempt_service_items'] = isset($data['exempt_service_items']) ? $data['exempt_service_items'] : null;
         $this->container['state_code'] = isset($data['state_code']) ? $data['state_code'] : null;
         $this->container['state_name'] = isset($data['state_name']) ? $data['state_name'] : null;
         $this->container['tax_gift_charge'] = isset($data['tax_gift_charge']) ? $data['tax_gift_charge'] : null;
@@ -260,6 +278,78 @@ class TaxProviderUltraCartState implements ModelInterface, ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_digital_items
+     *
+     * @return bool
+     */
+    public function getExemptDigitalItems()
+    {
+        return $this->container['exempt_digital_items'];
+    }
+
+    /**
+     * Sets exempt_digital_items
+     *
+     * @param bool $exempt_digital_items True if digital items are exempt from sales tax in this state.
+     *
+     * @return $this
+     */
+    public function setExemptDigitalItems($exempt_digital_items)
+    {
+        $this->container['exempt_digital_items'] = $exempt_digital_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_physical_items
+     *
+     * @return bool
+     */
+    public function getExemptPhysicalItems()
+    {
+        return $this->container['exempt_physical_items'];
+    }
+
+    /**
+     * Sets exempt_physical_items
+     *
+     * @param bool $exempt_physical_items True if physical items are exempt from sales tax in this state.
+     *
+     * @return $this
+     */
+    public function setExemptPhysicalItems($exempt_physical_items)
+    {
+        $this->container['exempt_physical_items'] = $exempt_physical_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_service_items
+     *
+     * @return bool
+     */
+    public function getExemptServiceItems()
+    {
+        return $this->container['exempt_service_items'];
+    }
+
+    /**
+     * Sets exempt_service_items
+     *
+     * @param bool $exempt_service_items True if service items are exempt from sales tax in this state.
+     *
+     * @return $this
+     */
+    public function setExemptServiceItems($exempt_service_items)
+    {
+        $this->container['exempt_service_items'] = $exempt_service_items;
 
         return $this;
     }

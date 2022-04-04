@@ -64,6 +64,9 @@ class TaxState implements ModelInterface, ArrayAccess
         'dont_collect_county' => 'bool',
         'dont_collect_postal_code' => 'bool',
         'dont_collect_state' => 'bool',
+        'exempt_digital_items' => 'bool',
+        'exempt_physical_items' => 'bool',
+        'exempt_service_items' => 'bool',
         'state_code' => 'string',
         'state_oid' => 'int',
         'tax_gift_charge' => 'bool',
@@ -87,6 +90,9 @@ class TaxState implements ModelInterface, ArrayAccess
         'dont_collect_county' => null,
         'dont_collect_postal_code' => null,
         'dont_collect_state' => null,
+        'exempt_digital_items' => null,
+        'exempt_physical_items' => null,
+        'exempt_service_items' => null,
         'state_code' => null,
         'state_oid' => 'int32',
         'tax_gift_charge' => null,
@@ -131,6 +137,9 @@ class TaxState implements ModelInterface, ArrayAccess
         'dont_collect_county' => 'dont_collect_county',
         'dont_collect_postal_code' => 'dont_collect_postal_code',
         'dont_collect_state' => 'dont_collect_state',
+        'exempt_digital_items' => 'exempt_digital_items',
+        'exempt_physical_items' => 'exempt_physical_items',
+        'exempt_service_items' => 'exempt_service_items',
         'state_code' => 'state_code',
         'state_oid' => 'state_oid',
         'tax_gift_charge' => 'tax_gift_charge',
@@ -154,6 +163,9 @@ class TaxState implements ModelInterface, ArrayAccess
         'dont_collect_county' => 'setDontCollectCounty',
         'dont_collect_postal_code' => 'setDontCollectPostalCode',
         'dont_collect_state' => 'setDontCollectState',
+        'exempt_digital_items' => 'setExemptDigitalItems',
+        'exempt_physical_items' => 'setExemptPhysicalItems',
+        'exempt_service_items' => 'setExemptServiceItems',
         'state_code' => 'setStateCode',
         'state_oid' => 'setStateOid',
         'tax_gift_charge' => 'setTaxGiftCharge',
@@ -177,6 +189,9 @@ class TaxState implements ModelInterface, ArrayAccess
         'dont_collect_county' => 'getDontCollectCounty',
         'dont_collect_postal_code' => 'getDontCollectPostalCode',
         'dont_collect_state' => 'getDontCollectState',
+        'exempt_digital_items' => 'getExemptDigitalItems',
+        'exempt_physical_items' => 'getExemptPhysicalItems',
+        'exempt_service_items' => 'getExemptServiceItems',
         'state_code' => 'getStateCode',
         'state_oid' => 'getStateOid',
         'tax_gift_charge' => 'getTaxGiftCharge',
@@ -254,6 +269,9 @@ class TaxState implements ModelInterface, ArrayAccess
         $this->container['dont_collect_county'] = isset($data['dont_collect_county']) ? $data['dont_collect_county'] : null;
         $this->container['dont_collect_postal_code'] = isset($data['dont_collect_postal_code']) ? $data['dont_collect_postal_code'] : null;
         $this->container['dont_collect_state'] = isset($data['dont_collect_state']) ? $data['dont_collect_state'] : null;
+        $this->container['exempt_digital_items'] = isset($data['exempt_digital_items']) ? $data['exempt_digital_items'] : null;
+        $this->container['exempt_physical_items'] = isset($data['exempt_physical_items']) ? $data['exempt_physical_items'] : null;
+        $this->container['exempt_service_items'] = isset($data['exempt_service_items']) ? $data['exempt_service_items'] : null;
         $this->container['state_code'] = isset($data['state_code']) ? $data['state_code'] : null;
         $this->container['state_oid'] = isset($data['state_oid']) ? $data['state_oid'] : null;
         $this->container['tax_gift_charge'] = isset($data['tax_gift_charge']) ? $data['tax_gift_charge'] : null;
@@ -452,6 +470,78 @@ class TaxState implements ModelInterface, ArrayAccess
     public function setDontCollectState($dont_collect_state)
     {
         $this->container['dont_collect_state'] = $dont_collect_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_digital_items
+     *
+     * @return bool
+     */
+    public function getExemptDigitalItems()
+    {
+        return $this->container['exempt_digital_items'];
+    }
+
+    /**
+     * Sets exempt_digital_items
+     *
+     * @param bool $exempt_digital_items True if digital items are exempt from sales tax in this state.
+     *
+     * @return $this
+     */
+    public function setExemptDigitalItems($exempt_digital_items)
+    {
+        $this->container['exempt_digital_items'] = $exempt_digital_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_physical_items
+     *
+     * @return bool
+     */
+    public function getExemptPhysicalItems()
+    {
+        return $this->container['exempt_physical_items'];
+    }
+
+    /**
+     * Sets exempt_physical_items
+     *
+     * @param bool $exempt_physical_items True if physical items are exempt from sales tax in this state.
+     *
+     * @return $this
+     */
+    public function setExemptPhysicalItems($exempt_physical_items)
+    {
+        $this->container['exempt_physical_items'] = $exempt_physical_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_service_items
+     *
+     * @return bool
+     */
+    public function getExemptServiceItems()
+    {
+        return $this->container['exempt_service_items'];
+    }
+
+    /**
+     * Sets exempt_service_items
+     *
+     * @param bool $exempt_service_items True if service items are exempt from sales tax in this state.
+     *
+     * @return $this
+     */
+    public function setExemptServiceItems($exempt_service_items)
+    {
+        $this->container['exempt_service_items'] = $exempt_service_items;
 
         return $this;
     }
