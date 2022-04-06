@@ -732,6 +732,7 @@ Class | Method | HTTP request | Description
  - [EmailCommseqStepLog](docs/Model/EmailCommseqStepLog.md)
  - [EmailCommseqStepLogsResponse](docs/Model/EmailCommseqStepLogsResponse.md)
  - [EmailCommseqWebhookSendTestRequest](docs/Model/EmailCommseqWebhookSendTestRequest.md)
+ - [EmailCommseqWebhookSendTestResponse](docs/Model/EmailCommseqWebhookSendTestResponse.md)
  - [EmailCommseqsResponse](docs/Model/EmailCommseqsResponse.md)
  - [EmailCustomer](docs/Model/EmailCustomer.md)
  - [EmailCustomerEditorUrlResponse](docs/Model/EmailCustomerEditorUrlResponse.md)
@@ -1227,6 +1228,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.9.3 | 04/06/2022 | fix return object on send webhook test method |
 | 3.9.2 | 04/04/2022 | user.email field extended and postcard screenshot fields |
 | 3.9.1 | 03/03/2022 | javascript sdk package.json bug fix |
 | 3.9.0 | 03/03/2022 | removed  ultra_cart_rest_api_v2.d.ts from javascript sdk because typescript sdk exists now |

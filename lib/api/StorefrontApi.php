@@ -47824,7 +47824,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\EmailCommseqEmailSendTestResponse
+     * @return \ultracart\v2\models\EmailCommseqWebhookSendTestResponse
      */
     public function sendWebhookTest($storefront_oid, $email_commseq_webhook_test_request)
     {
@@ -47843,7 +47843,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqWebhookSendTestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendWebhookTestWithHttpInfo($storefront_oid, $email_commseq_webhook_test_request)
     {
@@ -47862,11 +47862,11 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\EmailCommseqEmailSendTestResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\EmailCommseqWebhookSendTestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendWebhookTestWithHttpInfoRetry($retry ,  $storefront_oid,  $email_commseq_webhook_test_request)
     {
-        $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqWebhookSendTestResponse';
         $request = $this->sendWebhookTestRequest($storefront_oid, $email_commseq_webhook_test_request);
 
         try {
@@ -47919,7 +47919,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\EmailCommseqEmailSendTestResponse',
+                        '\ultracart\v2\models\EmailCommseqWebhookSendTestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -48003,7 +48003,7 @@ class StorefrontApi
      */
     public function sendWebhookTestAsyncWithHttpInfo($storefront_oid, $email_commseq_webhook_test_request)
     {
-        $returnType = '\ultracart\v2\models\EmailCommseqEmailSendTestResponse';
+        $returnType = '\ultracart\v2\models\EmailCommseqWebhookSendTestResponse';
         $request = $this->sendWebhookTestRequest($storefront_oid, $email_commseq_webhook_test_request);
 
         return $this->client

@@ -6636,7 +6636,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendWebhookTest**
-> \ultracart\v2\models\EmailCommseqEmailSendTestResponse sendWebhookTest($storefront_oid, $email_commseq_webhook_test_request)
+> \ultracart\v2\models\EmailCommseqWebhookSendTestResponse sendWebhookTest($storefront_oid, $email_commseq_webhook_test_request)
 
 Send webhook test
 
@@ -6670,7 +6670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\EmailCommseqEmailSendTestResponse**](../Model/EmailCommseqEmailSendTestResponse.md)
+[**\ultracart\v2\models\EmailCommseqWebhookSendTestResponse**](../Model/EmailCommseqWebhookSendTestResponse.md)
 
 ### Authorization
 
