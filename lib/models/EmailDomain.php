@@ -65,6 +65,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'identity_status' => 'string',
         'merchant_id' => 'string',
         'provider' => 'string',
+        'spf' => '\ultracart\v2\models\VerificationRecord',
         'start_dkim_dts' => 'string',
         'start_identity_dts' => 'string',
         'verification' => '\ultracart\v2\models\VerificationRecord'
@@ -84,6 +85,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'identity_status' => null,
         'merchant_id' => null,
         'provider' => null,
+        'spf' => null,
         'start_dkim_dts' => null,
         'start_identity_dts' => null,
         'verification' => null
@@ -124,6 +126,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'identity_status' => 'identity_status',
         'merchant_id' => 'merchant_id',
         'provider' => 'provider',
+        'spf' => 'spf',
         'start_dkim_dts' => 'start_dkim_dts',
         'start_identity_dts' => 'start_identity_dts',
         'verification' => 'verification'
@@ -143,6 +146,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'identity_status' => 'setIdentityStatus',
         'merchant_id' => 'setMerchantId',
         'provider' => 'setProvider',
+        'spf' => 'setSpf',
         'start_dkim_dts' => 'setStartDkimDts',
         'start_identity_dts' => 'setStartIdentityDts',
         'verification' => 'setVerification'
@@ -162,6 +166,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'identity_status' => 'getIdentityStatus',
         'merchant_id' => 'getMerchantId',
         'provider' => 'getProvider',
+        'spf' => 'getSpf',
         'start_dkim_dts' => 'getStartDkimDts',
         'start_identity_dts' => 'getStartIdentityDts',
         'verification' => 'getVerification'
@@ -235,6 +240,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         $this->container['identity_status'] = isset($data['identity_status']) ? $data['identity_status'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
+        $this->container['spf'] = isset($data['spf']) ? $data['spf'] : null;
         $this->container['start_dkim_dts'] = isset($data['start_dkim_dts']) ? $data['start_dkim_dts'] : null;
         $this->container['start_identity_dts'] = isset($data['start_identity_dts']) ? $data['start_identity_dts'] : null;
         $this->container['verification'] = isset($data['verification']) ? $data['verification'] : null;
@@ -452,6 +458,30 @@ class EmailDomain implements ModelInterface, ArrayAccess
     public function setProvider($provider)
     {
         $this->container['provider'] = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets spf
+     *
+     * @return \ultracart\v2\models\VerificationRecord
+     */
+    public function getSpf()
+    {
+        return $this->container['spf'];
+    }
+
+    /**
+     * Sets spf
+     *
+     * @param \ultracart\v2\models\VerificationRecord $spf spf
+     *
+     * @return $this
+     */
+    public function setSpf($spf)
+    {
+        $this->container['spf'] = $spf;
 
         return $this;
     }

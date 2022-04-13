@@ -58,6 +58,8 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'current_points' => 'int',
+        'internal_gift_certificate_balance' => 'string',
+        'internal_gift_certificate_oid' => 'int',
         'ledger_entries' => '\ultracart\v2\models\CustomerLoyaltyLedger[]',
         'pending_points' => 'int',
         'redemptions' => '\ultracart\v2\models\CustomerLoyaltyRedemption[]'
@@ -70,6 +72,8 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'current_points' => 'int32',
+        'internal_gift_certificate_balance' => null,
+        'internal_gift_certificate_oid' => 'int32',
         'ledger_entries' => null,
         'pending_points' => 'int32',
         'redemptions' => null
@@ -103,6 +107,8 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'current_points' => 'current_points',
+        'internal_gift_certificate_balance' => 'internal_gift_certificate_balance',
+        'internal_gift_certificate_oid' => 'internal_gift_certificate_oid',
         'ledger_entries' => 'ledger_entries',
         'pending_points' => 'pending_points',
         'redemptions' => 'redemptions'
@@ -115,6 +121,8 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'current_points' => 'setCurrentPoints',
+        'internal_gift_certificate_balance' => 'setInternalGiftCertificateBalance',
+        'internal_gift_certificate_oid' => 'setInternalGiftCertificateOid',
         'ledger_entries' => 'setLedgerEntries',
         'pending_points' => 'setPendingPoints',
         'redemptions' => 'setRedemptions'
@@ -127,6 +135,8 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'current_points' => 'getCurrentPoints',
+        'internal_gift_certificate_balance' => 'getInternalGiftCertificateBalance',
+        'internal_gift_certificate_oid' => 'getInternalGiftCertificateOid',
         'ledger_entries' => 'getLedgerEntries',
         'pending_points' => 'getPendingPoints',
         'redemptions' => 'getRedemptions'
@@ -193,6 +203,8 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['current_points'] = isset($data['current_points']) ? $data['current_points'] : null;
+        $this->container['internal_gift_certificate_balance'] = isset($data['internal_gift_certificate_balance']) ? $data['internal_gift_certificate_balance'] : null;
+        $this->container['internal_gift_certificate_oid'] = isset($data['internal_gift_certificate_oid']) ? $data['internal_gift_certificate_oid'] : null;
         $this->container['ledger_entries'] = isset($data['ledger_entries']) ? $data['ledger_entries'] : null;
         $this->container['pending_points'] = isset($data['pending_points']) ? $data['pending_points'] : null;
         $this->container['redemptions'] = isset($data['redemptions']) ? $data['redemptions'] : null;
@@ -242,6 +254,54 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
     public function setCurrentPoints($current_points)
     {
         $this->container['current_points'] = $current_points;
+
+        return $this;
+    }
+
+    /**
+     * Gets internal_gift_certificate_balance
+     *
+     * @return string
+     */
+    public function getInternalGiftCertificateBalance()
+    {
+        return $this->container['internal_gift_certificate_balance'];
+    }
+
+    /**
+     * Sets internal_gift_certificate_balance
+     *
+     * @param string $internal_gift_certificate_balance Loyalty Cashback / Store credit balance (internal gift certificate balance)
+     *
+     * @return $this
+     */
+    public function setInternalGiftCertificateBalance($internal_gift_certificate_balance)
+    {
+        $this->container['internal_gift_certificate_balance'] = $internal_gift_certificate_balance;
+
+        return $this;
+    }
+
+    /**
+     * Gets internal_gift_certificate_oid
+     *
+     * @return int
+     */
+    public function getInternalGiftCertificateOid()
+    {
+        return $this->container['internal_gift_certificate_oid'];
+    }
+
+    /**
+     * Sets internal_gift_certificate_oid
+     *
+     * @param int $internal_gift_certificate_oid Internal gift certificate oid used to tracking loyalty cashback / store credit.
+     *
+     * @return $this
+     */
+    public function setInternalGiftCertificateOid($internal_gift_certificate_oid)
+    {
+        $this->container['internal_gift_certificate_oid'] = $internal_gift_certificate_oid;
 
         return $this;
     }

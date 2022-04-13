@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **identity_status** | **string** |  | [optional] 
 **merchant_id** | **string** |  | [optional] 
 **provider** | **string** |  | [optional] 
+**spf** | [**\ultracart\v2\models\VerificationRecord**](VerificationRecord.md) |  | [optional] 
 **start_dkim_dts** | **string** |  | [optional] 
 **start_identity_dts** | **string** |  | [optional] 
 **verification** | [**\ultracart\v2\models\VerificationRecord**](VerificationRecord.md) |  | [optional] 
