@@ -67,8 +67,8 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'string',
         'postcard_front_container_cjson' => 'string',
         'postcard_front_container_uuid' => 'string',
+        'screenshot_back_url' => 'string',
         'screenshot_front_url' => 'string',
-        'screenshot_small_full_url' => 'string',
         'storefront_oid' => 'int'
     ];
 
@@ -88,8 +88,8 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'dateTime',
         'postcard_front_container_cjson' => null,
         'postcard_front_container_uuid' => null,
+        'screenshot_back_url' => null,
         'screenshot_front_url' => null,
-        'screenshot_small_full_url' => null,
         'storefront_oid' => 'int32'
     ];
 
@@ -130,8 +130,8 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'postcard_container_cjson_last_modified_dts',
         'postcard_front_container_cjson' => 'postcard_front_container_cjson',
         'postcard_front_container_uuid' => 'postcard_front_container_uuid',
+        'screenshot_back_url' => 'screenshot_back_url',
         'screenshot_front_url' => 'screenshot_front_url',
-        'screenshot_small_full_url' => 'screenshot_small_full_url',
         'storefront_oid' => 'storefront_oid'
     ];
 
@@ -151,8 +151,8 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'setPostcardContainerCjsonLastModifiedDts',
         'postcard_front_container_cjson' => 'setPostcardFrontContainerCjson',
         'postcard_front_container_uuid' => 'setPostcardFrontContainerUuid',
+        'screenshot_back_url' => 'setScreenshotBackUrl',
         'screenshot_front_url' => 'setScreenshotFrontUrl',
-        'screenshot_small_full_url' => 'setScreenshotSmallFullUrl',
         'storefront_oid' => 'setStorefrontOid'
     ];
 
@@ -172,8 +172,8 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         'postcard_container_cjson_last_modified_dts' => 'getPostcardContainerCjsonLastModifiedDts',
         'postcard_front_container_cjson' => 'getPostcardFrontContainerCjson',
         'postcard_front_container_uuid' => 'getPostcardFrontContainerUuid',
+        'screenshot_back_url' => 'getScreenshotBackUrl',
         'screenshot_front_url' => 'getScreenshotFrontUrl',
-        'screenshot_small_full_url' => 'getScreenshotSmallFullUrl',
         'storefront_oid' => 'getStorefrontOid'
     ];
 
@@ -247,8 +247,8 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
         $this->container['postcard_container_cjson_last_modified_dts'] = isset($data['postcard_container_cjson_last_modified_dts']) ? $data['postcard_container_cjson_last_modified_dts'] : null;
         $this->container['postcard_front_container_cjson'] = isset($data['postcard_front_container_cjson']) ? $data['postcard_front_container_cjson'] : null;
         $this->container['postcard_front_container_uuid'] = isset($data['postcard_front_container_uuid']) ? $data['postcard_front_container_uuid'] : null;
+        $this->container['screenshot_back_url'] = isset($data['screenshot_back_url']) ? $data['screenshot_back_url'] : null;
         $this->container['screenshot_front_url'] = isset($data['screenshot_front_url']) ? $data['screenshot_front_url'] : null;
-        $this->container['screenshot_small_full_url'] = isset($data['screenshot_small_full_url']) ? $data['screenshot_small_full_url'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
     }
 
@@ -517,6 +517,30 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets screenshot_back_url
+     *
+     * @return string
+     */
+    public function getScreenshotBackUrl()
+    {
+        return $this->container['screenshot_back_url'];
+    }
+
+    /**
+     * Sets screenshot_back_url
+     *
+     * @param string $screenshot_back_url URL to screenshot of the back of the postcard
+     *
+     * @return $this
+     */
+    public function setScreenshotBackUrl($screenshot_back_url)
+    {
+        $this->container['screenshot_back_url'] = $screenshot_back_url;
+
+        return $this;
+    }
+
+    /**
      * Gets screenshot_front_url
      *
      * @return string
@@ -529,37 +553,13 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess
     /**
      * Sets screenshot_front_url
      *
-     * @param string $screenshot_front_url URL for front screenshot
+     * @param string $screenshot_front_url URL to screenshot of the front of the postcard
      *
      * @return $this
      */
     public function setScreenshotFrontUrl($screenshot_front_url)
     {
         $this->container['screenshot_front_url'] = $screenshot_front_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets screenshot_small_full_url
-     *
-     * @return string
-     */
-    public function getScreenshotSmallFullUrl()
-    {
-        return $this->container['screenshot_small_full_url'];
-    }
-
-    /**
-     * Sets screenshot_small_full_url
-     *
-     * @param string $screenshot_small_full_url URL for back screenshot
-     *
-     * @return $this
-     */
-    public function setScreenshotSmallFullUrl($screenshot_small_full_url)
-    {
-        $this->container['screenshot_small_full_url'] = $screenshot_small_full_url;
 
         return $this;
     }

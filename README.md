@@ -1228,6 +1228,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.9.5 | 04/14/2022 | postcard screenshot bug fixes |
 | 3.9.4 | 04/13/2022 | Added spf DNS record to the sending domain object |
 | 3.9.3 | 04/06/2022 | fix return object on send webhook test method |
 | 3.9.2 | 04/04/2022 | user.email field extended and postcard screenshot fields |
