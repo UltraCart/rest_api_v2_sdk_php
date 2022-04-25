@@ -65,6 +65,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'customer_histogram' => '\ultracart\v2\models\EmailPerformanceCustomerHistogram',
         'daily_stats' => '\ultracart\v2\models\EmailPerformanceDaily[]',
         'delivered_count' => 'int',
+        'loyalty_program_type' => 'string',
         'max_active_customers' => 'int',
         'max_emails_per_day' => 'int',
         'max_emails_per_hour' => 'int',
@@ -95,6 +96,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'customer_histogram' => null,
         'daily_stats' => null,
         'delivered_count' => 'int32',
+        'loyalty_program_type' => null,
         'max_active_customers' => 'int32',
         'max_emails_per_day' => 'int32',
         'max_emails_per_hour' => 'int32',
@@ -146,6 +148,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'customer_histogram' => 'customer_histogram',
         'daily_stats' => 'daily_stats',
         'delivered_count' => 'delivered_count',
+        'loyalty_program_type' => 'loyalty_program_type',
         'max_active_customers' => 'max_active_customers',
         'max_emails_per_day' => 'max_emails_per_day',
         'max_emails_per_hour' => 'max_emails_per_hour',
@@ -176,6 +179,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'customer_histogram' => 'setCustomerHistogram',
         'daily_stats' => 'setDailyStats',
         'delivered_count' => 'setDeliveredCount',
+        'loyalty_program_type' => 'setLoyaltyProgramType',
         'max_active_customers' => 'setMaxActiveCustomers',
         'max_emails_per_day' => 'setMaxEmailsPerDay',
         'max_emails_per_hour' => 'setMaxEmailsPerHour',
@@ -206,6 +210,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         'customer_histogram' => 'getCustomerHistogram',
         'daily_stats' => 'getDailyStats',
         'delivered_count' => 'getDeliveredCount',
+        'loyalty_program_type' => 'getLoyaltyProgramType',
         'max_active_customers' => 'getMaxActiveCustomers',
         'max_emails_per_day' => 'getMaxEmailsPerDay',
         'max_emails_per_hour' => 'getMaxEmailsPerHour',
@@ -263,8 +268,25 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const LOYALTY_PROGRAM_TYPE_DISABLED = 'disabled';
+    const LOYALTY_PROGRAM_TYPE_POINTS = 'points';
+    const LOYALTY_PROGRAM_TYPE_CASHBACK = 'cashback';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLoyaltyProgramTypeAllowableValues()
+    {
+        return [
+            self::LOYALTY_PROGRAM_TYPE_DISABLED,
+            self::LOYALTY_PROGRAM_TYPE_POINTS,
+            self::LOYALTY_PROGRAM_TYPE_CASHBACK,
+        ];
+    }
     
 
     /**
@@ -290,6 +312,7 @@ class EmailPerformance implements ModelInterface, ArrayAccess
         $this->container['customer_histogram'] = isset($data['customer_histogram']) ? $data['customer_histogram'] : null;
         $this->container['daily_stats'] = isset($data['daily_stats']) ? $data['daily_stats'] : null;
         $this->container['delivered_count'] = isset($data['delivered_count']) ? $data['delivered_count'] : null;
+        $this->container['loyalty_program_type'] = isset($data['loyalty_program_type']) ? $data['loyalty_program_type'] : null;
         $this->container['max_active_customers'] = isset($data['max_active_customers']) ? $data['max_active_customers'] : null;
         $this->container['max_emails_per_day'] = isset($data['max_emails_per_day']) ? $data['max_emails_per_day'] : null;
         $this->container['max_emails_per_hour'] = isset($data['max_emails_per_hour']) ? $data['max_emails_per_hour'] : null;
@@ -314,6 +337,14 @@ class EmailPerformance implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getLoyaltyProgramTypeAllowableValues();
+        if (!is_null($this->container['loyalty_program_type']) && !in_array($this->container['loyalty_program_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'loyalty_program_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -518,6 +549,39 @@ class EmailPerformance implements ModelInterface, ArrayAccess
     public function setDeliveredCount($delivered_count)
     {
         $this->container['delivered_count'] = $delivered_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty_program_type
+     *
+     * @return string
+     */
+    public function getLoyaltyProgramType()
+    {
+        return $this->container['loyalty_program_type'];
+    }
+
+    /**
+     * Sets loyalty_program_type
+     *
+     * @param string $loyalty_program_type Loyalty Program Type
+     *
+     * @return $this
+     */
+    public function setLoyaltyProgramType($loyalty_program_type)
+    {
+        $allowedValues = $this->getLoyaltyProgramTypeAllowableValues();
+        if (!is_null($loyalty_program_type) && !in_array($loyalty_program_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'loyalty_program_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['loyalty_program_type'] = $loyalty_program_type;
 
         return $this;
     }

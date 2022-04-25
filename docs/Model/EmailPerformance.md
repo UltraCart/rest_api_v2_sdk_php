@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **customer_histogram** | [**\ultracart\v2\models\EmailPerformanceCustomerHistogram**](EmailPerformanceCustomerHistogram.md) |  | [optional] 
 **daily_stats** | [**\ultracart\v2\models\EmailPerformanceDaily[]**](EmailPerformanceDaily.md) | Daily statistics used for charting | [optional] 
 **delivered_count** | **int** | Delivered count | [optional] 
+**loyalty_program_type** | **string** | Loyalty Program Type | [optional] 
 **max_active_customers** | **int** | Maximum active customers allowed under their billing plan | [optional] 
 **max_emails_per_day** | **int** | Max emails per day | [optional] 
 **max_emails_per_hour** | **int** | Max emails per hour | [optional] 

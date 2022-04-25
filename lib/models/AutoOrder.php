@@ -61,6 +61,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'auto_order_oid' => 'int',
         'cancel_after_next_x_orders' => 'int',
         'cancel_downgrade' => 'bool',
+        'cancel_reason' => 'string',
         'cancel_upgrade' => 'bool',
         'canceled_by_user' => 'string',
         'canceled_dts' => 'string',
@@ -90,6 +91,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'auto_order_oid' => 'int32',
         'cancel_after_next_x_orders' => 'int32',
         'cancel_downgrade' => null,
+        'cancel_reason' => null,
         'cancel_upgrade' => null,
         'canceled_by_user' => null,
         'canceled_dts' => 'dateTime',
@@ -140,6 +142,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'auto_order_oid' => 'auto_order_oid',
         'cancel_after_next_x_orders' => 'cancel_after_next_x_orders',
         'cancel_downgrade' => 'cancel_downgrade',
+        'cancel_reason' => 'cancel_reason',
         'cancel_upgrade' => 'cancel_upgrade',
         'canceled_by_user' => 'canceled_by_user',
         'canceled_dts' => 'canceled_dts',
@@ -169,6 +172,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'auto_order_oid' => 'setAutoOrderOid',
         'cancel_after_next_x_orders' => 'setCancelAfterNextXOrders',
         'cancel_downgrade' => 'setCancelDowngrade',
+        'cancel_reason' => 'setCancelReason',
         'cancel_upgrade' => 'setCancelUpgrade',
         'canceled_by_user' => 'setCanceledByUser',
         'canceled_dts' => 'setCanceledDts',
@@ -198,6 +202,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'auto_order_oid' => 'getAutoOrderOid',
         'cancel_after_next_x_orders' => 'getCancelAfterNextXOrders',
         'cancel_downgrade' => 'getCancelDowngrade',
+        'cancel_reason' => 'getCancelReason',
         'cancel_upgrade' => 'getCancelUpgrade',
         'canceled_by_user' => 'getCanceledByUser',
         'canceled_dts' => 'getCanceledDts',
@@ -298,6 +303,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         $this->container['auto_order_oid'] = isset($data['auto_order_oid']) ? $data['auto_order_oid'] : null;
         $this->container['cancel_after_next_x_orders'] = isset($data['cancel_after_next_x_orders']) ? $data['cancel_after_next_x_orders'] : null;
         $this->container['cancel_downgrade'] = isset($data['cancel_downgrade']) ? $data['cancel_downgrade'] : null;
+        $this->container['cancel_reason'] = isset($data['cancel_reason']) ? $data['cancel_reason'] : null;
         $this->container['cancel_upgrade'] = isset($data['cancel_upgrade']) ? $data['cancel_upgrade'] : null;
         $this->container['canceled_by_user'] = isset($data['canceled_by_user']) ? $data['canceled_by_user'] : null;
         $this->container['canceled_dts'] = isset($data['canceled_dts']) ? $data['canceled_dts'] : null;
@@ -441,6 +447,30 @@ class AutoOrder implements ModelInterface, ArrayAccess
     public function setCancelDowngrade($cancel_downgrade)
     {
         $this->container['cancel_downgrade'] = $cancel_downgrade;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancel_reason
+     *
+     * @return string
+     */
+    public function getCancelReason()
+    {
+        return $this->container['cancel_reason'];
+    }
+
+    /**
+     * Sets cancel_reason
+     *
+     * @param string $cancel_reason The reason this auto order was canceled by either merchant or customer
+     *
+     * @return $this
+     */
+    public function setCancelReason($cancel_reason)
+    {
+        $this->container['cancel_reason'] = $cancel_reason;
 
         return $this;
     }

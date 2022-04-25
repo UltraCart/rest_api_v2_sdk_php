@@ -67,6 +67,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'filter_profile_equation_json' => 'string',
         'individually_render' => 'bool',
         'library_item_oid' => 'int',
+        'magic_link' => 'bool',
         'merchant_id' => 'string',
         'pending_review' => 'bool',
         'preview_text' => 'string',
@@ -100,6 +101,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'filter_profile_equation_json' => null,
         'individually_render' => null,
         'library_item_oid' => 'int32',
+        'magic_link' => null,
         'merchant_id' => null,
         'pending_review' => null,
         'preview_text' => null,
@@ -154,6 +156,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'individually_render' => 'individually_render',
         'library_item_oid' => 'library_item_oid',
+        'magic_link' => 'magic_link',
         'merchant_id' => 'merchant_id',
         'pending_review' => 'pending_review',
         'preview_text' => 'preview_text',
@@ -187,6 +190,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'individually_render' => 'setIndividuallyRender',
         'library_item_oid' => 'setLibraryItemOid',
+        'magic_link' => 'setMagicLink',
         'merchant_id' => 'setMerchantId',
         'pending_review' => 'setPendingReview',
         'preview_text' => 'setPreviewText',
@@ -220,6 +224,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'individually_render' => 'getIndividuallyRender',
         'library_item_oid' => 'getLibraryItemOid',
+        'magic_link' => 'getMagicLink',
         'merchant_id' => 'getMerchantId',
         'pending_review' => 'getPendingReview',
         'preview_text' => 'getPreviewText',
@@ -307,6 +312,7 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
         $this->container['filter_profile_equation_json'] = isset($data['filter_profile_equation_json']) ? $data['filter_profile_equation_json'] : null;
         $this->container['individually_render'] = isset($data['individually_render']) ? $data['individually_render'] : null;
         $this->container['library_item_oid'] = isset($data['library_item_oid']) ? $data['library_item_oid'] : null;
+        $this->container['magic_link'] = isset($data['magic_link']) ? $data['magic_link'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['pending_review'] = isset($data['pending_review']) ? $data['pending_review'] : null;
         $this->container['preview_text'] = isset($data['preview_text']) ? $data['preview_text'] : null;
@@ -584,6 +590,30 @@ class EmailCommseqEmail implements ModelInterface, ArrayAccess
     public function setLibraryItemOid($library_item_oid)
     {
         $this->container['library_item_oid'] = $library_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets magic_link
+     *
+     * @return bool
+     */
+    public function getMagicLink()
+    {
+        return $this->container['magic_link'];
+    }
+
+    /**
+     * Sets magic_link
+     *
+     * @param bool $magic_link True if email links should contain magic link tokens to log the customer in automatically
+     *
+     * @return $this
+     */
+    public function setMagicLink($magic_link)
+    {
+        $this->container['magic_link'] = $magic_link;
 
         return $this;
     }
