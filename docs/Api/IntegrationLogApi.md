@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIntegrationLog**](IntegrationLogApi.md#getIntegrationLog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
 [**getIntegrationLogFile**](IntegrationLogApi.md#getIntegrationLogFile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
+[**getIntegrationLogFilePdf**](IntegrationLogApi.md#getIntegrationLogFilePdf) | **GET** /integration_log/query/{pk}/{sk}/{uuid}/pdf | Retrieve an integration log file converted to PDF
 [**getIntegrationLogSummariesQuery**](IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
 [**getIntegrationLogsQuery**](IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
 
@@ -85,6 +86,58 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationLogApi->getIntegrationLogFile: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pk** | **string**|  |
+ **sk** | **string**|  |
+ **uuid** | **string**|  |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getIntegrationLogFilePdf**
+> \SplFileObject getIntegrationLogFilePdf($pk, $sk, $uuid)
+
+Retrieve an integration log file converted to PDF
+
+Retrieve an integration log file from the account based identifiers
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\IntegrationLogApi::usingApiKey($simple_key);
+
+$pk = "pk_example"; // string | 
+$sk = "sk_example"; // string | 
+$uuid = "uuid_example"; // string | 
+
+try {
+    $result = $apiInstance->getIntegrationLogFilePdf($pk, $sk, $uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling IntegrationLogApi->getIntegrationLogFilePdf: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

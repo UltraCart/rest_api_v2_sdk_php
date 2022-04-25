@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerLoyalty
+ * AdjustInternalCertificateResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomerLoyalty Class Doc Comment
+ * AdjustInternalCertificateResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerLoyalty implements ModelInterface, ArrayAccess
+class AdjustInternalCertificateResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomerLoyalty';
+    protected static $swaggerModelName = 'AdjustInternalCertificateResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_points' => 'int',
-        'internal_gift_certificate' => '\ultracart\v2\models\GiftCertificate',
-        'internal_gift_certificate_balance' => 'string',
-        'internal_gift_certificate_oid' => 'int',
-        'ledger_entries' => '\ultracart\v2\models\CustomerLoyaltyLedger[]',
-        'pending_points' => 'int',
-        'redemptions' => '\ultracart\v2\models\CustomerLoyaltyRedemption[]'
+        'adjustment_amount' => 'float',
+        'balance_amount' => 'float',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -72,13 +71,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'current_points' => 'int32',
-        'internal_gift_certificate' => null,
-        'internal_gift_certificate_balance' => null,
-        'internal_gift_certificate_oid' => 'int32',
-        'ledger_entries' => null,
-        'pending_points' => 'int32',
-        'redemptions' => null
+        'adjustment_amount' => null,
+        'balance_amount' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -108,13 +106,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_points' => 'current_points',
-        'internal_gift_certificate' => 'internal_gift_certificate',
-        'internal_gift_certificate_balance' => 'internal_gift_certificate_balance',
-        'internal_gift_certificate_oid' => 'internal_gift_certificate_oid',
-        'ledger_entries' => 'ledger_entries',
-        'pending_points' => 'pending_points',
-        'redemptions' => 'redemptions'
+        'adjustment_amount' => 'adjustment_amount',
+        'balance_amount' => 'balance_amount',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -123,13 +120,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_points' => 'setCurrentPoints',
-        'internal_gift_certificate' => 'setInternalGiftCertificate',
-        'internal_gift_certificate_balance' => 'setInternalGiftCertificateBalance',
-        'internal_gift_certificate_oid' => 'setInternalGiftCertificateOid',
-        'ledger_entries' => 'setLedgerEntries',
-        'pending_points' => 'setPendingPoints',
-        'redemptions' => 'setRedemptions'
+        'adjustment_amount' => 'setAdjustmentAmount',
+        'balance_amount' => 'setBalanceAmount',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -138,13 +134,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_points' => 'getCurrentPoints',
-        'internal_gift_certificate' => 'getInternalGiftCertificate',
-        'internal_gift_certificate_balance' => 'getInternalGiftCertificateBalance',
-        'internal_gift_certificate_oid' => 'getInternalGiftCertificateOid',
-        'ledger_entries' => 'getLedgerEntries',
-        'pending_points' => 'getPendingPoints',
-        'redemptions' => 'getRedemptions'
+        'adjustment_amount' => 'getAdjustmentAmount',
+        'balance_amount' => 'getBalanceAmount',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -207,13 +202,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_points'] = isset($data['current_points']) ? $data['current_points'] : null;
-        $this->container['internal_gift_certificate'] = isset($data['internal_gift_certificate']) ? $data['internal_gift_certificate'] : null;
-        $this->container['internal_gift_certificate_balance'] = isset($data['internal_gift_certificate_balance']) ? $data['internal_gift_certificate_balance'] : null;
-        $this->container['internal_gift_certificate_oid'] = isset($data['internal_gift_certificate_oid']) ? $data['internal_gift_certificate_oid'] : null;
-        $this->container['ledger_entries'] = isset($data['ledger_entries']) ? $data['ledger_entries'] : null;
-        $this->container['pending_points'] = isset($data['pending_points']) ? $data['pending_points'] : null;
-        $this->container['redemptions'] = isset($data['redemptions']) ? $data['redemptions'] : null;
+        $this->container['adjustment_amount'] = isset($data['adjustment_amount']) ? $data['adjustment_amount'] : null;
+        $this->container['balance_amount'] = isset($data['balance_amount']) ? $data['balance_amount'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -241,169 +235,145 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets current_points
+     * Gets adjustment_amount
      *
-     * @return int
+     * @return float
      */
-    public function getCurrentPoints()
+    public function getAdjustmentAmount()
     {
-        return $this->container['current_points'];
+        return $this->container['adjustment_amount'];
     }
 
     /**
-     * Sets current_points
+     * Sets adjustment_amount
      *
-     * @param int $current_points Current points
+     * @param float $adjustment_amount The adjustment amount
      *
      * @return $this
      */
-    public function setCurrentPoints($current_points)
+    public function setAdjustmentAmount($adjustment_amount)
     {
-        $this->container['current_points'] = $current_points;
+        $this->container['adjustment_amount'] = $adjustment_amount;
 
         return $this;
     }
 
     /**
-     * Gets internal_gift_certificate
+     * Gets balance_amount
      *
-     * @return \ultracart\v2\models\GiftCertificate
+     * @return float
      */
-    public function getInternalGiftCertificate()
+    public function getBalanceAmount()
     {
-        return $this->container['internal_gift_certificate'];
+        return $this->container['balance_amount'];
     }
 
     /**
-     * Sets internal_gift_certificate
+     * Sets balance_amount
      *
-     * @param \ultracart\v2\models\GiftCertificate $internal_gift_certificate internal_gift_certificate
+     * @param float $balance_amount The balance amount after the adjustment was made
      *
      * @return $this
      */
-    public function setInternalGiftCertificate($internal_gift_certificate)
+    public function setBalanceAmount($balance_amount)
     {
-        $this->container['internal_gift_certificate'] = $internal_gift_certificate;
+        $this->container['balance_amount'] = $balance_amount;
 
         return $this;
     }
 
     /**
-     * Gets internal_gift_certificate_balance
+     * Gets error
      *
-     * @return string
+     * @return \ultracart\v2\models\Error
      */
-    public function getInternalGiftCertificateBalance()
+    public function getError()
     {
-        return $this->container['internal_gift_certificate_balance'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets internal_gift_certificate_balance
+     * Sets error
      *
-     * @param string $internal_gift_certificate_balance Loyalty Cashback / Store credit balance (internal gift certificate balance)
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setInternalGiftCertificateBalance($internal_gift_certificate_balance)
+    public function setError($error)
     {
-        $this->container['internal_gift_certificate_balance'] = $internal_gift_certificate_balance;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets internal_gift_certificate_oid
+     * Gets metadata
      *
-     * @return int
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getInternalGiftCertificateOid()
+    public function getMetadata()
     {
-        return $this->container['internal_gift_certificate_oid'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets internal_gift_certificate_oid
+     * Sets metadata
      *
-     * @param int $internal_gift_certificate_oid Internal gift certificate oid used to tracking loyalty cashback / store credit.
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setInternalGiftCertificateOid($internal_gift_certificate_oid)
+    public function setMetadata($metadata)
     {
-        $this->container['internal_gift_certificate_oid'] = $internal_gift_certificate_oid;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets ledger_entries
+     * Gets success
      *
-     * @return \ultracart\v2\models\CustomerLoyaltyLedger[]
+     * @return bool
      */
-    public function getLedgerEntries()
+    public function getSuccess()
     {
-        return $this->container['ledger_entries'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets ledger_entries
+     * Sets success
      *
-     * @param \ultracart\v2\models\CustomerLoyaltyLedger[] $ledger_entries Ledger entries
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setLedgerEntries($ledger_entries)
+    public function setSuccess($success)
     {
-        $this->container['ledger_entries'] = $ledger_entries;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets pending_points
+     * Gets warning
      *
-     * @return int
+     * @return \ultracart\v2\models\Warning
      */
-    public function getPendingPoints()
+    public function getWarning()
     {
-        return $this->container['pending_points'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets pending_points
+     * Sets warning
      *
-     * @param int $pending_points Pending Points
+     * @param \ultracart\v2\models\Warning $warning warning
      *
      * @return $this
      */
-    public function setPendingPoints($pending_points)
+    public function setWarning($warning)
     {
-        $this->container['pending_points'] = $pending_points;
-
-        return $this;
-    }
-
-    /**
-     * Gets redemptions
-     *
-     * @return \ultracart\v2\models\CustomerLoyaltyRedemption[]
-     */
-    public function getRedemptions()
-    {
-        return $this->container['redemptions'];
-    }
-
-    /**
-     * Sets redemptions
-     *
-     * @param \ultracart\v2\models\CustomerLoyaltyRedemption[] $redemptions Redemptions
-     *
-     * @return $this
-     */
-    public function setRedemptions($redemptions)
-    {
-        $this->container['redemptions'] = $redemptions;
+        $this->container['warning'] = $warning;
 
         return $this;
     }

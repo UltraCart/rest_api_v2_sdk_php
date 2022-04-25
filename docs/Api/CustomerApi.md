@@ -4,6 +4,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**adjustInternalCertificate**](CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 [**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomerByEmail**](CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
@@ -18,6 +19,56 @@ Method | HTTP request | Description
 [**updateCustomerEmailLists**](CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 [**validateEmailVerificationToken**](CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 
+
+# **adjustInternalCertificate**
+> \ultracart\v2\models\AdjustInternalCertificateResponse adjustInternalCertificate($customer_profile_oid, $adjust_internal_certificate_request)
+
+Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+
+Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
+
+$customer_profile_oid = 56; // int | The customer profile oid
+$adjust_internal_certificate_request = new \ultracart\v2\models\AdjustInternalCertificateRequest(); // \ultracart\v2\models\AdjustInternalCertificateRequest | adjustInternalCertificateRequest
+
+try {
+    $result = $apiInstance->adjustInternalCertificate($customer_profile_oid, $adjust_internal_certificate_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->adjustInternalCertificate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer profile oid |
+ **adjust_internal_certificate_request** | [**\ultracart\v2\models\AdjustInternalCertificateRequest**](../Model/AdjustInternalCertificateRequest.md)| adjustInternalCertificateRequest |
+
+### Return type
+
+[**\ultracart\v2\models\AdjustInternalCertificateResponse**](../Model/AdjustInternalCertificateResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteCustomer**
 > deleteCustomer($customer_profile_oid)

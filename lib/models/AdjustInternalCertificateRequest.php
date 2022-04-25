@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerLoyalty
+ * AdjustInternalCertificateRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CustomerLoyalty Class Doc Comment
+ * AdjustInternalCertificateRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CustomerLoyalty implements ModelInterface, ArrayAccess
+class AdjustInternalCertificateRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomerLoyalty';
+    protected static $swaggerModelName = 'AdjustInternalCertificateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +57,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'current_points' => 'int',
-        'internal_gift_certificate' => '\ultracart\v2\models\GiftCertificate',
-        'internal_gift_certificate_balance' => 'string',
-        'internal_gift_certificate_oid' => 'int',
-        'ledger_entries' => '\ultracart\v2\models\CustomerLoyaltyLedger[]',
-        'pending_points' => 'int',
-        'redemptions' => '\ultracart\v2\models\CustomerLoyaltyRedemption[]'
+        'adjustment_amount' => 'float',
+        'description' => 'string',
+        'entry_dts' => 'string',
+        'expiration_days' => 'int',
+        'order_id' => 'string',
+        'vesting_days' => 'int'
     ];
 
     /**
@@ -72,13 +71,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'current_points' => 'int32',
-        'internal_gift_certificate' => null,
-        'internal_gift_certificate_balance' => null,
-        'internal_gift_certificate_oid' => 'int32',
-        'ledger_entries' => null,
-        'pending_points' => 'int32',
-        'redemptions' => null
+        'adjustment_amount' => null,
+        'description' => null,
+        'entry_dts' => 'dateTime',
+        'expiration_days' => 'int32',
+        'order_id' => null,
+        'vesting_days' => 'int32'
     ];
 
     /**
@@ -108,13 +106,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_points' => 'current_points',
-        'internal_gift_certificate' => 'internal_gift_certificate',
-        'internal_gift_certificate_balance' => 'internal_gift_certificate_balance',
-        'internal_gift_certificate_oid' => 'internal_gift_certificate_oid',
-        'ledger_entries' => 'ledger_entries',
-        'pending_points' => 'pending_points',
-        'redemptions' => 'redemptions'
+        'adjustment_amount' => 'adjustment_amount',
+        'description' => 'description',
+        'entry_dts' => 'entry_dts',
+        'expiration_days' => 'expiration_days',
+        'order_id' => 'order_id',
+        'vesting_days' => 'vesting_days'
     ];
 
     /**
@@ -123,13 +120,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'current_points' => 'setCurrentPoints',
-        'internal_gift_certificate' => 'setInternalGiftCertificate',
-        'internal_gift_certificate_balance' => 'setInternalGiftCertificateBalance',
-        'internal_gift_certificate_oid' => 'setInternalGiftCertificateOid',
-        'ledger_entries' => 'setLedgerEntries',
-        'pending_points' => 'setPendingPoints',
-        'redemptions' => 'setRedemptions'
+        'adjustment_amount' => 'setAdjustmentAmount',
+        'description' => 'setDescription',
+        'entry_dts' => 'setEntryDts',
+        'expiration_days' => 'setExpirationDays',
+        'order_id' => 'setOrderId',
+        'vesting_days' => 'setVestingDays'
     ];
 
     /**
@@ -138,13 +134,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'current_points' => 'getCurrentPoints',
-        'internal_gift_certificate' => 'getInternalGiftCertificate',
-        'internal_gift_certificate_balance' => 'getInternalGiftCertificateBalance',
-        'internal_gift_certificate_oid' => 'getInternalGiftCertificateOid',
-        'ledger_entries' => 'getLedgerEntries',
-        'pending_points' => 'getPendingPoints',
-        'redemptions' => 'getRedemptions'
+        'adjustment_amount' => 'getAdjustmentAmount',
+        'description' => 'getDescription',
+        'entry_dts' => 'getEntryDts',
+        'expiration_days' => 'getExpirationDays',
+        'order_id' => 'getOrderId',
+        'vesting_days' => 'getVestingDays'
     ];
 
     /**
@@ -207,13 +202,12 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_points'] = isset($data['current_points']) ? $data['current_points'] : null;
-        $this->container['internal_gift_certificate'] = isset($data['internal_gift_certificate']) ? $data['internal_gift_certificate'] : null;
-        $this->container['internal_gift_certificate_balance'] = isset($data['internal_gift_certificate_balance']) ? $data['internal_gift_certificate_balance'] : null;
-        $this->container['internal_gift_certificate_oid'] = isset($data['internal_gift_certificate_oid']) ? $data['internal_gift_certificate_oid'] : null;
-        $this->container['ledger_entries'] = isset($data['ledger_entries']) ? $data['ledger_entries'] : null;
-        $this->container['pending_points'] = isset($data['pending_points']) ? $data['pending_points'] : null;
-        $this->container['redemptions'] = isset($data['redemptions']) ? $data['redemptions'] : null;
+        $this->container['adjustment_amount'] = isset($data['adjustment_amount']) ? $data['adjustment_amount'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['entry_dts'] = isset($data['entry_dts']) ? $data['entry_dts'] : null;
+        $this->container['expiration_days'] = isset($data['expiration_days']) ? $data['expiration_days'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['vesting_days'] = isset($data['vesting_days']) ? $data['vesting_days'] : null;
     }
 
     /**
@@ -241,169 +235,145 @@ class CustomerLoyalty implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets current_points
+     * Gets adjustment_amount
      *
-     * @return int
+     * @return float
      */
-    public function getCurrentPoints()
+    public function getAdjustmentAmount()
     {
-        return $this->container['current_points'];
+        return $this->container['adjustment_amount'];
     }
 
     /**
-     * Sets current_points
+     * Sets adjustment_amount
      *
-     * @param int $current_points Current points
+     * @param float $adjustment_amount The adjustment amount
      *
      * @return $this
      */
-    public function setCurrentPoints($current_points)
+    public function setAdjustmentAmount($adjustment_amount)
     {
-        $this->container['current_points'] = $current_points;
+        $this->container['adjustment_amount'] = $adjustment_amount;
 
         return $this;
     }
 
     /**
-     * Gets internal_gift_certificate
-     *
-     * @return \ultracart\v2\models\GiftCertificate
-     */
-    public function getInternalGiftCertificate()
-    {
-        return $this->container['internal_gift_certificate'];
-    }
-
-    /**
-     * Sets internal_gift_certificate
-     *
-     * @param \ultracart\v2\models\GiftCertificate $internal_gift_certificate internal_gift_certificate
-     *
-     * @return $this
-     */
-    public function setInternalGiftCertificate($internal_gift_certificate)
-    {
-        $this->container['internal_gift_certificate'] = $internal_gift_certificate;
-
-        return $this;
-    }
-
-    /**
-     * Gets internal_gift_certificate_balance
+     * Gets description
      *
      * @return string
      */
-    public function getInternalGiftCertificateBalance()
+    public function getDescription()
     {
-        return $this->container['internal_gift_certificate_balance'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets internal_gift_certificate_balance
+     * Sets description
      *
-     * @param string $internal_gift_certificate_balance Loyalty Cashback / Store credit balance (internal gift certificate balance)
+     * @param string $description Description of this adjustment, 50 characters max
      *
      * @return $this
      */
-    public function setInternalGiftCertificateBalance($internal_gift_certificate_balance)
+    public function setDescription($description)
     {
-        $this->container['internal_gift_certificate_balance'] = $internal_gift_certificate_balance;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets internal_gift_certificate_oid
+     * Gets entry_dts
+     *
+     * @return string
+     */
+    public function getEntryDts()
+    {
+        return $this->container['entry_dts'];
+    }
+
+    /**
+     * Sets entry_dts
+     *
+     * @param string $entry_dts Optional timestamp for the adjustment, defaults to current time
+     *
+     * @return $this
+     */
+    public function setEntryDts($entry_dts)
+    {
+        $this->container['entry_dts'] = $entry_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiration_days
      *
      * @return int
      */
-    public function getInternalGiftCertificateOid()
+    public function getExpirationDays()
     {
-        return $this->container['internal_gift_certificate_oid'];
+        return $this->container['expiration_days'];
     }
 
     /**
-     * Sets internal_gift_certificate_oid
+     * Sets expiration_days
      *
-     * @param int $internal_gift_certificate_oid Internal gift certificate oid used to tracking loyalty cashback / store credit.
+     * @param int $expiration_days Optional expiration days from the entry_dts when these adjustment becomes worthless
      *
      * @return $this
      */
-    public function setInternalGiftCertificateOid($internal_gift_certificate_oid)
+    public function setExpirationDays($expiration_days)
     {
-        $this->container['internal_gift_certificate_oid'] = $internal_gift_certificate_oid;
+        $this->container['expiration_days'] = $expiration_days;
 
         return $this;
     }
 
     /**
-     * Gets ledger_entries
+     * Gets order_id
      *
-     * @return \ultracart\v2\models\CustomerLoyaltyLedger[]
+     * @return string
      */
-    public function getLedgerEntries()
+    public function getOrderId()
     {
-        return $this->container['ledger_entries'];
+        return $this->container['order_id'];
     }
 
     /**
-     * Sets ledger_entries
+     * Sets order_id
      *
-     * @param \ultracart\v2\models\CustomerLoyaltyLedger[] $ledger_entries Ledger entries
+     * @param string $order_id Optional order id if this adjustment is related to a particular order
      *
      * @return $this
      */
-    public function setLedgerEntries($ledger_entries)
+    public function setOrderId($order_id)
     {
-        $this->container['ledger_entries'] = $ledger_entries;
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }
 
     /**
-     * Gets pending_points
+     * Gets vesting_days
      *
      * @return int
      */
-    public function getPendingPoints()
+    public function getVestingDays()
     {
-        return $this->container['pending_points'];
+        return $this->container['vesting_days'];
     }
 
     /**
-     * Sets pending_points
+     * Sets vesting_days
      *
-     * @param int $pending_points Pending Points
+     * @param int $vesting_days Optional days required for this adjustment to vest
      *
      * @return $this
      */
-    public function setPendingPoints($pending_points)
+    public function setVestingDays($vesting_days)
     {
-        $this->container['pending_points'] = $pending_points;
-
-        return $this;
-    }
-
-    /**
-     * Gets redemptions
-     *
-     * @return \ultracart\v2\models\CustomerLoyaltyRedemption[]
-     */
-    public function getRedemptions()
-    {
-        return $this->container['redemptions'];
-    }
-
-    /**
-     * Sets redemptions
-     *
-     * @param \ultracart\v2\models\CustomerLoyaltyRedemption[] $redemptions Redemptions
-     *
-     * @return $this
-     */
-    public function setRedemptions($redemptions)
-    {
-        $this->container['redemptions'] = $redemptions;
+        $this->container['vesting_days'] = $vesting_days;
 
         return $this;
     }
