@@ -272,6 +272,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**adjustOrderTotal**](docs/Api/OrderApi.md#adjustordertotal) | **POST** /order/orders/{order_id}/adjust_order_total/{desired_total} | Adjusts an order total
 *OrderApi* | [**cancelOrder**](docs/Api/OrderApi.md#cancelorder) | **POST** /order/orders/{order_id}/cancel | Cancel an order
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
+*OrderApi* | [**duplicateOrder**](docs/Api/OrderApi.md#duplicateorder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
 *OrderApi* | [**format**](docs/Api/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
 *OrderApi* | [**generateOrderToken**](docs/Api/OrderApi.md#generateordertoken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
 *OrderApi* | [**generatePackingSlipAllDC**](docs/Api/OrderApi.md#generatepackingslipalldc) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
@@ -1232,6 +1233,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.9.8 | 04/26/2022 | OrderApi.duplicateOrder |
 | 3.9.7 | 04/25/2022 | integration logs method for zpl to pdf conversion |
 | 3.9.6 | 04/25/2022 | storefront communications email magic link setting |
 | 3.9.5 | 04/14/2022 | postcard screenshot bug fixes |
