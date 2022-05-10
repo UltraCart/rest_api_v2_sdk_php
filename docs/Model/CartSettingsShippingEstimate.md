@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **estimated_delivery** | **string** | Date of the estimated delivery (or range) | [optional] 
 **lift_gate_option** | **bool** | True if a lift gate option for this method should be offered to the customer | [optional] 
 **name** | **string** | Shipping method name | [optional] 
+**pickup** | **bool** | True if this shipping method requires customers to physically pickup product themselves | [optional] 
 **tax** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **total_tax** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 

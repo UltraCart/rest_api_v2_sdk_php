@@ -167,6 +167,10 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**getAutoOrdersByQuery**](docs/Api/AutoOrderApi.md#getautoordersbyquery) | **POST** /auto_order/auto_orders/query | Retrieve auto orders by query
 *AutoOrderApi* | [**updateAutoOrder**](docs/Api/AutoOrderApi.md#updateautoorder) | **PUT** /auto_order/auto_orders/{auto_order_oid} | Update an auto order
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/Api/AutoOrderApi.md#updateautoordersbatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
+*ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/Api/ChannelPartnerApi.md#cancelorderbychannelpartnerorderid) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
+*ChannelPartnerApi* | [**cancelOrderByChannelUltraCartOrderId**](docs/Api/ChannelPartnerApi.md#cancelorderbychannelultracartorderid) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
+*ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#estimateshippingforchannelpartnerorder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
+*ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#importchannelpartnerorder) | **POST** /channel_partner/import | Insert channel partner order
 *ChargebackApi* | [**deleteChargeback**](docs/Api/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/Api/ChargebackApi.md#getchargebackdispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
 *ChargebackApi* | [**getChargebackDisputes**](docs/Api/ChargebackApi.md#getchargebackdisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
@@ -603,6 +607,15 @@ Class | Method | HTTP request | Description
  - [CartUpsellAfter](docs/Model/CartUpsellAfter.md)
  - [CartValidationRequest](docs/Model/CartValidationRequest.md)
  - [CartValidationResponse](docs/Model/CartValidationResponse.md)
+ - [ChannelPartnerCancelResponse](docs/Model/ChannelPartnerCancelResponse.md)
+ - [ChannelPartnerEstimateShippingResponse](docs/Model/ChannelPartnerEstimateShippingResponse.md)
+ - [ChannelPartnerImportResponse](docs/Model/ChannelPartnerImportResponse.md)
+ - [ChannelPartnerOrder](docs/Model/ChannelPartnerOrder.md)
+ - [ChannelPartnerOrderItem](docs/Model/ChannelPartnerOrderItem.md)
+ - [ChannelPartnerOrderItemOption](docs/Model/ChannelPartnerOrderItemOption.md)
+ - [ChannelPartnerOrderTransaction](docs/Model/ChannelPartnerOrderTransaction.md)
+ - [ChannelPartnerOrderTransactionDetail](docs/Model/ChannelPartnerOrderTransactionDetail.md)
+ - [ChannelPartnerShippingEstimate](docs/Model/ChannelPartnerShippingEstimate.md)
  - [ChargebackDispute](docs/Model/ChargebackDispute.md)
  - [ChargebackDisputeResponse](docs/Model/ChargebackDisputeResponse.md)
  - [ChargebackDisputesResponse](docs/Model/ChargebackDisputesResponse.md)
@@ -1184,6 +1197,8 @@ Class | Method | HTTP request | Description
  - **auto_order_write**: Allows you to write auto order information.
  - **chargeback_read**: Allows you to read chargeback information.
  - **chargeback_write**: Allows you to write chargeback information.
+ - **channel_partner_read**: Allows you to read channel partner information.
+ - **channel_partner_write**: Allows you to write channel partner information.
  - **checkout_read**: Allows you to read checkout information.
  - **checkout_write**: Allows you to write checkout information.
  - **configuration_read**: Allows you to read configuration information.
@@ -1233,6 +1248,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.0 | 05/10/2022 | beta release of ChannelPartnerApi |
 | 3.9.8 | 04/26/2022 | OrderApi.duplicateOrder |
 | 3.9.7 | 04/25/2022 | integration logs method for zpl to pdf conversion |
 | 3.9.6 | 04/25/2022 | storefront communications email magic link setting |

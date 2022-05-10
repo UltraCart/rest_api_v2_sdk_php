@@ -68,6 +68,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
         'estimated_delivery' => 'string',
         'lift_gate_option' => 'bool',
         'name' => 'string',
+        'pickup' => 'bool',
         'tax' => '\ultracart\v2\models\Currency',
         'total_tax' => '\ultracart\v2\models\Currency'
     ];
@@ -89,6 +90,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
         'estimated_delivery' => null,
         'lift_gate_option' => null,
         'name' => null,
+        'pickup' => null,
         'tax' => null,
         'total_tax' => null
     ];
@@ -131,6 +133,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
         'estimated_delivery' => 'estimated_delivery',
         'lift_gate_option' => 'lift_gate_option',
         'name' => 'name',
+        'pickup' => 'pickup',
         'tax' => 'tax',
         'total_tax' => 'total_tax'
     ];
@@ -152,6 +155,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
         'estimated_delivery' => 'setEstimatedDelivery',
         'lift_gate_option' => 'setLiftGateOption',
         'name' => 'setName',
+        'pickup' => 'setPickup',
         'tax' => 'setTax',
         'total_tax' => 'setTotalTax'
     ];
@@ -173,6 +177,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
         'estimated_delivery' => 'getEstimatedDelivery',
         'lift_gate_option' => 'getLiftGateOption',
         'name' => 'getName',
+        'pickup' => 'getPickup',
         'tax' => 'getTax',
         'total_tax' => 'getTotalTax'
     ];
@@ -248,6 +253,7 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
         $this->container['estimated_delivery'] = isset($data['estimated_delivery']) ? $data['estimated_delivery'] : null;
         $this->container['lift_gate_option'] = isset($data['lift_gate_option']) ? $data['lift_gate_option'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['pickup'] = isset($data['pickup']) ? $data['pickup'] : null;
         $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
     }
@@ -536,6 +542,30 @@ class CartSettingsShippingEstimate implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup
+     *
+     * @return bool
+     */
+    public function getPickup()
+    {
+        return $this->container['pickup'];
+    }
+
+    /**
+     * Sets pickup
+     *
+     * @param bool $pickup True if this shipping method requires customers to physically pickup product themselves
+     *
+     * @return $this
+     */
+    public function setPickup($pickup)
+    {
+        $this->container['pickup'] = $pickup;
 
         return $this;
     }
