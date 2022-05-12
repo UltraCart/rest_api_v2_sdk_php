@@ -1248,6 +1248,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.1 | 05/12/2022 | ChannelPartnerApi added orderId to import response obj |
 | 3.10.0 | 05/10/2022 | beta release of ChannelPartnerApi |
 | 3.9.8 | 04/26/2022 | OrderApi.duplicateOrder |
 | 3.9.7 | 04/25/2022 | integration logs method for zpl to pdf conversion |

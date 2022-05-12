@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **import_errors** | **string[]** | Array of errors if errors occurred | [optional] 
 **import_warnings** | **string[]** | Array of warnings if warnings occurred | [optional] 
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
+**order_id** | **string** | The order id of the newly imported order if successful | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 
 **warning** | [**\ultracart\v2\models\Warning**](Warning.md) |  | [optional] 
 

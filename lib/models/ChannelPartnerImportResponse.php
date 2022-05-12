@@ -61,6 +61,7 @@ class ChannelPartnerImportResponse implements ModelInterface, ArrayAccess
         'import_errors' => 'string[]',
         'import_warnings' => 'string[]',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'order_id' => 'string',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -75,6 +76,7 @@ class ChannelPartnerImportResponse implements ModelInterface, ArrayAccess
         'import_errors' => null,
         'import_warnings' => null,
         'metadata' => null,
+        'order_id' => null,
         'success' => null,
         'warning' => null
     ];
@@ -110,6 +112,7 @@ class ChannelPartnerImportResponse implements ModelInterface, ArrayAccess
         'import_errors' => 'import_errors',
         'import_warnings' => 'import_warnings',
         'metadata' => 'metadata',
+        'order_id' => 'order_id',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -124,6 +127,7 @@ class ChannelPartnerImportResponse implements ModelInterface, ArrayAccess
         'import_errors' => 'setImportErrors',
         'import_warnings' => 'setImportWarnings',
         'metadata' => 'setMetadata',
+        'order_id' => 'setOrderId',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -138,6 +142,7 @@ class ChannelPartnerImportResponse implements ModelInterface, ArrayAccess
         'import_errors' => 'getImportErrors',
         'import_warnings' => 'getImportWarnings',
         'metadata' => 'getMetadata',
+        'order_id' => 'getOrderId',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -206,6 +211,7 @@ class ChannelPartnerImportResponse implements ModelInterface, ArrayAccess
         $this->container['import_errors'] = isset($data['import_errors']) ? $data['import_errors'] : null;
         $this->container['import_warnings'] = isset($data['import_warnings']) ? $data['import_warnings'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
@@ -326,6 +332,30 @@ class ChannelPartnerImportResponse implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_id
+     *
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->container['order_id'];
+    }
+
+    /**
+     * Sets order_id
+     *
+     * @param string $order_id The order id of the newly imported order if successful
+     *
+     * @return $this
+     */
+    public function setOrderId($order_id)
+    {
+        $this->container['order_id'] = $order_id;
 
         return $this;
     }
