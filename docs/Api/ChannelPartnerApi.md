@@ -5,7 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancelOrderByChannelPartnerOrderId**](ChannelPartnerApi.md#cancelOrderByChannelPartnerOrderId) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
-[**cancelOrderByChannelUltraCartOrderId**](ChannelPartnerApi.md#cancelOrderByChannelUltraCartOrderId) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
+[**cancelOrderByUltraCartOrderId**](ChannelPartnerApi.md#cancelOrderByUltraCartOrderId) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
 [**estimateShippingForChannelPartnerOrder**](ChannelPartnerApi.md#estimateShippingForChannelPartnerOrder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 [**importChannelPartnerOrder**](ChannelPartnerApi.md#importChannelPartnerOrder) | **POST** /channel_partner/import | Insert channel partner order
 
@@ -58,8 +58,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **cancelOrderByChannelUltraCartOrderId**
-> \ultracart\v2\models\ChannelPartnerCancelResponse cancelOrderByChannelUltraCartOrderId($order_id)
+# **cancelOrderByUltraCartOrderId**
+> \ultracart\v2\models\ChannelPartnerCancelResponse cancelOrderByUltraCartOrderId($order_id)
 
 Cancel channel partner order by UltraCart order id
 
@@ -77,10 +77,10 @@ $api_instance = ultracart\v2\api\ChannelPartnerApi::usingApiKey($simple_key);
 $order_id = "order_id_example"; // string | The UltraCart order id to delete.
 
 try {
-    $result = $apiInstance->cancelOrderByChannelUltraCartOrderId($order_id);
+    $result = $apiInstance->cancelOrderByUltraCartOrderId($order_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ChannelPartnerApi->cancelOrderByChannelUltraCartOrderId: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ChannelPartnerApi->cancelOrderByUltraCartOrderId: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

@@ -444,7 +444,7 @@ class ChannelPartnerApi
     }
 
     /**
-     * Operation cancelOrderByChannelUltraCartOrderId
+     * Operation cancelOrderByUltraCartOrderId
      *
      * Cancel channel partner order by UltraCart order id
      *
@@ -454,15 +454,15 @@ class ChannelPartnerApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\ChannelPartnerCancelResponse
      */
-    public function cancelOrderByChannelUltraCartOrderId($order_id)
+    public function cancelOrderByUltraCartOrderId($order_id)
     {
-        list($response) = $this->cancelOrderByChannelUltraCartOrderIdWithHttpInfo($order_id);
+        list($response) = $this->cancelOrderByUltraCartOrderIdWithHttpInfo($order_id);
         return $response;
     }
 
 
     /**
-     * Operation cancelOrderByChannelUltraCartOrderIdWithHttpInfo
+     * Operation cancelOrderByUltraCartOrderIdWithHttpInfo
      *
      * Cancel channel partner order by UltraCart order id
      *
@@ -472,14 +472,14 @@ class ChannelPartnerApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ChannelPartnerCancelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrderByChannelUltraCartOrderIdWithHttpInfo($order_id)
+    public function cancelOrderByUltraCartOrderIdWithHttpInfo($order_id)
     {
-        return $this->cancelOrderByChannelUltraCartOrderIdWithHttpInfoRetry(true ,   $order_id);
+        return $this->cancelOrderByUltraCartOrderIdWithHttpInfoRetry(true ,   $order_id);
     }
 
 
     /**
-     * Operation cancelOrderByChannelUltraCartOrderIdWithHttpInfoRetry
+     * Operation cancelOrderByUltraCartOrderIdWithHttpInfoRetry
      *
      * Cancel channel partner order by UltraCart order id
      *
@@ -490,10 +490,10 @@ class ChannelPartnerApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ChannelPartnerCancelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrderByChannelUltraCartOrderIdWithHttpInfoRetry($retry ,  $order_id)
+    public function cancelOrderByUltraCartOrderIdWithHttpInfoRetry($retry ,  $order_id)
     {
         $returnType = '\ultracart\v2\models\ChannelPartnerCancelResponse';
-        $request = $this->cancelOrderByChannelUltraCartOrderIdRequest($order_id);
+        $request = $this->cancelOrderByUltraCartOrderIdRequest($order_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -512,7 +512,7 @@ class ChannelPartnerApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->cancelOrderByChannelUltraCartOrderIdWithHttpInfoRetry(false ,   $order_id);
+                        return $this->cancelOrderByUltraCartOrderIdWithHttpInfoRetry(false ,   $order_id);
                     }
                 }
 
@@ -596,7 +596,7 @@ class ChannelPartnerApi
     }
 
     /**
-     * Operation cancelOrderByChannelUltraCartOrderIdAsync
+     * Operation cancelOrderByUltraCartOrderIdAsync
      *
      * Cancel channel partner order by UltraCart order id
      *
@@ -605,9 +605,9 @@ class ChannelPartnerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderByChannelUltraCartOrderIdAsync($order_id)
+    public function cancelOrderByUltraCartOrderIdAsync($order_id)
     {
-        return $this->cancelOrderByChannelUltraCartOrderIdAsyncWithHttpInfo($order_id)
+        return $this->cancelOrderByUltraCartOrderIdAsyncWithHttpInfo($order_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -616,7 +616,7 @@ class ChannelPartnerApi
     }
 
     /**
-     * Operation cancelOrderByChannelUltraCartOrderIdAsyncWithHttpInfo
+     * Operation cancelOrderByUltraCartOrderIdAsyncWithHttpInfo
      *
      * Cancel channel partner order by UltraCart order id
      *
@@ -625,10 +625,10 @@ class ChannelPartnerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderByChannelUltraCartOrderIdAsyncWithHttpInfo($order_id)
+    public function cancelOrderByUltraCartOrderIdAsyncWithHttpInfo($order_id)
     {
         $returnType = '\ultracart\v2\models\ChannelPartnerCancelResponse';
-        $request = $this->cancelOrderByChannelUltraCartOrderIdRequest($order_id);
+        $request = $this->cancelOrderByUltraCartOrderIdRequest($order_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -668,19 +668,19 @@ class ChannelPartnerApi
     }
 
     /**
-     * Create request for operation 'cancelOrderByChannelUltraCartOrderId'
+     * Create request for operation 'cancelOrderByUltraCartOrderId'
      *
      * @param  string $order_id The UltraCart order id to delete. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelOrderByChannelUltraCartOrderIdRequest($order_id)
+    protected function cancelOrderByUltraCartOrderIdRequest($order_id)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling cancelOrderByChannelUltraCartOrderId'
+                'Missing the required parameter $order_id when calling cancelOrderByUltraCartOrderId'
             );
         }
 
