@@ -1249,6 +1249,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.5 | 05/20/2022 | dependabot on java gson version |
 | 3.10.4 | 05/20/2022 | dependabot on java gson |
 | 3.10.3 | 05/20/2022 | OrderApi.generatePackingSkip calls had wrong return type |
 | 3.10.2 | 05/12/2022 | ChannelPartnerApi renamed one of the delete methods |
