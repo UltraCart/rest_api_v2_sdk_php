@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **dont_link_email_to_search** | **bool** | True to not link the email address to the order search | [optional] 
 **email_as_link** | **bool** | True to make the email address a clickable mailto link | [optional] 
 **filter_distribution_center_oid** | **int** | Specify a distribution center oid to filter the items displayed to that particular distribution center. | [optional] 
-**filter_to_items_in_contact_oid** | **int** | The container oid to filter items to. | [optional] 
+**filter_to_items_in_container_oid** | **int** | The container oid to filter items to. | [optional] 
 **format** | **string** | The desired format. | [optional] 
 **hide_bill_to_address** | **bool** | True to ide the bill to address | [optional] 
 **hide_price_information** | **bool** | True to hide price information | [optional] 

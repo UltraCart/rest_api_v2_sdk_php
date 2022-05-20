@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePackingSlipAllDC**
-> \ultracart\v2\models\OrdersResponse generatePackingSlipAllDC($order_id)
+> \ultracart\v2\models\OrderPackingSlipResponse generatePackingSlipAllDC($order_id)
 
 Generate a packing slip for this order across all distribution centers.
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\OrderPackingSlipResponse**](../Model/OrderPackingSlipResponse.md)
 
 ### Authorization
 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **generatePackingSlipSpecificDC**
-> \ultracart\v2\models\OrdersResponse generatePackingSlipSpecificDC($distribution_center_code, $order_id)
+> \ultracart\v2\models\OrderPackingSlipResponse generatePackingSlipSpecificDC($distribution_center_code, $order_id)
 
 Generate a packing slip for this order for the given distribution center.
 
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\OrdersResponse**](../Model/OrdersResponse.md)
+[**\ultracart\v2\models\OrderPackingSlipResponse**](../Model/OrderPackingSlipResponse.md)
 
 ### Authorization
 

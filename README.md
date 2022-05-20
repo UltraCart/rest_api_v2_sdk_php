@@ -987,6 +987,7 @@ Class | Method | HTTP request | Description
  - [OrderItemTag](docs/Model/OrderItemTag.md)
  - [OrderLinkedShipment](docs/Model/OrderLinkedShipment.md)
  - [OrderMarketing](docs/Model/OrderMarketing.md)
+ - [OrderPackingSlipResponse](docs/Model/OrderPackingSlipResponse.md)
  - [OrderPayment](docs/Model/OrderPayment.md)
  - [OrderPaymentCheck](docs/Model/OrderPaymentCheck.md)
  - [OrderPaymentCreditCard](docs/Model/OrderPaymentCreditCard.md)
@@ -1248,6 +1249,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.3 | 05/20/2022 | OrderApi.generatePackingSkip calls had wrong return type |
 | 3.10.2 | 05/12/2022 | ChannelPartnerApi renamed one of the delete methods |
 | 3.10.1 | 05/12/2022 | ChannelPartnerApi added orderId to import response obj |
 | 3.10.0 | 05/10/2022 | beta release of ChannelPartnerApi |

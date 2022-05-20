@@ -61,7 +61,7 @@ class OrderFormat implements ModelInterface, ArrayAccess
         'dont_link_email_to_search' => 'bool',
         'email_as_link' => 'bool',
         'filter_distribution_center_oid' => 'int',
-        'filter_to_items_in_contact_oid' => 'int',
+        'filter_to_items_in_container_oid' => 'int',
         'format' => 'string',
         'hide_bill_to_address' => 'bool',
         'hide_price_information' => 'bool',
@@ -85,7 +85,7 @@ class OrderFormat implements ModelInterface, ArrayAccess
         'dont_link_email_to_search' => null,
         'email_as_link' => null,
         'filter_distribution_center_oid' => 'int32',
-        'filter_to_items_in_contact_oid' => 'int32',
+        'filter_to_items_in_container_oid' => 'int32',
         'format' => null,
         'hide_bill_to_address' => null,
         'hide_price_information' => null,
@@ -130,7 +130,7 @@ class OrderFormat implements ModelInterface, ArrayAccess
         'dont_link_email_to_search' => 'dont_link_email_to_search',
         'email_as_link' => 'email_as_link',
         'filter_distribution_center_oid' => 'filter_distribution_center_oid',
-        'filter_to_items_in_contact_oid' => 'filter_to_items_in_contact_oid',
+        'filter_to_items_in_container_oid' => 'filter_to_items_in_container_oid',
         'format' => 'format',
         'hide_bill_to_address' => 'hide_bill_to_address',
         'hide_price_information' => 'hide_price_information',
@@ -154,7 +154,7 @@ class OrderFormat implements ModelInterface, ArrayAccess
         'dont_link_email_to_search' => 'setDontLinkEmailToSearch',
         'email_as_link' => 'setEmailAsLink',
         'filter_distribution_center_oid' => 'setFilterDistributionCenterOid',
-        'filter_to_items_in_contact_oid' => 'setFilterToItemsInContactOid',
+        'filter_to_items_in_container_oid' => 'setFilterToItemsInContainerOid',
         'format' => 'setFormat',
         'hide_bill_to_address' => 'setHideBillToAddress',
         'hide_price_information' => 'setHidePriceInformation',
@@ -178,7 +178,7 @@ class OrderFormat implements ModelInterface, ArrayAccess
         'dont_link_email_to_search' => 'getDontLinkEmailToSearch',
         'email_as_link' => 'getEmailAsLink',
         'filter_distribution_center_oid' => 'getFilterDistributionCenterOid',
-        'filter_to_items_in_contact_oid' => 'getFilterToItemsInContactOid',
+        'filter_to_items_in_container_oid' => 'getFilterToItemsInContainerOid',
         'format' => 'getFormat',
         'hide_bill_to_address' => 'getHideBillToAddress',
         'hide_price_information' => 'getHidePriceInformation',
@@ -275,7 +275,7 @@ class OrderFormat implements ModelInterface, ArrayAccess
         $this->container['dont_link_email_to_search'] = isset($data['dont_link_email_to_search']) ? $data['dont_link_email_to_search'] : null;
         $this->container['email_as_link'] = isset($data['email_as_link']) ? $data['email_as_link'] : null;
         $this->container['filter_distribution_center_oid'] = isset($data['filter_distribution_center_oid']) ? $data['filter_distribution_center_oid'] : null;
-        $this->container['filter_to_items_in_contact_oid'] = isset($data['filter_to_items_in_contact_oid']) ? $data['filter_to_items_in_contact_oid'] : null;
+        $this->container['filter_to_items_in_container_oid'] = isset($data['filter_to_items_in_container_oid']) ? $data['filter_to_items_in_container_oid'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['hide_bill_to_address'] = isset($data['hide_bill_to_address']) ? $data['hide_bill_to_address'] : null;
         $this->container['hide_price_information'] = isset($data['hide_price_information']) ? $data['hide_price_information'] : null;
@@ -418,25 +418,25 @@ class OrderFormat implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets filter_to_items_in_contact_oid
+     * Gets filter_to_items_in_container_oid
      *
      * @return int
      */
-    public function getFilterToItemsInContactOid()
+    public function getFilterToItemsInContainerOid()
     {
-        return $this->container['filter_to_items_in_contact_oid'];
+        return $this->container['filter_to_items_in_container_oid'];
     }
 
     /**
-     * Sets filter_to_items_in_contact_oid
+     * Sets filter_to_items_in_container_oid
      *
-     * @param int $filter_to_items_in_contact_oid The container oid to filter items to.
+     * @param int $filter_to_items_in_container_oid The container oid to filter items to.
      *
      * @return $this
      */
-    public function setFilterToItemsInContactOid($filter_to_items_in_contact_oid)
+    public function setFilterToItemsInContainerOid($filter_to_items_in_container_oid)
     {
-        $this->container['filter_to_items_in_contact_oid'] = $filter_to_items_in_contact_oid;
+        $this->container['filter_to_items_in_container_oid'] = $filter_to_items_in_container_oid;
 
         return $this;
     }

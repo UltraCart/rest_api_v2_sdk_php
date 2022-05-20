@@ -2150,7 +2150,7 @@ class OrderApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrdersResponse
+     * @return \ultracart\v2\models\OrderPackingSlipResponse
      */
     public function generatePackingSlipAllDC($order_id)
     {
@@ -2168,7 +2168,7 @@ class OrderApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderPackingSlipResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePackingSlipAllDCWithHttpInfo($order_id)
     {
@@ -2186,11 +2186,11 @@ class OrderApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderPackingSlipResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePackingSlipAllDCWithHttpInfoRetry($retry ,  $order_id)
     {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrderPackingSlipResponse';
         $request = $this->generatePackingSlipAllDCRequest($order_id);
 
         try {
@@ -2243,7 +2243,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\OrdersResponse',
+                        '\ultracart\v2\models\OrderPackingSlipResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2325,7 +2325,7 @@ class OrderApi
      */
     public function generatePackingSlipAllDCAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrderPackingSlipResponse';
         $request = $this->generatePackingSlipAllDCRequest($order_id);
 
         return $this->client
@@ -2489,7 +2489,7 @@ class OrderApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\OrdersResponse
+     * @return \ultracart\v2\models\OrderPackingSlipResponse
      */
     public function generatePackingSlipSpecificDC($distribution_center_code, $order_id)
     {
@@ -2508,7 +2508,7 @@ class OrderApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderPackingSlipResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePackingSlipSpecificDCWithHttpInfo($distribution_center_code, $order_id)
     {
@@ -2527,11 +2527,11 @@ class OrderApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\OrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\OrderPackingSlipResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function generatePackingSlipSpecificDCWithHttpInfoRetry($retry ,  $distribution_center_code,  $order_id)
     {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrderPackingSlipResponse';
         $request = $this->generatePackingSlipSpecificDCRequest($distribution_center_code, $order_id);
 
         try {
@@ -2584,7 +2584,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\OrdersResponse',
+                        '\ultracart\v2\models\OrderPackingSlipResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2668,7 +2668,7 @@ class OrderApi
      */
     public function generatePackingSlipSpecificDCAsyncWithHttpInfo($distribution_center_code, $order_id)
     {
-        $returnType = '\ultracart\v2\models\OrdersResponse';
+        $returnType = '\ultracart\v2\models\OrderPackingSlipResponse';
         $request = $this->generatePackingSlipSpecificDCRequest($distribution_center_code, $order_id);
 
         return $this->client

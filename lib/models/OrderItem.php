@@ -100,6 +100,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'ship_separately' => 'bool',
         'shipped_by_user' => 'string',
         'shipped_dts' => 'string',
+        'shipping_status' => 'string',
         'special_product_type' => 'string',
         'tags' => '\ultracart\v2\models\OrderItemTag[]',
         'tax_free' => 'bool',
@@ -163,6 +164,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'ship_separately' => null,
         'shipped_by_user' => null,
         'shipped_dts' => 'dateTime',
+        'shipping_status' => null,
         'special_product_type' => null,
         'tags' => null,
         'tax_free' => null,
@@ -247,6 +249,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'ship_separately' => 'ship_separately',
         'shipped_by_user' => 'shipped_by_user',
         'shipped_dts' => 'shipped_dts',
+        'shipping_status' => 'shipping_status',
         'special_product_type' => 'special_product_type',
         'tags' => 'tags',
         'tax_free' => 'tax_free',
@@ -310,6 +313,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'ship_separately' => 'setShipSeparately',
         'shipped_by_user' => 'setShippedByUser',
         'shipped_dts' => 'setShippedDts',
+        'shipping_status' => 'setShippingStatus',
         'special_product_type' => 'setSpecialProductType',
         'tags' => 'setTags',
         'tax_free' => 'setTaxFree',
@@ -373,6 +377,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         'ship_separately' => 'getShipSeparately',
         'shipped_by_user' => 'getShippedByUser',
         'shipped_dts' => 'getShippedDts',
+        'shipping_status' => 'getShippingStatus',
         'special_product_type' => 'getSpecialProductType',
         'tags' => 'getTags',
         'tax_free' => 'getTaxFree',
@@ -509,6 +514,7 @@ class OrderItem implements ModelInterface, ArrayAccess
         $this->container['ship_separately'] = isset($data['ship_separately']) ? $data['ship_separately'] : null;
         $this->container['shipped_by_user'] = isset($data['shipped_by_user']) ? $data['shipped_by_user'] : null;
         $this->container['shipped_dts'] = isset($data['shipped_dts']) ? $data['shipped_dts'] : null;
+        $this->container['shipping_status'] = isset($data['shipping_status']) ? $data['shipping_status'] : null;
         $this->container['special_product_type'] = isset($data['special_product_type']) ? $data['special_product_type'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['tax_free'] = isset($data['tax_free']) ? $data['tax_free'] : null;
@@ -1631,6 +1637,30 @@ class OrderItem implements ModelInterface, ArrayAccess
     public function setShippedDts($shipped_dts)
     {
         $this->container['shipped_dts'] = $shipped_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_status
+     *
+     * @return string
+     */
+    public function getShippingStatus()
+    {
+        return $this->container['shipping_status'];
+    }
+
+    /**
+     * Sets shipping_status
+     *
+     * @param string $shipping_status Shipping status for this item.  This is the replacement for the old order level shipping status.
+     *
+     * @return $this
+     */
+    public function setShippingStatus($shipping_status)
+    {
+        $this->container['shipping_status'] = $shipping_status;
 
         return $this;
     }
