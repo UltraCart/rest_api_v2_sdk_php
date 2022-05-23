@@ -65,7 +65,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'supports_add_tags' => 'bool',
         'supports_list_subscribe' => 'bool',
         'supports_list_unsubscribe' => 'bool',
-        'supports_remove_tags' => 'bool'
+        'supports_remove_tags' => 'bool',
+        'tag_count' => 'int',
+        'tags' => '\ultracart\v2\models\EmailThirdPartyTag[]'
     ];
 
     /**
@@ -82,7 +84,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'supports_add_tags' => null,
         'supports_list_subscribe' => null,
         'supports_list_unsubscribe' => null,
-        'supports_remove_tags' => null
+        'supports_remove_tags' => null,
+        'tag_count' => 'int32',
+        'tags' => null
     ];
 
     /**
@@ -120,7 +124,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'supports_add_tags' => 'supports_add_tags',
         'supports_list_subscribe' => 'supports_list_subscribe',
         'supports_list_unsubscribe' => 'supports_list_unsubscribe',
-        'supports_remove_tags' => 'supports_remove_tags'
+        'supports_remove_tags' => 'supports_remove_tags',
+        'tag_count' => 'tag_count',
+        'tags' => 'tags'
     ];
 
     /**
@@ -137,7 +143,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'supports_add_tags' => 'setSupportsAddTags',
         'supports_list_subscribe' => 'setSupportsListSubscribe',
         'supports_list_unsubscribe' => 'setSupportsListUnsubscribe',
-        'supports_remove_tags' => 'setSupportsRemoveTags'
+        'supports_remove_tags' => 'setSupportsRemoveTags',
+        'tag_count' => 'setTagCount',
+        'tags' => 'setTags'
     ];
 
     /**
@@ -154,7 +162,9 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         'supports_add_tags' => 'getSupportsAddTags',
         'supports_list_subscribe' => 'getSupportsListSubscribe',
         'supports_list_unsubscribe' => 'getSupportsListUnsubscribe',
-        'supports_remove_tags' => 'getSupportsRemoveTags'
+        'supports_remove_tags' => 'getSupportsRemoveTags',
+        'tag_count' => 'getTagCount',
+        'tags' => 'getTags'
     ];
 
     /**
@@ -226,6 +236,8 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
         $this->container['supports_list_subscribe'] = isset($data['supports_list_subscribe']) ? $data['supports_list_subscribe'] : null;
         $this->container['supports_list_unsubscribe'] = isset($data['supports_list_unsubscribe']) ? $data['supports_list_unsubscribe'] : null;
         $this->container['supports_remove_tags'] = isset($data['supports_remove_tags']) ? $data['supports_remove_tags'] : null;
+        $this->container['tag_count'] = isset($data['tag_count']) ? $data['tag_count'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
     }
 
     /**
@@ -464,6 +476,54 @@ class EmailThirdPartyProvider implements ModelInterface, ArrayAccess
     public function setSupportsRemoveTags($supports_remove_tags)
     {
         $this->container['supports_remove_tags'] = $supports_remove_tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_count
+     *
+     * @return int
+     */
+    public function getTagCount()
+    {
+        return $this->container['tag_count'];
+    }
+
+    /**
+     * Sets tag_count
+     *
+     * @param int $tag_count tag_count
+     *
+     * @return $this
+     */
+    public function setTagCount($tag_count)
+    {
+        $this->container['tag_count'] = $tag_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return \ultracart\v2\models\EmailThirdPartyTag[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param \ultracart\v2\models\EmailThirdPartyTag[] $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

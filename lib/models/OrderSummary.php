@@ -61,6 +61,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
         'actual_payment_processing' => '\ultracart\v2\models\Currency',
         'actual_shipping' => '\ultracart\v2\models\Currency',
         'arbitrary_shipping_handling_total' => '\ultracart\v2\models\Currency',
+        'internal_gift_certificate_amount' => '\ultracart\v2\models\Currency',
+        'internal_gift_certificate_refunded' => '\ultracart\v2\models\Currency',
         'other_refunded' => '\ultracart\v2\models\Currency',
         'shipping_handling_refunded' => '\ultracart\v2\models\Currency',
         'shipping_handling_total' => '\ultracart\v2\models\Currency',
@@ -87,6 +89,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
         'actual_payment_processing' => null,
         'actual_shipping' => null,
         'arbitrary_shipping_handling_total' => null,
+        'internal_gift_certificate_amount' => null,
+        'internal_gift_certificate_refunded' => null,
         'other_refunded' => null,
         'shipping_handling_refunded' => null,
         'shipping_handling_total' => null,
@@ -134,6 +138,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
         'actual_payment_processing' => 'actual_payment_processing',
         'actual_shipping' => 'actual_shipping',
         'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
+        'internal_gift_certificate_amount' => 'internal_gift_certificate_amount',
+        'internal_gift_certificate_refunded' => 'internal_gift_certificate_refunded',
         'other_refunded' => 'other_refunded',
         'shipping_handling_refunded' => 'shipping_handling_refunded',
         'shipping_handling_total' => 'shipping_handling_total',
@@ -160,6 +166,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
         'actual_payment_processing' => 'setActualPaymentProcessing',
         'actual_shipping' => 'setActualShipping',
         'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
+        'internal_gift_certificate_amount' => 'setInternalGiftCertificateAmount',
+        'internal_gift_certificate_refunded' => 'setInternalGiftCertificateRefunded',
         'other_refunded' => 'setOtherRefunded',
         'shipping_handling_refunded' => 'setShippingHandlingRefunded',
         'shipping_handling_total' => 'setShippingHandlingTotal',
@@ -186,6 +194,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
         'actual_payment_processing' => 'getActualPaymentProcessing',
         'actual_shipping' => 'getActualShipping',
         'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
+        'internal_gift_certificate_amount' => 'getInternalGiftCertificateAmount',
+        'internal_gift_certificate_refunded' => 'getInternalGiftCertificateRefunded',
         'other_refunded' => 'getOtherRefunded',
         'shipping_handling_refunded' => 'getShippingHandlingRefunded',
         'shipping_handling_total' => 'getShippingHandlingTotal',
@@ -266,6 +276,8 @@ class OrderSummary implements ModelInterface, ArrayAccess
         $this->container['actual_payment_processing'] = isset($data['actual_payment_processing']) ? $data['actual_payment_processing'] : null;
         $this->container['actual_shipping'] = isset($data['actual_shipping']) ? $data['actual_shipping'] : null;
         $this->container['arbitrary_shipping_handling_total'] = isset($data['arbitrary_shipping_handling_total']) ? $data['arbitrary_shipping_handling_total'] : null;
+        $this->container['internal_gift_certificate_amount'] = isset($data['internal_gift_certificate_amount']) ? $data['internal_gift_certificate_amount'] : null;
+        $this->container['internal_gift_certificate_refunded'] = isset($data['internal_gift_certificate_refunded']) ? $data['internal_gift_certificate_refunded'] : null;
         $this->container['other_refunded'] = isset($data['other_refunded']) ? $data['other_refunded'] : null;
         $this->container['shipping_handling_refunded'] = isset($data['shipping_handling_refunded']) ? $data['shipping_handling_refunded'] : null;
         $this->container['shipping_handling_total'] = isset($data['shipping_handling_total']) ? $data['shipping_handling_total'] : null;
@@ -398,6 +410,54 @@ class OrderSummary implements ModelInterface, ArrayAccess
     public function setArbitraryShippingHandlingTotal($arbitrary_shipping_handling_total)
     {
         $this->container['arbitrary_shipping_handling_total'] = $arbitrary_shipping_handling_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets internal_gift_certificate_amount
+     *
+     * @return \ultracart\v2\models\Currency
+     */
+    public function getInternalGiftCertificateAmount()
+    {
+        return $this->container['internal_gift_certificate_amount'];
+    }
+
+    /**
+     * Sets internal_gift_certificate_amount
+     *
+     * @param \ultracart\v2\models\Currency $internal_gift_certificate_amount internal_gift_certificate_amount
+     *
+     * @return $this
+     */
+    public function setInternalGiftCertificateAmount($internal_gift_certificate_amount)
+    {
+        $this->container['internal_gift_certificate_amount'] = $internal_gift_certificate_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets internal_gift_certificate_refunded
+     *
+     * @return \ultracart\v2\models\Currency
+     */
+    public function getInternalGiftCertificateRefunded()
+    {
+        return $this->container['internal_gift_certificate_refunded'];
+    }
+
+    /**
+     * Sets internal_gift_certificate_refunded
+     *
+     * @param \ultracart\v2\models\Currency $internal_gift_certificate_refunded internal_gift_certificate_refunded
+     *
+     * @return $this
+     */
+    public function setInternalGiftCertificateRefunded($internal_gift_certificate_refunded)
+    {
+        $this->container['internal_gift_certificate_refunded'] = $internal_gift_certificate_refunded;
 
         return $this;
     }

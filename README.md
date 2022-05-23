@@ -824,6 +824,7 @@ Class | Method | HTTP request | Description
  - [EmailThirdPartyListImportRequest](docs/Model/EmailThirdPartyListImportRequest.md)
  - [EmailThirdPartyProvider](docs/Model/EmailThirdPartyProvider.md)
  - [EmailThirdPartyProvidersResponse](docs/Model/EmailThirdPartyProvidersResponse.md)
+ - [EmailThirdPartyTag](docs/Model/EmailThirdPartyTag.md)
  - [EmailVerifyTokenRequest](docs/Model/EmailVerifyTokenRequest.md)
  - [EmailVerifyTokenResponse](docs/Model/EmailVerifyTokenResponse.md)
  - [EmailVerifyTokenValidateRequest](docs/Model/EmailVerifyTokenValidateRequest.md)
@@ -1249,6 +1250,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.7 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |
 | 3.10.6 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |
 | 3.10.5 | 05/20/2022 | dependabot on java gson version |
 | 3.10.4 | 05/20/2022 | dependabot on java gson |

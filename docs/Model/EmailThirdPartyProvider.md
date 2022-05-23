@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **supports_list_subscribe** | **bool** | True if this provider can support list subscribe | [optional] 
 **supports_list_unsubscribe** | **bool** | True if this provider can support list unsubscribe | [optional] 
 **supports_remove_tags** | **bool** | True if this provider can support remove tags | [optional] 
+**tag_count** | **int** | tag_count | [optional] 
+**tags** | [**\ultracart\v2\models\EmailThirdPartyTag[]**](EmailThirdPartyTag.md) | tags | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
