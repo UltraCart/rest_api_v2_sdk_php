@@ -62,6 +62,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => 'string[]',
         'card_types' => 'string[]',
         'countries' => '\ultracart\v2\models\Country[]',
+        'loyalty_program_type' => 'string',
         'qb_classes' => 'string[]',
         'sales_rep_codes' => 'string[]',
         'state_optional_countries' => '\ultracart\v2\models\Country[]',
@@ -79,6 +80,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => null,
         'card_types' => null,
         'countries' => null,
+        'loyalty_program_type' => null,
         'qb_classes' => null,
         'sales_rep_codes' => null,
         'state_optional_countries' => null,
@@ -117,6 +119,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => 'card_exp_years',
         'card_types' => 'card_types',
         'countries' => 'countries',
+        'loyalty_program_type' => 'loyalty_program_type',
         'qb_classes' => 'qb_classes',
         'sales_rep_codes' => 'sales_rep_codes',
         'state_optional_countries' => 'state_optional_countries',
@@ -134,6 +137,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => 'setCardExpYears',
         'card_types' => 'setCardTypes',
         'countries' => 'setCountries',
+        'loyalty_program_type' => 'setLoyaltyProgramType',
         'qb_classes' => 'setQbClasses',
         'sales_rep_codes' => 'setSalesRepCodes',
         'state_optional_countries' => 'setStateOptionalCountries',
@@ -151,6 +155,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => 'getCardExpYears',
         'card_types' => 'getCardTypes',
         'countries' => 'getCountries',
+        'loyalty_program_type' => 'getLoyaltyProgramType',
         'qb_classes' => 'getQbClasses',
         'sales_rep_codes' => 'getSalesRepCodes',
         'state_optional_countries' => 'getStateOptionalCountries',
@@ -222,6 +227,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         $this->container['card_exp_years'] = isset($data['card_exp_years']) ? $data['card_exp_years'] : null;
         $this->container['card_types'] = isset($data['card_types']) ? $data['card_types'] : null;
         $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
+        $this->container['loyalty_program_type'] = isset($data['loyalty_program_type']) ? $data['loyalty_program_type'] : null;
         $this->container['qb_classes'] = isset($data['qb_classes']) ? $data['qb_classes'] : null;
         $this->container['sales_rep_codes'] = isset($data['sales_rep_codes']) ? $data['sales_rep_codes'] : null;
         $this->container['state_optional_countries'] = isset($data['state_optional_countries']) ? $data['state_optional_countries'] : null;
@@ -368,6 +374,30 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     public function setCountries($countries)
     {
         $this->container['countries'] = $countries;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty_program_type
+     *
+     * @return string
+     */
+    public function getLoyaltyProgramType()
+    {
+        return $this->container['loyalty_program_type'];
+    }
+
+    /**
+     * Sets loyalty_program_type
+     *
+     * @param string $loyalty_program_type loyalty_program_type
+     *
+     * @return $this
+     */
+    public function setLoyaltyProgramType($loyalty_program_type)
+    {
+        $this->container['loyalty_program_type'] = $loyalty_program_type;
 
         return $this;
     }

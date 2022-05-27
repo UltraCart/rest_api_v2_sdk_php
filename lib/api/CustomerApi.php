@@ -106,6 +106,359 @@ class CustomerApi
     }
 
     /**
+     * Operation addCustomerStoreCredit
+     *
+     * Adds store credit to a customer
+     *
+     * @param  int $customer_profile_oid The customer oid to credit. (required)
+     * @param  \ultracart\v2\models\CustomerStoreCreditAddRequest $store_credit_request Store credit to add (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\BaseResponse
+     */
+    public function addCustomerStoreCredit($customer_profile_oid, $store_credit_request)
+    {
+        list($response) = $this->addCustomerStoreCreditWithHttpInfo($customer_profile_oid, $store_credit_request);
+        return $response;
+    }
+
+
+    /**
+     * Operation addCustomerStoreCreditWithHttpInfo
+     *
+     * Adds store credit to a customer
+     *
+     * @param  int $customer_profile_oid The customer oid to credit. (required)
+     * @param  \ultracart\v2\models\CustomerStoreCreditAddRequest $store_credit_request Store credit to add (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addCustomerStoreCreditWithHttpInfo($customer_profile_oid, $store_credit_request)
+    {
+        return $this->addCustomerStoreCreditWithHttpInfoRetry(true ,   $customer_profile_oid,   $store_credit_request);
+    }
+
+
+    /**
+     * Operation addCustomerStoreCreditWithHttpInfoRetry
+     *
+     * Adds store credit to a customer
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $customer_profile_oid The customer oid to credit. (required)
+     * @param  \ultracart\v2\models\CustomerStoreCreditAddRequest $store_credit_request Store credit to add (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function addCustomerStoreCreditWithHttpInfoRetry($retry ,  $customer_profile_oid,  $store_credit_request)
+    {
+        $returnType = '\ultracart\v2\models\BaseResponse';
+        $request = $this->addCustomerStoreCreditRequest($customer_profile_oid, $store_credit_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->addCustomerStoreCreditWithHttpInfoRetry(false ,   $customer_profile_oid,   $store_credit_request);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\BaseResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation addCustomerStoreCreditAsync
+     *
+     * Adds store credit to a customer
+     *
+     * @param  int $customer_profile_oid The customer oid to credit. (required)
+     * @param  \ultracart\v2\models\CustomerStoreCreditAddRequest $store_credit_request Store credit to add (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addCustomerStoreCreditAsync($customer_profile_oid, $store_credit_request)
+    {
+        return $this->addCustomerStoreCreditAsyncWithHttpInfo($customer_profile_oid, $store_credit_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation addCustomerStoreCreditAsyncWithHttpInfo
+     *
+     * Adds store credit to a customer
+     *
+     * @param  int $customer_profile_oid The customer oid to credit. (required)
+     * @param  \ultracart\v2\models\CustomerStoreCreditAddRequest $store_credit_request Store credit to add (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function addCustomerStoreCreditAsyncWithHttpInfo($customer_profile_oid, $store_credit_request)
+    {
+        $returnType = '\ultracart\v2\models\BaseResponse';
+        $request = $this->addCustomerStoreCreditRequest($customer_profile_oid, $store_credit_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'addCustomerStoreCredit'
+     *
+     * @param  int $customer_profile_oid The customer oid to credit. (required)
+     * @param  \ultracart\v2\models\CustomerStoreCreditAddRequest $store_credit_request Store credit to add (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function addCustomerStoreCreditRequest($customer_profile_oid, $store_credit_request)
+    {
+        // verify the required parameter 'customer_profile_oid' is set
+        if ($customer_profile_oid === null || (is_array($customer_profile_oid) && count($customer_profile_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $customer_profile_oid when calling addCustomerStoreCredit'
+            );
+        }
+        // verify the required parameter 'store_credit_request' is set
+        if ($store_credit_request === null || (is_array($store_credit_request) && count($store_credit_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $store_credit_request when calling addCustomerStoreCredit'
+            );
+        }
+
+        $resourcePath = '/customer/customers/{customer_profile_oid}/store_credit';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($customer_profile_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'customer_profile_oid' . '}',
+                ObjectSerializer::toPathValue($customer_profile_oid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($store_credit_request)) {
+            $_tempBody = $store_credit_request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation adjustInternalCertificate
      *
      * Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
@@ -2010,6 +2363,344 @@ class CustomerApi
         $multipart = false;
 
 
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCustomerStoreCredit
+     *
+     * Retrieve the customer store credit accumulated through loyalty programs
+     *
+     * @param  int $customer_profile_oid The customer oid to retrieve. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\CustomerStoreCreditResponse
+     */
+    public function getCustomerStoreCredit($customer_profile_oid)
+    {
+        list($response) = $this->getCustomerStoreCreditWithHttpInfo($customer_profile_oid);
+        return $response;
+    }
+
+
+    /**
+     * Operation getCustomerStoreCreditWithHttpInfo
+     *
+     * Retrieve the customer store credit accumulated through loyalty programs
+     *
+     * @param  int $customer_profile_oid The customer oid to retrieve. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomerStoreCreditResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomerStoreCreditWithHttpInfo($customer_profile_oid)
+    {
+        return $this->getCustomerStoreCreditWithHttpInfoRetry(true ,   $customer_profile_oid);
+    }
+
+
+    /**
+     * Operation getCustomerStoreCreditWithHttpInfoRetry
+     *
+     * Retrieve the customer store credit accumulated through loyalty programs
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $customer_profile_oid The customer oid to retrieve. (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\CustomerStoreCreditResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCustomerStoreCreditWithHttpInfoRetry($retry ,  $customer_profile_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomerStoreCreditResponse';
+        $request = $this->getCustomerStoreCreditRequest($customer_profile_oid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getCustomerStoreCreditWithHttpInfoRetry(false ,   $customer_profile_oid);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\CustomerStoreCreditResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCustomerStoreCreditAsync
+     *
+     * Retrieve the customer store credit accumulated through loyalty programs
+     *
+     * @param  int $customer_profile_oid The customer oid to retrieve. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomerStoreCreditAsync($customer_profile_oid)
+    {
+        return $this->getCustomerStoreCreditAsyncWithHttpInfo($customer_profile_oid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCustomerStoreCreditAsyncWithHttpInfo
+     *
+     * Retrieve the customer store credit accumulated through loyalty programs
+     *
+     * @param  int $customer_profile_oid The customer oid to retrieve. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCustomerStoreCreditAsyncWithHttpInfo($customer_profile_oid)
+    {
+        $returnType = '\ultracart\v2\models\CustomerStoreCreditResponse';
+        $request = $this->getCustomerStoreCreditRequest($customer_profile_oid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCustomerStoreCredit'
+     *
+     * @param  int $customer_profile_oid The customer oid to retrieve. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getCustomerStoreCreditRequest($customer_profile_oid)
+    {
+        // verify the required parameter 'customer_profile_oid' is set
+        if ($customer_profile_oid === null || (is_array($customer_profile_oid) && count($customer_profile_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $customer_profile_oid when calling getCustomerStoreCredit'
+            );
+        }
+
+        $resourcePath = '/customer/customers/{customer_profile_oid}/store_credit';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($customer_profile_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'customer_profile_oid' . '}',
+                ObjectSerializer::toPathValue($customer_profile_oid),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;

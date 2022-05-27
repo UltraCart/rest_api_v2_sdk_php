@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **card_exp_years** | **string[]** | card_exp_years | [optional] 
 **card_types** | **string[]** | card_types | [optional] 
 **countries** | [**\ultracart\v2\models\Country[]**](Country.md) | countries | [optional] 
+**loyalty_program_type** | **string** | loyalty_program_type | [optional] 
 **qb_classes** | **string[]** | qb_classes | [optional] 
 **sales_rep_codes** | **string[]** | sales_rep_codes | [optional] 
 **state_optional_countries** | [**\ultracart\v2\models\Country[]**](Country.md) | state_optional_countries | [optional] 

@@ -229,12 +229,14 @@ Class | Method | HTTP request | Description
 *CouponApi* | [**updateCoupon**](docs/Api/CouponApi.md#updatecoupon) | **PUT** /coupon/coupons/{coupon_oid} | Update a coupon
 *CouponApi* | [**updateCoupons**](docs/Api/CouponApi.md#updatecoupons) | **PUT** /coupon/coupons/batch | Update multiple coupons
 *CouponApi* | [**uploadCouponCodes**](docs/Api/CouponApi.md#uploadcouponcodes) | **POST** /coupon/coupons/{coupon_oid}/upload_codes | Upload one-time codes for a coupon
+*CustomerApi* | [**addCustomerStoreCredit**](docs/Api/CustomerApi.md#addcustomerstorecredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 *CustomerApi* | [**adjustInternalCertificate**](docs/Api/CustomerApi.md#adjustinternalcertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 *CustomerApi* | [**deleteCustomer**](docs/Api/CustomerApi.md#deletecustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 *CustomerApi* | [**getCustomer**](docs/Api/CustomerApi.md#getcustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 *CustomerApi* | [**getCustomerByEmail**](docs/Api/CustomerApi.md#getcustomerbyemail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 *CustomerApi* | [**getCustomerEditorValues**](docs/Api/CustomerApi.md#getcustomereditorvalues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 *CustomerApi* | [**getCustomerEmailLists**](docs/Api/CustomerApi.md#getcustomeremaillists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+*CustomerApi* | [**getCustomerStoreCredit**](docs/Api/CustomerApi.md#getcustomerstorecredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
 *CustomerApi* | [**getCustomers**](docs/Api/CustomerApi.md#getcustomers) | **GET** /customer/customers | Retrieve customers
 *CustomerApi* | [**getCustomersByQuery**](docs/Api/CustomerApi.md#getcustomersbyquery) | **POST** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
@@ -713,6 +715,10 @@ Class | Method | HTTP request | Description
  - [CustomerReviewer](docs/Model/CustomerReviewer.md)
  - [CustomerShipping](docs/Model/CustomerShipping.md)
  - [CustomerSoftwareEntitlement](docs/Model/CustomerSoftwareEntitlement.md)
+ - [CustomerStoreCredit](docs/Model/CustomerStoreCredit.md)
+ - [CustomerStoreCreditAddRequest](docs/Model/CustomerStoreCreditAddRequest.md)
+ - [CustomerStoreCreditLedgerEntry](docs/Model/CustomerStoreCreditLedgerEntry.md)
+ - [CustomerStoreCreditResponse](docs/Model/CustomerStoreCreditResponse.md)
  - [CustomerTag](docs/Model/CustomerTag.md)
  - [CustomerTaxCodes](docs/Model/CustomerTaxCodes.md)
  - [CustomersResponse](docs/Model/CustomersResponse.md)
@@ -1250,6 +1256,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.8 | 05/27/2022 | customer store credit |
 | 3.10.7 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |
 | 3.10.6 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |
 | 3.10.5 | 05/20/2022 | dependabot on java gson version |

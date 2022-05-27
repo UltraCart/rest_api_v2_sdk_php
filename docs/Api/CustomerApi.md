@@ -4,12 +4,14 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addCustomerStoreCredit**](CustomerApi.md#addCustomerStoreCredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 [**adjustInternalCertificate**](CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 [**deleteCustomer**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
 [**getCustomer**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomerByEmail**](CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 [**getCustomerEditorValues**](CustomerApi.md#getCustomerEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**getCustomerEmailLists**](CustomerApi.md#getCustomerEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
+[**getCustomerStoreCredit**](CustomerApi.md#getCustomerStoreCredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
 [**getCustomers**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
 [**getCustomersByQuery**](CustomerApi.md#getCustomersByQuery) | **POST** /customer/customers/query | Retrieve customers by query
 [**getCustomersForDataTables**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
@@ -19,6 +21,56 @@ Method | HTTP request | Description
 [**updateCustomerEmailLists**](CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 [**validateEmailVerificationToken**](CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 
+
+# **addCustomerStoreCredit**
+> \ultracart\v2\models\BaseResponse addCustomerStoreCredit($customer_profile_oid, $store_credit_request)
+
+Adds store credit to a customer
+
+Adds store credit to a customer
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
+
+$customer_profile_oid = 56; // int | The customer oid to credit.
+$store_credit_request = new \ultracart\v2\models\CustomerStoreCreditAddRequest(); // \ultracart\v2\models\CustomerStoreCreditAddRequest | Store credit to add
+
+try {
+    $result = $apiInstance->addCustomerStoreCredit($customer_profile_oid, $store_credit_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->addCustomerStoreCredit: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid to credit. |
+ **store_credit_request** | [**\ultracart\v2\models\CustomerStoreCreditAddRequest**](../Model/CustomerStoreCreditAddRequest.md)| Store credit to add |
+
+### Return type
+
+[**\ultracart\v2\models\BaseResponse**](../Model/BaseResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **adjustInternalCertificate**
 > \ultracart\v2\models\AdjustInternalCertificateResponse adjustInternalCertificate($customer_profile_oid, $adjust_internal_certificate_request)
@@ -293,6 +345,54 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\EmailListsResponse**](../Model/EmailListsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCustomerStoreCredit**
+> \ultracart\v2\models\CustomerStoreCreditResponse getCustomerStoreCredit($customer_profile_oid)
+
+Retrieve the customer store credit accumulated through loyalty programs
+
+Retrieve the customer store credit accumulated through loyalty programs
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\CustomerApi::usingApiKey($simple_key);
+
+$customer_profile_oid = 56; // int | The customer oid to retrieve.
+
+try {
+    $result = $apiInstance->getCustomerStoreCredit($customer_profile_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getCustomerStoreCredit: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid to retrieve. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomerStoreCreditResponse**](../Model/CustomerStoreCreditResponse.md)
 
 ### Authorization
 
