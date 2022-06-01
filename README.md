@@ -1256,6 +1256,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.9 | 06/01/2022 | bug fixes for customer profile store credit |
 | 3.10.8 | 05/27/2022 | customer store credit |
 | 3.10.7 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |
 | 3.10.6 | 05/23/2022 | add internal gift cert to order summary, addl provider info for storefront comm |

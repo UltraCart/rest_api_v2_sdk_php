@@ -108,8 +108,8 @@ class CustomerStoreCredit implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'available' => 'available',
         'expiring' => 'expiring',
-        'future_ledgers' => 'futureLedgers',
-        'past_ledgers' => 'pastLedgers',
+        'future_ledgers' => 'future_ledgers',
+        'past_ledgers' => 'past_ledgers',
         'total' => 'total',
         'vesting' => 'vesting'
     ];
@@ -247,7 +247,7 @@ class CustomerStoreCredit implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param float $available available
+     * @param float $available Available store credit which is defined as unused and vested
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class CustomerStoreCredit implements ModelInterface, ArrayAccess
     /**
      * Sets expiring
      *
-     * @param float $expiring expiring
+     * @param float $expiring Amount of store credit expiring within 30 days
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class CustomerStoreCredit implements ModelInterface, ArrayAccess
     /**
      * Sets future_ledgers
      *
-     * @param \ultracart\v2\models\CustomerStoreCreditLedgerEntry[] $future_ledgers future_ledgers
+     * @param \ultracart\v2\models\CustomerStoreCreditLedgerEntry[] $future_ledgers Array of future ledger entries including expiring entries
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class CustomerStoreCredit implements ModelInterface, ArrayAccess
     /**
      * Sets past_ledgers
      *
-     * @param \ultracart\v2\models\CustomerStoreCreditLedgerEntry[] $past_ledgers past_ledgers
+     * @param \ultracart\v2\models\CustomerStoreCreditLedgerEntry[] $past_ledgers Array of past ledger entries including accrual, usage, and expiring entries
      *
      * @return $this
      */
@@ -343,7 +343,7 @@ class CustomerStoreCredit implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float $total total
+     * @param float $total Total lifetime store credit for this customer.
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ class CustomerStoreCredit implements ModelInterface, ArrayAccess
     /**
      * Sets vesting
      *
-     * @param float $vesting vesting
+     * @param float $vesting Amount of store credit vesting
      *
      * @return $this
      */

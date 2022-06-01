@@ -3,12 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**available** | **float** |  | [optional] 
-**expiring** | **float** |  | [optional] 
-**future_ledgers** | [**\ultracart\v2\models\CustomerStoreCreditLedgerEntry[]**](CustomerStoreCreditLedgerEntry.md) |  | [optional] 
-**past_ledgers** | [**\ultracart\v2\models\CustomerStoreCreditLedgerEntry[]**](CustomerStoreCreditLedgerEntry.md) |  | [optional] 
-**total** | **float** |  | [optional] 
-**vesting** | **float** |  | [optional] 
+**available** | **float** | Available store credit which is defined as unused and vested | [optional] 
+**expiring** | **float** | Amount of store credit expiring within 30 days | [optional] 
+**future_ledgers** | [**\ultracart\v2\models\CustomerStoreCreditLedgerEntry[]**](CustomerStoreCreditLedgerEntry.md) | Array of future ledger entries including expiring entries | [optional] 
+**past_ledgers** | [**\ultracart\v2\models\CustomerStoreCreditLedgerEntry[]**](CustomerStoreCreditLedgerEntry.md) | Array of past ledger entries including accrual, usage, and expiring entries | [optional] 
+**total** | **float** | Total lifetime store credit for this customer. | [optional] 
+**vesting** | **float** | Amount of store credit vesting | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
