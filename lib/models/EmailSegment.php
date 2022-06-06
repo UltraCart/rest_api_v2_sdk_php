@@ -71,6 +71,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'rank_json' => 'string',
         'rebuild_required' => 'bool',
         'storefront_oid' => 'int',
+        'thirdparty_list_id' => 'string',
+        'thirdparty_provider_name' => 'string',
         'used_by' => '\ultracart\v2\models\EmailListSegmentUsedBy[]'
     ];
 
@@ -94,6 +96,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'rank_json' => null,
         'rebuild_required' => null,
         'storefront_oid' => 'int32',
+        'thirdparty_list_id' => null,
+        'thirdparty_provider_name' => null,
         'used_by' => null
     ];
 
@@ -138,6 +142,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'rank_json' => 'rank_json',
         'rebuild_required' => 'rebuild_required',
         'storefront_oid' => 'storefront_oid',
+        'thirdparty_list_id' => 'thirdparty_list_id',
+        'thirdparty_provider_name' => 'thirdparty_provider_name',
         'used_by' => 'used_by'
     ];
 
@@ -161,6 +167,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'rank_json' => 'setRankJson',
         'rebuild_required' => 'setRebuildRequired',
         'storefront_oid' => 'setStorefrontOid',
+        'thirdparty_list_id' => 'setThirdpartyListId',
+        'thirdparty_provider_name' => 'setThirdpartyProviderName',
         'used_by' => 'setUsedBy'
     ];
 
@@ -184,6 +192,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         'rank_json' => 'getRankJson',
         'rebuild_required' => 'getRebuildRequired',
         'storefront_oid' => 'getStorefrontOid',
+        'thirdparty_list_id' => 'getThirdpartyListId',
+        'thirdparty_provider_name' => 'getThirdpartyProviderName',
         'used_by' => 'getUsedBy'
     ];
 
@@ -261,6 +271,8 @@ class EmailSegment implements ModelInterface, ArrayAccess
         $this->container['rank_json'] = isset($data['rank_json']) ? $data['rank_json'] : null;
         $this->container['rebuild_required'] = isset($data['rebuild_required']) ? $data['rebuild_required'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
+        $this->container['thirdparty_list_id'] = isset($data['thirdparty_list_id']) ? $data['thirdparty_list_id'] : null;
+        $this->container['thirdparty_provider_name'] = isset($data['thirdparty_provider_name']) ? $data['thirdparty_provider_name'] : null;
         $this->container['used_by'] = isset($data['used_by']) ? $data['used_by'] : null;
     }
 
@@ -628,6 +640,54 @@ class EmailSegment implements ModelInterface, ArrayAccess
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets thirdparty_list_id
+     *
+     * @return string
+     */
+    public function getThirdpartyListId()
+    {
+        return $this->container['thirdparty_list_id'];
+    }
+
+    /**
+     * Sets thirdparty_list_id
+     *
+     * @param string $thirdparty_list_id List id of third party provider to sync with.
+     *
+     * @return $this
+     */
+    public function setThirdpartyListId($thirdparty_list_id)
+    {
+        $this->container['thirdparty_list_id'] = $thirdparty_list_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets thirdparty_provider_name
+     *
+     * @return string
+     */
+    public function getThirdpartyProviderName()
+    {
+        return $this->container['thirdparty_provider_name'];
+    }
+
+    /**
+     * Sets thirdparty_provider_name
+     *
+     * @param string $thirdparty_provider_name Name of third party provider to sync segment to a list with.
+     *
+     * @return $this
+     */
+    public function setThirdpartyProviderName($thirdparty_provider_name)
+    {
+        $this->container['thirdparty_provider_name'] = $thirdparty_provider_name;
 
         return $this;
     }
