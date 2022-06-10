@@ -1256,6 +1256,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.11 | 06/10/2022 | esp segment 3rd party sync add/remove tag fields |
 | 3.10.10 | 06/06/2022 | storefront communication options for syncing to third party provider list |
 | 3.10.9 | 06/01/2022 | bug fixes for customer profile store credit |
 | 3.10.8 | 05/27/2022 | customer store credit |
