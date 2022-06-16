@@ -312,6 +312,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**cloneEmailCampaign**](docs/Api/StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/Api/StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
 *StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
+*StorefrontApi* | [**createEmailSendingDomain2**](docs/Api/StorefrontApi.md#createemailsendingdomain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
 *StorefrontApi* | [**createTwilioAccount**](docs/Api/StorefrontApi.md#createtwilioaccount) | **POST** /storefront/twilio/accounts | Create Twilio account
 *StorefrontApi* | [**deleteEmailCampaignFolder**](docs/Api/StorefrontApi.md#deleteemailcampaignfolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 *StorefrontApi* | [**deleteEmailCommseqStat**](docs/Api/StorefrontApi.md#deleteemailcommseqstat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
@@ -454,6 +455,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateEmailPlan**](docs/Api/StorefrontApi.md#updateemailplan) | **POST** /storefront/{storefront_oid}/email/plan | Update email plan
 *StorefrontApi* | [**updateEmailPostcard**](docs/Api/StorefrontApi.md#updateemailpostcard) | **PUT** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Update email postcard
 *StorefrontApi* | [**updateEmailSegment**](docs/Api/StorefrontApi.md#updateemailsegment) | **PUT** /storefront/{storefront_oid}/email/segments/{email_segment_uuid} | Update email segment
+*StorefrontApi* | [**updateEmailSendingDomain**](docs/Api/StorefrontApi.md#updateemailsendingdomain) | **PUT** /storefront/email/sending_domains/{domain} | Update email sending domain
 *StorefrontApi* | [**updateEmailSettings**](docs/Api/StorefrontApi.md#updateemailsettings) | **POST** /storefront/{storefront_oid}/email/settings | Update email settings
 *StorefrontApi* | [**updateExperiment**](docs/Api/StorefrontApi.md#updateexperiment) | **PUT** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Update experiment
 *StorefrontApi* | [**updateLibraryItem**](docs/Api/StorefrontApi.md#updatelibraryitem) | **PUT** /storefront/code_library/{library_item_oid} | Update library item. Note that only certain fields may be updated via this method.
@@ -962,6 +964,7 @@ Class | Method | HTTP request | Description
  - [ListSegmentMembership](docs/Model/ListSegmentMembership.md)
  - [LookupRequest](docs/Model/LookupRequest.md)
  - [LookupResponse](docs/Model/LookupResponse.md)
+ - [Mailgun](docs/Model/Mailgun.md)
  - [Metric](docs/Model/Metric.md)
  - [Notification](docs/Model/Notification.md)
  - [OauthRevokeSuccessResponse](docs/Model/OauthRevokeSuccessResponse.md)
@@ -1257,6 +1260,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.14 | 06/16/2022 | added createEmailSendingDomain2 to support additional MTAs |
 | 3.10.13 | 06/16/2022 | renamed latest method to avoid conflict between customer profile search and storefront search |
 | 3.10.12 | 06/16/2022 | Customer profile search method to look up tags |
 | 3.10.11 | 06/10/2022 | esp segment 3rd party sync add/remove tag fields |

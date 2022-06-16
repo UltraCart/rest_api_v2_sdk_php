@@ -63,6 +63,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'domain' => 'string',
         'esp_domain_uuid' => 'string',
         'identity_status' => 'string',
+        'mailgun' => '\ultracart\v2\models\Mailgun',
         'merchant_id' => 'string',
         'provider' => 'string',
         'spf' => '\ultracart\v2\models\VerificationRecord',
@@ -83,6 +84,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'domain' => null,
         'esp_domain_uuid' => null,
         'identity_status' => null,
+        'mailgun' => null,
         'merchant_id' => null,
         'provider' => null,
         'spf' => null,
@@ -124,6 +126,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'domain' => 'domain',
         'esp_domain_uuid' => 'esp_domain_uuid',
         'identity_status' => 'identity_status',
+        'mailgun' => 'mailgun',
         'merchant_id' => 'merchant_id',
         'provider' => 'provider',
         'spf' => 'spf',
@@ -144,6 +147,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'domain' => 'setDomain',
         'esp_domain_uuid' => 'setEspDomainUuid',
         'identity_status' => 'setIdentityStatus',
+        'mailgun' => 'setMailgun',
         'merchant_id' => 'setMerchantId',
         'provider' => 'setProvider',
         'spf' => 'setSpf',
@@ -164,6 +168,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         'domain' => 'getDomain',
         'esp_domain_uuid' => 'getEspDomainUuid',
         'identity_status' => 'getIdentityStatus',
+        'mailgun' => 'getMailgun',
         'merchant_id' => 'getMerchantId',
         'provider' => 'getProvider',
         'spf' => 'getSpf',
@@ -238,6 +243,7 @@ class EmailDomain implements ModelInterface, ArrayAccess
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['esp_domain_uuid'] = isset($data['esp_domain_uuid']) ? $data['esp_domain_uuid'] : null;
         $this->container['identity_status'] = isset($data['identity_status']) ? $data['identity_status'] : null;
+        $this->container['mailgun'] = isset($data['mailgun']) ? $data['mailgun'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['spf'] = isset($data['spf']) ? $data['spf'] : null;
@@ -410,6 +416,30 @@ class EmailDomain implements ModelInterface, ArrayAccess
     public function setIdentityStatus($identity_status)
     {
         $this->container['identity_status'] = $identity_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets mailgun
+     *
+     * @return \ultracart\v2\models\Mailgun
+     */
+    public function getMailgun()
+    {
+        return $this->container['mailgun'];
+    }
+
+    /**
+     * Sets mailgun
+     *
+     * @param \ultracart\v2\models\Mailgun $mailgun mailgun
+     *
+     * @return $this
+     */
+    public function setMailgun($mailgun)
+    {
+        $this->container['mailgun'] = $mailgun;
 
         return $this;
     }
