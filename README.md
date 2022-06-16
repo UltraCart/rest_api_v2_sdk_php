@@ -242,6 +242,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/Api/CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
+*CustomerApi* | [**search**](docs/Api/CustomerApi.md#search) | **POST** /customer/search | Searches for all matching values (using POST)
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**validateEmailVerificationToken**](docs/Api/CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
@@ -1203,10 +1204,10 @@ Class | Method | HTTP request | Description
  - **affiliate_write**: Allows you to write affiliate information.
  - **auto_order_read**: Allows you to read auto order information.
  - **auto_order_write**: Allows you to write auto order information.
- - **chargeback_read**: Allows you to read chargeback information.
- - **chargeback_write**: Allows you to write chargeback information.
  - **channel_partner_read**: Allows you to read channel partner information.
  - **channel_partner_write**: Allows you to write channel partner information.
+ - **chargeback_read**: Allows you to read chargeback information.
+ - **chargeback_write**: Allows you to write chargeback information.
  - **checkout_read**: Allows you to read checkout information.
  - **checkout_write**: Allows you to write checkout information.
  - **configuration_read**: Allows you to read configuration information.
@@ -1217,6 +1218,8 @@ Class | Method | HTTP request | Description
  - **customer_write**: Allows you to write customer information.
  - **fulfillment_read**: Allows you to read fulfillment information.
  - **fulfillment_write**: Allows you to write fulfillment information.
+ - **gift_certificate_read**: Allows you to read gift certificate information.
+ - **gift_certificate_write**: Allows you to write gift certificate information.
  - **integration_log_read**: Allows you to read integration log information.
  - **integration_log_write**: Allows you to write integration log information.
  - **order_read**: Allows you to read order information.
@@ -1233,8 +1236,6 @@ Class | Method | HTTP request | Description
  - **ultrabooks_write**: 2 of 2 required to use UltraBooks
  - **user_read**: Allows you to read user information.
  - **user_write**: Allows you to write user information.
- - **gift_certificate_read**: Allows you to read gift certificate information.
- - **gift_certificate_write**: Allows you to write gift certificate information.
 
 ## ultraCartSimpleApiKey
 
@@ -1256,6 +1257,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.12 | 06/16/2022 | Customer profile search method to look up tags |
 | 3.10.11 | 06/10/2022 | esp segment 3rd party sync add/remove tag fields |
 | 3.10.10 | 06/06/2022 | storefront communication options for syncing to third party provider list |
 | 3.10.9 | 06/01/2022 | bug fixes for customer profile store credit |
