@@ -4808,7 +4808,7 @@ class CustomerApi
     }
 
     /**
-     * Operation search
+     * Operation searchCustomerProfileValues
      *
      * Searches for all matching values (using POST)
      *
@@ -4818,15 +4818,15 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\LookupResponse
      */
-    public function search($lookup_request)
+    public function searchCustomerProfileValues($lookup_request)
     {
-        list($response) = $this->searchWithHttpInfo($lookup_request);
+        list($response) = $this->searchCustomerProfileValuesWithHttpInfo($lookup_request);
         return $response;
     }
 
 
     /**
-     * Operation searchWithHttpInfo
+     * Operation searchCustomerProfileValuesWithHttpInfo
      *
      * Searches for all matching values (using POST)
      *
@@ -4836,14 +4836,14 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\LookupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchWithHttpInfo($lookup_request)
+    public function searchCustomerProfileValuesWithHttpInfo($lookup_request)
     {
-        return $this->searchWithHttpInfoRetry(true ,   $lookup_request);
+        return $this->searchCustomerProfileValuesWithHttpInfoRetry(true ,   $lookup_request);
     }
 
 
     /**
-     * Operation searchWithHttpInfoRetry
+     * Operation searchCustomerProfileValuesWithHttpInfoRetry
      *
      * Searches for all matching values (using POST)
      *
@@ -4854,10 +4854,10 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\LookupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchWithHttpInfoRetry($retry ,  $lookup_request)
+    public function searchCustomerProfileValuesWithHttpInfoRetry($retry ,  $lookup_request)
     {
         $returnType = '\ultracart\v2\models\LookupResponse';
-        $request = $this->searchRequest($lookup_request);
+        $request = $this->searchCustomerProfileValuesRequest($lookup_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4876,7 +4876,7 @@ class CustomerApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->searchWithHttpInfoRetry(false ,   $lookup_request);
+                        return $this->searchCustomerProfileValuesWithHttpInfoRetry(false ,   $lookup_request);
                     }
                 }
 
@@ -4960,7 +4960,7 @@ class CustomerApi
     }
 
     /**
-     * Operation searchAsync
+     * Operation searchCustomerProfileValuesAsync
      *
      * Searches for all matching values (using POST)
      *
@@ -4969,9 +4969,9 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAsync($lookup_request)
+    public function searchCustomerProfileValuesAsync($lookup_request)
     {
-        return $this->searchAsyncWithHttpInfo($lookup_request)
+        return $this->searchCustomerProfileValuesAsyncWithHttpInfo($lookup_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4980,7 +4980,7 @@ class CustomerApi
     }
 
     /**
-     * Operation searchAsyncWithHttpInfo
+     * Operation searchCustomerProfileValuesAsyncWithHttpInfo
      *
      * Searches for all matching values (using POST)
      *
@@ -4989,10 +4989,10 @@ class CustomerApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchAsyncWithHttpInfo($lookup_request)
+    public function searchCustomerProfileValuesAsyncWithHttpInfo($lookup_request)
     {
         $returnType = '\ultracart\v2\models\LookupResponse';
-        $request = $this->searchRequest($lookup_request);
+        $request = $this->searchCustomerProfileValuesRequest($lookup_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5032,19 +5032,19 @@ class CustomerApi
     }
 
     /**
-     * Create request for operation 'search'
+     * Create request for operation 'searchCustomerProfileValues'
      *
      * @param  \ultracart\v2\models\LookupRequest $lookup_request LookupRequest (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchRequest($lookup_request)
+    protected function searchCustomerProfileValuesRequest($lookup_request)
     {
         // verify the required parameter 'lookup_request' is set
         if ($lookup_request === null || (is_array($lookup_request) && count($lookup_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $lookup_request when calling search'
+                'Missing the required parameter $lookup_request when calling searchCustomerProfileValues'
             );
         }
 
