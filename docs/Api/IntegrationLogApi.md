@@ -1,34 +1,50 @@
 # ultracart\v2\IntegrationLogApi
 
-All URIs are relative to *https://secure.ultracart.com/rest/v2*
+All URIs are relative to https://secure.ultracart.com/rest/v2.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getIntegrationLog**](IntegrationLogApi.md#getIntegrationLog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
-[**getIntegrationLogFile**](IntegrationLogApi.md#getIntegrationLogFile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
-[**getIntegrationLogFilePdf**](IntegrationLogApi.md#getIntegrationLogFilePdf) | **GET** /integration_log/query/{pk}/{sk}/{uuid}/pdf | Retrieve an integration log file converted to PDF
-[**getIntegrationLogSummariesQuery**](IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
-[**getIntegrationLogsQuery**](IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
+[**getIntegrationLog()**](IntegrationLogApi.md#getIntegrationLog) | **GET** /integration_log/query/{pk}/{sk} | Retrieve an integration log
+[**getIntegrationLogFile()**](IntegrationLogApi.md#getIntegrationLogFile) | **GET** /integration_log/query/{pk}/{sk}/{uuid} | Retrieve an integration log file
+[**getIntegrationLogFilePdf()**](IntegrationLogApi.md#getIntegrationLogFilePdf) | **GET** /integration_log/query/{pk}/{sk}/{uuid}/pdf | Retrieve an integration log file converted to PDF
+[**getIntegrationLogSummariesQuery()**](IntegrationLogApi.md#getIntegrationLogSummariesQuery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
+[**getIntegrationLogsQuery()**](IntegrationLogApi.md#getIntegrationLogsQuery) | **POST** /integration_log/query | Retrieve integration logs
 
 
-# **getIntegrationLog**
-> \ultracart\v2\models\IntegrationLogResponse getIntegrationLog($pk, $sk)
+## `getIntegrationLog()`
+
+```php
+getIntegrationLog($pk, $sk): \ultracart\v2\models\IntegrationLogResponse
+```
 
 Retrieve an integration log
 
 Retrieve an integration logs from the account based identifiers
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\IntegrationLogApi::usingApiKey($simple_key);
 
-$pk = "pk_example"; // string | 
-$sk = "sk_example"; // string | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\IntegrationLogApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$pk = 'pk_example'; // string
+$sk = 'sk_example'; // string
 
 try {
     $result = $apiInstance->getIntegrationLog($pk, $sk);
@@ -36,7 +52,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationLogApi->getIntegrationLog: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -56,30 +71,48 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getIntegrationLogFile**
-> \SplFileObject getIntegrationLogFile($pk, $sk, $uuid)
+## `getIntegrationLogFile()`
+
+```php
+getIntegrationLogFile($pk, $sk, $uuid): \SplFileObject
+```
 
 Retrieve an integration log file
 
 Retrieve an integration log file from the account based identifiers
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\IntegrationLogApi::usingApiKey($simple_key);
 
-$pk = "pk_example"; // string | 
-$sk = "sk_example"; // string | 
-$uuid = "uuid_example"; // string | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\IntegrationLogApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$pk = 'pk_example'; // string
+$sk = 'sk_example'; // string
+$uuid = 'uuid_example'; // string
 
 try {
     $result = $apiInstance->getIntegrationLogFile($pk, $sk, $uuid);
@@ -87,7 +120,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationLogApi->getIntegrationLogFile: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -100,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\SplFileObject**](../Model/\SplFileObject.md)
+**\SplFileObject**
 
 ### Authorization
 
@@ -108,30 +140,48 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/octet-stream
+- **Content-Type**: Not defined
+- **Accept**: `application/octet-stream`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getIntegrationLogFilePdf**
-> \SplFileObject getIntegrationLogFilePdf($pk, $sk, $uuid)
+## `getIntegrationLogFilePdf()`
+
+```php
+getIntegrationLogFilePdf($pk, $sk, $uuid): \SplFileObject
+```
 
 Retrieve an integration log file converted to PDF
 
 Retrieve an integration log file from the account based identifiers
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\IntegrationLogApi::usingApiKey($simple_key);
 
-$pk = "pk_example"; // string | 
-$sk = "sk_example"; // string | 
-$uuid = "uuid_example"; // string | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\IntegrationLogApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$pk = 'pk_example'; // string
+$sk = 'sk_example'; // string
+$uuid = 'uuid_example'; // string
 
 try {
     $result = $apiInstance->getIntegrationLogFilePdf($pk, $sk, $uuid);
@@ -139,7 +189,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationLogApi->getIntegrationLogFilePdf: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -152,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\SplFileObject**](../Model/\SplFileObject.md)
+**\SplFileObject**
 
 ### Authorization
 
@@ -160,27 +209,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/octet-stream
+- **Content-Type**: Not defined
+- **Accept**: `application/octet-stream`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getIntegrationLogSummariesQuery**
-> \ultracart\v2\models\IntegrationLogSummaryQueryResponse getIntegrationLogSummariesQuery($integration_log_summaries_query)
+## `getIntegrationLogSummariesQuery()`
+
+```php
+getIntegrationLogSummariesQuery($integration_log_summaries_query): \ultracart\v2\models\IntegrationLogSummaryQueryResponse
+```
 
 Retrieve integration log summaries
 
 Retrieves a set of integration log summaries from the account based on a query object.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\IntegrationLogApi::usingApiKey($simple_key);
 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\IntegrationLogApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $integration_log_summaries_query = new \ultracart\v2\models\IntegrationLogSummaryQueryRequest(); // \ultracart\v2\models\IntegrationLogSummaryQueryRequest | Integration log summaries query
 
 try {
@@ -189,7 +256,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationLogApi->getIntegrationLogSummariesQuery: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -208,31 +274,49 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getIntegrationLogsQuery**
-> \ultracart\v2\models\IntegrationLogQueryResponse getIntegrationLogsQuery($integration_log_query, $_limit, $_offset, $_sort)
+## `getIntegrationLogsQuery()`
+
+```php
+getIntegrationLogsQuery($integration_log_query, $_limit, $_offset, $_sort): \ultracart\v2\models\IntegrationLogQueryResponse
+```
 
 Retrieve integration logs
 
 Retrieves a set of integration logs from the account based on a query object.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\IntegrationLogApi::usingApiKey($simple_key);
 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\IntegrationLogApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $integration_log_query = new \ultracart\v2\models\IntegrationLogQueryRequest(); // \ultracart\v2\models\IntegrationLogQueryRequest | Integration log query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 500)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_sort = "_sort_example"; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+$_sort = '_sort_example'; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
 
 try {
     $result = $apiInstance->getIntegrationLogsQuery($integration_log_query, $_limit, $_offset, $_sort);
@@ -240,7 +324,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling IntegrationLogApi->getIntegrationLogsQuery: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -262,8 +345,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

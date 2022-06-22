@@ -1,36 +1,52 @@
 # ultracart\v2\GiftCertificateApi
 
-All URIs are relative to *https://secure.ultracart.com/rest/v2*
+All URIs are relative to https://secure.ultracart.com/rest/v2.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addGiftCertificateLedgerEntry**](GiftCertificateApi.md#addGiftCertificateLedgerEntry) | **POST** /gift_certificate/gift_certificates/{gift_certificate_oid}/ledger_entry | Add a gift certificate ledger entry
-[**createGiftCertificate**](GiftCertificateApi.md#createGiftCertificate) | **POST** /gift_certificate/gift_certificates | Create a gift certificate
-[**deleteGiftCertificate**](GiftCertificateApi.md#deleteGiftCertificate) | **DELETE** /gift_certificate/gift_certificates/{gift_certificate_oid} | Delete a gift certificate
-[**getGiftCertificateByCode**](GiftCertificateApi.md#getGiftCertificateByCode) | **POST** /gift_certificate/gift_certificates/by_code/{code} | Retrieve gift certificate by code
-[**getGiftCertificateByOid**](GiftCertificateApi.md#getGiftCertificateByOid) | **POST** /gift_certificate/gift_certificates/{gift_certificate_oid} | Retrieve gift certificate by oid
-[**getGiftCertificatesByEmail**](GiftCertificateApi.md#getGiftCertificatesByEmail) | **POST** /gift_certificate/gift_certificates/by_email/{email} | Retrieve gift certificate by email
-[**getGiftCertificatesByQuery**](GiftCertificateApi.md#getGiftCertificatesByQuery) | **POST** /gift_certificate/gift_certificates/query | Retrieve gift certificates by query
-[**updateGiftCertificate**](GiftCertificateApi.md#updateGiftCertificate) | **PUT** /gift_certificate/gift_certificates/{gift_certificate_oid} | Update a gift certificate
+[**addGiftCertificateLedgerEntry()**](GiftCertificateApi.md#addGiftCertificateLedgerEntry) | **POST** /gift_certificate/gift_certificates/{gift_certificate_oid}/ledger_entry | Add a gift certificate ledger entry
+[**createGiftCertificate()**](GiftCertificateApi.md#createGiftCertificate) | **POST** /gift_certificate/gift_certificates | Create a gift certificate
+[**deleteGiftCertificate()**](GiftCertificateApi.md#deleteGiftCertificate) | **DELETE** /gift_certificate/gift_certificates/{gift_certificate_oid} | Delete a gift certificate
+[**getGiftCertificateByCode()**](GiftCertificateApi.md#getGiftCertificateByCode) | **POST** /gift_certificate/gift_certificates/by_code/{code} | Retrieve gift certificate by code
+[**getGiftCertificateByOid()**](GiftCertificateApi.md#getGiftCertificateByOid) | **POST** /gift_certificate/gift_certificates/{gift_certificate_oid} | Retrieve gift certificate by oid
+[**getGiftCertificatesByEmail()**](GiftCertificateApi.md#getGiftCertificatesByEmail) | **POST** /gift_certificate/gift_certificates/by_email/{email} | Retrieve gift certificate by email
+[**getGiftCertificatesByQuery()**](GiftCertificateApi.md#getGiftCertificatesByQuery) | **POST** /gift_certificate/gift_certificates/query | Retrieve gift certificates by query
+[**updateGiftCertificate()**](GiftCertificateApi.md#updateGiftCertificate) | **PUT** /gift_certificate/gift_certificates/{gift_certificate_oid} | Update a gift certificate
 
 
-# **addGiftCertificateLedgerEntry**
-> \ultracart\v2\models\GiftCertificateResponse addGiftCertificateLedgerEntry($gift_certificate_oid, $gift_certificate_ledger_entry)
+## `addGiftCertificateLedgerEntry()`
+
+```php
+addGiftCertificateLedgerEntry($gift_certificate_oid, $gift_certificate_ledger_entry): \ultracart\v2\models\GiftCertificateResponse
+```
 
 Add a gift certificate ledger entry
 
 Adds a ledger entry for this gift certificate.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\GiftCertificateApi::usingApiKey($simple_key);
 
-$gift_certificate_oid = 56; // int | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\GiftCertificateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gift_certificate_oid = 56; // int
 $gift_certificate_ledger_entry = new \ultracart\v2\models\GiftCertificateLedgerEntry(); // \ultracart\v2\models\GiftCertificateLedgerEntry | Gift certificate ledger entry
 
 try {
@@ -39,7 +55,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GiftCertificateApi->addGiftCertificateLedgerEntry: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -59,27 +74,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **createGiftCertificate**
-> \ultracart\v2\models\GiftCertificateResponse createGiftCertificate($gift_certificate_create_request)
+## `createGiftCertificate()`
+
+```php
+createGiftCertificate($gift_certificate_create_request): \ultracart\v2\models\GiftCertificateResponse
+```
 
 Create a gift certificate
 
 Creates a gift certificate for this merchant account.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\GiftCertificateApi::usingApiKey($simple_key);
 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\GiftCertificateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $gift_certificate_create_request = new \ultracart\v2\models\GiftCertificateCreateRequest(); // \ultracart\v2\models\GiftCertificateCreateRequest | Gift certificate create request
 
 try {
@@ -88,7 +121,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GiftCertificateApi->createGiftCertificate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -107,35 +139,52 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **deleteGiftCertificate**
-> deleteGiftCertificate($gift_certificate_oid)
+## `deleteGiftCertificate()`
+
+```php
+deleteGiftCertificate($gift_certificate_oid)
+```
 
 Delete a gift certificate
 
 Deletes a gift certificate for this merchant account.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\GiftCertificateApi::usingApiKey($simple_key);
 
-$gift_certificate_oid = 56; // int | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\GiftCertificateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gift_certificate_oid = 56; // int
 
 try {
     $apiInstance->deleteGiftCertificate($gift_certificate_oid);
 } catch (Exception $e) {
     echo 'Exception when calling GiftCertificateApi->deleteGiftCertificate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -154,28 +203,46 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getGiftCertificateByCode**
-> \ultracart\v2\models\GiftCertificateResponse getGiftCertificateByCode($code)
+## `getGiftCertificateByCode()`
+
+```php
+getGiftCertificateByCode($code): \ultracart\v2\models\GiftCertificateResponse
+```
 
 Retrieve gift certificate by code
 
 Retrieves a gift certificate from the account based on the code (the value the customer enters at checkout time).
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\GiftCertificateApi::usingApiKey($simple_key);
 
-$code = "code_example"; // string | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\GiftCertificateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$code = 'code_example'; // string
 
 try {
     $result = $apiInstance->getGiftCertificateByCode($code);
@@ -183,7 +250,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GiftCertificateApi->getGiftCertificateByCode: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -202,28 +268,46 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getGiftCertificateByOid**
-> \ultracart\v2\models\GiftCertificateResponse getGiftCertificateByOid($gift_certificate_oid)
+## `getGiftCertificateByOid()`
+
+```php
+getGiftCertificateByOid($gift_certificate_oid): \ultracart\v2\models\GiftCertificateResponse
+```
 
 Retrieve gift certificate by oid
 
 Retrieves a gift certificate from the account based on the internal primary key.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\GiftCertificateApi::usingApiKey($simple_key);
 
-$gift_certificate_oid = 56; // int | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\GiftCertificateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gift_certificate_oid = 56; // int
 
 try {
     $result = $apiInstance->getGiftCertificateByOid($gift_certificate_oid);
@@ -231,7 +315,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GiftCertificateApi->getGiftCertificateByOid: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -250,28 +333,46 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getGiftCertificatesByEmail**
-> \ultracart\v2\models\GiftCertificatesResponse getGiftCertificatesByEmail($email)
+## `getGiftCertificatesByEmail()`
+
+```php
+getGiftCertificatesByEmail($email): \ultracart\v2\models\GiftCertificatesResponse
+```
 
 Retrieve gift certificate by email
 
 Retrieves all gift certificates from the account based on customer email.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\GiftCertificateApi::usingApiKey($simple_key);
 
-$email = "email_example"; // string | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\GiftCertificateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$email = 'email_example'; // string
 
 try {
     $result = $apiInstance->getGiftCertificatesByEmail($email);
@@ -279,7 +380,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GiftCertificateApi->getGiftCertificatesByEmail: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -298,33 +398,51 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **getGiftCertificatesByQuery**
-> \ultracart\v2\models\GiftCertificatesResponse getGiftCertificatesByQuery($gift_certificate_query, $_limit, $_offset, $_since, $_sort, $_expand)
+## `getGiftCertificatesByQuery()`
+
+```php
+getGiftCertificatesByQuery($gift_certificate_query, $_limit, $_offset, $_since, $_sort, $_expand): \ultracart\v2\models\GiftCertificatesResponse
+```
 
 Retrieve gift certificates by query
 
 Retrieves gift certificates from the account.  If no parameters are specified, all gift certificates will be returned.  You will need to make multiple API calls in order to retrieve the entire result set since this API performs result set pagination.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\GiftCertificateApi::usingApiKey($simple_key);
 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\GiftCertificateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $gift_certificate_query = new \ultracart\v2\models\GiftCertificateQuery(); // \ultracart\v2\models\GiftCertificateQuery | Gift certificates query
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_since = "_since_example"; // string | Fetch customers that have been created/modified since this date/time.
-$_sort = "_sort_example"; // string | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-$_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
+$_since = '_since_example'; // string | Fetch customers that have been created/modified since this date/time.
+$_sort = '_sort_example'; // string | The sort order of the customers.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
+$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
     $result = $apiInstance->getGiftCertificatesByQuery($gift_certificate_query, $_limit, $_offset, $_since, $_sort, $_expand);
@@ -332,7 +450,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GiftCertificateApi->getGiftCertificatesByQuery: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -356,28 +473,46 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
-# **updateGiftCertificate**
-> \ultracart\v2\models\GiftCertificateResponse updateGiftCertificate($gift_certificate_oid, $gift_certificate)
+## `updateGiftCertificate()`
+
+```php
+updateGiftCertificate($gift_certificate_oid, $gift_certificate): \ultracart\v2\models\GiftCertificateResponse
+```
 
 Update a gift certificate
 
 Update a gift certificate for this merchant account.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
-$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
-$api_instance = ultracart\v2\api\GiftCertificateApi::usingApiKey($simple_key);
 
-$gift_certificate_oid = 56; // int | 
+// Configure OAuth2 access token for authorization: ultraCartOauth
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: ultraCartSimpleApiKey
+$config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKey('x-ultracart-simple-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = ultracart\v2\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-ultracart-simple-key', 'Bearer');
+
+
+$apiInstance = new ultracart\v2\Api\GiftCertificateApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$gift_certificate_oid = 56; // int
 $gift_certificate = new \ultracart\v2\models\GiftCertificate(); // \ultracart\v2\models\GiftCertificate | Gift certificate
 
 try {
@@ -386,7 +521,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GiftCertificateApi->updateGiftCertificate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -406,8 +540,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)

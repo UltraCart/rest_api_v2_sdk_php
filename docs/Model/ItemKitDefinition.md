@@ -1,10 +1,9 @@
-# ItemKitDefinition
+# # ItemKitDefinition
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**components** | [**\ultracart\v2\models\ItemKitComponent[]**](ItemKitComponent.md) | Components | [optional] 
+**components** | [**\ultracart\v2\models\ItemKitComponent[]**](ItemKitComponent.md) | Components | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

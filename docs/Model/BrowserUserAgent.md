@@ -1,13 +1,12 @@
-# BrowserUserAgent
+# # BrowserUserAgent
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**family** | **string** |  | [optional] 
-**major** | **string** |  | [optional] 
-**minor** | **string** |  | [optional] 
-**patch** | **string** |  | [optional] 
+**family** | **string** |  | [optional]
+**major** | **string** |  | [optional]
+**minor** | **string** |  | [optional]
+**patch** | **string** |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,14 +1,13 @@
-# CartItemOptionValue
+# # CartItemOptionValue
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**additional_cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
-**additional_weight** | [**\ultracart\v2\models\Weight**](Weight.md) |  | [optional] 
-**default_value** | **bool** | True if this is the default value | [optional] 
-**display_order** | **int** | Display order of the option value | [optional] 
-**value** | **string** | Value of the option the customer can select | [optional] 
+**additional_cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
+**additional_weight** | [**\ultracart\v2\models\Weight**](Weight.md) |  | [optional]
+**default_value** | **bool** | True if this is the default value | [optional]
+**display_order** | **int** | Display order of the option value | [optional]
+**value** | **string** | Value of the option the customer can select | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
