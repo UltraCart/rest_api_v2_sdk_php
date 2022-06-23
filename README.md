@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
 *ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/Api/ChannelPartnerApi.md#cancelorderbychannelpartnerorderid) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
 *ChannelPartnerApi* | [**cancelOrderByUltraCartOrderId**](docs/Api/ChannelPartnerApi.md#cancelorderbyultracartorderid) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
 *ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#estimateshippingforchannelpartnerorder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
+*ChannelPartnerApi* | [**estimateTaxForChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#estimatetaxforchannelpartnerorder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
 *ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#importchannelpartnerorder) | **POST** /channel_partner/import | Insert channel partner order
 *ChargebackApi* | [**deleteChargeback**](docs/Api/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/Api/ChargebackApi.md#getchargebackdispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
@@ -195,21 +196,6 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/Api/CheckoutApi.md#setupbrowserkey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/Api/CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
-*ConfigurationApi* | [**delayAutoOrders**](docs/Api/ConfigurationApi.md#delayautoorders) | **POST** /configuration/checkout/payments/rtg/{rtg_oid}/delayAutoOrders | Delay auto order processing for a day for this rotating transaction gateway
-*ConfigurationApi* | [**deleteRotatingTransactionGateway**](docs/Api/ConfigurationApi.md#deleterotatingtransactiongateway) | **DELETE** /configuration/checkout/payments/rtg/{rtg_oid} | Delete a rotating transaction gateway
-*ConfigurationApi* | [**getPaymentsConfiguration**](docs/Api/ConfigurationApi.md#getpaymentsconfiguration) | **GET** /configuration/checkout/payments | Retrieve payments configuration
-*ConfigurationApi* | [**getPaymentsRotatingGateway**](docs/Api/ConfigurationApi.md#getpaymentsrotatinggateway) | **GET** /configuration/checkout/payments/rtg/{rtg_oid} | Retrieve a rotating transaction gateway
-*ConfigurationApi* | [**getPaymentsRotatingGatewayByCode**](docs/Api/ConfigurationApi.md#getpaymentsrotatinggatewaybycode) | **GET** /configuration/checkout/payments/rtg/byCode/{code} | Retrieve a rotating transaction gateway by code
-*ConfigurationApi* | [**getPaymentsRotatingTransactionGateways**](docs/Api/ConfigurationApi.md#getpaymentsrotatingtransactiongateways) | **GET** /configuration/checkout/payments/rtg | Retrieve a list of rotating transaction gateways
-*ConfigurationApi* | [**getPaymentsRtgSummaries**](docs/Api/ConfigurationApi.md#getpaymentsrtgsummaries) | **GET** /configuration/checkout/payments/rtg/summaries | Retrieve a summary of rotating transaction gateways
-*ConfigurationApi* | [**getPaymentsTransactionGateways**](docs/Api/ConfigurationApi.md#getpaymentstransactiongateways) | **GET** /configuration/checkout/payments/tg | Retrieve a list of transaction gateways
-*ConfigurationApi* | [**insertRotatingTransactionGateway**](docs/Api/ConfigurationApi.md#insertrotatingtransactiongateway) | **POST** /configuration/checkout/payments/rtg/ | Insert a rotating transaction gateway
-*ConfigurationApi* | [**migrateToRotatingTransactionGateway**](docs/Api/ConfigurationApi.md#migratetorotatingtransactiongateway) | **POST** /configuration/checkout/payments/tg/migrateToRtgWithCodeOf/{code} | Migrate a normal transaction gateway to a rotating transaction gateway
-*ConfigurationApi* | [**stripeConnect**](docs/Api/ConfigurationApi.md#stripeconnect) | **POST** /configuration/checkout/payments/rtg/{rtg_oid}/stripeConnect | Begin the processing of connecting with Stripe
-*ConfigurationApi* | [**updatePaymentsConfiguration**](docs/Api/ConfigurationApi.md#updatepaymentsconfiguration) | **PUT** /configuration/checkout/payments | Updates payments configuration
-*ConfigurationApi* | [**updatePaymentsTransactionGateway**](docs/Api/ConfigurationApi.md#updatepaymentstransactiongateway) | **PUT** /configuration/checkout/payments/tg | Updates payments transaction gateway
-*ConfigurationApi* | [**updateRotatingTransactionGateway**](docs/Api/ConfigurationApi.md#updaterotatingtransactiongateway) | **PUT** /configuration/checkout/payments/rtg/{rtg_oid} | Update a rotating transaction gateway
-*ConfigurationApi* | [**wepayEnroll**](docs/Api/ConfigurationApi.md#wepayenroll) | **PUT** /configuration/checkout/wepayEnroll | Enroll with WePay
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/Api/CouponApi.md#deletecouponsbycode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/Api/CouponApi.md#deletecouponsbyoid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -614,6 +600,7 @@ Class | Method | HTTP request | Description
  - [CartValidationResponse](docs/Model/CartValidationResponse.md)
  - [ChannelPartnerCancelResponse](docs/Model/ChannelPartnerCancelResponse.md)
  - [ChannelPartnerEstimateShippingResponse](docs/Model/ChannelPartnerEstimateShippingResponse.md)
+ - [ChannelPartnerEstimateTaxResponse](docs/Model/ChannelPartnerEstimateTaxResponse.md)
  - [ChannelPartnerImportResponse](docs/Model/ChannelPartnerImportResponse.md)
  - [ChannelPartnerOrder](docs/Model/ChannelPartnerOrder.md)
  - [ChannelPartnerOrderItem](docs/Model/ChannelPartnerOrderItem.md)
@@ -726,7 +713,6 @@ Class | Method | HTTP request | Description
  - [CustomerTaxCodes](docs/Model/CustomerTaxCodes.md)
  - [CustomersResponse](docs/Model/CustomersResponse.md)
  - [DataTablesServerSideResponse](docs/Model/DataTablesServerSideResponse.md)
- - [DelayAutoOrdersResponse](docs/Model/DelayAutoOrdersResponse.md)
  - [Distance](docs/Model/Distance.md)
  - [DistributionCenter](docs/Model/DistributionCenter.md)
  - [DistributionCentersResponse](docs/Model/DistributionCentersResponse.md)
@@ -1026,30 +1012,6 @@ Class | Method | HTTP request | Description
  - [OrderTrackingNumberDetail](docs/Model/OrderTrackingNumberDetail.md)
  - [OrderTrackingNumberDetails](docs/Model/OrderTrackingNumberDetails.md)
  - [OrdersResponse](docs/Model/OrdersResponse.md)
- - [PaymentsConfiguration](docs/Model/PaymentsConfiguration.md)
- - [PaymentsConfigurationAffirm](docs/Model/PaymentsConfigurationAffirm.md)
- - [PaymentsConfigurationAmazon](docs/Model/PaymentsConfigurationAmazon.md)
- - [PaymentsConfigurationCOD](docs/Model/PaymentsConfigurationCOD.md)
- - [PaymentsConfigurationCash](docs/Model/PaymentsConfigurationCash.md)
- - [PaymentsConfigurationCheck](docs/Model/PaymentsConfigurationCheck.md)
- - [PaymentsConfigurationCreditCard](docs/Model/PaymentsConfigurationCreditCard.md)
- - [PaymentsConfigurationCreditCardType](docs/Model/PaymentsConfigurationCreditCardType.md)
- - [PaymentsConfigurationEcheck](docs/Model/PaymentsConfigurationEcheck.md)
- - [PaymentsConfigurationInsurance](docs/Model/PaymentsConfigurationInsurance.md)
- - [PaymentsConfigurationLoanHero](docs/Model/PaymentsConfigurationLoanHero.md)
- - [PaymentsConfigurationMoneyOrder](docs/Model/PaymentsConfigurationMoneyOrder.md)
- - [PaymentsConfigurationPayPal](docs/Model/PaymentsConfigurationPayPal.md)
- - [PaymentsConfigurationPurchaseOrder](docs/Model/PaymentsConfigurationPurchaseOrder.md)
- - [PaymentsConfigurationQuoteRequest](docs/Model/PaymentsConfigurationQuoteRequest.md)
- - [PaymentsConfigurationResponse](docs/Model/PaymentsConfigurationResponse.md)
- - [PaymentsConfigurationRestrictions](docs/Model/PaymentsConfigurationRestrictions.md)
- - [PaymentsConfigurationRestrictionsTheme](docs/Model/PaymentsConfigurationRestrictionsTheme.md)
- - [PaymentsConfigurationSezzle](docs/Model/PaymentsConfigurationSezzle.md)
- - [PaymentsConfigurationTestMethod](docs/Model/PaymentsConfigurationTestMethod.md)
- - [PaymentsConfigurationWePay](docs/Model/PaymentsConfigurationWePay.md)
- - [PaymentsConfigurationWireTransfer](docs/Model/PaymentsConfigurationWireTransfer.md)
- - [PaymentsThemeTransactionType](docs/Model/PaymentsThemeTransactionType.md)
- - [PaymentsWepayEnroll](docs/Model/PaymentsWepayEnroll.md)
  - [Permission](docs/Model/Permission.md)
  - [PricingTier](docs/Model/PricingTier.md)
  - [PricingTierNotification](docs/Model/PricingTierNotification.md)
@@ -1060,15 +1022,6 @@ Class | Method | HTTP request | Description
  - [RegisterAffiliateClickResponse](docs/Model/RegisterAffiliateClickResponse.md)
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
- - [RotatingTransactionGateway](docs/Model/RotatingTransactionGateway.md)
- - [RotatingTransactionGatewayResponse](docs/Model/RotatingTransactionGatewayResponse.md)
- - [RotatingTransactionGatewaysResponse](docs/Model/RotatingTransactionGatewaysResponse.md)
- - [RtgCurrency](docs/Model/RtgCurrency.md)
- - [RtgDayOfMonthRestriction](docs/Model/RtgDayOfMonthRestriction.md)
- - [RtgDayOfWeekRestriction](docs/Model/RtgDayOfWeekRestriction.md)
- - [RtgSummaryGateway](docs/Model/RtgSummaryGateway.md)
- - [RtgSummaryResponse](docs/Model/RtgSummaryResponse.md)
- - [RtgThemeRestriction](docs/Model/RtgThemeRestriction.md)
  - [ScreenRecording](docs/Model/ScreenRecording.md)
  - [ScreenRecordingAdPlatform](docs/Model/ScreenRecordingAdPlatform.md)
  - [ScreenRecordingFilter](docs/Model/ScreenRecordingFilter.md)
@@ -1127,7 +1080,6 @@ Class | Method | HTTP request | Description
  - [SovosConfig](docs/Model/SovosConfig.md)
  - [StateProvince](docs/Model/StateProvince.md)
  - [StepWaiting](docs/Model/StepWaiting.md)
- - [StripeConnectResponse](docs/Model/StripeConnectResponse.md)
  - [TaxCity](docs/Model/TaxCity.md)
  - [TaxCountry](docs/Model/TaxCountry.md)
  - [TaxCountryCode](docs/Model/TaxCountryCode.md)
@@ -1157,9 +1109,6 @@ Class | Method | HTTP request | Description
  - [TransactionEmailListResponse](docs/Model/TransactionEmailListResponse.md)
  - [TransactionEmailOption](docs/Model/TransactionEmailOption.md)
  - [TransactionEmailResponse](docs/Model/TransactionEmailResponse.md)
- - [TransactionGateway](docs/Model/TransactionGateway.md)
- - [TransactionGatewaysRequest](docs/Model/TransactionGatewaysRequest.md)
- - [TransactionGatewaysResponse](docs/Model/TransactionGatewaysResponse.md)
  - [Twilio](docs/Model/Twilio.md)
  - [TwilioResponse](docs/Model/TwilioResponse.md)
  - [TwiliosResponse](docs/Model/TwiliosResponse.md)
@@ -1260,6 +1209,9 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.17 | 06/23/2022 | automation test |
+| 3.10.16 | 06/23/2022 | automation test |
+| 3.10.15 | 06/21/2022 | ChannelPartnerApi.estimateShipping |
 | 3.10.14 | 06/16/2022 | added createEmailSendingDomain2 to support additional MTAs |
 | 3.10.13 | 06/16/2022 | renamed latest method to avoid conflict between customer profile search and storefront search |
 | 3.10.12 | 06/16/2022 | Customer profile search method to look up tags |

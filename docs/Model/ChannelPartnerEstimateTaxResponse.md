@@ -1,9 +1,9 @@
-# StripeConnectResponse
+# ChannelPartnerEstimateTaxResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connect_url** | **string** |  | [optional] 
+**arbitrary_tax** | **float** |  | [optional] 
 **error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 

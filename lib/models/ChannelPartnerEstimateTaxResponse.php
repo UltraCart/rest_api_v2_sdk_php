@@ -1,6 +1,6 @@
 <?php
 /**
- * RtgCurrency
+ * ChannelPartnerEstimateTaxResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * RtgCurrency Class Doc Comment
+ * ChannelPartnerEstimateTaxResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class RtgCurrency implements ModelInterface, ArrayAccess
+class ChannelPartnerEstimateTaxResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class RtgCurrency implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RtgCurrency';
+    protected static $swaggerModelName = 'ChannelPartnerEstimateTaxResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,11 @@ class RtgCurrency implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'currency_code' => 'string',
-        'description' => 'string',
-        'selected' => 'bool'
+        'arbitrary_tax' => 'float',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -68,9 +70,11 @@ class RtgCurrency implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'currency_code' => null,
-        'description' => null,
-        'selected' => null
+        'arbitrary_tax' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -100,9 +104,11 @@ class RtgCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency_code' => 'currency_code',
-        'description' => 'description',
-        'selected' => 'selected'
+        'arbitrary_tax' => 'arbitrary_tax',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -111,9 +117,11 @@ class RtgCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency_code' => 'setCurrencyCode',
-        'description' => 'setDescription',
-        'selected' => 'setSelected'
+        'arbitrary_tax' => 'setArbitraryTax',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -122,9 +130,11 @@ class RtgCurrency implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency_code' => 'getCurrencyCode',
-        'description' => 'getDescription',
-        'selected' => 'getSelected'
+        'arbitrary_tax' => 'getArbitraryTax',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -187,9 +197,11 @@ class RtgCurrency implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['selected'] = isset($data['selected']) ? $data['selected'] : null;
+        $this->container['arbitrary_tax'] = isset($data['arbitrary_tax']) ? $data['arbitrary_tax'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -217,73 +229,121 @@ class RtgCurrency implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency_code
+     * Gets arbitrary_tax
      *
-     * @return string
+     * @return float
      */
-    public function getCurrencyCode()
+    public function getArbitraryTax()
     {
-        return $this->container['currency_code'];
+        return $this->container['arbitrary_tax'];
     }
 
     /**
-     * Sets currency_code
+     * Sets arbitrary_tax
      *
-     * @param string $currency_code Standard three letter currency code, for example USD
+     * @param float $arbitrary_tax arbitrary_tax
      *
      * @return $this
      */
-    public function setCurrencyCode($currency_code)
+    public function setArbitraryTax($arbitrary_tax)
     {
-        $this->container['currency_code'] = $currency_code;
+        $this->container['arbitrary_tax'] = $arbitrary_tax;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets error
      *
-     * @return string
+     * @return \ultracart\v2\models\Error
      */
-    public function getDescription()
+    public function getError()
     {
-        return $this->container['description'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets description
+     * Sets error
      *
-     * @param string $description Human friendly description of currency
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setError($error)
     {
-        $this->container['description'] = $description;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets selected
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
      *
      * @return bool
      */
-    public function getSelected()
+    public function getSuccess()
     {
-        return $this->container['selected'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets selected
+     * Sets success
      *
-     * @param bool $selected true if this rotating gateway supports this currency
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setSelected($selected)
+    public function setSuccess($success)
     {
-        $this->container['selected'] = $selected;
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }
