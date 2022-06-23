@@ -1209,6 +1209,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.18 | 06/23/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
 | 3.10.17 | 06/23/2022 | automation test |
 | 3.10.16 | 06/23/2022 | automation test |
 | 3.10.15 | 06/21/2022 | ChannelPartnerApi.estimateShipping |

@@ -373,7 +373,7 @@ class ChargebackApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json; charset=UTF-8']
+                ['application/json']
             );
         }
 
