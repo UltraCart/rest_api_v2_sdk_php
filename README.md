@@ -1150,6 +1150,17 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.23-RC | 06/23/2022 | automation test |
+| 4.0.22-RC | 06/23/2022 | v4 automation testing - not production ready |
+| 4.0.21-RC | 06/22/2022 | v4 automation testing - not production ready |
+| 4.0.20-RC | 06/22/2022 | v4 automation testing - not production ready |
+| 4.0.19-RC | 06/22/2022 | v4 automation testing - not production ready |
+| 4.0.18-RC | 06/22/2022 | v4 automation testing - not production ready |
+| 4.0.17-RC | 06/22/2022 | v4 automation testing - not production ready |
+| 4.0.16-RC | 06/22/2022 | v4 automation testing - not production ready |
+| 4.0.15-RC | 06/22/2022 | v4 automation testing - not production ready |
+| 4.0.14-RC | 06/22/2022 | v4 automation testing - not production ready |
+| 4.0.13-RC | 06/22/2022 | v4 automation testing - not production ready |
 | 4.0.12-RC | 06/22/2022 | v4 automation testing - not production ready |
 | 4.0.11-RC | 06/22/2022 | v4 automation testing - not production ready |
 | 4.0.10-RC | 06/21/2022 | v4 automation testing - not production ready |
