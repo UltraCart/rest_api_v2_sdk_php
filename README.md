@@ -1150,6 +1150,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.24-RC | 06/23/2022 | automation test |
 | 4.0.23-RC | 06/23/2022 | automation test |
 | 4.0.22-RC | 06/23/2022 | v4 automation testing - not production ready |
 | 4.0.21-RC | 06/22/2022 | v4 automation testing - not production ready |
