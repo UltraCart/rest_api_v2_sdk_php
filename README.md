@@ -1150,6 +1150,14 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.33-RC | 07/05/2022 | docs update |
+| 4.0.32-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
+| 4.0.31-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
+| 4.0.30-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
+| 4.0.29-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
+| 4.0.28-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
+| 4.0.27-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
+| 4.0.26-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
 | 4.0.25-RC | 06/23/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
 | 4.0.24-RC | 06/23/2022 | automation test |
 | 4.0.23-RC | 06/23/2022 | automation test |
