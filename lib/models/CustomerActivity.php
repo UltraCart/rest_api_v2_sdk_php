@@ -58,9 +58,13 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'activities' => '\ultracart\v2\models\Activity[]',
+        'global_unsubscribed' => 'bool',
+        'global_unsubscribed_dts' => 'string',
         'memberships' => '\ultracart\v2\models\ListSegmentMembership[]',
         'metrics' => '\ultracart\v2\models\Metric[]',
-        'properties_list' => '\ultracart\v2\models\Property[]'
+        'properties_list' => '\ultracart\v2\models\Property[]',
+        'spam_complaint' => 'bool',
+        'spam_complaint_dts' => 'string'
     ];
 
     /**
@@ -70,9 +74,13 @@ class CustomerActivity implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'activities' => null,
+        'global_unsubscribed' => null,
+        'global_unsubscribed_dts' => null,
         'memberships' => null,
         'metrics' => null,
-        'properties_list' => null
+        'properties_list' => null,
+        'spam_complaint' => null,
+        'spam_complaint_dts' => null
     ];
 
     /**
@@ -103,9 +111,13 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'activities' => 'activities',
+        'global_unsubscribed' => 'global_unsubscribed',
+        'global_unsubscribed_dts' => 'global_unsubscribed_dts',
         'memberships' => 'memberships',
         'metrics' => 'metrics',
-        'properties_list' => 'properties_list'
+        'properties_list' => 'properties_list',
+        'spam_complaint' => 'spam_complaint',
+        'spam_complaint_dts' => 'spam_complaint_dts'
     ];
 
     /**
@@ -115,9 +127,13 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'activities' => 'setActivities',
+        'global_unsubscribed' => 'setGlobalUnsubscribed',
+        'global_unsubscribed_dts' => 'setGlobalUnsubscribedDts',
         'memberships' => 'setMemberships',
         'metrics' => 'setMetrics',
-        'properties_list' => 'setPropertiesList'
+        'properties_list' => 'setPropertiesList',
+        'spam_complaint' => 'setSpamComplaint',
+        'spam_complaint_dts' => 'setSpamComplaintDts'
     ];
 
     /**
@@ -127,9 +143,13 @@ class CustomerActivity implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'activities' => 'getActivities',
+        'global_unsubscribed' => 'getGlobalUnsubscribed',
+        'global_unsubscribed_dts' => 'getGlobalUnsubscribedDts',
         'memberships' => 'getMemberships',
         'metrics' => 'getMetrics',
-        'properties_list' => 'getPropertiesList'
+        'properties_list' => 'getPropertiesList',
+        'spam_complaint' => 'getSpamComplaint',
+        'spam_complaint_dts' => 'getSpamComplaintDts'
     ];
 
     /**
@@ -193,9 +213,13 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['activities'] = isset($data['activities']) ? $data['activities'] : null;
+        $this->container['global_unsubscribed'] = isset($data['global_unsubscribed']) ? $data['global_unsubscribed'] : null;
+        $this->container['global_unsubscribed_dts'] = isset($data['global_unsubscribed_dts']) ? $data['global_unsubscribed_dts'] : null;
         $this->container['memberships'] = isset($data['memberships']) ? $data['memberships'] : null;
         $this->container['metrics'] = isset($data['metrics']) ? $data['metrics'] : null;
         $this->container['properties_list'] = isset($data['properties_list']) ? $data['properties_list'] : null;
+        $this->container['spam_complaint'] = isset($data['spam_complaint']) ? $data['spam_complaint'] : null;
+        $this->container['spam_complaint_dts'] = isset($data['spam_complaint_dts']) ? $data['spam_complaint_dts'] : null;
     }
 
     /**
@@ -242,6 +266,54 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     public function setActivities($activities)
     {
         $this->container['activities'] = $activities;
+
+        return $this;
+    }
+
+    /**
+     * Gets global_unsubscribed
+     *
+     * @return bool
+     */
+    public function getGlobalUnsubscribed()
+    {
+        return $this->container['global_unsubscribed'];
+    }
+
+    /**
+     * Sets global_unsubscribed
+     *
+     * @param bool $global_unsubscribed global_unsubscribed
+     *
+     * @return $this
+     */
+    public function setGlobalUnsubscribed($global_unsubscribed)
+    {
+        $this->container['global_unsubscribed'] = $global_unsubscribed;
+
+        return $this;
+    }
+
+    /**
+     * Gets global_unsubscribed_dts
+     *
+     * @return string
+     */
+    public function getGlobalUnsubscribedDts()
+    {
+        return $this->container['global_unsubscribed_dts'];
+    }
+
+    /**
+     * Sets global_unsubscribed_dts
+     *
+     * @param string $global_unsubscribed_dts global_unsubscribed_dts
+     *
+     * @return $this
+     */
+    public function setGlobalUnsubscribedDts($global_unsubscribed_dts)
+    {
+        $this->container['global_unsubscribed_dts'] = $global_unsubscribed_dts;
 
         return $this;
     }
@@ -314,6 +386,54 @@ class CustomerActivity implements ModelInterface, ArrayAccess
     public function setPropertiesList($properties_list)
     {
         $this->container['properties_list'] = $properties_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets spam_complaint
+     *
+     * @return bool
+     */
+    public function getSpamComplaint()
+    {
+        return $this->container['spam_complaint'];
+    }
+
+    /**
+     * Sets spam_complaint
+     *
+     * @param bool $spam_complaint spam_complaint
+     *
+     * @return $this
+     */
+    public function setSpamComplaint($spam_complaint)
+    {
+        $this->container['spam_complaint'] = $spam_complaint;
+
+        return $this;
+    }
+
+    /**
+     * Gets spam_complaint_dts
+     *
+     * @return string
+     */
+    public function getSpamComplaintDts()
+    {
+        return $this->container['spam_complaint_dts'];
+    }
+
+    /**
+     * Sets spam_complaint_dts
+     *
+     * @param string $spam_complaint_dts spam_complaint_dts
+     *
+     * @return $this
+     */
+    public function setSpamComplaintDts($spam_complaint_dts)
+    {
+        $this->container['spam_complaint_dts'] = $spam_complaint_dts;
 
         return $this;
     }

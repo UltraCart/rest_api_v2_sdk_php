@@ -228,6 +228,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/Api/CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
+*CustomerApi* | [**mergeCustomer**](docs/Api/CustomerApi.md#mergecustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 *CustomerApi* | [**searchCustomerProfileValues**](docs/Api/CustomerApi.md#searchcustomerprofilevalues) | **POST** /customer/search | Searches for all matching values (using POST)
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
@@ -696,6 +697,7 @@ Class | Method | HTTP request | Description
  - [CustomerLoyalty](docs/Model/CustomerLoyalty.md)
  - [CustomerLoyaltyLedger](docs/Model/CustomerLoyaltyLedger.md)
  - [CustomerLoyaltyRedemption](docs/Model/CustomerLoyaltyRedemption.md)
+ - [CustomerMergeRequest](docs/Model/CustomerMergeRequest.md)
  - [CustomerOrdersSummary](docs/Model/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/Model/CustomerPricingTier.md)
  - [CustomerPrivacy](docs/Model/CustomerPrivacy.md)
@@ -1209,6 +1211,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.19 | 07/11/2022 | Customer API - mergeCustomer method |
 | 3.10.18 | 06/23/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |
 | 3.10.17 | 06/23/2022 | automation test |
 | 3.10.16 | 06/23/2022 | automation test |
