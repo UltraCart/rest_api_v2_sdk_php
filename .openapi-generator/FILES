@@ -214,6 +214,7 @@ docs/Model/CustomerEmailListChanges.md
 docs/Model/CustomerLoyalty.md
 docs/Model/CustomerLoyaltyLedger.md
 docs/Model/CustomerLoyaltyRedemption.md
+docs/Model/CustomerMergeRequest.md
 docs/Model/CustomerOrdersSummary.md
 docs/Model/CustomerPricingTier.md
 docs/Model/CustomerPrivacy.md
@@ -869,6 +870,7 @@ lib/models/CustomerEmailListChanges.php
 lib/models/CustomerLoyalty.php
 lib/models/CustomerLoyaltyLedger.php
 lib/models/CustomerLoyaltyRedemption.php
+lib/models/CustomerMergeRequest.php
 lib/models/CustomerOrdersSummary.php
 lib/models/CustomerPricingTier.php
 lib/models/CustomerPrivacy.php

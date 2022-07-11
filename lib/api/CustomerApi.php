@@ -6350,6 +6350,354 @@ class CustomerApi
     }
 
     /**
+     * Operation mergeCustomer
+     *
+     * Merge customer into this customer
+     *
+     * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param  \ultracart\v2\models\CustomerMergeRequest $customer Customer to merge into this profile. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function mergeCustomer($customer_profile_oid, $customer, $_expand = null)
+    {
+        $this->mergeCustomerWithHttpInfo($customer_profile_oid, $customer, $_expand);
+    }
+
+    /**
+     * Operation mergeCustomerWithHttpInfo
+     *
+     * Merge customer into this customer
+     *
+     * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param  \ultracart\v2\models\CustomerMergeRequest $customer Customer to merge into this profile. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function mergeCustomerWithHttpInfo($customer_profile_oid, $customer, $_expand = null)
+    {
+        $this->mergeCustomerWithHttpInfoRetry(true ,   $customer_profile_oid,   $customer,   $_expand);
+    }
+
+
+
+    /**
+     * Operation mergeCustomerWithHttpInfoRetry
+     *
+     * Merge customer into this customer
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param  \ultracart\v2\models\CustomerMergeRequest $customer Customer to merge into this profile. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function mergeCustomerWithHttpInfoRetry($retry , $customer_profile_oid, $customer, $_expand = null)
+    {
+        $returnType = '';
+        $request = $this->mergeCustomerRequest($customer_profile_oid, $customer, $_expand);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->mergeCustomerWithHttpInfoRetry(false ,   $customer_profile_oid,   $customer,   $_expand);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation mergeCustomerAsync
+     *
+     * Merge customer into this customer
+     *
+     * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param  \ultracart\v2\models\CustomerMergeRequest $customer Customer to merge into this profile. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function mergeCustomerAsync($customer_profile_oid, $customer, $_expand = null)
+    {
+        return $this->mergeCustomerAsyncWithHttpInfo($customer_profile_oid, $customer, $_expand)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation mergeCustomerAsyncWithHttpInfo
+     *
+     * Merge customer into this customer
+     *
+     * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param  \ultracart\v2\models\CustomerMergeRequest $customer Customer to merge into this profile. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function mergeCustomerAsyncWithHttpInfo($customer_profile_oid, $customer, $_expand = null)
+    {
+        $returnType = '';
+        $request = $this->mergeCustomerRequest($customer_profile_oid, $customer, $_expand);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'mergeCustomer'
+     *
+     * @param  int $customer_profile_oid The customer_profile_oid to update. (required)
+     * @param  \ultracart\v2\models\CustomerMergeRequest $customer Customer to merge into this profile. (required)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function mergeCustomerRequest($customer_profile_oid, $customer, $_expand = null)
+    {
+        // verify the required parameter 'customer_profile_oid' is set
+        if ($customer_profile_oid === null || (is_array($customer_profile_oid) && count($customer_profile_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $customer_profile_oid when calling mergeCustomer'
+            );
+        }
+        // verify the required parameter 'customer' is set
+        if ($customer === null || (is_array($customer) && count($customer) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $customer when calling mergeCustomer'
+            );
+        }
+
+        $resourcePath = '/customer/customers/{customer_profile_oid}/merge';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $_expand,
+            '_expand', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($customer_profile_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'customer_profile_oid' . '}',
+                ObjectSerializer::toPathValue($customer_profile_oid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json; charset=UTF-8']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($customer)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($customer));
+            } else {
+                $httpBody = $customer;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation searchCustomerProfileValues
      *
      * Searches for all matching values (using POST)

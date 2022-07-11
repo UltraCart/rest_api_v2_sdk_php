@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**getCustomersForDataTables()**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**getEmailVerificationToken()**](CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**insertCustomer()**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
+[**mergeCustomer()**](CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 [**searchCustomerProfileValues()**](CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
 [**updateCustomer()**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**updateCustomerEmailLists()**](CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
@@ -825,6 +826,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\CustomerResponse**](../Model/CustomerResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `mergeCustomer()`
+
+```php
+mergeCustomer($customer_profile_oid, $customer, $_expand)
+```
+
+Merge customer into this customer
+
+Merge customer into this customer.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\CustomerApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$customer_profile_oid = 56; // int | The customer_profile_oid to update.
+$customer = new \ultracart\v2\models\CustomerMergeRequest(); // \ultracart\v2\models\CustomerMergeRequest | Customer to merge into this profile.
+$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
+
+try {
+    $apiInstance->mergeCustomer($customer_profile_oid, $customer, $_expand);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->mergeCustomer: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer_profile_oid to update. |
+ **customer** | [**\ultracart\v2\models\CustomerMergeRequest**](../Model/CustomerMergeRequest.md)| Customer to merge into this profile. |
+ **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
