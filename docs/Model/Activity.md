@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **string** |  | [optional]
+**channel** | **string** |  | [optional]
 **metric** | **string** |  | [optional]
+**storefront_oid** | **int** |  | [optional]
 **subject** | **string** |  | [optional]
 **ts** | **int** |  | [optional]
 **type** | **string** |  | [optional]

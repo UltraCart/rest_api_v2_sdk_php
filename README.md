@@ -124,6 +124,12 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/Api/CheckoutApi.md#setupbrowserkey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/Api/CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
+*ConversationApi* | [**getAgentWebsocketAuthorization**](docs/Api/ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
+*ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+*ConversationApi* | [**getConversations**](docs/Api/ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
+*ConversationApi* | [**joinConversation**](docs/Api/ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
+*ConversationApi* | [**leaveConversation**](docs/Api/ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
+*ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/Api/CouponApi.md#deletecouponsbycode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/Api/CouponApi.md#deletecouponsbyoid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -546,6 +552,14 @@ Class | Method | HTTP request | Description
 - [CheckoutSetupBrowserKeyResponse](docs/Model/CheckoutSetupBrowserKeyResponse.md)
 - [CheckoutStateProvinceResponse](docs/Model/CheckoutStateProvinceResponse.md)
 - [CityStateZip](docs/Model/CityStateZip.md)
+- [Conversation](docs/Model/Conversation.md)
+- [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
+- [ConversationMessage](docs/Model/ConversationMessage.md)
+- [ConversationParticipant](docs/Model/ConversationParticipant.md)
+- [ConversationStartRequest](docs/Model/ConversationStartRequest.md)
+- [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
+- [ConversationSummary](docs/Model/ConversationSummary.md)
+- [ConversationsResponse](docs/Model/ConversationsResponse.md)
 - [CountriesResponse](docs/Model/CountriesResponse.md)
 - [Country](docs/Model/Country.md)
 - [Coupon](docs/Model/Coupon.md)
@@ -1092,6 +1106,8 @@ Class | Method | HTTP request | Description
     - **checkout_write**: Allows you to write checkout information.
     - **configuration_read**: Allows you to read configuration information.
     - **configuration_write**: Allows you to write configuration information.
+    - **conversation_read**: Allows you to read conversation information.
+    - **conversation_write**: Allows you to write conversation information.
     - **coupon_read**: Allows you to read coupon information.
     - **coupon_write**: Allows you to write coupon information.
     - **customer_read**: Allows you to read customer information.
@@ -1152,6 +1168,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.35-RC | 07/14/2022 | Add channel storefront_oid to the customer activity record |
 | 4.0.34-RC | 07/11/2022 | Customer API - mergeCustomer method |
 | 4.0.33-RC | 07/05/2022 | docs update |
 | 4.0.32-RC | 06/24/2022 | removed unneeded consumes declarations on several api calls (yaml fix) |

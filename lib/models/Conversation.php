@@ -1,6 +1,6 @@
 <?php
 /**
- * Activity
+ * Conversation
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * Activity Class Doc Comment
+ * Conversation Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
+class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Activity';
+    protected static $openAPIModelName = 'Conversation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,11 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'action' => 'string',
-        'channel' => 'string',
-        'metric' => 'string',
-        'storefront_oid' => 'int',
-        'subject' => 'string',
-        'ts' => 'int',
-        'type' => 'string',
-        'uuid' => 'string'
+        'conversation_arn' => 'string',
+        'conversation_uuid' => 'string',
+        'merchant_id' => 'string',
+        'messages' => '\ultracart\v2\models\ConversationMessage[]',
+        'participants' => '\ultracart\v2\models\ConversationParticipant[]'
     ];
 
     /**
@@ -76,14 +73,11 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'action' => null,
-        'channel' => null,
-        'metric' => null,
-        'storefront_oid' => 'int32',
-        'subject' => null,
-        'ts' => 'int64',
-        'type' => null,
-        'uuid' => null
+        'conversation_arn' => null,
+        'conversation_uuid' => null,
+        'merchant_id' => null,
+        'messages' => null,
+        'participants' => null
     ];
 
     /**
@@ -113,14 +107,11 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'channel' => 'channel',
-        'metric' => 'metric',
-        'storefront_oid' => 'storefront_oid',
-        'subject' => 'subject',
-        'ts' => 'ts',
-        'type' => 'type',
-        'uuid' => 'uuid'
+        'conversation_arn' => 'conversation_arn',
+        'conversation_uuid' => 'conversation_uuid',
+        'merchant_id' => 'merchant_id',
+        'messages' => 'messages',
+        'participants' => 'participants'
     ];
 
     /**
@@ -129,14 +120,11 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'channel' => 'setChannel',
-        'metric' => 'setMetric',
-        'storefront_oid' => 'setStorefrontOid',
-        'subject' => 'setSubject',
-        'ts' => 'setTs',
-        'type' => 'setType',
-        'uuid' => 'setUuid'
+        'conversation_arn' => 'setConversationArn',
+        'conversation_uuid' => 'setConversationUuid',
+        'merchant_id' => 'setMerchantId',
+        'messages' => 'setMessages',
+        'participants' => 'setParticipants'
     ];
 
     /**
@@ -145,14 +133,11 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'channel' => 'getChannel',
-        'metric' => 'getMetric',
-        'storefront_oid' => 'getStorefrontOid',
-        'subject' => 'getSubject',
-        'ts' => 'getTs',
-        'type' => 'getType',
-        'uuid' => 'getUuid'
+        'conversation_arn' => 'getConversationArn',
+        'conversation_uuid' => 'getConversationUuid',
+        'merchant_id' => 'getMerchantId',
+        'messages' => 'getMessages',
+        'participants' => 'getParticipants'
     ];
 
     /**
@@ -212,14 +197,11 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = $data['action'] ?? null;
-        $this->container['channel'] = $data['channel'] ?? null;
-        $this->container['metric'] = $data['metric'] ?? null;
-        $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
-        $this->container['subject'] = $data['subject'] ?? null;
-        $this->container['ts'] = $data['ts'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['uuid'] = $data['uuid'] ?? null;
+        $this->container['conversation_arn'] = $data['conversation_arn'] ?? null;
+        $this->container['conversation_uuid'] = $data['conversation_uuid'] ?? null;
+        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['messages'] = $data['messages'] ?? null;
+        $this->container['participants'] = $data['participants'] ?? null;
     }
 
     /**
@@ -247,193 +229,121 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets action
+     * Gets conversation_arn
      *
      * @return string|null
      */
-    public function getAction()
+    public function getConversationArn()
     {
-        return $this->container['action'];
+        return $this->container['conversation_arn'];
     }
 
     /**
-     * Sets action
+     * Sets conversation_arn
      *
-     * @param string|null $action action
+     * @param string|null $conversation_arn conversation_arn
      *
      * @return self
      */
-    public function setAction($action)
+    public function setConversationArn($conversation_arn)
     {
-        $this->container['action'] = $action;
+        $this->container['conversation_arn'] = $conversation_arn;
 
         return $this;
     }
 
     /**
-     * Gets channel
+     * Gets conversation_uuid
      *
      * @return string|null
      */
-    public function getChannel()
+    public function getConversationUuid()
     {
-        return $this->container['channel'];
+        return $this->container['conversation_uuid'];
     }
 
     /**
-     * Sets channel
+     * Sets conversation_uuid
      *
-     * @param string|null $channel channel
+     * @param string|null $conversation_uuid conversation_uuid
      *
      * @return self
      */
-    public function setChannel($channel)
+    public function setConversationUuid($conversation_uuid)
     {
-        $this->container['channel'] = $channel;
+        $this->container['conversation_uuid'] = $conversation_uuid;
 
         return $this;
     }
 
     /**
-     * Gets metric
+     * Gets merchant_id
      *
      * @return string|null
      */
-    public function getMetric()
+    public function getMerchantId()
     {
-        return $this->container['metric'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets metric
+     * Sets merchant_id
      *
-     * @param string|null $metric metric
+     * @param string|null $merchant_id merchant_id
      *
      * @return self
      */
-    public function setMetric($metric)
+    public function setMerchantId($merchant_id)
     {
-        $this->container['metric'] = $metric;
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }
 
     /**
-     * Gets storefront_oid
+     * Gets messages
      *
-     * @return int|null
+     * @return \ultracart\v2\models\ConversationMessage[]|null
      */
-    public function getStorefrontOid()
+    public function getMessages()
     {
-        return $this->container['storefront_oid'];
+        return $this->container['messages'];
     }
 
     /**
-     * Sets storefront_oid
+     * Sets messages
      *
-     * @param int|null $storefront_oid storefront_oid
+     * @param \ultracart\v2\models\ConversationMessage[]|null $messages messages
      *
      * @return self
      */
-    public function setStorefrontOid($storefront_oid)
+    public function setMessages($messages)
     {
-        $this->container['storefront_oid'] = $storefront_oid;
+        $this->container['messages'] = $messages;
 
         return $this;
     }
 
     /**
-     * Gets subject
+     * Gets participants
      *
-     * @return string|null
+     * @return \ultracart\v2\models\ConversationParticipant[]|null
      */
-    public function getSubject()
+    public function getParticipants()
     {
-        return $this->container['subject'];
+        return $this->container['participants'];
     }
 
     /**
-     * Sets subject
+     * Sets participants
      *
-     * @param string|null $subject subject
+     * @param \ultracart\v2\models\ConversationParticipant[]|null $participants participants
      *
      * @return self
      */
-    public function setSubject($subject)
+    public function setParticipants($participants)
     {
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets ts
-     *
-     * @return int|null
-     */
-    public function getTs()
-    {
-        return $this->container['ts'];
-    }
-
-    /**
-     * Sets ts
-     *
-     * @param int|null $ts ts
-     *
-     * @return self
-     */
-    public function setTs($ts)
-    {
-        $this->container['ts'] = $ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
-     *
-     * @return string|null
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param string|null $uuid uuid
-     *
-     * @return self
-     */
-    public function setUuid($uuid)
-    {
-        $this->container['uuid'] = $uuid;
+        $this->container['participants'] = $participants;
 
         return $this;
     }

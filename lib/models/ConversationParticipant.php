@@ -1,6 +1,6 @@
 <?php
 /**
- * Activity
+ * ConversationParticipant
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * Activity Class Doc Comment
+ * ConversationParticipant Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Activity';
+    protected static $openAPIModelName = 'ConversationParticipant';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,13 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'action' => 'string',
-        'channel' => 'string',
-        'metric' => 'string',
-        'storefront_oid' => 'int',
-        'subject' => 'string',
-        'ts' => 'int',
-        'type' => 'string',
-        'uuid' => 'string'
+        'conversation_participant_arn' => 'string',
+        'conversation_participant_name' => 'string',
+        'conversation_participant_uuid' => 'string',
+        'joined_dts' => 'string',
+        'last_message_dts' => 'string',
+        'left_dts' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -76,14 +75,13 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'action' => null,
-        'channel' => null,
-        'metric' => null,
-        'storefront_oid' => 'int32',
-        'subject' => null,
-        'ts' => 'int64',
-        'type' => null,
-        'uuid' => null
+        'conversation_participant_arn' => null,
+        'conversation_participant_name' => null,
+        'conversation_participant_uuid' => null,
+        'joined_dts' => 'dateTime',
+        'last_message_dts' => 'dateTime',
+        'left_dts' => 'dateTime',
+        'status' => null
     ];
 
     /**
@@ -113,14 +111,13 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'channel' => 'channel',
-        'metric' => 'metric',
-        'storefront_oid' => 'storefront_oid',
-        'subject' => 'subject',
-        'ts' => 'ts',
-        'type' => 'type',
-        'uuid' => 'uuid'
+        'conversation_participant_arn' => 'conversation_participant_arn',
+        'conversation_participant_name' => 'conversation_participant_name',
+        'conversation_participant_uuid' => 'conversation_participant_uuid',
+        'joined_dts' => 'joined_dts',
+        'last_message_dts' => 'last_message_dts',
+        'left_dts' => 'left_dts',
+        'status' => 'status'
     ];
 
     /**
@@ -129,14 +126,13 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'channel' => 'setChannel',
-        'metric' => 'setMetric',
-        'storefront_oid' => 'setStorefrontOid',
-        'subject' => 'setSubject',
-        'ts' => 'setTs',
-        'type' => 'setType',
-        'uuid' => 'setUuid'
+        'conversation_participant_arn' => 'setConversationParticipantArn',
+        'conversation_participant_name' => 'setConversationParticipantName',
+        'conversation_participant_uuid' => 'setConversationParticipantUuid',
+        'joined_dts' => 'setJoinedDts',
+        'last_message_dts' => 'setLastMessageDts',
+        'left_dts' => 'setLeftDts',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -145,14 +141,13 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'channel' => 'getChannel',
-        'metric' => 'getMetric',
-        'storefront_oid' => 'getStorefrontOid',
-        'subject' => 'getSubject',
-        'ts' => 'getTs',
-        'type' => 'getType',
-        'uuid' => 'getUuid'
+        'conversation_participant_arn' => 'getConversationParticipantArn',
+        'conversation_participant_name' => 'getConversationParticipantName',
+        'conversation_participant_uuid' => 'getConversationParticipantUuid',
+        'joined_dts' => 'getJoinedDts',
+        'last_message_dts' => 'getLastMessageDts',
+        'left_dts' => 'getLeftDts',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -212,14 +207,13 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = $data['action'] ?? null;
-        $this->container['channel'] = $data['channel'] ?? null;
-        $this->container['metric'] = $data['metric'] ?? null;
-        $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
-        $this->container['subject'] = $data['subject'] ?? null;
-        $this->container['ts'] = $data['ts'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['uuid'] = $data['uuid'] ?? null;
+        $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
+        $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
+        $this->container['conversation_participant_uuid'] = $data['conversation_participant_uuid'] ?? null;
+        $this->container['joined_dts'] = $data['joined_dts'] ?? null;
+        $this->container['last_message_dts'] = $data['last_message_dts'] ?? null;
+        $this->container['left_dts'] = $data['left_dts'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
     }
 
     /**
@@ -247,193 +241,169 @@ class Activity implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets action
+     * Gets conversation_participant_arn
      *
      * @return string|null
      */
-    public function getAction()
+    public function getConversationParticipantArn()
     {
-        return $this->container['action'];
+        return $this->container['conversation_participant_arn'];
     }
 
     /**
-     * Sets action
+     * Sets conversation_participant_arn
      *
-     * @param string|null $action action
+     * @param string|null $conversation_participant_arn conversation_participant_arn
      *
      * @return self
      */
-    public function setAction($action)
+    public function setConversationParticipantArn($conversation_participant_arn)
     {
-        $this->container['action'] = $action;
+        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
 
         return $this;
     }
 
     /**
-     * Gets channel
+     * Gets conversation_participant_name
      *
      * @return string|null
      */
-    public function getChannel()
+    public function getConversationParticipantName()
     {
-        return $this->container['channel'];
+        return $this->container['conversation_participant_name'];
     }
 
     /**
-     * Sets channel
+     * Sets conversation_participant_name
      *
-     * @param string|null $channel channel
+     * @param string|null $conversation_participant_name conversation_participant_name
      *
      * @return self
      */
-    public function setChannel($channel)
+    public function setConversationParticipantName($conversation_participant_name)
     {
-        $this->container['channel'] = $channel;
+        $this->container['conversation_participant_name'] = $conversation_participant_name;
 
         return $this;
     }
 
     /**
-     * Gets metric
+     * Gets conversation_participant_uuid
      *
      * @return string|null
      */
-    public function getMetric()
+    public function getConversationParticipantUuid()
     {
-        return $this->container['metric'];
+        return $this->container['conversation_participant_uuid'];
     }
 
     /**
-     * Sets metric
+     * Sets conversation_participant_uuid
      *
-     * @param string|null $metric metric
+     * @param string|null $conversation_participant_uuid conversation_participant_uuid
      *
      * @return self
      */
-    public function setMetric($metric)
+    public function setConversationParticipantUuid($conversation_participant_uuid)
     {
-        $this->container['metric'] = $metric;
+        $this->container['conversation_participant_uuid'] = $conversation_participant_uuid;
 
         return $this;
     }
 
     /**
-     * Gets storefront_oid
-     *
-     * @return int|null
-     */
-    public function getStorefrontOid()
-    {
-        return $this->container['storefront_oid'];
-    }
-
-    /**
-     * Sets storefront_oid
-     *
-     * @param int|null $storefront_oid storefront_oid
-     *
-     * @return self
-     */
-    public function setStorefrontOid($storefront_oid)
-    {
-        $this->container['storefront_oid'] = $storefront_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets subject
+     * Gets joined_dts
      *
      * @return string|null
      */
-    public function getSubject()
+    public function getJoinedDts()
     {
-        return $this->container['subject'];
+        return $this->container['joined_dts'];
     }
 
     /**
-     * Sets subject
+     * Sets joined_dts
      *
-     * @param string|null $subject subject
+     * @param string|null $joined_dts Joined conversation date/time
      *
      * @return self
      */
-    public function setSubject($subject)
+    public function setJoinedDts($joined_dts)
     {
-        $this->container['subject'] = $subject;
+        $this->container['joined_dts'] = $joined_dts;
 
         return $this;
     }
 
     /**
-     * Gets ts
-     *
-     * @return int|null
-     */
-    public function getTs()
-    {
-        return $this->container['ts'];
-    }
-
-    /**
-     * Sets ts
-     *
-     * @param int|null $ts ts
-     *
-     * @return self
-     */
-    public function setTs($ts)
-    {
-        $this->container['ts'] = $ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets last_message_dts
      *
      * @return string|null
      */
-    public function getType()
+    public function getLastMessageDts()
     {
-        return $this->container['type'];
+        return $this->container['last_message_dts'];
     }
 
     /**
-     * Sets type
+     * Sets last_message_dts
      *
-     * @param string|null $type type
+     * @param string|null $last_message_dts Last message date/time
      *
      * @return self
      */
-    public function setType($type)
+    public function setLastMessageDts($last_message_dts)
     {
-        $this->container['type'] = $type;
+        $this->container['last_message_dts'] = $last_message_dts;
 
         return $this;
     }
 
     /**
-     * Gets uuid
+     * Gets left_dts
      *
      * @return string|null
      */
-    public function getUuid()
+    public function getLeftDts()
     {
-        return $this->container['uuid'];
+        return $this->container['left_dts'];
     }
 
     /**
-     * Sets uuid
+     * Sets left_dts
      *
-     * @param string|null $uuid uuid
+     * @param string|null $left_dts Left conversation date/time
      *
      * @return self
      */
-    public function setUuid($uuid)
+    public function setLeftDts($left_dts)
     {
-        $this->container['uuid'] = $uuid;
+        $this->container['left_dts'] = $left_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
 
         return $this;
     }

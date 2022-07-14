@@ -8,6 +8,7 @@ docs/Api/AutoOrderApi.md
 docs/Api/ChannelPartnerApi.md
 docs/Api/ChargebackApi.md
 docs/Api/CheckoutApi.md
+docs/Api/ConversationApi.md
 docs/Api/CouponApi.md
 docs/Api/CustomerApi.md
 docs/Api/FulfillmentApi.md
@@ -137,6 +138,14 @@ docs/Model/CheckoutSetupBrowserKeyRequest.md
 docs/Model/CheckoutSetupBrowserKeyResponse.md
 docs/Model/CheckoutStateProvinceResponse.md
 docs/Model/CityStateZip.md
+docs/Model/Conversation.md
+docs/Model/ConversationAgentAuthResponse.md
+docs/Model/ConversationMessage.md
+docs/Model/ConversationParticipant.md
+docs/Model/ConversationStartRequest.md
+docs/Model/ConversationStartResponse.md
+docs/Model/ConversationSummary.md
+docs/Model/ConversationsResponse.md
 docs/Model/CountriesResponse.md
 docs/Model/Country.md
 docs/Model/Coupon.md
@@ -664,6 +673,7 @@ lib/api/AutoOrderApi.php
 lib/api/ChannelPartnerApi.php
 lib/api/ChargebackApi.php
 lib/api/CheckoutApi.php
+lib/api/ConversationApi.php
 lib/api/CouponApi.php
 lib/api/CustomerApi.php
 lib/api/FulfillmentApi.php
@@ -793,6 +803,14 @@ lib/models/CheckoutSetupBrowserKeyRequest.php
 lib/models/CheckoutSetupBrowserKeyResponse.php
 lib/models/CheckoutStateProvinceResponse.php
 lib/models/CityStateZip.php
+lib/models/Conversation.php
+lib/models/ConversationAgentAuthResponse.php
+lib/models/ConversationMessage.php
+lib/models/ConversationParticipant.php
+lib/models/ConversationStartRequest.php
+lib/models/ConversationStartResponse.php
+lib/models/ConversationSummary.php
+lib/models/ConversationsResponse.php
 lib/models/CountriesResponse.php
 lib/models/Country.php
 lib/models/Coupon.php
