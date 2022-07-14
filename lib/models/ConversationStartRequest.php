@@ -1,6 +1,6 @@
 <?php
 /**
- * Activity
+ * ConversationStartRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * Activity Class Doc Comment
+ * ConversationStartRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Activity implements ModelInterface, ArrayAccess
+class ConversationStartRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Activity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Activity';
+    protected static $swaggerModelName = 'ConversationStartRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,8 @@ class Activity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'channel' => 'string',
-        'metric' => 'string',
-        'storefront_oid' => 'int',
-        'subject' => 'string',
-        'ts' => 'int',
-        'type' => 'string',
-        'uuid' => 'string'
+        'add_conversation_participant_arns' => 'string[]',
+        'conversation_arn' => 'string'
     ];
 
     /**
@@ -73,14 +67,8 @@ class Activity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'channel' => null,
-        'metric' => null,
-        'storefront_oid' => 'int32',
-        'subject' => null,
-        'ts' => 'int64',
-        'type' => null,
-        'uuid' => null
+        'add_conversation_participant_arns' => null,
+        'conversation_arn' => null
     ];
 
     /**
@@ -110,14 +98,8 @@ class Activity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'channel' => 'channel',
-        'metric' => 'metric',
-        'storefront_oid' => 'storefront_oid',
-        'subject' => 'subject',
-        'ts' => 'ts',
-        'type' => 'type',
-        'uuid' => 'uuid'
+        'add_conversation_participant_arns' => 'add_conversation_participant_arns',
+        'conversation_arn' => 'conversation_arn'
     ];
 
     /**
@@ -126,14 +108,8 @@ class Activity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'channel' => 'setChannel',
-        'metric' => 'setMetric',
-        'storefront_oid' => 'setStorefrontOid',
-        'subject' => 'setSubject',
-        'ts' => 'setTs',
-        'type' => 'setType',
-        'uuid' => 'setUuid'
+        'add_conversation_participant_arns' => 'setAddConversationParticipantArns',
+        'conversation_arn' => 'setConversationArn'
     ];
 
     /**
@@ -142,14 +118,8 @@ class Activity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'channel' => 'getChannel',
-        'metric' => 'getMetric',
-        'storefront_oid' => 'getStorefrontOid',
-        'subject' => 'getSubject',
-        'ts' => 'getTs',
-        'type' => 'getType',
-        'uuid' => 'getUuid'
+        'add_conversation_participant_arns' => 'getAddConversationParticipantArns',
+        'conversation_arn' => 'getConversationArn'
     ];
 
     /**
@@ -212,14 +182,8 @@ class Activity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['metric'] = isset($data['metric']) ? $data['metric'] : null;
-        $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
-        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
-        $this->container['ts'] = isset($data['ts']) ? $data['ts'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['add_conversation_participant_arns'] = isset($data['add_conversation_participant_arns']) ? $data['add_conversation_participant_arns'] : null;
+        $this->container['conversation_arn'] = isset($data['conversation_arn']) ? $data['conversation_arn'] : null;
     }
 
     /**
@@ -247,193 +211,49 @@ class Activity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets add_conversation_participant_arns
+     *
+     * @return string[]
+     */
+    public function getAddConversationParticipantArns()
+    {
+        return $this->container['add_conversation_participant_arns'];
+    }
+
+    /**
+     * Sets add_conversation_participant_arns
+     *
+     * @param string[] $add_conversation_participant_arns add_conversation_participant_arns
+     *
+     * @return $this
+     */
+    public function setAddConversationParticipantArns($add_conversation_participant_arns)
+    {
+        $this->container['add_conversation_participant_arns'] = $add_conversation_participant_arns;
+
+        return $this;
+    }
+
+    /**
+     * Gets conversation_arn
      *
      * @return string
      */
-    public function getAction()
+    public function getConversationArn()
     {
-        return $this->container['action'];
+        return $this->container['conversation_arn'];
     }
 
     /**
-     * Sets action
+     * Sets conversation_arn
      *
-     * @param string $action action
+     * @param string $conversation_arn conversation_arn
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setConversationArn($conversation_arn)
     {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel
-     *
-     * @return string
-     */
-    public function getChannel()
-    {
-        return $this->container['channel'];
-    }
-
-    /**
-     * Sets channel
-     *
-     * @param string $channel channel
-     *
-     * @return $this
-     */
-    public function setChannel($channel)
-    {
-        $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets metric
-     *
-     * @return string
-     */
-    public function getMetric()
-    {
-        return $this->container['metric'];
-    }
-
-    /**
-     * Sets metric
-     *
-     * @param string $metric metric
-     *
-     * @return $this
-     */
-    public function setMetric($metric)
-    {
-        $this->container['metric'] = $metric;
-
-        return $this;
-    }
-
-    /**
-     * Gets storefront_oid
-     *
-     * @return int
-     */
-    public function getStorefrontOid()
-    {
-        return $this->container['storefront_oid'];
-    }
-
-    /**
-     * Sets storefront_oid
-     *
-     * @param int $storefront_oid storefront_oid
-     *
-     * @return $this
-     */
-    public function setStorefrontOid($storefront_oid)
-    {
-        $this->container['storefront_oid'] = $storefront_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets subject
-     *
-     * @return string
-     */
-    public function getSubject()
-    {
-        return $this->container['subject'];
-    }
-
-    /**
-     * Sets subject
-     *
-     * @param string $subject subject
-     *
-     * @return $this
-     */
-    public function setSubject($subject)
-    {
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets ts
-     *
-     * @return int
-     */
-    public function getTs()
-    {
-        return $this->container['ts'];
-    }
-
-    /**
-     * Sets ts
-     *
-     * @param int $ts ts
-     *
-     * @return $this
-     */
-    public function setTs($ts)
-    {
-        $this->container['ts'] = $ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
-     *
-     * @return string
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param string $uuid uuid
-     *
-     * @return $this
-     */
-    public function setUuid($uuid)
-    {
-        $this->container['uuid'] = $uuid;
+        $this->container['conversation_arn'] = $conversation_arn;
 
         return $this;
     }

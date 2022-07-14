@@ -1,6 +1,6 @@
 <?php
 /**
- * Activity
+ * ConversationsResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * Activity Class Doc Comment
+ * ConversationsResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Activity implements ModelInterface, ArrayAccess
+class ConversationsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Activity implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Activity';
+    protected static $swaggerModelName = 'ConversationsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,11 @@ class Activity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'action' => 'string',
-        'channel' => 'string',
-        'metric' => 'string',
-        'storefront_oid' => 'int',
-        'subject' => 'string',
-        'ts' => 'int',
-        'type' => 'string',
-        'uuid' => 'string'
+        'conversations' => '\ultracart\v2\models\ConversationSummary[]',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -73,14 +70,11 @@ class Activity implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'action' => null,
-        'channel' => null,
-        'metric' => null,
-        'storefront_oid' => 'int32',
-        'subject' => null,
-        'ts' => 'int64',
-        'type' => null,
-        'uuid' => null
+        'conversations' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -110,14 +104,11 @@ class Activity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'action' => 'action',
-        'channel' => 'channel',
-        'metric' => 'metric',
-        'storefront_oid' => 'storefront_oid',
-        'subject' => 'subject',
-        'ts' => 'ts',
-        'type' => 'type',
-        'uuid' => 'uuid'
+        'conversations' => 'conversations',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -126,14 +117,11 @@ class Activity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'action' => 'setAction',
-        'channel' => 'setChannel',
-        'metric' => 'setMetric',
-        'storefront_oid' => 'setStorefrontOid',
-        'subject' => 'setSubject',
-        'ts' => 'setTs',
-        'type' => 'setType',
-        'uuid' => 'setUuid'
+        'conversations' => 'setConversations',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -142,14 +130,11 @@ class Activity implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'action' => 'getAction',
-        'channel' => 'getChannel',
-        'metric' => 'getMetric',
-        'storefront_oid' => 'getStorefrontOid',
-        'subject' => 'getSubject',
-        'ts' => 'getTs',
-        'type' => 'getType',
-        'uuid' => 'getUuid'
+        'conversations' => 'getConversations',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -212,14 +197,11 @@ class Activity implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['metric'] = isset($data['metric']) ? $data['metric'] : null;
-        $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
-        $this->container['subject'] = isset($data['subject']) ? $data['subject'] : null;
-        $this->container['ts'] = isset($data['ts']) ? $data['ts'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['conversations'] = isset($data['conversations']) ? $data['conversations'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -247,193 +229,121 @@ class Activity implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets action
+     * Gets conversations
      *
-     * @return string
+     * @return \ultracart\v2\models\ConversationSummary[]
      */
-    public function getAction()
+    public function getConversations()
     {
-        return $this->container['action'];
+        return $this->container['conversations'];
     }
 
     /**
-     * Sets action
+     * Sets conversations
      *
-     * @param string $action action
+     * @param \ultracart\v2\models\ConversationSummary[] $conversations conversations
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setConversations($conversations)
     {
-        $this->container['action'] = $action;
+        $this->container['conversations'] = $conversations;
 
         return $this;
     }
 
     /**
-     * Gets channel
+     * Gets error
      *
-     * @return string
+     * @return \ultracart\v2\models\Error
      */
-    public function getChannel()
+    public function getError()
     {
-        return $this->container['channel'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets channel
+     * Sets error
      *
-     * @param string $channel channel
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setChannel($channel)
+    public function setError($error)
     {
-        $this->container['channel'] = $channel;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets metric
+     * Gets metadata
      *
-     * @return string
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getMetric()
+    public function getMetadata()
     {
-        return $this->container['metric'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets metric
+     * Sets metadata
      *
-     * @param string $metric metric
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setMetric($metric)
+    public function setMetadata($metadata)
     {
-        $this->container['metric'] = $metric;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets storefront_oid
+     * Gets success
      *
-     * @return int
+     * @return bool
      */
-    public function getStorefrontOid()
+    public function getSuccess()
     {
-        return $this->container['storefront_oid'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets storefront_oid
+     * Sets success
      *
-     * @param int $storefront_oid storefront_oid
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setStorefrontOid($storefront_oid)
+    public function setSuccess($success)
     {
-        $this->container['storefront_oid'] = $storefront_oid;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets subject
+     * Gets warning
      *
-     * @return string
+     * @return \ultracart\v2\models\Warning
      */
-    public function getSubject()
+    public function getWarning()
     {
-        return $this->container['subject'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets subject
+     * Sets warning
      *
-     * @param string $subject subject
+     * @param \ultracart\v2\models\Warning $warning warning
      *
      * @return $this
      */
-    public function setSubject($subject)
+    public function setWarning($warning)
     {
-        $this->container['subject'] = $subject;
-
-        return $this;
-    }
-
-    /**
-     * Gets ts
-     *
-     * @return int
-     */
-    public function getTs()
-    {
-        return $this->container['ts'];
-    }
-
-    /**
-     * Sets ts
-     *
-     * @param int $ts ts
-     *
-     * @return $this
-     */
-    public function setTs($ts)
-    {
-        $this->container['ts'] = $ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
-     *
-     * @return string
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param string $uuid uuid
-     *
-     * @return $this
-     */
-    public function setUuid($uuid)
-    {
-        $this->container['uuid'] = $uuid;
+        $this->container['warning'] = $warning;
 
         return $this;
     }
