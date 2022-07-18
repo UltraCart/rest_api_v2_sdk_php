@@ -60,6 +60,8 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'conversation_participant_arn' => 'string',
         'jwt' => 'string',
+        'merchant_id' => 'string',
+        'twilio_phone_numbers' => 'string[]',
         'websocket_url' => 'string'
     ];
 
@@ -73,6 +75,8 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPIFormats = [
         'conversation_participant_arn' => null,
         'jwt' => null,
+        'merchant_id' => null,
+        'twilio_phone_numbers' => null,
         'websocket_url' => null
     ];
 
@@ -105,6 +109,8 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $attributeMap = [
         'conversation_participant_arn' => 'conversation_participant_arn',
         'jwt' => 'jwt',
+        'merchant_id' => 'merchant_id',
+        'twilio_phone_numbers' => 'twilio_phone_numbers',
         'websocket_url' => 'websocket_url'
     ];
 
@@ -116,6 +122,8 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $setters = [
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'jwt' => 'setJwt',
+        'merchant_id' => 'setMerchantId',
+        'twilio_phone_numbers' => 'setTwilioPhoneNumbers',
         'websocket_url' => 'setWebsocketUrl'
     ];
 
@@ -127,6 +135,8 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     protected static $getters = [
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'jwt' => 'getJwt',
+        'merchant_id' => 'getMerchantId',
+        'twilio_phone_numbers' => 'getTwilioPhoneNumbers',
         'websocket_url' => 'getWebsocketUrl'
     ];
 
@@ -189,6 +199,8 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     {
         $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
         $this->container['jwt'] = $data['jwt'] ?? null;
+        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['twilio_phone_numbers'] = $data['twilio_phone_numbers'] ?? null;
         $this->container['websocket_url'] = $data['websocket_url'] ?? null;
     }
 
@@ -260,6 +272,54 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     public function setJwt($jwt)
     {
         $this->container['jwt'] = $jwt;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
+     *
+     * @return string|null
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     *
+     * @param string|null $merchant_id merchant_id
+     *
+     * @return self
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets twilio_phone_numbers
+     *
+     * @return string[]|null
+     */
+    public function getTwilioPhoneNumbers()
+    {
+        return $this->container['twilio_phone_numbers'];
+    }
+
+    /**
+     * Sets twilio_phone_numbers
+     *
+     * @param string[]|null $twilio_phone_numbers twilio_phone_numbers
+     *
+     * @return self
+     */
+    public function setTwilioPhoneNumbers($twilio_phone_numbers)
+    {
+        $this->container['twilio_phone_numbers'] = $twilio_phone_numbers;
 
         return $this;
     }
