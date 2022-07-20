@@ -61,7 +61,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => 'string',
         'body' => 'string',
         'media_urls' => 'string[]',
-        'message_dts' => 'string'
+        'message_dts' => 'string',
+        'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]'
     ];
 
     /**
@@ -74,7 +75,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => null,
         'body' => null,
         'media_urls' => null,
-        'message_dts' => 'dateTime'
+        'message_dts' => 'dateTime',
+        'transport_statuses' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => 'author_conversation_participant_name',
         'body' => 'body',
         'media_urls' => 'media_urls',
-        'message_dts' => 'message_dts'
+        'message_dts' => 'message_dts',
+        'transport_statuses' => 'transport_statuses'
     ];
 
     /**
@@ -121,7 +124,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => 'setAuthorConversationParticipantName',
         'body' => 'setBody',
         'media_urls' => 'setMediaUrls',
-        'message_dts' => 'setMessageDts'
+        'message_dts' => 'setMessageDts',
+        'transport_statuses' => 'setTransportStatuses'
     ];
 
     /**
@@ -134,7 +138,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => 'getAuthorConversationParticipantName',
         'body' => 'getBody',
         'media_urls' => 'getMediaUrls',
-        'message_dts' => 'getMessageDts'
+        'message_dts' => 'getMessageDts',
+        'transport_statuses' => 'getTransportStatuses'
     ];
 
     /**
@@ -202,6 +207,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         $this->container['body'] = isset($data['body']) ? $data['body'] : null;
         $this->container['media_urls'] = isset($data['media_urls']) ? $data['media_urls'] : null;
         $this->container['message_dts'] = isset($data['message_dts']) ? $data['message_dts'] : null;
+        $this->container['transport_statuses'] = isset($data['transport_statuses']) ? $data['transport_statuses'] : null;
     }
 
     /**
@@ -344,6 +350,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess
     public function setMessageDts($message_dts)
     {
         $this->container['message_dts'] = $message_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets transport_statuses
+     *
+     * @return \ultracart\v2\models\ConversationMessageTransportStatus[]
+     */
+    public function getTransportStatuses()
+    {
+        return $this->container['transport_statuses'];
+    }
+
+    /**
+     * Sets transport_statuses
+     *
+     * @param \ultracart\v2\models\ConversationMessageTransportStatus[] $transport_statuses transport_statuses
+     *
+     * @return $this
+     */
+    public function setTransportStatuses($transport_statuses)
+    {
+        $this->container['transport_statuses'] = $transport_statuses;
 
         return $this;
     }
