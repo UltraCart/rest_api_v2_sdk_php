@@ -59,6 +59,7 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPITypes = [
         'conversation_participant_arn' => 'string',
+        'conversation_participant_name' => 'string',
         'jwt' => 'string',
         'merchant_id' => 'string',
         'twilio_phone_numbers' => 'string[]',
@@ -74,6 +75,7 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPIFormats = [
         'conversation_participant_arn' => null,
+        'conversation_participant_name' => null,
         'jwt' => null,
         'merchant_id' => null,
         'twilio_phone_numbers' => null,
@@ -108,6 +110,7 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $attributeMap = [
         'conversation_participant_arn' => 'conversation_participant_arn',
+        'conversation_participant_name' => 'conversation_participant_name',
         'jwt' => 'jwt',
         'merchant_id' => 'merchant_id',
         'twilio_phone_numbers' => 'twilio_phone_numbers',
@@ -121,6 +124,7 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $setters = [
         'conversation_participant_arn' => 'setConversationParticipantArn',
+        'conversation_participant_name' => 'setConversationParticipantName',
         'jwt' => 'setJwt',
         'merchant_id' => 'setMerchantId',
         'twilio_phone_numbers' => 'setTwilioPhoneNumbers',
@@ -134,6 +138,7 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $getters = [
         'conversation_participant_arn' => 'getConversationParticipantArn',
+        'conversation_participant_name' => 'getConversationParticipantName',
         'jwt' => 'getJwt',
         'merchant_id' => 'getMerchantId',
         'twilio_phone_numbers' => 'getTwilioPhoneNumbers',
@@ -198,6 +203,7 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     public function __construct(array $data = null)
     {
         $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
+        $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
         $this->container['jwt'] = $data['jwt'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['twilio_phone_numbers'] = $data['twilio_phone_numbers'] ?? null;
@@ -248,6 +254,30 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess, \Jso
     public function setConversationParticipantArn($conversation_participant_arn)
     {
         $this->container['conversation_participant_arn'] = $conversation_participant_arn;
+
+        return $this;
+    }
+
+    /**
+     * Gets conversation_participant_name
+     *
+     * @return string|null
+     */
+    public function getConversationParticipantName()
+    {
+        return $this->container['conversation_participant_name'];
+    }
+
+    /**
+     * Sets conversation_participant_name
+     *
+     * @param string|null $conversation_participant_name conversation_participant_name
+     *
+     * @return self
+     */
+    public function setConversationParticipantName($conversation_participant_name)
+    {
+        $this->container['conversation_participant_name'] = $conversation_participant_name;
 
         return $this;
     }

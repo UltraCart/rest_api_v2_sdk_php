@@ -556,6 +556,7 @@ Class | Method | HTTP request | Description
 - [Conversation](docs/Model/Conversation.md)
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
 - [ConversationMessage](docs/Model/ConversationMessage.md)
+- [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
 - [ConversationParticipant](docs/Model/ConversationParticipant.md)
 - [ConversationStartRequest](docs/Model/ConversationStartRequest.md)
 - [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
@@ -1169,6 +1170,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.37-RC | 07/20/2022 | conversation participant name added |
 | 4.0.36-RC | 07/18/2022 | twilio dev |
 | 4.0.35-RC | 07/14/2022 | Add channel storefront_oid to the customer activity record |
 | 4.0.34-RC | 07/11/2022 | Customer API - mergeCustomer method |

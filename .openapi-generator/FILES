@@ -141,6 +141,7 @@ docs/Model/CityStateZip.md
 docs/Model/Conversation.md
 docs/Model/ConversationAgentAuthResponse.md
 docs/Model/ConversationMessage.md
+docs/Model/ConversationMessageTransportStatus.md
 docs/Model/ConversationParticipant.md
 docs/Model/ConversationStartRequest.md
 docs/Model/ConversationStartResponse.md
@@ -806,6 +807,7 @@ lib/models/CityStateZip.php
 lib/models/Conversation.php
 lib/models/ConversationAgentAuthResponse.php
 lib/models/ConversationMessage.php
+lib/models/ConversationMessageTransportStatus.php
 lib/models/ConversationParticipant.php
 lib/models/ConversationStartRequest.php
 lib/models/ConversationStartResponse.php

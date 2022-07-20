@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationMessage
+ * ConversationMessageTransportStatus
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationMessage Class Doc Comment
+ * ConversationMessageTransportStatus Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationMessage';
+    protected static $openAPIModelName = 'ConversationMessageTransportStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'author_conversation_participant_arn' => 'string',
-        'author_conversation_participant_name' => 'string',
-        'body' => 'string',
-        'media_urls' => 'string[]',
-        'message_dts' => 'string',
-        'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]'
+        'conversation_participant_arn' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -74,12 +70,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'author_conversation_participant_arn' => null,
-        'author_conversation_participant_name' => null,
-        'body' => null,
-        'media_urls' => null,
-        'message_dts' => 'dateTime',
-        'transport_statuses' => null
+        'conversation_participant_arn' => null,
+        'status' => null
     ];
 
     /**
@@ -109,12 +101,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'author_conversation_participant_arn' => 'author_conversation_participant_arn',
-        'author_conversation_participant_name' => 'author_conversation_participant_name',
-        'body' => 'body',
-        'media_urls' => 'media_urls',
-        'message_dts' => 'message_dts',
-        'transport_statuses' => 'transport_statuses'
+        'conversation_participant_arn' => 'conversation_participant_arn',
+        'status' => 'status'
     ];
 
     /**
@@ -123,12 +111,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'author_conversation_participant_arn' => 'setAuthorConversationParticipantArn',
-        'author_conversation_participant_name' => 'setAuthorConversationParticipantName',
-        'body' => 'setBody',
-        'media_urls' => 'setMediaUrls',
-        'message_dts' => 'setMessageDts',
-        'transport_statuses' => 'setTransportStatuses'
+        'conversation_participant_arn' => 'setConversationParticipantArn',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -137,12 +121,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'author_conversation_participant_arn' => 'getAuthorConversationParticipantArn',
-        'author_conversation_participant_name' => 'getAuthorConversationParticipantName',
-        'body' => 'getBody',
-        'media_urls' => 'getMediaUrls',
-        'message_dts' => 'getMessageDts',
-        'transport_statuses' => 'getTransportStatuses'
+        'conversation_participant_arn' => 'getConversationParticipantArn',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -202,12 +182,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['author_conversation_participant_arn'] = $data['author_conversation_participant_arn'] ?? null;
-        $this->container['author_conversation_participant_name'] = $data['author_conversation_participant_name'] ?? null;
-        $this->container['body'] = $data['body'] ?? null;
-        $this->container['media_urls'] = $data['media_urls'] ?? null;
-        $this->container['message_dts'] = $data['message_dts'] ?? null;
-        $this->container['transport_statuses'] = $data['transport_statuses'] ?? null;
+        $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
     }
 
     /**
@@ -235,145 +211,49 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets author_conversation_participant_arn
+     * Gets conversation_participant_arn
      *
      * @return string|null
      */
-    public function getAuthorConversationParticipantArn()
+    public function getConversationParticipantArn()
     {
-        return $this->container['author_conversation_participant_arn'];
+        return $this->container['conversation_participant_arn'];
     }
 
     /**
-     * Sets author_conversation_participant_arn
+     * Sets conversation_participant_arn
      *
-     * @param string|null $author_conversation_participant_arn author_conversation_participant_arn
+     * @param string|null $conversation_participant_arn conversation_participant_arn
      *
      * @return self
      */
-    public function setAuthorConversationParticipantArn($author_conversation_participant_arn)
+    public function setConversationParticipantArn($conversation_participant_arn)
     {
-        $this->container['author_conversation_participant_arn'] = $author_conversation_participant_arn;
+        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
 
         return $this;
     }
 
     /**
-     * Gets author_conversation_participant_name
+     * Gets status
      *
      * @return string|null
      */
-    public function getAuthorConversationParticipantName()
+    public function getStatus()
     {
-        return $this->container['author_conversation_participant_name'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets author_conversation_participant_name
+     * Sets status
      *
-     * @param string|null $author_conversation_participant_name author_conversation_participant_name
+     * @param string|null $status status
      *
      * @return self
      */
-    public function setAuthorConversationParticipantName($author_conversation_participant_name)
+    public function setStatus($status)
     {
-        $this->container['author_conversation_participant_name'] = $author_conversation_participant_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets body
-     *
-     * @return string|null
-     */
-    public function getBody()
-    {
-        return $this->container['body'];
-    }
-
-    /**
-     * Sets body
-     *
-     * @param string|null $body body
-     *
-     * @return self
-     */
-    public function setBody($body)
-    {
-        $this->container['body'] = $body;
-
-        return $this;
-    }
-
-    /**
-     * Gets media_urls
-     *
-     * @return string[]|null
-     */
-    public function getMediaUrls()
-    {
-        return $this->container['media_urls'];
-    }
-
-    /**
-     * Sets media_urls
-     *
-     * @param string[]|null $media_urls media_urls
-     *
-     * @return self
-     */
-    public function setMediaUrls($media_urls)
-    {
-        $this->container['media_urls'] = $media_urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets message_dts
-     *
-     * @return string|null
-     */
-    public function getMessageDts()
-    {
-        return $this->container['message_dts'];
-    }
-
-    /**
-     * Sets message_dts
-     *
-     * @param string|null $message_dts Message date/time
-     *
-     * @return self
-     */
-    public function setMessageDts($message_dts)
-    {
-        $this->container['message_dts'] = $message_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets transport_statuses
-     *
-     * @return \ultracart\v2\models\ConversationMessageTransportStatus[]|null
-     */
-    public function getTransportStatuses()
-    {
-        return $this->container['transport_statuses'];
-    }
-
-    /**
-     * Sets transport_statuses
-     *
-     * @param \ultracart\v2\models\ConversationMessageTransportStatus[]|null $transport_statuses transport_statuses
-     *
-     * @return self
-     */
-    public function setTransportStatuses($transport_statuses)
-    {
-        $this->container['transport_statuses'] = $transport_statuses;
+        $this->container['status'] = $status;
 
         return $this;
     }
