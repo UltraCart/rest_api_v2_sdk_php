@@ -529,7 +529,7 @@ class EmailCommseqPostcard implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets screenshot_back_url
      *
-     * @param string|null $screenshot_back_url URL to screenshot of the back of the postcard
+     * @param string|null $screenshot_back_url URL to screenshot of the front of the postcard
      *
      * @return self
      */

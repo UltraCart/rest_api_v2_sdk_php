@@ -1,10 +1,10 @@
-# # ConversationAgentAuthResponse
+# # ConversationResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_auth** | [**\ultracart\v2\models\ConversationAgentAuth**](ConversationAgentAuth.md) |  | [optional]
+**conversation** | [**\ultracart\v2\models\Conversation**](Conversation.md) |  | [optional]
 **error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional]
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional]
 **success** | **bool** | Indicates if API call was successful | [optional]

@@ -554,10 +554,12 @@ Class | Method | HTTP request | Description
 - [CheckoutStateProvinceResponse](docs/Model/CheckoutStateProvinceResponse.md)
 - [CityStateZip](docs/Model/CityStateZip.md)
 - [Conversation](docs/Model/Conversation.md)
+- [ConversationAgentAuth](docs/Model/ConversationAgentAuth.md)
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
 - [ConversationMessage](docs/Model/ConversationMessage.md)
 - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
 - [ConversationParticipant](docs/Model/ConversationParticipant.md)
+- [ConversationResponse](docs/Model/ConversationResponse.md)
 - [ConversationStartRequest](docs/Model/ConversationStartRequest.md)
 - [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
 - [ConversationSummary](docs/Model/ConversationSummary.md)
@@ -1170,6 +1172,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.38-RC | 07/21/2022 | conversation bugfix for poor response objects |
 | 4.0.37-RC | 07/20/2022 | conversation participant name added |
 | 4.0.36-RC | 07/18/2022 | twilio dev |
 | 4.0.35-RC | 07/14/2022 | Add channel storefront_oid to the customer activity record |

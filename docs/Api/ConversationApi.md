@@ -70,7 +70,7 @@ This endpoint does not need any parameter.
 ## `getConversation()`
 
 ```php
-getConversation($conversation_uuid): \ultracart\v2\models\Conversation
+getConversation($conversation_uuid): \ultracart\v2\models\ConversationResponse
 ```
 
 Retrieve a conversation
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\Conversation**](../Model/Conversation.md)
+[**\ultracart\v2\models\ConversationResponse**](../Model/ConversationResponse.md)
 
 ### Authorization
 

@@ -574,7 +574,7 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\Conversation|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     * @return \ultracart\v2\models\ConversationResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
     public function getConversation($conversation_uuid)
     {
@@ -591,7 +591,7 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\Conversation|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationWithHttpInfo($conversation_uuid)
     {
@@ -610,11 +610,11 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\Conversation|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationWithHttpInfoRetry($retry , $conversation_uuid)
     {
-        $returnType = '\ultracart\v2\models\Conversation';
+        $returnType = '\ultracart\v2\models\ConversationResponse';
         $request = $this->getConversationRequest($conversation_uuid);
 
         try {
@@ -671,17 +671,17 @@ class ConversationApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\ultracart\v2\models\Conversation' === '\SplFileObject') {
+                    if ('\ultracart\v2\models\ConversationResponse' === '\SplFileObject') {
                         $content = $response->getBody()->getContents(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\ultracart\v2\models\Conversation' !== 'string') {
+                        if ('\ultracart\v2\models\ConversationResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\Conversation', []),
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ConversationResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -762,7 +762,7 @@ class ConversationApi
                     ];
             }
 
-            $returnType = '\ultracart\v2\models\Conversation';
+            $returnType = '\ultracart\v2\models\ConversationResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody()->getContents()(); //stream goes to serializer
             } else {
@@ -783,7 +783,7 @@ class ConversationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\Conversation',
+                        '\ultracart\v2\models\ConversationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -868,7 +868,7 @@ class ConversationApi
      */
     public function getConversationAsyncWithHttpInfo($conversation_uuid)
     {
-        $returnType = '\ultracart\v2\models\Conversation';
+        $returnType = '\ultracart\v2\models\ConversationResponse';
         $request = $this->getConversationRequest($conversation_uuid);
 
         return $this->client

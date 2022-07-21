@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationStartResponse
+ * ConversationResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationStartResponse Class Doc Comment
+ * ConversationResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationStartResponse';
+    protected static $openAPIModelName = 'ConversationResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'conversation' => '\ultracart\v2\models\Conversation'
+        'conversation' => '\ultracart\v2\models\Conversation',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -69,7 +73,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'conversation' => null
+        'conversation' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -99,7 +107,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation' => 'conversation'
+        'conversation' => 'conversation',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -108,7 +120,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'conversation' => 'setConversation'
+        'conversation' => 'setConversation',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -117,7 +133,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'conversation' => 'getConversation'
+        'conversation' => 'getConversation',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -178,6 +198,10 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSer
     public function __construct(array $data = null)
     {
         $this->container['conversation'] = $data['conversation'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['warning'] = $data['warning'] ?? null;
     }
 
     /**
@@ -224,6 +248,102 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess, \JsonSer
     public function setConversation($conversation)
     {
         $this->container['conversation'] = $conversation;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     *
+     * @return \ultracart\v2\models\Error|null
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param \ultracart\v2\models\Error|null $error error
+     *
+     * @return self
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool|null
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool|null $success Indicates if API call was successful
+     *
+     * @return self
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning|null
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning|null $warning warning
+     *
+     * @return self
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }
