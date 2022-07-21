@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 ## `getConversationMultimediaUploadUrl()`
 
 ```php
-getConversationMultimediaUploadUrl($extension)
+getConversationMultimediaUploadUrl($extension): \ultracart\v2\models\ConversationMultimediaUploadUrlResponse
 ```
 
 Get a presigned conersation multimedia upload URL
@@ -151,7 +151,8 @@ $apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY,
 $extension = 'extension_example'; // string
 
 try {
-    $apiInstance->getConversationMultimediaUploadUrl($extension);
+    $result = $apiInstance->getConversationMultimediaUploadUrl($extension);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConversationApi->getConversationMultimediaUploadUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -165,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\ultracart\v2\models\ConversationMultimediaUploadUrlResponse**](../Model/ConversationMultimediaUploadUrlResponse.md)
 
 ### Authorization
 

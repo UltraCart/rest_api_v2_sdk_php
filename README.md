@@ -558,6 +558,8 @@ Class | Method | HTTP request | Description
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
 - [ConversationMessage](docs/Model/ConversationMessage.md)
 - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
+- [ConversationMultimediaUploadUrl](docs/Model/ConversationMultimediaUploadUrl.md)
+- [ConversationMultimediaUploadUrlResponse](docs/Model/ConversationMultimediaUploadUrlResponse.md)
 - [ConversationParticipant](docs/Model/ConversationParticipant.md)
 - [ConversationResponse](docs/Model/ConversationResponse.md)
 - [ConversationStartRequest](docs/Model/ConversationStartRequest.md)
@@ -1172,6 +1174,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.39-RC | 07/21/2022 | conversation response types improvements |
 | 4.0.38-RC | 07/21/2022 | conversation bugfix for poor response objects |
 | 4.0.37-RC | 07/20/2022 | conversation participant name added |
 | 4.0.36-RC | 07/18/2022 | twilio dev |
