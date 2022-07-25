@@ -1,11 +1,9 @@
-# # ConversationStartRequest
+# # AutoOrderManagement
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**add_conversation_participant_arns** | **string[]** |  | [optional]
-**conversation_arn** | **string** |  | [optional]
-**conversation_webchat_queue_uuid** | **string** |  | [optional]
+**update_billing_url** | **string** | URL where the customer can go to update their billing information. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationStartRequest
+ * AutoOrderManagement
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationStartRequest Class Doc Comment
+ * AutoOrderManagement Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class AutoOrderManagement implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationStartRequest';
+    protected static $openAPIModelName = 'AutoOrderManagement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'add_conversation_participant_arns' => 'string[]',
-        'conversation_arn' => 'string',
-        'conversation_webchat_queue_uuid' => 'string'
+        'update_billing_url' => 'string'
     ];
 
     /**
@@ -71,9 +69,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'add_conversation_participant_arns' => null,
-        'conversation_arn' => null,
-        'conversation_webchat_queue_uuid' => null
+        'update_billing_url' => null
     ];
 
     /**
@@ -103,9 +99,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'add_conversation_participant_arns' => 'add_conversation_participant_arns',
-        'conversation_arn' => 'conversation_arn',
-        'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid'
+        'update_billing_url' => 'update_billing_url'
     ];
 
     /**
@@ -114,9 +108,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'add_conversation_participant_arns' => 'setAddConversationParticipantArns',
-        'conversation_arn' => 'setConversationArn',
-        'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid'
+        'update_billing_url' => 'setUpdateBillingUrl'
     ];
 
     /**
@@ -125,9 +117,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'add_conversation_participant_arns' => 'getAddConversationParticipantArns',
-        'conversation_arn' => 'getConversationArn',
-        'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid'
+        'update_billing_url' => 'getUpdateBillingUrl'
     ];
 
     /**
@@ -187,9 +177,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->container['add_conversation_participant_arns'] = $data['add_conversation_participant_arns'] ?? null;
-        $this->container['conversation_arn'] = $data['conversation_arn'] ?? null;
-        $this->container['conversation_webchat_queue_uuid'] = $data['conversation_webchat_queue_uuid'] ?? null;
+        $this->container['update_billing_url'] = $data['update_billing_url'] ?? null;
     }
 
     /**
@@ -217,73 +205,25 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets add_conversation_participant_arns
-     *
-     * @return string[]|null
-     */
-    public function getAddConversationParticipantArns()
-    {
-        return $this->container['add_conversation_participant_arns'];
-    }
-
-    /**
-     * Sets add_conversation_participant_arns
-     *
-     * @param string[]|null $add_conversation_participant_arns add_conversation_participant_arns
-     *
-     * @return self
-     */
-    public function setAddConversationParticipantArns($add_conversation_participant_arns)
-    {
-        $this->container['add_conversation_participant_arns'] = $add_conversation_participant_arns;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_arn
+     * Gets update_billing_url
      *
      * @return string|null
      */
-    public function getConversationArn()
+    public function getUpdateBillingUrl()
     {
-        return $this->container['conversation_arn'];
+        return $this->container['update_billing_url'];
     }
 
     /**
-     * Sets conversation_arn
+     * Sets update_billing_url
      *
-     * @param string|null $conversation_arn conversation_arn
+     * @param string|null $update_billing_url URL where the customer can go to update their billing information.
      *
      * @return self
      */
-    public function setConversationArn($conversation_arn)
+    public function setUpdateBillingUrl($update_billing_url)
     {
-        $this->container['conversation_arn'] = $conversation_arn;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_webchat_queue_uuid
-     *
-     * @return string|null
-     */
-    public function getConversationWebchatQueueUuid()
-    {
-        return $this->container['conversation_webchat_queue_uuid'];
-    }
-
-    /**
-     * Sets conversation_webchat_queue_uuid
-     *
-     * @param string|null $conversation_webchat_queue_uuid conversation_webchat_queue_uuid
-     *
-     * @return self
-     */
-    public function setConversationWebchatQueueUuid($conversation_webchat_queue_uuid)
-    {
-        $this->container['conversation_webchat_queue_uuid'] = $conversation_webchat_queue_uuid;
+        $this->container['update_billing_url'] = $update_billing_url;
 
         return $this;
     }

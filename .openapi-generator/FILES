@@ -49,6 +49,7 @@ docs/Model/AutoOrderItemFutureSchedule.md
 docs/Model/AutoOrderItemOption.md
 docs/Model/AutoOrderItemSimpleSchedule.md
 docs/Model/AutoOrderLog.md
+docs/Model/AutoOrderManagement.md
 docs/Model/AutoOrderQuery.md
 docs/Model/AutoOrderQueryBatch.md
 docs/Model/AutoOrderResponse.md
@@ -150,6 +151,7 @@ docs/Model/ConversationResponse.md
 docs/Model/ConversationStartRequest.md
 docs/Model/ConversationStartResponse.md
 docs/Model/ConversationSummary.md
+docs/Model/ConversationWebsocketMessage.md
 docs/Model/ConversationsResponse.md
 docs/Model/CountriesResponse.md
 docs/Model/Country.md
@@ -719,6 +721,7 @@ lib/models/AutoOrderItemFutureSchedule.php
 lib/models/AutoOrderItemOption.php
 lib/models/AutoOrderItemSimpleSchedule.php
 lib/models/AutoOrderLog.php
+lib/models/AutoOrderManagement.php
 lib/models/AutoOrderQuery.php
 lib/models/AutoOrderQueryBatch.php
 lib/models/AutoOrderResponse.php
@@ -820,6 +823,7 @@ lib/models/ConversationResponse.php
 lib/models/ConversationStartRequest.php
 lib/models/ConversationStartResponse.php
 lib/models/ConversationSummary.php
+lib/models/ConversationWebsocketMessage.php
 lib/models/ConversationsResponse.php
 lib/models/CountriesResponse.php
 lib/models/Country.php

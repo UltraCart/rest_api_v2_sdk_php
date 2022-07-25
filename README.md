@@ -464,6 +464,7 @@ Class | Method | HTTP request | Description
 - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
 - [AutoOrderItemSimpleSchedule](docs/Model/AutoOrderItemSimpleSchedule.md)
 - [AutoOrderLog](docs/Model/AutoOrderLog.md)
+- [AutoOrderManagement](docs/Model/AutoOrderManagement.md)
 - [AutoOrderQuery](docs/Model/AutoOrderQuery.md)
 - [AutoOrderQueryBatch](docs/Model/AutoOrderQueryBatch.md)
 - [AutoOrderResponse](docs/Model/AutoOrderResponse.md)
@@ -565,6 +566,7 @@ Class | Method | HTTP request | Description
 - [ConversationStartRequest](docs/Model/ConversationStartRequest.md)
 - [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
 - [ConversationSummary](docs/Model/ConversationSummary.md)
+- [ConversationWebsocketMessage](docs/Model/ConversationWebsocketMessage.md)
 - [ConversationsResponse](docs/Model/ConversationsResponse.md)
 - [CountriesResponse](docs/Model/CountriesResponse.md)
 - [Country](docs/Model/Country.md)
@@ -1174,6 +1176,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.40-RC | 07/25/2022 | conversations - add a websocket message model |
 | 4.0.39-RC | 07/21/2022 | conversation response types improvements |
 | 4.0.38-RC | 07/21/2022 | conversation bugfix for poor response objects |
 | 4.0.37-RC | 07/20/2022 | conversation participant name added |
