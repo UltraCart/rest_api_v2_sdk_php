@@ -61,8 +61,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'conversation_uuid' => 'string',
         'event_conversation_closed' => '\ultracart\v2\models\Conversation',
         'event_new_conversation' => '\ultracart\v2\models\Conversation',
-        'event_new_message' => '\ultracart\v2\models\ConversationMessage',
-        'event_queue_position' => 'object',
+        'event_new_message' => '\ultracart\v2\models\Conversation',
+        'event_queue_position' => '\ultracart\v2\models\ConversationEventQueuePosition',
         'event_type' => 'string',
         'event_updated_message' => '\ultracart\v2\models\ConversationMessage',
         'message' => '\ultracart\v2\models\ConversationMessage',
@@ -385,7 +385,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets event_new_message
      *
-     * @return \ultracart\v2\models\ConversationMessage|null
+     * @return \ultracart\v2\models\Conversation|null
      */
     public function getEventNewMessage()
     {
@@ -395,7 +395,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets event_new_message
      *
-     * @param \ultracart\v2\models\ConversationMessage|null $event_new_message event_new_message
+     * @param \ultracart\v2\models\Conversation|null $event_new_message event_new_message
      *
      * @return self
      */
@@ -409,7 +409,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets event_queue_position
      *
-     * @return object|null
+     * @return \ultracart\v2\models\ConversationEventQueuePosition|null
      */
     public function getEventQueuePosition()
     {
@@ -419,7 +419,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets event_queue_position
      *
-     * @param object|null $event_queue_position event_queue_position
+     * @param \ultracart\v2\models\ConversationEventQueuePosition|null $event_queue_position event_queue_position
      *
      * @return self
      */

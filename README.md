@@ -557,6 +557,7 @@ Class | Method | HTTP request | Description
 - [Conversation](docs/Model/Conversation.md)
 - [ConversationAgentAuth](docs/Model/ConversationAgentAuth.md)
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
+- [ConversationEventQueuePosition](docs/Model/ConversationEventQueuePosition.md)
 - [ConversationMessage](docs/Model/ConversationMessage.md)
 - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
 - [ConversationMultimediaUploadUrl](docs/Model/ConversationMultimediaUploadUrl.md)
@@ -1176,6 +1177,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.41-RC | 07/25/2022 | conversations bug fixes |
 | 4.0.40-RC | 07/25/2022 | conversations - add a websocket message model |
 | 4.0.39-RC | 07/21/2022 | conversation response types improvements |
 | 4.0.38-RC | 07/21/2022 | conversation bugfix for poor response objects |
