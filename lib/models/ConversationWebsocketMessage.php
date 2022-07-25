@@ -58,9 +58,9 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'conversation_uuid' => 'string',
-        'event_conversation_closed' => '\ultracart\v2\models\Conversation',
-        'event_new_conversation' => '\ultracart\v2\models\Conversation',
-        'event_new_message' => '\ultracart\v2\models\Conversation',
+        'event_conversation_closed' => '\ultracart\v2\models\ConversationSummary',
+        'event_new_conversation' => '\ultracart\v2\models\ConversationSummary',
+        'event_new_message' => '\ultracart\v2\models\ConversationSummary',
         'event_queue_position' => '\ultracart\v2\models\ConversationEventQueuePosition',
         'event_type' => 'string',
         'event_updated_message' => '\ultracart\v2\models\ConversationMessage',
@@ -335,7 +335,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     /**
      * Gets event_conversation_closed
      *
-     * @return \ultracart\v2\models\Conversation
+     * @return \ultracart\v2\models\ConversationSummary
      */
     public function getEventConversationClosed()
     {
@@ -345,7 +345,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     /**
      * Sets event_conversation_closed
      *
-     * @param \ultracart\v2\models\Conversation $event_conversation_closed event_conversation_closed
+     * @param \ultracart\v2\models\ConversationSummary $event_conversation_closed event_conversation_closed
      *
      * @return $this
      */
@@ -359,7 +359,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     /**
      * Gets event_new_conversation
      *
-     * @return \ultracart\v2\models\Conversation
+     * @return \ultracart\v2\models\ConversationSummary
      */
     public function getEventNewConversation()
     {
@@ -369,7 +369,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     /**
      * Sets event_new_conversation
      *
-     * @param \ultracart\v2\models\Conversation $event_new_conversation event_new_conversation
+     * @param \ultracart\v2\models\ConversationSummary $event_new_conversation event_new_conversation
      *
      * @return $this
      */
@@ -383,7 +383,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     /**
      * Gets event_new_message
      *
-     * @return \ultracart\v2\models\Conversation
+     * @return \ultracart\v2\models\ConversationSummary
      */
     public function getEventNewMessage()
     {
@@ -393,7 +393,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     /**
      * Sets event_new_message
      *
-     * @param \ultracart\v2\models\Conversation $event_new_message event_new_message
+     * @param \ultracart\v2\models\ConversationSummary $event_new_message event_new_message
      *
      * @return $this
      */

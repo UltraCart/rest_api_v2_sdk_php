@@ -57,6 +57,7 @@ class Conversation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'closed' => 'bool',
         'conversation_arn' => 'string',
         'conversation_uuid' => 'string',
         'merchant_id' => 'string',
@@ -70,6 +71,7 @@ class Conversation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'closed' => null,
         'conversation_arn' => null,
         'conversation_uuid' => null,
         'merchant_id' => null,
@@ -104,6 +106,7 @@ class Conversation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'closed' => 'closed',
         'conversation_arn' => 'conversation_arn',
         'conversation_uuid' => 'conversation_uuid',
         'merchant_id' => 'merchant_id',
@@ -117,6 +120,7 @@ class Conversation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'closed' => 'setClosed',
         'conversation_arn' => 'setConversationArn',
         'conversation_uuid' => 'setConversationUuid',
         'merchant_id' => 'setMerchantId',
@@ -130,6 +134,7 @@ class Conversation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'closed' => 'getClosed',
         'conversation_arn' => 'getConversationArn',
         'conversation_uuid' => 'getConversationUuid',
         'merchant_id' => 'getMerchantId',
@@ -197,6 +202,7 @@ class Conversation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['closed'] = isset($data['closed']) ? $data['closed'] : null;
         $this->container['conversation_arn'] = isset($data['conversation_arn']) ? $data['conversation_arn'] : null;
         $this->container['conversation_uuid'] = isset($data['conversation_uuid']) ? $data['conversation_uuid'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
@@ -227,6 +233,30 @@ class Conversation implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets closed
+     *
+     * @return bool
+     */
+    public function getClosed()
+    {
+        return $this->container['closed'];
+    }
+
+    /**
+     * Sets closed
+     *
+     * @param bool $closed closed
+     *
+     * @return $this
+     */
+    public function setClosed($closed)
+    {
+        $this->container['closed'] = $closed;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_arn
