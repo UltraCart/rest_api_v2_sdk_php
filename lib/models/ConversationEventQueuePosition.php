@@ -57,7 +57,8 @@ class ConversationEventQueuePosition implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'available' => 'bool',
+        'position' => 'int'
     ];
 
     /**
@@ -66,7 +67,8 @@ class ConversationEventQueuePosition implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'available' => null,
+        'position' => 'int32'
     ];
 
     /**
@@ -96,7 +98,8 @@ class ConversationEventQueuePosition implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'available' => 'available',
+        'position' => 'position'
     ];
 
     /**
@@ -105,7 +108,8 @@ class ConversationEventQueuePosition implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'available' => 'setAvailable',
+        'position' => 'setPosition'
     ];
 
     /**
@@ -114,7 +118,8 @@ class ConversationEventQueuePosition implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'available' => 'getAvailable',
+        'position' => 'getPosition'
     ];
 
     /**
@@ -177,6 +182,8 @@ class ConversationEventQueuePosition implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['available'] = isset($data['available']) ? $data['available'] : null;
+        $this->container['position'] = isset($data['position']) ? $data['position'] : null;
     }
 
     /**
@@ -202,6 +209,54 @@ class ConversationEventQueuePosition implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets available
+     *
+     * @return bool
+     */
+    public function getAvailable()
+    {
+        return $this->container['available'];
+    }
+
+    /**
+     * Sets available
+     *
+     * @param bool $available True if agents are logged into the queue
+     *
+     * @return $this
+     */
+    public function setAvailable($available)
+    {
+        $this->container['available'] = $available;
+
+        return $this;
+    }
+
+    /**
+     * Gets position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->container['position'];
+    }
+
+    /**
+     * Sets position
+     *
+     * @param int $position Position in the queue.  Value will be -1 if they cant be found in the queue.
+     *
+     * @return $this
+     */
+    public function setPosition($position)
+    {
+        $this->container['position'] = $position;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

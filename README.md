@@ -1236,6 +1236,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.24 | 07/25/2022 | conversations bug fixes |
 | 3.10.23 | 07/25/2022 | conversations - add a websocket message model |
 | 3.10.22 | 07/20/2022 | conversation participant name added |
 | 3.10.21 | 07/18/2022 | twilio dev |

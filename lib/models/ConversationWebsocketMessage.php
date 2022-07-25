@@ -60,7 +60,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'conversation_uuid' => 'string',
         'event_conversation_closed' => '\ultracart\v2\models\Conversation',
         'event_new_conversation' => '\ultracart\v2\models\Conversation',
-        'event_new_message' => '\ultracart\v2\models\ConversationMessage',
+        'event_new_message' => '\ultracart\v2\models\Conversation',
         'event_queue_position' => '\ultracart\v2\models\ConversationEventQueuePosition',
         'event_type' => 'string',
         'event_updated_message' => '\ultracart\v2\models\ConversationMessage',
@@ -383,7 +383,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     /**
      * Gets event_new_message
      *
-     * @return \ultracart\v2\models\ConversationMessage
+     * @return \ultracart\v2\models\Conversation
      */
     public function getEventNewMessage()
     {
@@ -393,7 +393,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     /**
      * Sets event_new_message
      *
-     * @param \ultracart\v2\models\ConversationMessage $event_new_message event_new_message
+     * @param \ultracart\v2\models\Conversation $event_new_message event_new_message
      *
      * @return $this
      */
