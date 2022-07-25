@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationStartResponse
+ * ConversationResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationStartResponse Class Doc Comment
+ * ConversationResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationStartResponse implements ModelInterface, ArrayAccess
+class ConversationResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationStartResponse';
+    protected static $swaggerModelName = 'ConversationResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation' => '\ultracart\v2\models\Conversation'
+        'conversation' => '\ultracart\v2\models\Conversation',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -66,7 +70,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation' => null
+        'conversation' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -96,7 +104,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation' => 'conversation'
+        'conversation' => 'conversation',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -105,7 +117,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversation' => 'setConversation'
+        'conversation' => 'setConversation',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -114,7 +130,11 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversation' => 'getConversation'
+        'conversation' => 'getConversation',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -178,6 +198,10 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['conversation'] = isset($data['conversation']) ? $data['conversation'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -224,6 +248,102 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
     public function setConversation($conversation)
     {
         $this->container['conversation'] = $conversation;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     *
+     * @return \ultracart\v2\models\Error
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param \ultracart\v2\models\Error $error error
+     *
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \ultracart\v2\models\ResponseMetadata
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
+     *
+     * @return $this
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool $success Indicates if API call was successful
+     *
+     * @return $this
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

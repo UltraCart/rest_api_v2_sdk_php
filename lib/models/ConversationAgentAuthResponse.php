@@ -57,12 +57,11 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation_participant_arn' => 'string',
-        'conversation_participant_name' => 'string',
-        'jwt' => 'string',
-        'merchant_id' => 'string',
-        'twilio_phone_numbers' => 'string[]',
-        'websocket_url' => 'string'
+        'agent_auth' => '\ultracart\v2\models\ConversationAgentAuth',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -71,12 +70,11 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation_participant_arn' => null,
-        'conversation_participant_name' => null,
-        'jwt' => null,
-        'merchant_id' => null,
-        'twilio_phone_numbers' => null,
-        'websocket_url' => null
+        'agent_auth' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -106,12 +104,11 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_participant_arn' => 'conversation_participant_arn',
-        'conversation_participant_name' => 'conversation_participant_name',
-        'jwt' => 'jwt',
-        'merchant_id' => 'merchant_id',
-        'twilio_phone_numbers' => 'twilio_phone_numbers',
-        'websocket_url' => 'websocket_url'
+        'agent_auth' => 'agent_auth',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -120,12 +117,11 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversation_participant_arn' => 'setConversationParticipantArn',
-        'conversation_participant_name' => 'setConversationParticipantName',
-        'jwt' => 'setJwt',
-        'merchant_id' => 'setMerchantId',
-        'twilio_phone_numbers' => 'setTwilioPhoneNumbers',
-        'websocket_url' => 'setWebsocketUrl'
+        'agent_auth' => 'setAgentAuth',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -134,12 +130,11 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversation_participant_arn' => 'getConversationParticipantArn',
-        'conversation_participant_name' => 'getConversationParticipantName',
-        'jwt' => 'getJwt',
-        'merchant_id' => 'getMerchantId',
-        'twilio_phone_numbers' => 'getTwilioPhoneNumbers',
-        'websocket_url' => 'getWebsocketUrl'
+        'agent_auth' => 'getAgentAuth',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -202,12 +197,11 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_participant_arn'] = isset($data['conversation_participant_arn']) ? $data['conversation_participant_arn'] : null;
-        $this->container['conversation_participant_name'] = isset($data['conversation_participant_name']) ? $data['conversation_participant_name'] : null;
-        $this->container['jwt'] = isset($data['jwt']) ? $data['jwt'] : null;
-        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
-        $this->container['twilio_phone_numbers'] = isset($data['twilio_phone_numbers']) ? $data['twilio_phone_numbers'] : null;
-        $this->container['websocket_url'] = isset($data['websocket_url']) ? $data['websocket_url'] : null;
+        $this->container['agent_auth'] = isset($data['agent_auth']) ? $data['agent_auth'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -235,145 +229,121 @@ class ConversationAgentAuthResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets conversation_participant_arn
+     * Gets agent_auth
      *
-     * @return string
+     * @return \ultracart\v2\models\ConversationAgentAuth
      */
-    public function getConversationParticipantArn()
+    public function getAgentAuth()
     {
-        return $this->container['conversation_participant_arn'];
+        return $this->container['agent_auth'];
     }
 
     /**
-     * Sets conversation_participant_arn
+     * Sets agent_auth
      *
-     * @param string $conversation_participant_arn conversation_participant_arn
+     * @param \ultracart\v2\models\ConversationAgentAuth $agent_auth agent_auth
      *
      * @return $this
      */
-    public function setConversationParticipantArn($conversation_participant_arn)
+    public function setAgentAuth($agent_auth)
     {
-        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
+        $this->container['agent_auth'] = $agent_auth;
 
         return $this;
     }
 
     /**
-     * Gets conversation_participant_name
+     * Gets error
      *
-     * @return string
+     * @return \ultracart\v2\models\Error
      */
-    public function getConversationParticipantName()
+    public function getError()
     {
-        return $this->container['conversation_participant_name'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets conversation_participant_name
+     * Sets error
      *
-     * @param string $conversation_participant_name conversation_participant_name
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setConversationParticipantName($conversation_participant_name)
+    public function setError($error)
     {
-        $this->container['conversation_participant_name'] = $conversation_participant_name;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets jwt
+     * Gets metadata
      *
-     * @return string
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getJwt()
+    public function getMetadata()
     {
-        return $this->container['jwt'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets jwt
+     * Sets metadata
      *
-     * @param string $jwt jwt
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setJwt($jwt)
+    public function setMetadata($metadata)
     {
-        $this->container['jwt'] = $jwt;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets merchant_id
+     * Gets success
      *
-     * @return string
+     * @return bool
      */
-    public function getMerchantId()
+    public function getSuccess()
     {
-        return $this->container['merchant_id'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets success
      *
-     * @param string $merchant_id merchant_id
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setMerchantId($merchant_id)
+    public function setSuccess($success)
     {
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets twilio_phone_numbers
+     * Gets warning
      *
-     * @return string[]
+     * @return \ultracart\v2\models\Warning
      */
-    public function getTwilioPhoneNumbers()
+    public function getWarning()
     {
-        return $this->container['twilio_phone_numbers'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets twilio_phone_numbers
+     * Sets warning
      *
-     * @param string[] $twilio_phone_numbers twilio_phone_numbers
+     * @param \ultracart\v2\models\Warning $warning warning
      *
      * @return $this
      */
-    public function setTwilioPhoneNumbers($twilio_phone_numbers)
+    public function setWarning($warning)
     {
-        $this->container['twilio_phone_numbers'] = $twilio_phone_numbers;
-
-        return $this;
-    }
-
-    /**
-     * Gets websocket_url
-     *
-     * @return string
-     */
-    public function getWebsocketUrl()
-    {
-        return $this->container['websocket_url'];
-    }
-
-    /**
-     * Sets websocket_url
-     *
-     * @param string $websocket_url websocket_url
-     *
-     * @return $this
-     */
-    public function setWebsocketUrl($websocket_url)
-    {
-        $this->container['websocket_url'] = $websocket_url;
+        $this->container['warning'] = $warning;
 
         return $this;
     }

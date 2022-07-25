@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationStartResponse
+ * ConversationMultimediaUploadUrl
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationStartResponse Class Doc Comment
+ * ConversationMultimediaUploadUrl Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationStartResponse implements ModelInterface, ArrayAccess
+class ConversationMultimediaUploadUrl implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationStartResponse';
+    protected static $swaggerModelName = 'ConversationMultimediaUploadUrl';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation' => '\ultracart\v2\models\Conversation'
+        'key' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation' => null
+        'key' => null,
+        'url' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation' => 'conversation'
+        'key' => 'key',
+        'url' => 'url'
     ];
 
     /**
@@ -105,7 +108,8 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversation' => 'setConversation'
+        'key' => 'setKey',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -114,7 +118,8 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversation' => 'getConversation'
+        'key' => 'getKey',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -177,7 +182,8 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation'] = isset($data['conversation']) ? $data['conversation'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -205,25 +211,49 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets conversation
+     * Gets key
      *
-     * @return \ultracart\v2\models\Conversation
+     * @return string
      */
-    public function getConversation()
+    public function getKey()
     {
-        return $this->container['conversation'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets conversation
+     * Sets key
      *
-     * @param \ultracart\v2\models\Conversation $conversation conversation
+     * @param string $key key
      *
      * @return $this
      */
-    public function setConversation($conversation)
+    public function setKey($key)
     {
-        $this->container['conversation'] = $conversation;
+        $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationStartResponse
+ * ConversationEventQueuePosition
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationStartResponse Class Doc Comment
+ * ConversationEventQueuePosition Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationStartResponse implements ModelInterface, ArrayAccess
+class ConversationEventQueuePosition implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationStartResponse';
+    protected static $swaggerModelName = 'ConversationEventQueuePosition';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation' => '\ultracart\v2\models\Conversation'
+        
     ];
 
     /**
@@ -66,7 +66,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation' => null
+        
     ];
 
     /**
@@ -96,7 +96,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation' => 'conversation'
+        
     ];
 
     /**
@@ -105,7 +105,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversation' => 'setConversation'
+        
     ];
 
     /**
@@ -114,7 +114,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversation' => 'getConversation'
+        
     ];
 
     /**
@@ -177,7 +177,6 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation'] = isset($data['conversation']) ? $data['conversation'] : null;
     }
 
     /**
@@ -203,30 +202,6 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets conversation
-     *
-     * @return \ultracart\v2\models\Conversation
-     */
-    public function getConversation()
-    {
-        return $this->container['conversation'];
-    }
-
-    /**
-     * Sets conversation
-     *
-     * @param \ultracart\v2\models\Conversation $conversation conversation
-     *
-     * @return $this
-     */
-    public function setConversation($conversation)
-    {
-        $this->container['conversation'] = $conversation;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

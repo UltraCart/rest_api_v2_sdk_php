@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationStartResponse
+ * ConversationAgentAuth
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationStartResponse Class Doc Comment
+ * ConversationAgentAuth Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationStartResponse implements ModelInterface, ArrayAccess
+class ConversationAgentAuth implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationStartResponse';
+    protected static $swaggerModelName = 'ConversationAgentAuth';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,12 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation' => '\ultracart\v2\models\Conversation'
+        'conversation_participant_arn' => 'string',
+        'conversation_participant_name' => 'string',
+        'jwt' => 'string',
+        'merchant_id' => 'string',
+        'twilio_phone_numbers' => 'string[]',
+        'websocket_url' => 'string'
     ];
 
     /**
@@ -66,7 +71,12 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation' => null
+        'conversation_participant_arn' => null,
+        'conversation_participant_name' => null,
+        'jwt' => null,
+        'merchant_id' => null,
+        'twilio_phone_numbers' => null,
+        'websocket_url' => null
     ];
 
     /**
@@ -96,7 +106,12 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation' => 'conversation'
+        'conversation_participant_arn' => 'conversation_participant_arn',
+        'conversation_participant_name' => 'conversation_participant_name',
+        'jwt' => 'jwt',
+        'merchant_id' => 'merchant_id',
+        'twilio_phone_numbers' => 'twilio_phone_numbers',
+        'websocket_url' => 'websocket_url'
     ];
 
     /**
@@ -105,7 +120,12 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversation' => 'setConversation'
+        'conversation_participant_arn' => 'setConversationParticipantArn',
+        'conversation_participant_name' => 'setConversationParticipantName',
+        'jwt' => 'setJwt',
+        'merchant_id' => 'setMerchantId',
+        'twilio_phone_numbers' => 'setTwilioPhoneNumbers',
+        'websocket_url' => 'setWebsocketUrl'
     ];
 
     /**
@@ -114,7 +134,12 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversation' => 'getConversation'
+        'conversation_participant_arn' => 'getConversationParticipantArn',
+        'conversation_participant_name' => 'getConversationParticipantName',
+        'jwt' => 'getJwt',
+        'merchant_id' => 'getMerchantId',
+        'twilio_phone_numbers' => 'getTwilioPhoneNumbers',
+        'websocket_url' => 'getWebsocketUrl'
     ];
 
     /**
@@ -177,7 +202,12 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation'] = isset($data['conversation']) ? $data['conversation'] : null;
+        $this->container['conversation_participant_arn'] = isset($data['conversation_participant_arn']) ? $data['conversation_participant_arn'] : null;
+        $this->container['conversation_participant_name'] = isset($data['conversation_participant_name']) ? $data['conversation_participant_name'] : null;
+        $this->container['jwt'] = isset($data['jwt']) ? $data['jwt'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['twilio_phone_numbers'] = isset($data['twilio_phone_numbers']) ? $data['twilio_phone_numbers'] : null;
+        $this->container['websocket_url'] = isset($data['websocket_url']) ? $data['websocket_url'] : null;
     }
 
     /**
@@ -205,25 +235,145 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets conversation
+     * Gets conversation_participant_arn
      *
-     * @return \ultracart\v2\models\Conversation
+     * @return string
      */
-    public function getConversation()
+    public function getConversationParticipantArn()
     {
-        return $this->container['conversation'];
+        return $this->container['conversation_participant_arn'];
     }
 
     /**
-     * Sets conversation
+     * Sets conversation_participant_arn
      *
-     * @param \ultracart\v2\models\Conversation $conversation conversation
+     * @param string $conversation_participant_arn conversation_participant_arn
      *
      * @return $this
      */
-    public function setConversation($conversation)
+    public function setConversationParticipantArn($conversation_participant_arn)
     {
-        $this->container['conversation'] = $conversation;
+        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
+
+        return $this;
+    }
+
+    /**
+     * Gets conversation_participant_name
+     *
+     * @return string
+     */
+    public function getConversationParticipantName()
+    {
+        return $this->container['conversation_participant_name'];
+    }
+
+    /**
+     * Sets conversation_participant_name
+     *
+     * @param string $conversation_participant_name conversation_participant_name
+     *
+     * @return $this
+     */
+    public function setConversationParticipantName($conversation_participant_name)
+    {
+        $this->container['conversation_participant_name'] = $conversation_participant_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets jwt
+     *
+     * @return string
+     */
+    public function getJwt()
+    {
+        return $this->container['jwt'];
+    }
+
+    /**
+     * Sets jwt
+     *
+     * @param string $jwt jwt
+     *
+     * @return $this
+     */
+    public function setJwt($jwt)
+    {
+        $this->container['jwt'] = $jwt;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
+     *
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     *
+     * @param string $merchant_id merchant_id
+     *
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets twilio_phone_numbers
+     *
+     * @return string[]
+     */
+    public function getTwilioPhoneNumbers()
+    {
+        return $this->container['twilio_phone_numbers'];
+    }
+
+    /**
+     * Sets twilio_phone_numbers
+     *
+     * @param string[] $twilio_phone_numbers twilio_phone_numbers
+     *
+     * @return $this
+     */
+    public function setTwilioPhoneNumbers($twilio_phone_numbers)
+    {
+        $this->container['twilio_phone_numbers'] = $twilio_phone_numbers;
+
+        return $this;
+    }
+
+    /**
+     * Gets websocket_url
+     *
+     * @return string
+     */
+    public function getWebsocketUrl()
+    {
+        return $this->container['websocket_url'];
+    }
+
+    /**
+     * Sets websocket_url
+     *
+     * @param string $websocket_url websocket_url
+     *
+     * @return $this
+     */
+    public function setWebsocketUrl($websocket_url)
+    {
+        $this->container['websocket_url'] = $websocket_url;
 
         return $this;
     }

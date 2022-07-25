@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **failure_reason** | **string** | The reason this auto order failed during the last rebill attempt | [optional] 
 **items** | [**\ultracart\v2\models\AutoOrderItem[]**](AutoOrderItem.md) | The items that are setup to rebill | [optional] 
 **logs** | [**\ultracart\v2\models\AutoOrderLog[]**](AutoOrderLog.md) | Logs associated with this auto order | [optional] 
+**management** | [**\ultracart\v2\models\AutoOrderManagement**](AutoOrderManagement.md) |  | [optional] 
 **next_attempt** | **string** | The next time that the auto order will be attempted for processing | [optional] 
 **original_order** | [**\ultracart\v2\models\Order**](Order.md) |  | [optional] 
 **original_order_id** | **string** | The original order id that this auto order is associated with. | [optional] 

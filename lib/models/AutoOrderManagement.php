@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationStartResponse
+ * AutoOrderManagement
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationStartResponse Class Doc Comment
+ * AutoOrderManagement Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationStartResponse implements ModelInterface, ArrayAccess
+class AutoOrderManagement implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationStartResponse';
+    protected static $swaggerModelName = 'AutoOrderManagement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation' => '\ultracart\v2\models\Conversation'
+        'update_billing_url' => 'string'
     ];
 
     /**
@@ -66,7 +66,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation' => null
+        'update_billing_url' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation' => 'conversation'
+        'update_billing_url' => 'update_billing_url'
     ];
 
     /**
@@ -105,7 +105,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversation' => 'setConversation'
+        'update_billing_url' => 'setUpdateBillingUrl'
     ];
 
     /**
@@ -114,7 +114,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversation' => 'getConversation'
+        'update_billing_url' => 'getUpdateBillingUrl'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation'] = isset($data['conversation']) ? $data['conversation'] : null;
+        $this->container['update_billing_url'] = isset($data['update_billing_url']) ? $data['update_billing_url'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class ConversationStartResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets conversation
+     * Gets update_billing_url
      *
-     * @return \ultracart\v2\models\Conversation
+     * @return string
      */
-    public function getConversation()
+    public function getUpdateBillingUrl()
     {
-        return $this->container['conversation'];
+        return $this->container['update_billing_url'];
     }
 
     /**
-     * Sets conversation
+     * Sets update_billing_url
      *
-     * @param \ultracart\v2\models\Conversation $conversation conversation
+     * @param string $update_billing_url URL where the customer can go to update their billing information.
      *
      * @return $this
      */
-    public function setConversation($conversation)
+    public function setUpdateBillingUrl($update_billing_url)
     {
-        $this->container['conversation'] = $conversation;
+        $this->container['update_billing_url'] = $update_billing_url;
 
         return $this;
     }

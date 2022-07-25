@@ -58,7 +58,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'add_conversation_participant_arns' => 'string[]',
-        'conversation_arn' => 'string'
+        'conversation_arn' => 'string',
+        'conversation_webchat_queue_uuid' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'add_conversation_participant_arns' => null,
-        'conversation_arn' => null
+        'conversation_arn' => null,
+        'conversation_webchat_queue_uuid' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'add_conversation_participant_arns' => 'add_conversation_participant_arns',
-        'conversation_arn' => 'conversation_arn'
+        'conversation_arn' => 'conversation_arn',
+        'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid'
     ];
 
     /**
@@ -109,7 +112,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'add_conversation_participant_arns' => 'setAddConversationParticipantArns',
-        'conversation_arn' => 'setConversationArn'
+        'conversation_arn' => 'setConversationArn',
+        'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid'
     ];
 
     /**
@@ -119,7 +123,8 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'add_conversation_participant_arns' => 'getAddConversationParticipantArns',
-        'conversation_arn' => 'getConversationArn'
+        'conversation_arn' => 'getConversationArn',
+        'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid'
     ];
 
     /**
@@ -184,6 +189,7 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess
     {
         $this->container['add_conversation_participant_arns'] = isset($data['add_conversation_participant_arns']) ? $data['add_conversation_participant_arns'] : null;
         $this->container['conversation_arn'] = isset($data['conversation_arn']) ? $data['conversation_arn'] : null;
+        $this->container['conversation_webchat_queue_uuid'] = isset($data['conversation_webchat_queue_uuid']) ? $data['conversation_webchat_queue_uuid'] : null;
     }
 
     /**
@@ -254,6 +260,30 @@ class ConversationStartRequest implements ModelInterface, ArrayAccess
     public function setConversationArn($conversation_arn)
     {
         $this->container['conversation_arn'] = $conversation_arn;
+
+        return $this;
+    }
+
+    /**
+     * Gets conversation_webchat_queue_uuid
+     *
+     * @return string
+     */
+    public function getConversationWebchatQueueUuid()
+    {
+        return $this->container['conversation_webchat_queue_uuid'];
+    }
+
+    /**
+     * Sets conversation_webchat_queue_uuid
+     *
+     * @param string $conversation_webchat_queue_uuid conversation_webchat_queue_uuid
+     *
+     * @return $this
+     */
+    public function setConversationWebchatQueueUuid($conversation_webchat_queue_uuid)
+    {
+        $this->container['conversation_webchat_queue_uuid'] = $conversation_webchat_queue_uuid;
 
         return $this;
     }

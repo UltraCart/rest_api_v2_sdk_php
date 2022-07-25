@@ -72,6 +72,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'failure_reason' => 'string',
         'items' => '\ultracart\v2\models\AutoOrderItem[]',
         'logs' => '\ultracart\v2\models\AutoOrderLog[]',
+        'management' => '\ultracart\v2\models\AutoOrderManagement',
         'next_attempt' => 'string',
         'original_order' => '\ultracart\v2\models\Order',
         'original_order_id' => 'string',
@@ -102,6 +103,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'failure_reason' => null,
         'items' => null,
         'logs' => null,
+        'management' => null,
         'next_attempt' => 'dateTime',
         'original_order' => null,
         'original_order_id' => null,
@@ -153,6 +155,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'failure_reason' => 'failure_reason',
         'items' => 'items',
         'logs' => 'logs',
+        'management' => 'management',
         'next_attempt' => 'next_attempt',
         'original_order' => 'original_order',
         'original_order_id' => 'original_order_id',
@@ -183,6 +186,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'failure_reason' => 'setFailureReason',
         'items' => 'setItems',
         'logs' => 'setLogs',
+        'management' => 'setManagement',
         'next_attempt' => 'setNextAttempt',
         'original_order' => 'setOriginalOrder',
         'original_order_id' => 'setOriginalOrderId',
@@ -213,6 +217,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         'failure_reason' => 'getFailureReason',
         'items' => 'getItems',
         'logs' => 'getLogs',
+        'management' => 'getManagement',
         'next_attempt' => 'getNextAttempt',
         'original_order' => 'getOriginalOrder',
         'original_order_id' => 'getOriginalOrderId',
@@ -314,6 +319,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
         $this->container['failure_reason'] = isset($data['failure_reason']) ? $data['failure_reason'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['logs'] = isset($data['logs']) ? $data['logs'] : null;
+        $this->container['management'] = isset($data['management']) ? $data['management'] : null;
         $this->container['next_attempt'] = isset($data['next_attempt']) ? $data['next_attempt'] : null;
         $this->container['original_order'] = isset($data['original_order']) ? $data['original_order'] : null;
         $this->container['original_order_id'] = isset($data['original_order_id']) ? $data['original_order_id'] : null;
@@ -711,6 +717,30 @@ class AutoOrder implements ModelInterface, ArrayAccess
     public function setLogs($logs)
     {
         $this->container['logs'] = $logs;
+
+        return $this;
+    }
+
+    /**
+     * Gets management
+     *
+     * @return \ultracart\v2\models\AutoOrderManagement
+     */
+    public function getManagement()
+    {
+        return $this->container['management'];
+    }
+
+    /**
+     * Sets management
+     *
+     * @param \ultracart\v2\models\AutoOrderManagement $management management
+     *
+     * @return $this
+     */
+    public function setManagement($management)
+    {
+        $this->container['management'] = $management;
 
         return $this;
     }

@@ -1,9 +1,9 @@
-# ConversationAgentAuthResponse
+# ConversationMultimediaUploadUrlResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_auth** | [**\ultracart\v2\models\ConversationAgentAuth**](ConversationAgentAuth.md) |  | [optional] 
+**conversation_multimedia_upload_url** | [**\ultracart\v2\models\ConversationMultimediaUploadUrl**](ConversationMultimediaUploadUrl.md) |  | [optional] 
 **error** | [**\ultracart\v2\models\Error**](Error.md) |  | [optional] 
 **metadata** | [**\ultracart\v2\models\ResponseMetadata**](ResponseMetadata.md) |  | [optional] 
 **success** | **bool** | Indicates if API call was successful | [optional] 

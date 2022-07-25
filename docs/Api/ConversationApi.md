@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getConversation**
-> \ultracart\v2\models\Conversation getConversation($conversation_uuid)
+> \ultracart\v2\models\ConversationResponse getConversation($conversation_uuid)
 
 Retrieve a conversation
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\Conversation**](../Model/Conversation.md)
+[**\ultracart\v2\models\ConversationResponse**](../Model/ConversationResponse.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getConversationMultimediaUploadUrl**
-> getConversationMultimediaUploadUrl($extension)
+> \ultracart\v2\models\ConversationMultimediaUploadUrlResponse getConversationMultimediaUploadUrl($extension)
 
 Get a presigned conersation multimedia upload URL
 
@@ -124,7 +124,8 @@ $api_instance = ultracart\v2\api\ConversationApi::usingApiKey($simple_key);
 $extension = "extension_example"; // string | 
 
 try {
-    $apiInstance->getConversationMultimediaUploadUrl($extension);
+    $result = $apiInstance->getConversationMultimediaUploadUrl($extension);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConversationApi->getConversationMultimediaUploadUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -139,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\ultracart\v2\models\ConversationMultimediaUploadUrlResponse**](../Model/ConversationMultimediaUploadUrlResponse.md)
 
 ### Authorization
 

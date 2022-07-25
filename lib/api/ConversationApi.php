@@ -432,7 +432,7 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\Conversation
+     * @return \ultracart\v2\models\ConversationResponse
      */
     public function getConversation($conversation_uuid)
     {
@@ -450,7 +450,7 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\Conversation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationWithHttpInfo($conversation_uuid)
     {
@@ -468,11 +468,11 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\Conversation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationWithHttpInfoRetry($retry ,  $conversation_uuid)
     {
-        $returnType = '\ultracart\v2\models\Conversation';
+        $returnType = '\ultracart\v2\models\ConversationResponse';
         $request = $this->getConversationRequest($conversation_uuid);
 
         try {
@@ -525,7 +525,7 @@ class ConversationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\Conversation',
+                        '\ultracart\v2\models\ConversationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -607,7 +607,7 @@ class ConversationApi
      */
     public function getConversationAsyncWithHttpInfo($conversation_uuid)
     {
-        $returnType = '\ultracart\v2\models\Conversation';
+        $returnType = '\ultracart\v2\models\ConversationResponse';
         $request = $this->getConversationRequest($conversation_uuid);
 
         return $this->client
@@ -770,11 +770,12 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \ultracart\v2\models\ConversationMultimediaUploadUrlResponse
      */
     public function getConversationMultimediaUploadUrl($extension)
     {
-        $this->getConversationMultimediaUploadUrlWithHttpInfo($extension);
+        list($response) = $this->getConversationMultimediaUploadUrlWithHttpInfo($extension);
+        return $response;
     }
 
 
@@ -787,11 +788,11 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationMultimediaUploadUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationMultimediaUploadUrlWithHttpInfo($extension)
     {
-        $this->getConversationMultimediaUploadUrlWithHttpInfoRetry(true ,   $extension);
+        return $this->getConversationMultimediaUploadUrlWithHttpInfoRetry(true ,   $extension);
     }
 
 
@@ -805,11 +806,11 @@ class ConversationApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\ConversationMultimediaUploadUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConversationMultimediaUploadUrlWithHttpInfoRetry($retry ,  $extension)
     {
-        $returnType = '';
+        $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
         $request = $this->getConversationMultimediaUploadUrlRequest($extension);
 
         try {
@@ -829,7 +830,7 @@ class ConversationApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        $this->getConversationMultimediaUploadUrlWithHttpInfoRetry(false ,   $extension);
+                        return $this->getConversationMultimediaUploadUrlWithHttpInfoRetry(false ,   $extension);
                     }
                 }
 
@@ -841,10 +842,32 @@ class ConversationApi
                 );
             }
 
-            return [null, $response->getStatusCode(), $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -922,14 +945,28 @@ class ConversationApi
      */
     public function getConversationMultimediaUploadUrlAsyncWithHttpInfo($extension)
     {
-        $returnType = '';
+        $returnType = '\ultracart\v2\models\ConversationMultimediaUploadUrlResponse';
         $request = $this->getConversationMultimediaUploadUrlRequest($extension);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
