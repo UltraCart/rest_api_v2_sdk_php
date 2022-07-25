@@ -58,6 +58,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'closed' => 'bool',
         'conversation_arn' => 'string',
         'conversation_uuid' => 'string',
         'last_conversation_message_body' => 'string',
@@ -77,6 +78,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'closed' => null,
         'conversation_arn' => null,
         'conversation_uuid' => null,
         'last_conversation_message_body' => null,
@@ -115,6 +117,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'closed' => 'closed',
         'conversation_arn' => 'conversation_arn',
         'conversation_uuid' => 'conversation_uuid',
         'last_conversation_message_body' => 'last_conversation_message_body',
@@ -132,6 +135,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'closed' => 'setClosed',
         'conversation_arn' => 'setConversationArn',
         'conversation_uuid' => 'setConversationUuid',
         'last_conversation_message_body' => 'setLastConversationMessageBody',
@@ -149,6 +153,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'closed' => 'getClosed',
         'conversation_arn' => 'getConversationArn',
         'conversation_uuid' => 'getConversationUuid',
         'last_conversation_message_body' => 'getLastConversationMessageBody',
@@ -217,6 +222,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
+        $this->container['closed'] = $data['closed'] ?? null;
         $this->container['conversation_arn'] = $data['conversation_arn'] ?? null;
         $this->container['conversation_uuid'] = $data['conversation_uuid'] ?? null;
         $this->container['last_conversation_message_body'] = $data['last_conversation_message_body'] ?? null;
@@ -251,6 +257,30 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets closed
+     *
+     * @return bool|null
+     */
+    public function getClosed()
+    {
+        return $this->container['closed'];
+    }
+
+    /**
+     * Sets closed
+     *
+     * @param bool|null $closed closed
+     *
+     * @return self
+     */
+    public function setClosed($closed)
+    {
+        $this->container['closed'] = $closed;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_arn

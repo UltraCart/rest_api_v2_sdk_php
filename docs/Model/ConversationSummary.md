@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**closed** | **bool** |  | [optional]
 **conversation_arn** | **string** |  | [optional]
 **conversation_uuid** | **string** |  | [optional]
 **last_conversation_message_body** | **string** |  | [optional]

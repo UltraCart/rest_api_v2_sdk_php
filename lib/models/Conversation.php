@@ -58,6 +58,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'closed' => 'bool',
         'conversation_arn' => 'string',
         'conversation_uuid' => 'string',
         'merchant_id' => 'string',
@@ -73,6 +74,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'closed' => null,
         'conversation_arn' => null,
         'conversation_uuid' => null,
         'merchant_id' => null,
@@ -107,6 +109,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'closed' => 'closed',
         'conversation_arn' => 'conversation_arn',
         'conversation_uuid' => 'conversation_uuid',
         'merchant_id' => 'merchant_id',
@@ -120,6 +123,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'closed' => 'setClosed',
         'conversation_arn' => 'setConversationArn',
         'conversation_uuid' => 'setConversationUuid',
         'merchant_id' => 'setMerchantId',
@@ -133,6 +137,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'closed' => 'getClosed',
         'conversation_arn' => 'getConversationArn',
         'conversation_uuid' => 'getConversationUuid',
         'merchant_id' => 'getMerchantId',
@@ -197,6 +202,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['closed'] = $data['closed'] ?? null;
         $this->container['conversation_arn'] = $data['conversation_arn'] ?? null;
         $this->container['conversation_uuid'] = $data['conversation_uuid'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
@@ -227,6 +233,30 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets closed
+     *
+     * @return bool|null
+     */
+    public function getClosed()
+    {
+        return $this->container['closed'];
+    }
+
+    /**
+     * Sets closed
+     *
+     * @param bool|null $closed closed
+     *
+     * @return self
+     */
+    public function setClosed($closed)
+    {
+        $this->container['closed'] = $closed;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_arn
