@@ -199,10 +199,12 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/Api/ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
+*ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/Api/ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/Api/ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**joinConversation**](docs/Api/ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/Api/ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
 *ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
+*ConversationApi* | [**updateConversationWebchatQueueStatus**](docs/Api/ConversationApi.md#updateconversationwebchatqueuestatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
 *CouponApi* | [**deleteCouponsByCode**](docs/Api/CouponApi.md#deletecouponsbycode) | **DELETE** /coupon/coupons/by_code | Deletes multiple coupons
 *CouponApi* | [**deleteCouponsByOid**](docs/Api/CouponApi.md#deletecouponsbyoid) | **DELETE** /coupon/coupons/by_oid | Deletes multiple coupons
@@ -640,6 +642,11 @@ Class | Method | HTTP request | Description
  - [ConversationStartRequest](docs/Model/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
  - [ConversationSummary](docs/Model/ConversationSummary.md)
+ - [ConversationWebchatQueueStatus](docs/Model/ConversationWebchatQueueStatus.md)
+ - [ConversationWebchatQueueStatusAgent](docs/Model/ConversationWebchatQueueStatusAgent.md)
+ - [ConversationWebchatQueueStatusQueueEntry](docs/Model/ConversationWebchatQueueStatusQueueEntry.md)
+ - [ConversationWebchatQueueStatusUpdateRequest](docs/Model/ConversationWebchatQueueStatusUpdateRequest.md)
+ - [ConversationWebchatQueueStatusesResponse](docs/Model/ConversationWebchatQueueStatusesResponse.md)
  - [ConversationWebsocketMessage](docs/Model/ConversationWebsocketMessage.md)
  - [ConversationsResponse](docs/Model/ConversationsResponse.md)
  - [CountriesResponse](docs/Model/CountriesResponse.md)
@@ -1236,6 +1243,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.26 | 07/26/2022 | conversations - queue statistics |
 | 3.10.25 | 07/25/2022 | conversation development |
 | 3.10.24 | 07/25/2022 | conversations bug fixes |
 | 3.10.23 | 07/25/2022 | conversations - add a websocket message model |
