@@ -152,6 +152,11 @@ docs/Model/ConversationResponse.md
 docs/Model/ConversationStartRequest.md
 docs/Model/ConversationStartResponse.md
 docs/Model/ConversationSummary.md
+docs/Model/ConversationWebchatQueueStatus.md
+docs/Model/ConversationWebchatQueueStatusAgent.md
+docs/Model/ConversationWebchatQueueStatusQueueEntry.md
+docs/Model/ConversationWebchatQueueStatusUpdateRequest.md
+docs/Model/ConversationWebchatQueueStatusesResponse.md
 docs/Model/ConversationWebsocketMessage.md
 docs/Model/ConversationsResponse.md
 docs/Model/CountriesResponse.md
@@ -825,6 +830,11 @@ lib/models/ConversationResponse.php
 lib/models/ConversationStartRequest.php
 lib/models/ConversationStartResponse.php
 lib/models/ConversationSummary.php
+lib/models/ConversationWebchatQueueStatus.php
+lib/models/ConversationWebchatQueueStatusAgent.php
+lib/models/ConversationWebchatQueueStatusQueueEntry.php
+lib/models/ConversationWebchatQueueStatusUpdateRequest.php
+lib/models/ConversationWebchatQueueStatusesResponse.php
 lib/models/ConversationWebsocketMessage.php
 lib/models/ConversationsResponse.php
 lib/models/CountriesResponse.php
