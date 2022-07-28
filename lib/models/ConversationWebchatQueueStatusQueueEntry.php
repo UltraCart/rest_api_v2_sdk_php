@@ -61,7 +61,8 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_participant_arn' => 'string',
         'conversation_participant_name' => 'string',
         'conversation_webchat_queue_uuid' => 'string',
-        'join_dts' => 'string'
+        'join_dts' => 'string',
+        'question' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_participant_arn' => null,
         'conversation_participant_name' => null,
         'conversation_webchat_queue_uuid' => null,
-        'join_dts' => 'dateTime'
+        'join_dts' => 'dateTime',
+        'question' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_participant_arn' => 'conversation_participant_arn',
         'conversation_participant_name' => 'conversation_participant_name',
         'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid',
-        'join_dts' => 'join_dts'
+        'join_dts' => 'join_dts',
+        'question' => 'question'
     ];
 
     /**
@@ -120,7 +123,8 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'conversation_participant_name' => 'setConversationParticipantName',
         'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid',
-        'join_dts' => 'setJoinDts'
+        'join_dts' => 'setJoinDts',
+        'question' => 'setQuestion'
     ];
 
     /**
@@ -132,7 +136,8 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'conversation_participant_name' => 'getConversationParticipantName',
         'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid',
-        'join_dts' => 'getJoinDts'
+        'join_dts' => 'getJoinDts',
+        'question' => 'getQuestion'
     ];
 
     /**
@@ -196,6 +201,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
         $this->container['conversation_webchat_queue_uuid'] = $data['conversation_webchat_queue_uuid'] ?? null;
         $this->container['join_dts'] = $data['join_dts'] ?? null;
+        $this->container['question'] = $data['question'] ?? null;
     }
 
     /**
@@ -314,6 +320,30 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
     public function setJoinDts($join_dts)
     {
         $this->container['join_dts'] = $join_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets question
+     *
+     * @return string|null
+     */
+    public function getQuestion()
+    {
+        return $this->container['question'];
+    }
+
+    /**
+     * Sets question
+     *
+     * @param string|null $question question
+     *
+     * @return self
+     */
+    public function setQuestion($question)
+    {
+        $this->container['question'] = $question;
 
         return $this;
     }
