@@ -1243,6 +1243,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.27 | 07/28/2022 | conversation message upload keys property |
 | 3.10.26 | 07/26/2022 | conversations - queue statistics |
 | 3.10.25 | 07/25/2022 | conversation development |
 | 3.10.24 | 07/25/2022 | conversations bug fixes |

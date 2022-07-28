@@ -62,7 +62,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'body' => 'string',
         'media_urls' => 'string[]',
         'message_dts' => 'string',
-        'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]'
+        'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]',
+        'upload_keys' => 'string[]'
     ];
 
     /**
@@ -76,7 +77,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'body' => null,
         'media_urls' => null,
         'message_dts' => 'dateTime',
-        'transport_statuses' => null
+        'transport_statuses' => null,
+        'upload_keys' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'body' => 'body',
         'media_urls' => 'media_urls',
         'message_dts' => 'message_dts',
-        'transport_statuses' => 'transport_statuses'
+        'transport_statuses' => 'transport_statuses',
+        'upload_keys' => 'upload_keys'
     ];
 
     /**
@@ -125,7 +128,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'body' => 'setBody',
         'media_urls' => 'setMediaUrls',
         'message_dts' => 'setMessageDts',
-        'transport_statuses' => 'setTransportStatuses'
+        'transport_statuses' => 'setTransportStatuses',
+        'upload_keys' => 'setUploadKeys'
     ];
 
     /**
@@ -139,7 +143,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'body' => 'getBody',
         'media_urls' => 'getMediaUrls',
         'message_dts' => 'getMessageDts',
-        'transport_statuses' => 'getTransportStatuses'
+        'transport_statuses' => 'getTransportStatuses',
+        'upload_keys' => 'getUploadKeys'
     ];
 
     /**
@@ -208,6 +213,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         $this->container['media_urls'] = isset($data['media_urls']) ? $data['media_urls'] : null;
         $this->container['message_dts'] = isset($data['message_dts']) ? $data['message_dts'] : null;
         $this->container['transport_statuses'] = isset($data['transport_statuses']) ? $data['transport_statuses'] : null;
+        $this->container['upload_keys'] = isset($data['upload_keys']) ? $data['upload_keys'] : null;
     }
 
     /**
@@ -374,6 +380,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess
     public function setTransportStatuses($transport_statuses)
     {
         $this->container['transport_statuses'] = $transport_statuses;
+
+        return $this;
+    }
+
+    /**
+     * Gets upload_keys
+     *
+     * @return string[]
+     */
+    public function getUploadKeys()
+    {
+        return $this->container['upload_keys'];
+    }
+
+    /**
+     * Sets upload_keys
+     *
+     * @param string[] $upload_keys upload_keys
+     *
+     * @return $this
+     */
+    public function setUploadKeys($upload_keys)
+    {
+        $this->container['upload_keys'] = $upload_keys;
 
         return $this;
     }
