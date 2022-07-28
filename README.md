@@ -1184,6 +1184,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.45-RC | 07/28/2022 | conversation bug fixes |
 | 4.0.44-RC | 07/28/2022 | conversation message upload keys property |
 | 4.0.43-RC | 07/26/2022 | conversations - queue statistics |
 | 4.0.42-RC | 07/25/2022 | conversation development |

@@ -68,6 +68,7 @@ class ConversationWebchatQueueStatus implements ModelInterface, ArrayAccess, \Js
         'customer_average_abandon_time_seconds' => 'int',
         'customer_average_chat_time_seconds' => 'int',
         'customer_average_hold_time_seconds' => 'int',
+        'customer_chat_count' => 'int',
         'customer_waiting_count' => 'int',
         'customer_waiting_join_dts' => 'string',
         'queue_entries' => '\ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry[]',
@@ -92,6 +93,7 @@ class ConversationWebchatQueueStatus implements ModelInterface, ArrayAccess, \Js
         'customer_average_abandon_time_seconds' => 'int32',
         'customer_average_chat_time_seconds' => 'int32',
         'customer_average_hold_time_seconds' => 'int32',
+        'customer_chat_count' => 'int32',
         'customer_waiting_count' => 'int32',
         'customer_waiting_join_dts' => 'dateTime',
         'queue_entries' => null,
@@ -135,6 +137,7 @@ class ConversationWebchatQueueStatus implements ModelInterface, ArrayAccess, \Js
         'customer_average_abandon_time_seconds' => 'customer_average_abandon_time_seconds',
         'customer_average_chat_time_seconds' => 'customer_average_chat_time_seconds',
         'customer_average_hold_time_seconds' => 'customer_average_hold_time_seconds',
+        'customer_chat_count' => 'customer_chat_count',
         'customer_waiting_count' => 'customer_waiting_count',
         'customer_waiting_join_dts' => 'customer_waiting_join_dts',
         'queue_entries' => 'queue_entries',
@@ -157,6 +160,7 @@ class ConversationWebchatQueueStatus implements ModelInterface, ArrayAccess, \Js
         'customer_average_abandon_time_seconds' => 'setCustomerAverageAbandonTimeSeconds',
         'customer_average_chat_time_seconds' => 'setCustomerAverageChatTimeSeconds',
         'customer_average_hold_time_seconds' => 'setCustomerAverageHoldTimeSeconds',
+        'customer_chat_count' => 'setCustomerChatCount',
         'customer_waiting_count' => 'setCustomerWaitingCount',
         'customer_waiting_join_dts' => 'setCustomerWaitingJoinDts',
         'queue_entries' => 'setQueueEntries',
@@ -179,6 +183,7 @@ class ConversationWebchatQueueStatus implements ModelInterface, ArrayAccess, \Js
         'customer_average_abandon_time_seconds' => 'getCustomerAverageAbandonTimeSeconds',
         'customer_average_chat_time_seconds' => 'getCustomerAverageChatTimeSeconds',
         'customer_average_hold_time_seconds' => 'getCustomerAverageHoldTimeSeconds',
+        'customer_chat_count' => 'getCustomerChatCount',
         'customer_waiting_count' => 'getCustomerWaitingCount',
         'customer_waiting_join_dts' => 'getCustomerWaitingJoinDts',
         'queue_entries' => 'getQueueEntries',
@@ -252,6 +257,7 @@ class ConversationWebchatQueueStatus implements ModelInterface, ArrayAccess, \Js
         $this->container['customer_average_abandon_time_seconds'] = $data['customer_average_abandon_time_seconds'] ?? null;
         $this->container['customer_average_chat_time_seconds'] = $data['customer_average_chat_time_seconds'] ?? null;
         $this->container['customer_average_hold_time_seconds'] = $data['customer_average_hold_time_seconds'] ?? null;
+        $this->container['customer_chat_count'] = $data['customer_chat_count'] ?? null;
         $this->container['customer_waiting_count'] = $data['customer_waiting_count'] ?? null;
         $this->container['customer_waiting_join_dts'] = $data['customer_waiting_join_dts'] ?? null;
         $this->container['queue_entries'] = $data['queue_entries'] ?? null;
@@ -518,6 +524,30 @@ class ConversationWebchatQueueStatus implements ModelInterface, ArrayAccess, \Js
     public function setCustomerAverageHoldTimeSeconds($customer_average_hold_time_seconds)
     {
         $this->container['customer_average_hold_time_seconds'] = $customer_average_hold_time_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_chat_count
+     *
+     * @return int|null
+     */
+    public function getCustomerChatCount()
+    {
+        return $this->container['customer_chat_count'];
+    }
+
+    /**
+     * Sets customer_chat_count
+     *
+     * @param int|null $customer_chat_count customer_chat_count
+     *
+     * @return self
+     */
+    public function setCustomerChatCount($customer_chat_count)
+    {
+        $this->container['customer_chat_count'] = $customer_chat_count;
 
         return $this;
     }
