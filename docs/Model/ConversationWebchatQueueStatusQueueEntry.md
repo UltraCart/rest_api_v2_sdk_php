@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **conversation_participant_arn** | **string** |  | [optional] 
 **conversation_participant_name** | **string** |  | [optional] 
 **conversation_webchat_queue_uuid** | **string** |  | [optional] 
+**email** | **string** |  | [optional] 
 **join_dts** | **string** | Date/time the customer joined the queue | [optional] 
 **question** | **string** |  | [optional] 
 
