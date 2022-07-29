@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **last_message_dts** | **string** | Last message date/time | [optional] 
 **merchant_id** | **string** |  | [optional] 
 **message_count** | **int** |  | [optional] 
+**start_dts** | **string** | Start of the conversation date/time | [optional] 
 **unread_messages** | **bool** |  | [optional] 
+**visible** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

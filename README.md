@@ -642,6 +642,7 @@ Class | Method | HTTP request | Description
  - [ConversationStartRequest](docs/Model/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
  - [ConversationSummary](docs/Model/ConversationSummary.md)
+ - [ConversationTwilioAccount](docs/Model/ConversationTwilioAccount.md)
  - [ConversationWebchatQueueStatus](docs/Model/ConversationWebchatQueueStatus.md)
  - [ConversationWebchatQueueStatusAgent](docs/Model/ConversationWebchatQueueStatusAgent.md)
  - [ConversationWebchatQueueStatusQueueEntry](docs/Model/ConversationWebchatQueueStatusQueueEntry.md)
@@ -1243,6 +1244,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.29 | 07/29/2022 | conversation development |
 | 3.10.28 | 07/28/2022 | conversation bug fixes |
 | 3.10.27 | 07/28/2022 | conversation message upload keys property |
 | 3.10.26 | 07/26/2022 | conversations - queue statistics |
