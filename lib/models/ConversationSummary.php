@@ -67,7 +67,9 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_message_dts' => 'string',
         'merchant_id' => 'string',
         'message_count' => 'int',
-        'unread_messages' => 'bool'
+        'start_dts' => 'string',
+        'unread_messages' => 'bool',
+        'visible' => 'bool'
     ];
 
     /**
@@ -87,7 +89,9 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_message_dts' => 'dateTime',
         'merchant_id' => null,
         'message_count' => 'int32',
-        'unread_messages' => null
+        'start_dts' => 'dateTime',
+        'unread_messages' => null,
+        'visible' => null
     ];
 
     /**
@@ -126,7 +130,9 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_message_dts' => 'last_message_dts',
         'merchant_id' => 'merchant_id',
         'message_count' => 'message_count',
-        'unread_messages' => 'unread_messages'
+        'start_dts' => 'start_dts',
+        'unread_messages' => 'unread_messages',
+        'visible' => 'visible'
     ];
 
     /**
@@ -144,7 +150,9 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_message_dts' => 'setLastMessageDts',
         'merchant_id' => 'setMerchantId',
         'message_count' => 'setMessageCount',
-        'unread_messages' => 'setUnreadMessages'
+        'start_dts' => 'setStartDts',
+        'unread_messages' => 'setUnreadMessages',
+        'visible' => 'setVisible'
     ];
 
     /**
@@ -162,7 +170,9 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_message_dts' => 'getLastMessageDts',
         'merchant_id' => 'getMerchantId',
         'message_count' => 'getMessageCount',
-        'unread_messages' => 'getUnreadMessages'
+        'start_dts' => 'getStartDts',
+        'unread_messages' => 'getUnreadMessages',
+        'visible' => 'getVisible'
     ];
 
     /**
@@ -231,7 +241,9 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['last_message_dts'] = $data['last_message_dts'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['message_count'] = $data['message_count'] ?? null;
+        $this->container['start_dts'] = $data['start_dts'] ?? null;
         $this->container['unread_messages'] = $data['unread_messages'] ?? null;
+        $this->container['visible'] = $data['visible'] ?? null;
     }
 
     /**
@@ -475,6 +487,30 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets start_dts
+     *
+     * @return string|null
+     */
+    public function getStartDts()
+    {
+        return $this->container['start_dts'];
+    }
+
+    /**
+     * Sets start_dts
+     *
+     * @param string|null $start_dts Start of the conversation date/time
+     *
+     * @return self
+     */
+    public function setStartDts($start_dts)
+    {
+        $this->container['start_dts'] = $start_dts;
+
+        return $this;
+    }
+
+    /**
      * Gets unread_messages
      *
      * @return bool|null
@@ -494,6 +530,30 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setUnreadMessages($unread_messages)
     {
         $this->container['unread_messages'] = $unread_messages;
+
+        return $this;
+    }
+
+    /**
+     * Gets visible
+     *
+     * @return bool|null
+     */
+    public function getVisible()
+    {
+        return $this->container['visible'];
+    }
+
+    /**
+     * Sets visible
+     *
+     * @param bool|null $visible visible
+     *
+     * @return self
+     */
+    public function setVisible($visible)
+    {
+        $this->container['visible'] = $visible;
 
         return $this;
     }

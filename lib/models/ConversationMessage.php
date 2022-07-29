@@ -61,6 +61,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'author_conversation_participant_arn' => 'string',
         'author_conversation_participant_name' => 'string',
         'body' => 'string',
+        'client_message_id' => 'string',
         'media_urls' => 'string[]',
         'message_dts' => 'string',
         'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]',
@@ -78,6 +79,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'author_conversation_participant_arn' => null,
         'author_conversation_participant_name' => null,
         'body' => null,
+        'client_message_id' => null,
         'media_urls' => null,
         'message_dts' => 'dateTime',
         'transport_statuses' => null,
@@ -114,6 +116,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'author_conversation_participant_arn' => 'author_conversation_participant_arn',
         'author_conversation_participant_name' => 'author_conversation_participant_name',
         'body' => 'body',
+        'client_message_id' => 'client_message_id',
         'media_urls' => 'media_urls',
         'message_dts' => 'message_dts',
         'transport_statuses' => 'transport_statuses',
@@ -129,6 +132,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'author_conversation_participant_arn' => 'setAuthorConversationParticipantArn',
         'author_conversation_participant_name' => 'setAuthorConversationParticipantName',
         'body' => 'setBody',
+        'client_message_id' => 'setClientMessageId',
         'media_urls' => 'setMediaUrls',
         'message_dts' => 'setMessageDts',
         'transport_statuses' => 'setTransportStatuses',
@@ -144,6 +148,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'author_conversation_participant_arn' => 'getAuthorConversationParticipantArn',
         'author_conversation_participant_name' => 'getAuthorConversationParticipantName',
         'body' => 'getBody',
+        'client_message_id' => 'getClientMessageId',
         'media_urls' => 'getMediaUrls',
         'message_dts' => 'getMessageDts',
         'transport_statuses' => 'getTransportStatuses',
@@ -210,6 +215,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['author_conversation_participant_arn'] = $data['author_conversation_participant_arn'] ?? null;
         $this->container['author_conversation_participant_name'] = $data['author_conversation_participant_name'] ?? null;
         $this->container['body'] = $data['body'] ?? null;
+        $this->container['client_message_id'] = $data['client_message_id'] ?? null;
         $this->container['media_urls'] = $data['media_urls'] ?? null;
         $this->container['message_dts'] = $data['message_dts'] ?? null;
         $this->container['transport_statuses'] = $data['transport_statuses'] ?? null;
@@ -308,6 +314,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setBody($body)
     {
         $this->container['body'] = $body;
+
+        return $this;
+    }
+
+    /**
+     * Gets client_message_id
+     *
+     * @return string|null
+     */
+    public function getClientMessageId()
+    {
+        return $this->container['client_message_id'];
+    }
+
+    /**
+     * Sets client_message_id
+     *
+     * @param string|null $client_message_id client_message_id
+     *
+     * @return self
+     */
+    public function setClientMessageId($client_message_id)
+    {
+        $this->container['client_message_id'] = $client_message_id;
 
         return $this;
     }
