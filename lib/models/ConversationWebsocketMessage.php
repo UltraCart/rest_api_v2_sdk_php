@@ -64,6 +64,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_new_message' => '\ultracart\v2\models\ConversationSummary',
         'event_queue_position' => '\ultracart\v2\models\ConversationEventQueuePosition',
         'event_queue_status_update' => '\ultracart\v2\models\ConversationWebchatQueueStatus',
+        'event_rrweb' => '\ultracart\v2\models\ConversationEventRRWeb',
         'event_type' => 'string',
         'event_updated_message' => '\ultracart\v2\models\ConversationMessage',
         'message' => '\ultracart\v2\models\ConversationMessage',
@@ -84,6 +85,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_new_message' => null,
         'event_queue_position' => null,
         'event_queue_status_update' => null,
+        'event_rrweb' => null,
         'event_type' => null,
         'event_updated_message' => null,
         'message' => null,
@@ -123,6 +125,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_new_message' => 'event_new_message',
         'event_queue_position' => 'event_queue_position',
         'event_queue_status_update' => 'event_queue_status_update',
+        'event_rrweb' => 'event_rrweb',
         'event_type' => 'event_type',
         'event_updated_message' => 'event_updated_message',
         'message' => 'message',
@@ -141,6 +144,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_new_message' => 'setEventNewMessage',
         'event_queue_position' => 'setEventQueuePosition',
         'event_queue_status_update' => 'setEventQueueStatusUpdate',
+        'event_rrweb' => 'setEventRrweb',
         'event_type' => 'setEventType',
         'event_updated_message' => 'setEventUpdatedMessage',
         'message' => 'setMessage',
@@ -159,6 +163,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_new_message' => 'getEventNewMessage',
         'event_queue_position' => 'getEventQueuePosition',
         'event_queue_status_update' => 'getEventQueueStatusUpdate',
+        'event_rrweb' => 'getEventRrweb',
         'event_type' => 'getEventType',
         'event_updated_message' => 'getEventUpdatedMessage',
         'message' => 'getMessage',
@@ -213,9 +218,11 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     public const EVENT_TYPE_NEW_MESSAGE = 'new message';
     public const EVENT_TYPE_UPDATED_MESSAGE = 'updated message';
     public const EVENT_TYPE_QUEUE_STATUS_UPDATE = 'queue status update';
+    public const EVENT_TYPE_RRWEB = 'rrweb';
     public const TYPE_MESSAGE = 'message';
     public const TYPE_EVENT = 'event';
     public const TYPE_PING = 'ping';
+    public const TYPE_CHECK_QUEUE_POSITION = 'check queue position';
 
     /**
      * Gets allowable values of the enum
@@ -232,6 +239,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
             self::EVENT_TYPE_NEW_MESSAGE,
             self::EVENT_TYPE_UPDATED_MESSAGE,
             self::EVENT_TYPE_QUEUE_STATUS_UPDATE,
+            self::EVENT_TYPE_RRWEB,
         ];
     }
 
@@ -246,6 +254,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
             self::TYPE_MESSAGE,
             self::TYPE_EVENT,
             self::TYPE_PING,
+            self::TYPE_CHECK_QUEUE_POSITION,
         ];
     }
 
@@ -270,6 +279,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         $this->container['event_new_message'] = $data['event_new_message'] ?? null;
         $this->container['event_queue_position'] = $data['event_queue_position'] ?? null;
         $this->container['event_queue_status_update'] = $data['event_queue_status_update'] ?? null;
+        $this->container['event_rrweb'] = $data['event_rrweb'] ?? null;
         $this->container['event_type'] = $data['event_type'] ?? null;
         $this->container['event_updated_message'] = $data['event_updated_message'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
@@ -458,6 +468,30 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     public function setEventQueueStatusUpdate($event_queue_status_update)
     {
         $this->container['event_queue_status_update'] = $event_queue_status_update;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_rrweb
+     *
+     * @return \ultracart\v2\models\ConversationEventRRWeb|null
+     */
+    public function getEventRrweb()
+    {
+        return $this->container['event_rrweb'];
+    }
+
+    /**
+     * Sets event_rrweb
+     *
+     * @param \ultracart\v2\models\ConversationEventRRWeb|null $event_rrweb event_rrweb
+     *
+     * @return self
+     */
+    public function setEventRrweb($event_rrweb)
+    {
+        $this->container['event_rrweb'] = $event_rrweb;
 
         return $this;
     }

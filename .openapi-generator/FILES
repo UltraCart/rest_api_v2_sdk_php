@@ -143,6 +143,7 @@ docs/Model/Conversation.md
 docs/Model/ConversationAgentAuth.md
 docs/Model/ConversationAgentAuthResponse.md
 docs/Model/ConversationEventQueuePosition.md
+docs/Model/ConversationEventRRWeb.md
 docs/Model/ConversationMessage.md
 docs/Model/ConversationMessageTransportStatus.md
 docs/Model/ConversationMultimediaUploadUrl.md
@@ -822,6 +823,7 @@ lib/models/Conversation.php
 lib/models/ConversationAgentAuth.php
 lib/models/ConversationAgentAuthResponse.php
 lib/models/ConversationEventQueuePosition.php
+lib/models/ConversationEventRRWeb.php
 lib/models/ConversationMessage.php
 lib/models/ConversationMessageTransportStatus.php
 lib/models/ConversationMultimediaUploadUrl.php

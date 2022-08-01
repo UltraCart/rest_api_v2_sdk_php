@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **event_new_message** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional]
 **event_queue_position** | [**\ultracart\v2\models\ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  | [optional]
 **event_queue_status_update** | [**\ultracart\v2\models\ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  | [optional]
+**event_rrweb** | [**\ultracart\v2\models\ConversationEventRRWeb**](ConversationEventRRWeb.md) |  | [optional]
 **event_type** | **string** | Type of event | [optional]
 **event_updated_message** | [**\ultracart\v2\models\ConversationMessage**](ConversationMessage.md) |  | [optional]
 **message** | [**\ultracart\v2\models\ConversationMessage**](ConversationMessage.md) |  | [optional]

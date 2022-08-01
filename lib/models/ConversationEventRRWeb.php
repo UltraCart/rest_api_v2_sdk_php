@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationMessage
+ * ConversationEventRRWeb
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationMessage Class Doc Comment
+ * ConversationEventRRWeb Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationEventRRWeb implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationMessage';
+    protected static $openAPIModelName = 'ConversationEventRRWeb';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,15 +58,13 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'author_conversation_participant_arn' => 'string',
-        'author_conversation_participant_name' => 'string',
-        'body' => 'string',
-        'client_message_id' => 'string',
-        'media_urls' => 'string[]',
-        'message_dts' => 'string',
-        'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]',
-        'type' => 'string',
-        'upload_keys' => 'string[]'
+        'data' => 'string',
+        'data_part' => 'int',
+        'data_sha256' => 'string',
+        'data_total_parts' => 'int',
+        'data_total_sha256' => 'string',
+        'event_index' => 'int',
+        'type' => 'string'
     ];
 
     /**
@@ -77,15 +75,13 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'author_conversation_participant_arn' => null,
-        'author_conversation_participant_name' => null,
-        'body' => null,
-        'client_message_id' => null,
-        'media_urls' => null,
-        'message_dts' => 'dateTime',
-        'transport_statuses' => null,
-        'type' => null,
-        'upload_keys' => null
+        'data' => null,
+        'data_part' => 'int32',
+        'data_sha256' => null,
+        'data_total_parts' => 'int32',
+        'data_total_sha256' => null,
+        'event_index' => 'int32',
+        'type' => null
     ];
 
     /**
@@ -115,15 +111,13 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'author_conversation_participant_arn' => 'author_conversation_participant_arn',
-        'author_conversation_participant_name' => 'author_conversation_participant_name',
-        'body' => 'body',
-        'client_message_id' => 'client_message_id',
-        'media_urls' => 'media_urls',
-        'message_dts' => 'message_dts',
-        'transport_statuses' => 'transport_statuses',
-        'type' => 'type',
-        'upload_keys' => 'upload_keys'
+        'data' => 'data',
+        'data_part' => 'data_part',
+        'data_sha256' => 'data_sha256',
+        'data_total_parts' => 'data_total_parts',
+        'data_total_sha256' => 'data_total_sha256',
+        'event_index' => 'event_index',
+        'type' => 'type'
     ];
 
     /**
@@ -132,15 +126,13 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'author_conversation_participant_arn' => 'setAuthorConversationParticipantArn',
-        'author_conversation_participant_name' => 'setAuthorConversationParticipantName',
-        'body' => 'setBody',
-        'client_message_id' => 'setClientMessageId',
-        'media_urls' => 'setMediaUrls',
-        'message_dts' => 'setMessageDts',
-        'transport_statuses' => 'setTransportStatuses',
-        'type' => 'setType',
-        'upload_keys' => 'setUploadKeys'
+        'data' => 'setData',
+        'data_part' => 'setDataPart',
+        'data_sha256' => 'setDataSha256',
+        'data_total_parts' => 'setDataTotalParts',
+        'data_total_sha256' => 'setDataTotalSha256',
+        'event_index' => 'setEventIndex',
+        'type' => 'setType'
     ];
 
     /**
@@ -149,15 +141,13 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'author_conversation_participant_arn' => 'getAuthorConversationParticipantArn',
-        'author_conversation_participant_name' => 'getAuthorConversationParticipantName',
-        'body' => 'getBody',
-        'client_message_id' => 'getClientMessageId',
-        'media_urls' => 'getMediaUrls',
-        'message_dts' => 'getMessageDts',
-        'transport_statuses' => 'getTransportStatuses',
-        'type' => 'getType',
-        'upload_keys' => 'getUploadKeys'
+        'data' => 'getData',
+        'data_part' => 'getDataPart',
+        'data_sha256' => 'getDataSha256',
+        'data_total_parts' => 'getDataTotalParts',
+        'data_total_sha256' => 'getDataTotalSha256',
+        'event_index' => 'getEventIndex',
+        'type' => 'getType'
     ];
 
     /**
@@ -201,8 +191,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
-    public const TYPE_MESSAGE = 'message';
-    public const TYPE_NOTICE = 'notice';
+    public const TYPE_INIT = 'init';
+    public const TYPE_EVENTS = 'events';
 
     /**
      * Gets allowable values of the enum
@@ -212,8 +202,8 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_MESSAGE,
-            self::TYPE_NOTICE,
+            self::TYPE_INIT,
+            self::TYPE_EVENTS,
         ];
     }
 
@@ -232,15 +222,13 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['author_conversation_participant_arn'] = $data['author_conversation_participant_arn'] ?? null;
-        $this->container['author_conversation_participant_name'] = $data['author_conversation_participant_name'] ?? null;
-        $this->container['body'] = $data['body'] ?? null;
-        $this->container['client_message_id'] = $data['client_message_id'] ?? null;
-        $this->container['media_urls'] = $data['media_urls'] ?? null;
-        $this->container['message_dts'] = $data['message_dts'] ?? null;
-        $this->container['transport_statuses'] = $data['transport_statuses'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
+        $this->container['data_part'] = $data['data_part'] ?? null;
+        $this->container['data_sha256'] = $data['data_sha256'] ?? null;
+        $this->container['data_total_parts'] = $data['data_total_parts'] ?? null;
+        $this->container['data_total_sha256'] = $data['data_total_sha256'] ?? null;
+        $this->container['event_index'] = $data['event_index'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
-        $this->container['upload_keys'] = $data['upload_keys'] ?? null;
     }
 
     /**
@@ -277,169 +265,145 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets author_conversation_participant_arn
+     * Gets data
      *
      * @return string|null
      */
-    public function getAuthorConversationParticipantArn()
+    public function getData()
     {
-        return $this->container['author_conversation_participant_arn'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets author_conversation_participant_arn
+     * Sets data
      *
-     * @param string|null $author_conversation_participant_arn author_conversation_participant_arn
+     * @param string|null $data data
      *
      * @return self
      */
-    public function setAuthorConversationParticipantArn($author_conversation_participant_arn)
+    public function setData($data)
     {
-        $this->container['author_conversation_participant_arn'] = $author_conversation_participant_arn;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets author_conversation_participant_name
+     * Gets data_part
+     *
+     * @return int|null
+     */
+    public function getDataPart()
+    {
+        return $this->container['data_part'];
+    }
+
+    /**
+     * Sets data_part
+     *
+     * @param int|null $data_part data_part
+     *
+     * @return self
+     */
+    public function setDataPart($data_part)
+    {
+        $this->container['data_part'] = $data_part;
+
+        return $this;
+    }
+
+    /**
+     * Gets data_sha256
      *
      * @return string|null
      */
-    public function getAuthorConversationParticipantName()
+    public function getDataSha256()
     {
-        return $this->container['author_conversation_participant_name'];
+        return $this->container['data_sha256'];
     }
 
     /**
-     * Sets author_conversation_participant_name
+     * Sets data_sha256
      *
-     * @param string|null $author_conversation_participant_name author_conversation_participant_name
+     * @param string|null $data_sha256 data_sha256
      *
      * @return self
      */
-    public function setAuthorConversationParticipantName($author_conversation_participant_name)
+    public function setDataSha256($data_sha256)
     {
-        $this->container['author_conversation_participant_name'] = $author_conversation_participant_name;
+        $this->container['data_sha256'] = $data_sha256;
 
         return $this;
     }
 
     /**
-     * Gets body
+     * Gets data_total_parts
+     *
+     * @return int|null
+     */
+    public function getDataTotalParts()
+    {
+        return $this->container['data_total_parts'];
+    }
+
+    /**
+     * Sets data_total_parts
+     *
+     * @param int|null $data_total_parts data_total_parts
+     *
+     * @return self
+     */
+    public function setDataTotalParts($data_total_parts)
+    {
+        $this->container['data_total_parts'] = $data_total_parts;
+
+        return $this;
+    }
+
+    /**
+     * Gets data_total_sha256
      *
      * @return string|null
      */
-    public function getBody()
+    public function getDataTotalSha256()
     {
-        return $this->container['body'];
+        return $this->container['data_total_sha256'];
     }
 
     /**
-     * Sets body
+     * Sets data_total_sha256
      *
-     * @param string|null $body body
+     * @param string|null $data_total_sha256 data_total_sha256
      *
      * @return self
      */
-    public function setBody($body)
+    public function setDataTotalSha256($data_total_sha256)
     {
-        $this->container['body'] = $body;
+        $this->container['data_total_sha256'] = $data_total_sha256;
 
         return $this;
     }
 
     /**
-     * Gets client_message_id
+     * Gets event_index
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getClientMessageId()
+    public function getEventIndex()
     {
-        return $this->container['client_message_id'];
+        return $this->container['event_index'];
     }
 
     /**
-     * Sets client_message_id
+     * Sets event_index
      *
-     * @param string|null $client_message_id client_message_id
+     * @param int|null $event_index event_index
      *
      * @return self
      */
-    public function setClientMessageId($client_message_id)
+    public function setEventIndex($event_index)
     {
-        $this->container['client_message_id'] = $client_message_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets media_urls
-     *
-     * @return string[]|null
-     */
-    public function getMediaUrls()
-    {
-        return $this->container['media_urls'];
-    }
-
-    /**
-     * Sets media_urls
-     *
-     * @param string[]|null $media_urls media_urls
-     *
-     * @return self
-     */
-    public function setMediaUrls($media_urls)
-    {
-        $this->container['media_urls'] = $media_urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets message_dts
-     *
-     * @return string|null
-     */
-    public function getMessageDts()
-    {
-        return $this->container['message_dts'];
-    }
-
-    /**
-     * Sets message_dts
-     *
-     * @param string|null $message_dts Message date/time
-     *
-     * @return self
-     */
-    public function setMessageDts($message_dts)
-    {
-        $this->container['message_dts'] = $message_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets transport_statuses
-     *
-     * @return \ultracart\v2\models\ConversationMessageTransportStatus[]|null
-     */
-    public function getTransportStatuses()
-    {
-        return $this->container['transport_statuses'];
-    }
-
-    /**
-     * Sets transport_statuses
-     *
-     * @param \ultracart\v2\models\ConversationMessageTransportStatus[]|null $transport_statuses transport_statuses
-     *
-     * @return self
-     */
-    public function setTransportStatuses($transport_statuses)
-    {
-        $this->container['transport_statuses'] = $transport_statuses;
+        $this->container['event_index'] = $event_index;
 
         return $this;
     }
@@ -457,7 +421,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets type
      *
-     * @param string|null $type Message type
+     * @param string|null $type Type of event
      *
      * @return self
      */
@@ -474,30 +438,6 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets upload_keys
-     *
-     * @return string[]|null
-     */
-    public function getUploadKeys()
-    {
-        return $this->container['upload_keys'];
-    }
-
-    /**
-     * Sets upload_keys
-     *
-     * @param string[]|null $upload_keys upload_keys
-     *
-     * @return self
-     */
-    public function setUploadKeys($upload_keys)
-    {
-        $this->container['upload_keys'] = $upload_keys;
 
         return $this;
     }
