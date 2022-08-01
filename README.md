@@ -633,6 +633,7 @@ Class | Method | HTTP request | Description
  - [ConversationAgentAuth](docs/Model/ConversationAgentAuth.md)
  - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
  - [ConversationEventQueuePosition](docs/Model/ConversationEventQueuePosition.md)
+ - [ConversationEventRRWeb](docs/Model/ConversationEventRRWeb.md)
  - [ConversationMessage](docs/Model/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
  - [ConversationMultimediaUploadUrl](docs/Model/ConversationMultimediaUploadUrl.md)
@@ -1244,6 +1245,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.30 | 08/01/2022 | conversation event refinement |
 | 3.10.29 | 07/29/2022 | conversation development |
 | 3.10.28 | 07/28/2022 | conversation bug fixes |
 | 3.10.27 | 07/28/2022 | conversation message upload keys property |
