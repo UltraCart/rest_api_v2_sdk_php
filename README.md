@@ -363,6 +363,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**sendEmailTest**](docs/Api/StorefrontApi.md#sendemailtest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**sendPostcardTest**](docs/Api/StorefrontApi.md#sendpostcardtest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
 *StorefrontApi* | [**sendWebhookTest**](docs/Api/StorefrontApi.md#sendwebhooktest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
+*StorefrontApi* | [**sequenceTest**](docs/Api/StorefrontApi.md#sequencetest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 *StorefrontApi* | [**startEmailCampaign**](docs/Api/StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
 *StorefrontApi* | [**subscribeToEmailList**](docs/Api/StorefrontApi.md#subscribetoemaillist) | **POST** /storefront/{storefront_oid}/email/lists/{email_list_uuid}/subscribe | Subscribe customers to email list
 *StorefrontApi* | [**unfavoriteScreenRecording**](docs/Api/StorefrontApi.md#unfavoritescreenrecording) | **DELETE** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Remove favorite flag on screen recording
@@ -699,6 +700,8 @@ Class | Method | HTTP request | Description
 - [EmailCommseqPostcardsRequest](docs/Model/EmailCommseqPostcardsRequest.md)
 - [EmailCommseqPostcardsResponse](docs/Model/EmailCommseqPostcardsResponse.md)
 - [EmailCommseqResponse](docs/Model/EmailCommseqResponse.md)
+- [EmailCommseqSequenceTestRequest](docs/Model/EmailCommseqSequenceTestRequest.md)
+- [EmailCommseqSequenceTestResponse](docs/Model/EmailCommseqSequenceTestResponse.md)
 - [EmailCommseqStat](docs/Model/EmailCommseqStat.md)
 - [EmailCommseqStatResponse](docs/Model/EmailCommseqStatResponse.md)
 - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
@@ -1186,6 +1189,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.48-RC | 08/02/2022 | storefront communication sequence test method |
 | 4.0.47-RC | 08/01/2022 | conversation event refinement |
 | 4.0.46-RC | 07/29/2022 | conversation development |
 | 4.0.45-RC | 07/28/2022 | conversation bug fixes |
