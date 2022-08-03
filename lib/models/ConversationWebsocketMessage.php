@@ -65,6 +65,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_queue_status_update' => '\ultracart\v2\models\ConversationWebchatQueueStatus',
         'event_rrweb' => '\ultracart\v2\models\ConversationEventRRWeb',
         'event_type' => 'string',
+        'event_typing' => '\ultracart\v2\models\ConversationEventTyping',
         'event_updated_message' => '\ultracart\v2\models\ConversationMessage',
         'message' => '\ultracart\v2\models\ConversationMessage',
         'type' => 'string'
@@ -84,6 +85,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_queue_status_update' => null,
         'event_rrweb' => null,
         'event_type' => null,
+        'event_typing' => null,
         'event_updated_message' => null,
         'message' => null,
         'type' => null
@@ -124,6 +126,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_queue_status_update' => 'event_queue_status_update',
         'event_rrweb' => 'event_rrweb',
         'event_type' => 'event_type',
+        'event_typing' => 'event_typing',
         'event_updated_message' => 'event_updated_message',
         'message' => 'message',
         'type' => 'type'
@@ -143,6 +146,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_queue_status_update' => 'setEventQueueStatusUpdate',
         'event_rrweb' => 'setEventRrweb',
         'event_type' => 'setEventType',
+        'event_typing' => 'setEventTyping',
         'event_updated_message' => 'setEventUpdatedMessage',
         'message' => 'setMessage',
         'type' => 'setType'
@@ -162,6 +166,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_queue_status_update' => 'getEventQueueStatusUpdate',
         'event_rrweb' => 'getEventRrweb',
         'event_type' => 'getEventType',
+        'event_typing' => 'getEventTyping',
         'event_updated_message' => 'getEventUpdatedMessage',
         'message' => 'getMessage',
         'type' => 'getType'
@@ -281,6 +286,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         $this->container['event_queue_status_update'] = isset($data['event_queue_status_update']) ? $data['event_queue_status_update'] : null;
         $this->container['event_rrweb'] = isset($data['event_rrweb']) ? $data['event_rrweb'] : null;
         $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : null;
+        $this->container['event_typing'] = isset($data['event_typing']) ? $data['event_typing'] : null;
         $this->container['event_updated_message'] = isset($data['event_updated_message']) ? $data['event_updated_message'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -523,6 +529,30 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
             );
         }
         $this->container['event_type'] = $event_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_typing
+     *
+     * @return \ultracart\v2\models\ConversationEventTyping
+     */
+    public function getEventTyping()
+    {
+        return $this->container['event_typing'];
+    }
+
+    /**
+     * Sets event_typing
+     *
+     * @param \ultracart\v2\models\ConversationEventTyping $event_typing event_typing
+     *
+     * @return $this
+     */
+    public function setEventTyping($event_typing)
+    {
+        $this->container['event_typing'] = $event_typing;
 
         return $this;
     }
