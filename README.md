@@ -562,6 +562,7 @@ Class | Method | HTTP request | Description
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
 - [ConversationEventQueuePosition](docs/Model/ConversationEventQueuePosition.md)
 - [ConversationEventRRWeb](docs/Model/ConversationEventRRWeb.md)
+- [ConversationEventTyping](docs/Model/ConversationEventTyping.md)
 - [ConversationMessage](docs/Model/ConversationMessage.md)
 - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
 - [ConversationMultimediaUploadUrl](docs/Model/ConversationMultimediaUploadUrl.md)
@@ -1189,6 +1190,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.49-RC | 08/03/2022 | more conversation events |
 | 4.0.48-RC | 08/02/2022 | storefront communication sequence test method |
 | 4.0.47-RC | 08/01/2022 | conversation event refinement |
 | 4.0.46-RC | 07/29/2022 | conversation development |
