@@ -66,6 +66,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess
         'last_message_dts' => 'string',
         'merchant_id' => 'string',
         'message_count' => 'int',
+        'participants' => '\ultracart\v2\models\ConversationParticipant[]',
         'start_dts' => 'string',
         'unread_messages' => 'bool',
         'visible' => 'bool'
@@ -86,6 +87,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess
         'last_message_dts' => 'dateTime',
         'merchant_id' => null,
         'message_count' => 'int32',
+        'participants' => null,
         'start_dts' => 'dateTime',
         'unread_messages' => null,
         'visible' => null
@@ -127,6 +129,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess
         'last_message_dts' => 'last_message_dts',
         'merchant_id' => 'merchant_id',
         'message_count' => 'message_count',
+        'participants' => 'participants',
         'start_dts' => 'start_dts',
         'unread_messages' => 'unread_messages',
         'visible' => 'visible'
@@ -147,6 +150,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess
         'last_message_dts' => 'setLastMessageDts',
         'merchant_id' => 'setMerchantId',
         'message_count' => 'setMessageCount',
+        'participants' => 'setParticipants',
         'start_dts' => 'setStartDts',
         'unread_messages' => 'setUnreadMessages',
         'visible' => 'setVisible'
@@ -167,6 +171,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess
         'last_message_dts' => 'getLastMessageDts',
         'merchant_id' => 'getMerchantId',
         'message_count' => 'getMessageCount',
+        'participants' => 'getParticipants',
         'start_dts' => 'getStartDts',
         'unread_messages' => 'getUnreadMessages',
         'visible' => 'getVisible'
@@ -241,6 +246,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess
         $this->container['last_message_dts'] = isset($data['last_message_dts']) ? $data['last_message_dts'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['message_count'] = isset($data['message_count']) ? $data['message_count'] : null;
+        $this->container['participants'] = isset($data['participants']) ? $data['participants'] : null;
         $this->container['start_dts'] = isset($data['start_dts']) ? $data['start_dts'] : null;
         $this->container['unread_messages'] = isset($data['unread_messages']) ? $data['unread_messages'] : null;
         $this->container['visible'] = isset($data['visible']) ? $data['visible'] : null;
@@ -482,6 +488,30 @@ class ConversationSummary implements ModelInterface, ArrayAccess
     public function setMessageCount($message_count)
     {
         $this->container['message_count'] = $message_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets participants
+     *
+     * @return \ultracart\v2\models\ConversationParticipant[]
+     */
+    public function getParticipants()
+    {
+        return $this->container['participants'];
+    }
+
+    /**
+     * Sets participants
+     *
+     * @param \ultracart\v2\models\ConversationParticipant[] $participants participants
+     *
+     * @return $this
+     */
+    public function setParticipants($participants)
+    {
+        $this->container['participants'] = $participants;
 
         return $this;
     }

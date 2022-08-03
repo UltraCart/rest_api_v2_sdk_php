@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **event_conversation_closed** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **event_new_conversation** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **event_new_message** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
+**event_participant_update** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **event_queue_position** | [**\ultracart\v2\models\ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  | [optional] 
 **event_queue_status_update** | [**\ultracart\v2\models\ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  | [optional] 
 **event_rrweb** | [**\ultracart\v2\models\ConversationEventRRWeb**](ConversationEventRRWeb.md) |  | [optional] 
