@@ -61,7 +61,9 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => 'string',
         'body' => 'string',
         'client_message_id' => 'string',
+        'conversation_message_uuid' => 'string',
         'media_urls' => 'string[]',
+        'merchant_id' => 'string',
         'message_dts' => 'string',
         'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]',
         'type' => 'string',
@@ -78,7 +80,9 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => null,
         'body' => null,
         'client_message_id' => null,
+        'conversation_message_uuid' => null,
         'media_urls' => null,
+        'merchant_id' => null,
         'message_dts' => 'dateTime',
         'transport_statuses' => null,
         'type' => null,
@@ -116,7 +120,9 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => 'author_conversation_participant_name',
         'body' => 'body',
         'client_message_id' => 'client_message_id',
+        'conversation_message_uuid' => 'conversation_message_uuid',
         'media_urls' => 'media_urls',
+        'merchant_id' => 'merchant_id',
         'message_dts' => 'message_dts',
         'transport_statuses' => 'transport_statuses',
         'type' => 'type',
@@ -133,7 +139,9 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => 'setAuthorConversationParticipantName',
         'body' => 'setBody',
         'client_message_id' => 'setClientMessageId',
+        'conversation_message_uuid' => 'setConversationMessageUuid',
         'media_urls' => 'setMediaUrls',
+        'merchant_id' => 'setMerchantId',
         'message_dts' => 'setMessageDts',
         'transport_statuses' => 'setTransportStatuses',
         'type' => 'setType',
@@ -150,7 +158,9 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         'author_conversation_participant_name' => 'getAuthorConversationParticipantName',
         'body' => 'getBody',
         'client_message_id' => 'getClientMessageId',
+        'conversation_message_uuid' => 'getConversationMessageUuid',
         'media_urls' => 'getMediaUrls',
+        'merchant_id' => 'getMerchantId',
         'message_dts' => 'getMessageDts',
         'transport_statuses' => 'getTransportStatuses',
         'type' => 'getType',
@@ -236,7 +246,9 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         $this->container['author_conversation_participant_name'] = isset($data['author_conversation_participant_name']) ? $data['author_conversation_participant_name'] : null;
         $this->container['body'] = isset($data['body']) ? $data['body'] : null;
         $this->container['client_message_id'] = isset($data['client_message_id']) ? $data['client_message_id'] : null;
+        $this->container['conversation_message_uuid'] = isset($data['conversation_message_uuid']) ? $data['conversation_message_uuid'] : null;
         $this->container['media_urls'] = isset($data['media_urls']) ? $data['media_urls'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['message_dts'] = isset($data['message_dts']) ? $data['message_dts'] : null;
         $this->container['transport_statuses'] = isset($data['transport_statuses']) ? $data['transport_statuses'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -372,6 +384,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets conversation_message_uuid
+     *
+     * @return string
+     */
+    public function getConversationMessageUuid()
+    {
+        return $this->container['conversation_message_uuid'];
+    }
+
+    /**
+     * Sets conversation_message_uuid
+     *
+     * @param string $conversation_message_uuid conversation_message_uuid
+     *
+     * @return $this
+     */
+    public function setConversationMessageUuid($conversation_message_uuid)
+    {
+        $this->container['conversation_message_uuid'] = $conversation_message_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets media_urls
      *
      * @return string[]
@@ -391,6 +427,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess
     public function setMediaUrls($media_urls)
     {
         $this->container['media_urls'] = $media_urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
+     *
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     *
+     * @param string $merchant_id merchant_id
+     *
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }
