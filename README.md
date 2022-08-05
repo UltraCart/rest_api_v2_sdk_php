@@ -1190,6 +1190,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.51-RC | 08/05/2022 | conversations query by medium and stats fixes |
 | 4.0.50-RC | 08/03/2022 | conversation summary participants |
 | 4.0.49-RC | 08/03/2022 | more conversation events |
 | 4.0.48-RC | 08/02/2022 | storefront communication sequence test method |

@@ -1,3 +1,3 @@
 #!/bin/sh
-git tag 4.0.49-RC
+git tag 4.0.50-RC
 git push --tags origin

@@ -240,7 +240,7 @@ This endpoint does not need any parameter.
 ## `getConversations()`
 
 ```php
-getConversations($_limit, $_offset): \ultracart\v2\models\ConversationsResponse
+getConversations($medium, $_limit, $_offset): \ultracart\v2\models\ConversationsResponse
 ```
 
 Retrieve a list of conversation summaries newest to oldest
@@ -261,11 +261,12 @@ require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/m
 $apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
             Constants::VERIFY_SSL, Constants::DEBUG);
 
+$medium = 'medium_example'; // string
 $_limit = 100; // int | The maximum number of records to return on this one API call. (Max 200)
 $_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
 
 try {
-    $result = $apiInstance->getConversations($_limit, $_offset);
+    $result = $apiInstance->getConversations($medium, $_limit, $_offset);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConversationApi->getConversations: ', $e->getMessage(), PHP_EOL;
@@ -276,6 +277,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **medium** | **string**|  | [optional]
  **_limit** | **int**| The maximum number of records to return on this one API call. (Max 200) | [optional] [default to 100]
  **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
 

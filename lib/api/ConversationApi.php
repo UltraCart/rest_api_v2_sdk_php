@@ -1882,6 +1882,7 @@ class ConversationApi
      *
      * Retrieve a list of conversation summaries newest to oldest
      *
+     * @param  string $medium medium (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      *
@@ -1889,9 +1890,9 @@ class ConversationApi
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\ConversationsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function getConversations($_limit = 100, $_offset = 0)
+    public function getConversations($medium = null, $_limit = 100, $_offset = 0)
     {
-        list($response) = $this->getConversationsWithHttpInfo($_limit, $_offset);
+        list($response) = $this->getConversationsWithHttpInfo($medium, $_limit, $_offset);
         return $response;
     }
 
@@ -1900,6 +1901,7 @@ class ConversationApi
      *
      * Retrieve a list of conversation summaries newest to oldest
      *
+     * @param  string $medium (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      *
@@ -1907,9 +1909,9 @@ class ConversationApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ConversationsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConversationsWithHttpInfo($_limit = 100, $_offset = 0)
+    public function getConversationsWithHttpInfo($medium = null, $_limit = 100, $_offset = 0)
     {
-        return $this->getConversationsWithHttpInfoRetry(true ,   $_limit,   $_offset);
+        return $this->getConversationsWithHttpInfoRetry(true ,   $medium,   $_limit,   $_offset);
     }
 
 
@@ -1920,6 +1922,7 @@ class ConversationApi
      * Retrieve a list of conversation summaries newest to oldest
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $medium (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      *
@@ -1927,10 +1930,10 @@ class ConversationApi
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ConversationsResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConversationsWithHttpInfoRetry($retry , $_limit = 100, $_offset = 0)
+    public function getConversationsWithHttpInfoRetry($retry , $medium = null, $_limit = 100, $_offset = 0)
     {
         $returnType = '\ultracart\v2\models\ConversationsResponse';
-        $request = $this->getConversationsRequest($_limit, $_offset);
+        $request = $this->getConversationsRequest($medium, $_limit, $_offset);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1949,7 +1952,7 @@ class ConversationApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getConversationsWithHttpInfoRetry(false ,   $_limit,   $_offset);
+                        return $this->getConversationsWithHttpInfoRetry(false ,   $medium,   $_limit,   $_offset);
                     }
                 }
 
@@ -2156,15 +2159,16 @@ class ConversationApi
      *
      * Retrieve a list of conversation summaries newest to oldest
      *
+     * @param  string $medium (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConversationsAsync($_limit = 100, $_offset = 0)
+    public function getConversationsAsync($medium = null, $_limit = 100, $_offset = 0)
     {
-        return $this->getConversationsAsyncWithHttpInfo($_limit, $_offset)
+        return $this->getConversationsAsyncWithHttpInfo($medium, $_limit, $_offset)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2177,16 +2181,17 @@ class ConversationApi
      *
      * Retrieve a list of conversation summaries newest to oldest
      *
+     * @param  string $medium (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConversationsAsyncWithHttpInfo($_limit = 100, $_offset = 0)
+    public function getConversationsAsyncWithHttpInfo($medium = null, $_limit = 100, $_offset = 0)
     {
         $returnType = '\ultracart\v2\models\ConversationsResponse';
-        $request = $this->getConversationsRequest($_limit, $_offset);
+        $request = $this->getConversationsRequest($medium, $_limit, $_offset);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2227,13 +2232,14 @@ class ConversationApi
     /**
      * Create request for operation 'getConversations'
      *
+     * @param  string $medium (optional)
      * @param  int $_limit The maximum number of records to return on this one API call. (Max 200) (optional, default to 100)
      * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getConversationsRequest($_limit = 100, $_offset = 0)
+    public function getConversationsRequest($medium = null, $_limit = 100, $_offset = 0)
     {
 
         $resourcePath = '/conversation/conversations';
@@ -2243,6 +2249,15 @@ class ConversationApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $medium,
+            'medium', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $_limit,

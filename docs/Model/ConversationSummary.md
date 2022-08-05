@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **last_conversation_participant_arn** | **string** |  | [optional]
 **last_conversation_participant_name** | **string** |  | [optional]
 **last_message_dts** | **string** | Last message date/time | [optional]
+**medium** | **string** | The communication medium of the customer. | [optional]
 **merchant_id** | **string** |  | [optional]
 **message_count** | **int** |  | [optional]
 **participants** | [**\ultracart\v2\models\ConversationParticipant[]**](ConversationParticipant.md) |  | [optional]

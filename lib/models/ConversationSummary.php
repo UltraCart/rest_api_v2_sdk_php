@@ -65,6 +65,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_participant_arn' => 'string',
         'last_conversation_participant_name' => 'string',
         'last_message_dts' => 'string',
+        'medium' => 'string',
         'merchant_id' => 'string',
         'message_count' => 'int',
         'participants' => '\ultracart\v2\models\ConversationParticipant[]',
@@ -88,6 +89,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_participant_arn' => null,
         'last_conversation_participant_name' => null,
         'last_message_dts' => 'dateTime',
+        'medium' => null,
         'merchant_id' => null,
         'message_count' => 'int32',
         'participants' => null,
@@ -130,6 +132,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_participant_arn' => 'last_conversation_participant_arn',
         'last_conversation_participant_name' => 'last_conversation_participant_name',
         'last_message_dts' => 'last_message_dts',
+        'medium' => 'medium',
         'merchant_id' => 'merchant_id',
         'message_count' => 'message_count',
         'participants' => 'participants',
@@ -151,6 +154,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_participant_arn' => 'setLastConversationParticipantArn',
         'last_conversation_participant_name' => 'setLastConversationParticipantName',
         'last_message_dts' => 'setLastMessageDts',
+        'medium' => 'setMedium',
         'merchant_id' => 'setMerchantId',
         'message_count' => 'setMessageCount',
         'participants' => 'setParticipants',
@@ -172,6 +176,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_participant_arn' => 'getLastConversationParticipantArn',
         'last_conversation_participant_name' => 'getLastConversationParticipantName',
         'last_message_dts' => 'getLastMessageDts',
+        'medium' => 'getMedium',
         'merchant_id' => 'getMerchantId',
         'message_count' => 'getMessageCount',
         'participants' => 'getParticipants',
@@ -221,6 +226,21 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const MEDIUM_SMS = 'sms';
+    public const MEDIUM_WEBSOCKET = 'websocket';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMediumAllowableValues()
+    {
+        return [
+            self::MEDIUM_SMS,
+            self::MEDIUM_WEBSOCKET,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -244,6 +264,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['last_conversation_participant_arn'] = $data['last_conversation_participant_arn'] ?? null;
         $this->container['last_conversation_participant_name'] = $data['last_conversation_participant_name'] ?? null;
         $this->container['last_message_dts'] = $data['last_message_dts'] ?? null;
+        $this->container['medium'] = $data['medium'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['message_count'] = $data['message_count'] ?? null;
         $this->container['participants'] = $data['participants'] ?? null;
@@ -260,6 +281,15 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getMediumAllowableValues();
+        if (!is_null($this->container['medium']) && !in_array($this->container['medium'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'medium', must be one of '%s'",
+                $this->container['medium'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -440,6 +470,40 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setLastMessageDts($last_message_dts)
     {
         $this->container['last_message_dts'] = $last_message_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets medium
+     *
+     * @return string|null
+     */
+    public function getMedium()
+    {
+        return $this->container['medium'];
+    }
+
+    /**
+     * Sets medium
+     *
+     * @param string|null $medium The communication medium of the customer.
+     *
+     * @return self
+     */
+    public function setMedium($medium)
+    {
+        $allowedValues = $this->getMediumAllowableValues();
+        if (!is_null($medium) && !in_array($medium, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'medium', must be one of '%s'",
+                    $medium,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['medium'] = $medium;
 
         return $this;
     }
