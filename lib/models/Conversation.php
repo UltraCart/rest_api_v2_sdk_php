@@ -60,9 +60,18 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => 'bool',
         'conversation_arn' => 'string',
         'conversation_uuid' => 'string',
+        'last_conversation_message_body' => 'string',
+        'last_conversation_participant_arn' => 'string',
+        'last_conversation_participant_name' => 'string',
+        'last_message_dts' => 'string',
+        'medium' => 'string',
         'merchant_id' => 'string',
+        'message_count' => 'int',
         'messages' => '\ultracart\v2\models\ConversationMessage[]',
-        'participants' => '\ultracart\v2\models\ConversationParticipant[]'
+        'participants' => '\ultracart\v2\models\ConversationParticipant[]',
+        'start_dts' => 'string',
+        'unread_messages' => 'bool',
+        'visible' => 'bool'
     ];
 
     /**
@@ -74,9 +83,18 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => null,
         'conversation_arn' => null,
         'conversation_uuid' => null,
+        'last_conversation_message_body' => null,
+        'last_conversation_participant_arn' => null,
+        'last_conversation_participant_name' => null,
+        'last_message_dts' => 'dateTime',
+        'medium' => null,
         'merchant_id' => null,
+        'message_count' => 'int32',
         'messages' => null,
-        'participants' => null
+        'participants' => null,
+        'start_dts' => 'dateTime',
+        'unread_messages' => null,
+        'visible' => null
     ];
 
     /**
@@ -109,9 +127,18 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => 'closed',
         'conversation_arn' => 'conversation_arn',
         'conversation_uuid' => 'conversation_uuid',
+        'last_conversation_message_body' => 'last_conversation_message_body',
+        'last_conversation_participant_arn' => 'last_conversation_participant_arn',
+        'last_conversation_participant_name' => 'last_conversation_participant_name',
+        'last_message_dts' => 'last_message_dts',
+        'medium' => 'medium',
         'merchant_id' => 'merchant_id',
+        'message_count' => 'message_count',
         'messages' => 'messages',
-        'participants' => 'participants'
+        'participants' => 'participants',
+        'start_dts' => 'start_dts',
+        'unread_messages' => 'unread_messages',
+        'visible' => 'visible'
     ];
 
     /**
@@ -123,9 +150,18 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => 'setClosed',
         'conversation_arn' => 'setConversationArn',
         'conversation_uuid' => 'setConversationUuid',
+        'last_conversation_message_body' => 'setLastConversationMessageBody',
+        'last_conversation_participant_arn' => 'setLastConversationParticipantArn',
+        'last_conversation_participant_name' => 'setLastConversationParticipantName',
+        'last_message_dts' => 'setLastMessageDts',
+        'medium' => 'setMedium',
         'merchant_id' => 'setMerchantId',
+        'message_count' => 'setMessageCount',
         'messages' => 'setMessages',
-        'participants' => 'setParticipants'
+        'participants' => 'setParticipants',
+        'start_dts' => 'setStartDts',
+        'unread_messages' => 'setUnreadMessages',
+        'visible' => 'setVisible'
     ];
 
     /**
@@ -137,9 +173,18 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => 'getClosed',
         'conversation_arn' => 'getConversationArn',
         'conversation_uuid' => 'getConversationUuid',
+        'last_conversation_message_body' => 'getLastConversationMessageBody',
+        'last_conversation_participant_arn' => 'getLastConversationParticipantArn',
+        'last_conversation_participant_name' => 'getLastConversationParticipantName',
+        'last_message_dts' => 'getLastMessageDts',
+        'medium' => 'getMedium',
         'merchant_id' => 'getMerchantId',
+        'message_count' => 'getMessageCount',
         'messages' => 'getMessages',
-        'participants' => 'getParticipants'
+        'participants' => 'getParticipants',
+        'start_dts' => 'getStartDts',
+        'unread_messages' => 'getUnreadMessages',
+        'visible' => 'getVisible'
     ];
 
     /**
@@ -183,8 +228,23 @@ class Conversation implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const MEDIUM_SMS = 'sms';
+    const MEDIUM_WEBSOCKET = 'websocket';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMediumAllowableValues()
+    {
+        return [
+            self::MEDIUM_SMS,
+            self::MEDIUM_WEBSOCKET,
+        ];
+    }
     
 
     /**
@@ -205,9 +265,18 @@ class Conversation implements ModelInterface, ArrayAccess
         $this->container['closed'] = isset($data['closed']) ? $data['closed'] : null;
         $this->container['conversation_arn'] = isset($data['conversation_arn']) ? $data['conversation_arn'] : null;
         $this->container['conversation_uuid'] = isset($data['conversation_uuid']) ? $data['conversation_uuid'] : null;
+        $this->container['last_conversation_message_body'] = isset($data['last_conversation_message_body']) ? $data['last_conversation_message_body'] : null;
+        $this->container['last_conversation_participant_arn'] = isset($data['last_conversation_participant_arn']) ? $data['last_conversation_participant_arn'] : null;
+        $this->container['last_conversation_participant_name'] = isset($data['last_conversation_participant_name']) ? $data['last_conversation_participant_name'] : null;
+        $this->container['last_message_dts'] = isset($data['last_message_dts']) ? $data['last_message_dts'] : null;
+        $this->container['medium'] = isset($data['medium']) ? $data['medium'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['message_count'] = isset($data['message_count']) ? $data['message_count'] : null;
         $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
         $this->container['participants'] = isset($data['participants']) ? $data['participants'] : null;
+        $this->container['start_dts'] = isset($data['start_dts']) ? $data['start_dts'] : null;
+        $this->container['unread_messages'] = isset($data['unread_messages']) ? $data['unread_messages'] : null;
+        $this->container['visible'] = isset($data['visible']) ? $data['visible'] : null;
     }
 
     /**
@@ -218,6 +287,14 @@ class Conversation implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getMediumAllowableValues();
+        if (!is_null($this->container['medium']) && !in_array($this->container['medium'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'medium', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -307,6 +384,135 @@ class Conversation implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets last_conversation_message_body
+     *
+     * @return string
+     */
+    public function getLastConversationMessageBody()
+    {
+        return $this->container['last_conversation_message_body'];
+    }
+
+    /**
+     * Sets last_conversation_message_body
+     *
+     * @param string $last_conversation_message_body last_conversation_message_body
+     *
+     * @return $this
+     */
+    public function setLastConversationMessageBody($last_conversation_message_body)
+    {
+        $this->container['last_conversation_message_body'] = $last_conversation_message_body;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_conversation_participant_arn
+     *
+     * @return string
+     */
+    public function getLastConversationParticipantArn()
+    {
+        return $this->container['last_conversation_participant_arn'];
+    }
+
+    /**
+     * Sets last_conversation_participant_arn
+     *
+     * @param string $last_conversation_participant_arn last_conversation_participant_arn
+     *
+     * @return $this
+     */
+    public function setLastConversationParticipantArn($last_conversation_participant_arn)
+    {
+        $this->container['last_conversation_participant_arn'] = $last_conversation_participant_arn;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_conversation_participant_name
+     *
+     * @return string
+     */
+    public function getLastConversationParticipantName()
+    {
+        return $this->container['last_conversation_participant_name'];
+    }
+
+    /**
+     * Sets last_conversation_participant_name
+     *
+     * @param string $last_conversation_participant_name last_conversation_participant_name
+     *
+     * @return $this
+     */
+    public function setLastConversationParticipantName($last_conversation_participant_name)
+    {
+        $this->container['last_conversation_participant_name'] = $last_conversation_participant_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_message_dts
+     *
+     * @return string
+     */
+    public function getLastMessageDts()
+    {
+        return $this->container['last_message_dts'];
+    }
+
+    /**
+     * Sets last_message_dts
+     *
+     * @param string $last_message_dts Last message date/time
+     *
+     * @return $this
+     */
+    public function setLastMessageDts($last_message_dts)
+    {
+        $this->container['last_message_dts'] = $last_message_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets medium
+     *
+     * @return string
+     */
+    public function getMedium()
+    {
+        return $this->container['medium'];
+    }
+
+    /**
+     * Sets medium
+     *
+     * @param string $medium The communication medium of the customer.
+     *
+     * @return $this
+     */
+    public function setMedium($medium)
+    {
+        $allowedValues = $this->getMediumAllowableValues();
+        if (!is_null($medium) && !in_array($medium, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'medium', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['medium'] = $medium;
+
+        return $this;
+    }
+
+    /**
      * Gets merchant_id
      *
      * @return string
@@ -326,6 +532,30 @@ class Conversation implements ModelInterface, ArrayAccess
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_count
+     *
+     * @return int
+     */
+    public function getMessageCount()
+    {
+        return $this->container['message_count'];
+    }
+
+    /**
+     * Sets message_count
+     *
+     * @param int $message_count message_count
+     *
+     * @return $this
+     */
+    public function setMessageCount($message_count)
+    {
+        $this->container['message_count'] = $message_count;
 
         return $this;
     }
@@ -374,6 +604,78 @@ class Conversation implements ModelInterface, ArrayAccess
     public function setParticipants($participants)
     {
         $this->container['participants'] = $participants;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_dts
+     *
+     * @return string
+     */
+    public function getStartDts()
+    {
+        return $this->container['start_dts'];
+    }
+
+    /**
+     * Sets start_dts
+     *
+     * @param string $start_dts Start of the conversation date/time
+     *
+     * @return $this
+     */
+    public function setStartDts($start_dts)
+    {
+        $this->container['start_dts'] = $start_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets unread_messages
+     *
+     * @return bool
+     */
+    public function getUnreadMessages()
+    {
+        return $this->container['unread_messages'];
+    }
+
+    /**
+     * Sets unread_messages
+     *
+     * @param bool $unread_messages unread_messages
+     *
+     * @return $this
+     */
+    public function setUnreadMessages($unread_messages)
+    {
+        $this->container['unread_messages'] = $unread_messages;
+
+        return $this;
+    }
+
+    /**
+     * Gets visible
+     *
+     * @return bool
+     */
+    public function getVisible()
+    {
+        return $this->container['visible'];
+    }
+
+    /**
+     * Sets visible
+     *
+     * @param bool $visible visible
+     *
+     * @return $this
+     */
+    public function setVisible($visible)
+    {
+        $this->container['visible'] = $visible;
 
         return $this;
     }

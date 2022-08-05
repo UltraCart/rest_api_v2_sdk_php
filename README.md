@@ -1249,6 +1249,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.34 | 08/05/2022 | conversations query by medium and stats fixes |
 | 3.10.33 | 08/03/2022 | conversation summary participants |
 | 3.10.32 | 08/03/2022 | more conversation events |
 | 3.10.31 | 08/02/2022 | storefront communication sequence test method |
