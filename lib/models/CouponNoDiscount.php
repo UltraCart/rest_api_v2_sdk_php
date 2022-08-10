@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationMessageTransportStatus
+ * CouponNoDiscount
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationMessageTransportStatus Class Doc Comment
+ * CouponNoDiscount Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess, \JsonSerializable
+class CouponNoDiscount implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationMessageTransportStatus';
+    protected static $openAPIModelName = 'CouponNoDiscount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'conversation_participant_arn' => 'string',
-        'status' => 'string'
+        'ignore_this_property' => 'bool'
     ];
 
     /**
@@ -70,8 +69,7 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'conversation_participant_arn' => null,
-        'status' => null
+        'ignore_this_property' => null
     ];
 
     /**
@@ -101,8 +99,7 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_participant_arn' => 'conversation_participant_arn',
-        'status' => 'status'
+        'ignore_this_property' => 'ignore_this_property'
     ];
 
     /**
@@ -111,8 +108,7 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'conversation_participant_arn' => 'setConversationParticipantArn',
-        'status' => 'setStatus'
+        'ignore_this_property' => 'setIgnoreThisProperty'
     ];
 
     /**
@@ -121,8 +117,7 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'conversation_participant_arn' => 'getConversationParticipantArn',
-        'status' => 'getStatus'
+        'ignore_this_property' => 'getIgnoreThisProperty'
     ];
 
     /**
@@ -166,39 +161,6 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
-    public const STATUS_ACCEPTED = 'accepted';
-    public const STATUS_SCHEDULED = 'scheduled';
-    public const STATUS_QUEUED = 'queued';
-    public const STATUS_SENDING = 'sending';
-    public const STATUS_SENT = 'sent';
-    public const STATUS_READ = 'read';
-    public const STATUS_TWILIO_CREDENTIALS_MISSING = 'TWILIO_CREDENTIALS_MISSING';
-    public const STATUS_SENT_TO_TWILIO = 'SENT_TO_TWILIO';
-    public const STATUS_TWILIO_ERROR = 'TWILIO_ERROR';
-    public const STATUS_SENT_TO_PINPOINT = 'SENT_TO_PINPOINT';
-    public const STATUS_PINPOINT_ERROR = 'PINPOINT_ERROR';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_ACCEPTED,
-            self::STATUS_SCHEDULED,
-            self::STATUS_QUEUED,
-            self::STATUS_SENDING,
-            self::STATUS_SENT,
-            self::STATUS_READ,
-            self::STATUS_TWILIO_CREDENTIALS_MISSING,
-            self::STATUS_SENT_TO_TWILIO,
-            self::STATUS_TWILIO_ERROR,
-            self::STATUS_SENT_TO_PINPOINT,
-            self::STATUS_PINPOINT_ERROR,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -215,8 +177,7 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
+        $this->container['ignore_this_property'] = $data['ignore_this_property'] ?? null;
     }
 
     /**
@@ -227,15 +188,6 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -253,59 +205,25 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets conversation_participant_arn
+     * Gets ignore_this_property
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getConversationParticipantArn()
+    public function getIgnoreThisProperty()
     {
-        return $this->container['conversation_participant_arn'];
+        return $this->container['ignore_this_property'];
     }
 
     /**
-     * Sets conversation_participant_arn
+     * Sets ignore_this_property
      *
-     * @param string|null $conversation_participant_arn conversation_participant_arn
+     * @param bool|null $ignore_this_property This property does nothing but is included in this object to ensure the object is generated by our sdk builders.
      *
      * @return self
      */
-    public function setConversationParticipantArn($conversation_participant_arn)
+    public function setIgnoreThisProperty($ignore_this_property)
     {
-        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status The status of the message transport
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
+        $this->container['ignore_this_property'] = $ignore_this_property;
 
         return $this;
     }

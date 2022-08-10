@@ -64,7 +64,8 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'joined_dts' => 'string',
         'last_message_dts' => 'string',
         'left_dts' => 'string',
-        'status' => 'string'
+        'status' => 'string',
+        'unread_messages' => 'int'
     ];
 
     /**
@@ -81,7 +82,8 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'joined_dts' => 'dateTime',
         'last_message_dts' => 'dateTime',
         'left_dts' => 'dateTime',
-        'status' => null
+        'status' => null,
+        'unread_messages' => 'int32'
     ];
 
     /**
@@ -117,7 +119,8 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'joined_dts' => 'joined_dts',
         'last_message_dts' => 'last_message_dts',
         'left_dts' => 'left_dts',
-        'status' => 'status'
+        'status' => 'status',
+        'unread_messages' => 'unread_messages'
     ];
 
     /**
@@ -132,7 +135,8 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'joined_dts' => 'setJoinedDts',
         'last_message_dts' => 'setLastMessageDts',
         'left_dts' => 'setLeftDts',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'unread_messages' => 'setUnreadMessages'
     ];
 
     /**
@@ -147,7 +151,8 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'joined_dts' => 'getJoinedDts',
         'last_message_dts' => 'getLastMessageDts',
         'left_dts' => 'getLeftDts',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'unread_messages' => 'getUnreadMessages'
     ];
 
     /**
@@ -214,6 +219,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['last_message_dts'] = $data['last_message_dts'] ?? null;
         $this->container['left_dts'] = $data['left_dts'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['unread_messages'] = $data['unread_messages'] ?? null;
     }
 
     /**
@@ -404,6 +410,30 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets unread_messages
+     *
+     * @return int|null
+     */
+    public function getUnreadMessages()
+    {
+        return $this->container['unread_messages'];
+    }
+
+    /**
+     * Sets unread_messages
+     *
+     * @param int|null $unread_messages unread_messages
+     *
+     * @return self
+     */
+    public function setUnreadMessages($unread_messages)
+    {
+        $this->container['unread_messages'] = $unread_messages;
 
         return $this;
     }

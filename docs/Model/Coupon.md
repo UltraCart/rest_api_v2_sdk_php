@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **merchant_code** | **string** | Merchant code of coupon up to 20 characters. | [optional]
 **merchant_notes** | **string** | Internal notes about this coupon.  These are not visible to customer. | [optional]
 **multiple_amounts_off_items** | [**\ultracart\v2\models\CouponMultipleAmountsOffItems**](CouponMultipleAmountsOffItems.md) |  | [optional]
-**no_discount** | **object** |  | [optional]
+**no_discount** | [**\ultracart\v2\models\CouponNoDiscount**](CouponNoDiscount.md) |  | [optional]
 **percent_off_item_with_items_quantity_purchase** | [**\ultracart\v2\models\CouponPercentOffItemWithItemsQuantityPurchase**](CouponPercentOffItemWithItemsQuantityPurchase.md) |  | [optional]
 **percent_off_items** | [**\ultracart\v2\models\CouponPercentOffItems**](CouponPercentOffItems.md) |  | [optional]
 **percent_off_items_and_free_shipping** | [**\ultracart\v2\models\CouponPercentOffItemsAndFreeShipping**](CouponPercentOffItemsAndFreeShipping.md) |  | [optional]

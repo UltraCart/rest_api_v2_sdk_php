@@ -93,7 +93,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_code' => 'string',
         'merchant_notes' => 'string',
         'multiple_amounts_off_items' => '\ultracart\v2\models\CouponMultipleAmountsOffItems',
-        'no_discount' => 'object',
+        'no_discount' => '\ultracart\v2\models\CouponNoDiscount',
         'percent_off_item_with_items_quantity_purchase' => '\ultracart\v2\models\CouponPercentOffItemWithItemsQuantityPurchase',
         'percent_off_items' => '\ultracart\v2\models\CouponPercentOffItems',
         'percent_off_items_and_free_shipping' => '\ultracart\v2\models\CouponPercentOffItemsAndFreeShipping',
@@ -1441,7 +1441,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets no_discount
      *
-     * @return object|null
+     * @return \ultracart\v2\models\CouponNoDiscount|null
      */
     public function getNoDiscount()
     {
@@ -1451,7 +1451,7 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets no_discount
      *
-     * @param object|null $no_discount no_discount
+     * @param \ultracart\v2\models\CouponNoDiscount|null $no_discount no_discount
      *
      * @return self
      */

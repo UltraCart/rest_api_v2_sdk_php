@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationMessageTransportStatus
+ * ConversationEventReadMessage
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationMessageTransportStatus Class Doc Comment
+ * ConversationEventReadMessage Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationEventReadMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationMessageTransportStatus';
+    protected static $openAPIModelName = 'ConversationEventReadMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'conversation_participant_arn' => 'string',
-        'status' => 'string'
+        'conversation_message_uuid' => 'string',
+        'message_dts' => 'string',
+        'message_epoch' => 'int'
     ];
 
     /**
@@ -70,8 +71,9 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'conversation_participant_arn' => null,
-        'status' => null
+        'conversation_message_uuid' => null,
+        'message_dts' => 'dateTime',
+        'message_epoch' => 'int64'
     ];
 
     /**
@@ -101,8 +103,9 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_participant_arn' => 'conversation_participant_arn',
-        'status' => 'status'
+        'conversation_message_uuid' => 'conversation_message_uuid',
+        'message_dts' => 'message_dts',
+        'message_epoch' => 'message_epoch'
     ];
 
     /**
@@ -111,8 +114,9 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'conversation_participant_arn' => 'setConversationParticipantArn',
-        'status' => 'setStatus'
+        'conversation_message_uuid' => 'setConversationMessageUuid',
+        'message_dts' => 'setMessageDts',
+        'message_epoch' => 'setMessageEpoch'
     ];
 
     /**
@@ -121,8 +125,9 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'conversation_participant_arn' => 'getConversationParticipantArn',
-        'status' => 'getStatus'
+        'conversation_message_uuid' => 'getConversationMessageUuid',
+        'message_dts' => 'getMessageDts',
+        'message_epoch' => 'getMessageEpoch'
     ];
 
     /**
@@ -166,39 +171,6 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
-    public const STATUS_ACCEPTED = 'accepted';
-    public const STATUS_SCHEDULED = 'scheduled';
-    public const STATUS_QUEUED = 'queued';
-    public const STATUS_SENDING = 'sending';
-    public const STATUS_SENT = 'sent';
-    public const STATUS_READ = 'read';
-    public const STATUS_TWILIO_CREDENTIALS_MISSING = 'TWILIO_CREDENTIALS_MISSING';
-    public const STATUS_SENT_TO_TWILIO = 'SENT_TO_TWILIO';
-    public const STATUS_TWILIO_ERROR = 'TWILIO_ERROR';
-    public const STATUS_SENT_TO_PINPOINT = 'SENT_TO_PINPOINT';
-    public const STATUS_PINPOINT_ERROR = 'PINPOINT_ERROR';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_ACCEPTED,
-            self::STATUS_SCHEDULED,
-            self::STATUS_QUEUED,
-            self::STATUS_SENDING,
-            self::STATUS_SENT,
-            self::STATUS_READ,
-            self::STATUS_TWILIO_CREDENTIALS_MISSING,
-            self::STATUS_SENT_TO_TWILIO,
-            self::STATUS_TWILIO_ERROR,
-            self::STATUS_SENT_TO_PINPOINT,
-            self::STATUS_PINPOINT_ERROR,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -215,8 +187,9 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
+        $this->container['conversation_message_uuid'] = $data['conversation_message_uuid'] ?? null;
+        $this->container['message_dts'] = $data['message_dts'] ?? null;
+        $this->container['message_epoch'] = $data['message_epoch'] ?? null;
     }
 
     /**
@@ -227,15 +200,6 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -253,59 +217,73 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets conversation_participant_arn
+     * Gets conversation_message_uuid
      *
      * @return string|null
      */
-    public function getConversationParticipantArn()
+    public function getConversationMessageUuid()
     {
-        return $this->container['conversation_participant_arn'];
+        return $this->container['conversation_message_uuid'];
     }
 
     /**
-     * Sets conversation_participant_arn
+     * Sets conversation_message_uuid
      *
-     * @param string|null $conversation_participant_arn conversation_participant_arn
+     * @param string|null $conversation_message_uuid conversation_message_uuid
      *
      * @return self
      */
-    public function setConversationParticipantArn($conversation_participant_arn)
+    public function setConversationMessageUuid($conversation_message_uuid)
     {
-        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
+        $this->container['conversation_message_uuid'] = $conversation_message_uuid;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets message_dts
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getMessageDts()
     {
-        return $this->container['status'];
+        return $this->container['message_dts'];
     }
 
     /**
-     * Sets status
+     * Sets message_dts
      *
-     * @param string|null $status The status of the message transport
+     * @param string|null $message_dts Message date/time
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setMessageDts($message_dts)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
+        $this->container['message_dts'] = $message_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_epoch
+     *
+     * @return int|null
+     */
+    public function getMessageEpoch()
+    {
+        return $this->container['message_epoch'];
+    }
+
+    /**
+     * Sets message_epoch
+     *
+     * @param int|null $message_epoch message_epoch
+     *
+     * @return self
+     */
+    public function setMessageEpoch($message_epoch)
+    {
+        $this->container['message_epoch'] = $message_epoch;
 
         return $this;
     }

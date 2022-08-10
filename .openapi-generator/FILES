@@ -144,6 +144,7 @@ docs/Model/ConversationAgentAuth.md
 docs/Model/ConversationAgentAuthResponse.md
 docs/Model/ConversationEventQueuePosition.md
 docs/Model/ConversationEventRRWeb.md
+docs/Model/ConversationEventReadMessage.md
 docs/Model/ConversationEventTyping.md
 docs/Model/ConversationMessage.md
 docs/Model/ConversationMessageTransportStatus.md
@@ -198,6 +199,7 @@ docs/Model/CouponFreeShippingWithSubtotal.md
 docs/Model/CouponItemSearchResult.md
 docs/Model/CouponItemSearchResultsResponse.md
 docs/Model/CouponMultipleAmountsOffItems.md
+docs/Model/CouponNoDiscount.md
 docs/Model/CouponPercentOffItemWithItemsQuantityPurchase.md
 docs/Model/CouponPercentOffItems.md
 docs/Model/CouponPercentOffItemsAndFreeShipping.md
@@ -827,6 +829,7 @@ lib/models/ConversationAgentAuth.php
 lib/models/ConversationAgentAuthResponse.php
 lib/models/ConversationEventQueuePosition.php
 lib/models/ConversationEventRRWeb.php
+lib/models/ConversationEventReadMessage.php
 lib/models/ConversationEventTyping.php
 lib/models/ConversationMessage.php
 lib/models/ConversationMessageTransportStatus.php
@@ -881,6 +884,7 @@ lib/models/CouponFreeShippingWithSubtotal.php
 lib/models/CouponItemSearchResult.php
 lib/models/CouponItemSearchResultsResponse.php
 lib/models/CouponMultipleAmountsOffItems.php
+lib/models/CouponNoDiscount.php
 lib/models/CouponPercentOffItemWithItemsQuantityPurchase.php
 lib/models/CouponPercentOffItems.php
 lib/models/CouponPercentOffItemsAndFreeShipping.php

@@ -66,6 +66,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'media_urls' => 'string[]',
         'merchant_id' => 'string',
         'message_dts' => 'string',
+        'message_epoch' => 'int',
         'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]',
         'type' => 'string',
         'upload_keys' => 'string[]'
@@ -87,6 +88,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'media_urls' => null,
         'merchant_id' => null,
         'message_dts' => 'dateTime',
+        'message_epoch' => 'int64',
         'transport_statuses' => null,
         'type' => null,
         'upload_keys' => null
@@ -127,6 +129,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'media_urls' => 'media_urls',
         'merchant_id' => 'merchant_id',
         'message_dts' => 'message_dts',
+        'message_epoch' => 'message_epoch',
         'transport_statuses' => 'transport_statuses',
         'type' => 'type',
         'upload_keys' => 'upload_keys'
@@ -146,6 +149,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'media_urls' => 'setMediaUrls',
         'merchant_id' => 'setMerchantId',
         'message_dts' => 'setMessageDts',
+        'message_epoch' => 'setMessageEpoch',
         'transport_statuses' => 'setTransportStatuses',
         'type' => 'setType',
         'upload_keys' => 'setUploadKeys'
@@ -165,6 +169,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'media_urls' => 'getMediaUrls',
         'merchant_id' => 'getMerchantId',
         'message_dts' => 'getMessageDts',
+        'message_epoch' => 'getMessageEpoch',
         'transport_statuses' => 'getTransportStatuses',
         'type' => 'getType',
         'upload_keys' => 'getUploadKeys'
@@ -250,6 +255,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['media_urls'] = $data['media_urls'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['message_dts'] = $data['message_dts'] ?? null;
+        $this->container['message_epoch'] = $data['message_epoch'] ?? null;
         $this->container['transport_statuses'] = $data['transport_statuses'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['upload_keys'] = $data['upload_keys'] ?? null;
@@ -476,6 +482,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setMessageDts($message_dts)
     {
         $this->container['message_dts'] = $message_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_epoch
+     *
+     * @return int|null
+     */
+    public function getMessageEpoch()
+    {
+        return $this->container['message_epoch'];
+    }
+
+    /**
+     * Sets message_epoch
+     *
+     * @param int|null $message_epoch Message epoch milliseconds
+     *
+     * @return self
+     */
+    public function setMessageEpoch($message_epoch)
+    {
+        $this->container['message_epoch'] = $message_epoch;
 
         return $this;
     }
