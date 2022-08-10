@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **media_urls** | **string[]** |  | [optional] 
 **merchant_id** | **string** |  | [optional] 
 **message_dts** | **string** | Message date/time | [optional] 
+**message_epoch** | **int** | Message epoch milliseconds | [optional] 
 **transport_statuses** | [**\ultracart\v2\models\ConversationMessageTransportStatus[]**](ConversationMessageTransportStatus.md) |  | [optional] 
 **type** | **string** | Message type | [optional] 
 **upload_keys** | **string[]** |  | [optional] 

@@ -64,6 +64,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_update' => '\ultracart\v2\models\ConversationSummary',
         'event_queue_position' => '\ultracart\v2\models\ConversationEventQueuePosition',
         'event_queue_status_update' => '\ultracart\v2\models\ConversationWebchatQueueStatus',
+        'event_read_message' => '\ultracart\v2\models\ConversationEventReadMessage',
         'event_rrweb' => '\ultracart\v2\models\ConversationEventRRWeb',
         'event_type' => 'string',
         'event_typing' => '\ultracart\v2\models\ConversationEventTyping',
@@ -85,6 +86,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_update' => null,
         'event_queue_position' => null,
         'event_queue_status_update' => null,
+        'event_read_message' => null,
         'event_rrweb' => null,
         'event_type' => null,
         'event_typing' => null,
@@ -127,6 +129,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_update' => 'event_participant_update',
         'event_queue_position' => 'event_queue_position',
         'event_queue_status_update' => 'event_queue_status_update',
+        'event_read_message' => 'event_read_message',
         'event_rrweb' => 'event_rrweb',
         'event_type' => 'event_type',
         'event_typing' => 'event_typing',
@@ -148,6 +151,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_update' => 'setEventParticipantUpdate',
         'event_queue_position' => 'setEventQueuePosition',
         'event_queue_status_update' => 'setEventQueueStatusUpdate',
+        'event_read_message' => 'setEventReadMessage',
         'event_rrweb' => 'setEventRrweb',
         'event_type' => 'setEventType',
         'event_typing' => 'setEventTyping',
@@ -169,6 +173,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_update' => 'getEventParticipantUpdate',
         'event_queue_position' => 'getEventQueuePosition',
         'event_queue_status_update' => 'getEventQueueStatusUpdate',
+        'event_read_message' => 'getEventReadMessage',
         'event_rrweb' => 'getEventRrweb',
         'event_type' => 'getEventType',
         'event_typing' => 'getEventTyping',
@@ -227,6 +232,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     const EVENT_TYPE_QUEUE_STATUS_UPDATE = 'queue status update';
     const EVENT_TYPE_RRWEB = 'rrweb';
     const EVENT_TYPE_PARTICIPANT_UPDATE = 'participant update';
+    const EVENT_TYPE_READ_MESSAGE = 'read message';
     const TYPE_MESSAGE = 'message';
     const TYPE_EVENT = 'event';
     const TYPE_PING = 'ping';
@@ -251,6 +257,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
             self::EVENT_TYPE_QUEUE_STATUS_UPDATE,
             self::EVENT_TYPE_RRWEB,
             self::EVENT_TYPE_PARTICIPANT_UPDATE,
+            self::EVENT_TYPE_READ_MESSAGE,
         ];
     }
     
@@ -292,6 +299,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         $this->container['event_participant_update'] = isset($data['event_participant_update']) ? $data['event_participant_update'] : null;
         $this->container['event_queue_position'] = isset($data['event_queue_position']) ? $data['event_queue_position'] : null;
         $this->container['event_queue_status_update'] = isset($data['event_queue_status_update']) ? $data['event_queue_status_update'] : null;
+        $this->container['event_read_message'] = isset($data['event_read_message']) ? $data['event_read_message'] : null;
         $this->container['event_rrweb'] = isset($data['event_rrweb']) ? $data['event_rrweb'] : null;
         $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : null;
         $this->container['event_typing'] = isset($data['event_typing']) ? $data['event_typing'] : null;
@@ -504,6 +512,30 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     public function setEventQueueStatusUpdate($event_queue_status_update)
     {
         $this->container['event_queue_status_update'] = $event_queue_status_update;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_read_message
+     *
+     * @return \ultracart\v2\models\ConversationEventReadMessage
+     */
+    public function getEventReadMessage()
+    {
+        return $this->container['event_read_message'];
+    }
+
+    /**
+     * Sets event_read_message
+     *
+     * @param \ultracart\v2\models\ConversationEventReadMessage $event_read_message event_read_message
+     *
+     * @return $this
+     */
+    public function setEventReadMessage($event_read_message)
+    {
+        $this->container['event_read_message'] = $event_read_message;
 
         return $this;
     }

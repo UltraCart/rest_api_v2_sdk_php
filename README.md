@@ -635,6 +635,7 @@ Class | Method | HTTP request | Description
  - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
  - [ConversationEventQueuePosition](docs/Model/ConversationEventQueuePosition.md)
  - [ConversationEventRRWeb](docs/Model/ConversationEventRRWeb.md)
+ - [ConversationEventReadMessage](docs/Model/ConversationEventReadMessage.md)
  - [ConversationEventTyping](docs/Model/ConversationEventTyping.md)
  - [ConversationMessage](docs/Model/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
@@ -1249,6 +1250,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.36 | 08/10/2022 | conversation event refactoring |
 | 3.10.35 | 08/05/2022 | conversation adjustments for ES integration |
 | 3.10.34 | 08/05/2022 | conversations query by medium and stats fixes |
 | 3.10.33 | 08/03/2022 | conversation summary participants |

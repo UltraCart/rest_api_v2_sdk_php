@@ -163,8 +163,41 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const STATUS_ACCEPTED = 'accepted';
+    const STATUS_SCHEDULED = 'scheduled';
+    const STATUS_QUEUED = 'queued';
+    const STATUS_SENDING = 'sending';
+    const STATUS_SENT = 'sent';
+    const STATUS_READ = 'read';
+    const STATUS_TWILIO_CREDENTIALS_MISSING = 'TWILIO_CREDENTIALS_MISSING';
+    const STATUS_SENT_TO_TWILIO = 'SENT_TO_TWILIO';
+    const STATUS_TWILIO_ERROR = 'TWILIO_ERROR';
+    const STATUS_SENT_TO_PINPOINT = 'SENT_TO_PINPOINT';
+    const STATUS_PINPOINT_ERROR = 'PINPOINT_ERROR';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_ACCEPTED,
+            self::STATUS_SCHEDULED,
+            self::STATUS_QUEUED,
+            self::STATUS_SENDING,
+            self::STATUS_SENT,
+            self::STATUS_READ,
+            self::STATUS_TWILIO_CREDENTIALS_MISSING,
+            self::STATUS_SENT_TO_TWILIO,
+            self::STATUS_TWILIO_ERROR,
+            self::STATUS_SENT_TO_PINPOINT,
+            self::STATUS_PINPOINT_ERROR,
+        ];
+    }
     
 
     /**
@@ -194,6 +227,14 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -247,12 +288,21 @@ class ConversationMessageTransportStatus implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status The status of the message transport
      *
      * @return $this
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;
