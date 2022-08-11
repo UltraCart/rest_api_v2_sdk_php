@@ -73,7 +73,7 @@ class GiftCertificateLedgerEntry implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'amount' => null,
         'description' => null,
-        'entry_dts' => null,
+        'entry_dts' => 'dateTime',
         'gift_certificate_ledger_oid' => 'int32',
         'gift_certificate_oid' => 'int32',
         'reference_order_id' => null
