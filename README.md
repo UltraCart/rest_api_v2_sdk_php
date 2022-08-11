@@ -1192,6 +1192,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.54-RC | 08/11/2022 | fix entry_dts type on gift certificate ledger |
 | 4.0.53-RC | 08/10/2022 | conversation event refactoring |
 | 4.0.52-RC | 08/05/2022 | conversation adjustments for ES integration |
 | 4.0.51-RC | 08/05/2022 | conversations query by medium and stats fixes |
