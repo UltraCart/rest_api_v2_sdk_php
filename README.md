@@ -236,6 +236,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**getCustomersByQuery**](docs/Api/CustomerApi.md#getcustomersbyquery) | **POST** /customer/customers/query | Retrieve customers by query
 *CustomerApi* | [**getCustomersForDataTables**](docs/Api/CustomerApi.md#getcustomersfordatatables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 *CustomerApi* | [**getEmailVerificationToken**](docs/Api/CustomerApi.md#getemailverificationtoken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
+*CustomerApi* | [**getMagicLink**](docs/Api/CustomerApi.md#getmagiclink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
 *CustomerApi* | [**insertCustomer**](docs/Api/CustomerApi.md#insertcustomer) | **POST** /customer/customers | Insert a customer
 *CustomerApi* | [**mergeCustomer**](docs/Api/CustomerApi.md#mergecustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 *CustomerApi* | [**searchCustomerProfileValues**](docs/Api/CustomerApi.md#searchcustomerprofilevalues) | **POST** /customer/search | Searches for all matching values (using POST)
@@ -400,6 +401,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getScreenRecordingsByQuery**](docs/Api/StorefrontApi.md#getscreenrecordingsbyquery) | **POST** /storefront/{storefront_oid}/screen_recordings/query | Query screen recordings
 *StorefrontApi* | [**getScreenRecordingsBySegment**](docs/Api/StorefrontApi.md#getscreenrecordingsbysegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query | Get screen recordings by segment
 *StorefrontApi* | [**getStoreFrontPricingTiers**](docs/Api/StorefrontApi.md#getstorefrontpricingtiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
+*StorefrontApi* | [**getStoreFronts**](docs/Api/StorefrontApi.md#getstorefronts) | **GET** /storefront/ | Get storefronts (internal use only for security reasons)
 *StorefrontApi* | [**getThumbnailParameters**](docs/Api/StorefrontApi.md#getthumbnailparameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 *StorefrontApi* | [**getTransactionEmail**](docs/Api/StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -732,6 +734,7 @@ Class | Method | HTTP request | Description
  - [CustomerLoyalty](docs/Model/CustomerLoyalty.md)
  - [CustomerLoyaltyLedger](docs/Model/CustomerLoyaltyLedger.md)
  - [CustomerLoyaltyRedemption](docs/Model/CustomerLoyaltyRedemption.md)
+ - [CustomerMagicLinkResponse](docs/Model/CustomerMagicLinkResponse.md)
  - [CustomerMergeRequest](docs/Model/CustomerMergeRequest.md)
  - [CustomerOrdersSummary](docs/Model/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/Model/CustomerPricingTier.md)
@@ -1119,6 +1122,8 @@ Class | Method | HTTP request | Description
  - [SovosConfig](docs/Model/SovosConfig.md)
  - [StateProvince](docs/Model/StateProvince.md)
  - [StepWaiting](docs/Model/StepWaiting.md)
+ - [StoreFront](docs/Model/StoreFront.md)
+ - [StoreFrontsResponse](docs/Model/StoreFrontsResponse.md)
  - [TaxCity](docs/Model/TaxCity.md)
  - [TaxCountry](docs/Model/TaxCountry.md)
  - [TaxCountryCode](docs/Model/TaxCountryCode.md)
@@ -1250,6 +1255,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.38 | 08/12/2022 | internal code to allow merchant login as customer |
 | 3.10.37 | 08/11/2022 | fix entry_dts type on gift certificate ledger |
 | 3.10.36 | 08/10/2022 | conversation event refactoring |
 | 3.10.35 | 08/05/2022 | conversation adjustments for ES integration |
