@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**getCustomersByQuery()**](CustomerApi.md#getCustomersByQuery) | **POST** /customer/customers/query | Retrieve customers by query
 [**getCustomersForDataTables()**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**getEmailVerificationToken()**](CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
+[**getMagicLink()**](CustomerApi.md#getMagicLink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
 [**insertCustomer()**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
 [**mergeCustomer()**](CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 [**searchCustomerProfileValues()**](CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
@@ -775,6 +776,65 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMagicLink()`
+
+```php
+getMagicLink($customer_profile_oid, $storefront_host_name): \ultracart\v2\models\CustomerMagicLinkResponse
+```
+
+getMagicLink
+
+Retrieves a magic link to allow a merchant to login as a customer.  This method is a PUT call intentionally.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\CustomerApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$customer_profile_oid = 56; // int | The customer_profile_oid of the customer.
+$storefront_host_name = 'storefront_host_name_example'; // string | The storefront to log into.
+
+try {
+    $result = $apiInstance->getMagicLink($customer_profile_oid, $storefront_host_name);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getMagicLink: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer_profile_oid of the customer. |
+ **storefront_host_name** | **string**| The storefront to log into. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomerMagicLinkResponse**](../Model/CustomerMagicLinkResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

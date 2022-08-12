@@ -241,6 +241,7 @@ docs/Model/CustomerEmailListChanges.md
 docs/Model/CustomerLoyalty.md
 docs/Model/CustomerLoyaltyLedger.md
 docs/Model/CustomerLoyaltyRedemption.md
+docs/Model/CustomerMagicLinkResponse.md
 docs/Model/CustomerMergeRequest.md
 docs/Model/CustomerOrdersSummary.md
 docs/Model/CustomerPricingTier.md
@@ -628,6 +629,8 @@ docs/Model/SingleSignOnTokenResponse.md
 docs/Model/SovosConfig.md
 docs/Model/StateProvince.md
 docs/Model/StepWaiting.md
+docs/Model/StoreFront.md
+docs/Model/StoreFrontsResponse.md
 docs/Model/TaxCity.md
 docs/Model/TaxCountry.md
 docs/Model/TaxCountryCode.md
@@ -926,6 +929,7 @@ lib/models/CustomerEmailListChanges.php
 lib/models/CustomerLoyalty.php
 lib/models/CustomerLoyaltyLedger.php
 lib/models/CustomerLoyaltyRedemption.php
+lib/models/CustomerMagicLinkResponse.php
 lib/models/CustomerMergeRequest.php
 lib/models/CustomerOrdersSummary.php
 lib/models/CustomerPricingTier.php
@@ -1314,6 +1318,8 @@ lib/models/SingleSignOnTokenResponse.php
 lib/models/SovosConfig.php
 lib/models/StateProvince.php
 lib/models/StepWaiting.php
+lib/models/StoreFront.php
+lib/models/StoreFrontsResponse.php
 lib/models/TaxCity.php
 lib/models/TaxCountry.php
 lib/models/TaxCountryCode.php
