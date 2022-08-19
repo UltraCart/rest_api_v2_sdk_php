@@ -62,7 +62,8 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => 'string',
         'conversation_participant_name' => 'string',
         'last_chat_dts' => 'string',
-        'next_round_robin' => 'bool'
+        'next_round_robin' => 'bool',
+        'profile_image_url' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => null,
         'conversation_participant_name' => null,
         'last_chat_dts' => 'dateTime',
-        'next_round_robin' => null
+        'next_round_robin' => null,
+        'profile_image_url' => null
     ];
 
     /**
@@ -111,7 +113,8 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => 'conversation_participant_arn',
         'conversation_participant_name' => 'conversation_participant_name',
         'last_chat_dts' => 'last_chat_dts',
-        'next_round_robin' => 'next_round_robin'
+        'next_round_robin' => 'next_round_robin',
+        'profile_image_url' => 'profile_image_url'
     ];
 
     /**
@@ -124,7 +127,8 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'conversation_participant_name' => 'setConversationParticipantName',
         'last_chat_dts' => 'setLastChatDts',
-        'next_round_robin' => 'setNextRoundRobin'
+        'next_round_robin' => 'setNextRoundRobin',
+        'profile_image_url' => 'setProfileImageUrl'
     ];
 
     /**
@@ -137,7 +141,8 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'conversation_participant_name' => 'getConversationParticipantName',
         'last_chat_dts' => 'getLastChatDts',
-        'next_round_robin' => 'getNextRoundRobin'
+        'next_round_robin' => 'getNextRoundRobin',
+        'profile_image_url' => 'getProfileImageUrl'
     ];
 
     /**
@@ -181,6 +186,23 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    public const AGENT_STATUS_AVAILABLE = 'available';
+    public const AGENT_STATUS_BUSY = 'busy';
+    public const AGENT_STATUS_UNAVAILABLE = 'unavailable';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAgentStatusAllowableValues()
+    {
+        return [
+            self::AGENT_STATUS_AVAILABLE,
+            self::AGENT_STATUS_BUSY,
+            self::AGENT_STATUS_UNAVAILABLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -202,6 +224,7 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
         $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
         $this->container['last_chat_dts'] = $data['last_chat_dts'] ?? null;
         $this->container['next_round_robin'] = $data['next_round_robin'] ?? null;
+        $this->container['profile_image_url'] = $data['profile_image_url'] ?? null;
     }
 
     /**
@@ -212,6 +235,15 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getAgentStatusAllowableValues();
+        if (!is_null($this->container['agent_status']) && !in_array($this->container['agent_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'agent_status', must be one of '%s'",
+                $this->container['agent_status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -241,12 +273,22 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
     /**
      * Sets agent_status
      *
-     * @param string|null $agent_status agent_status
+     * @param string|null $agent_status Status of the agent
      *
      * @return self
      */
     public function setAgentStatus($agent_status)
     {
+        $allowedValues = $this->getAgentStatusAllowableValues();
+        if (!is_null($agent_status) && !in_array($agent_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'agent_status', must be one of '%s'",
+                    $agent_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['agent_status'] = $agent_status;
 
         return $this;
@@ -344,6 +386,30 @@ class ConversationWebchatQueueStatusAgent implements ModelInterface, ArrayAccess
     public function setNextRoundRobin($next_round_robin)
     {
         $this->container['next_round_robin'] = $next_round_robin;
+
+        return $this;
+    }
+
+    /**
+     * Gets profile_image_url
+     *
+     * @return string|null
+     */
+    public function getProfileImageUrl()
+    {
+        return $this->container['profile_image_url'];
+    }
+
+    /**
+     * Sets profile_image_url
+     *
+     * @param string|null $profile_image_url Profile image URL
+     *
+     * @return self
+     */
+    public function setProfileImageUrl($profile_image_url)
+    {
+        $this->container['profile_image_url'] = $profile_image_url;
 
         return $this;
     }

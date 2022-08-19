@@ -61,6 +61,8 @@ class OrderBilling implements ModelInterface, ArrayAccess, \JsonSerializable
         'address1' => 'string',
         'address2' => 'string',
         'cc_emails' => 'string[]',
+        'cell_phone' => 'string',
+        'cell_phone_e164' => 'string',
         'city' => 'string',
         'company' => 'string',
         'country_code' => 'string',
@@ -87,6 +89,8 @@ class OrderBilling implements ModelInterface, ArrayAccess, \JsonSerializable
         'address1' => null,
         'address2' => null,
         'cc_emails' => null,
+        'cell_phone' => null,
+        'cell_phone_e164' => null,
         'city' => null,
         'company' => null,
         'country_code' => null,
@@ -132,6 +136,8 @@ class OrderBilling implements ModelInterface, ArrayAccess, \JsonSerializable
         'address1' => 'address1',
         'address2' => 'address2',
         'cc_emails' => 'cc_emails',
+        'cell_phone' => 'cell_phone',
+        'cell_phone_e164' => 'cell_phone_e164',
         'city' => 'city',
         'company' => 'company',
         'country_code' => 'country_code',
@@ -156,6 +162,8 @@ class OrderBilling implements ModelInterface, ArrayAccess, \JsonSerializable
         'address1' => 'setAddress1',
         'address2' => 'setAddress2',
         'cc_emails' => 'setCcEmails',
+        'cell_phone' => 'setCellPhone',
+        'cell_phone_e164' => 'setCellPhoneE164',
         'city' => 'setCity',
         'company' => 'setCompany',
         'country_code' => 'setCountryCode',
@@ -180,6 +188,8 @@ class OrderBilling implements ModelInterface, ArrayAccess, \JsonSerializable
         'address1' => 'getAddress1',
         'address2' => 'getAddress2',
         'cc_emails' => 'getCcEmails',
+        'cell_phone' => 'getCellPhone',
+        'cell_phone_e164' => 'getCellPhoneE164',
         'city' => 'getCity',
         'company' => 'getCompany',
         'country_code' => 'getCountryCode',
@@ -255,6 +265,8 @@ class OrderBilling implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['address1'] = $data['address1'] ?? null;
         $this->container['address2'] = $data['address2'] ?? null;
         $this->container['cc_emails'] = $data['cc_emails'] ?? null;
+        $this->container['cell_phone'] = $data['cell_phone'] ?? null;
+        $this->container['cell_phone_e164'] = $data['cell_phone_e164'] ?? null;
         $this->container['city'] = $data['city'] ?? null;
         $this->container['company'] = $data['company'] ?? null;
         $this->container['country_code'] = $data['country_code'] ?? null;
@@ -285,6 +297,14 @@ class OrderBilling implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['address2']) && (mb_strlen($this->container['address2']) > 50)) {
             $invalidProperties[] = "invalid value for 'address2', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['cell_phone']) && (mb_strlen($this->container['cell_phone']) > 25)) {
+            $invalidProperties[] = "invalid value for 'cell_phone', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['cell_phone_e164']) && (mb_strlen($this->container['cell_phone_e164']) > 25)) {
+            $invalidProperties[] = "invalid value for 'cell_phone_e164', the character length must be smaller than or equal to 25.";
         }
 
         if (!is_null($this->container['city']) && (mb_strlen($this->container['city']) > 32)) {
@@ -430,6 +450,62 @@ class OrderBilling implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCcEmails($cc_emails)
     {
         $this->container['cc_emails'] = $cc_emails;
+
+        return $this;
+    }
+
+    /**
+     * Gets cell_phone
+     *
+     * @return string|null
+     */
+    public function getCellPhone()
+    {
+        return $this->container['cell_phone'];
+    }
+
+    /**
+     * Sets cell_phone
+     *
+     * @param string|null $cell_phone Cell phone
+     *
+     * @return self
+     */
+    public function setCellPhone($cell_phone)
+    {
+        if (!is_null($cell_phone) && (mb_strlen($cell_phone) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $cell_phone when calling OrderBilling., must be smaller than or equal to 25.');
+        }
+
+        $this->container['cell_phone'] = $cell_phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets cell_phone_e164
+     *
+     * @return string|null
+     */
+    public function getCellPhoneE164()
+    {
+        return $this->container['cell_phone_e164'];
+    }
+
+    /**
+     * Sets cell_phone_e164
+     *
+     * @param string|null $cell_phone_e164 Cell phone (E164 format)
+     *
+     * @return self
+     */
+    public function setCellPhoneE164($cell_phone_e164)
+    {
+        if (!is_null($cell_phone_e164) && (mb_strlen($cell_phone_e164) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $cell_phone_e164 when calling OrderBilling., must be smaller than or equal to 25.');
+        }
+
+        $this->container['cell_phone_e164'] = $cell_phone_e164;
 
         return $this;
     }
