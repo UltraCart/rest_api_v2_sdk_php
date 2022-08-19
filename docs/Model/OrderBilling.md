@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 **address1** | **string** | Address line 1 | [optional] 
 **address2** | **string** | Address line 2 | [optional] 
 **cc_emails** | **string[]** | CC emails.  Multiple allowed, but total length of all emails can not exceed 100 characters. | [optional] 
+**cell_phone** | **string** | Cell phone | [optional] 
+**cell_phone_e164** | **string** | Cell phone (E164 format) | [optional] 
 **city** | **string** | City | [optional] 
 **company** | **string** | Company | [optional] 
 **country_code** | **string** | ISO-3166 two letter country code | [optional] 

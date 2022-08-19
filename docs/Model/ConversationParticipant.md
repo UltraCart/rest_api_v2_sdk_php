@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **joined_dts** | **string** | Joined conversation date/time | [optional] 
 **last_message_dts** | **string** | Last message date/time | [optional] 
 **left_dts** | **string** | Left conversation date/time | [optional] 
+**profile_image_url** | **string** |  | [optional] 
 **status** | **string** |  | [optional] 
 **unread_messages** | **int** |  | [optional] 
 

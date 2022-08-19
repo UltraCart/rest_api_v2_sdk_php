@@ -401,7 +401,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getScreenRecordingsByQuery**](docs/Api/StorefrontApi.md#getscreenrecordingsbyquery) | **POST** /storefront/{storefront_oid}/screen_recordings/query | Query screen recordings
 *StorefrontApi* | [**getScreenRecordingsBySegment**](docs/Api/StorefrontApi.md#getscreenrecordingsbysegment) | **POST** /storefront/{storefront_oid}/screen_recordings/segments/{screen_recording_segment_oid}/query | Get screen recordings by segment
 *StorefrontApi* | [**getStoreFrontPricingTiers**](docs/Api/StorefrontApi.md#getstorefrontpricingtiers) | **GET** /storefront/pricing_tiers | Retrieve pricing tiers
-*StorefrontApi* | [**getStoreFronts**](docs/Api/StorefrontApi.md#getstorefronts) | **GET** /storefront/ | Get storefronts (internal use only for security reasons)
+*StorefrontApi* | [**getStoreFronts**](docs/Api/StorefrontApi.md#getstorefronts) | **GET** /storefront | Get storefronts (internal use only for security reasons)
 *StorefrontApi* | [**getThumbnailParameters**](docs/Api/StorefrontApi.md#getthumbnailparameters) | **POST** /storefront/thumbnailParameters | Get thumbnail parameters
 *StorefrontApi* | [**getTransactionEmail**](docs/Api/StorefrontApi.md#gettransactionemail) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Gets a transaction email object
 *StorefrontApi* | [**getTransactionEmailList**](docs/Api/StorefrontApi.md#gettransactionemaillist) | **GET** /storefront/{storefront_oid}/transaction_email/list | Gets a list of transaction email names
@@ -1255,6 +1255,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.39 | 08/19/2022 | order api - added cell phone fields for sms |
 | 3.10.38 | 08/12/2022 | internal code to allow merchant login as customer |
 | 3.10.37 | 08/11/2022 | fix entry_dts type on gift certificate ledger |
 | 3.10.36 | 08/10/2022 | conversation event refactoring |

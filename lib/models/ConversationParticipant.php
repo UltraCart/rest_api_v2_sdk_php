@@ -63,6 +63,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'joined_dts' => 'string',
         'last_message_dts' => 'string',
         'left_dts' => 'string',
+        'profile_image_url' => 'string',
         'status' => 'string',
         'unread_messages' => 'int'
     ];
@@ -79,6 +80,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'joined_dts' => 'dateTime',
         'last_message_dts' => 'dateTime',
         'left_dts' => 'dateTime',
+        'profile_image_url' => null,
         'status' => null,
         'unread_messages' => 'int32'
     ];
@@ -116,6 +118,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'joined_dts' => 'joined_dts',
         'last_message_dts' => 'last_message_dts',
         'left_dts' => 'left_dts',
+        'profile_image_url' => 'profile_image_url',
         'status' => 'status',
         'unread_messages' => 'unread_messages'
     ];
@@ -132,6 +135,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'joined_dts' => 'setJoinedDts',
         'last_message_dts' => 'setLastMessageDts',
         'left_dts' => 'setLeftDts',
+        'profile_image_url' => 'setProfileImageUrl',
         'status' => 'setStatus',
         'unread_messages' => 'setUnreadMessages'
     ];
@@ -148,6 +152,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'joined_dts' => 'getJoinedDts',
         'last_message_dts' => 'getLastMessageDts',
         'left_dts' => 'getLeftDts',
+        'profile_image_url' => 'getProfileImageUrl',
         'status' => 'getStatus',
         'unread_messages' => 'getUnreadMessages'
     ];
@@ -218,6 +223,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         $this->container['joined_dts'] = isset($data['joined_dts']) ? $data['joined_dts'] : null;
         $this->container['last_message_dts'] = isset($data['last_message_dts']) ? $data['last_message_dts'] : null;
         $this->container['left_dts'] = isset($data['left_dts']) ? $data['left_dts'] : null;
+        $this->container['profile_image_url'] = isset($data['profile_image_url']) ? $data['profile_image_url'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['unread_messages'] = isset($data['unread_messages']) ? $data['unread_messages'] : null;
     }
@@ -386,6 +392,30 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
     public function setLeftDts($left_dts)
     {
         $this->container['left_dts'] = $left_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets profile_image_url
+     *
+     * @return string
+     */
+    public function getProfileImageUrl()
+    {
+        return $this->container['profile_image_url'];
+    }
+
+    /**
+     * Sets profile_image_url
+     *
+     * @param string $profile_image_url profile_image_url
+     *
+     * @return $this
+     */
+    public function setProfileImageUrl($profile_image_url)
+    {
+        $this->container['profile_image_url'] = $profile_image_url;
 
         return $this;
     }

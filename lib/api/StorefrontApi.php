@@ -36228,7 +36228,7 @@ class StorefrontApi
     protected function getStoreFrontsRequest()
     {
 
-        $resourcePath = '/storefront/';
+        $resourcePath = '/storefront';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

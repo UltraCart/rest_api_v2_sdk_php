@@ -58,6 +58,7 @@ class CartMarketing implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'advertising_source' => 'string',
+        'cell_phone_opt_in' => 'bool',
         'mailing_list_opt_in' => 'bool'
     ];
 
@@ -68,6 +69,7 @@ class CartMarketing implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'advertising_source' => null,
+        'cell_phone_opt_in' => null,
         'mailing_list_opt_in' => null
     ];
 
@@ -99,6 +101,7 @@ class CartMarketing implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'advertising_source' => 'advertising_source',
+        'cell_phone_opt_in' => 'cell_phone_opt_in',
         'mailing_list_opt_in' => 'mailing_list_opt_in'
     ];
 
@@ -109,6 +112,7 @@ class CartMarketing implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'advertising_source' => 'setAdvertisingSource',
+        'cell_phone_opt_in' => 'setCellPhoneOptIn',
         'mailing_list_opt_in' => 'setMailingListOptIn'
     ];
 
@@ -119,6 +123,7 @@ class CartMarketing implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'advertising_source' => 'getAdvertisingSource',
+        'cell_phone_opt_in' => 'getCellPhoneOptIn',
         'mailing_list_opt_in' => 'getMailingListOptIn'
     ];
 
@@ -183,6 +188,7 @@ class CartMarketing implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['advertising_source'] = isset($data['advertising_source']) ? $data['advertising_source'] : null;
+        $this->container['cell_phone_opt_in'] = isset($data['cell_phone_opt_in']) ? $data['cell_phone_opt_in'] : null;
         $this->container['mailing_list_opt_in'] = isset($data['mailing_list_opt_in']) ? $data['mailing_list_opt_in'] : null;
     }
 
@@ -230,6 +236,30 @@ class CartMarketing implements ModelInterface, ArrayAccess
     public function setAdvertisingSource($advertising_source)
     {
         $this->container['advertising_source'] = $advertising_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets cell_phone_opt_in
+     *
+     * @return bool
+     */
+    public function getCellPhoneOptIn()
+    {
+        return $this->container['cell_phone_opt_in'];
+    }
+
+    /**
+     * Sets cell_phone_opt_in
+     *
+     * @param bool $cell_phone_opt_in True if the customer agrees to receiving marketing SMS messages
+     *
+     * @return $this
+     */
+    public function setCellPhoneOptIn($cell_phone_opt_in)
+    {
+        $this->container['cell_phone_opt_in'] = $cell_phone_opt_in;
 
         return $this;
     }
