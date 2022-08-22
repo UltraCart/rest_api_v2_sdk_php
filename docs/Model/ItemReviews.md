@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **has_approved_review** | **bool** | True if the item has an approved review | [optional] 
 **has_review** | **bool** | True if the item has a review | [optional] 
+**individual_reviews** | [**\ultracart\v2\models\ItemReview[]**](ItemReview.md) |  | [optional] 
 **review_count** | **int** | Number of approved reviews | [optional] 
 **review_overall** | **float** | Overall score of reviews | [optional] 
 **review_template_name** | **string** | Review template name | [optional] 
