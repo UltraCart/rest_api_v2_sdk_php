@@ -881,6 +881,7 @@ Class | Method | HTTP request | Description
 - [ItemRestriction](docs/Model/ItemRestriction.md)
 - [ItemRestrictionItem](docs/Model/ItemRestrictionItem.md)
 - [ItemRevguard](docs/Model/ItemRevguard.md)
+- [ItemReview](docs/Model/ItemReview.md)
 - [ItemReviews](docs/Model/ItemReviews.md)
 - [ItemSalesforce](docs/Model/ItemSalesforce.md)
 - [ItemShipping](docs/Model/ItemShipping.md)
@@ -1197,6 +1198,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.57-RC | 08/22/2022 | exposing individual reviews within item.review object |
 | 4.0.56-RC | 08/19/2022 | order api - added cell phone fields for sms |
 | 4.0.55-RC | 08/12/2022 | internal code to allow merchant login as customer |
 | 4.0.54-RC | 08/11/2022 | fix entry_dts type on gift certificate ledger |

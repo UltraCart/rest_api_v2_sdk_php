@@ -60,6 +60,7 @@ class ItemReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'has_approved_review' => 'bool',
         'has_review' => 'bool',
+        'individual_reviews' => '\ultracart\v2\models\ItemReview[]',
         'review_count' => 'int',
         'review_overall' => 'float',
         'review_template_name' => 'string',
@@ -79,6 +80,7 @@ class ItemReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'has_approved_review' => null,
         'has_review' => null,
+        'individual_reviews' => null,
         'review_count' => 'int32',
         'review_overall' => null,
         'review_template_name' => null,
@@ -117,6 +119,7 @@ class ItemReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'has_approved_review' => 'has_approved_review',
         'has_review' => 'has_review',
+        'individual_reviews' => 'individual_reviews',
         'review_count' => 'review_count',
         'review_overall' => 'review_overall',
         'review_template_name' => 'review_template_name',
@@ -134,6 +137,7 @@ class ItemReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'has_approved_review' => 'setHasApprovedReview',
         'has_review' => 'setHasReview',
+        'individual_reviews' => 'setIndividualReviews',
         'review_count' => 'setReviewCount',
         'review_overall' => 'setReviewOverall',
         'review_template_name' => 'setReviewTemplateName',
@@ -151,6 +155,7 @@ class ItemReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'has_approved_review' => 'getHasApprovedReview',
         'has_review' => 'getHasReview',
+        'individual_reviews' => 'getIndividualReviews',
         'review_count' => 'getReviewCount',
         'review_overall' => 'getReviewOverall',
         'review_template_name' => 'getReviewTemplateName',
@@ -219,6 +224,7 @@ class ItemReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['has_approved_review'] = $data['has_approved_review'] ?? null;
         $this->container['has_review'] = $data['has_review'] ?? null;
+        $this->container['individual_reviews'] = $data['individual_reviews'] ?? null;
         $this->container['review_count'] = $data['review_count'] ?? null;
         $this->container['review_overall'] = $data['review_overall'] ?? null;
         $this->container['review_template_name'] = $data['review_template_name'] ?? null;
@@ -296,6 +302,30 @@ class ItemReviews implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setHasReview($has_review)
     {
         $this->container['has_review'] = $has_review;
+
+        return $this;
+    }
+
+    /**
+     * Gets individual_reviews
+     *
+     * @return \ultracart\v2\models\ItemReview[]|null
+     */
+    public function getIndividualReviews()
+    {
+        return $this->container['individual_reviews'];
+    }
+
+    /**
+     * Sets individual_reviews
+     *
+     * @param \ultracart\v2\models\ItemReview[]|null $individual_reviews individual_reviews
+     *
+     * @return self
+     */
+    public function setIndividualReviews($individual_reviews)
+    {
+        $this->container['individual_reviews'] = $individual_reviews;
 
         return $this;
     }
