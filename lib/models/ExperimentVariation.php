@@ -74,6 +74,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'paused' => 'bool',
         'revenue' => 'float',
         'session_count' => 'int',
+        'sms_opt_ins' => 'int',
         'traffic_percentage' => 'float',
         'url' => 'string',
         'variation_name' => 'string',
@@ -104,6 +105,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'paused' => null,
         'revenue' => null,
         'session_count' => 'int32',
+        'sms_opt_ins' => 'int32',
         'traffic_percentage' => null,
         'url' => null,
         'variation_name' => null,
@@ -155,6 +157,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'paused' => 'paused',
         'revenue' => 'revenue',
         'session_count' => 'session_count',
+        'sms_opt_ins' => 'sms_opt_ins',
         'traffic_percentage' => 'traffic_percentage',
         'url' => 'url',
         'variation_name' => 'variation_name',
@@ -185,6 +188,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'paused' => 'setPaused',
         'revenue' => 'setRevenue',
         'session_count' => 'setSessionCount',
+        'sms_opt_ins' => 'setSmsOptIns',
         'traffic_percentage' => 'setTrafficPercentage',
         'url' => 'setUrl',
         'variation_name' => 'setVariationName',
@@ -215,6 +219,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         'paused' => 'getPaused',
         'revenue' => 'getRevenue',
         'session_count' => 'getSessionCount',
+        'sms_opt_ins' => 'getSmsOptIns',
         'traffic_percentage' => 'getTrafficPercentage',
         'url' => 'getUrl',
         'variation_name' => 'getVariationName',
@@ -299,6 +304,7 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
         $this->container['paused'] = isset($data['paused']) ? $data['paused'] : null;
         $this->container['revenue'] = isset($data['revenue']) ? $data['revenue'] : null;
         $this->container['session_count'] = isset($data['session_count']) ? $data['session_count'] : null;
+        $this->container['sms_opt_ins'] = isset($data['sms_opt_ins']) ? $data['sms_opt_ins'] : null;
         $this->container['traffic_percentage'] = isset($data['traffic_percentage']) ? $data['traffic_percentage'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['variation_name'] = isset($data['variation_name']) ? $data['variation_name'] : null;
@@ -734,6 +740,30 @@ class ExperimentVariation implements ModelInterface, ArrayAccess
     public function setSessionCount($session_count)
     {
         $this->container['session_count'] = $session_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_opt_ins
+     *
+     * @return int
+     */
+    public function getSmsOptIns()
+    {
+        return $this->container['sms_opt_ins'];
+    }
+
+    /**
+     * Sets sms_opt_ins
+     *
+     * @param int $sms_opt_ins SMS Opt Ins for this variation
+     *
+     * @return $this
+     */
+    public function setSmsOptIns($sms_opt_ins)
+    {
+        $this->container['sms_opt_ins'] = $sms_opt_ins;
 
         return $this;
     }
