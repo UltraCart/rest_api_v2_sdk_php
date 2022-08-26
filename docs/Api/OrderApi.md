@@ -1085,7 +1085,7 @@ Name | Type | Description  | Notes
 ## `refundOrder()`
 
 ```php
-refundOrder($order_id, $order, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand): \ultracart\v2\models\OrderResponse
+refundOrder($order_id, $order, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $_expand): \ultracart\v2\models\OrderResponse
 ```
 
 Refund an order
@@ -1113,10 +1113,11 @@ $skip_customer_notification = false; // bool | Skip customer email notification
 $auto_order_cancel = false; // bool | Cancel associated auto orders
 $manual_refund = false; // bool | Consider a manual refund done externally
 $reverse_affiliate_transactions = true; // bool | Reverse affiliate transactions
+$issue_store_credit = false; // bool | Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account
 $_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $apiInstance->refundOrder($order_id, $order, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $_expand);
+    $result = $apiInstance->refundOrder($order_id, $order, $reject_after_refund, $skip_customer_notification, $auto_order_cancel, $manual_refund, $reverse_affiliate_transactions, $issue_store_credit, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->refundOrder: ', $e->getMessage(), PHP_EOL;
@@ -1134,6 +1135,7 @@ Name | Type | Description  | Notes
  **auto_order_cancel** | **bool**| Cancel associated auto orders | [optional] [default to false]
  **manual_refund** | **bool**| Consider a manual refund done externally | [optional] [default to false]
  **reverse_affiliate_transactions** | **bool**| Reverse affiliate transactions | [optional] [default to true]
+ **issue_store_credit** | **bool**| Issue a store credit instead of refunding the original payment method, loyalty must be configured on merchant account | [optional] [default to false]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

@@ -58,14 +58,20 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
+        'address_1' => 'string',
+        'address_2' => 'string',
         'cart_id' => 'string',
         'cart_item_ids' => 'string[]',
+        'city' => 'string',
         'esp_commseq_uuid' => 'string',
+        'mail_card' => 'bool',
         'name' => 'string',
         'order_id' => 'string',
         'please_review' => 'bool',
+        'postal_code' => 'string',
         'send_to_email' => 'string',
-        'send_to_logged_in_user' => 'bool'
+        'send_to_logged_in_user' => 'bool',
+        'state' => 'string'
     ];
 
     /**
@@ -76,14 +82,20 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'address_1' => null,
+        'address_2' => null,
         'cart_id' => null,
         'cart_item_ids' => null,
+        'city' => null,
         'esp_commseq_uuid' => null,
+        'mail_card' => null,
         'name' => null,
         'order_id' => null,
         'please_review' => null,
+        'postal_code' => null,
         'send_to_email' => null,
-        'send_to_logged_in_user' => null
+        'send_to_logged_in_user' => null,
+        'state' => null
     ];
 
     /**
@@ -113,14 +125,20 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
+        'address_1' => 'address_1',
+        'address_2' => 'address_2',
         'cart_id' => 'cart_id',
         'cart_item_ids' => 'cart_item_ids',
+        'city' => 'city',
         'esp_commseq_uuid' => 'esp_commseq_uuid',
+        'mail_card' => 'mail_card',
         'name' => 'name',
         'order_id' => 'order_id',
         'please_review' => 'please_review',
+        'postal_code' => 'postal_code',
         'send_to_email' => 'send_to_email',
-        'send_to_logged_in_user' => 'send_to_logged_in_user'
+        'send_to_logged_in_user' => 'send_to_logged_in_user',
+        'state' => 'state'
     ];
 
     /**
@@ -129,14 +147,20 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
+        'address_1' => 'setAddress1',
+        'address_2' => 'setAddress2',
         'cart_id' => 'setCartId',
         'cart_item_ids' => 'setCartItemIds',
+        'city' => 'setCity',
         'esp_commseq_uuid' => 'setEspCommseqUuid',
+        'mail_card' => 'setMailCard',
         'name' => 'setName',
         'order_id' => 'setOrderId',
         'please_review' => 'setPleaseReview',
+        'postal_code' => 'setPostalCode',
         'send_to_email' => 'setSendToEmail',
-        'send_to_logged_in_user' => 'setSendToLoggedInUser'
+        'send_to_logged_in_user' => 'setSendToLoggedInUser',
+        'state' => 'setState'
     ];
 
     /**
@@ -145,14 +169,20 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
+        'address_1' => 'getAddress1',
+        'address_2' => 'getAddress2',
         'cart_id' => 'getCartId',
         'cart_item_ids' => 'getCartItemIds',
+        'city' => 'getCity',
         'esp_commseq_uuid' => 'getEspCommseqUuid',
+        'mail_card' => 'getMailCard',
         'name' => 'getName',
         'order_id' => 'getOrderId',
         'please_review' => 'getPleaseReview',
+        'postal_code' => 'getPostalCode',
         'send_to_email' => 'getSendToEmail',
-        'send_to_logged_in_user' => 'getSendToLoggedInUser'
+        'send_to_logged_in_user' => 'getSendToLoggedInUser',
+        'state' => 'getState'
     ];
 
     /**
@@ -212,14 +242,20 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
+        $this->container['address_1'] = $data['address_1'] ?? null;
+        $this->container['address_2'] = $data['address_2'] ?? null;
         $this->container['cart_id'] = $data['cart_id'] ?? null;
         $this->container['cart_item_ids'] = $data['cart_item_ids'] ?? null;
+        $this->container['city'] = $data['city'] ?? null;
         $this->container['esp_commseq_uuid'] = $data['esp_commseq_uuid'] ?? null;
+        $this->container['mail_card'] = $data['mail_card'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['order_id'] = $data['order_id'] ?? null;
         $this->container['please_review'] = $data['please_review'] ?? null;
+        $this->container['postal_code'] = $data['postal_code'] ?? null;
         $this->container['send_to_email'] = $data['send_to_email'] ?? null;
         $this->container['send_to_logged_in_user'] = $data['send_to_logged_in_user'] ?? null;
+        $this->container['state'] = $data['state'] ?? null;
     }
 
     /**
@@ -245,6 +281,54 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets address_1
+     *
+     * @return string|null
+     */
+    public function getAddress1()
+    {
+        return $this->container['address_1'];
+    }
+
+    /**
+     * Sets address_1
+     *
+     * @param string|null $address_1 address_1
+     *
+     * @return self
+     */
+    public function setAddress1($address_1)
+    {
+        $this->container['address_1'] = $address_1;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_2
+     *
+     * @return string|null
+     */
+    public function getAddress2()
+    {
+        return $this->container['address_2'];
+    }
+
+    /**
+     * Sets address_2
+     *
+     * @param string|null $address_2 address_2
+     *
+     * @return self
+     */
+    public function setAddress2($address_2)
+    {
+        $this->container['address_2'] = $address_2;
+
+        return $this;
+    }
 
     /**
      * Gets cart_id
@@ -295,6 +379,30 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
     }
 
     /**
+     * Gets city
+     *
+     * @return string|null
+     */
+    public function getCity()
+    {
+        return $this->container['city'];
+    }
+
+    /**
+     * Sets city
+     *
+     * @param string|null $city city
+     *
+     * @return self
+     */
+    public function setCity($city)
+    {
+        $this->container['city'] = $city;
+
+        return $this;
+    }
+
+    /**
      * Gets esp_commseq_uuid
      *
      * @return string|null
@@ -314,6 +422,30 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
     public function setEspCommseqUuid($esp_commseq_uuid)
     {
         $this->container['esp_commseq_uuid'] = $esp_commseq_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets mail_card
+     *
+     * @return bool|null
+     */
+    public function getMailCard()
+    {
+        return $this->container['mail_card'];
+    }
+
+    /**
+     * Sets mail_card
+     *
+     * @param bool|null $mail_card mail_card
+     *
+     * @return self
+     */
+    public function setMailCard($mail_card)
+    {
+        $this->container['mail_card'] = $mail_card;
 
         return $this;
     }
@@ -391,6 +523,30 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
     }
 
     /**
+     * Gets postal_code
+     *
+     * @return string|null
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postal_code'];
+    }
+
+    /**
+     * Sets postal_code
+     *
+     * @param string|null $postal_code postal_code
+     *
+     * @return self
+     */
+    public function setPostalCode($postal_code)
+    {
+        $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
      * Gets send_to_email
      *
      * @return string|null
@@ -434,6 +590,30 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
     public function setSendToLoggedInUser($send_to_logged_in_user)
     {
         $this->container['send_to_logged_in_user'] = $send_to_logged_in_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
 
         return $this;
     }

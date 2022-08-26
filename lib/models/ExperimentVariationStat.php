@@ -68,6 +68,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'page_view_count' => 'int',
         'revenue' => 'float',
         'session_count' => 'int',
+        'sms_opt_in_count' => 'int',
         'stat_dts' => 'string'
     ];
 
@@ -89,6 +90,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'page_view_count' => 'int32',
         'revenue' => null,
         'session_count' => 'int32',
+        'sms_opt_in_count' => 'int32',
         'stat_dts' => 'dateTime'
     ];
 
@@ -129,6 +131,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'page_view_count' => 'page_view_count',
         'revenue' => 'revenue',
         'session_count' => 'session_count',
+        'sms_opt_in_count' => 'sms_opt_in_count',
         'stat_dts' => 'stat_dts'
     ];
 
@@ -148,6 +151,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'page_view_count' => 'setPageViewCount',
         'revenue' => 'setRevenue',
         'session_count' => 'setSessionCount',
+        'sms_opt_in_count' => 'setSmsOptInCount',
         'stat_dts' => 'setStatDts'
     ];
 
@@ -167,6 +171,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'page_view_count' => 'getPageViewCount',
         'revenue' => 'getRevenue',
         'session_count' => 'getSessionCount',
+        'sms_opt_in_count' => 'getSmsOptInCount',
         'stat_dts' => 'getStatDts'
     ];
 
@@ -237,6 +242,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['page_view_count'] = $data['page_view_count'] ?? null;
         $this->container['revenue'] = $data['revenue'] ?? null;
         $this->container['session_count'] = $data['session_count'] ?? null;
+        $this->container['sms_opt_in_count'] = $data['sms_opt_in_count'] ?? null;
         $this->container['stat_dts'] = $data['stat_dts'] ?? null;
     }
 
@@ -500,6 +506,30 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
     public function setSessionCount($session_count)
     {
         $this->container['session_count'] = $session_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_opt_in_count
+     *
+     * @return int|null
+     */
+    public function getSmsOptInCount()
+    {
+        return $this->container['sms_opt_in_count'];
+    }
+
+    /**
+     * Sets sms_opt_in_count
+     *
+     * @param int|null $sms_opt_in_count Total SMS opt in count for this variation
+     *
+     * @return self
+     */
+    public function setSmsOptInCount($sms_opt_in_count)
+    {
+        $this->container['sms_opt_in_count'] = $sms_opt_in_count;
 
         return $this;
     }
