@@ -80,6 +80,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'revenue_formatted' => 'string',
         'revenue_per_customer_formatted' => 'string',
         'screenshot_large_full_url' => 'string',
+        'sms_esp_twilio_uuid' => 'string',
+        'sms_phone_number' => 'string',
         'status' => 'string',
         'status_dts' => 'string',
         'storefront_oid' => 'int',
@@ -118,6 +120,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'revenue_formatted' => null,
         'revenue_per_customer_formatted' => null,
         'screenshot_large_full_url' => null,
+        'sms_esp_twilio_uuid' => null,
+        'sms_phone_number' => null,
         'status' => null,
         'status_dts' => 'dateTime',
         'storefront_oid' => 'int32',
@@ -175,6 +179,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'revenue_formatted' => 'revenue_formatted',
         'revenue_per_customer_formatted' => 'revenue_per_customer_formatted',
         'screenshot_large_full_url' => 'screenshot_large_full_url',
+        'sms_esp_twilio_uuid' => 'sms_esp_twilio_uuid',
+        'sms_phone_number' => 'sms_phone_number',
         'status' => 'status',
         'status_dts' => 'status_dts',
         'storefront_oid' => 'storefront_oid',
@@ -211,6 +217,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'revenue_formatted' => 'setRevenueFormatted',
         'revenue_per_customer_formatted' => 'setRevenuePerCustomerFormatted',
         'screenshot_large_full_url' => 'setScreenshotLargeFullUrl',
+        'sms_esp_twilio_uuid' => 'setSmsEspTwilioUuid',
+        'sms_phone_number' => 'setSmsPhoneNumber',
         'status' => 'setStatus',
         'status_dts' => 'setStatusDts',
         'storefront_oid' => 'setStorefrontOid',
@@ -247,6 +255,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'revenue_formatted' => 'getRevenueFormatted',
         'revenue_per_customer_formatted' => 'getRevenuePerCustomerFormatted',
         'screenshot_large_full_url' => 'getScreenshotLargeFullUrl',
+        'sms_esp_twilio_uuid' => 'getSmsEspTwilioUuid',
+        'sms_phone_number' => 'getSmsPhoneNumber',
         'status' => 'getStatus',
         'status_dts' => 'getStatusDts',
         'storefront_oid' => 'getStorefrontOid',
@@ -334,6 +344,8 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['revenue_formatted'] = $data['revenue_formatted'] ?? null;
         $this->container['revenue_per_customer_formatted'] = $data['revenue_per_customer_formatted'] ?? null;
         $this->container['screenshot_large_full_url'] = $data['screenshot_large_full_url'] ?? null;
+        $this->container['sms_esp_twilio_uuid'] = $data['sms_esp_twilio_uuid'] ?? null;
+        $this->container['sms_phone_number'] = $data['sms_phone_number'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['status_dts'] = $data['status_dts'] ?? null;
         $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
@@ -898,6 +910,54 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setScreenshotLargeFullUrl($screenshot_large_full_url)
     {
         $this->container['screenshot_large_full_url'] = $screenshot_large_full_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_esp_twilio_uuid
+     *
+     * @return string|null
+     */
+    public function getSmsEspTwilioUuid()
+    {
+        return $this->container['sms_esp_twilio_uuid'];
+    }
+
+    /**
+     * Sets sms_esp_twilio_uuid
+     *
+     * @param string|null $sms_esp_twilio_uuid Twilio Account UUID.  Null for none
+     *
+     * @return self
+     */
+    public function setSmsEspTwilioUuid($sms_esp_twilio_uuid)
+    {
+        $this->container['sms_esp_twilio_uuid'] = $sms_esp_twilio_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_phone_number
+     *
+     * @return string|null
+     */
+    public function getSmsPhoneNumber()
+    {
+        return $this->container['sms_phone_number'];
+    }
+
+    /**
+     * Sets sms_phone_number
+     *
+     * @param string|null $sms_phone_number Twilio SMS Phone Number.  Null for none
+     *
+     * @return self
+     */
+    public function setSmsPhoneNumber($sms_phone_number)
+    {
+        $this->container['sms_phone_number'] = $sms_phone_number;
 
         return $this;
     }

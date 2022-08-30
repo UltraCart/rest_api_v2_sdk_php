@@ -67,6 +67,8 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => 'string',
         'postcard_from_postal_code' => 'string',
         'postcard_from_state' => 'string',
+        'sms_esp_twilio_uuid' => 'string',
+        'sms_phone_number' => 'string',
         'transactional_esp_domain_user' => 'string',
         'transactional_esp_domain_uuid' => 'string',
         'transactional_esp_friendly_name' => 'string'
@@ -89,6 +91,8 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => null,
         'postcard_from_postal_code' => null,
         'postcard_from_state' => null,
+        'sms_esp_twilio_uuid' => null,
+        'sms_phone_number' => null,
         'transactional_esp_domain_user' => null,
         'transactional_esp_domain_uuid' => null,
         'transactional_esp_friendly_name' => null
@@ -130,6 +134,8 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => 'postcard_from_name',
         'postcard_from_postal_code' => 'postcard_from_postal_code',
         'postcard_from_state' => 'postcard_from_state',
+        'sms_esp_twilio_uuid' => 'sms_esp_twilio_uuid',
+        'sms_phone_number' => 'sms_phone_number',
         'transactional_esp_domain_user' => 'transactional_esp_domain_user',
         'transactional_esp_domain_uuid' => 'transactional_esp_domain_uuid',
         'transactional_esp_friendly_name' => 'transactional_esp_friendly_name'
@@ -150,6 +156,8 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => 'setPostcardFromName',
         'postcard_from_postal_code' => 'setPostcardFromPostalCode',
         'postcard_from_state' => 'setPostcardFromState',
+        'sms_esp_twilio_uuid' => 'setSmsEspTwilioUuid',
+        'sms_phone_number' => 'setSmsPhoneNumber',
         'transactional_esp_domain_user' => 'setTransactionalEspDomainUser',
         'transactional_esp_domain_uuid' => 'setTransactionalEspDomainUuid',
         'transactional_esp_friendly_name' => 'setTransactionalEspFriendlyName'
@@ -170,6 +178,8 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => 'getPostcardFromName',
         'postcard_from_postal_code' => 'getPostcardFromPostalCode',
         'postcard_from_state' => 'getPostcardFromState',
+        'sms_esp_twilio_uuid' => 'getSmsEspTwilioUuid',
+        'sms_phone_number' => 'getSmsPhoneNumber',
         'transactional_esp_domain_user' => 'getTransactionalEspDomainUser',
         'transactional_esp_domain_uuid' => 'getTransactionalEspDomainUuid',
         'transactional_esp_friendly_name' => 'getTransactionalEspFriendlyName'
@@ -241,6 +251,8 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['postcard_from_name'] = $data['postcard_from_name'] ?? null;
         $this->container['postcard_from_postal_code'] = $data['postcard_from_postal_code'] ?? null;
         $this->container['postcard_from_state'] = $data['postcard_from_state'] ?? null;
+        $this->container['sms_esp_twilio_uuid'] = $data['sms_esp_twilio_uuid'] ?? null;
+        $this->container['sms_phone_number'] = $data['sms_phone_number'] ?? null;
         $this->container['transactional_esp_domain_user'] = $data['transactional_esp_domain_user'] ?? null;
         $this->container['transactional_esp_domain_uuid'] = $data['transactional_esp_domain_uuid'] ?? null;
         $this->container['transactional_esp_friendly_name'] = $data['transactional_esp_friendly_name'] ?? null;
@@ -482,6 +494,54 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPostcardFromState($postcard_from_state)
     {
         $this->container['postcard_from_state'] = $postcard_from_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_esp_twilio_uuid
+     *
+     * @return string|null
+     */
+    public function getSmsEspTwilioUuid()
+    {
+        return $this->container['sms_esp_twilio_uuid'];
+    }
+
+    /**
+     * Sets sms_esp_twilio_uuid
+     *
+     * @param string|null $sms_esp_twilio_uuid sms_esp_twilio_uuid
+     *
+     * @return self
+     */
+    public function setSmsEspTwilioUuid($sms_esp_twilio_uuid)
+    {
+        $this->container['sms_esp_twilio_uuid'] = $sms_esp_twilio_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_phone_number
+     *
+     * @return string|null
+     */
+    public function getSmsPhoneNumber()
+    {
+        return $this->container['sms_phone_number'];
+    }
+
+    /**
+     * Sets sms_phone_number
+     *
+     * @param string|null $sms_phone_number sms_phone_number
+     *
+     * @return self
+     */
+    public function setSmsPhoneNumber($sms_phone_number)
+    {
+        $this->container['sms_phone_number'] = $sms_phone_number;
 
         return $this;
     }
