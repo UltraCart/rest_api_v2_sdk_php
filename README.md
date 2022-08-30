@@ -1256,6 +1256,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.42 | 08/30/2022 | storefront comm fields for sms configuration |
 | 3.10.41 | 08/26/2022 | postcard address fields for comm sequence testing |
 | 3.10.40 | 08/22/2022 | exposing individual reviews within item.review object |
 | 3.10.39 | 08/19/2022 | order api - added cell phone fields for sms |
