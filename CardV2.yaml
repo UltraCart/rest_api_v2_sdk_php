@@ -1,0 +1,25 @@
+try {
+    $response = $this->client->send($request, $options);
+} catch (RequestException $e) {
+
+    // BEGIN Retry Logic
+    if($e->getResponse()) {
+        $retryAfter = 0;
+        if (array_key_exists('Retry-After', $headers)) {
+            $retryAfter = intval($headers['Retry-After'][0]);
+        }
+
+        if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+            sleep($retryAfter);
+            return $this->getCustomersByQueryWithHttpInfoRetry(false, $customer_query, $_limit, $_offset, $_since, $_sort, $_expand);
+        }
+    }
+    // End Retry Logic
+
+    throw new ApiException(
+        "[{$e->getCode()}] {$e->getMessage()}",
+        $e->getCode(),
+        $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+        $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+    );
+}
