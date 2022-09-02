@@ -1198,6 +1198,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.60-RC | 09/02/2022 | customer editor added loyal ledger descriptions |
 | 4.0.59-RC | 08/30/2022 | storefront comm fields for sms configuration |
 | 4.0.58-RC | 08/26/2022 | postcard address fields for comm sequence testing |
 | 4.0.57-RC | 08/22/2022 | exposing individual reviews within item.review object |

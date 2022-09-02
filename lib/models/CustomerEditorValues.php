@@ -63,6 +63,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess, \JsonSerializ
         'card_exp_years' => 'string[]',
         'card_types' => 'string[]',
         'countries' => '\ultracart\v2\models\Country[]',
+        'loyalty_ledger_descriptions' => 'string[]',
         'loyalty_program_type' => 'string',
         'qb_classes' => 'string[]',
         'sales_rep_codes' => 'string[]',
@@ -83,6 +84,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess, \JsonSerializ
         'card_exp_years' => null,
         'card_types' => null,
         'countries' => null,
+        'loyalty_ledger_descriptions' => null,
         'loyalty_program_type' => null,
         'qb_classes' => null,
         'sales_rep_codes' => null,
@@ -122,6 +124,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess, \JsonSerializ
         'card_exp_years' => 'card_exp_years',
         'card_types' => 'card_types',
         'countries' => 'countries',
+        'loyalty_ledger_descriptions' => 'loyalty_ledger_descriptions',
         'loyalty_program_type' => 'loyalty_program_type',
         'qb_classes' => 'qb_classes',
         'sales_rep_codes' => 'sales_rep_codes',
@@ -140,6 +143,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess, \JsonSerializ
         'card_exp_years' => 'setCardExpYears',
         'card_types' => 'setCardTypes',
         'countries' => 'setCountries',
+        'loyalty_ledger_descriptions' => 'setLoyaltyLedgerDescriptions',
         'loyalty_program_type' => 'setLoyaltyProgramType',
         'qb_classes' => 'setQbClasses',
         'sales_rep_codes' => 'setSalesRepCodes',
@@ -158,6 +162,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess, \JsonSerializ
         'card_exp_years' => 'getCardExpYears',
         'card_types' => 'getCardTypes',
         'countries' => 'getCountries',
+        'loyalty_ledger_descriptions' => 'getLoyaltyLedgerDescriptions',
         'loyalty_program_type' => 'getLoyaltyProgramType',
         'qb_classes' => 'getQbClasses',
         'sales_rep_codes' => 'getSalesRepCodes',
@@ -227,6 +232,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['card_exp_years'] = $data['card_exp_years'] ?? null;
         $this->container['card_types'] = $data['card_types'] ?? null;
         $this->container['countries'] = $data['countries'] ?? null;
+        $this->container['loyalty_ledger_descriptions'] = $data['loyalty_ledger_descriptions'] ?? null;
         $this->container['loyalty_program_type'] = $data['loyalty_program_type'] ?? null;
         $this->container['qb_classes'] = $data['qb_classes'] ?? null;
         $this->container['sales_rep_codes'] = $data['sales_rep_codes'] ?? null;
@@ -374,6 +380,30 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCountries($countries)
     {
         $this->container['countries'] = $countries;
+
+        return $this;
+    }
+
+    /**
+     * Gets loyalty_ledger_descriptions
+     *
+     * @return string[]|null
+     */
+    public function getLoyaltyLedgerDescriptions()
+    {
+        return $this->container['loyalty_ledger_descriptions'];
+    }
+
+    /**
+     * Sets loyalty_ledger_descriptions
+     *
+     * @param string[]|null $loyalty_ledger_descriptions loyalty_ledger_descriptions
+     *
+     * @return self
+     */
+    public function setLoyaltyLedgerDescriptions($loyalty_ledger_descriptions)
+    {
+        $this->container['loyalty_ledger_descriptions'] = $loyalty_ledger_descriptions;
 
         return $this;
     }
