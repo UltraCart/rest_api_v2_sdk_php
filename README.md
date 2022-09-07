@@ -392,6 +392,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateScreenRecordingTags**](docs/Api/StorefrontApi.md#updatescreenrecordingtags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 *StorefrontApi* | [**updateTransactionEmail**](docs/Api/StorefrontApi.md#updatetransactionemail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 *StorefrontApi* | [**updateTwilioAccount**](docs/Api/StorefrontApi.md#updatetwilioaccount) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
+*StorefrontApi* | [**validateRuler**](docs/Api/StorefrontApi.md#validateruler) | **POST** /storefront/ruler/validate | Validate AWS Event Ruler
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/Api/TaxApi.md#deletetaxproviderselfcountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
 *TaxApi* | [**deleteTaxProviderSelfCounty**](docs/Api/TaxApi.md#deletetaxproviderselfcounty) | **DELETE** /tax/providers/self/county/{county} | Deletes a Self tax provider county
@@ -992,6 +993,8 @@ Class | Method | HTTP request | Description
 - [RegisterAffiliateClickResponse](docs/Model/RegisterAffiliateClickResponse.md)
 - [ResponseMetadata](docs/Model/ResponseMetadata.md)
 - [ResultSet](docs/Model/ResultSet.md)
+- [RulerValidationRequest](docs/Model/RulerValidationRequest.md)
+- [RulerValidationResponse](docs/Model/RulerValidationResponse.md)
 - [ScreenRecording](docs/Model/ScreenRecording.md)
 - [ScreenRecordingAdPlatform](docs/Model/ScreenRecordingAdPlatform.md)
 - [ScreenRecordingFilter](docs/Model/ScreenRecordingFilter.md)
@@ -1198,6 +1201,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.61-RC | 09/07/2022 | sf comms - using aws event ruler for bigquery segmentation validation |
 | 4.0.60-RC | 09/02/2022 | customer editor added loyal ledger descriptions |
 | 4.0.59-RC | 08/30/2022 | storefront comm fields for sms configuration |
 | 4.0.58-RC | 08/26/2022 | postcard address fields for comm sequence testing |

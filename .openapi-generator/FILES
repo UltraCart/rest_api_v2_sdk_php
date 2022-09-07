@@ -572,6 +572,8 @@ docs/Model/RegisterAffiliateClickRequest.md
 docs/Model/RegisterAffiliateClickResponse.md
 docs/Model/ResponseMetadata.md
 docs/Model/ResultSet.md
+docs/Model/RulerValidationRequest.md
+docs/Model/RulerValidationResponse.md
 docs/Model/ScreenRecording.md
 docs/Model/ScreenRecordingAdPlatform.md
 docs/Model/ScreenRecordingFilter.md
@@ -1262,6 +1264,8 @@ lib/models/RegisterAffiliateClickRequest.php
 lib/models/RegisterAffiliateClickResponse.php
 lib/models/ResponseMetadata.php
 lib/models/ResultSet.php
+lib/models/RulerValidationRequest.php
+lib/models/RulerValidationResponse.php
 lib/models/ScreenRecording.php
 lib/models/ScreenRecordingAdPlatform.php
 lib/models/ScreenRecordingFilter.php
