@@ -1259,6 +1259,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.45 | 09/12/2022 | storefront comm - send back reviews.io configured flag on getEmailSettings |
 | 3.10.44 | 09/07/2022 | sf comms - using aws event ruler for bigquery segmentation validation |
 | 3.10.43 | 09/02/2022 | customer editor added loyal ledger descriptions |
 | 3.10.42 | 08/30/2022 | storefront comm fields for sms configuration |

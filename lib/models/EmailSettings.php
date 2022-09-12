@@ -66,6 +66,7 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'postcard_from_name' => 'string',
         'postcard_from_postal_code' => 'string',
         'postcard_from_state' => 'string',
+        'reviews_io_configured' => 'bool',
         'sms_esp_twilio_uuid' => 'string',
         'sms_phone_number' => 'string',
         'transactional_esp_domain_user' => 'string',
@@ -88,6 +89,7 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'postcard_from_name' => null,
         'postcard_from_postal_code' => null,
         'postcard_from_state' => null,
+        'reviews_io_configured' => null,
         'sms_esp_twilio_uuid' => null,
         'sms_phone_number' => null,
         'transactional_esp_domain_user' => null,
@@ -131,6 +133,7 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'postcard_from_name' => 'postcard_from_name',
         'postcard_from_postal_code' => 'postcard_from_postal_code',
         'postcard_from_state' => 'postcard_from_state',
+        'reviews_io_configured' => 'reviews_io_configured',
         'sms_esp_twilio_uuid' => 'sms_esp_twilio_uuid',
         'sms_phone_number' => 'sms_phone_number',
         'transactional_esp_domain_user' => 'transactional_esp_domain_user',
@@ -153,6 +156,7 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'postcard_from_name' => 'setPostcardFromName',
         'postcard_from_postal_code' => 'setPostcardFromPostalCode',
         'postcard_from_state' => 'setPostcardFromState',
+        'reviews_io_configured' => 'setReviewsIoConfigured',
         'sms_esp_twilio_uuid' => 'setSmsEspTwilioUuid',
         'sms_phone_number' => 'setSmsPhoneNumber',
         'transactional_esp_domain_user' => 'setTransactionalEspDomainUser',
@@ -175,6 +179,7 @@ class EmailSettings implements ModelInterface, ArrayAccess
         'postcard_from_name' => 'getPostcardFromName',
         'postcard_from_postal_code' => 'getPostcardFromPostalCode',
         'postcard_from_state' => 'getPostcardFromState',
+        'reviews_io_configured' => 'getReviewsIoConfigured',
         'sms_esp_twilio_uuid' => 'getSmsEspTwilioUuid',
         'sms_phone_number' => 'getSmsPhoneNumber',
         'transactional_esp_domain_user' => 'getTransactionalEspDomainUser',
@@ -251,6 +256,7 @@ class EmailSettings implements ModelInterface, ArrayAccess
         $this->container['postcard_from_name'] = isset($data['postcard_from_name']) ? $data['postcard_from_name'] : null;
         $this->container['postcard_from_postal_code'] = isset($data['postcard_from_postal_code']) ? $data['postcard_from_postal_code'] : null;
         $this->container['postcard_from_state'] = isset($data['postcard_from_state']) ? $data['postcard_from_state'] : null;
+        $this->container['reviews_io_configured'] = isset($data['reviews_io_configured']) ? $data['reviews_io_configured'] : null;
         $this->container['sms_esp_twilio_uuid'] = isset($data['sms_esp_twilio_uuid']) ? $data['sms_esp_twilio_uuid'] : null;
         $this->container['sms_phone_number'] = isset($data['sms_phone_number']) ? $data['sms_phone_number'] : null;
         $this->container['transactional_esp_domain_user'] = isset($data['transactional_esp_domain_user']) ? $data['transactional_esp_domain_user'] : null;
@@ -494,6 +500,30 @@ class EmailSettings implements ModelInterface, ArrayAccess
     public function setPostcardFromState($postcard_from_state)
     {
         $this->container['postcard_from_state'] = $postcard_from_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets reviews_io_configured
+     *
+     * @return bool
+     */
+    public function getReviewsIoConfigured()
+    {
+        return $this->container['reviews_io_configured'];
+    }
+
+    /**
+     * Sets reviews_io_configured
+     *
+     * @param bool $reviews_io_configured True if the Reviews.io integration is configured
+     *
+     * @return $this
+     */
+    public function setReviewsIoConfigured($reviews_io_configured)
+    {
+        $this->container['reviews_io_configured'] = $reviews_io_configured;
 
         return $this;
     }
