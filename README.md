@@ -340,6 +340,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailCommseq**](docs/Api/StorefrontApi.md#getemailcommseq) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid} | Get email commseq
 *StorefrontApi* | [**getEmailCommseqEmailStats**](docs/Api/StorefrontApi.md#getemailcommseqemailstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/emailStats | Get email communication sequence emails stats
 *StorefrontApi* | [**getEmailCommseqPostcardStats**](docs/Api/StorefrontApi.md#getemailcommseqpostcardstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/postcardStats | Get email communication sequence postcard stats
+*StorefrontApi* | [**getEmailCommseqPostcardTracking**](docs/Api/StorefrontApi.md#getemailcommseqpostcardtracking) | **GET** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/tracking | Get email communication postcard tracking
 *StorefrontApi* | [**getEmailCommseqStatOverall**](docs/Api/StorefrontApi.md#getemailcommseqstatoverall) | **GET** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Get communication sequence stats overall
 *StorefrontApi* | [**getEmailCommseqStepStats**](docs/Api/StorefrontApi.md#getemailcommseqstepstats) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stepStats | Get email communication sequence step stats
 *StorefrontApi* | [**getEmailCommseqStepWaiting**](docs/Api/StorefrontApi.md#getemailcommseqstepwaiting) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/waiting | Get email communication sequence customers waiting at each requested step
@@ -835,6 +836,8 @@ Class | Method | HTTP request | Description
  - [EmailPlanAdditional](docs/Model/EmailPlanAdditional.md)
  - [EmailPlanResponse](docs/Model/EmailPlanResponse.md)
  - [EmailPostcardStat](docs/Model/EmailPostcardStat.md)
+ - [EmailPostcardTracking](docs/Model/EmailPostcardTracking.md)
+ - [EmailPostcardTrackingResponse](docs/Model/EmailPostcardTrackingResponse.md)
  - [EmailSegment](docs/Model/EmailSegment.md)
  - [EmailSegmentArchiveResponse](docs/Model/EmailSegmentArchiveResponse.md)
  - [EmailSegmentCustomer](docs/Model/EmailSegmentCustomer.md)
@@ -1259,6 +1262,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.46 | 09/13/2022 | storefront comms - postcard tracking |
 | 3.10.45 | 09/12/2022 | storefront comm - send back reviews.io configured flag on getEmailSettings |
 | 3.10.44 | 09/07/2022 | sf comms - using aws event ruler for bigquery segmentation validation |
 | 3.10.43 | 09/02/2022 | customer editor added loyal ledger descriptions |
