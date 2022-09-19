@@ -106,6 +106,287 @@ class ConversationApi
     }
 
     /**
+     * Operation getAgentKeepAlive
+     *
+     * Agent keep alive
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getAgentKeepAlive()
+    {
+        $this->getAgentKeepAliveWithHttpInfo();
+    }
+
+
+    /**
+     * Operation getAgentKeepAliveWithHttpInfo
+     *
+     * Agent keep alive
+     *
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgentKeepAliveWithHttpInfo()
+    {
+        $this->getAgentKeepAliveWithHttpInfoRetry(true );
+    }
+
+
+    /**
+     * Operation getAgentKeepAliveWithHttpInfoRetry
+     *
+     * Agent keep alive
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAgentKeepAliveWithHttpInfoRetry($retry )
+    {
+        $returnType = '';
+        $request = $this->getAgentKeepAliveRequest();
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        $this->getAgentKeepAliveWithHttpInfoRetry(false );
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            return [null, $response->getStatusCode(), $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAgentKeepAliveAsync
+     *
+     * Agent keep alive
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgentKeepAliveAsync()
+    {
+        return $this->getAgentKeepAliveAsyncWithHttpInfo()
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAgentKeepAliveAsyncWithHttpInfo
+     *
+     * Agent keep alive
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAgentKeepAliveAsyncWithHttpInfo()
+    {
+        $returnType = '';
+        $request = $this->getAgentKeepAliveRequest();
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAgentKeepAlive'
+     *
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getAgentKeepAliveRequest()
+    {
+
+        $resourcePath = '/conversation/agent/keepalive';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getAgentWebsocketAuthorization
      *
      * Get agent websocket authorization
@@ -429,14 +710,15 @@ class ConversationApi
      * Retrieve a conversation
      *
      * @param  string $conversation_uuid conversation_uuid (required)
+     * @param  int $limit limit (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\ConversationResponse
      */
-    public function getConversation($conversation_uuid)
+    public function getConversation($conversation_uuid, $limit = null)
     {
-        list($response) = $this->getConversationWithHttpInfo($conversation_uuid);
+        list($response) = $this->getConversationWithHttpInfo($conversation_uuid, $limit);
         return $response;
     }
 
@@ -447,14 +729,15 @@ class ConversationApi
      * Retrieve a conversation
      *
      * @param  string $conversation_uuid (required)
+     * @param  int $limit (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ConversationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConversationWithHttpInfo($conversation_uuid)
+    public function getConversationWithHttpInfo($conversation_uuid, $limit = null)
     {
-        return $this->getConversationWithHttpInfoRetry(true ,   $conversation_uuid);
+        return $this->getConversationWithHttpInfoRetry(true ,   $conversation_uuid,   $limit);
     }
 
 
@@ -465,15 +748,16 @@ class ConversationApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $conversation_uuid (required)
+     * @param  int $limit (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ConversationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConversationWithHttpInfoRetry($retry ,  $conversation_uuid)
+    public function getConversationWithHttpInfoRetry($retry ,  $conversation_uuid,  $limit = null)
     {
         $returnType = '\ultracart\v2\models\ConversationResponse';
-        $request = $this->getConversationRequest($conversation_uuid);
+        $request = $this->getConversationRequest($conversation_uuid, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -492,7 +776,7 @@ class ConversationApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getConversationWithHttpInfoRetry(false ,   $conversation_uuid);
+                        return $this->getConversationWithHttpInfoRetry(false ,   $conversation_uuid,   $limit);
                     }
                 }
 
@@ -581,13 +865,14 @@ class ConversationApi
      * Retrieve a conversation
      *
      * @param  string $conversation_uuid (required)
+     * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConversationAsync($conversation_uuid)
+    public function getConversationAsync($conversation_uuid, $limit = null)
     {
-        return $this->getConversationAsyncWithHttpInfo($conversation_uuid)
+        return $this->getConversationAsyncWithHttpInfo($conversation_uuid, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -601,14 +886,15 @@ class ConversationApi
      * Retrieve a conversation
      *
      * @param  string $conversation_uuid (required)
+     * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConversationAsyncWithHttpInfo($conversation_uuid)
+    public function getConversationAsyncWithHttpInfo($conversation_uuid, $limit = null)
     {
         $returnType = '\ultracart\v2\models\ConversationResponse';
-        $request = $this->getConversationRequest($conversation_uuid);
+        $request = $this->getConversationRequest($conversation_uuid, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -651,11 +937,12 @@ class ConversationApi
      * Create request for operation 'getConversation'
      *
      * @param  string $conversation_uuid (required)
+     * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getConversationRequest($conversation_uuid)
+    protected function getConversationRequest($conversation_uuid, $limit = null)
     {
         // verify the required parameter 'conversation_uuid' is set
         if ($conversation_uuid === null || (is_array($conversation_uuid) && count($conversation_uuid) === 0)) {
@@ -671,12 +958,384 @@ class ConversationApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
 
         // path params
         if ($conversation_uuid !== null) {
             $resourcePath = str_replace(
                 '{' . 'conversation_uuid' . '}',
                 ObjectSerializer::toPathValue($conversation_uuid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getConversationMessages
+     *
+     * Retrieve conversation messages
+     *
+     * @param  string $conversation_uuid conversation_uuid (required)
+     * @param  int $since since (required)
+     * @param  int $limit limit (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ConversationMessagesResponse
+     */
+    public function getConversationMessages($conversation_uuid, $since, $limit = null)
+    {
+        list($response) = $this->getConversationMessagesWithHttpInfo($conversation_uuid, $since, $limit);
+        return $response;
+    }
+
+
+    /**
+     * Operation getConversationMessagesWithHttpInfo
+     *
+     * Retrieve conversation messages
+     *
+     * @param  string $conversation_uuid (required)
+     * @param  int $since (required)
+     * @param  int $limit (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationMessagesWithHttpInfo($conversation_uuid, $since, $limit = null)
+    {
+        return $this->getConversationMessagesWithHttpInfoRetry(true ,   $conversation_uuid,   $since,   $limit);
+    }
+
+
+    /**
+     * Operation getConversationMessagesWithHttpInfoRetry
+     *
+     * Retrieve conversation messages
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  string $conversation_uuid (required)
+     * @param  int $since (required)
+     * @param  int $limit (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ConversationMessagesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getConversationMessagesWithHttpInfoRetry($retry ,  $conversation_uuid,  $since,  $limit = null)
+    {
+        $returnType = '\ultracart\v2\models\ConversationMessagesResponse';
+        $request = $this->getConversationMessagesRequest($conversation_uuid, $since, $limit);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getConversationMessagesWithHttpInfoRetry(false ,   $conversation_uuid,   $since,   $limit);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ConversationMessagesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getConversationMessagesAsync
+     *
+     * Retrieve conversation messages
+     *
+     * @param  string $conversation_uuid (required)
+     * @param  int $since (required)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationMessagesAsync($conversation_uuid, $since, $limit = null)
+    {
+        return $this->getConversationMessagesAsyncWithHttpInfo($conversation_uuid, $since, $limit)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getConversationMessagesAsyncWithHttpInfo
+     *
+     * Retrieve conversation messages
+     *
+     * @param  string $conversation_uuid (required)
+     * @param  int $since (required)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getConversationMessagesAsyncWithHttpInfo($conversation_uuid, $since, $limit = null)
+    {
+        $returnType = '\ultracart\v2\models\ConversationMessagesResponse';
+        $request = $this->getConversationMessagesRequest($conversation_uuid, $since, $limit);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getConversationMessages'
+     *
+     * @param  string $conversation_uuid (required)
+     * @param  int $since (required)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getConversationMessagesRequest($conversation_uuid, $since, $limit = null)
+    {
+        // verify the required parameter 'conversation_uuid' is set
+        if ($conversation_uuid === null || (is_array($conversation_uuid) && count($conversation_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $conversation_uuid when calling getConversationMessages'
+            );
+        }
+        // verify the required parameter 'since' is set
+        if ($since === null || (is_array($since) && count($since) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $since when calling getConversationMessages'
+            );
+        }
+
+        $resourcePath = '/conversation/conversations/{conversation_uuid}/messages/{since}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+
+        // path params
+        if ($conversation_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'conversation_uuid' . '}',
+                ObjectSerializer::toPathValue($conversation_uuid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($since !== null) {
+            $resourcePath = str_replace(
+                '{' . 'since' . '}',
+                ObjectSerializer::toPathValue($since),
                 $resourcePath
             );
         }
