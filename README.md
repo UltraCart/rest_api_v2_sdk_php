@@ -124,8 +124,10 @@ Class | Method | HTTP request | Description
 *CheckoutApi* | [**setupBrowserKey**](docs/Api/CheckoutApi.md#setupbrowserkey) | **PUT** /checkout/browser_key | Setup Browser Application
 *CheckoutApi* | [**updateCart**](docs/Api/CheckoutApi.md#updatecart) | **PUT** /checkout/cart | Update cart
 *CheckoutApi* | [**validateCart**](docs/Api/CheckoutApi.md#validatecart) | **POST** /checkout/cart/validate | Validate
+*ConversationApi* | [**getAgentKeepAlive**](docs/Api/ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/Api/ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+*ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/Api/ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/Api/ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
@@ -570,6 +572,7 @@ Class | Method | HTTP request | Description
 - [ConversationEventTyping](docs/Model/ConversationEventTyping.md)
 - [ConversationMessage](docs/Model/ConversationMessage.md)
 - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
+- [ConversationMessagesResponse](docs/Model/ConversationMessagesResponse.md)
 - [ConversationMultimediaUploadUrl](docs/Model/ConversationMultimediaUploadUrl.md)
 - [ConversationMultimediaUploadUrlResponse](docs/Model/ConversationMultimediaUploadUrlResponse.md)
 - [ConversationParticipant](docs/Model/ConversationParticipant.md)
@@ -1204,6 +1207,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.64-RC | 09/19/2022 | conversations pagination |
 | 4.0.63-RC | 09/13/2022 | storefront comms - postcard tracking |
 | 4.0.62-RC | 09/12/2022 | storefront comm - send back reviews.io configured flag on getEmailSettings |
 | 4.0.61-RC | 09/07/2022 | sf comms - using aws event ruler for bigquery segmentation validation |
