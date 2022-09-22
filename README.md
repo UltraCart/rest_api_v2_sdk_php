@@ -1215,6 +1215,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.66-RC | 09/22/2022 | digital item mgmt testing |
 | 4.0.65-RC | 09/22/2022 | testing digital file mgmt calls |
 | 4.0.64-RC | 09/19/2022 | conversations pagination |
 | 4.0.63-RC | 09/13/2022 | storefront comms - postcard tracking |

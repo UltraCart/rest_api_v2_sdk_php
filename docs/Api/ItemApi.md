@@ -135,7 +135,7 @@ void (empty response body)
 ## `getDigitalItem()`
 
 ```php
-getDigitalItem($digital_item_oid, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders): \ultracart\v2\models\ItemDigitalItemResponse
+getDigitalItem($digital_item_oid): \ultracart\v2\models\ItemDigitalItemResponse
 ```
 
 Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
@@ -157,15 +157,9 @@ $apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constan
             Constants::VERIFY_SSL, Constants::DEBUG);
 
 $digital_item_oid = 56; // int | The digital item oid to retrieve.
-$_limit = 100; // int | The maximum number of records to return on this one API call. (Default 100, Max 2000)
-$_offset = 0; // int | Pagination of the record set.  Offset is a zero based index.
-$_since = '_since_example'; // string | Fetch items that have been created/modified since this date/time.
-$_sort = '_sort_example'; // string | The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending.
-$_expand = '_expand_example'; // string | The object expansion to perform on the result.  See documentation for examples
-$_placeholders = True; // bool | Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API.
 
 try {
-    $result = $apiInstance->getDigitalItem($digital_item_oid, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+    $result = $apiInstance->getDigitalItem($digital_item_oid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->getDigitalItem: ', $e->getMessage(), PHP_EOL;
@@ -177,12 +171,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **digital_item_oid** | **int**| The digital item oid to retrieve. |
- **_limit** | **int**| The maximum number of records to return on this one API call. (Default 100, Max 2000) | [optional] [default to 100]
- **_offset** | **int**| Pagination of the record set.  Offset is a zero based index. | [optional] [default to 0]
- **_since** | **string**| Fetch items that have been created/modified since this date/time. | [optional]
- **_sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
- **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
- **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
 
 ### Return type
 
