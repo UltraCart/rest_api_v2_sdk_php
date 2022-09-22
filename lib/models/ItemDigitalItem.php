@@ -57,11 +57,15 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'click_wrap_agreement' => 'string',
         'creation_dts' => 'string',
         'description' => 'string',
+        'digital_item_oid' => 'int',
         'file_size' => 'int',
+        'import_from_url' => 'string',
         'mime_type' => 'string',
-        'original_filename' => 'string'
+        'original_filename' => 'string',
+        'pdf_meta' => '\ultracart\v2\models\ItemDigitalItemPdfMeta'
     ];
 
     /**
@@ -70,11 +74,15 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'click_wrap_agreement' => null,
         'creation_dts' => 'dateTime',
         'description' => null,
+        'digital_item_oid' => 'int32',
         'file_size' => 'int64',
+        'import_from_url' => null,
         'mime_type' => null,
-        'original_filename' => null
+        'original_filename' => null,
+        'pdf_meta' => null
     ];
 
     /**
@@ -104,11 +112,15 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'click_wrap_agreement' => 'click_wrap_agreement',
         'creation_dts' => 'creation_dts',
         'description' => 'description',
+        'digital_item_oid' => 'digital_item_oid',
         'file_size' => 'file_size',
+        'import_from_url' => 'import_from_url',
         'mime_type' => 'mime_type',
-        'original_filename' => 'original_filename'
+        'original_filename' => 'original_filename',
+        'pdf_meta' => 'pdf_meta'
     ];
 
     /**
@@ -117,11 +129,15 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'click_wrap_agreement' => 'setClickWrapAgreement',
         'creation_dts' => 'setCreationDts',
         'description' => 'setDescription',
+        'digital_item_oid' => 'setDigitalItemOid',
         'file_size' => 'setFileSize',
+        'import_from_url' => 'setImportFromUrl',
         'mime_type' => 'setMimeType',
-        'original_filename' => 'setOriginalFilename'
+        'original_filename' => 'setOriginalFilename',
+        'pdf_meta' => 'setPdfMeta'
     ];
 
     /**
@@ -130,11 +146,15 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'click_wrap_agreement' => 'getClickWrapAgreement',
         'creation_dts' => 'getCreationDts',
         'description' => 'getDescription',
+        'digital_item_oid' => 'getDigitalItemOid',
         'file_size' => 'getFileSize',
+        'import_from_url' => 'getImportFromUrl',
         'mime_type' => 'getMimeType',
-        'original_filename' => 'getOriginalFilename'
+        'original_filename' => 'getOriginalFilename',
+        'pdf_meta' => 'getPdfMeta'
     ];
 
     /**
@@ -197,11 +217,15 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['click_wrap_agreement'] = isset($data['click_wrap_agreement']) ? $data['click_wrap_agreement'] : null;
         $this->container['creation_dts'] = isset($data['creation_dts']) ? $data['creation_dts'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['digital_item_oid'] = isset($data['digital_item_oid']) ? $data['digital_item_oid'] : null;
         $this->container['file_size'] = isset($data['file_size']) ? $data['file_size'] : null;
+        $this->container['import_from_url'] = isset($data['import_from_url']) ? $data['import_from_url'] : null;
         $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
         $this->container['original_filename'] = isset($data['original_filename']) ? $data['original_filename'] : null;
+        $this->container['pdf_meta'] = isset($data['pdf_meta']) ? $data['pdf_meta'] : null;
     }
 
     /**
@@ -239,6 +263,30 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets click_wrap_agreement
+     *
+     * @return string
+     */
+    public function getClickWrapAgreement()
+    {
+        return $this->container['click_wrap_agreement'];
+    }
+
+    /**
+     * Sets click_wrap_agreement
+     *
+     * @param string $click_wrap_agreement Click wrap agreement is presented to the customer before they can purchase your product.
+     *
+     * @return $this
+     */
+    public function setClickWrapAgreement($click_wrap_agreement)
+    {
+        $this->container['click_wrap_agreement'] = $click_wrap_agreement;
+
+        return $this;
+    }
 
     /**
      * Gets creation_dts
@@ -293,6 +341,30 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets digital_item_oid
+     *
+     * @return int
+     */
+    public function getDigitalItemOid()
+    {
+        return $this->container['digital_item_oid'];
+    }
+
+    /**
+     * Sets digital_item_oid
+     *
+     * @param int $digital_item_oid The Digital item oid is a primary key used internally by UltraCart.  You should not set or change this value.  Doing so will have no effect.
+     *
+     * @return $this
+     */
+    public function setDigitalItemOid($digital_item_oid)
+    {
+        $this->container['digital_item_oid'] = $digital_item_oid;
+
+        return $this;
+    }
+
+    /**
      * Gets file_size
      *
      * @return int
@@ -312,6 +384,30 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
     public function setFileSize($file_size)
     {
         $this->container['file_size'] = $file_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets import_from_url
+     *
+     * @return string
+     */
+    public function getImportFromUrl()
+    {
+        return $this->container['import_from_url'];
+    }
+
+    /**
+     * Sets import_from_url
+     *
+     * @param string $import_from_url This url is sourced to create or update a digital file in your digital library.  It is only considered during an insert or update operation.
+     *
+     * @return $this
+     */
+    public function setImportFromUrl($import_from_url)
+    {
+        $this->container['import_from_url'] = $import_from_url;
 
         return $this;
     }
@@ -368,6 +464,30 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
         }
 
         $this->container['original_filename'] = $original_filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets pdf_meta
+     *
+     * @return \ultracart\v2\models\ItemDigitalItemPdfMeta
+     */
+    public function getPdfMeta()
+    {
+        return $this->container['pdf_meta'];
+    }
+
+    /**
+     * Sets pdf_meta
+     *
+     * @param \ultracart\v2\models\ItemDigitalItemPdfMeta $pdf_meta pdf_meta
+     *
+     * @return $this
+     */
+    public function setPdfMeta($pdf_meta)
+    {
+        $this->container['pdf_meta'] = $pdf_meta;
 
         return $this;
     }
