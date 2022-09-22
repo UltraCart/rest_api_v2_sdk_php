@@ -1273,6 +1273,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.49 | 09/22/2022 | digital item mgmt testing |
 | 3.10.48 | 09/22/2022 | testing digital file mgmt calls |
 | 3.10.47 | 09/19/2022 | conversations pagination |
 | 3.10.46 | 09/13/2022 | storefront comms - postcard tracking |

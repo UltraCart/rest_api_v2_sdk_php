@@ -713,20 +713,14 @@ class ItemApi
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
      *
      * @param  int $digital_item_oid The digital item oid to retrieve. (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
-     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\ItemDigitalItemResponse
      */
-    public function getDigitalItem($digital_item_oid, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function getDigitalItem($digital_item_oid)
     {
-        list($response) = $this->getDigitalItemWithHttpInfo($digital_item_oid, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+        list($response) = $this->getDigitalItemWithHttpInfo($digital_item_oid);
         return $response;
     }
 
@@ -737,20 +731,14 @@ class ItemApi
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
      *
      * @param  int $digital_item_oid The digital item oid to retrieve. (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
-     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ItemDigitalItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDigitalItemWithHttpInfo($digital_item_oid, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function getDigitalItemWithHttpInfo($digital_item_oid)
     {
-        return $this->getDigitalItemWithHttpInfoRetry(true ,   $digital_item_oid,   $_limit,   $_offset,   $_since,   $_sort,   $_expand,   $_placeholders);
+        return $this->getDigitalItemWithHttpInfoRetry(true ,   $digital_item_oid);
     }
 
 
@@ -761,21 +749,15 @@ class ItemApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $digital_item_oid The digital item oid to retrieve. (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
-     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\ItemDigitalItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDigitalItemWithHttpInfoRetry($retry ,  $digital_item_oid,  $_limit = '100',  $_offset = '0',  $_since = null,  $_sort = null,  $_expand = null,  $_placeholders = null)
+    public function getDigitalItemWithHttpInfoRetry($retry ,  $digital_item_oid)
     {
         $returnType = '\ultracart\v2\models\ItemDigitalItemResponse';
-        $request = $this->getDigitalItemRequest($digital_item_oid, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+        $request = $this->getDigitalItemRequest($digital_item_oid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -794,7 +776,7 @@ class ItemApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->getDigitalItemWithHttpInfoRetry(false ,   $digital_item_oid,   $_limit,   $_offset,   $_since,   $_sort,   $_expand,   $_placeholders);
+                        return $this->getDigitalItemWithHttpInfoRetry(false ,   $digital_item_oid);
                     }
                 }
 
@@ -883,19 +865,13 @@ class ItemApi
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
      *
      * @param  int $digital_item_oid The digital item oid to retrieve. (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
-     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDigitalItemAsync($digital_item_oid, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function getDigitalItemAsync($digital_item_oid)
     {
-        return $this->getDigitalItemAsyncWithHttpInfo($digital_item_oid, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
+        return $this->getDigitalItemAsyncWithHttpInfo($digital_item_oid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -909,20 +885,14 @@ class ItemApi
      * Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
      *
      * @param  int $digital_item_oid The digital item oid to retrieve. (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
-     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDigitalItemAsyncWithHttpInfo($digital_item_oid, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    public function getDigitalItemAsyncWithHttpInfo($digital_item_oid)
     {
         $returnType = '\ultracart\v2\models\ItemDigitalItemResponse';
-        $request = $this->getDigitalItemRequest($digital_item_oid, $_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+        $request = $this->getDigitalItemRequest($digital_item_oid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -965,17 +935,11 @@ class ItemApi
      * Create request for operation 'getDigitalItem'
      *
      * @param  int $digital_item_oid The digital item oid to retrieve. (required)
-     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
-     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
-     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
-     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
-     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
-     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDigitalItemRequest($digital_item_oid, $_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    protected function getDigitalItemRequest($digital_item_oid)
     {
         // verify the required parameter 'digital_item_oid' is set
         if ($digital_item_oid === null || (is_array($digital_item_oid) && count($digital_item_oid) === 0)) {
@@ -991,30 +955,6 @@ class ItemApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($_limit !== null) {
-            $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
-        }
-        // query params
-        if ($_offset !== null) {
-            $queryParams['_offset'] = ObjectSerializer::toQueryValue($_offset);
-        }
-        // query params
-        if ($_since !== null) {
-            $queryParams['_since'] = ObjectSerializer::toQueryValue($_since);
-        }
-        // query params
-        if ($_sort !== null) {
-            $queryParams['_sort'] = ObjectSerializer::toQueryValue($_sort);
-        }
-        // query params
-        if ($_expand !== null) {
-            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
-        }
-        // query params
-        if ($_placeholders !== null) {
-            $queryParams['_placeholders'] = ObjectSerializer::toQueryValue($_placeholders);
-        }
 
         // path params
         if ($digital_item_oid !== null) {
