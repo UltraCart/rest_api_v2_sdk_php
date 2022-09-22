@@ -430,6 +430,9 @@ docs/Model/ItemContentMultimedia.md
 docs/Model/ItemContentMultimediaThumbnail.md
 docs/Model/ItemDigitalDelivery.md
 docs/Model/ItemDigitalItem.md
+docs/Model/ItemDigitalItemPdfMeta.md
+docs/Model/ItemDigitalItemResponse.md
+docs/Model/ItemDigitalItemsResponse.md
 docs/Model/ItemEbay.md
 docs/Model/ItemEbayCategorySpecific.md
 docs/Model/ItemEbayMarketListing.md
@@ -1124,6 +1127,9 @@ lib/models/ItemContentMultimedia.php
 lib/models/ItemContentMultimediaThumbnail.php
 lib/models/ItemDigitalDelivery.php
 lib/models/ItemDigitalItem.php
+lib/models/ItemDigitalItemPdfMeta.php
+lib/models/ItemDigitalItemResponse.php
+lib/models/ItemDigitalItemsResponse.php
 lib/models/ItemEbay.php
 lib/models/ItemEbayCategorySpecific.php
 lib/models/ItemEbayMarketListing.php

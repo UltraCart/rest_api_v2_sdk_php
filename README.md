@@ -192,12 +192,17 @@ Class | Method | HTTP request | Description
 *IntegrationLogApi* | [**getIntegrationLogFilePdf**](docs/Api/IntegrationLogApi.md#getintegrationlogfilepdf) | **GET** /integration_log/query/{pk}/{sk}/{uuid}/pdf | Retrieve an integration log file converted to PDF
 *IntegrationLogApi* | [**getIntegrationLogSummariesQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsummariesquery) | **POST** /integration_log/summary/query | Retrieve integration log summaries
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsquery) | **POST** /integration_log/query | Retrieve integration logs
+*ItemApi* | [**deleteDigitalItem**](docs/Api/ItemApi.md#deletedigitalitem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 *ItemApi* | [**deleteItem**](docs/Api/ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+*ItemApi* | [**getDigitalItem**](docs/Api/ItemApi.md#getdigitalitem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
+*ItemApi* | [**getDigitalItems**](docs/Api/ItemApi.md#getdigitalitems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 *ItemApi* | [**getItem**](docs/Api/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/Api/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/Api/ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+*ItemApi* | [**insertDigitalItem**](docs/Api/ItemApi.md#insertdigitalitem) | **POST** /item/digital_library | Create a file within the digital library
 *ItemApi* | [**insertItem**](docs/Api/ItemApi.md#insertitem) | **POST** /item/items | Create an item
+*ItemApi* | [**updateDigitalItem**](docs/Api/ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/Api/ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 *ItemApi* | [**updateItems**](docs/Api/ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/Api/ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
@@ -854,6 +859,9 @@ Class | Method | HTTP request | Description
 - [ItemContentMultimediaThumbnail](docs/Model/ItemContentMultimediaThumbnail.md)
 - [ItemDigitalDelivery](docs/Model/ItemDigitalDelivery.md)
 - [ItemDigitalItem](docs/Model/ItemDigitalItem.md)
+- [ItemDigitalItemPdfMeta](docs/Model/ItemDigitalItemPdfMeta.md)
+- [ItemDigitalItemResponse](docs/Model/ItemDigitalItemResponse.md)
+- [ItemDigitalItemsResponse](docs/Model/ItemDigitalItemsResponse.md)
 - [ItemEbay](docs/Model/ItemEbay.md)
 - [ItemEbayCategorySpecific](docs/Model/ItemEbayCategorySpecific.md)
 - [ItemEbayMarketListing](docs/Model/ItemEbayMarketListing.md)
@@ -1207,6 +1215,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.65-RC | 09/22/2022 | testing digital file mgmt calls |
 | 4.0.64-RC | 09/19/2022 | conversations pagination |
 | 4.0.63-RC | 09/13/2022 | storefront comms - postcard tracking |
 | 4.0.62-RC | 09/12/2022 | storefront comm - send back reviews.io configured flag on getEmailSettings |
