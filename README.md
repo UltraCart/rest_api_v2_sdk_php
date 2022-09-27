@@ -200,6 +200,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/Api/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/Api/ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+*ItemApi* | [**getUnassociatedDigitalItems**](docs/Api/ItemApi.md#getunassociateddigitalitems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 *ItemApi* | [**insertDigitalItem**](docs/Api/ItemApi.md#insertdigitalitem) | **POST** /item/digital_library | Create a file within the digital library
 *ItemApi* | [**insertItem**](docs/Api/ItemApi.md#insertitem) | **POST** /item/items | Create an item
 *ItemApi* | [**updateDigitalItem**](docs/Api/ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
@@ -243,9 +244,12 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**checkDownloadEmailSegment**](docs/Api/StorefrontApi.md#checkdownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 *StorefrontApi* | [**cloneEmailCampaign**](docs/Api/StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/Api/StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
+*StorefrontApi* | [**createAdminPanelFsDirectory**](docs/Api/StorefrontApi.md#createadminpanelfsdirectory) | **POST** /storefront/{id}/adminPanel/fs/dir | Create file manager directory for admin panel
+*StorefrontApi* | [**createAdminPanelFsFileUpload**](docs/Api/StorefrontApi.md#createadminpanelfsfileupload) | **POST** /storefront/{id}/adminPanel/fs/file | Upload file manager file for admin panel
 *StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 *StorefrontApi* | [**createEmailSendingDomain2**](docs/Api/StorefrontApi.md#createemailsendingdomain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
 *StorefrontApi* | [**createTwilioAccount**](docs/Api/StorefrontApi.md#createtwilioaccount) | **POST** /storefront/twilio/accounts | Create Twilio account
+*StorefrontApi* | [**deleteAdminPanelFsFile**](docs/Api/StorefrontApi.md#deleteadminpanelfsfile) | **DELETE** /storefront/{id}/adminPanel/fs/file | Delete file manager directory for admin panel
 *StorefrontApi* | [**deleteEmailCampaignFolder**](docs/Api/StorefrontApi.md#deleteemailcampaignfolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 *StorefrontApi* | [**deleteEmailCommseqStat**](docs/Api/StorefrontApi.md#deleteemailcommseqstat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 *StorefrontApi* | [**deleteEmailEmail**](docs/Api/StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -263,6 +267,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**duplicateLibraryItem**](docs/Api/StorefrontApi.md#duplicatelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 *StorefrontApi* | [**favoriteScreenRecording**](docs/Api/StorefrontApi.md#favoritescreenrecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 *StorefrontApi* | [**geocodeAddress**](docs/Api/StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
+*StorefrontApi* | [**getAdminPanelFsDirectory**](docs/Api/StorefrontApi.md#getadminpanelfsdirectory) | **GET** /storefront/{id}/adminPanel/fs/dir | Get file manager directory for admin panel
 *StorefrontApi* | [**getCountries**](docs/Api/StorefrontApi.md#getcountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 *StorefrontApi* | [**getEditorToken**](docs/Api/StorefrontApi.md#geteditortoken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 *StorefrontApi* | [**getEmailBaseTemplates**](docs/Api/StorefrontApi.md#getemailbasetemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
@@ -813,6 +818,7 @@ Class | Method | HTTP request | Description
 - [ExperimentVariation](docs/Model/ExperimentVariation.md)
 - [ExperimentVariationStat](docs/Model/ExperimentVariationStat.md)
 - [ExperimentsResponse](docs/Model/ExperimentsResponse.md)
+- [FileManagerPage](docs/Model/FileManagerPage.md)
 - [FulfillmentInventory](docs/Model/FulfillmentInventory.md)
 - [FulfillmentShipment](docs/Model/FulfillmentShipment.md)
 - [GeoPoint](docs/Model/GeoPoint.md)
@@ -1215,6 +1221,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.67-RC | 09/27/2022 | added digital library call for unassociated content |
 | 4.0.66-RC | 09/22/2022 | digital item mgmt testing |
 | 4.0.65-RC | 09/22/2022 | testing digital file mgmt calls |
 | 4.0.64-RC | 09/19/2022 | conversations pagination |
