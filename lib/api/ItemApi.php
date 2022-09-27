@@ -2866,6 +2866,384 @@ class ItemApi
     }
 
     /**
+     * Operation getUnassociatedDigitalItems
+     *
+     * Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+     *
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\ItemDigitalItemsResponse
+     */
+    public function getUnassociatedDigitalItems($_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    {
+        list($response) = $this->getUnassociatedDigitalItemsWithHttpInfo($_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+        return $response;
+    }
+
+
+    /**
+     * Operation getUnassociatedDigitalItemsWithHttpInfo
+     *
+     * Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+     *
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemDigitalItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUnassociatedDigitalItemsWithHttpInfo($_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    {
+        return $this->getUnassociatedDigitalItemsWithHttpInfoRetry(true ,   $_limit,   $_offset,   $_since,   $_sort,   $_expand,   $_placeholders);
+    }
+
+
+    /**
+     * Operation getUnassociatedDigitalItemsWithHttpInfoRetry
+     *
+     * Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\ItemDigitalItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUnassociatedDigitalItemsWithHttpInfoRetry($retry ,  $_limit = '100',  $_offset = '0',  $_since = null,  $_sort = null,  $_expand = null,  $_placeholders = null)
+    {
+        $returnType = '\ultracart\v2\models\ItemDigitalItemsResponse';
+        $request = $this->getUnassociatedDigitalItemsRequest($_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->getUnassociatedDigitalItemsWithHttpInfoRetry(false ,   $_limit,   $_offset,   $_since,   $_sort,   $_expand,   $_placeholders);
+                    }
+                }
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ItemDigitalItemsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getUnassociatedDigitalItemsAsync
+     *
+     * Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+     *
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUnassociatedDigitalItemsAsync($_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    {
+        return $this->getUnassociatedDigitalItemsAsyncWithHttpInfo($_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getUnassociatedDigitalItemsAsyncWithHttpInfo
+     *
+     * Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
+     *
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUnassociatedDigitalItemsAsyncWithHttpInfo($_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    {
+        $returnType = '\ultracart\v2\models\ItemDigitalItemsResponse';
+        $request = $this->getUnassociatedDigitalItemsRequest($_limit, $_offset, $_since, $_sort, $_expand, $_placeholders);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getUnassociatedDigitalItems'
+     *
+     * @param  int $_limit The maximum number of records to return on this one API call. (Default 100, Max 2000) (optional, default to 100)
+     * @param  int $_offset Pagination of the record set.  Offset is a zero based index. (optional, default to 0)
+     * @param  string $_since Fetch items that have been created/modified since this date/time. (optional)
+     * @param  string $_sort The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. (optional)
+     * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
+     * @param  bool $_placeholders Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getUnassociatedDigitalItemsRequest($_limit = '100', $_offset = '0', $_since = null, $_sort = null, $_expand = null, $_placeholders = null)
+    {
+
+        $resourcePath = '/item/digital_library/unassociated';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($_limit !== null) {
+            $queryParams['_limit'] = ObjectSerializer::toQueryValue($_limit);
+        }
+        // query params
+        if ($_offset !== null) {
+            $queryParams['_offset'] = ObjectSerializer::toQueryValue($_offset);
+        }
+        // query params
+        if ($_since !== null) {
+            $queryParams['_since'] = ObjectSerializer::toQueryValue($_since);
+        }
+        // query params
+        if ($_sort !== null) {
+            $queryParams['_sort'] = ObjectSerializer::toQueryValue($_sort);
+        }
+        // query params
+        if ($_expand !== null) {
+            $queryParams['_expand'] = ObjectSerializer::toQueryValue($_expand);
+        }
+        // query params
+        if ($_placeholders !== null) {
+            $queryParams['_placeholders'] = ObjectSerializer::toQueryValue($_placeholders);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = \GuzzleHttp\json_encode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation insertDigitalItem
      *
      * Create a file within the digital library
