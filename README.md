@@ -196,6 +196,7 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**deleteItem**](docs/Api/ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 *ItemApi* | [**getDigitalItem**](docs/Api/ItemApi.md#getdigitalitem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItems**](docs/Api/ItemApi.md#getdigitalitems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
+*ItemApi* | [**getDigitalItemsByExternalId**](docs/Api/ItemApi.md#getdigitalitemsbyexternalid) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
 *ItemApi* | [**getItem**](docs/Api/ItemApi.md#getitem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/Api/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
@@ -244,12 +245,10 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**checkDownloadEmailSegment**](docs/Api/StorefrontApi.md#checkdownloademailsegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 *StorefrontApi* | [**cloneEmailCampaign**](docs/Api/StorefrontApi.md#cloneemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 *StorefrontApi* | [**cloneEmailFlow**](docs/Api/StorefrontApi.md#cloneemailflow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
-*StorefrontApi* | [**createAdminPanelFsDirectory**](docs/Api/StorefrontApi.md#createadminpanelfsdirectory) | **POST** /storefront/{id}/adminPanel/fs/dir | Create file manager directory for admin panel
-*StorefrontApi* | [**createAdminPanelFsFileUpload**](docs/Api/StorefrontApi.md#createadminpanelfsfileupload) | **POST** /storefront/{id}/adminPanel/fs/file | Upload file manager file for admin panel
 *StorefrontApi* | [**createEmailSendingDomain**](docs/Api/StorefrontApi.md#createemailsendingdomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 *StorefrontApi* | [**createEmailSendingDomain2**](docs/Api/StorefrontApi.md#createemailsendingdomain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
+*StorefrontApi* | [**createFsDirectory**](docs/Api/StorefrontApi.md#createfsdirectory) | **POST** /storefront/{id}/fs/dir | Create file manager directory
 *StorefrontApi* | [**createTwilioAccount**](docs/Api/StorefrontApi.md#createtwilioaccount) | **POST** /storefront/twilio/accounts | Create Twilio account
-*StorefrontApi* | [**deleteAdminPanelFsFile**](docs/Api/StorefrontApi.md#deleteadminpanelfsfile) | **DELETE** /storefront/{id}/adminPanel/fs/file | Delete file manager directory for admin panel
 *StorefrontApi* | [**deleteEmailCampaignFolder**](docs/Api/StorefrontApi.md#deleteemailcampaignfolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 *StorefrontApi* | [**deleteEmailCommseqStat**](docs/Api/StorefrontApi.md#deleteemailcommseqstat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 *StorefrontApi* | [**deleteEmailEmail**](docs/Api/StorefrontApi.md#deleteemailemail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -259,6 +258,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**deleteEmailPostcard**](docs/Api/StorefrontApi.md#deleteemailpostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 *StorefrontApi* | [**deleteEmailSendingDomain**](docs/Api/StorefrontApi.md#deleteemailsendingdomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 *StorefrontApi* | [**deleteExperiment**](docs/Api/StorefrontApi.md#deleteexperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+*StorefrontApi* | [**deleteFsFile**](docs/Api/StorefrontApi.md#deletefsfile) | **DELETE** /storefront/{id}/fs/file | Delete file manager directory
 *StorefrontApi* | [**deleteHeatmap**](docs/Api/StorefrontApi.md#deleteheatmap) | **DELETE** /storefront/{storefront_oid}/screen_recordings/heatmap | Delete screen recording heatmap
 *StorefrontApi* | [**deleteLibraryItem**](docs/Api/StorefrontApi.md#deletelibraryitem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 *StorefrontApi* | [**deleteLibraryItemPublishedVersions**](docs/Api/StorefrontApi.md#deletelibraryitempublishedversions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
@@ -267,7 +267,6 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**duplicateLibraryItem**](docs/Api/StorefrontApi.md#duplicatelibraryitem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 *StorefrontApi* | [**favoriteScreenRecording**](docs/Api/StorefrontApi.md#favoritescreenrecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 *StorefrontApi* | [**geocodeAddress**](docs/Api/StorefrontApi.md#geocodeaddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
-*StorefrontApi* | [**getAdminPanelFsDirectory**](docs/Api/StorefrontApi.md#getadminpanelfsdirectory) | **GET** /storefront/{id}/adminPanel/fs/dir | Get file manager directory for admin panel
 *StorefrontApi* | [**getCountries**](docs/Api/StorefrontApi.md#getcountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 *StorefrontApi* | [**getEditorToken**](docs/Api/StorefrontApi.md#geteditortoken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 *StorefrontApi* | [**getEmailBaseTemplates**](docs/Api/StorefrontApi.md#getemailbasetemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
@@ -326,6 +325,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getEmailTemplates**](docs/Api/StorefrontApi.md#getemailtemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 *StorefrontApi* | [**getEmailThirdPartyProviders**](docs/Api/StorefrontApi.md#getemailthirdpartyproviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 *StorefrontApi* | [**getExperiments**](docs/Api/StorefrontApi.md#getexperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+*StorefrontApi* | [**getFsDirectory**](docs/Api/StorefrontApi.md#getfsdirectory) | **GET** /storefront/{id}/fs/dir | Get file manager directory
 *StorefrontApi* | [**getHeatmap**](docs/Api/StorefrontApi.md#getheatmap) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap | Get screen recording heatmap
 *StorefrontApi* | [**getHeatmapIndex**](docs/Api/StorefrontApi.md#getheatmapindex) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap/index | Get screen recording heatmap index
 *StorefrontApi* | [**getHistogramPropertyNames**](docs/Api/StorefrontApi.md#gethistogrampropertynames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
@@ -349,6 +349,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**getTransactionEmailScreenshots**](docs/Api/StorefrontApi.md#gettransactionemailscreenshots) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots | Get transactional email screenshots
 *StorefrontApi* | [**getTwilioAccount**](docs/Api/StorefrontApi.md#gettwilioaccount) | **GET** /storefront/twilio/accounts/{esp_twilio_uuid} | Get Twilio account
 *StorefrontApi* | [**getTwilioAccounts**](docs/Api/StorefrontApi.md#gettwilioaccounts) | **GET** /storefront/twilio/accounts | Get all Twilio accounts
+*StorefrontApi* | [**getUploadFsFileUrl**](docs/Api/StorefrontApi.md#getuploadfsfileurl) | **GET** /storefront/{id}/fs/upload_url/{extension} | Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
 *StorefrontApi* | [**globalUnsubscribe**](docs/Api/StorefrontApi.md#globalunsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
 *StorefrontApi* | [**importEmailThirdPartyProviderList**](docs/Api/StorefrontApi.md#importemailthirdpartyproviderlist) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 *StorefrontApi* | [**insertEmailCampaign**](docs/Api/StorefrontApi.md#insertemailcampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
@@ -405,6 +406,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**updateScreenRecordingTags**](docs/Api/StorefrontApi.md#updatescreenrecordingtags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 *StorefrontApi* | [**updateTransactionEmail**](docs/Api/StorefrontApi.md#updatetransactionemail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 *StorefrontApi* | [**updateTwilioAccount**](docs/Api/StorefrontApi.md#updatetwilioaccount) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
+*StorefrontApi* | [**uploadFsFile**](docs/Api/StorefrontApi.md#uploadfsfile) | **POST** /storefront/{id}/fs/upload | This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
 *StorefrontApi* | [**validateRuler**](docs/Api/StorefrontApi.md#validateruler) | **POST** /storefront/ruler/validate | Validate AWS Event Ruler
 *TaxApi* | [**deleteTaxProviderSelfCity**](docs/Api/TaxApi.md#deletetaxproviderselfcity) | **DELETE** /tax/providers/self/city/{city} | Deletes a Self tax provider city
 *TaxApi* | [**deleteTaxProviderSelfCountry**](docs/Api/TaxApi.md#deletetaxproviderselfcountry) | **DELETE** /tax/providers/self/country/{countryCode} | Deletes a Self tax provider country
@@ -818,7 +820,11 @@ Class | Method | HTTP request | Description
 - [ExperimentVariation](docs/Model/ExperimentVariation.md)
 - [ExperimentVariationStat](docs/Model/ExperimentVariationStat.md)
 - [ExperimentsResponse](docs/Model/ExperimentsResponse.md)
+- [FileManagerDirectory](docs/Model/FileManagerDirectory.md)
+- [FileManagerFile](docs/Model/FileManagerFile.md)
 - [FileManagerPage](docs/Model/FileManagerPage.md)
+- [FileManagerUploadRequest](docs/Model/FileManagerUploadRequest.md)
+- [FileManagerUploadUrlResponse](docs/Model/FileManagerUploadUrlResponse.md)
 - [FulfillmentInventory](docs/Model/FulfillmentInventory.md)
 - [FulfillmentShipment](docs/Model/FulfillmentShipment.md)
 - [GeoPoint](docs/Model/GeoPoint.md)
@@ -1221,6 +1227,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.68-RC | 09/29/2022 | storefront methods for file manager ui |
 | 4.0.67-RC | 09/27/2022 | added digital library call for unassociated content |
 | 4.0.66-RC | 09/22/2022 | digital item mgmt testing |
 | 4.0.65-RC | 09/22/2022 | testing digital file mgmt calls |

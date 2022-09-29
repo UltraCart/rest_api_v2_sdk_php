@@ -1,6 +1,6 @@
 <?php
 /**
- * FileManagerPage
+ * FileManagerUploadUrlResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * FileManagerPage Class Doc Comment
+ * FileManagerUploadUrlResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
+class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FileManagerPage';
+    protected static $openAPIModelName = 'FileManagerUploadUrlResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,11 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'current_storefront_fs_directory_oid' => 'int',
-        'directories' => '\ultracart\v2\models\FileManagerDirectory[]',
-        'files' => '\ultracart\v2\models\FileManagerFile[]',
-        'hostname' => 'string',
-        'parent_storefront_fs_directory_oid' => 'int',
-        'path' => 'string',
-        'path_list' => '\ultracart\v2\models\FileManagerDirectory[]',
-        'storefront_oid' => 'int'
+        'error' => '\ultracart\v2\models\Error',
+        'key' => 'string',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -76,14 +73,11 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'current_storefront_fs_directory_oid' => 'int32',
-        'directories' => null,
-        'files' => null,
-        'hostname' => null,
-        'parent_storefront_fs_directory_oid' => 'int32',
-        'path' => null,
-        'path_list' => null,
-        'storefront_oid' => 'int32'
+        'error' => null,
+        'key' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -113,14 +107,11 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_storefront_fs_directory_oid' => 'current_storefront_fs_directory_oid',
-        'directories' => 'directories',
-        'files' => 'files',
-        'hostname' => 'hostname',
-        'parent_storefront_fs_directory_oid' => 'parent_storefront_fs_directory_oid',
-        'path' => 'path',
-        'path_list' => 'path_list',
-        'storefront_oid' => 'storefront_oid'
+        'error' => 'error',
+        'key' => 'key',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -129,14 +120,11 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'current_storefront_fs_directory_oid' => 'setCurrentStorefrontFsDirectoryOid',
-        'directories' => 'setDirectories',
-        'files' => 'setFiles',
-        'hostname' => 'setHostname',
-        'parent_storefront_fs_directory_oid' => 'setParentStorefrontFsDirectoryOid',
-        'path' => 'setPath',
-        'path_list' => 'setPathList',
-        'storefront_oid' => 'setStorefrontOid'
+        'error' => 'setError',
+        'key' => 'setKey',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -145,14 +133,11 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'current_storefront_fs_directory_oid' => 'getCurrentStorefrontFsDirectoryOid',
-        'directories' => 'getDirectories',
-        'files' => 'getFiles',
-        'hostname' => 'getHostname',
-        'parent_storefront_fs_directory_oid' => 'getParentStorefrontFsDirectoryOid',
-        'path' => 'getPath',
-        'path_list' => 'getPathList',
-        'storefront_oid' => 'getStorefrontOid'
+        'error' => 'getError',
+        'key' => 'getKey',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -212,14 +197,11 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_storefront_fs_directory_oid'] = $data['current_storefront_fs_directory_oid'] ?? null;
-        $this->container['directories'] = $data['directories'] ?? null;
-        $this->container['files'] = $data['files'] ?? null;
-        $this->container['hostname'] = $data['hostname'] ?? null;
-        $this->container['parent_storefront_fs_directory_oid'] = $data['parent_storefront_fs_directory_oid'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['path_list'] = $data['path_list'] ?? null;
-        $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['key'] = $data['key'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['warning'] = $data['warning'] ?? null;
     }
 
     /**
@@ -247,193 +229,121 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets current_storefront_fs_directory_oid
+     * Gets error
      *
-     * @return int|null
+     * @return \ultracart\v2\models\Error|null
      */
-    public function getCurrentStorefrontFsDirectoryOid()
+    public function getError()
     {
-        return $this->container['current_storefront_fs_directory_oid'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets current_storefront_fs_directory_oid
+     * Sets error
      *
-     * @param int|null $current_storefront_fs_directory_oid current_storefront_fs_directory_oid
+     * @param \ultracart\v2\models\Error|null $error error
      *
      * @return self
      */
-    public function setCurrentStorefrontFsDirectoryOid($current_storefront_fs_directory_oid)
+    public function setError($error)
     {
-        $this->container['current_storefront_fs_directory_oid'] = $current_storefront_fs_directory_oid;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets directories
-     *
-     * @return \ultracart\v2\models\FileManagerDirectory[]|null
-     */
-    public function getDirectories()
-    {
-        return $this->container['directories'];
-    }
-
-    /**
-     * Sets directories
-     *
-     * @param \ultracart\v2\models\FileManagerDirectory[]|null $directories directories
-     *
-     * @return self
-     */
-    public function setDirectories($directories)
-    {
-        $this->container['directories'] = $directories;
-
-        return $this;
-    }
-
-    /**
-     * Gets files
-     *
-     * @return \ultracart\v2\models\FileManagerFile[]|null
-     */
-    public function getFiles()
-    {
-        return $this->container['files'];
-    }
-
-    /**
-     * Sets files
-     *
-     * @param \ultracart\v2\models\FileManagerFile[]|null $files files
-     *
-     * @return self
-     */
-    public function setFiles($files)
-    {
-        $this->container['files'] = $files;
-
-        return $this;
-    }
-
-    /**
-     * Gets hostname
+     * Gets key
      *
      * @return string|null
      */
-    public function getHostname()
+    public function getKey()
     {
-        return $this->container['hostname'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets hostname
+     * Sets key
      *
-     * @param string|null $hostname hostname
+     * @param string|null $key key
      *
      * @return self
      */
-    public function setHostname($hostname)
+    public function setKey($key)
     {
-        $this->container['hostname'] = $hostname;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets parent_storefront_fs_directory_oid
+     * Gets metadata
      *
-     * @return int|null
+     * @return \ultracart\v2\models\ResponseMetadata|null
      */
-    public function getParentStorefrontFsDirectoryOid()
+    public function getMetadata()
     {
-        return $this->container['parent_storefront_fs_directory_oid'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets parent_storefront_fs_directory_oid
+     * Sets metadata
      *
-     * @param int|null $parent_storefront_fs_directory_oid parent_storefront_fs_directory_oid
+     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
      *
      * @return self
      */
-    public function setParentStorefrontFsDirectoryOid($parent_storefront_fs_directory_oid)
+    public function setMetadata($metadata)
     {
-        $this->container['parent_storefront_fs_directory_oid'] = $parent_storefront_fs_directory_oid;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets path
+     * Gets success
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getPath()
+    public function getSuccess()
     {
-        return $this->container['path'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets path
+     * Sets success
      *
-     * @param string|null $path path
+     * @param bool|null $success Indicates if API call was successful
      *
      * @return self
      */
-    public function setPath($path)
+    public function setSuccess($success)
     {
-        $this->container['path'] = $path;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets path_list
+     * Gets warning
      *
-     * @return \ultracart\v2\models\FileManagerDirectory[]|null
+     * @return \ultracart\v2\models\Warning|null
      */
-    public function getPathList()
+    public function getWarning()
     {
-        return $this->container['path_list'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets path_list
+     * Sets warning
      *
-     * @param \ultracart\v2\models\FileManagerDirectory[]|null $path_list path_list
+     * @param \ultracart\v2\models\Warning|null $warning warning
      *
      * @return self
      */
-    public function setPathList($path_list)
+    public function setWarning($warning)
     {
-        $this->container['path_list'] = $path_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets storefront_oid
-     *
-     * @return int|null
-     */
-    public function getStorefrontOid()
-    {
-        return $this->container['storefront_oid'];
-    }
-
-    /**
-     * Sets storefront_oid
-     *
-     * @param int|null $storefront_oid storefront_oid
-     *
-     * @return self
-     */
-    public function setStorefrontOid($storefront_oid)
-    {
-        $this->container['storefront_oid'] = $storefront_oid;
+        $this->container['warning'] = $warning;
 
         return $this;
     }

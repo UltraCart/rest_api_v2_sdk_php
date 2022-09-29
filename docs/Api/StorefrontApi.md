@@ -12,12 +12,10 @@ Method | HTTP request | Description
 [**checkDownloadEmailSegment()**](StorefrontApi.md#checkDownloadEmailSegment) | **POST** /storefront/{storefront_oid}/email/segments/{email_segment_uuid}/downloadPrepare/{email_segment_rebuild_uuid} | Check download of email segment
 [**cloneEmailCampaign()**](StorefrontApi.md#cloneEmailCampaign) | **POST** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/clone | Clone email campaign
 [**cloneEmailFlow()**](StorefrontApi.md#cloneEmailFlow) | **POST** /storefront/{storefront_oid}/email/flows/{email_flow_uuid}/clone | Clone email flow
-[**createAdminPanelFsDirectory()**](StorefrontApi.md#createAdminPanelFsDirectory) | **POST** /storefront/{id}/adminPanel/fs/dir | Create file manager directory for admin panel
-[**createAdminPanelFsFileUpload()**](StorefrontApi.md#createAdminPanelFsFileUpload) | **POST** /storefront/{id}/adminPanel/fs/file | Upload file manager file for admin panel
 [**createEmailSendingDomain()**](StorefrontApi.md#createEmailSendingDomain) | **POST** /storefront/email/sending_domains/{domain}/create | Create email campaign
 [**createEmailSendingDomain2()**](StorefrontApi.md#createEmailSendingDomain2) | **POST** /storefront/email/sending_domains | Create email sending domain for various providers
+[**createFsDirectory()**](StorefrontApi.md#createFsDirectory) | **POST** /storefront/{id}/fs/dir | Create file manager directory
 [**createTwilioAccount()**](StorefrontApi.md#createTwilioAccount) | **POST** /storefront/twilio/accounts | Create Twilio account
-[**deleteAdminPanelFsFile()**](StorefrontApi.md#deleteAdminPanelFsFile) | **DELETE** /storefront/{id}/adminPanel/fs/file | Delete file manager directory for admin panel
 [**deleteEmailCampaignFolder()**](StorefrontApi.md#deleteEmailCampaignFolder) | **DELETE** /storefront/{storefront_oid}/email/campaign_folders/{email_campaign_folder_uuid} | Delete email campaignFolder
 [**deleteEmailCommseqStat()**](StorefrontApi.md#deleteEmailCommseqStat) | **DELETE** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/stat | Delete communication sequence stats
 [**deleteEmailEmail()**](StorefrontApi.md#deleteEmailEmail) | **DELETE** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid} | Delete email email
@@ -27,6 +25,7 @@ Method | HTTP request | Description
 [**deleteEmailPostcard()**](StorefrontApi.md#deleteEmailPostcard) | **DELETE** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid} | Delete email postcard
 [**deleteEmailSendingDomain()**](StorefrontApi.md#deleteEmailSendingDomain) | **DELETE** /storefront/email/sending_domains/{domain} | delete email campaign
 [**deleteExperiment()**](StorefrontApi.md#deleteExperiment) | **DELETE** /storefront/{storefront_oid}/experiments/{storefront_experiment_oid} | Delete experiment
+[**deleteFsFile()**](StorefrontApi.md#deleteFsFile) | **DELETE** /storefront/{id}/fs/file | Delete file manager directory
 [**deleteHeatmap()**](StorefrontApi.md#deleteHeatmap) | **DELETE** /storefront/{storefront_oid}/screen_recordings/heatmap | Delete screen recording heatmap
 [**deleteLibraryItem()**](StorefrontApi.md#deleteLibraryItem) | **DELETE** /storefront/code_library/{library_item_oid} | Delete library item
 [**deleteLibraryItemPublishedVersions()**](StorefrontApi.md#deleteLibraryItemPublishedVersions) | **DELETE** /storefront/code_library/{library_item_oid}/published_versions | Delete all published versions for a library item, including anything in review.
@@ -35,7 +34,6 @@ Method | HTTP request | Description
 [**duplicateLibraryItem()**](StorefrontApi.md#duplicateLibraryItem) | **POST** /storefront/code_library/{library_item_oid}/duplicate | Duplicate library item.
 [**favoriteScreenRecording()**](StorefrontApi.md#favoriteScreenRecording) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/favorite | Update favorite flag on screen recording
 [**geocodeAddress()**](StorefrontApi.md#geocodeAddress) | **POST** /storefront/{storefront_oid}/email/geocode | Obtain lat/long for an address
-[**getAdminPanelFsDirectory()**](StorefrontApi.md#getAdminPanelFsDirectory) | **GET** /storefront/{id}/adminPanel/fs/dir | Get file manager directory for admin panel
 [**getCountries()**](StorefrontApi.md#getCountries) | **GET** /storefront/{storefront_oid}/email/countries | Get countries
 [**getEditorToken()**](StorefrontApi.md#getEditorToken) | **GET** /storefront/{storefront_oid}/editor_token | Gets editor token
 [**getEmailBaseTemplates()**](StorefrontApi.md#getEmailBaseTemplates) | **GET** /storefront/{storefront_oid}/email/baseTemplates | Get email communication base templates
@@ -94,6 +92,7 @@ Method | HTTP request | Description
 [**getEmailTemplates()**](StorefrontApi.md#getEmailTemplates) | **GET** /storefront/{storefront_oid}/email/templates | Get email templates
 [**getEmailThirdPartyProviders()**](StorefrontApi.md#getEmailThirdPartyProviders) | **GET** /storefront/{storefront_oid}/email/third_party_providers | Get a list of third party email providers
 [**getExperiments()**](StorefrontApi.md#getExperiments) | **GET** /storefront/{storefront_oid}/experiments | Get experiments
+[**getFsDirectory()**](StorefrontApi.md#getFsDirectory) | **GET** /storefront/{id}/fs/dir | Get file manager directory
 [**getHeatmap()**](StorefrontApi.md#getHeatmap) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap | Get screen recording heatmap
 [**getHeatmapIndex()**](StorefrontApi.md#getHeatmapIndex) | **POST** /storefront/{storefront_oid}/screen_recordings/heatmap/index | Get screen recording heatmap index
 [**getHistogramPropertyNames()**](StorefrontApi.md#getHistogramPropertyNames) | **GET** /storefront/{storefront_oid}/email/histogram/property_names | Get histogram property names
@@ -117,6 +116,7 @@ Method | HTTP request | Description
 [**getTransactionEmailScreenshots()**](StorefrontApi.md#getTransactionEmailScreenshots) | **GET** /storefront/{storefront_oid}/transaction_email/list/{email_id}/screenshots | Get transactional email screenshots
 [**getTwilioAccount()**](StorefrontApi.md#getTwilioAccount) | **GET** /storefront/twilio/accounts/{esp_twilio_uuid} | Get Twilio account
 [**getTwilioAccounts()**](StorefrontApi.md#getTwilioAccounts) | **GET** /storefront/twilio/accounts | Get all Twilio accounts
+[**getUploadFsFileUrl()**](StorefrontApi.md#getUploadFsFileUrl) | **GET** /storefront/{id}/fs/upload_url/{extension} | Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
 [**globalUnsubscribe()**](StorefrontApi.md#globalUnsubscribe) | **POST** /storefront/{storefront_oid}/email/globalUnsubscribe | Globally unsubscribe a customer
 [**importEmailThirdPartyProviderList()**](StorefrontApi.md#importEmailThirdPartyProviderList) | **POST** /storefront/{storefront_oid}/email/third_party_providers/import | Import a third party provider list
 [**insertEmailCampaign()**](StorefrontApi.md#insertEmailCampaign) | **POST** /storefront/{storefront_oid}/email/campaigns | Insert email campaign
@@ -173,6 +173,7 @@ Method | HTTP request | Description
 [**updateScreenRecordingTags()**](StorefrontApi.md#updateScreenRecordingTags) | **POST** /storefront/{storefront_oid}/screen_recordings/{screen_recording_uuid}/tags | Update tags on a screen recording
 [**updateTransactionEmail()**](StorefrontApi.md#updateTransactionEmail) | **PUT** /storefront/{storefront_oid}/transaction_email/list/{email_id} | Updates a transaction email object
 [**updateTwilioAccount()**](StorefrontApi.md#updateTwilioAccount) | **PUT** /storefront/twilio/accounts/{esp_twilio_uuid} | Update Twilio account
+[**uploadFsFile()**](StorefrontApi.md#uploadFsFile) | **POST** /storefront/{id}/fs/upload | This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
 [**validateRuler()**](StorefrontApi.md#validateRuler) | **POST** /storefront/ruler/validate | Validate AWS Event Ruler
 
 
@@ -636,122 +637,6 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createAdminPanelFsDirectory()`
-
-```php
-createAdminPanelFsDirectory($id, $name, $parent_storefront_fs_directory_oid): \ultracart\v2\models\FileManagerPage
-```
-
-Create file manager directory for admin panel
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$name = 'name_example'; // string
-$parent_storefront_fs_directory_oid = 56; // int
-
-try {
-    $result = $apiInstance->createAdminPanelFsDirectory($id, $name, $parent_storefront_fs_directory_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->createAdminPanelFsDirectory: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
- **name** | **string**|  | [optional]
- **parent_storefront_fs_directory_oid** | **int**|  | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `createAdminPanelFsFileUpload()`
-
-```php
-createAdminPanelFsFileUpload($id, $parent_storefront_fs_directory_oid): \ultracart\v2\models\FileManagerPage
-```
-
-Upload file manager file for admin panel
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$parent_storefront_fs_directory_oid = 56; // int
-
-try {
-    $result = $apiInstance->createAdminPanelFsFileUpload($id, $parent_storefront_fs_directory_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->createAdminPanelFsFileUpload: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
- **parent_storefront_fs_directory_oid** | **int**|  | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `createEmailSendingDomain()`
 
 ```php
@@ -862,6 +747,65 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createFsDirectory()`
+
+```php
+createFsDirectory($id, $name, $parent_storefront_fs_directory_oid): \ultracart\v2\models\FileManagerPage
+```
+
+Create file manager directory
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$id = 56; // int
+$name = 'name_example'; // string
+$parent_storefront_fs_directory_oid = 56; // int
+
+try {
+    $result = $apiInstance->createFsDirectory($id, $name, $parent_storefront_fs_directory_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->createFsDirectory: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  |
+ **name** | **string**|  | [optional]
+ **parent_storefront_fs_directory_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `createTwilioAccount()`
 
 ```php
@@ -911,65 +855,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `deleteAdminPanelFsFile()`
-
-```php
-deleteAdminPanelFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid): \ultracart\v2\models\FileManagerPage
-```
-
-Delete file manager directory for admin panel
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$parent_storefront_fs_directory_oid = 56; // int
-$storefront_fs_file_oid = 56; // int
-
-try {
-    $result = $apiInstance->deleteAdminPanelFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->deleteAdminPanelFsFile: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
- **parent_storefront_fs_directory_oid** | **int**|  | [optional]
- **storefront_fs_file_oid** | **int**|  | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1487,6 +1372,65 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteFsFile()`
+
+```php
+deleteFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid): \ultracart\v2\models\FileManagerPage
+```
+
+Delete file manager directory
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$id = 56; // int
+$parent_storefront_fs_directory_oid = 56; // int
+$storefront_fs_file_oid = 56; // int
+
+try {
+    $result = $apiInstance->deleteFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->deleteFsFile: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  |
+ **parent_storefront_fs_directory_oid** | **int**|  | [optional]
+ **storefront_fs_file_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteHeatmap()`
 
 ```php
@@ -1928,67 +1872,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getAdminPanelFsDirectory()`
-
-```php
-getAdminPanelFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid): \ultracart\v2\models\FileManagerPage
-```
-
-Get file manager directory for admin panel
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
-
-// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
-// As such, this might not be the best way to use this object.
-// Please see https://github.com/UltraCart/sdk_samples for working examples.
-
-$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
-            Constants::VERIFY_SSL, Constants::DEBUG);
-
-$id = 56; // int
-$path = 'path_example'; // string
-$storefront_fs_directory_oid = 56; // int
-$storefront_theme_oid = 56; // int
-
-try {
-    $result = $apiInstance->getAdminPanelFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling StorefrontApi->getAdminPanelFsDirectory: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
- **path** | **string**|  | [optional]
- **storefront_fs_directory_oid** | **int**|  | [optional]
- **storefront_theme_oid** | **int**|  | [optional]
-
-### Return type
-
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
-
-### Authorization
-
-[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -5295,6 +5178,67 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getFsDirectory()`
+
+```php
+getFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid): \ultracart\v2\models\FileManagerPage
+```
+
+Get file manager directory
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$id = 56; // int
+$path = 'path_example'; // string
+$storefront_fs_directory_oid = 56; // int
+$storefront_theme_oid = 56; // int
+
+try {
+    $result = $apiInstance->getFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getFsDirectory: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  |
+ **path** | **string**|  | [optional]
+ **storefront_fs_directory_oid** | **int**|  | [optional]
+ **storefront_theme_oid** | **int**|  | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getHeatmap()`
 
 ```php
@@ -6607,6 +6551,63 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\ultracart\v2\models\TwiliosResponse**](../Model/TwiliosResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getUploadFsFileUrl()`
+
+```php
+getUploadFsFileUrl($id, $extension): \ultracart\v2\models\FileManagerUploadUrlResponse
+```
+
+Retrieves a S3 url where a file may be uploaded. Once uploaded, use uploadFsFile to trigger the server into reading the S3 bucket and retrieving the file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$id = 56; // int
+$extension = 'extension_example'; // string
+
+try {
+    $result = $apiInstance->getUploadFsFileUrl($id, $extension);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->getUploadFsFileUrl: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  |
+ **extension** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\FileManagerUploadUrlResponse**](../Model/FileManagerUploadUrlResponse.md)
 
 ### Authorization
 
@@ -9875,6 +9876,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\TwilioResponse**](../Model/TwilioResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `uploadFsFile()`
+
+```php
+uploadFsFile($id, $upload_request)
+```
+
+This is the last step in uploading a file after 1) calling getUploadFsFileUrl and 2) uploading a file to the provided url, then finally 3) calling this method and providing the key to trigger the server into reading the S3 bucket and retrieving the file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$id = 56; // int
+$upload_request = new \ultracart\v2\models\FileManagerUploadRequest(); // \ultracart\v2\models\FileManagerUploadRequest | UploadRequest
+
+try {
+    $apiInstance->uploadFsFile($id, $upload_request);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->uploadFsFile: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  |
+ **upload_request** | [**\ultracart\v2\models\FileManagerUploadRequest**](../Model/FileManagerUploadRequest.md)| UploadRequest |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 

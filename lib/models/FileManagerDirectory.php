@@ -1,6 +1,6 @@
 <?php
 /**
- * FileManagerPage
+ * FileManagerDirectory
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * FileManagerPage Class Doc Comment
+ * FileManagerDirectory Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
+class FileManagerDirectory implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FileManagerPage';
+    protected static $openAPIModelName = 'FileManagerDirectory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,19 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'current_storefront_fs_directory_oid' => 'int',
-        'directories' => '\ultracart\v2\models\FileManagerDirectory[]',
-        'files' => '\ultracart\v2\models\FileManagerFile[]',
+        'active_theme_directory' => 'bool',
+        'favorite' => 'bool',
         'hostname' => 'string',
+        'icon' => 'string',
+        'last_modified' => 'string',
+        'name' => 'string',
         'parent_storefront_fs_directory_oid' => 'int',
-        'path' => 'string',
-        'path_list' => '\ultracart\v2\models\FileManagerDirectory[]',
-        'storefront_oid' => 'int'
+        'part_of_active_theme' => 'bool',
+        'selected' => 'bool',
+        'storefront_fs_directory_oid' => 'int',
+        'storefront_fs_file_oid' => 'int',
+        'storefront_oid' => 'int',
+        'type' => 'string'
     ];
 
     /**
@@ -76,14 +81,19 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'current_storefront_fs_directory_oid' => 'int32',
-        'directories' => null,
-        'files' => null,
+        'active_theme_directory' => null,
+        'favorite' => null,
         'hostname' => null,
+        'icon' => null,
+        'last_modified' => null,
+        'name' => null,
         'parent_storefront_fs_directory_oid' => 'int32',
-        'path' => null,
-        'path_list' => null,
-        'storefront_oid' => 'int32'
+        'part_of_active_theme' => null,
+        'selected' => null,
+        'storefront_fs_directory_oid' => 'int32',
+        'storefront_fs_file_oid' => 'int32',
+        'storefront_oid' => 'int32',
+        'type' => null
     ];
 
     /**
@@ -113,14 +123,19 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'current_storefront_fs_directory_oid' => 'current_storefront_fs_directory_oid',
-        'directories' => 'directories',
-        'files' => 'files',
+        'active_theme_directory' => 'active_theme_directory',
+        'favorite' => 'favorite',
         'hostname' => 'hostname',
+        'icon' => 'icon',
+        'last_modified' => 'last_modified',
+        'name' => 'name',
         'parent_storefront_fs_directory_oid' => 'parent_storefront_fs_directory_oid',
-        'path' => 'path',
-        'path_list' => 'path_list',
-        'storefront_oid' => 'storefront_oid'
+        'part_of_active_theme' => 'part_of_active_theme',
+        'selected' => 'selected',
+        'storefront_fs_directory_oid' => 'storefront_fs_directory_oid',
+        'storefront_fs_file_oid' => 'storefront_fs_file_oid',
+        'storefront_oid' => 'storefront_oid',
+        'type' => 'type'
     ];
 
     /**
@@ -129,14 +144,19 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'current_storefront_fs_directory_oid' => 'setCurrentStorefrontFsDirectoryOid',
-        'directories' => 'setDirectories',
-        'files' => 'setFiles',
+        'active_theme_directory' => 'setActiveThemeDirectory',
+        'favorite' => 'setFavorite',
         'hostname' => 'setHostname',
+        'icon' => 'setIcon',
+        'last_modified' => 'setLastModified',
+        'name' => 'setName',
         'parent_storefront_fs_directory_oid' => 'setParentStorefrontFsDirectoryOid',
-        'path' => 'setPath',
-        'path_list' => 'setPathList',
-        'storefront_oid' => 'setStorefrontOid'
+        'part_of_active_theme' => 'setPartOfActiveTheme',
+        'selected' => 'setSelected',
+        'storefront_fs_directory_oid' => 'setStorefrontFsDirectoryOid',
+        'storefront_fs_file_oid' => 'setStorefrontFsFileOid',
+        'storefront_oid' => 'setStorefrontOid',
+        'type' => 'setType'
     ];
 
     /**
@@ -145,14 +165,19 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'current_storefront_fs_directory_oid' => 'getCurrentStorefrontFsDirectoryOid',
-        'directories' => 'getDirectories',
-        'files' => 'getFiles',
+        'active_theme_directory' => 'getActiveThemeDirectory',
+        'favorite' => 'getFavorite',
         'hostname' => 'getHostname',
+        'icon' => 'getIcon',
+        'last_modified' => 'getLastModified',
+        'name' => 'getName',
         'parent_storefront_fs_directory_oid' => 'getParentStorefrontFsDirectoryOid',
-        'path' => 'getPath',
-        'path_list' => 'getPathList',
-        'storefront_oid' => 'getStorefrontOid'
+        'part_of_active_theme' => 'getPartOfActiveTheme',
+        'selected' => 'getSelected',
+        'storefront_fs_directory_oid' => 'getStorefrontFsDirectoryOid',
+        'storefront_fs_file_oid' => 'getStorefrontFsFileOid',
+        'storefront_oid' => 'getStorefrontOid',
+        'type' => 'getType'
     ];
 
     /**
@@ -212,14 +237,19 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['current_storefront_fs_directory_oid'] = $data['current_storefront_fs_directory_oid'] ?? null;
-        $this->container['directories'] = $data['directories'] ?? null;
-        $this->container['files'] = $data['files'] ?? null;
+        $this->container['active_theme_directory'] = $data['active_theme_directory'] ?? null;
+        $this->container['favorite'] = $data['favorite'] ?? null;
         $this->container['hostname'] = $data['hostname'] ?? null;
+        $this->container['icon'] = $data['icon'] ?? null;
+        $this->container['last_modified'] = $data['last_modified'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
         $this->container['parent_storefront_fs_directory_oid'] = $data['parent_storefront_fs_directory_oid'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
-        $this->container['path_list'] = $data['path_list'] ?? null;
+        $this->container['part_of_active_theme'] = $data['part_of_active_theme'] ?? null;
+        $this->container['selected'] = $data['selected'] ?? null;
+        $this->container['storefront_fs_directory_oid'] = $data['storefront_fs_directory_oid'] ?? null;
+        $this->container['storefront_fs_file_oid'] = $data['storefront_fs_file_oid'] ?? null;
         $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
     }
 
     /**
@@ -247,73 +277,49 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets current_storefront_fs_directory_oid
+     * Gets active_theme_directory
      *
-     * @return int|null
+     * @return bool|null
      */
-    public function getCurrentStorefrontFsDirectoryOid()
+    public function getActiveThemeDirectory()
     {
-        return $this->container['current_storefront_fs_directory_oid'];
+        return $this->container['active_theme_directory'];
     }
 
     /**
-     * Sets current_storefront_fs_directory_oid
+     * Sets active_theme_directory
      *
-     * @param int|null $current_storefront_fs_directory_oid current_storefront_fs_directory_oid
+     * @param bool|null $active_theme_directory active_theme_directory
      *
      * @return self
      */
-    public function setCurrentStorefrontFsDirectoryOid($current_storefront_fs_directory_oid)
+    public function setActiveThemeDirectory($active_theme_directory)
     {
-        $this->container['current_storefront_fs_directory_oid'] = $current_storefront_fs_directory_oid;
+        $this->container['active_theme_directory'] = $active_theme_directory;
 
         return $this;
     }
 
     /**
-     * Gets directories
+     * Gets favorite
      *
-     * @return \ultracart\v2\models\FileManagerDirectory[]|null
+     * @return bool|null
      */
-    public function getDirectories()
+    public function getFavorite()
     {
-        return $this->container['directories'];
+        return $this->container['favorite'];
     }
 
     /**
-     * Sets directories
+     * Sets favorite
      *
-     * @param \ultracart\v2\models\FileManagerDirectory[]|null $directories directories
+     * @param bool|null $favorite favorite
      *
      * @return self
      */
-    public function setDirectories($directories)
+    public function setFavorite($favorite)
     {
-        $this->container['directories'] = $directories;
-
-        return $this;
-    }
-
-    /**
-     * Gets files
-     *
-     * @return \ultracart\v2\models\FileManagerFile[]|null
-     */
-    public function getFiles()
-    {
-        return $this->container['files'];
-    }
-
-    /**
-     * Sets files
-     *
-     * @param \ultracart\v2\models\FileManagerFile[]|null $files files
-     *
-     * @return self
-     */
-    public function setFiles($files)
-    {
-        $this->container['files'] = $files;
+        $this->container['favorite'] = $favorite;
 
         return $this;
     }
@@ -343,6 +349,78 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets icon
+     *
+     * @return string|null
+     */
+    public function getIcon()
+    {
+        return $this->container['icon'];
+    }
+
+    /**
+     * Sets icon
+     *
+     * @param string|null $icon icon
+     *
+     * @return self
+     */
+    public function setIcon($icon)
+    {
+        $this->container['icon'] = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_modified
+     *
+     * @return string|null
+     */
+    public function getLastModified()
+    {
+        return $this->container['last_modified'];
+    }
+
+    /**
+     * Sets last_modified
+     *
+     * @param string|null $last_modified last_modified
+     *
+     * @return self
+     */
+    public function setLastModified($last_modified)
+    {
+        $this->container['last_modified'] = $last_modified;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets parent_storefront_fs_directory_oid
      *
      * @return int|null
@@ -367,49 +445,97 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets path
+     * Gets part_of_active_theme
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getPath()
+    public function getPartOfActiveTheme()
     {
-        return $this->container['path'];
+        return $this->container['part_of_active_theme'];
     }
 
     /**
-     * Sets path
+     * Sets part_of_active_theme
      *
-     * @param string|null $path path
+     * @param bool|null $part_of_active_theme part_of_active_theme
      *
      * @return self
      */
-    public function setPath($path)
+    public function setPartOfActiveTheme($part_of_active_theme)
     {
-        $this->container['path'] = $path;
+        $this->container['part_of_active_theme'] = $part_of_active_theme;
 
         return $this;
     }
 
     /**
-     * Gets path_list
+     * Gets selected
      *
-     * @return \ultracart\v2\models\FileManagerDirectory[]|null
+     * @return bool|null
      */
-    public function getPathList()
+    public function getSelected()
     {
-        return $this->container['path_list'];
+        return $this->container['selected'];
     }
 
     /**
-     * Sets path_list
+     * Sets selected
      *
-     * @param \ultracart\v2\models\FileManagerDirectory[]|null $path_list path_list
+     * @param bool|null $selected selected
      *
      * @return self
      */
-    public function setPathList($path_list)
+    public function setSelected($selected)
     {
-        $this->container['path_list'] = $path_list;
+        $this->container['selected'] = $selected;
+
+        return $this;
+    }
+
+    /**
+     * Gets storefront_fs_directory_oid
+     *
+     * @return int|null
+     */
+    public function getStorefrontFsDirectoryOid()
+    {
+        return $this->container['storefront_fs_directory_oid'];
+    }
+
+    /**
+     * Sets storefront_fs_directory_oid
+     *
+     * @param int|null $storefront_fs_directory_oid storefront_fs_directory_oid
+     *
+     * @return self
+     */
+    public function setStorefrontFsDirectoryOid($storefront_fs_directory_oid)
+    {
+        $this->container['storefront_fs_directory_oid'] = $storefront_fs_directory_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets storefront_fs_file_oid
+     *
+     * @return int|null
+     */
+    public function getStorefrontFsFileOid()
+    {
+        return $this->container['storefront_fs_file_oid'];
+    }
+
+    /**
+     * Sets storefront_fs_file_oid
+     *
+     * @param int|null $storefront_fs_file_oid storefront_fs_file_oid
+     *
+     * @return self
+     */
+    public function setStorefrontFsFileOid($storefront_fs_file_oid)
+    {
+        $this->container['storefront_fs_file_oid'] = $storefront_fs_file_oid;
 
         return $this;
     }
@@ -434,6 +560,30 @@ class FileManagerPage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

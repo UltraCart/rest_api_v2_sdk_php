@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**deleteItem()**](ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
 [**getDigitalItem()**](ItemApi.md#getDigitalItem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**getDigitalItems()**](ItemApi.md#getDigitalItems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
+[**getDigitalItemsByExternalId()**](ItemApi.md#getDigitalItemsByExternalId) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
 [**getItem()**](ItemApi.md#getItem) | **GET** /item/items/{merchant_item_oid} | Retrieve an item
 [**getItemByMerchantItemId()**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**getItems()**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
@@ -239,6 +240,63 @@ Name | Type | Description  | Notes
  **_sort** | **string**| The sort order of the items.  See Sorting documentation for examples of using multiple values and sorting by ascending and descending. | [optional]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
  **_placeholders** | **bool**| Whether or not placeholder values should be returned in the result.  Useful for UIs that consume this REST API. | [optional]
+
+### Return type
+
+[**\ultracart\v2\models\ItemDigitalItemsResponse**](../Model/ItemDigitalItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDigitalItemsByExternalId()`
+
+```php
+getDigitalItemsByExternalId($external_id): \ultracart\v2\models\ItemDigitalItemsResponse
+```
+
+Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
+
+Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id.  Be aware that these are not normal items that can be added to a shopping cart. Rather, they are digital files that may be associated with normal items.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$external_id = 'external_id_example'; // string | The external id to match against.
+
+try {
+    $result = $apiInstance->getDigitalItemsByExternalId($external_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getDigitalItemsByExternalId: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_id** | **string**| The external id to match against. |
 
 ### Return type
 

@@ -384,7 +384,11 @@ docs/Model/ExperimentResponse.md
 docs/Model/ExperimentVariation.md
 docs/Model/ExperimentVariationStat.md
 docs/Model/ExperimentsResponse.md
+docs/Model/FileManagerDirectory.md
+docs/Model/FileManagerFile.md
 docs/Model/FileManagerPage.md
+docs/Model/FileManagerUploadRequest.md
+docs/Model/FileManagerUploadUrlResponse.md
 docs/Model/FulfillmentInventory.md
 docs/Model/FulfillmentShipment.md
 docs/Model/GeoPoint.md
@@ -1082,7 +1086,11 @@ lib/models/ExperimentResponse.php
 lib/models/ExperimentVariation.php
 lib/models/ExperimentVariationStat.php
 lib/models/ExperimentsResponse.php
+lib/models/FileManagerDirectory.php
+lib/models/FileManagerFile.php
 lib/models/FileManagerPage.php
+lib/models/FileManagerUploadRequest.php
+lib/models/FileManagerUploadUrlResponse.php
 lib/models/FulfillmentInventory.php
 lib/models/FulfillmentShipment.php
 lib/models/GeoPoint.php
