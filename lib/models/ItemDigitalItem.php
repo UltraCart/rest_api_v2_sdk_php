@@ -61,6 +61,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
         'creation_dts' => 'string',
         'description' => 'string',
         'digital_item_oid' => 'int',
+        'external_id' => 'string',
         'file_size' => 'int',
         'import_from_url' => 'string',
         'mime_type' => 'string',
@@ -78,6 +79,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
         'creation_dts' => 'dateTime',
         'description' => null,
         'digital_item_oid' => 'int32',
+        'external_id' => null,
         'file_size' => 'int64',
         'import_from_url' => null,
         'mime_type' => null,
@@ -116,6 +118,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
         'creation_dts' => 'creation_dts',
         'description' => 'description',
         'digital_item_oid' => 'digital_item_oid',
+        'external_id' => 'external_id',
         'file_size' => 'file_size',
         'import_from_url' => 'import_from_url',
         'mime_type' => 'mime_type',
@@ -133,6 +136,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
         'creation_dts' => 'setCreationDts',
         'description' => 'setDescription',
         'digital_item_oid' => 'setDigitalItemOid',
+        'external_id' => 'setExternalId',
         'file_size' => 'setFileSize',
         'import_from_url' => 'setImportFromUrl',
         'mime_type' => 'setMimeType',
@@ -150,6 +154,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
         'creation_dts' => 'getCreationDts',
         'description' => 'getDescription',
         'digital_item_oid' => 'getDigitalItemOid',
+        'external_id' => 'getExternalId',
         'file_size' => 'getFileSize',
         'import_from_url' => 'getImportFromUrl',
         'mime_type' => 'getMimeType',
@@ -221,6 +226,7 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
         $this->container['creation_dts'] = isset($data['creation_dts']) ? $data['creation_dts'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['digital_item_oid'] = isset($data['digital_item_oid']) ? $data['digital_item_oid'] : null;
+        $this->container['external_id'] = isset($data['external_id']) ? $data['external_id'] : null;
         $this->container['file_size'] = isset($data['file_size']) ? $data['file_size'] : null;
         $this->container['import_from_url'] = isset($data['import_from_url']) ? $data['import_from_url'] : null;
         $this->container['mime_type'] = isset($data['mime_type']) ? $data['mime_type'] : null;
@@ -239,6 +245,10 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 200)) {
             $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['external_id']) && (mb_strlen($this->container['external_id']) > 100)) {
+            $invalidProperties[] = "invalid value for 'external_id', the character length must be smaller than or equal to 100.";
         }
 
         if (!is_null($this->container['mime_type']) && (mb_strlen($this->container['mime_type']) > 100)) {
@@ -360,6 +370,34 @@ class ItemDigitalItem implements ModelInterface, ArrayAccess
     public function setDigitalItemOid($digital_item_oid)
     {
         $this->container['digital_item_oid'] = $digital_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_id
+     *
+     * @return string
+     */
+    public function getExternalId()
+    {
+        return $this->container['external_id'];
+    }
+
+    /**
+     * Sets external_id
+     *
+     * @param string $external_id External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.
+     *
+     * @return $this
+     */
+    public function setExternalId($external_id)
+    {
+        if (!is_null($external_id) && (mb_strlen($external_id) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $external_id when calling ItemDigitalItem., must be smaller than or equal to 100.');
+        }
+
+        $this->container['external_id'] = $external_id;
 
         return $this;
     }
