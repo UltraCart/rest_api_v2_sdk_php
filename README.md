@@ -1228,6 +1228,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.70-RC | 09/29/2022 | page_paths search category for search2 method |
 | 4.0.69-RC | 09/29/2022 | storefront file mgr calls tweaks |
 | 4.0.68-RC | 09/29/2022 | storefront methods for file manager ui |
 | 4.0.67-RC | 09/27/2022 | added digital library call for unassociated content |
