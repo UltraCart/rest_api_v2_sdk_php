@@ -896,6 +896,7 @@ Class | Method | HTTP request | Description
  - [FileManagerDirectory](docs/Model/FileManagerDirectory.md)
  - [FileManagerFile](docs/Model/FileManagerFile.md)
  - [FileManagerPage](docs/Model/FileManagerPage.md)
+ - [FileManagerPageResponse](docs/Model/FileManagerPageResponse.md)
  - [FileManagerUploadRequest](docs/Model/FileManagerUploadRequest.md)
  - [FileManagerUploadUrlResponse](docs/Model/FileManagerUploadUrlResponse.md)
  - [FulfillmentInventory](docs/Model/FulfillmentInventory.md)
@@ -1285,6 +1286,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.52 | 09/29/2022 | storefront file mgr calls tweaks |
 | 3.10.51 | 09/29/2022 | storefront methods for file manager ui |
 | 3.10.50 | 09/27/2022 | added digital library call for unassociated content |
 | 3.10.49 | 09/22/2022 | digital item mgmt testing |

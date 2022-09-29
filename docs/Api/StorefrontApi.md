@@ -658,7 +658,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFsDirectory**
-> \ultracart\v2\models\FileManagerPage createFsDirectory($id, $name, $parent_storefront_fs_directory_oid)
+> \ultracart\v2\models\FileManagerPageResponse createFsDirectory($id, $name, $parent_storefront_fs_directory_oid)
 
 Create file manager directory
 
@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+[**\ultracart\v2\models\FileManagerPageResponse**](../Model/FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -1184,7 +1184,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteFsFile**
-> \ultracart\v2\models\FileManagerPage deleteFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid)
+> \ultracart\v2\models\FileManagerPageResponse deleteFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid)
 
 Delete file manager directory
 
@@ -1220,7 +1220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+[**\ultracart\v2\models\FileManagerPageResponse**](../Model/FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -4385,7 +4385,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFsDirectory**
-> \ultracart\v2\models\FileManagerPage getFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid)
+> \ultracart\v2\models\FileManagerPageResponse getFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid)
 
 Get file manager directory
 
@@ -4423,7 +4423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+[**\ultracart\v2\models\FileManagerPageResponse**](../Model/FileManagerPageResponse.md)
 
 ### Authorization
 

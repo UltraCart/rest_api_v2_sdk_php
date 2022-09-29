@@ -3706,7 +3706,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\FileManagerPage
+     * @return \ultracart\v2\models\FileManagerPageResponse
      */
     public function createFsDirectory($id, $name = null, $parent_storefront_fs_directory_oid = null)
     {
@@ -3726,7 +3726,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\FileManagerPage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\FileManagerPageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createFsDirectoryWithHttpInfo($id, $name = null, $parent_storefront_fs_directory_oid = null)
     {
@@ -3746,11 +3746,11 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\FileManagerPage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\FileManagerPageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createFsDirectoryWithHttpInfoRetry($retry ,  $id,  $name = null,  $parent_storefront_fs_directory_oid = null)
     {
-        $returnType = '\ultracart\v2\models\FileManagerPage';
+        $returnType = '\ultracart\v2\models\FileManagerPageResponse';
         $request = $this->createFsDirectoryRequest($id, $name, $parent_storefront_fs_directory_oid);
 
         try {
@@ -3803,7 +3803,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\FileManagerPage',
+                        '\ultracart\v2\models\FileManagerPageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3889,7 +3889,7 @@ class StorefrontApi
      */
     public function createFsDirectoryAsyncWithHttpInfo($id, $name = null, $parent_storefront_fs_directory_oid = null)
     {
-        $returnType = '\ultracart\v2\models\FileManagerPage';
+        $returnType = '\ultracart\v2\models\FileManagerPageResponse';
         $request = $this->createFsDirectoryRequest($id, $name, $parent_storefront_fs_directory_oid);
 
         return $this->client
@@ -7600,7 +7600,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\FileManagerPage
+     * @return \ultracart\v2\models\FileManagerPageResponse
      */
     public function deleteFsFile($id, $parent_storefront_fs_directory_oid = null, $storefront_fs_file_oid = null)
     {
@@ -7620,7 +7620,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\FileManagerPage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\FileManagerPageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteFsFileWithHttpInfo($id, $parent_storefront_fs_directory_oid = null, $storefront_fs_file_oid = null)
     {
@@ -7640,11 +7640,11 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\FileManagerPage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\FileManagerPageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteFsFileWithHttpInfoRetry($retry ,  $id,  $parent_storefront_fs_directory_oid = null,  $storefront_fs_file_oid = null)
     {
-        $returnType = '\ultracart\v2\models\FileManagerPage';
+        $returnType = '\ultracart\v2\models\FileManagerPageResponse';
         $request = $this->deleteFsFileRequest($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid);
 
         try {
@@ -7697,7 +7697,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\FileManagerPage',
+                        '\ultracart\v2\models\FileManagerPageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7783,7 +7783,7 @@ class StorefrontApi
      */
     public function deleteFsFileAsyncWithHttpInfo($id, $parent_storefront_fs_directory_oid = null, $storefront_fs_file_oid = null)
     {
-        $returnType = '\ultracart\v2\models\FileManagerPage';
+        $returnType = '\ultracart\v2\models\FileManagerPageResponse';
         $request = $this->deleteFsFileRequest($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid);
 
         return $this->client
@@ -31407,7 +31407,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\FileManagerPage
+     * @return \ultracart\v2\models\FileManagerPageResponse
      */
     public function getFsDirectory($id, $path = null, $storefront_fs_directory_oid = null, $storefront_theme_oid = null)
     {
@@ -31428,7 +31428,7 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\FileManagerPage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\FileManagerPageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFsDirectoryWithHttpInfo($id, $path = null, $storefront_fs_directory_oid = null, $storefront_theme_oid = null)
     {
@@ -31449,11 +31449,11 @@ class StorefrontApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\FileManagerPage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\FileManagerPageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFsDirectoryWithHttpInfoRetry($retry ,  $id,  $path = null,  $storefront_fs_directory_oid = null,  $storefront_theme_oid = null)
     {
-        $returnType = '\ultracart\v2\models\FileManagerPage';
+        $returnType = '\ultracart\v2\models\FileManagerPageResponse';
         $request = $this->getFsDirectoryRequest($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid);
 
         try {
@@ -31506,7 +31506,7 @@ class StorefrontApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\FileManagerPage',
+                        '\ultracart\v2\models\FileManagerPageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -31594,7 +31594,7 @@ class StorefrontApi
      */
     public function getFsDirectoryAsyncWithHttpInfo($id, $path = null, $storefront_fs_directory_oid = null, $storefront_theme_oid = null)
     {
-        $returnType = '\ultracart\v2\models\FileManagerPage';
+        $returnType = '\ultracart\v2\models\FileManagerPageResponse';
         $request = $this->getFsDirectoryRequest($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid);
 
         return $this->client
