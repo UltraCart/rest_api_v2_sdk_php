@@ -387,6 +387,7 @@ docs/Model/ExperimentsResponse.md
 docs/Model/FileManagerDirectory.md
 docs/Model/FileManagerFile.md
 docs/Model/FileManagerPage.md
+docs/Model/FileManagerPageResponse.md
 docs/Model/FileManagerUploadRequest.md
 docs/Model/FileManagerUploadUrlResponse.md
 docs/Model/FulfillmentInventory.md
@@ -1089,6 +1090,7 @@ lib/models/ExperimentsResponse.php
 lib/models/FileManagerDirectory.php
 lib/models/FileManagerFile.php
 lib/models/FileManagerPage.php
+lib/models/FileManagerPageResponse.php
 lib/models/FileManagerUploadRequest.php
 lib/models/FileManagerUploadUrlResponse.php
 lib/models/FulfillmentInventory.php

@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 ## `createFsDirectory()`
 
 ```php
-createFsDirectory($id, $name, $parent_storefront_fs_directory_oid): \ultracart\v2\models\FileManagerPage
+createFsDirectory($id, $name, $parent_storefront_fs_directory_oid): \ultracart\v2\models\FileManagerPageResponse
 ```
 
 Create file manager directory
@@ -791,7 +791,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+[**\ultracart\v2\models\FileManagerPageResponse**](../Model/FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -1375,7 +1375,7 @@ void (empty response body)
 ## `deleteFsFile()`
 
 ```php
-deleteFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid): \ultracart\v2\models\FileManagerPage
+deleteFsFile($id, $parent_storefront_fs_directory_oid, $storefront_fs_file_oid): \ultracart\v2\models\FileManagerPageResponse
 ```
 
 Delete file manager directory
@@ -1416,7 +1416,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+[**\ultracart\v2\models\FileManagerPageResponse**](../Model/FileManagerPageResponse.md)
 
 ### Authorization
 
@@ -5181,7 +5181,7 @@ Name | Type | Description  | Notes
 ## `getFsDirectory()`
 
 ```php
-getFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid): \ultracart\v2\models\FileManagerPage
+getFsDirectory($id, $path, $storefront_fs_directory_oid, $storefront_theme_oid): \ultracart\v2\models\FileManagerPageResponse
 ```
 
 Get file manager directory
@@ -5224,7 +5224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\FileManagerPage**](../Model/FileManagerPage.md)
+[**\ultracart\v2\models\FileManagerPageResponse**](../Model/FileManagerPageResponse.md)
 
 ### Authorization
 
