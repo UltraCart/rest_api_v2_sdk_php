@@ -334,6 +334,7 @@ class Order implements ModelInterface, ArrayAccess
     const CURRENT_STAGE_LEAST_COST_ROUTING = 'Least Cost Routing';
     const CURRENT_STAGE_UNKNOWN = 'Unknown';
     const CURRENT_STAGE_PRE_ORDERED = 'Pre-ordered';
+    const CURRENT_STAGE_ADVANCED_ORDER_ROUTING = 'Advanced Order Routing';
     
 
     
@@ -356,6 +357,7 @@ class Order implements ModelInterface, ArrayAccess
             self::CURRENT_STAGE_LEAST_COST_ROUTING,
             self::CURRENT_STAGE_UNKNOWN,
             self::CURRENT_STAGE_PRE_ORDERED,
+            self::CURRENT_STAGE_ADVANCED_ORDER_ROUTING,
         ];
     }
     

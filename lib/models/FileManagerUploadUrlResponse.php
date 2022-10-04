@@ -61,6 +61,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess
         'key' => 'string',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
+        'url' => 'string',
         'warning' => '\ultracart\v2\models\Warning'
     ];
 
@@ -74,6 +75,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess
         'key' => null,
         'metadata' => null,
         'success' => null,
+        'url' => null,
         'warning' => null
     ];
 
@@ -108,6 +110,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess
         'key' => 'key',
         'metadata' => 'metadata',
         'success' => 'success',
+        'url' => 'url',
         'warning' => 'warning'
     ];
 
@@ -121,6 +124,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess
         'key' => 'setKey',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
+        'url' => 'setUrl',
         'warning' => 'setWarning'
     ];
 
@@ -134,6 +138,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess
         'key' => 'getKey',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
+        'url' => 'getUrl',
         'warning' => 'getWarning'
     ];
 
@@ -201,6 +206,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
@@ -320,6 +326,30 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }
