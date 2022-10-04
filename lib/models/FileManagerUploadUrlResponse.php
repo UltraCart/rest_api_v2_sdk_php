@@ -62,6 +62,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess, \Json
         'key' => 'string',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
+        'url' => 'string',
         'warning' => '\ultracart\v2\models\Warning'
     ];
 
@@ -77,6 +78,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess, \Json
         'key' => null,
         'metadata' => null,
         'success' => null,
+        'url' => null,
         'warning' => null
     ];
 
@@ -111,6 +113,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess, \Json
         'key' => 'key',
         'metadata' => 'metadata',
         'success' => 'success',
+        'url' => 'url',
         'warning' => 'warning'
     ];
 
@@ -124,6 +127,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess, \Json
         'key' => 'setKey',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
+        'url' => 'setUrl',
         'warning' => 'setWarning'
     ];
 
@@ -137,6 +141,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess, \Json
         'key' => 'getKey',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
+        'url' => 'getUrl',
         'warning' => 'getWarning'
     ];
 
@@ -201,6 +206,7 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess, \Json
         $this->container['key'] = $data['key'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
+        $this->container['url'] = $data['url'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
     }
 
@@ -320,6 +326,30 @@ class FileManagerUploadUrlResponse implements ModelInterface, ArrayAccess, \Json
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url url
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }
