@@ -21,6 +21,9 @@ Name | Type | Description | Notes
 **storefront_fs_directory_oid** | **int** |  | [optional]
 **storefront_fs_file_oid** | **int** |  | [optional]
 **storefront_oid** | **int** |  | [optional]
+**thumbnail_16_url** | **string** | CDN thumbnail 16x16 size | [optional]
+**thumbnail_32_url** | **string** | CDN thumbnail 32x32 size | [optional]
+**thumbnail_64_url** | **string** | CDN thumbnail 64x64 size | [optional]
 **type** | **string** |  | [optional]
 **valid_velocity** | **string** |  | [optional]
 

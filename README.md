@@ -1228,6 +1228,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.72-RC | 10/05/2022 | storefront rest file cdn icon urls |
 | 4.0.71-RC | 10/04/2022 | bug fix for new storefront file mgr |
 | 4.0.70-RC | 09/29/2022 | page_paths search category for search2 method |
 | 4.0.69-RC | 09/29/2022 | storefront file mgr calls tweaks |
