@@ -74,6 +74,9 @@ class FileManagerFile implements ModelInterface, ArrayAccess
         'storefront_fs_directory_oid' => 'int',
         'storefront_fs_file_oid' => 'int',
         'storefront_oid' => 'int',
+        'thumbnail_16_url' => 'string',
+        'thumbnail_32_url' => 'string',
+        'thumbnail_64_url' => 'string',
         'type' => 'string',
         'valid_velocity' => 'string'
     ];
@@ -101,6 +104,9 @@ class FileManagerFile implements ModelInterface, ArrayAccess
         'storefront_fs_directory_oid' => 'int32',
         'storefront_fs_file_oid' => 'int32',
         'storefront_oid' => 'int32',
+        'thumbnail_16_url' => null,
+        'thumbnail_32_url' => null,
+        'thumbnail_64_url' => null,
         'type' => null,
         'valid_velocity' => null
     ];
@@ -149,6 +155,9 @@ class FileManagerFile implements ModelInterface, ArrayAccess
         'storefront_fs_directory_oid' => 'storefront_fs_directory_oid',
         'storefront_fs_file_oid' => 'storefront_fs_file_oid',
         'storefront_oid' => 'storefront_oid',
+        'thumbnail_16_url' => 'thumbnail_16_url',
+        'thumbnail_32_url' => 'thumbnail_32_url',
+        'thumbnail_64_url' => 'thumbnail_64_url',
         'type' => 'type',
         'valid_velocity' => 'valid_velocity'
     ];
@@ -176,6 +185,9 @@ class FileManagerFile implements ModelInterface, ArrayAccess
         'storefront_fs_directory_oid' => 'setStorefrontFsDirectoryOid',
         'storefront_fs_file_oid' => 'setStorefrontFsFileOid',
         'storefront_oid' => 'setStorefrontOid',
+        'thumbnail_16_url' => 'setThumbnail16Url',
+        'thumbnail_32_url' => 'setThumbnail32Url',
+        'thumbnail_64_url' => 'setThumbnail64Url',
         'type' => 'setType',
         'valid_velocity' => 'setValidVelocity'
     ];
@@ -203,6 +215,9 @@ class FileManagerFile implements ModelInterface, ArrayAccess
         'storefront_fs_directory_oid' => 'getStorefrontFsDirectoryOid',
         'storefront_fs_file_oid' => 'getStorefrontFsFileOid',
         'storefront_oid' => 'getStorefrontOid',
+        'thumbnail_16_url' => 'getThumbnail16Url',
+        'thumbnail_32_url' => 'getThumbnail32Url',
+        'thumbnail_64_url' => 'getThumbnail64Url',
         'type' => 'getType',
         'valid_velocity' => 'getValidVelocity'
     ];
@@ -284,6 +299,9 @@ class FileManagerFile implements ModelInterface, ArrayAccess
         $this->container['storefront_fs_directory_oid'] = isset($data['storefront_fs_directory_oid']) ? $data['storefront_fs_directory_oid'] : null;
         $this->container['storefront_fs_file_oid'] = isset($data['storefront_fs_file_oid']) ? $data['storefront_fs_file_oid'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
+        $this->container['thumbnail_16_url'] = isset($data['thumbnail_16_url']) ? $data['thumbnail_16_url'] : null;
+        $this->container['thumbnail_32_url'] = isset($data['thumbnail_32_url']) ? $data['thumbnail_32_url'] : null;
+        $this->container['thumbnail_64_url'] = isset($data['thumbnail_64_url']) ? $data['thumbnail_64_url'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['valid_velocity'] = isset($data['valid_velocity']) ? $data['valid_velocity'] : null;
     }
@@ -716,6 +734,78 @@ class FileManagerFile implements ModelInterface, ArrayAccess
     public function setStorefrontOid($storefront_oid)
     {
         $this->container['storefront_oid'] = $storefront_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail_16_url
+     *
+     * @return string
+     */
+    public function getThumbnail16Url()
+    {
+        return $this->container['thumbnail_16_url'];
+    }
+
+    /**
+     * Sets thumbnail_16_url
+     *
+     * @param string $thumbnail_16_url CDN thumbnail 16x16 size
+     *
+     * @return $this
+     */
+    public function setThumbnail16Url($thumbnail_16_url)
+    {
+        $this->container['thumbnail_16_url'] = $thumbnail_16_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail_32_url
+     *
+     * @return string
+     */
+    public function getThumbnail32Url()
+    {
+        return $this->container['thumbnail_32_url'];
+    }
+
+    /**
+     * Sets thumbnail_32_url
+     *
+     * @param string $thumbnail_32_url CDN thumbnail 32x32 size
+     *
+     * @return $this
+     */
+    public function setThumbnail32Url($thumbnail_32_url)
+    {
+        $this->container['thumbnail_32_url'] = $thumbnail_32_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail_64_url
+     *
+     * @return string
+     */
+    public function getThumbnail64Url()
+    {
+        return $this->container['thumbnail_64_url'];
+    }
+
+    /**
+     * Sets thumbnail_64_url
+     *
+     * @param string $thumbnail_64_url CDN thumbnail 64x64 size
+     *
+     * @return $this
+     */
+    public function setThumbnail64Url($thumbnail_64_url)
+    {
+        $this->container['thumbnail_64_url'] = $thumbnail_64_url;
 
         return $this;
     }

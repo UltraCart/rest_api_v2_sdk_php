@@ -1286,6 +1286,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.55 | 10/05/2022 | storefront rest file cdn icon urls |
 | 3.10.54 | 10/04/2022 | bug fix for new storefront file mgr |
 | 3.10.53 | 09/29/2022 | page_paths search category for search2 method |
 | 3.10.52 | 09/29/2022 | storefront file mgr calls tweaks |
