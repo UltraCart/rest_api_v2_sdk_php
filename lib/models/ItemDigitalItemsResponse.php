@@ -104,7 +104,7 @@ class ItemDigitalItemsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'digital_items' => 'digitalItems',
+        'digital_items' => 'digital_items',
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',

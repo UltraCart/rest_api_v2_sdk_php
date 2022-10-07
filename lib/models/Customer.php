@@ -85,6 +85,7 @@ class Customer implements ModelInterface, ArrayAccess
         'last_modified_dts' => 'string',
         'loyalty' => '\ultracart\v2\models\CustomerLoyalty',
         'maximum_item_count' => 'int',
+        'merchant_id' => 'string',
         'minimum_item_count' => 'int',
         'minimum_subtotal' => 'float',
         'no_coupons' => 'bool',
@@ -152,6 +153,7 @@ class Customer implements ModelInterface, ArrayAccess
         'last_modified_dts' => 'dateTime',
         'loyalty' => null,
         'maximum_item_count' => 'int32',
+        'merchant_id' => null,
         'minimum_item_count' => 'int32',
         'minimum_subtotal' => null,
         'no_coupons' => null,
@@ -240,6 +242,7 @@ class Customer implements ModelInterface, ArrayAccess
         'last_modified_dts' => 'last_modified_dts',
         'loyalty' => 'loyalty',
         'maximum_item_count' => 'maximum_item_count',
+        'merchant_id' => 'merchant_id',
         'minimum_item_count' => 'minimum_item_count',
         'minimum_subtotal' => 'minimum_subtotal',
         'no_coupons' => 'no_coupons',
@@ -307,6 +310,7 @@ class Customer implements ModelInterface, ArrayAccess
         'last_modified_dts' => 'setLastModifiedDts',
         'loyalty' => 'setLoyalty',
         'maximum_item_count' => 'setMaximumItemCount',
+        'merchant_id' => 'setMerchantId',
         'minimum_item_count' => 'setMinimumItemCount',
         'minimum_subtotal' => 'setMinimumSubtotal',
         'no_coupons' => 'setNoCoupons',
@@ -374,6 +378,7 @@ class Customer implements ModelInterface, ArrayAccess
         'last_modified_dts' => 'getLastModifiedDts',
         'loyalty' => 'getLoyalty',
         'maximum_item_count' => 'getMaximumItemCount',
+        'merchant_id' => 'getMerchantId',
         'minimum_item_count' => 'getMinimumItemCount',
         'minimum_subtotal' => 'getMinimumSubtotal',
         'no_coupons' => 'getNoCoupons',
@@ -495,6 +500,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['last_modified_dts'] = isset($data['last_modified_dts']) ? $data['last_modified_dts'] : null;
         $this->container['loyalty'] = isset($data['loyalty']) ? $data['loyalty'] : null;
         $this->container['maximum_item_count'] = isset($data['maximum_item_count']) ? $data['maximum_item_count'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['minimum_item_count'] = isset($data['minimum_item_count']) ? $data['minimum_item_count'] : null;
         $this->container['minimum_subtotal'] = isset($data['minimum_subtotal']) ? $data['minimum_subtotal'] : null;
         $this->container['no_coupons'] = isset($data['no_coupons']) ? $data['no_coupons'] : null;
@@ -1284,6 +1290,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setMaximumItemCount($maximum_item_count)
     {
         $this->container['maximum_item_count'] = $maximum_item_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
+     *
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     *
+     * @param string $merchant_id Merchant ID
+     *
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }
