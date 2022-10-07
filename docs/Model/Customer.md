@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **last_modified_dts** | **string** | Last modified date | [optional]
 **loyalty** | [**\ultracart\v2\models\CustomerLoyalty**](CustomerLoyalty.md) |  | [optional]
 **maximum_item_count** | **int** | Maximum item count | [optional]
+**merchant_id** | **string** | Merchant ID | [optional]
 **minimum_item_count** | **int** | Minimum item count | [optional]
 **minimum_subtotal** | **float** | Minimum subtotal | [optional]
 **no_coupons** | **bool** | No coupons | [optional]
