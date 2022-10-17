@@ -64,6 +64,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_message_body' => 'string',
         'last_conversation_participant_arn' => 'string',
         'last_conversation_participant_name' => 'string',
+        'last_interactive_message_dts' => 'string',
         'last_message_dts' => 'string',
         'medium' => 'string',
         'merchant_id' => 'string',
@@ -88,6 +89,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_message_body' => null,
         'last_conversation_participant_arn' => null,
         'last_conversation_participant_name' => null,
+        'last_interactive_message_dts' => 'dateTime',
         'last_message_dts' => 'dateTime',
         'medium' => null,
         'merchant_id' => null,
@@ -131,6 +133,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_message_body' => 'last_conversation_message_body',
         'last_conversation_participant_arn' => 'last_conversation_participant_arn',
         'last_conversation_participant_name' => 'last_conversation_participant_name',
+        'last_interactive_message_dts' => 'last_interactive_message_dts',
         'last_message_dts' => 'last_message_dts',
         'medium' => 'medium',
         'merchant_id' => 'merchant_id',
@@ -153,6 +156,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_message_body' => 'setLastConversationMessageBody',
         'last_conversation_participant_arn' => 'setLastConversationParticipantArn',
         'last_conversation_participant_name' => 'setLastConversationParticipantName',
+        'last_interactive_message_dts' => 'setLastInteractiveMessageDts',
         'last_message_dts' => 'setLastMessageDts',
         'medium' => 'setMedium',
         'merchant_id' => 'setMerchantId',
@@ -175,6 +179,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_conversation_message_body' => 'getLastConversationMessageBody',
         'last_conversation_participant_arn' => 'getLastConversationParticipantArn',
         'last_conversation_participant_name' => 'getLastConversationParticipantName',
+        'last_interactive_message_dts' => 'getLastInteractiveMessageDts',
         'last_message_dts' => 'getLastMessageDts',
         'medium' => 'getMedium',
         'merchant_id' => 'getMerchantId',
@@ -263,6 +268,7 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['last_conversation_message_body'] = $data['last_conversation_message_body'] ?? null;
         $this->container['last_conversation_participant_arn'] = $data['last_conversation_participant_arn'] ?? null;
         $this->container['last_conversation_participant_name'] = $data['last_conversation_participant_name'] ?? null;
+        $this->container['last_interactive_message_dts'] = $data['last_interactive_message_dts'] ?? null;
         $this->container['last_message_dts'] = $data['last_message_dts'] ?? null;
         $this->container['medium'] = $data['medium'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
@@ -446,6 +452,30 @@ class ConversationSummary implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setLastConversationParticipantName($last_conversation_participant_name)
     {
         $this->container['last_conversation_participant_name'] = $last_conversation_participant_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_interactive_message_dts
+     *
+     * @return string|null
+     */
+    public function getLastInteractiveMessageDts()
+    {
+        return $this->container['last_interactive_message_dts'];
+    }
+
+    /**
+     * Sets last_interactive_message_dts
+     *
+     * @param string|null $last_interactive_message_dts Last interactive message date/time
+     *
+     * @return self
+     */
+    public function setLastInteractiveMessageDts($last_interactive_message_dts)
+    {
+        $this->container['last_interactive_message_dts'] = $last_interactive_message_dts;
 
         return $this;
     }

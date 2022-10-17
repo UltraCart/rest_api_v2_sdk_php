@@ -1228,6 +1228,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.74-RC | 10/17/2022 | conversations - add last_interactive_message_dts |
 | 4.0.73-RC | 10/07/2022 | bug fix for digital items response |
 | 4.0.72-RC | 10/05/2022 | storefront rest file cdn icon urls |
 | 4.0.71-RC | 10/04/2022 | bug fix for new storefront file mgr |

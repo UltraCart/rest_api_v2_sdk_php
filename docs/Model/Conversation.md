@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **last_conversation_message_body** | **string** |  | [optional]
 **last_conversation_participant_arn** | **string** |  | [optional]
 **last_conversation_participant_name** | **string** |  | [optional]
+**last_interactive_message_dts** | **string** | Last interactive message date/time | [optional]
 **last_message_dts** | **string** | Last message date/time | [optional]
 **medium** | **string** | The communication medium of the customer. | [optional]
 **merchant_id** | **string** |  | [optional]
