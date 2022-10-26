@@ -69,6 +69,7 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
         'order_id' => 'string',
         'please_review' => 'bool',
         'postal_code' => 'string',
+        'send_to_cellphone_e164' => 'string',
         'send_to_email' => 'string',
         'send_to_logged_in_user' => 'bool',
         'state' => 'string'
@@ -93,6 +94,7 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
         'order_id' => null,
         'please_review' => null,
         'postal_code' => null,
+        'send_to_cellphone_e164' => null,
         'send_to_email' => null,
         'send_to_logged_in_user' => null,
         'state' => null
@@ -136,6 +138,7 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
         'order_id' => 'order_id',
         'please_review' => 'please_review',
         'postal_code' => 'postal_code',
+        'send_to_cellphone_e164' => 'send_to_cellphone_e164',
         'send_to_email' => 'send_to_email',
         'send_to_logged_in_user' => 'send_to_logged_in_user',
         'state' => 'state'
@@ -158,6 +161,7 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
         'order_id' => 'setOrderId',
         'please_review' => 'setPleaseReview',
         'postal_code' => 'setPostalCode',
+        'send_to_cellphone_e164' => 'setSendToCellphoneE164',
         'send_to_email' => 'setSendToEmail',
         'send_to_logged_in_user' => 'setSendToLoggedInUser',
         'state' => 'setState'
@@ -180,6 +184,7 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
         'order_id' => 'getOrderId',
         'please_review' => 'getPleaseReview',
         'postal_code' => 'getPostalCode',
+        'send_to_cellphone_e164' => 'getSendToCellphoneE164',
         'send_to_email' => 'getSendToEmail',
         'send_to_logged_in_user' => 'getSendToLoggedInUser',
         'state' => 'getState'
@@ -253,6 +258,7 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
         $this->container['order_id'] = $data['order_id'] ?? null;
         $this->container['please_review'] = $data['please_review'] ?? null;
         $this->container['postal_code'] = $data['postal_code'] ?? null;
+        $this->container['send_to_cellphone_e164'] = $data['send_to_cellphone_e164'] ?? null;
         $this->container['send_to_email'] = $data['send_to_email'] ?? null;
         $this->container['send_to_logged_in_user'] = $data['send_to_logged_in_user'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
@@ -542,6 +548,30 @@ class EmailCommseqSequenceTestRequest implements ModelInterface, ArrayAccess, \J
     public function setPostalCode($postal_code)
     {
         $this->container['postal_code'] = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_to_cellphone_e164
+     *
+     * @return string|null
+     */
+    public function getSendToCellphoneE164()
+    {
+        return $this->container['send_to_cellphone_e164'];
+    }
+
+    /**
+     * Sets send_to_cellphone_e164
+     *
+     * @param string|null $send_to_cellphone_e164 send_to_cellphone_e164
+     *
+     * @return self
+     */
+    public function setSendToCellphoneE164($send_to_cellphone_e164)
+    {
+        $this->container['send_to_cellphone_e164'] = $send_to_cellphone_e164;
 
         return $this;
     }

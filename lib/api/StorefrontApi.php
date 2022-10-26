@@ -64847,6 +64847,513 @@ class StorefrontApi
     }
 
     /**
+     * Operation sendSmsTest
+     *
+     * Send SMS test
+     *
+     * @param  int $storefront_oid storefront_oid (required)
+     * @param  string $commseq_uuid commseq_uuid (required)
+     * @param  string $commseq_step_uuid commseq_step_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqSmsSendTestRequest $email_commseq_sms_test_request Email commseq sms test request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \ultracart\v2\models\EmailCommseqSmsSendTestResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
+     */
+    public function sendSmsTest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request)
+    {
+        list($response) = $this->sendSmsTestWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request);
+        return $response;
+    }
+
+    /**
+     * Operation sendSmsTestWithHttpInfo
+     *
+     * Send SMS test
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  string $commseq_step_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqSmsSendTestRequest $email_commseq_sms_test_request Email commseq sms test request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqSmsSendTestResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendSmsTestWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request)
+    {
+        return $this->sendSmsTestWithHttpInfoRetry(true ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $email_commseq_sms_test_request);
+    }
+
+
+
+    /**
+     * Operation sendSmsTestWithHttpInfoRetry
+     *
+     * Send SMS test
+     *
+     * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  string $commseq_step_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqSmsSendTestRequest $email_commseq_sms_test_request Email commseq sms test request (required)
+     *
+     * @throws \ultracart\v2\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \ultracart\v2\models\EmailCommseqSmsSendTestResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendSmsTestWithHttpInfoRetry($retry , $storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request)
+    {
+        $returnType = '\ultracart\v2\models\EmailCommseqSmsSendTestResponse';
+        $request = $this->sendSmsTestRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+
+                if($e->getResponse()) {
+                    $response = $e->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    $retryAfter = 0;
+                    $headers = $response->getHeaders();
+                    if (array_key_exists('Retry-After', $headers)) {
+                        $retryAfter = intval($headers['Retry-After'][0]);
+                    }
+
+                    if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
+                        sleep($retryAfter);
+                        return $this->sendSmsTestWithHttpInfoRetry(false ,   $storefront_oid,   $commseq_uuid,   $commseq_step_uuid,   $email_commseq_sms_test_request);
+                    }
+                }
+
+
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\ultracart\v2\models\EmailCommseqSmsSendTestResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\EmailCommseqSmsSendTestResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\EmailCommseqSmsSendTestResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 410:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 429:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\ultracart\v2\models\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\ultracart\v2\models\ErrorResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\ultracart\v2\models\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\ultracart\v2\models\EmailCommseqSmsSendTestResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody()->getContents()(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\EmailCommseqSmsSendTestResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 410:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\ultracart\v2\models\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+
+
+
+    /**
+     * Operation sendSmsTestAsync
+     *
+     * Send SMS test
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  string $commseq_step_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqSmsSendTestRequest $email_commseq_sms_test_request Email commseq sms test request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendSmsTestAsync($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request)
+    {
+        return $this->sendSmsTestAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation sendSmsTestAsyncWithHttpInfo
+     *
+     * Send SMS test
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  string $commseq_step_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqSmsSendTestRequest $email_commseq_sms_test_request Email commseq sms test request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendSmsTestAsyncWithHttpInfo($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request)
+    {
+        $returnType = '\ultracart\v2\models\EmailCommseqSmsSendTestResponse';
+        $request = $this->sendSmsTestRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody()->getContents(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'sendSmsTest'
+     *
+     * @param  int $storefront_oid (required)
+     * @param  string $commseq_uuid (required)
+     * @param  string $commseq_step_uuid (required)
+     * @param  \ultracart\v2\models\EmailCommseqSmsSendTestRequest $email_commseq_sms_test_request Email commseq sms test request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function sendSmsTestRequest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request)
+    {
+        // verify the required parameter 'storefront_oid' is set
+        if ($storefront_oid === null || (is_array($storefront_oid) && count($storefront_oid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $storefront_oid when calling sendSmsTest'
+            );
+        }
+        // verify the required parameter 'commseq_uuid' is set
+        if ($commseq_uuid === null || (is_array($commseq_uuid) && count($commseq_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $commseq_uuid when calling sendSmsTest'
+            );
+        }
+        // verify the required parameter 'commseq_step_uuid' is set
+        if ($commseq_step_uuid === null || (is_array($commseq_step_uuid) && count($commseq_step_uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $commseq_step_uuid when calling sendSmsTest'
+            );
+        }
+        // verify the required parameter 'email_commseq_sms_test_request' is set
+        if ($email_commseq_sms_test_request === null || (is_array($email_commseq_sms_test_request) && count($email_commseq_sms_test_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $email_commseq_sms_test_request when calling sendSmsTest'
+            );
+        }
+
+        $resourcePath = '/storefront/{storefront_oid}/email/sms/{commseq_uuid}/{commseq_step_uuid}/test';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($storefront_oid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'storefront_oid' . '}',
+                ObjectSerializer::toPathValue($storefront_oid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($commseq_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commseq_uuid' . '}',
+                ObjectSerializer::toPathValue($commseq_uuid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($commseq_step_uuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'commseq_step_uuid' . '}',
+                ObjectSerializer::toPathValue($commseq_step_uuid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($email_commseq_sms_test_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($email_commseq_sms_test_request));
+            } else {
+                $httpBody = $email_commseq_sms_test_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-browser-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-browser-key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-ultracart-simple-key');
+        if ($apiKey !== null) {
+            $headers['x-ultracart-simple-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation sendWebhookTest
      *
      * Send webhook test

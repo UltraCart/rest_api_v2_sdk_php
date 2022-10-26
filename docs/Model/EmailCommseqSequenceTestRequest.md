@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **order_id** | **string** |  | [optional]
 **please_review** | **bool** |  | [optional]
 **postal_code** | **string** |  | [optional]
+**send_to_cellphone_e164** | **string** |  | [optional]
 **send_to_email** | **string** |  | [optional]
 **send_to_logged_in_user** | **bool** |  | [optional]
 **state** | **string** |  | [optional]

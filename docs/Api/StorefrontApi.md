@@ -145,6 +145,7 @@ Method | HTTP request | Description
 [**searchSharedItems()**](StorefrontApi.md#searchSharedItems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 [**sendEmailTest()**](StorefrontApi.md#sendEmailTest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 [**sendPostcardTest()**](StorefrontApi.md#sendPostcardTest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
+[**sendSmsTest()**](StorefrontApi.md#sendSmsTest) | **POST** /storefront/{storefront_oid}/email/sms/{commseq_uuid}/{commseq_step_uuid}/test | Send SMS test
 [**sendWebhookTest()**](StorefrontApi.md#sendWebhookTest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
 [**sequenceTest()**](StorefrontApi.md#sequenceTest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 [**startEmailCampaign()**](StorefrontApi.md#startEmailCampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
@@ -8242,6 +8243,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\EmailCommseqPostcardSendTestResponse**](../Model/EmailCommseqPostcardSendTestResponse.md)
+
+### Authorization
+
+[ultraCartBrowserApiKey](../../README.md#ultraCartBrowserApiKey), [ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `sendSmsTest()`
+
+```php
+sendSmsTest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request): \ultracart\v2\models\EmailCommseqSmsSendTestResponse
+```
+
+Send SMS test
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\StorefrontApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$storefront_oid = 56; // int
+$commseq_uuid = 'commseq_uuid_example'; // string
+$commseq_step_uuid = 'commseq_step_uuid_example'; // string
+$email_commseq_sms_test_request = new \ultracart\v2\models\EmailCommseqSmsSendTestRequest(); // \ultracart\v2\models\EmailCommseqSmsSendTestRequest | Email commseq sms test request
+
+try {
+    $result = $apiInstance->sendSmsTest($storefront_oid, $commseq_uuid, $commseq_step_uuid, $email_commseq_sms_test_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StorefrontApi->sendSmsTest: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storefront_oid** | **int**|  |
+ **commseq_uuid** | **string**|  |
+ **commseq_step_uuid** | **string**|  |
+ **email_commseq_sms_test_request** | [**\ultracart\v2\models\EmailCommseqSmsSendTestRequest**](../Model/EmailCommseqSmsSendTestRequest.md)| Email commseq sms test request |
+
+### Return type
+
+[**\ultracart\v2\models\EmailCommseqSmsSendTestResponse**](../Model/EmailCommseqSmsSendTestResponse.md)
 
 ### Authorization
 
