@@ -450,6 +450,7 @@ Class | Method | HTTP request | Description
 *StorefrontApi* | [**searchSharedItems**](docs/Api/StorefrontApi.md#searchshareditems) | **POST** /storefront/code_library/search_shared | Retrieve library items
 *StorefrontApi* | [**sendEmailTest**](docs/Api/StorefrontApi.md#sendemailtest) | **POST** /storefront/{storefront_oid}/email/emails/{commseq_email_uuid}/test | Send email test
 *StorefrontApi* | [**sendPostcardTest**](docs/Api/StorefrontApi.md#sendpostcardtest) | **POST** /storefront/{storefront_oid}/email/postcards/{commseq_postcard_uuid}/test | Send postcard test
+*StorefrontApi* | [**sendSmsTest**](docs/Api/StorefrontApi.md#sendsmstest) | **POST** /storefront/{storefront_oid}/email/sms/{commseq_uuid}/{commseq_step_uuid}/test | Send SMS test
 *StorefrontApi* | [**sendWebhookTest**](docs/Api/StorefrontApi.md#sendwebhooktest) | **POST** /storefront/{storefront_oid}/email/webhooks/test | Send webhook test
 *StorefrontApi* | [**sequenceTest**](docs/Api/StorefrontApi.md#sequencetest) | **POST** /storefront/{storefront_oid}/email/commseqs/{commseq_uuid}/test | Sequence test
 *StorefrontApi* | [**startEmailCampaign**](docs/Api/StorefrontApi.md#startemailcampaign) | **PUT** /storefront/{storefront_oid}/email/campaigns/{email_campaign_uuid}/start | Start email campaign
@@ -798,6 +799,8 @@ Class | Method | HTTP request | Description
  - [EmailCommseqResponse](docs/Model/EmailCommseqResponse.md)
  - [EmailCommseqSequenceTestRequest](docs/Model/EmailCommseqSequenceTestRequest.md)
  - [EmailCommseqSequenceTestResponse](docs/Model/EmailCommseqSequenceTestResponse.md)
+ - [EmailCommseqSmsSendTestRequest](docs/Model/EmailCommseqSmsSendTestRequest.md)
+ - [EmailCommseqSmsSendTestResponse](docs/Model/EmailCommseqSmsSendTestResponse.md)
  - [EmailCommseqStat](docs/Model/EmailCommseqStat.md)
  - [EmailCommseqStatResponse](docs/Model/EmailCommseqStatResponse.md)
  - [EmailCommseqStep](docs/Model/EmailCommseqStep.md)
@@ -1286,6 +1289,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.58 | 10/26/2022 | esp - methods for sms testing |
 | 3.10.57 | 10/17/2022 | conversations - add last_interactive_message_dts |
 | 3.10.56 | 10/07/2022 | bug fix for digital items response |
 | 3.10.55 | 10/05/2022 | storefront rest file cdn icon urls |
