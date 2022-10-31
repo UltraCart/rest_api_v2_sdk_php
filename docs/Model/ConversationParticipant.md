@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **left_dts** | **string** | Left conversation date/time | [optional] 
 **profile_image_url** | **string** |  | [optional] 
 **status** | **string** |  | [optional] 
+**timezone** | **string** |  | [optional] 
 **unread_messages** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

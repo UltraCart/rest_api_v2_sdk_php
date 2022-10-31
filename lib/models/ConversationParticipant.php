@@ -65,6 +65,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'left_dts' => 'string',
         'profile_image_url' => 'string',
         'status' => 'string',
+        'timezone' => 'string',
         'unread_messages' => 'int'
     ];
 
@@ -82,6 +83,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'left_dts' => 'dateTime',
         'profile_image_url' => null,
         'status' => null,
+        'timezone' => null,
         'unread_messages' => 'int32'
     ];
 
@@ -120,6 +122,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'left_dts' => 'left_dts',
         'profile_image_url' => 'profile_image_url',
         'status' => 'status',
+        'timezone' => 'timezone',
         'unread_messages' => 'unread_messages'
     ];
 
@@ -137,6 +140,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'left_dts' => 'setLeftDts',
         'profile_image_url' => 'setProfileImageUrl',
         'status' => 'setStatus',
+        'timezone' => 'setTimezone',
         'unread_messages' => 'setUnreadMessages'
     ];
 
@@ -154,6 +158,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'left_dts' => 'getLeftDts',
         'profile_image_url' => 'getProfileImageUrl',
         'status' => 'getStatus',
+        'timezone' => 'getTimezone',
         'unread_messages' => 'getUnreadMessages'
     ];
 
@@ -225,6 +230,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         $this->container['left_dts'] = isset($data['left_dts']) ? $data['left_dts'] : null;
         $this->container['profile_image_url'] = isset($data['profile_image_url']) ? $data['profile_image_url'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
         $this->container['unread_messages'] = isset($data['unread_messages']) ? $data['unread_messages'] : null;
     }
 
@@ -440,6 +446,30 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string $timezone timezone
+     *
+     * @return $this
+     */
+    public function setTimezone($timezone)
+    {
+        $this->container['timezone'] = $timezone;
 
         return $this;
     }
