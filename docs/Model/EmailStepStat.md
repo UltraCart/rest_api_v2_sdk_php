@@ -3,8 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**left_click_count** | **int** | click count (left side) | [optional] 
 **left_click_count_formatted** | **string** | click count formatted (left side) | [optional] 
-**left_conversion_count** | **int** | click count (left side) | [optional] 
+**left_conversion_count** | **int** | conversion count (left/default side) | [optional] 
 **left_conversion_count_formatted** | **string** | conversion count formatted (left/default side) | [optional] 
 **left_customer_count** | **int** | customer count (left/default side) | [optional] 
 **left_customer_count_formatted** | **string** | customer count formatted (left/default side) | [optional] 

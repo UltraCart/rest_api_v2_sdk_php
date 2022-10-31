@@ -1289,6 +1289,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.60 | 10/31/2022 | communication bug fix on dup annonation |
 | 3.10.59 | 10/31/2022 | communications - addl statistics on EmailStepStat object |
 | 3.10.58 | 10/26/2022 | esp - methods for sms testing |
 | 3.10.57 | 10/17/2022 | conversations - add last_interactive_message_dts |

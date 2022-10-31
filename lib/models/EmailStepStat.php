@@ -57,6 +57,7 @@ class EmailStepStat implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'left_click_count' => 'int',
         'left_click_count_formatted' => 'string',
         'left_conversion_count' => 'int',
         'left_conversion_count_formatted' => 'string',
@@ -94,6 +95,7 @@ class EmailStepStat implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'left_click_count' => 'int32',
         'left_click_count_formatted' => null,
         'left_conversion_count' => 'int32',
         'left_conversion_count_formatted' => null,
@@ -152,6 +154,7 @@ class EmailStepStat implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'left_click_count' => 'left_click_count',
         'left_click_count_formatted' => 'left_click_count_formatted',
         'left_conversion_count' => 'left_conversion_count',
         'left_conversion_count_formatted' => 'left_conversion_count_formatted',
@@ -189,6 +192,7 @@ class EmailStepStat implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'left_click_count' => 'setLeftClickCount',
         'left_click_count_formatted' => 'setLeftClickCountFormatted',
         'left_conversion_count' => 'setLeftConversionCount',
         'left_conversion_count_formatted' => 'setLeftConversionCountFormatted',
@@ -226,6 +230,7 @@ class EmailStepStat implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'left_click_count' => 'getLeftClickCount',
         'left_click_count_formatted' => 'getLeftClickCountFormatted',
         'left_conversion_count' => 'getLeftConversionCount',
         'left_conversion_count_formatted' => 'getLeftConversionCountFormatted',
@@ -317,6 +322,7 @@ class EmailStepStat implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['left_click_count'] = isset($data['left_click_count']) ? $data['left_click_count'] : null;
         $this->container['left_click_count_formatted'] = isset($data['left_click_count_formatted']) ? $data['left_click_count_formatted'] : null;
         $this->container['left_conversion_count'] = isset($data['left_conversion_count']) ? $data['left_conversion_count'] : null;
         $this->container['left_conversion_count_formatted'] = isset($data['left_conversion_count_formatted']) ? $data['left_conversion_count_formatted'] : null;
@@ -373,6 +379,30 @@ class EmailStepStat implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets left_click_count
+     *
+     * @return int
+     */
+    public function getLeftClickCount()
+    {
+        return $this->container['left_click_count'];
+    }
+
+    /**
+     * Sets left_click_count
+     *
+     * @param int $left_click_count click count (left side)
+     *
+     * @return $this
+     */
+    public function setLeftClickCount($left_click_count)
+    {
+        $this->container['left_click_count'] = $left_click_count;
+
+        return $this;
+    }
+
+    /**
      * Gets left_click_count_formatted
      *
      * @return string
@@ -409,7 +439,7 @@ class EmailStepStat implements ModelInterface, ArrayAccess
     /**
      * Sets left_conversion_count
      *
-     * @param int $left_conversion_count click count (left side)
+     * @param int $left_conversion_count conversion count (left/default side)
      *
      * @return $this
      */
