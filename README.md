@@ -1231,6 +1231,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.76-RC | 10/31/2022 | communications - addl statistics on EmailStepStat object |
 | 4.0.75-RC | 10/26/2022 | esp - methods for sms testing |
 | 4.0.74-RC | 10/17/2022 | conversations - add last_interactive_message_dts |
 | 4.0.73-RC | 10/07/2022 | bug fix for digital items response |

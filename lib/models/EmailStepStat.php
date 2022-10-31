@@ -58,16 +58,25 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'left_click_count_formatted' => 'string',
         'left_conversion_count' => 'int',
         'left_conversion_count_formatted' => 'string',
         'left_customer_count' => 'int',
         'left_customer_count_formatted' => 'string',
+        'left_delivered_count' => 'int',
+        'left_delivered_count_formatted' => 'string',
         'left_order_count' => 'int',
         'left_order_count_formatted' => 'string',
         'left_profit' => 'float',
         'left_profit_formatted' => 'string',
         'left_revenue' => 'float',
         'left_revenue_formatted' => 'string',
+        'left_send_count' => 'int',
+        'left_send_count_formatted' => 'string',
+        'left_skipped_count' => 'int',
+        'left_skipped_count_formatted' => 'string',
+        'left_unsubscribe_count' => 'int',
+        'left_unsubscribe_count_formatted' => 'string',
         'right_conversion_count' => 'int',
         'right_conversion_count_formatted' => 'string',
         'right_customer_count' => 'int',
@@ -88,16 +97,25 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'left_click_count_formatted' => null,
         'left_conversion_count' => 'int32',
         'left_conversion_count_formatted' => null,
         'left_customer_count' => 'int32',
         'left_customer_count_formatted' => null,
+        'left_delivered_count' => 'int32',
+        'left_delivered_count_formatted' => null,
         'left_order_count' => 'int32',
         'left_order_count_formatted' => null,
         'left_profit' => null,
         'left_profit_formatted' => null,
         'left_revenue' => null,
         'left_revenue_formatted' => null,
+        'left_send_count' => 'int32',
+        'left_send_count_formatted' => null,
+        'left_skipped_count' => 'int32',
+        'left_skipped_count_formatted' => null,
+        'left_unsubscribe_count' => 'int32',
+        'left_unsubscribe_count_formatted' => null,
         'right_conversion_count' => 'int32',
         'right_conversion_count_formatted' => null,
         'right_customer_count' => 'int32',
@@ -137,16 +155,25 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'left_click_count_formatted' => 'left_click_count_formatted',
         'left_conversion_count' => 'left_conversion_count',
         'left_conversion_count_formatted' => 'left_conversion_count_formatted',
         'left_customer_count' => 'left_customer_count',
         'left_customer_count_formatted' => 'left_customer_count_formatted',
+        'left_delivered_count' => 'left_delivered_count',
+        'left_delivered_count_formatted' => 'left_delivered_count_formatted',
         'left_order_count' => 'left_order_count',
         'left_order_count_formatted' => 'left_order_count_formatted',
         'left_profit' => 'left_profit',
         'left_profit_formatted' => 'left_profit_formatted',
         'left_revenue' => 'left_revenue',
         'left_revenue_formatted' => 'left_revenue_formatted',
+        'left_send_count' => 'left_send_count',
+        'left_send_count_formatted' => 'left_send_count_formatted',
+        'left_skipped_count' => 'left_skipped_count',
+        'left_skipped_count_formatted' => 'left_skipped_count_formatted',
+        'left_unsubscribe_count' => 'left_unsubscribe_count',
+        'left_unsubscribe_count_formatted' => 'left_unsubscribe_count_formatted',
         'right_conversion_count' => 'right_conversion_count',
         'right_conversion_count_formatted' => 'right_conversion_count_formatted',
         'right_customer_count' => 'right_customer_count',
@@ -165,16 +192,25 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'left_click_count_formatted' => 'setLeftClickCountFormatted',
         'left_conversion_count' => 'setLeftConversionCount',
         'left_conversion_count_formatted' => 'setLeftConversionCountFormatted',
         'left_customer_count' => 'setLeftCustomerCount',
         'left_customer_count_formatted' => 'setLeftCustomerCountFormatted',
+        'left_delivered_count' => 'setLeftDeliveredCount',
+        'left_delivered_count_formatted' => 'setLeftDeliveredCountFormatted',
         'left_order_count' => 'setLeftOrderCount',
         'left_order_count_formatted' => 'setLeftOrderCountFormatted',
         'left_profit' => 'setLeftProfit',
         'left_profit_formatted' => 'setLeftProfitFormatted',
         'left_revenue' => 'setLeftRevenue',
         'left_revenue_formatted' => 'setLeftRevenueFormatted',
+        'left_send_count' => 'setLeftSendCount',
+        'left_send_count_formatted' => 'setLeftSendCountFormatted',
+        'left_skipped_count' => 'setLeftSkippedCount',
+        'left_skipped_count_formatted' => 'setLeftSkippedCountFormatted',
+        'left_unsubscribe_count' => 'setLeftUnsubscribeCount',
+        'left_unsubscribe_count_formatted' => 'setLeftUnsubscribeCountFormatted',
         'right_conversion_count' => 'setRightConversionCount',
         'right_conversion_count_formatted' => 'setRightConversionCountFormatted',
         'right_customer_count' => 'setRightCustomerCount',
@@ -193,16 +229,25 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'left_click_count_formatted' => 'getLeftClickCountFormatted',
         'left_conversion_count' => 'getLeftConversionCount',
         'left_conversion_count_formatted' => 'getLeftConversionCountFormatted',
         'left_customer_count' => 'getLeftCustomerCount',
         'left_customer_count_formatted' => 'getLeftCustomerCountFormatted',
+        'left_delivered_count' => 'getLeftDeliveredCount',
+        'left_delivered_count_formatted' => 'getLeftDeliveredCountFormatted',
         'left_order_count' => 'getLeftOrderCount',
         'left_order_count_formatted' => 'getLeftOrderCountFormatted',
         'left_profit' => 'getLeftProfit',
         'left_profit_formatted' => 'getLeftProfitFormatted',
         'left_revenue' => 'getLeftRevenue',
         'left_revenue_formatted' => 'getLeftRevenueFormatted',
+        'left_send_count' => 'getLeftSendCount',
+        'left_send_count_formatted' => 'getLeftSendCountFormatted',
+        'left_skipped_count' => 'getLeftSkippedCount',
+        'left_skipped_count_formatted' => 'getLeftSkippedCountFormatted',
+        'left_unsubscribe_count' => 'getLeftUnsubscribeCount',
+        'left_unsubscribe_count_formatted' => 'getLeftUnsubscribeCountFormatted',
         'right_conversion_count' => 'getRightConversionCount',
         'right_conversion_count_formatted' => 'getRightConversionCountFormatted',
         'right_customer_count' => 'getRightCustomerCount',
@@ -272,16 +317,25 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['left_click_count_formatted'] = $data['left_click_count_formatted'] ?? null;
         $this->container['left_conversion_count'] = $data['left_conversion_count'] ?? null;
         $this->container['left_conversion_count_formatted'] = $data['left_conversion_count_formatted'] ?? null;
         $this->container['left_customer_count'] = $data['left_customer_count'] ?? null;
         $this->container['left_customer_count_formatted'] = $data['left_customer_count_formatted'] ?? null;
+        $this->container['left_delivered_count'] = $data['left_delivered_count'] ?? null;
+        $this->container['left_delivered_count_formatted'] = $data['left_delivered_count_formatted'] ?? null;
         $this->container['left_order_count'] = $data['left_order_count'] ?? null;
         $this->container['left_order_count_formatted'] = $data['left_order_count_formatted'] ?? null;
         $this->container['left_profit'] = $data['left_profit'] ?? null;
         $this->container['left_profit_formatted'] = $data['left_profit_formatted'] ?? null;
         $this->container['left_revenue'] = $data['left_revenue'] ?? null;
         $this->container['left_revenue_formatted'] = $data['left_revenue_formatted'] ?? null;
+        $this->container['left_send_count'] = $data['left_send_count'] ?? null;
+        $this->container['left_send_count_formatted'] = $data['left_send_count_formatted'] ?? null;
+        $this->container['left_skipped_count'] = $data['left_skipped_count'] ?? null;
+        $this->container['left_skipped_count_formatted'] = $data['left_skipped_count_formatted'] ?? null;
+        $this->container['left_unsubscribe_count'] = $data['left_unsubscribe_count'] ?? null;
+        $this->container['left_unsubscribe_count_formatted'] = $data['left_unsubscribe_count_formatted'] ?? null;
         $this->container['right_conversion_count'] = $data['right_conversion_count'] ?? null;
         $this->container['right_conversion_count_formatted'] = $data['right_conversion_count_formatted'] ?? null;
         $this->container['right_customer_count'] = $data['right_customer_count'] ?? null;
@@ -319,6 +373,30 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets left_click_count_formatted
+     *
+     * @return string|null
+     */
+    public function getLeftClickCountFormatted()
+    {
+        return $this->container['left_click_count_formatted'];
+    }
+
+    /**
+     * Sets left_click_count_formatted
+     *
+     * @param string|null $left_click_count_formatted click count formatted (left side)
+     *
+     * @return self
+     */
+    public function setLeftClickCountFormatted($left_click_count_formatted)
+    {
+        $this->container['left_click_count_formatted'] = $left_click_count_formatted;
+
+        return $this;
+    }
+
+    /**
      * Gets left_conversion_count
      *
      * @return int|null
@@ -331,7 +409,7 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets left_conversion_count
      *
-     * @param int|null $left_conversion_count conversion count (left/default side)
+     * @param int|null $left_conversion_count click count (left side)
      *
      * @return self
      */
@@ -410,6 +488,54 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLeftCustomerCountFormatted($left_customer_count_formatted)
     {
         $this->container['left_customer_count_formatted'] = $left_customer_count_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_delivered_count
+     *
+     * @return int|null
+     */
+    public function getLeftDeliveredCount()
+    {
+        return $this->container['left_delivered_count'];
+    }
+
+    /**
+     * Sets left_delivered_count
+     *
+     * @param int|null $left_delivered_count delivered count (left side)
+     *
+     * @return self
+     */
+    public function setLeftDeliveredCount($left_delivered_count)
+    {
+        $this->container['left_delivered_count'] = $left_delivered_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_delivered_count_formatted
+     *
+     * @return string|null
+     */
+    public function getLeftDeliveredCountFormatted()
+    {
+        return $this->container['left_delivered_count_formatted'];
+    }
+
+    /**
+     * Sets left_delivered_count_formatted
+     *
+     * @param string|null $left_delivered_count_formatted delivered count formatted (left side)
+     *
+     * @return self
+     */
+    public function setLeftDeliveredCountFormatted($left_delivered_count_formatted)
+    {
+        $this->container['left_delivered_count_formatted'] = $left_delivered_count_formatted;
 
         return $this;
     }
@@ -554,6 +680,150 @@ class EmailStepStat implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLeftRevenueFormatted($left_revenue_formatted)
     {
         $this->container['left_revenue_formatted'] = $left_revenue_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_send_count
+     *
+     * @return int|null
+     */
+    public function getLeftSendCount()
+    {
+        return $this->container['left_send_count'];
+    }
+
+    /**
+     * Sets left_send_count
+     *
+     * @param int|null $left_send_count send count (left side)
+     *
+     * @return self
+     */
+    public function setLeftSendCount($left_send_count)
+    {
+        $this->container['left_send_count'] = $left_send_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_send_count_formatted
+     *
+     * @return string|null
+     */
+    public function getLeftSendCountFormatted()
+    {
+        return $this->container['left_send_count_formatted'];
+    }
+
+    /**
+     * Sets left_send_count_formatted
+     *
+     * @param string|null $left_send_count_formatted send count formatted (left side)
+     *
+     * @return self
+     */
+    public function setLeftSendCountFormatted($left_send_count_formatted)
+    {
+        $this->container['left_send_count_formatted'] = $left_send_count_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_skipped_count
+     *
+     * @return int|null
+     */
+    public function getLeftSkippedCount()
+    {
+        return $this->container['left_skipped_count'];
+    }
+
+    /**
+     * Sets left_skipped_count
+     *
+     * @param int|null $left_skipped_count conversion count (left side)
+     *
+     * @return self
+     */
+    public function setLeftSkippedCount($left_skipped_count)
+    {
+        $this->container['left_skipped_count'] = $left_skipped_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_skipped_count_formatted
+     *
+     * @return string|null
+     */
+    public function getLeftSkippedCountFormatted()
+    {
+        return $this->container['left_skipped_count_formatted'];
+    }
+
+    /**
+     * Sets left_skipped_count_formatted
+     *
+     * @param string|null $left_skipped_count_formatted skipped count formatted (left side)
+     *
+     * @return self
+     */
+    public function setLeftSkippedCountFormatted($left_skipped_count_formatted)
+    {
+        $this->container['left_skipped_count_formatted'] = $left_skipped_count_formatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_unsubscribe_count
+     *
+     * @return int|null
+     */
+    public function getLeftUnsubscribeCount()
+    {
+        return $this->container['left_unsubscribe_count'];
+    }
+
+    /**
+     * Sets left_unsubscribe_count
+     *
+     * @param int|null $left_unsubscribe_count unsubscribe count (left side)
+     *
+     * @return self
+     */
+    public function setLeftUnsubscribeCount($left_unsubscribe_count)
+    {
+        $this->container['left_unsubscribe_count'] = $left_unsubscribe_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_unsubscribe_count_formatted
+     *
+     * @return string|null
+     */
+    public function getLeftUnsubscribeCountFormatted()
+    {
+        return $this->container['left_unsubscribe_count_formatted'];
+    }
+
+    /**
+     * Sets left_unsubscribe_count_formatted
+     *
+     * @param string|null $left_unsubscribe_count_formatted unsubscribe count formatted (left side)
+     *
+     * @return self
+     */
+    public function setLeftUnsubscribeCountFormatted($left_unsubscribe_count_formatted)
+    {
+        $this->container['left_unsubscribe_count_formatted'] = $left_unsubscribe_count_formatted;
 
         return $this;
     }

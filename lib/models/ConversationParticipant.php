@@ -66,6 +66,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'left_dts' => 'string',
         'profile_image_url' => 'string',
         'status' => 'string',
+        'timezone' => 'string',
         'unread_messages' => 'int'
     ];
 
@@ -85,6 +86,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'left_dts' => 'dateTime',
         'profile_image_url' => null,
         'status' => null,
+        'timezone' => null,
         'unread_messages' => 'int32'
     ];
 
@@ -123,6 +125,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'left_dts' => 'left_dts',
         'profile_image_url' => 'profile_image_url',
         'status' => 'status',
+        'timezone' => 'timezone',
         'unread_messages' => 'unread_messages'
     ];
 
@@ -140,6 +143,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'left_dts' => 'setLeftDts',
         'profile_image_url' => 'setProfileImageUrl',
         'status' => 'setStatus',
+        'timezone' => 'setTimezone',
         'unread_messages' => 'setUnreadMessages'
     ];
 
@@ -157,6 +161,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'left_dts' => 'getLeftDts',
         'profile_image_url' => 'getProfileImageUrl',
         'status' => 'getStatus',
+        'timezone' => 'getTimezone',
         'unread_messages' => 'getUnreadMessages'
     ];
 
@@ -225,6 +230,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['left_dts'] = $data['left_dts'] ?? null;
         $this->container['profile_image_url'] = $data['profile_image_url'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['timezone'] = $data['timezone'] ?? null;
         $this->container['unread_messages'] = $data['unread_messages'] ?? null;
     }
 
@@ -440,6 +446,30 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
     public function setStatus($status)
     {
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string|null
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string|null $timezone timezone
+     *
+     * @return self
+     */
+    public function setTimezone($timezone)
+    {
+        $this->container['timezone'] = $timezone;
 
         return $this;
     }
