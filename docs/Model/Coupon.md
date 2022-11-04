@@ -63,6 +63,7 @@ Name | Type | Description | Notes
 **tiered_percent_off_items** | [**\ultracart\v2\models\CouponTieredPercentOffItems**](CouponTieredPercentOffItems.md) |  | [optional]
 **tiered_percent_off_shipping** | [**\ultracart\v2\models\CouponTieredPercentOffShipping**](CouponTieredPercentOffShipping.md) |  | [optional]
 **tiered_percent_off_subtotal** | [**\ultracart\v2\models\CouponTieredPercentOffSubtotal**](CouponTieredPercentOffSubtotal.md) |  | [optional]
+**tiered_percent_off_subtotal_based_on_msrp** | [**\ultracart\v2\models\CouponTieredPercentOffSubtotalBasedOnMSRP**](CouponTieredPercentOffSubtotalBasedOnMSRP.md) |  | [optional]
 **usable_by** | **string** | Who may use this coupon. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

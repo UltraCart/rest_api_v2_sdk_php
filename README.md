@@ -663,6 +663,7 @@ Class | Method | HTTP request | Description
 - [CouponTieredPercentOffItems](docs/Model/CouponTieredPercentOffItems.md)
 - [CouponTieredPercentOffShipping](docs/Model/CouponTieredPercentOffShipping.md)
 - [CouponTieredPercentOffSubtotal](docs/Model/CouponTieredPercentOffSubtotal.md)
+- [CouponTieredPercentOffSubtotalBasedOnMSRP](docs/Model/CouponTieredPercentOffSubtotalBasedOnMSRP.md)
 - [CouponType](docs/Model/CouponType.md)
 - [CouponsRequest](docs/Model/CouponsRequest.md)
 - [CouponsResponse](docs/Model/CouponsResponse.md)
@@ -1231,6 +1232,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.78-RC | 11/04/2022 | new coupon type percent based on msrp |
 | 4.0.77-RC | 10/31/2022 | communication bug fix on dup annonation |
 | 4.0.76-RC | 10/31/2022 | communications - addl statistics on EmailStepStat object |
 | 4.0.75-RC | 10/26/2022 | esp - methods for sms testing |

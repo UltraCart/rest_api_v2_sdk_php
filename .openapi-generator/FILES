@@ -226,6 +226,7 @@ docs/Model/CouponTieredAmountOffSubtotal.md
 docs/Model/CouponTieredPercentOffItems.md
 docs/Model/CouponTieredPercentOffShipping.md
 docs/Model/CouponTieredPercentOffSubtotal.md
+docs/Model/CouponTieredPercentOffSubtotalBasedOnMSRP.md
 docs/Model/CouponType.md
 docs/Model/CouponsRequest.md
 docs/Model/CouponsResponse.md
@@ -931,6 +932,7 @@ lib/models/CouponTieredAmountOffSubtotal.php
 lib/models/CouponTieredPercentOffItems.php
 lib/models/CouponTieredPercentOffShipping.php
 lib/models/CouponTieredPercentOffSubtotal.php
+lib/models/CouponTieredPercentOffSubtotalBasedOnMSRP.php
 lib/models/CouponType.php
 lib/models/CouponsRequest.php
 lib/models/CouponsResponse.php
