@@ -116,6 +116,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'tiered_percent_off_items' => '\ultracart\v2\models\CouponTieredPercentOffItems',
         'tiered_percent_off_shipping' => '\ultracart\v2\models\CouponTieredPercentOffShipping',
         'tiered_percent_off_subtotal' => '\ultracart\v2\models\CouponTieredPercentOffSubtotal',
+        'tiered_percent_off_subtotal_based_on_msrp' => '\ultracart\v2\models\CouponTieredPercentOffSubtotalBasedOnMSRP',
         'usable_by' => 'string'
     ];
 
@@ -184,6 +185,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'tiered_percent_off_items' => null,
         'tiered_percent_off_shipping' => null,
         'tiered_percent_off_subtotal' => null,
+        'tiered_percent_off_subtotal_based_on_msrp' => null,
         'usable_by' => null
     ];
 
@@ -273,6 +275,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'tiered_percent_off_items' => 'tiered_percent_off_items',
         'tiered_percent_off_shipping' => 'tiered_percent_off_shipping',
         'tiered_percent_off_subtotal' => 'tiered_percent_off_subtotal',
+        'tiered_percent_off_subtotal_based_on_msrp' => 'tiered_percent_off_subtotal_based_on_msrp',
         'usable_by' => 'usable_by'
     ];
 
@@ -341,6 +344,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'tiered_percent_off_items' => 'setTieredPercentOffItems',
         'tiered_percent_off_shipping' => 'setTieredPercentOffShipping',
         'tiered_percent_off_subtotal' => 'setTieredPercentOffSubtotal',
+        'tiered_percent_off_subtotal_based_on_msrp' => 'setTieredPercentOffSubtotalBasedOnMsrp',
         'usable_by' => 'setUsableBy'
     ];
 
@@ -409,6 +413,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'tiered_percent_off_items' => 'getTieredPercentOffItems',
         'tiered_percent_off_shipping' => 'getTieredPercentOffShipping',
         'tiered_percent_off_subtotal' => 'getTieredPercentOffSubtotal',
+        'tiered_percent_off_subtotal_based_on_msrp' => 'getTieredPercentOffSubtotalBasedOnMsrp',
         'usable_by' => 'getUsableBy'
     ];
 
@@ -531,6 +536,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['tiered_percent_off_items'] = isset($data['tiered_percent_off_items']) ? $data['tiered_percent_off_items'] : null;
         $this->container['tiered_percent_off_shipping'] = isset($data['tiered_percent_off_shipping']) ? $data['tiered_percent_off_shipping'] : null;
         $this->container['tiered_percent_off_subtotal'] = isset($data['tiered_percent_off_subtotal']) ? $data['tiered_percent_off_subtotal'] : null;
+        $this->container['tiered_percent_off_subtotal_based_on_msrp'] = isset($data['tiered_percent_off_subtotal_based_on_msrp']) ? $data['tiered_percent_off_subtotal_based_on_msrp'] : null;
         $this->container['usable_by'] = isset($data['usable_by']) ? $data['usable_by'] : null;
     }
 
@@ -2014,6 +2020,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setTieredPercentOffSubtotal($tiered_percent_off_subtotal)
     {
         $this->container['tiered_percent_off_subtotal'] = $tiered_percent_off_subtotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets tiered_percent_off_subtotal_based_on_msrp
+     *
+     * @return \ultracart\v2\models\CouponTieredPercentOffSubtotalBasedOnMSRP
+     */
+    public function getTieredPercentOffSubtotalBasedOnMsrp()
+    {
+        return $this->container['tiered_percent_off_subtotal_based_on_msrp'];
+    }
+
+    /**
+     * Sets tiered_percent_off_subtotal_based_on_msrp
+     *
+     * @param \ultracart\v2\models\CouponTieredPercentOffSubtotalBasedOnMSRP $tiered_percent_off_subtotal_based_on_msrp tiered_percent_off_subtotal_based_on_msrp
+     *
+     * @return $this
+     */
+    public function setTieredPercentOffSubtotalBasedOnMsrp($tiered_percent_off_subtotal_based_on_msrp)
+    {
+        $this->container['tiered_percent_off_subtotal_based_on_msrp'] = $tiered_percent_off_subtotal_based_on_msrp;
 
         return $this;
     }
