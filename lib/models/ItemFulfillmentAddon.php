@@ -60,6 +60,7 @@ class ItemFulfillmentAddon implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'add_item_id' => 'string',
         'add_item_oid' => 'int',
+        'initial_order_only' => 'bool',
         'once_per_order' => 'bool',
         'quantity' => 'int'
     ];
@@ -74,6 +75,7 @@ class ItemFulfillmentAddon implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPIFormats = [
         'add_item_id' => null,
         'add_item_oid' => 'int32',
+        'initial_order_only' => null,
         'once_per_order' => null,
         'quantity' => 'int32'
     ];
@@ -107,6 +109,7 @@ class ItemFulfillmentAddon implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'add_item_id' => 'add_item_id',
         'add_item_oid' => 'add_item_oid',
+        'initial_order_only' => 'initial_order_only',
         'once_per_order' => 'once_per_order',
         'quantity' => 'quantity'
     ];
@@ -119,6 +122,7 @@ class ItemFulfillmentAddon implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'add_item_id' => 'setAddItemId',
         'add_item_oid' => 'setAddItemOid',
+        'initial_order_only' => 'setInitialOrderOnly',
         'once_per_order' => 'setOncePerOrder',
         'quantity' => 'setQuantity'
     ];
@@ -131,6 +135,7 @@ class ItemFulfillmentAddon implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'add_item_id' => 'getAddItemId',
         'add_item_oid' => 'getAddItemOid',
+        'initial_order_only' => 'getInitialOrderOnly',
         'once_per_order' => 'getOncePerOrder',
         'quantity' => 'getQuantity'
     ];
@@ -194,6 +199,7 @@ class ItemFulfillmentAddon implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->container['add_item_id'] = $data['add_item_id'] ?? null;
         $this->container['add_item_oid'] = $data['add_item_oid'] ?? null;
+        $this->container['initial_order_only'] = $data['initial_order_only'] ?? null;
         $this->container['once_per_order'] = $data['once_per_order'] ?? null;
         $this->container['quantity'] = $data['quantity'] ?? null;
     }
@@ -271,6 +277,30 @@ class ItemFulfillmentAddon implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets initial_order_only
+     *
+     * @return bool|null
+     */
+    public function getInitialOrderOnly()
+    {
+        return $this->container['initial_order_only'];
+    }
+
+    /**
+     * Sets initial_order_only
+     *
+     * @param bool|null $initial_order_only Initial Order Only
+     *
+     * @return self
+     */
+    public function setInitialOrderOnly($initial_order_only)
+    {
+        $this->container['initial_order_only'] = $initial_order_only;
+
+        return $this;
+    }
+
+    /**
      * Gets once_per_order
      *
      * @return bool|null
@@ -283,7 +313,7 @@ class ItemFulfillmentAddon implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets once_per_order
      *
-     * @param bool|null $once_per_order Quantity
+     * @param bool|null $once_per_order Once Per Order
      *
      * @return self
      */

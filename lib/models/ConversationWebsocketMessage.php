@@ -236,6 +236,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     public const EVENT_TYPE_RRWEB = 'rrweb';
     public const EVENT_TYPE_PARTICIPANT_UPDATE = 'participant update';
     public const EVENT_TYPE_READ_MESSAGE = 'read message';
+    public const EVENT_TYPE_TYPING = 'typing';
     public const TYPE_MESSAGE = 'message';
     public const TYPE_EVENT = 'event';
     public const TYPE_PING = 'ping';
@@ -259,6 +260,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
             self::EVENT_TYPE_RRWEB,
             self::EVENT_TYPE_PARTICIPANT_UPDATE,
             self::EVENT_TYPE_READ_MESSAGE,
+            self::EVENT_TYPE_TYPING,
         ];
     }
 
