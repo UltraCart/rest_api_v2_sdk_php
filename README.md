@@ -1290,6 +1290,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.62 | 11/09/2022 | conversations - add an enum of event typing |
 | 3.10.61 | 11/04/2022 | new coupon type percent based on msrp |
 | 3.10.60 | 10/31/2022 | communication bug fix on dup annonation |
 | 3.10.59 | 10/31/2022 | communications - addl statistics on EmailStepStat object |
