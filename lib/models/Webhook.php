@@ -64,6 +64,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'authentication_type' => 'string',
         'basic_password' => 'string',
         'basic_username' => 'string',
+        'compress_events' => 'bool',
         'consecutive_failures' => 'int',
         'disabled' => 'bool',
         'event_categories' => '\ultracart\v2\models\WebhookEventCategory[]',
@@ -92,6 +93,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'authentication_type' => null,
         'basic_password' => null,
         'basic_username' => null,
+        'compress_events' => null,
         'consecutive_failures' => 'int32',
         'disabled' => null,
         'event_categories' => null,
@@ -139,6 +141,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'authentication_type' => 'authentication_type',
         'basic_password' => 'basic_password',
         'basic_username' => 'basic_username',
+        'compress_events' => 'compress_events',
         'consecutive_failures' => 'consecutive_failures',
         'disabled' => 'disabled',
         'event_categories' => 'event_categories',
@@ -165,6 +168,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'authentication_type' => 'setAuthenticationType',
         'basic_password' => 'setBasicPassword',
         'basic_username' => 'setBasicUsername',
+        'compress_events' => 'setCompressEvents',
         'consecutive_failures' => 'setConsecutiveFailures',
         'disabled' => 'setDisabled',
         'event_categories' => 'setEventCategories',
@@ -191,6 +195,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         'authentication_type' => 'getAuthenticationType',
         'basic_password' => 'getBasicPassword',
         'basic_username' => 'getBasicUsername',
+        'compress_events' => 'getCompressEvents',
         'consecutive_failures' => 'getConsecutiveFailures',
         'disabled' => 'getDisabled',
         'event_categories' => 'getEventCategories',
@@ -296,6 +301,7 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['authentication_type'] = $data['authentication_type'] ?? null;
         $this->container['basic_password'] = $data['basic_password'] ?? null;
         $this->container['basic_username'] = $data['basic_username'] ?? null;
+        $this->container['compress_events'] = $data['compress_events'] ?? null;
         $this->container['consecutive_failures'] = $data['consecutive_failures'] ?? null;
         $this->container['disabled'] = $data['disabled'] ?? null;
         $this->container['event_categories'] = $data['event_categories'] ?? null;
@@ -512,6 +518,30 @@ class Webhook implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setBasicUsername($basic_username)
     {
         $this->container['basic_username'] = $basic_username;
+
+        return $this;
+    }
+
+    /**
+     * Gets compress_events
+     *
+     * @return bool|null
+     */
+    public function getCompressEvents()
+    {
+        return $this->container['compress_events'];
+    }
+
+    /**
+     * Sets compress_events
+     *
+     * @param bool|null $compress_events Compress events with GZIP then base 64 encode them as a string
+     *
+     * @return self
+     */
+    public function setCompressEvents($compress_events)
+    {
+        $this->container['compress_events'] = $compress_events;
 
         return $this;
     }

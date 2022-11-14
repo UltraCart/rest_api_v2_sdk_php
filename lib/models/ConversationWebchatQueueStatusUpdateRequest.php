@@ -161,6 +161,23 @@ class ConversationWebchatQueueStatusUpdateRequest implements ModelInterface, Arr
         return self::$openAPIModelName;
     }
 
+    public const AGENT_STATUS_AVAILABLE = 'available';
+    public const AGENT_STATUS_BUSY = 'busy';
+    public const AGENT_STATUS_UNAVAILABLE = 'unavailable';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAgentStatusAllowableValues()
+    {
+        return [
+            self::AGENT_STATUS_AVAILABLE,
+            self::AGENT_STATUS_BUSY,
+            self::AGENT_STATUS_UNAVAILABLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -188,6 +205,15 @@ class ConversationWebchatQueueStatusUpdateRequest implements ModelInterface, Arr
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getAgentStatusAllowableValues();
+        if (!is_null($this->container['agent_status']) && !in_array($this->container['agent_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'agent_status', must be one of '%s'",
+                $this->container['agent_status'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -217,12 +243,22 @@ class ConversationWebchatQueueStatusUpdateRequest implements ModelInterface, Arr
     /**
      * Sets agent_status
      *
-     * @param string|null $agent_status agent_status
+     * @param string|null $agent_status Status of the agent
      *
      * @return self
      */
     public function setAgentStatus($agent_status)
     {
+        $allowedValues = $this->getAgentStatusAllowableValues();
+        if (!is_null($agent_status) && !in_array($agent_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'agent_status', must be one of '%s'",
+                    $agent_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['agent_status'] = $agent_status;
 
         return $this;

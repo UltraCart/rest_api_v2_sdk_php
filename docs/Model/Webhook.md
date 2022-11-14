@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **authentication_type** | **string** | The type of authentication this webhook will use when communicating with your server | [optional]
 **basic_password** | **string** | Basic authentication password | [optional]
 **basic_username** | **string** | Basic authentication user name | [optional]
+**compress_events** | **bool** | Compress events with GZIP then base 64 encode them as a string | [optional]
 **consecutive_failures** | **int** | The number of consecutive failures that have occurred trying to deliver notifications to the target server | [optional]
 **disabled** | **bool** | True if the webhook has been disabled | [optional]
 **event_categories** | [**\ultracart\v2\models\WebhookEventCategory[]**](WebhookEventCategory.md) | The categories of events.  Individual events and subscriptions are handled in the child objects.  _placeholders parameter effects the population of this on a retrieval. | [optional]
