@@ -158,8 +158,25 @@ class ConversationWebchatQueueStatusUpdateRequest implements ModelInterface, Arr
         return self::$swaggerModelName;
     }
 
+    const AGENT_STATUS_AVAILABLE = 'available';
+    const AGENT_STATUS_BUSY = 'busy';
+    const AGENT_STATUS_UNAVAILABLE = 'unavailable';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getAgentStatusAllowableValues()
+    {
+        return [
+            self::AGENT_STATUS_AVAILABLE,
+            self::AGENT_STATUS_BUSY,
+            self::AGENT_STATUS_UNAVAILABLE,
+        ];
+    }
     
 
     /**
@@ -189,6 +206,14 @@ class ConversationWebchatQueueStatusUpdateRequest implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getAgentStatusAllowableValues();
+        if (!is_null($this->container['agent_status']) && !in_array($this->container['agent_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'agent_status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -217,12 +242,21 @@ class ConversationWebchatQueueStatusUpdateRequest implements ModelInterface, Arr
     /**
      * Sets agent_status
      *
-     * @param string $agent_status agent_status
+     * @param string $agent_status Status of the agent
      *
      * @return $this
      */
     public function setAgentStatus($agent_status)
     {
+        $allowedValues = $this->getAgentStatusAllowableValues();
+        if (!is_null($agent_status) && !in_array($agent_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'agent_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['agent_status'] = $agent_status;
 
         return $this;
