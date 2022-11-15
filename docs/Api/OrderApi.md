@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**getOrdersBatch**](OrderApi.md#getOrdersBatch) | **POST** /order/orders/batch | Retrieve order batch
 [**getOrdersByQuery**](OrderApi.md#getOrdersByQuery) | **POST** /order/orders/query | Retrieve orders by query
 [**insertOrder**](OrderApi.md#insertOrder) | **POST** /order/orders | Insert an order
+[**isRefundableOrder**](OrderApi.md#isRefundableOrder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 [**processPayment**](OrderApi.md#processPayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 [**refundOrder**](OrderApi.md#refundOrder) | **PUT** /order/orders/{order_id}/refund | Refund an order
 [**replacement**](OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
@@ -866,6 +867,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\OrderResponse**](../Model/OrderResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **isRefundableOrder**
+> \ultracart\v2\models\OrderRefundableResponse isRefundableOrder($order_id)
+
+Determine if an order can be refunded
+
+Determine if an order can be refunded based upon payment method and age
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
+
+$order_id = "order_id_example"; // string | The order id to check for refundable order.
+
+try {
+    $result = $apiInstance->isRefundableOrder($order_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->isRefundableOrder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| The order id to check for refundable order. |
+
+### Return type
+
+[**\ultracart\v2\models\OrderRefundableResponse**](../Model/OrderRefundableResponse.md)
 
 ### Authorization
 
