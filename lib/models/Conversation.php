@@ -58,6 +58,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'base_language_iso_code' => 'string',
         'closed' => 'bool',
         'conversation_arn' => 'string',
         'conversation_uuid' => 'string',
@@ -84,6 +85,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'base_language_iso_code' => null,
         'closed' => null,
         'conversation_arn' => null,
         'conversation_uuid' => null,
@@ -129,6 +131,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'base_language_iso_code' => 'base_language_iso_code',
         'closed' => 'closed',
         'conversation_arn' => 'conversation_arn',
         'conversation_uuid' => 'conversation_uuid',
@@ -153,6 +156,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'base_language_iso_code' => 'setBaseLanguageIsoCode',
         'closed' => 'setClosed',
         'conversation_arn' => 'setConversationArn',
         'conversation_uuid' => 'setConversationUuid',
@@ -177,6 +181,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'base_language_iso_code' => 'getBaseLanguageIsoCode',
         'closed' => 'getClosed',
         'conversation_arn' => 'getConversationArn',
         'conversation_uuid' => 'getConversationUuid',
@@ -267,6 +272,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['base_language_iso_code'] = $data['base_language_iso_code'] ?? null;
         $this->container['closed'] = $data['closed'] ?? null;
         $this->container['conversation_arn'] = $data['conversation_arn'] ?? null;
         $this->container['conversation_uuid'] = $data['conversation_uuid'] ?? null;
@@ -317,6 +323,30 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets base_language_iso_code
+     *
+     * @return string|null
+     */
+    public function getBaseLanguageIsoCode()
+    {
+        return $this->container['base_language_iso_code'];
+    }
+
+    /**
+     * Sets base_language_iso_code
+     *
+     * @param string|null $base_language_iso_code The base language iso code for the StoreFront that everything is translated into
+     *
+     * @return self
+     */
+    public function setBaseLanguageIsoCode($base_language_iso_code)
+    {
+        $this->container['base_language_iso_code'] = $base_language_iso_code;
+
+        return $this;
+    }
 
     /**
      * Gets closed

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**base_language_iso_code** | **string** | The base language iso code for the StoreFront that everything is translated into | [optional]
 **closed** | **bool** |  | [optional]
 **conversation_arn** | **string** |  | [optional]
 **conversation_uuid** | **string** |  | [optional]
