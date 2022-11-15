@@ -1236,6 +1236,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.84-RC | 11/15/2022 | conversation methods bug fix |
 | 4.0.83-RC | 11/15/2022 | conversations - enw events for add coupon and items |
 | 4.0.82-RC | 11/15/2022 | order api new method is order refundable |
 | 4.0.81-RC | 11/15/2022 | increase order property length to 10k char |
