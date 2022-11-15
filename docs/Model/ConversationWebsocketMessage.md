@@ -4,6 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conversation_uuid** | **string** | Conversation UUID if the websocket message is tied to a specific conversation | [optional] 
+**event_add_coupon** | [**\ultracart\v2\models\ConversationEventAddCoupon**](ConversationEventAddCoupon.md) |  | [optional] 
+**event_add_item** | [**\ultracart\v2\models\ConversationEventAddItem**](ConversationEventAddItem.md) |  | [optional] 
 **event_conversation_closed** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **event_new_conversation** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **event_new_message** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 

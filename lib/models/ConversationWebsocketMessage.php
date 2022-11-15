@@ -58,6 +58,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'conversation_uuid' => 'string',
+        'event_add_coupon' => '\ultracart\v2\models\ConversationEventAddCoupon',
+        'event_add_item' => '\ultracart\v2\models\ConversationEventAddItem',
         'event_conversation_closed' => '\ultracart\v2\models\ConversationSummary',
         'event_new_conversation' => '\ultracart\v2\models\ConversationSummary',
         'event_new_message' => '\ultracart\v2\models\ConversationSummary',
@@ -80,6 +82,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'conversation_uuid' => null,
+        'event_add_coupon' => null,
+        'event_add_item' => null,
         'event_conversation_closed' => null,
         'event_new_conversation' => null,
         'event_new_message' => null,
@@ -123,6 +127,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'conversation_uuid' => 'conversation_uuid',
+        'event_add_coupon' => 'event_add_coupon',
+        'event_add_item' => 'event_add_item',
         'event_conversation_closed' => 'event_conversation_closed',
         'event_new_conversation' => 'event_new_conversation',
         'event_new_message' => 'event_new_message',
@@ -145,6 +151,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'conversation_uuid' => 'setConversationUuid',
+        'event_add_coupon' => 'setEventAddCoupon',
+        'event_add_item' => 'setEventAddItem',
         'event_conversation_closed' => 'setEventConversationClosed',
         'event_new_conversation' => 'setEventNewConversation',
         'event_new_message' => 'setEventNewMessage',
@@ -167,6 +175,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'conversation_uuid' => 'getConversationUuid',
+        'event_add_coupon' => 'getEventAddCoupon',
+        'event_add_item' => 'getEventAddItem',
         'event_conversation_closed' => 'getEventConversationClosed',
         'event_new_conversation' => 'getEventNewConversation',
         'event_new_message' => 'getEventNewMessage',
@@ -234,6 +244,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     const EVENT_TYPE_PARTICIPANT_UPDATE = 'participant update';
     const EVENT_TYPE_READ_MESSAGE = 'read message';
     const EVENT_TYPE_TYPING = 'typing';
+    const EVENT_TYPE_ADD_COUPON = 'add coupon';
+    const EVENT_TYPE_ADD_ITEM = 'add item';
     const TYPE_MESSAGE = 'message';
     const TYPE_EVENT = 'event';
     const TYPE_PING = 'ping';
@@ -260,6 +272,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
             self::EVENT_TYPE_PARTICIPANT_UPDATE,
             self::EVENT_TYPE_READ_MESSAGE,
             self::EVENT_TYPE_TYPING,
+            self::EVENT_TYPE_ADD_COUPON,
+            self::EVENT_TYPE_ADD_ITEM,
         ];
     }
     
@@ -295,6 +309,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['conversation_uuid'] = isset($data['conversation_uuid']) ? $data['conversation_uuid'] : null;
+        $this->container['event_add_coupon'] = isset($data['event_add_coupon']) ? $data['event_add_coupon'] : null;
+        $this->container['event_add_item'] = isset($data['event_add_item']) ? $data['event_add_item'] : null;
         $this->container['event_conversation_closed'] = isset($data['event_conversation_closed']) ? $data['event_conversation_closed'] : null;
         $this->container['event_new_conversation'] = isset($data['event_new_conversation']) ? $data['event_new_conversation'] : null;
         $this->container['event_new_message'] = isset($data['event_new_message']) ? $data['event_new_message'] : null;
@@ -370,6 +386,54 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     public function setConversationUuid($conversation_uuid)
     {
         $this->container['conversation_uuid'] = $conversation_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_add_coupon
+     *
+     * @return \ultracart\v2\models\ConversationEventAddCoupon
+     */
+    public function getEventAddCoupon()
+    {
+        return $this->container['event_add_coupon'];
+    }
+
+    /**
+     * Sets event_add_coupon
+     *
+     * @param \ultracart\v2\models\ConversationEventAddCoupon $event_add_coupon event_add_coupon
+     *
+     * @return $this
+     */
+    public function setEventAddCoupon($event_add_coupon)
+    {
+        $this->container['event_add_coupon'] = $event_add_coupon;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_add_item
+     *
+     * @return \ultracart\v2\models\ConversationEventAddItem
+     */
+    public function getEventAddItem()
+    {
+        return $this->container['event_add_item'];
+    }
+
+    /**
+     * Sets event_add_item
+     *
+     * @param \ultracart\v2\models\ConversationEventAddItem $event_add_item event_add_item
+     *
+     * @return $this
+     */
+    public function setEventAddItem($event_add_item)
+    {
+        $this->container['event_add_item'] = $event_add_item;
 
         return $this;
     }
