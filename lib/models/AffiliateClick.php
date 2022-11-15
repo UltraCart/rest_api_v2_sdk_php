@@ -67,7 +67,9 @@ class AffiliateClick implements ModelInterface, ArrayAccess
         'link' => '\ultracart\v2\models\AffiliateLink',
         'referrer' => 'string',
         'referrer_query_string' => 'string',
-        'sub_id' => 'string'
+        'screen_recording_uuid' => 'string',
+        'sub_id' => 'string',
+        'ucacid' => 'string'
     ];
 
     /**
@@ -86,7 +88,9 @@ class AffiliateClick implements ModelInterface, ArrayAccess
         'link' => null,
         'referrer' => null,
         'referrer_query_string' => null,
-        'sub_id' => null
+        'screen_recording_uuid' => null,
+        'sub_id' => null,
+        'ucacid' => null
     ];
 
     /**
@@ -126,7 +130,9 @@ class AffiliateClick implements ModelInterface, ArrayAccess
         'link' => 'link',
         'referrer' => 'referrer',
         'referrer_query_string' => 'referrer_query_string',
-        'sub_id' => 'sub_id'
+        'screen_recording_uuid' => 'screen_recording_uuid',
+        'sub_id' => 'sub_id',
+        'ucacid' => 'ucacid'
     ];
 
     /**
@@ -145,7 +151,9 @@ class AffiliateClick implements ModelInterface, ArrayAccess
         'link' => 'setLink',
         'referrer' => 'setReferrer',
         'referrer_query_string' => 'setReferrerQueryString',
-        'sub_id' => 'setSubId'
+        'screen_recording_uuid' => 'setScreenRecordingUuid',
+        'sub_id' => 'setSubId',
+        'ucacid' => 'setUcacid'
     ];
 
     /**
@@ -164,7 +172,9 @@ class AffiliateClick implements ModelInterface, ArrayAccess
         'link' => 'getLink',
         'referrer' => 'getReferrer',
         'referrer_query_string' => 'getReferrerQueryString',
-        'sub_id' => 'getSubId'
+        'screen_recording_uuid' => 'getScreenRecordingUuid',
+        'sub_id' => 'getSubId',
+        'ucacid' => 'getUcacid'
     ];
 
     /**
@@ -237,7 +247,9 @@ class AffiliateClick implements ModelInterface, ArrayAccess
         $this->container['link'] = isset($data['link']) ? $data['link'] : null;
         $this->container['referrer'] = isset($data['referrer']) ? $data['referrer'] : null;
         $this->container['referrer_query_string'] = isset($data['referrer_query_string']) ? $data['referrer_query_string'] : null;
+        $this->container['screen_recording_uuid'] = isset($data['screen_recording_uuid']) ? $data['screen_recording_uuid'] : null;
         $this->container['sub_id'] = isset($data['sub_id']) ? $data['sub_id'] : null;
+        $this->container['ucacid'] = isset($data['ucacid']) ? $data['ucacid'] : null;
     }
 
     /**
@@ -505,6 +517,30 @@ class AffiliateClick implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets screen_recording_uuid
+     *
+     * @return string
+     */
+    public function getScreenRecordingUuid()
+    {
+        return $this->container['screen_recording_uuid'];
+    }
+
+    /**
+     * Sets screen_recording_uuid
+     *
+     * @param string $screen_recording_uuid Screen recording UUID
+     *
+     * @return $this
+     */
+    public function setScreenRecordingUuid($screen_recording_uuid)
+    {
+        $this->container['screen_recording_uuid'] = $screen_recording_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets sub_id
      *
      * @return string
@@ -524,6 +560,30 @@ class AffiliateClick implements ModelInterface, ArrayAccess
     public function setSubId($sub_id)
     {
         $this->container['sub_id'] = $sub_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ucacid
+     *
+     * @return string
+     */
+    public function getUcacid()
+    {
+        return $this->container['ucacid'];
+    }
+
+    /**
+     * Sets ucacid
+     *
+     * @param string $ucacid UC Analytics Identifier
+     *
+     * @return $this
+     */
+    public function setUcacid($ucacid)
+    {
+        $this->container['ucacid'] = $ucacid;
 
         return $this;
     }

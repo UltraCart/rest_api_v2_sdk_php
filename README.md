@@ -1290,6 +1290,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.64 | 11/15/2022 | increase order property length to 10k char |
 | 3.10.63 | 11/14/2022 | conversations - add allowed values for update agent status |
 | 3.10.62 | 11/09/2022 | conversations - add an enum of event typing |
 | 3.10.61 | 11/04/2022 | new coupon type percent based on msrp |
