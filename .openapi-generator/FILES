@@ -564,6 +564,7 @@ docs/Model/OrderProperty.md
 docs/Model/OrderQuery.md
 docs/Model/OrderQueryBatch.md
 docs/Model/OrderQuote.md
+docs/Model/OrderRefundableResponse.md
 docs/Model/OrderReplacement.md
 docs/Model/OrderReplacementItem.md
 docs/Model/OrderReplacementResponse.md
@@ -1271,6 +1272,7 @@ lib/models/OrderProperty.php
 lib/models/OrderQuery.php
 lib/models/OrderQueryBatch.php
 lib/models/OrderQuote.php
+lib/models/OrderRefundableResponse.php
 lib/models/OrderReplacement.php
 lib/models/OrderReplacementItem.php
 lib/models/OrderReplacementResponse.php

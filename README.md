@@ -226,6 +226,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getOrdersBatch**](docs/Api/OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders by query
 *OrderApi* | [**insertOrder**](docs/Api/OrderApi.md#insertorder) | **POST** /order/orders | Insert an order
+*OrderApi* | [**isRefundableOrder**](docs/Api/OrderApi.md#isrefundableorder) | **GET** /order/orders/{order_id}/refundable | Determine if an order can be refunded
 *OrderApi* | [**processPayment**](docs/Api/OrderApi.md#processpayment) | **POST** /order/orders/{order_id}/process_payment | Process payment
 *OrderApi* | [**refundOrder**](docs/Api/OrderApi.md#refundorder) | **PUT** /order/orders/{order_id}/refund | Refund an order
 *OrderApi* | [**replacement**](docs/Api/OrderApi.md#replacement) | **POST** /order/orders/{order_id}/replacement | Replacement order
@@ -1001,6 +1002,7 @@ Class | Method | HTTP request | Description
 - [OrderQuery](docs/Model/OrderQuery.md)
 - [OrderQueryBatch](docs/Model/OrderQueryBatch.md)
 - [OrderQuote](docs/Model/OrderQuote.md)
+- [OrderRefundableResponse](docs/Model/OrderRefundableResponse.md)
 - [OrderReplacement](docs/Model/OrderReplacement.md)
 - [OrderReplacementItem](docs/Model/OrderReplacementItem.md)
 - [OrderReplacementResponse](docs/Model/OrderReplacementResponse.md)
@@ -1232,6 +1234,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.82-RC | 11/15/2022 | order api new method is order refundable |
 | 4.0.81-RC | 11/15/2022 | increase order property length to 10k char |
 | 4.0.80-RC | 11/14/2022 | conversations - add allowed values for update agent status |
 | 4.0.79-RC | 11/09/2022 | conversations - add an enum of event typing |
