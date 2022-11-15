@@ -211,8 +211,8 @@ class OrderProperty implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['value']) && (mb_strlen($this->container['value']) > 10000)) {
-            $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 10000.";
+        if (!is_null($this->container['value']) && (mb_strlen($this->container['value']) > 5000)) {
+            $invalidProperties[] = "invalid value for 'value', the character length must be smaller than or equal to 5000.";
         }
 
         return $invalidProperties;
@@ -325,8 +325,8 @@ class OrderProperty implements ModelInterface, ArrayAccess
      */
     public function setValue($value)
     {
-        if (!is_null($value) && (mb_strlen($value) > 10000)) {
-            throw new \InvalidArgumentException('invalid length for $value when calling OrderProperty., must be smaller than or equal to 10000.');
+        if (!is_null($value) && (mb_strlen($value) > 5000)) {
+            throw new \InvalidArgumentException('invalid length for $value when calling OrderProperty., must be smaller than or equal to 5000.');
         }
 
         $this->container['value'] = $value;
