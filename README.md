@@ -580,6 +580,8 @@ Class | Method | HTTP request | Description
 - [Conversation](docs/Model/Conversation.md)
 - [ConversationAgentAuth](docs/Model/ConversationAgentAuth.md)
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
+- [ConversationEventAddCoupon](docs/Model/ConversationEventAddCoupon.md)
+- [ConversationEventAddItem](docs/Model/ConversationEventAddItem.md)
 - [ConversationEventQueuePosition](docs/Model/ConversationEventQueuePosition.md)
 - [ConversationEventRRWeb](docs/Model/ConversationEventRRWeb.md)
 - [ConversationEventReadMessage](docs/Model/ConversationEventReadMessage.md)
@@ -1234,6 +1236,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.83-RC | 11/15/2022 | conversations - enw events for add coupon and items |
 | 4.0.82-RC | 11/15/2022 | order api new method is order refundable |
 | 4.0.81-RC | 11/15/2022 | increase order property length to 10k char |
 | 4.0.80-RC | 11/14/2022 | conversations - add allowed values for update agent status |

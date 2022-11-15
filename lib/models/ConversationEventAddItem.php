@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderRefundableResponse
+ * ConversationEventAddItem
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * OrderRefundableResponse Class Doc Comment
+ * ConversationEventAddItem Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationEventAddItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrderRefundableResponse';
+    protected static $openAPIModelName = 'ConversationEventAddItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'error' => '\ultracart\v2\models\Error',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'refundable' => 'bool',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'item_id' => 'string'
     ];
 
     /**
@@ -73,11 +69,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'error' => null,
-        'metadata' => null,
-        'refundable' => null,
-        'success' => null,
-        'warning' => null
+        'item_id' => null
     ];
 
     /**
@@ -107,11 +99,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'metadata' => 'metadata',
-        'refundable' => 'refundable',
-        'success' => 'success',
-        'warning' => 'warning'
+        'item_id' => 'item_id'
     ];
 
     /**
@@ -120,11 +108,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'metadata' => 'setMetadata',
-        'refundable' => 'setRefundable',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'item_id' => 'setItemId'
     ];
 
     /**
@@ -133,11 +117,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'metadata' => 'getMetadata',
-        'refundable' => 'getRefundable',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'item_id' => 'getItemId'
     ];
 
     /**
@@ -197,11 +177,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['refundable'] = $data['refundable'] ?? null;
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['warning'] = $data['warning'] ?? null;
+        $this->container['item_id'] = $data['item_id'] ?? null;
     }
 
     /**
@@ -229,121 +205,25 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets error
+     * Gets item_id
      *
-     * @return \ultracart\v2\models\Error|null
+     * @return string|null
      */
-    public function getError()
+    public function getItemId()
     {
-        return $this->container['error'];
+        return $this->container['item_id'];
     }
 
     /**
-     * Sets error
+     * Sets item_id
      *
-     * @param \ultracart\v2\models\Error|null $error error
+     * @param string|null $item_id item_id
      *
      * @return self
      */
-    public function setError($error)
+    public function setItemId($item_id)
     {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets refundable
-     *
-     * @return bool|null
-     */
-    public function getRefundable()
-    {
-        return $this->container['refundable'];
-    }
-
-    /**
-     * Sets refundable
-     *
-     * @param bool|null $refundable Whether the order is refundable or not.  Null should be interpreted as false.
-     *
-     * @return self
-     */
-    public function setRefundable($refundable)
-    {
-        $this->container['refundable'] = $refundable;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool|null
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool|null $success Indicates if API call was successful
-     *
-     * @return self
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning|null
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning|null $warning warning
-     *
-     * @return self
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['item_id'] = $item_id;
 
         return $this;
     }

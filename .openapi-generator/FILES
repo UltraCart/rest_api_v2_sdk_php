@@ -142,6 +142,8 @@ docs/Model/CityStateZip.md
 docs/Model/Conversation.md
 docs/Model/ConversationAgentAuth.md
 docs/Model/ConversationAgentAuthResponse.md
+docs/Model/ConversationEventAddCoupon.md
+docs/Model/ConversationEventAddItem.md
 docs/Model/ConversationEventQueuePosition.md
 docs/Model/ConversationEventRRWeb.md
 docs/Model/ConversationEventReadMessage.md
@@ -849,6 +851,8 @@ lib/models/CityStateZip.php
 lib/models/Conversation.php
 lib/models/ConversationAgentAuth.php
 lib/models/ConversationAgentAuthResponse.php
+lib/models/ConversationEventAddCoupon.php
+lib/models/ConversationEventAddItem.php
 lib/models/ConversationEventQueuePosition.php
 lib/models/ConversationEventRRWeb.php
 lib/models/ConversationEventReadMessage.php
