@@ -1301,6 +1301,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.70 | 11/21/2022 | coupon - addl optional minimums for percent off msrp items coupon |
 | 3.10.69 | 11/21/2022 | conversation context method |
 | 3.10.68 | 11/21/2022 | adjusted conversation event model |
 | 3.10.67 | 11/15/2022 | conversation methods bug fix |
