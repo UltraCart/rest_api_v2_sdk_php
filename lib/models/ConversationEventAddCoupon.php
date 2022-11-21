@@ -57,6 +57,8 @@ class ConversationEventAddCoupon implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'agent_arn' => 'string',
+        'agent_name' => 'string',
         'coupon_code' => 'string'
     ];
 
@@ -66,6 +68,8 @@ class ConversationEventAddCoupon implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'agent_arn' => null,
+        'agent_name' => null,
         'coupon_code' => null
     ];
 
@@ -96,6 +100,8 @@ class ConversationEventAddCoupon implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'agent_arn' => 'agent_arn',
+        'agent_name' => 'agent_name',
         'coupon_code' => 'coupon_code'
     ];
 
@@ -105,6 +111,8 @@ class ConversationEventAddCoupon implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'agent_arn' => 'setAgentArn',
+        'agent_name' => 'setAgentName',
         'coupon_code' => 'setCouponCode'
     ];
 
@@ -114,6 +122,8 @@ class ConversationEventAddCoupon implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'agent_arn' => 'getAgentArn',
+        'agent_name' => 'getAgentName',
         'coupon_code' => 'getCouponCode'
     ];
 
@@ -177,6 +187,8 @@ class ConversationEventAddCoupon implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['agent_arn'] = isset($data['agent_arn']) ? $data['agent_arn'] : null;
+        $this->container['agent_name'] = isset($data['agent_name']) ? $data['agent_name'] : null;
         $this->container['coupon_code'] = isset($data['coupon_code']) ? $data['coupon_code'] : null;
     }
 
@@ -203,6 +215,54 @@ class ConversationEventAddCoupon implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets agent_arn
+     *
+     * @return string
+     */
+    public function getAgentArn()
+    {
+        return $this->container['agent_arn'];
+    }
+
+    /**
+     * Sets agent_arn
+     *
+     * @param string $agent_arn agent_arn
+     *
+     * @return $this
+     */
+    public function setAgentArn($agent_arn)
+    {
+        $this->container['agent_arn'] = $agent_arn;
+
+        return $this;
+    }
+
+    /**
+     * Gets agent_name
+     *
+     * @return string
+     */
+    public function getAgentName()
+    {
+        return $this->container['agent_name'];
+    }
+
+    /**
+     * Sets agent_name
+     *
+     * @param string $agent_name agent_name
+     *
+     * @return $this
+     */
+    public function setAgentName($agent_name)
+    {
+        $this->container['agent_name'] = $agent_name;
+
+        return $this;
+    }
 
     /**
      * Gets coupon_code

@@ -659,6 +659,7 @@ Class | Method | HTTP request | Description
  - [ConversationEventRRWeb](docs/Model/ConversationEventRRWeb.md)
  - [ConversationEventReadMessage](docs/Model/ConversationEventReadMessage.md)
  - [ConversationEventTyping](docs/Model/ConversationEventTyping.md)
+ - [ConversationEventWebchatContext](docs/Model/ConversationEventWebchatContext.md)
  - [ConversationMessage](docs/Model/ConversationMessage.md)
  - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
  - [ConversationMessagesResponse](docs/Model/ConversationMessagesResponse.md)
@@ -1294,6 +1295,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.68 | 11/21/2022 | adjusted conversation event model |
 | 3.10.67 | 11/15/2022 | conversation methods bug fix |
 | 3.10.66 | 11/15/2022 | conversations - enw events for add coupon and items |
 | 3.10.65 | 11/15/2022 | order api new method is order refundable |

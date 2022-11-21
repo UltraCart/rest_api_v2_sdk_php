@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **event_type** | **string** | Type of event | [optional] 
 **event_typing** | [**\ultracart\v2\models\ConversationEventTyping**](ConversationEventTyping.md) |  | [optional] 
 **event_updated_message** | [**\ultracart\v2\models\ConversationMessage**](ConversationMessage.md) |  | [optional] 
+**event_webchat_context** | [**\ultracart\v2\models\ConversationEventWebchatContext**](ConversationEventWebchatContext.md) |  | [optional] 
 **message** | [**\ultracart\v2\models\ConversationMessage**](ConversationMessage.md) |  | [optional] 
 **type** | **string** | Type of message | [optional] 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationEventAddItem
+ * ConversationEventWebchatContext
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationEventAddItem Class Doc Comment
+ * ConversationEventWebchatContext Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationEventAddItem implements ModelInterface, ArrayAccess
+class ConversationEventWebchatContext implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationEventAddItem';
+    protected static $swaggerModelName = 'ConversationEventWebchatContext';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'agent_arn' => 'string',
-        'agent_name' => 'string',
-        'items' => '\ultracart\v2\models\CartItem[]'
+        'cart_id' => 'string',
+        'ucacid' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -68,9 +68,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'agent_arn' => null,
-        'agent_name' => null,
-        'items' => null
+        'cart_id' => null,
+        'ucacid' => null,
+        'url' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'agent_arn' => 'agent_arn',
-        'agent_name' => 'agent_name',
-        'items' => 'items'
+        'cart_id' => 'cart_id',
+        'ucacid' => 'ucacid',
+        'url' => 'url'
     ];
 
     /**
@@ -111,9 +111,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'agent_arn' => 'setAgentArn',
-        'agent_name' => 'setAgentName',
-        'items' => 'setItems'
+        'cart_id' => 'setCartId',
+        'ucacid' => 'setUcacid',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -122,9 +122,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'agent_arn' => 'getAgentArn',
-        'agent_name' => 'getAgentName',
-        'items' => 'getItems'
+        'cart_id' => 'getCartId',
+        'ucacid' => 'getUcacid',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -187,9 +187,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['agent_arn'] = isset($data['agent_arn']) ? $data['agent_arn'] : null;
-        $this->container['agent_name'] = isset($data['agent_name']) ? $data['agent_name'] : null;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['cart_id'] = isset($data['cart_id']) ? $data['cart_id'] : null;
+        $this->container['ucacid'] = isset($data['ucacid']) ? $data['ucacid'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -217,73 +217,73 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets agent_arn
+     * Gets cart_id
      *
      * @return string
      */
-    public function getAgentArn()
+    public function getCartId()
     {
-        return $this->container['agent_arn'];
+        return $this->container['cart_id'];
     }
 
     /**
-     * Sets agent_arn
+     * Sets cart_id
      *
-     * @param string $agent_arn agent_arn
+     * @param string $cart_id cart_id
      *
      * @return $this
      */
-    public function setAgentArn($agent_arn)
+    public function setCartId($cart_id)
     {
-        $this->container['agent_arn'] = $agent_arn;
+        $this->container['cart_id'] = $cart_id;
 
         return $this;
     }
 
     /**
-     * Gets agent_name
+     * Gets ucacid
      *
      * @return string
      */
-    public function getAgentName()
+    public function getUcacid()
     {
-        return $this->container['agent_name'];
+        return $this->container['ucacid'];
     }
 
     /**
-     * Sets agent_name
+     * Sets ucacid
      *
-     * @param string $agent_name agent_name
+     * @param string $ucacid ucacid
      *
      * @return $this
      */
-    public function setAgentName($agent_name)
+    public function setUcacid($ucacid)
     {
-        $this->container['agent_name'] = $agent_name;
+        $this->container['ucacid'] = $ucacid;
 
         return $this;
     }
 
     /**
-     * Gets items
+     * Gets url
      *
-     * @return \ultracart\v2\models\CartItem[]
+     * @return string
      */
-    public function getItems()
+    public function getUrl()
     {
-        return $this->container['items'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets items
+     * Sets url
      *
-     * @param \ultracart\v2\models\CartItem[] $items items
+     * @param string $url url
      *
      * @return $this
      */
-    public function setItems($items)
+    public function setUrl($url)
     {
-        $this->container['items'] = $items;
+        $this->container['url'] = $url;
 
         return $this;
     }

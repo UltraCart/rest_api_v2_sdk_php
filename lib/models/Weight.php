@@ -164,6 +164,7 @@ class Weight implements ModelInterface, ArrayAccess
     }
 
     const UOM_KG = 'KG';
+    const UOM_G = 'G';
     const UOM_LB = 'LB';
     const UOM_OZ = 'OZ';
     
@@ -178,6 +179,7 @@ class Weight implements ModelInterface, ArrayAccess
     {
         return [
             self::UOM_KG,
+            self::UOM_G,
             self::UOM_LB,
             self::UOM_OZ,
         ];
