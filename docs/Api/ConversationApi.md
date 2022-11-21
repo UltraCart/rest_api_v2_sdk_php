@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**getAgentKeepAlive()**](ConversationApi.md#getAgentKeepAlive) | **GET** /conversation/agent/keepalive | Agent keep alive
 [**getAgentWebsocketAuthorization()**](ConversationApi.md#getAgentWebsocketAuthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 [**getConversation()**](ConversationApi.md#getConversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+[**getConversationContext()**](ConversationApi.md#getConversationContext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
 [**getConversationMessages()**](ConversationApi.md#getConversationMessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 [**getConversationMultimediaUploadUrl()**](ConversationApi.md#getConversationMultimediaUploadUrl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 [**getConversationWebchatQueueStatuses()**](ConversationApi.md#getConversationWebchatQueueStatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
@@ -169,6 +170,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ConversationResponse**](../Model/ConversationResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getConversationContext()`
+
+```php
+getConversationContext($conversation_uuid): \ultracart\v2\models\ConversationWebchatContext
+```
+
+Get a webchat conversation context
+
+Get a webchat conversation context
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ConversationApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$conversation_uuid = 'conversation_uuid_example'; // string
+
+try {
+    $result = $apiInstance->getConversationContext($conversation_uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConversationApi->getConversationContext: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **conversation_uuid** | **string**|  |
+
+### Return type
+
+[**\ultracart\v2\models\ConversationWebchatContext**](../Model/ConversationWebchatContext.md)
 
 ### Authorization
 

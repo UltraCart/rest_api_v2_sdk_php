@@ -160,6 +160,7 @@ docs/Model/ConversationStartRequest.md
 docs/Model/ConversationStartResponse.md
 docs/Model/ConversationSummary.md
 docs/Model/ConversationTwilioAccount.md
+docs/Model/ConversationWebchatContext.md
 docs/Model/ConversationWebchatQueueStatus.md
 docs/Model/ConversationWebchatQueueStatusAgent.md
 docs/Model/ConversationWebchatQueueStatusQueueEntry.md
@@ -412,6 +413,10 @@ docs/Model/GroupResponse.md
 docs/Model/GroupUserMembership.md
 docs/Model/GroupsResponse.md
 docs/Model/HTTPHeader.md
+docs/Model/HitPageView.md
+docs/Model/HitPageViewMetaData.md
+docs/Model/HitSessionStart.md
+docs/Model/HitSessionUtm.md
 docs/Model/IntegrationLog.md
 docs/Model/IntegrationLogFile.md
 docs/Model/IntegrationLogLog.md
@@ -870,6 +875,7 @@ lib/models/ConversationStartRequest.php
 lib/models/ConversationStartResponse.php
 lib/models/ConversationSummary.php
 lib/models/ConversationTwilioAccount.php
+lib/models/ConversationWebchatContext.php
 lib/models/ConversationWebchatQueueStatus.php
 lib/models/ConversationWebchatQueueStatusAgent.php
 lib/models/ConversationWebchatQueueStatusQueueEntry.php
@@ -1122,6 +1128,10 @@ lib/models/GroupResponse.php
 lib/models/GroupUserMembership.php
 lib/models/GroupsResponse.php
 lib/models/HTTPHeader.php
+lib/models/HitPageView.php
+lib/models/HitPageViewMetaData.php
+lib/models/HitSessionStart.php
+lib/models/HitSessionUtm.php
 lib/models/IntegrationLog.php
 lib/models/IntegrationLogFile.php
 lib/models/IntegrationLogLog.php
