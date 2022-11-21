@@ -199,6 +199,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getAgentKeepAlive**](docs/Api/ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/Api/ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
+*ConversationApi* | [**getConversationContext**](docs/Api/ConversationApi.md#getconversationcontext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
 *ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/Api/ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
@@ -671,6 +672,7 @@ Class | Method | HTTP request | Description
  - [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
  - [ConversationSummary](docs/Model/ConversationSummary.md)
  - [ConversationTwilioAccount](docs/Model/ConversationTwilioAccount.md)
+ - [ConversationWebchatContext](docs/Model/ConversationWebchatContext.md)
  - [ConversationWebchatQueueStatus](docs/Model/ConversationWebchatQueueStatus.md)
  - [ConversationWebchatQueueStatusAgent](docs/Model/ConversationWebchatQueueStatusAgent.md)
  - [ConversationWebchatQueueStatusQueueEntry](docs/Model/ConversationWebchatQueueStatusQueueEntry.md)
@@ -923,6 +925,10 @@ Class | Method | HTTP request | Description
  - [GroupUserMembership](docs/Model/GroupUserMembership.md)
  - [GroupsResponse](docs/Model/GroupsResponse.md)
  - [HTTPHeader](docs/Model/HTTPHeader.md)
+ - [HitPageView](docs/Model/HitPageView.md)
+ - [HitPageViewMetaData](docs/Model/HitPageViewMetaData.md)
+ - [HitSessionStart](docs/Model/HitSessionStart.md)
+ - [HitSessionUtm](docs/Model/HitSessionUtm.md)
  - [IntegrationLog](docs/Model/IntegrationLog.md)
  - [IntegrationLogFile](docs/Model/IntegrationLogFile.md)
  - [IntegrationLogLog](docs/Model/IntegrationLogLog.md)
@@ -1295,6 +1301,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.69 | 11/21/2022 | conversation context method |
 | 3.10.68 | 11/21/2022 | adjusted conversation event model |
 | 3.10.67 | 11/15/2022 | conversation methods bug fix |
 | 3.10.66 | 11/15/2022 | conversations - enw events for add coupon and items |

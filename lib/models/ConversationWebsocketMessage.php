@@ -251,6 +251,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     const EVENT_TYPE_TYPING = 'typing';
     const EVENT_TYPE_ADD_COUPON = 'add coupon';
     const EVENT_TYPE_ADD_ITEM = 'add item';
+    const EVENT_TYPE_WEBCHAT_CONTEXT = 'webchat context';
     const TYPE_MESSAGE = 'message';
     const TYPE_EVENT = 'event';
     const TYPE_PING = 'ping';
@@ -279,6 +280,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
             self::EVENT_TYPE_TYPING,
             self::EVENT_TYPE_ADD_COUPON,
             self::EVENT_TYPE_ADD_ITEM,
+            self::EVENT_TYPE_WEBCHAT_CONTEXT,
         ];
     }
     
