@@ -72,6 +72,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_type' => 'string',
         'event_typing' => '\ultracart\v2\models\ConversationEventTyping',
         'event_updated_message' => '\ultracart\v2\models\ConversationMessage',
+        'event_webchat_context' => '\ultracart\v2\models\ConversationEventWebchatContext',
         'message' => '\ultracart\v2\models\ConversationMessage',
         'type' => 'string'
     ];
@@ -98,6 +99,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_type' => null,
         'event_typing' => null,
         'event_updated_message' => null,
+        'event_webchat_context' => null,
         'message' => null,
         'type' => null
     ];
@@ -143,6 +145,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_type' => 'event_type',
         'event_typing' => 'event_typing',
         'event_updated_message' => 'event_updated_message',
+        'event_webchat_context' => 'event_webchat_context',
         'message' => 'message',
         'type' => 'type'
     ];
@@ -167,6 +170,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_type' => 'setEventType',
         'event_typing' => 'setEventTyping',
         'event_updated_message' => 'setEventUpdatedMessage',
+        'event_webchat_context' => 'setEventWebchatContext',
         'message' => 'setMessage',
         'type' => 'setType'
     ];
@@ -191,6 +195,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         'event_type' => 'getEventType',
         'event_typing' => 'getEventTyping',
         'event_updated_message' => 'getEventUpdatedMessage',
+        'event_webchat_context' => 'getEventWebchatContext',
         'message' => 'getMessage',
         'type' => 'getType'
     ];
@@ -322,6 +327,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         $this->container['event_type'] = $data['event_type'] ?? null;
         $this->container['event_typing'] = $data['event_typing'] ?? null;
         $this->container['event_updated_message'] = $data['event_updated_message'] ?? null;
+        $this->container['event_webchat_context'] = $data['event_webchat_context'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
     }
@@ -710,6 +716,30 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     public function setEventUpdatedMessage($event_updated_message)
     {
         $this->container['event_updated_message'] = $event_updated_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_webchat_context
+     *
+     * @return \ultracart\v2\models\ConversationEventWebchatContext|null
+     */
+    public function getEventWebchatContext()
+    {
+        return $this->container['event_webchat_context'];
+    }
+
+    /**
+     * Sets event_webchat_context
+     *
+     * @param \ultracart\v2\models\ConversationEventWebchatContext|null $event_webchat_context event_webchat_context
+     *
+     * @return self
+     */
+    public function setEventWebchatContext($event_webchat_context)
+    {
+        $this->container['event_webchat_context'] = $event_webchat_context;
 
         return $this;
     }

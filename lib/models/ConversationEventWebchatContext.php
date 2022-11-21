@@ -1,6 +1,6 @@
 <?php
 /**
- * Weight
+ * ConversationEventWebchatContext
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * Weight Class Doc Comment
+ * ConversationEventWebchatContext Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationEventWebchatContext implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Weight';
+    protected static $openAPIModelName = 'ConversationEventWebchatContext';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'uom' => 'string',
-        'value' => 'float'
+        'cart_id' => 'string',
+        'ucacid' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -70,8 +71,9 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'uom' => null,
-        'value' => null
+        'cart_id' => null,
+        'ucacid' => null,
+        'url' => null
     ];
 
     /**
@@ -101,8 +103,9 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'uom' => 'uom',
-        'value' => 'value'
+        'cart_id' => 'cart_id',
+        'ucacid' => 'ucacid',
+        'url' => 'url'
     ];
 
     /**
@@ -111,8 +114,9 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'uom' => 'setUom',
-        'value' => 'setValue'
+        'cart_id' => 'setCartId',
+        'ucacid' => 'setUcacid',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -121,8 +125,9 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'uom' => 'getUom',
-        'value' => 'getValue'
+        'cart_id' => 'getCartId',
+        'ucacid' => 'getUcacid',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -166,25 +171,6 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const UOM_KG = 'KG';
-    public const UOM_G = 'G';
-    public const UOM_LB = 'LB';
-    public const UOM_OZ = 'OZ';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getUomAllowableValues()
-    {
-        return [
-            self::UOM_KG,
-            self::UOM_G,
-            self::UOM_LB,
-            self::UOM_OZ,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -201,8 +187,9 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['uom'] = $data['uom'] ?? null;
-        $this->container['value'] = $data['value'] ?? null;
+        $this->container['cart_id'] = $data['cart_id'] ?? null;
+        $this->container['ucacid'] = $data['ucacid'] ?? null;
+        $this->container['url'] = $data['url'] ?? null;
     }
 
     /**
@@ -213,15 +200,6 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getUomAllowableValues();
-        if (!is_null($this->container['uom']) && !in_array($this->container['uom'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'uom', must be one of '%s'",
-                $this->container['uom'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -239,59 +217,73 @@ class Weight implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets uom
+     * Gets cart_id
      *
      * @return string|null
      */
-    public function getUom()
+    public function getCartId()
     {
-        return $this->container['uom'];
+        return $this->container['cart_id'];
     }
 
     /**
-     * Sets uom
+     * Sets cart_id
      *
-     * @param string|null $uom Unit of measure
+     * @param string|null $cart_id cart_id
      *
      * @return self
      */
-    public function setUom($uom)
+    public function setCartId($cart_id)
     {
-        $allowedValues = $this->getUomAllowableValues();
-        if (!is_null($uom) && !in_array($uom, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'uom', must be one of '%s'",
-                    $uom,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['uom'] = $uom;
+        $this->container['cart_id'] = $cart_id;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets ucacid
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getValue()
+    public function getUcacid()
     {
-        return $this->container['value'];
+        return $this->container['ucacid'];
     }
 
     /**
-     * Sets value
+     * Sets ucacid
      *
-     * @param float|null $value Weight
+     * @param string|null $ucacid ucacid
      *
      * @return self
      */
-    public function setValue($value)
+    public function setUcacid($ucacid)
     {
-        $this->container['value'] = $value;
+        $this->container['ucacid'] = $ucacid;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url url
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }

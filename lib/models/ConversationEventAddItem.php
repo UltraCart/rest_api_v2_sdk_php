@@ -58,7 +58,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'item_id' => 'string'
+        'agent_arn' => 'string',
+        'agent_name' => 'string',
+        'items' => '\ultracart\v2\models\CartItem[]'
     ];
 
     /**
@@ -69,7 +71,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'item_id' => null
+        'agent_arn' => null,
+        'agent_name' => null,
+        'items' => null
     ];
 
     /**
@@ -99,7 +103,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'item_id' => 'item_id'
+        'agent_arn' => 'agent_arn',
+        'agent_name' => 'agent_name',
+        'items' => 'items'
     ];
 
     /**
@@ -108,7 +114,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'item_id' => 'setItemId'
+        'agent_arn' => 'setAgentArn',
+        'agent_name' => 'setAgentName',
+        'items' => 'setItems'
     ];
 
     /**
@@ -117,7 +125,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'item_id' => 'getItemId'
+        'agent_arn' => 'getAgentArn',
+        'agent_name' => 'getAgentName',
+        'items' => 'getItems'
     ];
 
     /**
@@ -177,7 +187,9 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(array $data = null)
     {
-        $this->container['item_id'] = $data['item_id'] ?? null;
+        $this->container['agent_arn'] = $data['agent_arn'] ?? null;
+        $this->container['agent_name'] = $data['agent_name'] ?? null;
+        $this->container['items'] = $data['items'] ?? null;
     }
 
     /**
@@ -205,25 +217,73 @@ class ConversationEventAddItem implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets item_id
+     * Gets agent_arn
      *
      * @return string|null
      */
-    public function getItemId()
+    public function getAgentArn()
     {
-        return $this->container['item_id'];
+        return $this->container['agent_arn'];
     }
 
     /**
-     * Sets item_id
+     * Sets agent_arn
      *
-     * @param string|null $item_id item_id
+     * @param string|null $agent_arn agent_arn
      *
      * @return self
      */
-    public function setItemId($item_id)
+    public function setAgentArn($agent_arn)
     {
-        $this->container['item_id'] = $item_id;
+        $this->container['agent_arn'] = $agent_arn;
+
+        return $this;
+    }
+
+    /**
+     * Gets agent_name
+     *
+     * @return string|null
+     */
+    public function getAgentName()
+    {
+        return $this->container['agent_name'];
+    }
+
+    /**
+     * Sets agent_name
+     *
+     * @param string|null $agent_name agent_name
+     *
+     * @return self
+     */
+    public function setAgentName($agent_name)
+    {
+        $this->container['agent_name'] = $agent_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets items
+     *
+     * @return \ultracart\v2\models\CartItem[]|null
+     */
+    public function getItems()
+    {
+        return $this->container['items'];
+    }
+
+    /**
+     * Sets items
+     *
+     * @param \ultracart\v2\models\CartItem[]|null $items items
+     *
+     * @return self
+     */
+    public function setItems($items)
+    {
+        $this->container['items'] = $items;
 
         return $this;
     }

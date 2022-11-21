@@ -148,6 +148,7 @@ docs/Model/ConversationEventQueuePosition.md
 docs/Model/ConversationEventRRWeb.md
 docs/Model/ConversationEventReadMessage.md
 docs/Model/ConversationEventTyping.md
+docs/Model/ConversationEventWebchatContext.md
 docs/Model/ConversationMessage.md
 docs/Model/ConversationMessageTransportStatus.md
 docs/Model/ConversationMessagesResponse.md
@@ -857,6 +858,7 @@ lib/models/ConversationEventQueuePosition.php
 lib/models/ConversationEventRRWeb.php
 lib/models/ConversationEventReadMessage.php
 lib/models/ConversationEventTyping.php
+lib/models/ConversationEventWebchatContext.php
 lib/models/ConversationMessage.php
 lib/models/ConversationMessageTransportStatus.php
 lib/models/ConversationMessagesResponse.php
