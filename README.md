@@ -1243,6 +1243,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.87-RC | 11/21/2022 | coupon - addl optional minimums for percent off msrp items coupon |
 | 4.0.86-RC | 11/21/2022 | conversation context method |
 | 4.0.85-RC | 11/21/2022 | adjusted conversation event model |
 | 4.0.84-RC | 11/15/2022 | conversation methods bug fix |

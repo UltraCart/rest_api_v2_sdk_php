@@ -61,7 +61,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess, \JsonSer
         'discount_percent' => 'float',
         'excluded_items' => 'string[]',
         'items' => 'string[]',
-        'limit' => 'int'
+        'limit' => 'int',
+        'minimum_cumulative_msrp' => 'float',
+        'minimum_subtotal' => 'float'
     ];
 
     /**
@@ -75,7 +77,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess, \JsonSer
         'discount_percent' => null,
         'excluded_items' => null,
         'items' => null,
-        'limit' => 'int32'
+        'limit' => 'int32',
+        'minimum_cumulative_msrp' => null,
+        'minimum_subtotal' => null
     ];
 
     /**
@@ -108,7 +112,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess, \JsonSer
         'discount_percent' => 'discount_percent',
         'excluded_items' => 'excluded_items',
         'items' => 'items',
-        'limit' => 'limit'
+        'limit' => 'limit',
+        'minimum_cumulative_msrp' => 'minimum_cumulative_msrp',
+        'minimum_subtotal' => 'minimum_subtotal'
     ];
 
     /**
@@ -120,7 +126,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess, \JsonSer
         'discount_percent' => 'setDiscountPercent',
         'excluded_items' => 'setExcludedItems',
         'items' => 'setItems',
-        'limit' => 'setLimit'
+        'limit' => 'setLimit',
+        'minimum_cumulative_msrp' => 'setMinimumCumulativeMsrp',
+        'minimum_subtotal' => 'setMinimumSubtotal'
     ];
 
     /**
@@ -132,7 +140,9 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess, \JsonSer
         'discount_percent' => 'getDiscountPercent',
         'excluded_items' => 'getExcludedItems',
         'items' => 'getItems',
-        'limit' => 'getLimit'
+        'limit' => 'getLimit',
+        'minimum_cumulative_msrp' => 'getMinimumCumulativeMsrp',
+        'minimum_subtotal' => 'getMinimumSubtotal'
     ];
 
     /**
@@ -196,6 +206,8 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['excluded_items'] = $data['excluded_items'] ?? null;
         $this->container['items'] = $data['items'] ?? null;
         $this->container['limit'] = $data['limit'] ?? null;
+        $this->container['minimum_cumulative_msrp'] = $data['minimum_cumulative_msrp'] ?? null;
+        $this->container['minimum_subtotal'] = $data['minimum_subtotal'] ?? null;
     }
 
     /**
@@ -314,6 +326,54 @@ class CouponPercentOffMsrpItems implements ModelInterface, ArrayAccess, \JsonSer
     public function setLimit($limit)
     {
         $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets minimum_cumulative_msrp
+     *
+     * @return float|null
+     */
+    public function getMinimumCumulativeMsrp()
+    {
+        return $this->container['minimum_cumulative_msrp'];
+    }
+
+    /**
+     * Sets minimum_cumulative_msrp
+     *
+     * @param float|null $minimum_cumulative_msrp The (optional) minimum cumulative msrp of qualifying items.
+     *
+     * @return self
+     */
+    public function setMinimumCumulativeMsrp($minimum_cumulative_msrp)
+    {
+        $this->container['minimum_cumulative_msrp'] = $minimum_cumulative_msrp;
+
+        return $this;
+    }
+
+    /**
+     * Gets minimum_subtotal
+     *
+     * @return float|null
+     */
+    public function getMinimumSubtotal()
+    {
+        return $this->container['minimum_subtotal'];
+    }
+
+    /**
+     * Sets minimum_subtotal
+     *
+     * @param float|null $minimum_subtotal The (optional) minimum subtotal of qualifying items.
+     *
+     * @return self
+     */
+    public function setMinimumSubtotal($minimum_subtotal)
+    {
+        $this->container['minimum_subtotal'] = $minimum_subtotal;
 
         return $this;
     }
