@@ -63,6 +63,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => 'string',
         'client_message_id' => 'string',
         'conversation_message_uuid' => 'string',
+        'delay_until_dts' => 'string',
         'media_urls' => 'string[]',
         'merchant_id' => 'string',
         'message_dts' => 'string',
@@ -85,6 +86,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => null,
         'client_message_id' => null,
         'conversation_message_uuid' => null,
+        'delay_until_dts' => 'dateTime',
         'media_urls' => null,
         'merchant_id' => null,
         'message_dts' => 'dateTime',
@@ -126,6 +128,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => 'body',
         'client_message_id' => 'client_message_id',
         'conversation_message_uuid' => 'conversation_message_uuid',
+        'delay_until_dts' => 'delay_until_dts',
         'media_urls' => 'media_urls',
         'merchant_id' => 'merchant_id',
         'message_dts' => 'message_dts',
@@ -146,6 +149,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => 'setBody',
         'client_message_id' => 'setClientMessageId',
         'conversation_message_uuid' => 'setConversationMessageUuid',
+        'delay_until_dts' => 'setDelayUntilDts',
         'media_urls' => 'setMediaUrls',
         'merchant_id' => 'setMerchantId',
         'message_dts' => 'setMessageDts',
@@ -166,6 +170,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'body' => 'getBody',
         'client_message_id' => 'getClientMessageId',
         'conversation_message_uuid' => 'getConversationMessageUuid',
+        'delay_until_dts' => 'getDelayUntilDts',
         'media_urls' => 'getMediaUrls',
         'merchant_id' => 'getMerchantId',
         'message_dts' => 'getMessageDts',
@@ -252,6 +257,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['body'] = $data['body'] ?? null;
         $this->container['client_message_id'] = $data['client_message_id'] ?? null;
         $this->container['conversation_message_uuid'] = $data['conversation_message_uuid'] ?? null;
+        $this->container['delay_until_dts'] = $data['delay_until_dts'] ?? null;
         $this->container['media_urls'] = $data['media_urls'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['message_dts'] = $data['message_dts'] ?? null;
@@ -410,6 +416,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setConversationMessageUuid($conversation_message_uuid)
     {
         $this->container['conversation_message_uuid'] = $conversation_message_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets delay_until_dts
+     *
+     * @return string|null
+     */
+    public function getDelayUntilDts()
+    {
+        return $this->container['delay_until_dts'];
+    }
+
+    /**
+     * Sets delay_until_dts
+     *
+     * @param string|null $delay_until_dts Delay message transmission until date/time
+     *
+     * @return self
+     */
+    public function setDelayUntilDts($delay_until_dts)
+    {
+        $this->container['delay_until_dts'] = $delay_until_dts;
 
         return $this;
     }
