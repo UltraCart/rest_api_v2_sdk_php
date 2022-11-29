@@ -206,6 +206,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversations**](docs/Api/ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**joinConversation**](docs/Api/ConversationApi.md#joinconversation) | **PUT** /conversation/conversations/{conversation_uuid}/join | Join a conversation
 *ConversationApi* | [**leaveConversation**](docs/Api/ConversationApi.md#leaveconversation) | **DELETE** /conversation/conversations/{conversation_uuid}/leave | Leave a conversation
+*ConversationApi* | [**markReadConversation**](docs/Api/ConversationApi.md#markreadconversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
 *ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
 *ConversationApi* | [**updateConversationWebchatQueueStatus**](docs/Api/ConversationApi.md#updateconversationwebchatqueuestatus) | **PUT** /conversation/conversations/queues/{queue_name}/status | Update status within the queue
 *CouponApi* | [**deleteCoupon**](docs/Api/CouponApi.md#deletecoupon) | **DELETE** /coupon/coupons/{coupon_oid} | Delete a coupon
@@ -1301,6 +1302,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.71 | 11/29/2022 | converstation marked convo read method |
 | 3.10.70 | 11/21/2022 | coupon - addl optional minimums for percent off msrp items coupon |
 | 3.10.69 | 11/21/2022 | conversation context method |
 | 3.10.68 | 11/21/2022 | adjusted conversation event model |
