@@ -1302,6 +1302,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.72 | 11/30/2022 | order item - addl fields for linking kits to kit components |
 | 3.10.71 | 11/29/2022 | converstation marked convo read method |
 | 3.10.70 | 11/21/2022 | coupon - addl optional minimums for percent off msrp items coupon |
 | 3.10.69 | 11/21/2022 | conversation context method |
