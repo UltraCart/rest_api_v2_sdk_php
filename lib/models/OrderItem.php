@@ -80,6 +80,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => 'bool',
         'hazmat' => 'bool',
         'height' => '\ultracart\v2\models\Distance',
+        'item_index' => 'int',
         'item_reference_oid' => 'int',
         'kit' => 'bool',
         'kit_component' => 'bool',
@@ -92,6 +93,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'no_shipping_discount' => 'bool',
         'options' => '\ultracart\v2\models\OrderItemOption[]',
         'packed_by_user' => 'string',
+        'parent_item_index' => 'int',
+        'parent_merchant_item_id' => 'string',
         'perishable_class' => 'string',
         'pricing_tier_name' => 'string',
         'properties' => '\ultracart\v2\models\OrderItemProperty[]',
@@ -146,6 +149,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => null,
         'hazmat' => null,
         'height' => null,
+        'item_index' => 'int32',
         'item_reference_oid' => 'int32',
         'kit' => null,
         'kit_component' => null,
@@ -158,6 +162,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'no_shipping_discount' => null,
         'options' => null,
         'packed_by_user' => null,
+        'parent_item_index' => 'int32',
+        'parent_merchant_item_id' => null,
         'perishable_class' => null,
         'pricing_tier_name' => null,
         'properties' => null,
@@ -231,6 +237,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => 'free_shipping',
         'hazmat' => 'hazmat',
         'height' => 'height',
+        'item_index' => 'item_index',
         'item_reference_oid' => 'item_reference_oid',
         'kit' => 'kit',
         'kit_component' => 'kit_component',
@@ -243,6 +250,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'no_shipping_discount' => 'no_shipping_discount',
         'options' => 'options',
         'packed_by_user' => 'packed_by_user',
+        'parent_item_index' => 'parent_item_index',
+        'parent_merchant_item_id' => 'parent_merchant_item_id',
         'perishable_class' => 'perishable_class',
         'pricing_tier_name' => 'pricing_tier_name',
         'properties' => 'properties',
@@ -295,6 +304,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => 'setFreeShipping',
         'hazmat' => 'setHazmat',
         'height' => 'setHeight',
+        'item_index' => 'setItemIndex',
         'item_reference_oid' => 'setItemReferenceOid',
         'kit' => 'setKit',
         'kit_component' => 'setKitComponent',
@@ -307,6 +317,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'no_shipping_discount' => 'setNoShippingDiscount',
         'options' => 'setOptions',
         'packed_by_user' => 'setPackedByUser',
+        'parent_item_index' => 'setParentItemIndex',
+        'parent_merchant_item_id' => 'setParentMerchantItemId',
         'perishable_class' => 'setPerishableClass',
         'pricing_tier_name' => 'setPricingTierName',
         'properties' => 'setProperties',
@@ -359,6 +371,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'free_shipping' => 'getFreeShipping',
         'hazmat' => 'getHazmat',
         'height' => 'getHeight',
+        'item_index' => 'getItemIndex',
         'item_reference_oid' => 'getItemReferenceOid',
         'kit' => 'getKit',
         'kit_component' => 'getKitComponent',
@@ -371,6 +384,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'no_shipping_discount' => 'getNoShippingDiscount',
         'options' => 'getOptions',
         'packed_by_user' => 'getPackedByUser',
+        'parent_item_index' => 'getParentItemIndex',
+        'parent_merchant_item_id' => 'getParentMerchantItemId',
         'perishable_class' => 'getPerishableClass',
         'pricing_tier_name' => 'getPricingTierName',
         'properties' => 'getProperties',
@@ -493,6 +508,7 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['free_shipping'] = $data['free_shipping'] ?? null;
         $this->container['hazmat'] = $data['hazmat'] ?? null;
         $this->container['height'] = $data['height'] ?? null;
+        $this->container['item_index'] = $data['item_index'] ?? null;
         $this->container['item_reference_oid'] = $data['item_reference_oid'] ?? null;
         $this->container['kit'] = $data['kit'] ?? null;
         $this->container['kit_component'] = $data['kit_component'] ?? null;
@@ -505,6 +521,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['no_shipping_discount'] = $data['no_shipping_discount'] ?? null;
         $this->container['options'] = $data['options'] ?? null;
         $this->container['packed_by_user'] = $data['packed_by_user'] ?? null;
+        $this->container['parent_item_index'] = $data['parent_item_index'] ?? null;
+        $this->container['parent_merchant_item_id'] = $data['parent_merchant_item_id'] ?? null;
         $this->container['perishable_class'] = $data['perishable_class'] ?? null;
         $this->container['pricing_tier_name'] = $data['pricing_tier_name'] ?? null;
         $this->container['properties'] = $data['properties'] ?? null;
@@ -552,6 +570,10 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['merchant_item_id']) && (mb_strlen($this->container['merchant_item_id']) > 20)) {
             $invalidProperties[] = "invalid value for 'merchant_item_id', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!is_null($this->container['parent_merchant_item_id']) && (mb_strlen($this->container['parent_merchant_item_id']) > 20)) {
+            $invalidProperties[] = "invalid value for 'parent_merchant_item_id', the character length must be smaller than or equal to 20.";
         }
 
         if (!is_null($this->container['perishable_class']) && (mb_strlen($this->container['perishable_class']) > 50)) {
@@ -1127,6 +1149,30 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets item_index
+     *
+     * @return int|null
+     */
+    public function getItemIndex()
+    {
+        return $this->container['item_index'];
+    }
+
+    /**
+     * Sets item_index
+     *
+     * @param int|null $item_index Index of the item on the order (one based index)
+     *
+     * @return self
+     */
+    public function setItemIndex($item_index)
+    {
+        $this->container['item_index'] = $item_index;
+
+        return $this;
+    }
+
+    /**
      * Gets item_reference_oid
      *
      * @return int|null
@@ -1414,6 +1460,58 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPackedByUser($packed_by_user)
     {
         $this->container['packed_by_user'] = $packed_by_user;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_item_index
+     *
+     * @return int|null
+     */
+    public function getParentItemIndex()
+    {
+        return $this->container['parent_item_index'];
+    }
+
+    /**
+     * Sets parent_item_index
+     *
+     * @param int|null $parent_item_index If this item is a kit component, this is the item index of the parent item (kit)
+     *
+     * @return self
+     */
+    public function setParentItemIndex($parent_item_index)
+    {
+        $this->container['parent_item_index'] = $parent_item_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets parent_merchant_item_id
+     *
+     * @return string|null
+     */
+    public function getParentMerchantItemId()
+    {
+        return $this->container['parent_merchant_item_id'];
+    }
+
+    /**
+     * Sets parent_merchant_item_id
+     *
+     * @param string|null $parent_merchant_item_id If this item is a kit component, this is the item id of the parent item (kit)
+     *
+     * @return self
+     */
+    public function setParentMerchantItemId($parent_merchant_item_id)
+    {
+        if (!is_null($parent_merchant_item_id) && (mb_strlen($parent_merchant_item_id) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $parent_merchant_item_id when calling OrderItem., must be smaller than or equal to 20.');
+        }
+
+        $this->container['parent_merchant_item_id'] = $parent_merchant_item_id;
 
         return $this;
     }
