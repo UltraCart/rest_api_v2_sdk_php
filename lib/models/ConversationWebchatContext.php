@@ -58,8 +58,10 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
+        'auto_orders' => '\ultracart\v2\models\AutoOrder[]',
         'cart' => '\ultracart\v2\models\Cart',
         'current_url' => 'string',
+        'orders' => '\ultracart\v2\models\Order[]',
         'page_view' => '\ultracart\v2\models\HitPageView[]',
         'session_start' => '\ultracart\v2\models\HitSessionStart',
         'session_utm' => '\ultracart\v2\models\HitSessionUtm'
@@ -73,8 +75,10 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'auto_orders' => null,
         'cart' => null,
         'current_url' => null,
+        'orders' => null,
         'page_view' => null,
         'session_start' => null,
         'session_utm' => null
@@ -107,8 +111,10 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
+        'auto_orders' => 'auto_orders',
         'cart' => 'cart',
         'current_url' => 'current_url',
+        'orders' => 'orders',
         'page_view' => 'page_view',
         'session_start' => 'session_start',
         'session_utm' => 'session_utm'
@@ -120,8 +126,10 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
+        'auto_orders' => 'setAutoOrders',
         'cart' => 'setCart',
         'current_url' => 'setCurrentUrl',
+        'orders' => 'setOrders',
         'page_view' => 'setPageView',
         'session_start' => 'setSessionStart',
         'session_utm' => 'setSessionUtm'
@@ -133,8 +141,10 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
+        'auto_orders' => 'getAutoOrders',
         'cart' => 'getCart',
         'current_url' => 'getCurrentUrl',
+        'orders' => 'getOrders',
         'page_view' => 'getPageView',
         'session_start' => 'getSessionStart',
         'session_utm' => 'getSessionUtm'
@@ -197,8 +207,10 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
+        $this->container['auto_orders'] = $data['auto_orders'] ?? null;
         $this->container['cart'] = $data['cart'] ?? null;
         $this->container['current_url'] = $data['current_url'] ?? null;
+        $this->container['orders'] = $data['orders'] ?? null;
         $this->container['page_view'] = $data['page_view'] ?? null;
         $this->container['session_start'] = $data['session_start'] ?? null;
         $this->container['session_utm'] = $data['session_utm'] ?? null;
@@ -227,6 +239,30 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auto_orders
+     *
+     * @return \ultracart\v2\models\AutoOrder[]|null
+     */
+    public function getAutoOrders()
+    {
+        return $this->container['auto_orders'];
+    }
+
+    /**
+     * Sets auto_orders
+     *
+     * @param \ultracart\v2\models\AutoOrder[]|null $auto_orders auto_orders
+     *
+     * @return self
+     */
+    public function setAutoOrders($auto_orders)
+    {
+        $this->container['auto_orders'] = $auto_orders;
+
+        return $this;
+    }
 
     /**
      * Gets cart
@@ -272,6 +308,30 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess, \JsonSe
     public function setCurrentUrl($current_url)
     {
         $this->container['current_url'] = $current_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets orders
+     *
+     * @return \ultracart\v2\models\Order[]|null
+     */
+    public function getOrders()
+    {
+        return $this->container['orders'];
+    }
+
+    /**
+     * Sets orders
+     *
+     * @param \ultracart\v2\models\Order[]|null $orders orders
+     *
+     * @return self
+     */
+    public function setOrders($orders)
+    {
+        $this->container['orders'] = $orders;
 
         return $this;
     }
