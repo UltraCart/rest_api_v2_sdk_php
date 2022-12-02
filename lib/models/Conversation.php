@@ -61,6 +61,7 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => 'bool',
         'conversation_arn' => 'string',
         'conversation_uuid' => 'string',
+        'customer_first_message_unresponded_to_dts' => 'string',
         'last_conversation_message_body' => 'string',
         'last_conversation_participant_arn' => 'string',
         'last_conversation_participant_name' => 'string',
@@ -86,6 +87,7 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => null,
         'conversation_arn' => null,
         'conversation_uuid' => null,
+        'customer_first_message_unresponded_to_dts' => 'dateTime',
         'last_conversation_message_body' => null,
         'last_conversation_participant_arn' => null,
         'last_conversation_participant_name' => null,
@@ -132,6 +134,7 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => 'closed',
         'conversation_arn' => 'conversation_arn',
         'conversation_uuid' => 'conversation_uuid',
+        'customer_first_message_unresponded_to_dts' => 'customer_first_message_unresponded_to_dts',
         'last_conversation_message_body' => 'last_conversation_message_body',
         'last_conversation_participant_arn' => 'last_conversation_participant_arn',
         'last_conversation_participant_name' => 'last_conversation_participant_name',
@@ -157,6 +160,7 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => 'setClosed',
         'conversation_arn' => 'setConversationArn',
         'conversation_uuid' => 'setConversationUuid',
+        'customer_first_message_unresponded_to_dts' => 'setCustomerFirstMessageUnrespondedToDts',
         'last_conversation_message_body' => 'setLastConversationMessageBody',
         'last_conversation_participant_arn' => 'setLastConversationParticipantArn',
         'last_conversation_participant_name' => 'setLastConversationParticipantName',
@@ -182,6 +186,7 @@ class Conversation implements ModelInterface, ArrayAccess
         'closed' => 'getClosed',
         'conversation_arn' => 'getConversationArn',
         'conversation_uuid' => 'getConversationUuid',
+        'customer_first_message_unresponded_to_dts' => 'getCustomerFirstMessageUnrespondedToDts',
         'last_conversation_message_body' => 'getLastConversationMessageBody',
         'last_conversation_participant_arn' => 'getLastConversationParticipantArn',
         'last_conversation_participant_name' => 'getLastConversationParticipantName',
@@ -276,6 +281,7 @@ class Conversation implements ModelInterface, ArrayAccess
         $this->container['closed'] = isset($data['closed']) ? $data['closed'] : null;
         $this->container['conversation_arn'] = isset($data['conversation_arn']) ? $data['conversation_arn'] : null;
         $this->container['conversation_uuid'] = isset($data['conversation_uuid']) ? $data['conversation_uuid'] : null;
+        $this->container['customer_first_message_unresponded_to_dts'] = isset($data['customer_first_message_unresponded_to_dts']) ? $data['customer_first_message_unresponded_to_dts'] : null;
         $this->container['last_conversation_message_body'] = isset($data['last_conversation_message_body']) ? $data['last_conversation_message_body'] : null;
         $this->container['last_conversation_participant_arn'] = isset($data['last_conversation_participant_arn']) ? $data['last_conversation_participant_arn'] : null;
         $this->container['last_conversation_participant_name'] = isset($data['last_conversation_participant_name']) ? $data['last_conversation_participant_name'] : null;
@@ -415,6 +421,30 @@ class Conversation implements ModelInterface, ArrayAccess
     public function setConversationUuid($conversation_uuid)
     {
         $this->container['conversation_uuid'] = $conversation_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_first_message_unresponded_to_dts
+     *
+     * @return string
+     */
+    public function getCustomerFirstMessageUnrespondedToDts()
+    {
+        return $this->container['customer_first_message_unresponded_to_dts'];
+    }
+
+    /**
+     * Sets customer_first_message_unresponded_to_dts
+     *
+     * @param string $customer_first_message_unresponded_to_dts Date/time of the first customer message that is unresponded to.
+     *
+     * @return $this
+     */
+    public function setCustomerFirstMessageUnrespondedToDts($customer_first_message_unresponded_to_dts)
+    {
+        $this->container['customer_first_message_unresponded_to_dts'] = $customer_first_message_unresponded_to_dts;
 
         return $this;
     }
