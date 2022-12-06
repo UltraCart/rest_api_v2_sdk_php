@@ -78,6 +78,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess, \JsonSerializa
         'no_realtime_charge' => 'bool',
         'pricing_tiers' => 'string[]',
         'shipping_addresses' => '\ultracart\v2\models\CartCustomerProfileAddress[]',
+        'signup_dts' => 'string',
         'tax_exempt' => 'bool',
         'ups_account_number' => 'string'
     ];
@@ -110,6 +111,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess, \JsonSerializa
         'no_realtime_charge' => null,
         'pricing_tiers' => null,
         'shipping_addresses' => null,
+        'signup_dts' => null,
         'tax_exempt' => null,
         'ups_account_number' => null
     ];
@@ -161,6 +163,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess, \JsonSerializa
         'no_realtime_charge' => 'no_realtime_charge',
         'pricing_tiers' => 'pricing_tiers',
         'shipping_addresses' => 'shipping_addresses',
+        'signup_dts' => 'signup_dts',
         'tax_exempt' => 'tax_exempt',
         'ups_account_number' => 'ups_account_number'
     ];
@@ -191,6 +194,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess, \JsonSerializa
         'no_realtime_charge' => 'setNoRealtimeCharge',
         'pricing_tiers' => 'setPricingTiers',
         'shipping_addresses' => 'setShippingAddresses',
+        'signup_dts' => 'setSignupDts',
         'tax_exempt' => 'setTaxExempt',
         'ups_account_number' => 'setUpsAccountNumber'
     ];
@@ -221,6 +225,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess, \JsonSerializa
         'no_realtime_charge' => 'getNoRealtimeCharge',
         'pricing_tiers' => 'getPricingTiers',
         'shipping_addresses' => 'getShippingAddresses',
+        'signup_dts' => 'getSignupDts',
         'tax_exempt' => 'getTaxExempt',
         'ups_account_number' => 'getUpsAccountNumber'
     ];
@@ -302,6 +307,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['no_realtime_charge'] = $data['no_realtime_charge'] ?? null;
         $this->container['pricing_tiers'] = $data['pricing_tiers'] ?? null;
         $this->container['shipping_addresses'] = $data['shipping_addresses'] ?? null;
+        $this->container['signup_dts'] = $data['signup_dts'] ?? null;
         $this->container['tax_exempt'] = $data['tax_exempt'] ?? null;
         $this->container['ups_account_number'] = $data['ups_account_number'] ?? null;
     }
@@ -607,7 +613,7 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets free_shipping_minimum
      *
-     * @param float|null $free_shipping_minimum The minimum aount that this profile has to purchase to qualify for free shipping
+     * @param float|null $free_shipping_minimum The minimum amount that this profile has to purchase to qualify for free shipping
      *
      * @return self
      */
@@ -806,6 +812,30 @@ class CartCustomerProfile implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setShippingAddresses($shipping_addresses)
     {
         $this->container['shipping_addresses'] = $shipping_addresses;
+
+        return $this;
+    }
+
+    /**
+     * Gets signup_dts
+     *
+     * @return string|null
+     */
+    public function getSignupDts()
+    {
+        return $this->container['signup_dts'];
+    }
+
+    /**
+     * Sets signup_dts
+     *
+     * @param string|null $signup_dts Signup date
+     *
+     * @return self
+     */
+    public function setSignupDts($signup_dts)
+    {
+        $this->container['signup_dts'] = $signup_dts;
 
         return $this;
     }
