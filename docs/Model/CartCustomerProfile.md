@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **email** | **string** | Email | [optional] 
 **fedex_account_number** | **string** | FedEx account number on file | [optional] 
 **free_shipping** | **bool** | True if this profile always qualifies for free shipping | [optional] 
-**free_shipping_minimum** | **float** | The minimum aount that this profile has to purchase to qualify for free shipping | [optional] 
+**free_shipping_minimum** | **float** | The minimum amount that this profile has to purchase to qualify for free shipping | [optional] 
 **maximum_item_count** | **int** | Maximum item count this profile can purchase | [optional] 
 **minimum_item_count** | **int** | Minimum item count this profile must purchase | [optional] 
 **minimum_subtotal** | **float** | Minimum subtotal this profile must purchase | [optional] 
@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **no_realtime_charge** | **bool** | True if this customers orders are not charged in real-time | [optional] 
 **pricing_tiers** | **string[]** | Pricing tier names this profile qualifies for | [optional] 
 **shipping_addresses** | [**\ultracart\v2\models\CartCustomerProfileAddress[]**](CartCustomerProfileAddress.md) | Shipping addresses on file for this profile | [optional] 
+**signup_dts** | **string** | Signup date | [optional] 
 **tax_exempt** | **bool** | True if this profile is exempt from sales tax | [optional] 
 **ups_account_number** | **string** | UPS account number on file | [optional] 
 

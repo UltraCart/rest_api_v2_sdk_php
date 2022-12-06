@@ -63,6 +63,7 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess
         'orders' => '\ultracart\v2\models\Order[]',
         'page_view' => '\ultracart\v2\models\HitPageView[]',
         'session_start' => '\ultracart\v2\models\HitSessionStart',
+        'session_start_dts' => 'string',
         'session_utm' => '\ultracart\v2\models\HitSessionUtm'
     ];
 
@@ -78,6 +79,7 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess
         'orders' => null,
         'page_view' => null,
         'session_start' => null,
+        'session_start_dts' => 'dateTime',
         'session_utm' => null
     ];
 
@@ -114,6 +116,7 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess
         'orders' => 'orders',
         'page_view' => 'page_view',
         'session_start' => 'session_start',
+        'session_start_dts' => 'session_start_dts',
         'session_utm' => 'session_utm'
     ];
 
@@ -129,6 +132,7 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess
         'orders' => 'setOrders',
         'page_view' => 'setPageView',
         'session_start' => 'setSessionStart',
+        'session_start_dts' => 'setSessionStartDts',
         'session_utm' => 'setSessionUtm'
     ];
 
@@ -144,6 +148,7 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess
         'orders' => 'getOrders',
         'page_view' => 'getPageView',
         'session_start' => 'getSessionStart',
+        'session_start_dts' => 'getSessionStartDts',
         'session_utm' => 'getSessionUtm'
     ];
 
@@ -213,6 +218,7 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess
         $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
         $this->container['page_view'] = isset($data['page_view']) ? $data['page_view'] : null;
         $this->container['session_start'] = isset($data['session_start']) ? $data['session_start'] : null;
+        $this->container['session_start_dts'] = isset($data['session_start_dts']) ? $data['session_start_dts'] : null;
         $this->container['session_utm'] = isset($data['session_utm']) ? $data['session_utm'] : null;
     }
 
@@ -380,6 +386,30 @@ class ConversationWebchatContext implements ModelInterface, ArrayAccess
     public function setSessionStart($session_start)
     {
         $this->container['session_start'] = $session_start;
+
+        return $this;
+    }
+
+    /**
+     * Gets session_start_dts
+     *
+     * @return string
+     */
+    public function getSessionStartDts()
+    {
+        return $this->container['session_start_dts'];
+    }
+
+    /**
+     * Sets session_start_dts
+     *
+     * @param string $session_start_dts Date/time that the session was started (if known)
+     *
+     * @return $this
+     */
+    public function setSessionStartDts($session_start_dts)
+    {
+        $this->container['session_start_dts'] = $session_start_dts;
 
         return $this;
     }

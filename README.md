@@ -1304,6 +1304,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.76 | 12/06/2022 | convo - add session_start_dts to webchat context, cart - add customer_profile.signup_dts |
 | 3.10.75 | 12/06/2022 | customer api - expose edi information and editor values |
 | 3.10.74 | 12/02/2022 | conversations - customer last unresponded dts |
 | 3.10.73 | 11/30/2022 | conversations - add order and auto order information to webchat context |
