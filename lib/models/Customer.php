@@ -76,6 +76,7 @@ class Customer implements ModelInterface, ArrayAccess
         'customer_profile_oid' => 'int',
         'dhl_account_number' => 'string',
         'dhl_duty_account_number' => 'string',
+        'edi' => '\ultracart\v2\models\CustomerEDI',
         'email' => 'string',
         'exempt_shipping_handling_charge' => 'bool',
         'fedex_account_number' => 'string',
@@ -144,6 +145,7 @@ class Customer implements ModelInterface, ArrayAccess
         'customer_profile_oid' => 'int32',
         'dhl_account_number' => null,
         'dhl_duty_account_number' => null,
+        'edi' => null,
         'email' => null,
         'exempt_shipping_handling_charge' => null,
         'fedex_account_number' => null,
@@ -233,6 +235,7 @@ class Customer implements ModelInterface, ArrayAccess
         'customer_profile_oid' => 'customer_profile_oid',
         'dhl_account_number' => 'dhl_account_number',
         'dhl_duty_account_number' => 'dhl_duty_account_number',
+        'edi' => 'edi',
         'email' => 'email',
         'exempt_shipping_handling_charge' => 'exempt_shipping_handling_charge',
         'fedex_account_number' => 'fedex_account_number',
@@ -301,6 +304,7 @@ class Customer implements ModelInterface, ArrayAccess
         'customer_profile_oid' => 'setCustomerProfileOid',
         'dhl_account_number' => 'setDhlAccountNumber',
         'dhl_duty_account_number' => 'setDhlDutyAccountNumber',
+        'edi' => 'setEdi',
         'email' => 'setEmail',
         'exempt_shipping_handling_charge' => 'setExemptShippingHandlingCharge',
         'fedex_account_number' => 'setFedexAccountNumber',
@@ -369,6 +373,7 @@ class Customer implements ModelInterface, ArrayAccess
         'customer_profile_oid' => 'getCustomerProfileOid',
         'dhl_account_number' => 'getDhlAccountNumber',
         'dhl_duty_account_number' => 'getDhlDutyAccountNumber',
+        'edi' => 'getEdi',
         'email' => 'getEmail',
         'exempt_shipping_handling_charge' => 'getExemptShippingHandlingCharge',
         'fedex_account_number' => 'getFedexAccountNumber',
@@ -491,6 +496,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['customer_profile_oid'] = isset($data['customer_profile_oid']) ? $data['customer_profile_oid'] : null;
         $this->container['dhl_account_number'] = isset($data['dhl_account_number']) ? $data['dhl_account_number'] : null;
         $this->container['dhl_duty_account_number'] = isset($data['dhl_duty_account_number']) ? $data['dhl_duty_account_number'] : null;
+        $this->container['edi'] = isset($data['edi']) ? $data['edi'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['exempt_shipping_handling_charge'] = isset($data['exempt_shipping_handling_charge']) ? $data['exempt_shipping_handling_charge'] : null;
         $this->container['fedex_account_number'] = isset($data['fedex_account_number']) ? $data['fedex_account_number'] : null;
@@ -1066,6 +1072,30 @@ class Customer implements ModelInterface, ArrayAccess
         }
 
         $this->container['dhl_duty_account_number'] = $dhl_duty_account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets edi
+     *
+     * @return \ultracart\v2\models\CustomerEDI
+     */
+    public function getEdi()
+    {
+        return $this->container['edi'];
+    }
+
+    /**
+     * Sets edi
+     *
+     * @param \ultracart\v2\models\CustomerEDI $edi edi
+     *
+     * @return $this
+     */
+    public function setEdi($edi)
+    {
+        $this->container['edi'] = $edi;
 
         return $this;
     }

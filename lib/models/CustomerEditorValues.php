@@ -62,6 +62,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => 'string[]',
         'card_types' => 'string[]',
         'countries' => '\ultracart\v2\models\Country[]',
+        'edi_channel_partners' => '\ultracart\v2\models\ChannelPartner[]',
         'loyalty_ledger_descriptions' => 'string[]',
         'loyalty_program_type' => 'string',
         'qb_classes' => 'string[]',
@@ -81,6 +82,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => null,
         'card_types' => null,
         'countries' => null,
+        'edi_channel_partners' => null,
         'loyalty_ledger_descriptions' => null,
         'loyalty_program_type' => null,
         'qb_classes' => null,
@@ -121,6 +123,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => 'card_exp_years',
         'card_types' => 'card_types',
         'countries' => 'countries',
+        'edi_channel_partners' => 'edi_channel_partners',
         'loyalty_ledger_descriptions' => 'loyalty_ledger_descriptions',
         'loyalty_program_type' => 'loyalty_program_type',
         'qb_classes' => 'qb_classes',
@@ -140,6 +143,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => 'setCardExpYears',
         'card_types' => 'setCardTypes',
         'countries' => 'setCountries',
+        'edi_channel_partners' => 'setEdiChannelPartners',
         'loyalty_ledger_descriptions' => 'setLoyaltyLedgerDescriptions',
         'loyalty_program_type' => 'setLoyaltyProgramType',
         'qb_classes' => 'setQbClasses',
@@ -159,6 +163,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         'card_exp_years' => 'getCardExpYears',
         'card_types' => 'getCardTypes',
         'countries' => 'getCountries',
+        'edi_channel_partners' => 'getEdiChannelPartners',
         'loyalty_ledger_descriptions' => 'getLoyaltyLedgerDescriptions',
         'loyalty_program_type' => 'getLoyaltyProgramType',
         'qb_classes' => 'getQbClasses',
@@ -232,6 +237,7 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
         $this->container['card_exp_years'] = isset($data['card_exp_years']) ? $data['card_exp_years'] : null;
         $this->container['card_types'] = isset($data['card_types']) ? $data['card_types'] : null;
         $this->container['countries'] = isset($data['countries']) ? $data['countries'] : null;
+        $this->container['edi_channel_partners'] = isset($data['edi_channel_partners']) ? $data['edi_channel_partners'] : null;
         $this->container['loyalty_ledger_descriptions'] = isset($data['loyalty_ledger_descriptions']) ? $data['loyalty_ledger_descriptions'] : null;
         $this->container['loyalty_program_type'] = isset($data['loyalty_program_type']) ? $data['loyalty_program_type'] : null;
         $this->container['qb_classes'] = isset($data['qb_classes']) ? $data['qb_classes'] : null;
@@ -380,6 +386,30 @@ class CustomerEditorValues implements ModelInterface, ArrayAccess
     public function setCountries($countries)
     {
         $this->container['countries'] = $countries;
+
+        return $this;
+    }
+
+    /**
+     * Gets edi_channel_partners
+     *
+     * @return \ultracart\v2\models\ChannelPartner[]
+     */
+    public function getEdiChannelPartners()
+    {
+        return $this->container['edi_channel_partners'];
+    }
+
+    /**
+     * Sets edi_channel_partners
+     *
+     * @param \ultracart\v2\models\ChannelPartner[] $edi_channel_partners EDI channel partners
+     *
+     * @return $this
+     */
+    public function setEdiChannelPartners($edi_channel_partners)
+    {
+        $this->container['edi_channel_partners'] = $edi_channel_partners;
 
         return $this;
     }

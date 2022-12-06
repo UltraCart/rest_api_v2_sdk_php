@@ -632,6 +632,7 @@ Class | Method | HTTP request | Description
  - [CartUpsellAfter](docs/Model/CartUpsellAfter.md)
  - [CartValidationRequest](docs/Model/CartValidationRequest.md)
  - [CartValidationResponse](docs/Model/CartValidationResponse.md)
+ - [ChannelPartner](docs/Model/ChannelPartner.md)
  - [ChannelPartnerCancelResponse](docs/Model/ChannelPartnerCancelResponse.md)
  - [ChannelPartnerEstimateShippingResponse](docs/Model/ChannelPartnerEstimateShippingResponse.md)
  - [ChannelPartnerEstimateTaxResponse](docs/Model/ChannelPartnerEstimateTaxResponse.md)
@@ -754,6 +755,7 @@ Class | Method | HTTP request | Description
  - [CustomerAttachment](docs/Model/CustomerAttachment.md)
  - [CustomerBilling](docs/Model/CustomerBilling.md)
  - [CustomerCard](docs/Model/CustomerCard.md)
+ - [CustomerEDI](docs/Model/CustomerEDI.md)
  - [CustomerEditorValues](docs/Model/CustomerEditorValues.md)
  - [CustomerEmail](docs/Model/CustomerEmail.md)
  - [CustomerEmailListChanges](docs/Model/CustomerEmailListChanges.md)
@@ -1302,6 +1304,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.75 | 12/06/2022 | customer api - expose edi information and editor values |
 | 3.10.74 | 12/02/2022 | conversations - customer last unresponded dts |
 | 3.10.73 | 11/30/2022 | conversations - add order and auto order information to webchat context |
 | 3.10.72 | 11/30/2022 | order item - addl fields for linking kits to kit components |
