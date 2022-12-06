@@ -119,6 +119,7 @@ docs/Model/CartTaxes.md
 docs/Model/CartUpsellAfter.md
 docs/Model/CartValidationRequest.md
 docs/Model/CartValidationResponse.md
+docs/Model/ChannelPartner.md
 docs/Model/ChannelPartnerCancelResponse.md
 docs/Model/ChannelPartnerEstimateShippingResponse.md
 docs/Model/ChannelPartnerEstimateTaxResponse.md
@@ -241,6 +242,7 @@ docs/Model/CustomerAffiliate.md
 docs/Model/CustomerAttachment.md
 docs/Model/CustomerBilling.md
 docs/Model/CustomerCard.md
+docs/Model/CustomerEDI.md
 docs/Model/CustomerEditorValues.md
 docs/Model/CustomerEmail.md
 docs/Model/CustomerEmailListChanges.md
@@ -834,6 +836,7 @@ lib/models/CartTaxes.php
 lib/models/CartUpsellAfter.php
 lib/models/CartValidationRequest.php
 lib/models/CartValidationResponse.php
+lib/models/ChannelPartner.php
 lib/models/ChannelPartnerCancelResponse.php
 lib/models/ChannelPartnerEstimateShippingResponse.php
 lib/models/ChannelPartnerEstimateTaxResponse.php
@@ -956,6 +959,7 @@ lib/models/CustomerAffiliate.php
 lib/models/CustomerAttachment.php
 lib/models/CustomerBilling.php
 lib/models/CustomerCard.php
+lib/models/CustomerEDI.php
 lib/models/CustomerEditorValues.php
 lib/models/CustomerEmail.php
 lib/models/CustomerEmailListChanges.php

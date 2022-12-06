@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **card_exp_years** | **string[]** | card_exp_years | [optional]
 **card_types** | **string[]** | card_types | [optional]
 **countries** | [**\ultracart\v2\models\Country[]**](Country.md) | countries | [optional]
+**edi_channel_partners** | [**\ultracart\v2\models\ChannelPartner[]**](ChannelPartner.md) | EDI channel partners | [optional]
 **loyalty_ledger_descriptions** | **string[]** | loyalty_ledger_descriptions | [optional]
 **loyalty_program_type** | **string** | loyalty_program_type | [optional]
 **qb_classes** | **string[]** | qb_classes | [optional]
