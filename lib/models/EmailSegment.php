@@ -70,6 +70,7 @@ class EmailSegment implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'string',
         'name' => 'string',
         'rank_json' => 'string',
+        'rebuild_percentage' => 'float',
         'rebuild_required' => 'bool',
         'storefront_oid' => 'int',
         'thirdparty_join_add_tags' => 'string[]',
@@ -101,6 +102,7 @@ class EmailSegment implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => null,
         'name' => null,
         'rank_json' => null,
+        'rebuild_percentage' => null,
         'rebuild_required' => null,
         'storefront_oid' => 'int32',
         'thirdparty_join_add_tags' => null,
@@ -151,6 +153,7 @@ class EmailSegment implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'merchant_id',
         'name' => 'name',
         'rank_json' => 'rank_json',
+        'rebuild_percentage' => 'rebuild_percentage',
         'rebuild_required' => 'rebuild_required',
         'storefront_oid' => 'storefront_oid',
         'thirdparty_join_add_tags' => 'thirdparty_join_add_tags',
@@ -180,6 +183,7 @@ class EmailSegment implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
         'rank_json' => 'setRankJson',
+        'rebuild_percentage' => 'setRebuildPercentage',
         'rebuild_required' => 'setRebuildRequired',
         'storefront_oid' => 'setStorefrontOid',
         'thirdparty_join_add_tags' => 'setThirdpartyJoinAddTags',
@@ -209,6 +213,7 @@ class EmailSegment implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
         'rank_json' => 'getRankJson',
+        'rebuild_percentage' => 'getRebuildPercentage',
         'rebuild_required' => 'getRebuildRequired',
         'storefront_oid' => 'getStorefrontOid',
         'thirdparty_join_add_tags' => 'getThirdpartyJoinAddTags',
@@ -289,6 +294,7 @@ class EmailSegment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['rank_json'] = $data['rank_json'] ?? null;
+        $this->container['rebuild_percentage'] = $data['rebuild_percentage'] ?? null;
         $this->container['rebuild_required'] = $data['rebuild_required'] ?? null;
         $this->container['storefront_oid'] = $data['storefront_oid'] ?? null;
         $this->container['thirdparty_join_add_tags'] = $data['thirdparty_join_add_tags'] ?? null;
@@ -616,6 +622,30 @@ class EmailSegment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setRankJson($rank_json)
     {
         $this->container['rank_json'] = $rank_json;
+
+        return $this;
+    }
+
+    /**
+     * Gets rebuild_percentage
+     *
+     * @return float|null
+     */
+    public function getRebuildPercentage()
+    {
+        return $this->container['rebuild_percentage'];
+    }
+
+    /**
+     * Sets rebuild_percentage
+     *
+     * @param float|null $rebuild_percentage Percentage of completion for a rebuild.  The value range will be 0-1.  Multiply by 100 to format for display.
+     *
+     * @return self
+     */
+    public function setRebuildPercentage($rebuild_percentage)
+    {
+        $this->container['rebuild_percentage'] = $rebuild_percentage;
 
         return $this;
     }

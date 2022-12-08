@@ -1246,6 +1246,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.94-RC | 12/08/2022 | communications - expose the rebuild percentage |
 | 4.0.93-RC | 12/06/2022 | convo - add session_start_dts to webchat context, cart - add customer_profile.signup_dts |
 | 4.0.92-RC | 12/06/2022 | customer api - expose edi information and editor values |
 | 4.0.91-RC | 12/02/2022 | conversations - customer last unresponded dts |
