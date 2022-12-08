@@ -143,6 +143,10 @@ docs/Model/CityStateZip.md
 docs/Model/Conversation.md
 docs/Model/ConversationAgentAuth.md
 docs/Model/ConversationAgentAuthResponse.md
+docs/Model/ConversationCannedMessage.md
+docs/Model/ConversationCannedMessageResponse.md
+docs/Model/ConversationCannedMessagesResponse.md
+docs/Model/ConversationCannedMessagesSearch.md
 docs/Model/ConversationEventAddCoupon.md
 docs/Model/ConversationEventAddItem.md
 docs/Model/ConversationEventQueuePosition.md
@@ -860,6 +864,10 @@ lib/models/CityStateZip.php
 lib/models/Conversation.php
 lib/models/ConversationAgentAuth.php
 lib/models/ConversationAgentAuthResponse.php
+lib/models/ConversationCannedMessage.php
+lib/models/ConversationCannedMessageResponse.php
+lib/models/ConversationCannedMessagesResponse.php
+lib/models/ConversationCannedMessagesSearch.php
 lib/models/ConversationEventAddCoupon.php
 lib/models/ConversationEventAddItem.php
 lib/models/ConversationEventQueuePosition.php
