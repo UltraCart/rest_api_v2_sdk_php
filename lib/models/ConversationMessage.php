@@ -64,10 +64,12 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'client_message_id' => 'string',
         'conversation_message_uuid' => 'string',
         'delay_until_dts' => 'string',
+        'language_iso_code' => 'string',
         'media_urls' => 'string[]',
         'merchant_id' => 'string',
         'message_dts' => 'string',
         'message_epoch' => 'int',
+        'translations' => '\ultracart\v2\models\ConversationMessageTranslation[]',
         'transport_statuses' => '\ultracart\v2\models\ConversationMessageTransportStatus[]',
         'type' => 'string',
         'upload_keys' => 'string[]'
@@ -87,10 +89,12 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'client_message_id' => null,
         'conversation_message_uuid' => null,
         'delay_until_dts' => 'dateTime',
+        'language_iso_code' => null,
         'media_urls' => null,
         'merchant_id' => null,
         'message_dts' => 'dateTime',
         'message_epoch' => 'int64',
+        'translations' => null,
         'transport_statuses' => null,
         'type' => null,
         'upload_keys' => null
@@ -129,10 +133,12 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'client_message_id' => 'client_message_id',
         'conversation_message_uuid' => 'conversation_message_uuid',
         'delay_until_dts' => 'delay_until_dts',
+        'language_iso_code' => 'language_iso_code',
         'media_urls' => 'media_urls',
         'merchant_id' => 'merchant_id',
         'message_dts' => 'message_dts',
         'message_epoch' => 'message_epoch',
+        'translations' => 'translations',
         'transport_statuses' => 'transport_statuses',
         'type' => 'type',
         'upload_keys' => 'upload_keys'
@@ -150,10 +156,12 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'client_message_id' => 'setClientMessageId',
         'conversation_message_uuid' => 'setConversationMessageUuid',
         'delay_until_dts' => 'setDelayUntilDts',
+        'language_iso_code' => 'setLanguageIsoCode',
         'media_urls' => 'setMediaUrls',
         'merchant_id' => 'setMerchantId',
         'message_dts' => 'setMessageDts',
         'message_epoch' => 'setMessageEpoch',
+        'translations' => 'setTranslations',
         'transport_statuses' => 'setTransportStatuses',
         'type' => 'setType',
         'upload_keys' => 'setUploadKeys'
@@ -171,10 +179,12 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         'client_message_id' => 'getClientMessageId',
         'conversation_message_uuid' => 'getConversationMessageUuid',
         'delay_until_dts' => 'getDelayUntilDts',
+        'language_iso_code' => 'getLanguageIsoCode',
         'media_urls' => 'getMediaUrls',
         'merchant_id' => 'getMerchantId',
         'message_dts' => 'getMessageDts',
         'message_epoch' => 'getMessageEpoch',
+        'translations' => 'getTranslations',
         'transport_statuses' => 'getTransportStatuses',
         'type' => 'getType',
         'upload_keys' => 'getUploadKeys'
@@ -258,10 +268,12 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['client_message_id'] = $data['client_message_id'] ?? null;
         $this->container['conversation_message_uuid'] = $data['conversation_message_uuid'] ?? null;
         $this->container['delay_until_dts'] = $data['delay_until_dts'] ?? null;
+        $this->container['language_iso_code'] = $data['language_iso_code'] ?? null;
         $this->container['media_urls'] = $data['media_urls'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['message_dts'] = $data['message_dts'] ?? null;
         $this->container['message_epoch'] = $data['message_epoch'] ?? null;
+        $this->container['translations'] = $data['translations'] ?? null;
         $this->container['transport_statuses'] = $data['transport_statuses'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['upload_keys'] = $data['upload_keys'] ?? null;
@@ -445,6 +457,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets language_iso_code
+     *
+     * @return string|null
+     */
+    public function getLanguageIsoCode()
+    {
+        return $this->container['language_iso_code'];
+    }
+
+    /**
+     * Sets language_iso_code
+     *
+     * @param string|null $language_iso_code language_iso_code
+     *
+     * @return self
+     */
+    public function setLanguageIsoCode($language_iso_code)
+    {
+        $this->container['language_iso_code'] = $language_iso_code;
+
+        return $this;
+    }
+
+    /**
      * Gets media_urls
      *
      * @return string[]|null
@@ -536,6 +572,30 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setMessageEpoch($message_epoch)
     {
         $this->container['message_epoch'] = $message_epoch;
+
+        return $this;
+    }
+
+    /**
+     * Gets translations
+     *
+     * @return \ultracart\v2\models\ConversationMessageTranslation[]|null
+     */
+    public function getTranslations()
+    {
+        return $this->container['translations'];
+    }
+
+    /**
+     * Sets translations
+     *
+     * @param \ultracart\v2\models\ConversationMessageTranslation[]|null $translations translations
+     *
+     * @return self
+     */
+    public function setTranslations($translations)
+    {
+        $this->container['translations'] = $translations;
 
         return $this;
     }

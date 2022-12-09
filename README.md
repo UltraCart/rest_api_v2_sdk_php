@@ -599,6 +599,7 @@ Class | Method | HTTP request | Description
 - [ConversationEventTyping](docs/Model/ConversationEventTyping.md)
 - [ConversationEventWebchatContext](docs/Model/ConversationEventWebchatContext.md)
 - [ConversationMessage](docs/Model/ConversationMessage.md)
+- [ConversationMessageTranslation](docs/Model/ConversationMessageTranslation.md)
 - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
 - [ConversationMessagesResponse](docs/Model/ConversationMessagesResponse.md)
 - [ConversationMultimediaUploadUrl](docs/Model/ConversationMultimediaUploadUrl.md)
@@ -1254,6 +1255,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.96-RC | 12/09/2022 | conversations - message translation |
 | 4.0.95-RC | 12/08/2022 | conversation canned messages |
 | 4.0.94-RC | 12/08/2022 | communications - expose the rebuild percentage |
 | 4.0.93-RC | 12/06/2022 | convo - add session_start_dts to webchat context, cart - add customer_profile.signup_dts |

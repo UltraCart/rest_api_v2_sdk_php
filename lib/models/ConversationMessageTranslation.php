@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationCannedMessage
+ * ConversationMessageTranslation
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationCannedMessage Class Doc Comment
+ * ConversationMessageTranslation Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationMessageTranslation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationCannedMessage';
+    protected static $openAPIModelName = 'ConversationMessageTranslation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,8 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'canned_message' => 'string',
-        'conversation_canned_message_oid' => 'int',
-        'conversation_department_oids' => 'string[]',
-        'short_code' => 'string'
+        'body' => 'string',
+        'language_iso_code' => 'string'
     ];
 
     /**
@@ -72,10 +70,8 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'canned_message' => null,
-        'conversation_canned_message_oid' => 'int32',
-        'conversation_department_oids' => null,
-        'short_code' => null
+        'body' => null,
+        'language_iso_code' => null
     ];
 
     /**
@@ -105,10 +101,8 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'canned_message' => 'canned_message',
-        'conversation_canned_message_oid' => 'conversation_canned_message_oid',
-        'conversation_department_oids' => 'conversation_department_oids',
-        'short_code' => 'short_code'
+        'body' => 'body',
+        'language_iso_code' => 'language_iso_code'
     ];
 
     /**
@@ -117,10 +111,8 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'canned_message' => 'setCannedMessage',
-        'conversation_canned_message_oid' => 'setConversationCannedMessageOid',
-        'conversation_department_oids' => 'setConversationDepartmentOids',
-        'short_code' => 'setShortCode'
+        'body' => 'setBody',
+        'language_iso_code' => 'setLanguageIsoCode'
     ];
 
     /**
@@ -129,10 +121,8 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'canned_message' => 'getCannedMessage',
-        'conversation_canned_message_oid' => 'getConversationCannedMessageOid',
-        'conversation_department_oids' => 'getConversationDepartmentOids',
-        'short_code' => 'getShortCode'
+        'body' => 'getBody',
+        'language_iso_code' => 'getLanguageIsoCode'
     ];
 
     /**
@@ -192,10 +182,8 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['canned_message'] = $data['canned_message'] ?? null;
-        $this->container['conversation_canned_message_oid'] = $data['conversation_canned_message_oid'] ?? null;
-        $this->container['conversation_department_oids'] = $data['conversation_department_oids'] ?? null;
-        $this->container['short_code'] = $data['short_code'] ?? null;
+        $this->container['body'] = $data['body'] ?? null;
+        $this->container['language_iso_code'] = $data['language_iso_code'] ?? null;
     }
 
     /**
@@ -223,97 +211,49 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets canned_message
+     * Gets body
      *
      * @return string|null
      */
-    public function getCannedMessage()
+    public function getBody()
     {
-        return $this->container['canned_message'];
+        return $this->container['body'];
     }
 
     /**
-     * Sets canned_message
+     * Sets body
      *
-     * @param string|null $canned_message canned_message
+     * @param string|null $body body
      *
      * @return self
      */
-    public function setCannedMessage($canned_message)
+    public function setBody($body)
     {
-        $this->container['canned_message'] = $canned_message;
+        $this->container['body'] = $body;
 
         return $this;
     }
 
     /**
-     * Gets conversation_canned_message_oid
-     *
-     * @return int|null
-     */
-    public function getConversationCannedMessageOid()
-    {
-        return $this->container['conversation_canned_message_oid'];
-    }
-
-    /**
-     * Sets conversation_canned_message_oid
-     *
-     * @param int|null $conversation_canned_message_oid conversation_canned_message_oid
-     *
-     * @return self
-     */
-    public function setConversationCannedMessageOid($conversation_canned_message_oid)
-    {
-        $this->container['conversation_canned_message_oid'] = $conversation_canned_message_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_department_oids
-     *
-     * @return string[]|null
-     */
-    public function getConversationDepartmentOids()
-    {
-        return $this->container['conversation_department_oids'];
-    }
-
-    /**
-     * Sets conversation_department_oids
-     *
-     * @param string[]|null $conversation_department_oids conversation_department_oids
-     *
-     * @return self
-     */
-    public function setConversationDepartmentOids($conversation_department_oids)
-    {
-        $this->container['conversation_department_oids'] = $conversation_department_oids;
-
-        return $this;
-    }
-
-    /**
-     * Gets short_code
+     * Gets language_iso_code
      *
      * @return string|null
      */
-    public function getShortCode()
+    public function getLanguageIsoCode()
     {
-        return $this->container['short_code'];
+        return $this->container['language_iso_code'];
     }
 
     /**
-     * Sets short_code
+     * Sets language_iso_code
      *
-     * @param string|null $short_code short_code
+     * @param string|null $language_iso_code language_iso_code
      *
      * @return self
      */
-    public function setShortCode($short_code)
+    public function setLanguageIsoCode($language_iso_code)
     {
-        $this->container['short_code'] = $short_code;
+        $this->container['language_iso_code'] = $language_iso_code;
 
         return $this;
     }

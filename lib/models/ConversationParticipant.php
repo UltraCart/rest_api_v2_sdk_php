@@ -62,6 +62,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'conversation_participant_name' => 'string',
         'conversation_participant_uuid' => 'string',
         'joined_dts' => 'string',
+        'language_iso_code' => 'string',
         'last_message_dts' => 'string',
         'left_dts' => 'string',
         'profile_image_url' => 'string',
@@ -82,6 +83,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'conversation_participant_name' => null,
         'conversation_participant_uuid' => null,
         'joined_dts' => 'dateTime',
+        'language_iso_code' => null,
         'last_message_dts' => 'dateTime',
         'left_dts' => 'dateTime',
         'profile_image_url' => null,
@@ -121,6 +123,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'conversation_participant_name' => 'conversation_participant_name',
         'conversation_participant_uuid' => 'conversation_participant_uuid',
         'joined_dts' => 'joined_dts',
+        'language_iso_code' => 'language_iso_code',
         'last_message_dts' => 'last_message_dts',
         'left_dts' => 'left_dts',
         'profile_image_url' => 'profile_image_url',
@@ -139,6 +142,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'conversation_participant_name' => 'setConversationParticipantName',
         'conversation_participant_uuid' => 'setConversationParticipantUuid',
         'joined_dts' => 'setJoinedDts',
+        'language_iso_code' => 'setLanguageIsoCode',
         'last_message_dts' => 'setLastMessageDts',
         'left_dts' => 'setLeftDts',
         'profile_image_url' => 'setProfileImageUrl',
@@ -157,6 +161,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         'conversation_participant_name' => 'getConversationParticipantName',
         'conversation_participant_uuid' => 'getConversationParticipantUuid',
         'joined_dts' => 'getJoinedDts',
+        'language_iso_code' => 'getLanguageIsoCode',
         'last_message_dts' => 'getLastMessageDts',
         'left_dts' => 'getLeftDts',
         'profile_image_url' => 'getProfileImageUrl',
@@ -226,6 +231,7 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
         $this->container['conversation_participant_uuid'] = $data['conversation_participant_uuid'] ?? null;
         $this->container['joined_dts'] = $data['joined_dts'] ?? null;
+        $this->container['language_iso_code'] = $data['language_iso_code'] ?? null;
         $this->container['last_message_dts'] = $data['last_message_dts'] ?? null;
         $this->container['left_dts'] = $data['left_dts'] ?? null;
         $this->container['profile_image_url'] = $data['profile_image_url'] ?? null;
@@ -350,6 +356,30 @@ class ConversationParticipant implements ModelInterface, ArrayAccess, \JsonSeria
     public function setJoinedDts($joined_dts)
     {
         $this->container['joined_dts'] = $joined_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets language_iso_code
+     *
+     * @return string|null
+     */
+    public function getLanguageIsoCode()
+    {
+        return $this->container['language_iso_code'];
+    }
+
+    /**
+     * Sets language_iso_code
+     *
+     * @param string|null $language_iso_code language_iso_code
+     *
+     * @return self
+     */
+    public function setLanguageIsoCode($language_iso_code)
+    {
+        $this->container['language_iso_code'] = $language_iso_code;
 
         return $this;
     }
