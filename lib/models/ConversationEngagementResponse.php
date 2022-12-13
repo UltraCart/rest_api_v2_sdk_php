@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationWebchatQueueStatusQueueEntry
+ * ConversationEngagementResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationWebchatQueueStatusQueueEntry Class Doc Comment
+ * ConversationEngagementResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationEngagementResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationWebchatQueueStatusQueueEntry';
+    protected static $openAPIModelName = 'ConversationEngagementResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'conversation_participant_arn' => 'string',
-        'conversation_participant_name' => 'string',
-        'conversation_webchat_queue_uuid' => 'string',
-        'email' => 'string',
-        'join_dts' => 'string',
-        'participant_language_iso_code' => 'string',
-        'question' => 'string'
+        'conversation_engagement' => '\ultracart\v2\models\ConversationEngagement',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -75,13 +73,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'conversation_participant_arn' => null,
-        'conversation_participant_name' => null,
-        'conversation_webchat_queue_uuid' => null,
-        'email' => null,
-        'join_dts' => 'dateTime',
-        'participant_language_iso_code' => null,
-        'question' => null
+        'conversation_engagement' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -111,13 +107,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_participant_arn' => 'conversation_participant_arn',
-        'conversation_participant_name' => 'conversation_participant_name',
-        'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid',
-        'email' => 'email',
-        'join_dts' => 'join_dts',
-        'participant_language_iso_code' => 'participant_language_iso_code',
-        'question' => 'question'
+        'conversation_engagement' => 'conversation_engagement',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -126,13 +120,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'conversation_participant_arn' => 'setConversationParticipantArn',
-        'conversation_participant_name' => 'setConversationParticipantName',
-        'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid',
-        'email' => 'setEmail',
-        'join_dts' => 'setJoinDts',
-        'participant_language_iso_code' => 'setParticipantLanguageIsoCode',
-        'question' => 'setQuestion'
+        'conversation_engagement' => 'setConversationEngagement',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -141,13 +133,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'conversation_participant_arn' => 'getConversationParticipantArn',
-        'conversation_participant_name' => 'getConversationParticipantName',
-        'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid',
-        'email' => 'getEmail',
-        'join_dts' => 'getJoinDts',
-        'participant_language_iso_code' => 'getParticipantLanguageIsoCode',
-        'question' => 'getQuestion'
+        'conversation_engagement' => 'getConversationEngagement',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -207,13 +197,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
-        $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
-        $this->container['conversation_webchat_queue_uuid'] = $data['conversation_webchat_queue_uuid'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['join_dts'] = $data['join_dts'] ?? null;
-        $this->container['participant_language_iso_code'] = $data['participant_language_iso_code'] ?? null;
-        $this->container['question'] = $data['question'] ?? null;
+        $this->container['conversation_engagement'] = $data['conversation_engagement'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['warning'] = $data['warning'] ?? null;
     }
 
     /**
@@ -241,169 +229,121 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
 
 
     /**
-     * Gets conversation_participant_arn
+     * Gets conversation_engagement
      *
-     * @return string|null
+     * @return \ultracart\v2\models\ConversationEngagement|null
      */
-    public function getConversationParticipantArn()
+    public function getConversationEngagement()
     {
-        return $this->container['conversation_participant_arn'];
+        return $this->container['conversation_engagement'];
     }
 
     /**
-     * Sets conversation_participant_arn
+     * Sets conversation_engagement
      *
-     * @param string|null $conversation_participant_arn conversation_participant_arn
+     * @param \ultracart\v2\models\ConversationEngagement|null $conversation_engagement conversation_engagement
      *
      * @return self
      */
-    public function setConversationParticipantArn($conversation_participant_arn)
+    public function setConversationEngagement($conversation_engagement)
     {
-        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
+        $this->container['conversation_engagement'] = $conversation_engagement;
 
         return $this;
     }
 
     /**
-     * Gets conversation_participant_name
+     * Gets error
      *
-     * @return string|null
+     * @return \ultracart\v2\models\Error|null
      */
-    public function getConversationParticipantName()
+    public function getError()
     {
-        return $this->container['conversation_participant_name'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets conversation_participant_name
+     * Sets error
      *
-     * @param string|null $conversation_participant_name conversation_participant_name
+     * @param \ultracart\v2\models\Error|null $error error
      *
      * @return self
      */
-    public function setConversationParticipantName($conversation_participant_name)
+    public function setError($error)
     {
-        $this->container['conversation_participant_name'] = $conversation_participant_name;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets conversation_webchat_queue_uuid
+     * Gets metadata
      *
-     * @return string|null
+     * @return \ultracart\v2\models\ResponseMetadata|null
      */
-    public function getConversationWebchatQueueUuid()
+    public function getMetadata()
     {
-        return $this->container['conversation_webchat_queue_uuid'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets conversation_webchat_queue_uuid
+     * Sets metadata
      *
-     * @param string|null $conversation_webchat_queue_uuid conversation_webchat_queue_uuid
+     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
      *
      * @return self
      */
-    public function setConversationWebchatQueueUuid($conversation_webchat_queue_uuid)
+    public function setMetadata($metadata)
     {
-        $this->container['conversation_webchat_queue_uuid'] = $conversation_webchat_queue_uuid;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets success
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getEmail()
+    public function getSuccess()
     {
-        return $this->container['email'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets email
+     * Sets success
      *
-     * @param string|null $email email
+     * @param bool|null $success Indicates if API call was successful
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setSuccess($success)
     {
-        $this->container['email'] = $email;
+        $this->container['success'] = $success;
 
         return $this;
     }
 
     /**
-     * Gets join_dts
+     * Gets warning
      *
-     * @return string|null
+     * @return \ultracart\v2\models\Warning|null
      */
-    public function getJoinDts()
+    public function getWarning()
     {
-        return $this->container['join_dts'];
+        return $this->container['warning'];
     }
 
     /**
-     * Sets join_dts
+     * Sets warning
      *
-     * @param string|null $join_dts Date/time the customer joined the queue
+     * @param \ultracart\v2\models\Warning|null $warning warning
      *
      * @return self
      */
-    public function setJoinDts($join_dts)
+    public function setWarning($warning)
     {
-        $this->container['join_dts'] = $join_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets participant_language_iso_code
-     *
-     * @return string|null
-     */
-    public function getParticipantLanguageIsoCode()
-    {
-        return $this->container['participant_language_iso_code'];
-    }
-
-    /**
-     * Sets participant_language_iso_code
-     *
-     * @param string|null $participant_language_iso_code participant_language_iso_code
-     *
-     * @return self
-     */
-    public function setParticipantLanguageIsoCode($participant_language_iso_code)
-    {
-        $this->container['participant_language_iso_code'] = $participant_language_iso_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets question
-     *
-     * @return string|null
-     */
-    public function getQuestion()
-    {
-        return $this->container['question'];
-    }
-
-    /**
-     * Sets question
-     *
-     * @param string|null $question question
-     *
-     * @return self
-     */
-    public function setQuestion($question)
-    {
-        $this->container['question'] = $question;
+        $this->container['warning'] = $warning;
 
         return $this;
     }

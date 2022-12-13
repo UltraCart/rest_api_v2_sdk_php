@@ -60,7 +60,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'canned_message' => 'string',
         'conversation_canned_message_oid' => 'int',
-        'conversation_department_oids' => 'string[]',
+        'conversation_department_oids' => 'int[]',
         'short_code' => 'string'
     ];
 
@@ -273,7 +273,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets conversation_department_oids
      *
-     * @return string[]|null
+     * @return int[]|null
      */
     public function getConversationDepartmentOids()
     {
@@ -283,7 +283,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets conversation_department_oids
      *
-     * @param string[]|null $conversation_department_oids conversation_department_oids
+     * @param int[]|null $conversation_department_oids conversation_department_oids
      *
      * @return self
      */

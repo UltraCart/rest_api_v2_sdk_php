@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationWebchatQueueStatusQueueEntry
+ * ConversationJoinRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationWebchatQueueStatusQueueEntry Class Doc Comment
+ * ConversationJoinRequest Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationJoinRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationWebchatQueueStatusQueueEntry';
+    protected static $openAPIModelName = 'ConversationJoinRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'conversation_participant_arn' => 'string',
-        'conversation_participant_name' => 'string',
-        'conversation_webchat_queue_uuid' => 'string',
-        'email' => 'string',
-        'join_dts' => 'string',
-        'participant_language_iso_code' => 'string',
-        'question' => 'string'
+        'participant_language_iso_code' => 'string'
     ];
 
     /**
@@ -75,13 +69,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'conversation_participant_arn' => null,
-        'conversation_participant_name' => null,
-        'conversation_webchat_queue_uuid' => null,
-        'email' => null,
-        'join_dts' => 'dateTime',
-        'participant_language_iso_code' => null,
-        'question' => null
+        'participant_language_iso_code' => null
     ];
 
     /**
@@ -111,13 +99,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_participant_arn' => 'conversation_participant_arn',
-        'conversation_participant_name' => 'conversation_participant_name',
-        'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid',
-        'email' => 'email',
-        'join_dts' => 'join_dts',
-        'participant_language_iso_code' => 'participant_language_iso_code',
-        'question' => 'question'
+        'participant_language_iso_code' => 'participant_language_iso_code'
     ];
 
     /**
@@ -126,13 +108,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'conversation_participant_arn' => 'setConversationParticipantArn',
-        'conversation_participant_name' => 'setConversationParticipantName',
-        'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid',
-        'email' => 'setEmail',
-        'join_dts' => 'setJoinDts',
-        'participant_language_iso_code' => 'setParticipantLanguageIsoCode',
-        'question' => 'setQuestion'
+        'participant_language_iso_code' => 'setParticipantLanguageIsoCode'
     ];
 
     /**
@@ -141,13 +117,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'conversation_participant_arn' => 'getConversationParticipantArn',
-        'conversation_participant_name' => 'getConversationParticipantName',
-        'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid',
-        'email' => 'getEmail',
-        'join_dts' => 'getJoinDts',
-        'participant_language_iso_code' => 'getParticipantLanguageIsoCode',
-        'question' => 'getQuestion'
+        'participant_language_iso_code' => 'getParticipantLanguageIsoCode'
     ];
 
     /**
@@ -207,13 +177,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
-        $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
-        $this->container['conversation_webchat_queue_uuid'] = $data['conversation_webchat_queue_uuid'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['join_dts'] = $data['join_dts'] ?? null;
         $this->container['participant_language_iso_code'] = $data['participant_language_iso_code'] ?? null;
-        $this->container['question'] = $data['question'] ?? null;
     }
 
     /**
@@ -241,126 +205,6 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
 
 
     /**
-     * Gets conversation_participant_arn
-     *
-     * @return string|null
-     */
-    public function getConversationParticipantArn()
-    {
-        return $this->container['conversation_participant_arn'];
-    }
-
-    /**
-     * Sets conversation_participant_arn
-     *
-     * @param string|null $conversation_participant_arn conversation_participant_arn
-     *
-     * @return self
-     */
-    public function setConversationParticipantArn($conversation_participant_arn)
-    {
-        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_participant_name
-     *
-     * @return string|null
-     */
-    public function getConversationParticipantName()
-    {
-        return $this->container['conversation_participant_name'];
-    }
-
-    /**
-     * Sets conversation_participant_name
-     *
-     * @param string|null $conversation_participant_name conversation_participant_name
-     *
-     * @return self
-     */
-    public function setConversationParticipantName($conversation_participant_name)
-    {
-        $this->container['conversation_participant_name'] = $conversation_participant_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_webchat_queue_uuid
-     *
-     * @return string|null
-     */
-    public function getConversationWebchatQueueUuid()
-    {
-        return $this->container['conversation_webchat_queue_uuid'];
-    }
-
-    /**
-     * Sets conversation_webchat_queue_uuid
-     *
-     * @param string|null $conversation_webchat_queue_uuid conversation_webchat_queue_uuid
-     *
-     * @return self
-     */
-    public function setConversationWebchatQueueUuid($conversation_webchat_queue_uuid)
-    {
-        $this->container['conversation_webchat_queue_uuid'] = $conversation_webchat_queue_uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return self
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets join_dts
-     *
-     * @return string|null
-     */
-    public function getJoinDts()
-    {
-        return $this->container['join_dts'];
-    }
-
-    /**
-     * Sets join_dts
-     *
-     * @param string|null $join_dts Date/time the customer joined the queue
-     *
-     * @return self
-     */
-    public function setJoinDts($join_dts)
-    {
-        $this->container['join_dts'] = $join_dts;
-
-        return $this;
-    }
-
-    /**
      * Gets participant_language_iso_code
      *
      * @return string|null
@@ -380,30 +224,6 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
     public function setParticipantLanguageIsoCode($participant_language_iso_code)
     {
         $this->container['participant_language_iso_code'] = $participant_language_iso_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets question
-     *
-     * @return string|null
-     */
-    public function getQuestion()
-    {
-        return $this->container['question'];
-    }
-
-    /**
-     * Sets question
-     *
-     * @param string|null $question question
-     *
-     * @return self
-     */
-    public function setQuestion($question)
-    {
-        $this->container['question'] = $question;
 
         return $this;
     }

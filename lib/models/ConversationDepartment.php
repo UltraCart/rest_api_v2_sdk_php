@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationWebchatQueueStatusQueueEntry
+ * ConversationDepartment
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationWebchatQueueStatusQueueEntry Class Doc Comment
+ * ConversationDepartment Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationDepartment implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationWebchatQueueStatusQueueEntry';
+    protected static $openAPIModelName = 'ConversationDepartment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'conversation_participant_arn' => 'string',
-        'conversation_participant_name' => 'string',
-        'conversation_webchat_queue_uuid' => 'string',
-        'email' => 'string',
-        'join_dts' => 'string',
-        'participant_language_iso_code' => 'string',
-        'question' => 'string'
+        'conversation_department_oid' => 'int',
+        'delete_me' => 'bool',
+        'department_name' => 'string',
+        'merchant_id' => 'string',
+        'settings' => 'object'
     ];
 
     /**
@@ -75,13 +73,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'conversation_participant_arn' => null,
-        'conversation_participant_name' => null,
-        'conversation_webchat_queue_uuid' => null,
-        'email' => null,
-        'join_dts' => 'dateTime',
-        'participant_language_iso_code' => null,
-        'question' => null
+        'conversation_department_oid' => 'int32',
+        'delete_me' => null,
+        'department_name' => null,
+        'merchant_id' => null,
+        'settings' => null
     ];
 
     /**
@@ -111,13 +107,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_participant_arn' => 'conversation_participant_arn',
-        'conversation_participant_name' => 'conversation_participant_name',
-        'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid',
-        'email' => 'email',
-        'join_dts' => 'join_dts',
-        'participant_language_iso_code' => 'participant_language_iso_code',
-        'question' => 'question'
+        'conversation_department_oid' => 'conversation_department_oid',
+        'delete_me' => 'delete_me',
+        'department_name' => 'department_name',
+        'merchant_id' => 'merchant_id',
+        'settings' => 'settings'
     ];
 
     /**
@@ -126,13 +120,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'conversation_participant_arn' => 'setConversationParticipantArn',
-        'conversation_participant_name' => 'setConversationParticipantName',
-        'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid',
-        'email' => 'setEmail',
-        'join_dts' => 'setJoinDts',
-        'participant_language_iso_code' => 'setParticipantLanguageIsoCode',
-        'question' => 'setQuestion'
+        'conversation_department_oid' => 'setConversationDepartmentOid',
+        'delete_me' => 'setDeleteMe',
+        'department_name' => 'setDepartmentName',
+        'merchant_id' => 'setMerchantId',
+        'settings' => 'setSettings'
     ];
 
     /**
@@ -141,13 +133,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'conversation_participant_arn' => 'getConversationParticipantArn',
-        'conversation_participant_name' => 'getConversationParticipantName',
-        'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid',
-        'email' => 'getEmail',
-        'join_dts' => 'getJoinDts',
-        'participant_language_iso_code' => 'getParticipantLanguageIsoCode',
-        'question' => 'getQuestion'
+        'conversation_department_oid' => 'getConversationDepartmentOid',
+        'delete_me' => 'getDeleteMe',
+        'department_name' => 'getDepartmentName',
+        'merchant_id' => 'getMerchantId',
+        'settings' => 'getSettings'
     ];
 
     /**
@@ -207,13 +197,11 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_participant_arn'] = $data['conversation_participant_arn'] ?? null;
-        $this->container['conversation_participant_name'] = $data['conversation_participant_name'] ?? null;
-        $this->container['conversation_webchat_queue_uuid'] = $data['conversation_webchat_queue_uuid'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['join_dts'] = $data['join_dts'] ?? null;
-        $this->container['participant_language_iso_code'] = $data['participant_language_iso_code'] ?? null;
-        $this->container['question'] = $data['question'] ?? null;
+        $this->container['conversation_department_oid'] = $data['conversation_department_oid'] ?? null;
+        $this->container['delete_me'] = $data['delete_me'] ?? null;
+        $this->container['department_name'] = $data['department_name'] ?? null;
+        $this->container['merchant_id'] = $data['merchant_id'] ?? null;
+        $this->container['settings'] = $data['settings'] ?? null;
     }
 
     /**
@@ -241,169 +229,121 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
 
 
     /**
-     * Gets conversation_participant_arn
+     * Gets conversation_department_oid
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getConversationParticipantArn()
+    public function getConversationDepartmentOid()
     {
-        return $this->container['conversation_participant_arn'];
+        return $this->container['conversation_department_oid'];
     }
 
     /**
-     * Sets conversation_participant_arn
+     * Sets conversation_department_oid
      *
-     * @param string|null $conversation_participant_arn conversation_participant_arn
+     * @param int|null $conversation_department_oid conversation_department_oid
      *
      * @return self
      */
-    public function setConversationParticipantArn($conversation_participant_arn)
+    public function setConversationDepartmentOid($conversation_department_oid)
     {
-        $this->container['conversation_participant_arn'] = $conversation_participant_arn;
+        $this->container['conversation_department_oid'] = $conversation_department_oid;
 
         return $this;
     }
 
     /**
-     * Gets conversation_participant_name
+     * Gets delete_me
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getConversationParticipantName()
+    public function getDeleteMe()
     {
-        return $this->container['conversation_participant_name'];
+        return $this->container['delete_me'];
     }
 
     /**
-     * Sets conversation_participant_name
+     * Sets delete_me
      *
-     * @param string|null $conversation_participant_name conversation_participant_name
+     * @param bool|null $delete_me delete_me
      *
      * @return self
      */
-    public function setConversationParticipantName($conversation_participant_name)
+    public function setDeleteMe($delete_me)
     {
-        $this->container['conversation_participant_name'] = $conversation_participant_name;
+        $this->container['delete_me'] = $delete_me;
 
         return $this;
     }
 
     /**
-     * Gets conversation_webchat_queue_uuid
+     * Gets department_name
      *
      * @return string|null
      */
-    public function getConversationWebchatQueueUuid()
+    public function getDepartmentName()
     {
-        return $this->container['conversation_webchat_queue_uuid'];
+        return $this->container['department_name'];
     }
 
     /**
-     * Sets conversation_webchat_queue_uuid
+     * Sets department_name
      *
-     * @param string|null $conversation_webchat_queue_uuid conversation_webchat_queue_uuid
+     * @param string|null $department_name department_name
      *
      * @return self
      */
-    public function setConversationWebchatQueueUuid($conversation_webchat_queue_uuid)
+    public function setDepartmentName($department_name)
     {
-        $this->container['conversation_webchat_queue_uuid'] = $conversation_webchat_queue_uuid;
+        $this->container['department_name'] = $department_name;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets merchant_id
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getMerchantId()
     {
-        return $this->container['email'];
+        return $this->container['merchant_id'];
     }
 
     /**
-     * Sets email
+     * Sets merchant_id
      *
-     * @param string|null $email email
+     * @param string|null $merchant_id merchant_id
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setMerchantId($merchant_id)
     {
-        $this->container['email'] = $email;
+        $this->container['merchant_id'] = $merchant_id;
 
         return $this;
     }
 
     /**
-     * Gets join_dts
+     * Gets settings
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getJoinDts()
+    public function getSettings()
     {
-        return $this->container['join_dts'];
+        return $this->container['settings'];
     }
 
     /**
-     * Sets join_dts
+     * Sets settings
      *
-     * @param string|null $join_dts Date/time the customer joined the queue
+     * @param object|null $settings settings
      *
      * @return self
      */
-    public function setJoinDts($join_dts)
+    public function setSettings($settings)
     {
-        $this->container['join_dts'] = $join_dts;
-
-        return $this;
-    }
-
-    /**
-     * Gets participant_language_iso_code
-     *
-     * @return string|null
-     */
-    public function getParticipantLanguageIsoCode()
-    {
-        return $this->container['participant_language_iso_code'];
-    }
-
-    /**
-     * Sets participant_language_iso_code
-     *
-     * @param string|null $participant_language_iso_code participant_language_iso_code
-     *
-     * @return self
-     */
-    public function setParticipantLanguageIsoCode($participant_language_iso_code)
-    {
-        $this->container['participant_language_iso_code'] = $participant_language_iso_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets question
-     *
-     * @return string|null
-     */
-    public function getQuestion()
-    {
-        return $this->container['question'];
-    }
-
-    /**
-     * Sets question
-     *
-     * @param string|null $question question
-     *
-     * @return self
-     */
-    public function setQuestion($question)
-    {
-        $this->container['question'] = $question;
+        $this->container['settings'] = $settings;
 
         return $this;
     }
