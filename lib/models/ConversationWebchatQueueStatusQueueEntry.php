@@ -62,6 +62,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_webchat_queue_uuid' => 'string',
         'email' => 'string',
         'join_dts' => 'string',
+        'participant_language_iso_code' => 'string',
         'question' => 'string'
     ];
 
@@ -76,6 +77,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_webchat_queue_uuid' => null,
         'email' => null,
         'join_dts' => 'dateTime',
+        'participant_language_iso_code' => null,
         'question' => null
     ];
 
@@ -111,6 +113,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_webchat_queue_uuid' => 'conversation_webchat_queue_uuid',
         'email' => 'email',
         'join_dts' => 'join_dts',
+        'participant_language_iso_code' => 'participant_language_iso_code',
         'question' => 'question'
     ];
 
@@ -125,6 +128,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_webchat_queue_uuid' => 'setConversationWebchatQueueUuid',
         'email' => 'setEmail',
         'join_dts' => 'setJoinDts',
+        'participant_language_iso_code' => 'setParticipantLanguageIsoCode',
         'question' => 'setQuestion'
     ];
 
@@ -139,6 +143,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         'conversation_webchat_queue_uuid' => 'getConversationWebchatQueueUuid',
         'email' => 'getEmail',
         'join_dts' => 'getJoinDts',
+        'participant_language_iso_code' => 'getParticipantLanguageIsoCode',
         'question' => 'getQuestion'
     ];
 
@@ -207,6 +212,7 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
         $this->container['conversation_webchat_queue_uuid'] = isset($data['conversation_webchat_queue_uuid']) ? $data['conversation_webchat_queue_uuid'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['join_dts'] = isset($data['join_dts']) ? $data['join_dts'] : null;
+        $this->container['participant_language_iso_code'] = isset($data['participant_language_iso_code']) ? $data['participant_language_iso_code'] : null;
         $this->container['question'] = isset($data['question']) ? $data['question'] : null;
     }
 
@@ -350,6 +356,30 @@ class ConversationWebchatQueueStatusQueueEntry implements ModelInterface, ArrayA
     public function setJoinDts($join_dts)
     {
         $this->container['join_dts'] = $join_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets participant_language_iso_code
+     *
+     * @return string
+     */
+    public function getParticipantLanguageIsoCode()
+    {
+        return $this->container['participant_language_iso_code'];
+    }
+
+    /**
+     * Sets participant_language_iso_code
+     *
+     * @param string $participant_language_iso_code participant_language_iso_code
+     *
+     * @return $this
+     */
+    public function setParticipantLanguageIsoCode($participant_language_iso_code)
+    {
+        $this->container['participant_language_iso_code'] = $participant_language_iso_code;
 
         return $this;
     }

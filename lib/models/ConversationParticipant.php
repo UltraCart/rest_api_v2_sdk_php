@@ -60,11 +60,13 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => 'string',
         'conversation_participant_name' => 'string',
         'conversation_participant_uuid' => 'string',
+        'email' => 'string',
         'joined_dts' => 'string',
         'language_iso_code' => 'string',
         'last_message_dts' => 'string',
         'left_dts' => 'string',
         'profile_image_url' => 'string',
+        'sms_phone_number' => 'string',
         'status' => 'string',
         'timezone' => 'string',
         'unread_messages' => 'int'
@@ -79,11 +81,13 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => null,
         'conversation_participant_name' => null,
         'conversation_participant_uuid' => null,
+        'email' => null,
         'joined_dts' => 'dateTime',
         'language_iso_code' => null,
         'last_message_dts' => 'dateTime',
         'left_dts' => 'dateTime',
         'profile_image_url' => null,
+        'sms_phone_number' => null,
         'status' => null,
         'timezone' => null,
         'unread_messages' => 'int32'
@@ -119,11 +123,13 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => 'conversation_participant_arn',
         'conversation_participant_name' => 'conversation_participant_name',
         'conversation_participant_uuid' => 'conversation_participant_uuid',
+        'email' => 'email',
         'joined_dts' => 'joined_dts',
         'language_iso_code' => 'language_iso_code',
         'last_message_dts' => 'last_message_dts',
         'left_dts' => 'left_dts',
         'profile_image_url' => 'profile_image_url',
+        'sms_phone_number' => 'sms_phone_number',
         'status' => 'status',
         'timezone' => 'timezone',
         'unread_messages' => 'unread_messages'
@@ -138,11 +144,13 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => 'setConversationParticipantArn',
         'conversation_participant_name' => 'setConversationParticipantName',
         'conversation_participant_uuid' => 'setConversationParticipantUuid',
+        'email' => 'setEmail',
         'joined_dts' => 'setJoinedDts',
         'language_iso_code' => 'setLanguageIsoCode',
         'last_message_dts' => 'setLastMessageDts',
         'left_dts' => 'setLeftDts',
         'profile_image_url' => 'setProfileImageUrl',
+        'sms_phone_number' => 'setSmsPhoneNumber',
         'status' => 'setStatus',
         'timezone' => 'setTimezone',
         'unread_messages' => 'setUnreadMessages'
@@ -157,11 +165,13 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         'conversation_participant_arn' => 'getConversationParticipantArn',
         'conversation_participant_name' => 'getConversationParticipantName',
         'conversation_participant_uuid' => 'getConversationParticipantUuid',
+        'email' => 'getEmail',
         'joined_dts' => 'getJoinedDts',
         'language_iso_code' => 'getLanguageIsoCode',
         'last_message_dts' => 'getLastMessageDts',
         'left_dts' => 'getLeftDts',
         'profile_image_url' => 'getProfileImageUrl',
+        'sms_phone_number' => 'getSmsPhoneNumber',
         'status' => 'getStatus',
         'timezone' => 'getTimezone',
         'unread_messages' => 'getUnreadMessages'
@@ -230,11 +240,13 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
         $this->container['conversation_participant_arn'] = isset($data['conversation_participant_arn']) ? $data['conversation_participant_arn'] : null;
         $this->container['conversation_participant_name'] = isset($data['conversation_participant_name']) ? $data['conversation_participant_name'] : null;
         $this->container['conversation_participant_uuid'] = isset($data['conversation_participant_uuid']) ? $data['conversation_participant_uuid'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['joined_dts'] = isset($data['joined_dts']) ? $data['joined_dts'] : null;
         $this->container['language_iso_code'] = isset($data['language_iso_code']) ? $data['language_iso_code'] : null;
         $this->container['last_message_dts'] = isset($data['last_message_dts']) ? $data['last_message_dts'] : null;
         $this->container['left_dts'] = isset($data['left_dts']) ? $data['left_dts'] : null;
         $this->container['profile_image_url'] = isset($data['profile_image_url']) ? $data['profile_image_url'] : null;
+        $this->container['sms_phone_number'] = isset($data['sms_phone_number']) ? $data['sms_phone_number'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
         $this->container['unread_messages'] = isset($data['unread_messages']) ? $data['unread_messages'] : null;
@@ -332,6 +344,30 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
     public function setConversationParticipantUuid($conversation_participant_uuid)
     {
         $this->container['conversation_participant_uuid'] = $conversation_participant_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
 
         return $this;
     }
@@ -452,6 +488,30 @@ class ConversationParticipant implements ModelInterface, ArrayAccess
     public function setProfileImageUrl($profile_image_url)
     {
         $this->container['profile_image_url'] = $profile_image_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets sms_phone_number
+     *
+     * @return string
+     */
+    public function getSmsPhoneNumber()
+    {
+        return $this->container['sms_phone_number'];
+    }
+
+    /**
+     * Sets sms_phone_number
+     *
+     * @param string $sms_phone_number sms_phone_number
+     *
+     * @return $this
+     */
+    public function setSmsPhoneNumber($sms_phone_number)
+    {
+        $this->container['sms_phone_number'] = $sms_phone_number;
 
         return $this;
     }

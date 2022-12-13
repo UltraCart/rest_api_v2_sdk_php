@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationCannedMessage
+ * ConversationDepartment
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationCannedMessage Class Doc Comment
+ * ConversationDepartment Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationCannedMessage implements ModelInterface, ArrayAccess
+class ConversationDepartment implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationCannedMessage';
+    protected static $swaggerModelName = 'ConversationDepartment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'canned_message' => 'string',
-        'conversation_canned_message_oid' => 'int',
-        'conversation_department_oids' => 'int[]',
-        'short_code' => 'string'
+        'conversation_department_oid' => 'int',
+        'delete_me' => 'bool',
+        'department_name' => 'string',
+        'merchant_id' => 'string',
+        'settings' => '\ultracart\v2\models\ConversationDepartmentSettings'
     ];
 
     /**
@@ -69,10 +70,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'canned_message' => null,
-        'conversation_canned_message_oid' => 'int32',
-        'conversation_department_oids' => null,
-        'short_code' => null
+        'conversation_department_oid' => 'int32',
+        'delete_me' => null,
+        'department_name' => null,
+        'merchant_id' => null,
+        'settings' => null
     ];
 
     /**
@@ -102,10 +104,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'canned_message' => 'canned_message',
-        'conversation_canned_message_oid' => 'conversation_canned_message_oid',
-        'conversation_department_oids' => 'conversation_department_oids',
-        'short_code' => 'short_code'
+        'conversation_department_oid' => 'conversation_department_oid',
+        'delete_me' => 'delete_me',
+        'department_name' => 'department_name',
+        'merchant_id' => 'merchant_id',
+        'settings' => 'settings'
     ];
 
     /**
@@ -114,10 +117,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'canned_message' => 'setCannedMessage',
-        'conversation_canned_message_oid' => 'setConversationCannedMessageOid',
-        'conversation_department_oids' => 'setConversationDepartmentOids',
-        'short_code' => 'setShortCode'
+        'conversation_department_oid' => 'setConversationDepartmentOid',
+        'delete_me' => 'setDeleteMe',
+        'department_name' => 'setDepartmentName',
+        'merchant_id' => 'setMerchantId',
+        'settings' => 'setSettings'
     ];
 
     /**
@@ -126,10 +130,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'canned_message' => 'getCannedMessage',
-        'conversation_canned_message_oid' => 'getConversationCannedMessageOid',
-        'conversation_department_oids' => 'getConversationDepartmentOids',
-        'short_code' => 'getShortCode'
+        'conversation_department_oid' => 'getConversationDepartmentOid',
+        'delete_me' => 'getDeleteMe',
+        'department_name' => 'getDepartmentName',
+        'merchant_id' => 'getMerchantId',
+        'settings' => 'getSettings'
     ];
 
     /**
@@ -192,10 +197,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['canned_message'] = isset($data['canned_message']) ? $data['canned_message'] : null;
-        $this->container['conversation_canned_message_oid'] = isset($data['conversation_canned_message_oid']) ? $data['conversation_canned_message_oid'] : null;
-        $this->container['conversation_department_oids'] = isset($data['conversation_department_oids']) ? $data['conversation_department_oids'] : null;
-        $this->container['short_code'] = isset($data['short_code']) ? $data['short_code'] : null;
+        $this->container['conversation_department_oid'] = isset($data['conversation_department_oid']) ? $data['conversation_department_oid'] : null;
+        $this->container['delete_me'] = isset($data['delete_me']) ? $data['delete_me'] : null;
+        $this->container['department_name'] = isset($data['department_name']) ? $data['department_name'] : null;
+        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['settings'] = isset($data['settings']) ? $data['settings'] : null;
     }
 
     /**
@@ -223,97 +229,121 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets canned_message
-     *
-     * @return string
-     */
-    public function getCannedMessage()
-    {
-        return $this->container['canned_message'];
-    }
-
-    /**
-     * Sets canned_message
-     *
-     * @param string $canned_message canned_message
-     *
-     * @return $this
-     */
-    public function setCannedMessage($canned_message)
-    {
-        $this->container['canned_message'] = $canned_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_canned_message_oid
+     * Gets conversation_department_oid
      *
      * @return int
      */
-    public function getConversationCannedMessageOid()
+    public function getConversationDepartmentOid()
     {
-        return $this->container['conversation_canned_message_oid'];
+        return $this->container['conversation_department_oid'];
     }
 
     /**
-     * Sets conversation_canned_message_oid
+     * Sets conversation_department_oid
      *
-     * @param int $conversation_canned_message_oid conversation_canned_message_oid
+     * @param int $conversation_department_oid conversation_department_oid
      *
      * @return $this
      */
-    public function setConversationCannedMessageOid($conversation_canned_message_oid)
+    public function setConversationDepartmentOid($conversation_department_oid)
     {
-        $this->container['conversation_canned_message_oid'] = $conversation_canned_message_oid;
+        $this->container['conversation_department_oid'] = $conversation_department_oid;
 
         return $this;
     }
 
     /**
-     * Gets conversation_department_oids
+     * Gets delete_me
      *
-     * @return int[]
+     * @return bool
      */
-    public function getConversationDepartmentOids()
+    public function getDeleteMe()
     {
-        return $this->container['conversation_department_oids'];
+        return $this->container['delete_me'];
     }
 
     /**
-     * Sets conversation_department_oids
+     * Sets delete_me
      *
-     * @param int[] $conversation_department_oids conversation_department_oids
+     * @param bool $delete_me delete_me
      *
      * @return $this
      */
-    public function setConversationDepartmentOids($conversation_department_oids)
+    public function setDeleteMe($delete_me)
     {
-        $this->container['conversation_department_oids'] = $conversation_department_oids;
+        $this->container['delete_me'] = $delete_me;
 
         return $this;
     }
 
     /**
-     * Gets short_code
+     * Gets department_name
      *
      * @return string
      */
-    public function getShortCode()
+    public function getDepartmentName()
     {
-        return $this->container['short_code'];
+        return $this->container['department_name'];
     }
 
     /**
-     * Sets short_code
+     * Sets department_name
      *
-     * @param string $short_code short_code
+     * @param string $department_name department_name
      *
      * @return $this
      */
-    public function setShortCode($short_code)
+    public function setDepartmentName($department_name)
     {
-        $this->container['short_code'] = $short_code;
+        $this->container['department_name'] = $department_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchant_id
+     *
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->container['merchant_id'];
+    }
+
+    /**
+     * Sets merchant_id
+     *
+     * @param string $merchant_id merchant_id
+     *
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets settings
+     *
+     * @return \ultracart\v2\models\ConversationDepartmentSettings
+     */
+    public function getSettings()
+    {
+        return $this->container['settings'];
+    }
+
+    /**
+     * Sets settings
+     *
+     * @param \ultracart\v2\models\ConversationDepartmentSettings $settings settings
+     *
+     * @return $this
+     */
+    public function setSettings($settings)
+    {
+        $this->container['settings'] = $settings;
 
         return $this;
     }

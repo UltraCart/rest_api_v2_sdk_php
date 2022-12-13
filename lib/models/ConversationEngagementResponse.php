@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationCannedMessage
+ * ConversationEngagementResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationCannedMessage Class Doc Comment
+ * ConversationEngagementResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationCannedMessage implements ModelInterface, ArrayAccess
+class ConversationEngagementResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationCannedMessage';
+    protected static $swaggerModelName = 'ConversationEngagementResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'canned_message' => 'string',
-        'conversation_canned_message_oid' => 'int',
-        'conversation_department_oids' => 'int[]',
-        'short_code' => 'string'
+        'conversation_engagement' => '\ultracart\v2\models\ConversationEngagement',
+        'error' => '\ultracart\v2\models\Error',
+        'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'success' => 'bool',
+        'warning' => '\ultracart\v2\models\Warning'
     ];
 
     /**
@@ -69,10 +70,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'canned_message' => null,
-        'conversation_canned_message_oid' => 'int32',
-        'conversation_department_oids' => null,
-        'short_code' => null
+        'conversation_engagement' => null,
+        'error' => null,
+        'metadata' => null,
+        'success' => null,
+        'warning' => null
     ];
 
     /**
@@ -102,10 +104,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'canned_message' => 'canned_message',
-        'conversation_canned_message_oid' => 'conversation_canned_message_oid',
-        'conversation_department_oids' => 'conversation_department_oids',
-        'short_code' => 'short_code'
+        'conversation_engagement' => 'conversation_engagement',
+        'error' => 'error',
+        'metadata' => 'metadata',
+        'success' => 'success',
+        'warning' => 'warning'
     ];
 
     /**
@@ -114,10 +117,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'canned_message' => 'setCannedMessage',
-        'conversation_canned_message_oid' => 'setConversationCannedMessageOid',
-        'conversation_department_oids' => 'setConversationDepartmentOids',
-        'short_code' => 'setShortCode'
+        'conversation_engagement' => 'setConversationEngagement',
+        'error' => 'setError',
+        'metadata' => 'setMetadata',
+        'success' => 'setSuccess',
+        'warning' => 'setWarning'
     ];
 
     /**
@@ -126,10 +130,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'canned_message' => 'getCannedMessage',
-        'conversation_canned_message_oid' => 'getConversationCannedMessageOid',
-        'conversation_department_oids' => 'getConversationDepartmentOids',
-        'short_code' => 'getShortCode'
+        'conversation_engagement' => 'getConversationEngagement',
+        'error' => 'getError',
+        'metadata' => 'getMetadata',
+        'success' => 'getSuccess',
+        'warning' => 'getWarning'
     ];
 
     /**
@@ -192,10 +197,11 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['canned_message'] = isset($data['canned_message']) ? $data['canned_message'] : null;
-        $this->container['conversation_canned_message_oid'] = isset($data['conversation_canned_message_oid']) ? $data['conversation_canned_message_oid'] : null;
-        $this->container['conversation_department_oids'] = isset($data['conversation_department_oids']) ? $data['conversation_department_oids'] : null;
-        $this->container['short_code'] = isset($data['short_code']) ? $data['short_code'] : null;
+        $this->container['conversation_engagement'] = isset($data['conversation_engagement']) ? $data['conversation_engagement'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
     /**
@@ -223,97 +229,121 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets canned_message
+     * Gets conversation_engagement
      *
-     * @return string
+     * @return \ultracart\v2\models\ConversationEngagement
      */
-    public function getCannedMessage()
+    public function getConversationEngagement()
     {
-        return $this->container['canned_message'];
+        return $this->container['conversation_engagement'];
     }
 
     /**
-     * Sets canned_message
+     * Sets conversation_engagement
      *
-     * @param string $canned_message canned_message
+     * @param \ultracart\v2\models\ConversationEngagement $conversation_engagement conversation_engagement
      *
      * @return $this
      */
-    public function setCannedMessage($canned_message)
+    public function setConversationEngagement($conversation_engagement)
     {
-        $this->container['canned_message'] = $canned_message;
+        $this->container['conversation_engagement'] = $conversation_engagement;
 
         return $this;
     }
 
     /**
-     * Gets conversation_canned_message_oid
+     * Gets error
      *
-     * @return int
+     * @return \ultracart\v2\models\Error
      */
-    public function getConversationCannedMessageOid()
+    public function getError()
     {
-        return $this->container['conversation_canned_message_oid'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets conversation_canned_message_oid
+     * Sets error
      *
-     * @param int $conversation_canned_message_oid conversation_canned_message_oid
+     * @param \ultracart\v2\models\Error $error error
      *
      * @return $this
      */
-    public function setConversationCannedMessageOid($conversation_canned_message_oid)
+    public function setError($error)
     {
-        $this->container['conversation_canned_message_oid'] = $conversation_canned_message_oid;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets conversation_department_oids
+     * Gets metadata
      *
-     * @return int[]
+     * @return \ultracart\v2\models\ResponseMetadata
      */
-    public function getConversationDepartmentOids()
+    public function getMetadata()
     {
-        return $this->container['conversation_department_oids'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets conversation_department_oids
+     * Sets metadata
      *
-     * @param int[] $conversation_department_oids conversation_department_oids
+     * @param \ultracart\v2\models\ResponseMetadata $metadata metadata
      *
      * @return $this
      */
-    public function setConversationDepartmentOids($conversation_department_oids)
+    public function setMetadata($metadata)
     {
-        $this->container['conversation_department_oids'] = $conversation_department_oids;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
 
     /**
-     * Gets short_code
+     * Gets success
      *
-     * @return string
+     * @return bool
      */
-    public function getShortCode()
+    public function getSuccess()
     {
-        return $this->container['short_code'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets short_code
+     * Sets success
      *
-     * @param string $short_code short_code
+     * @param bool $success Indicates if API call was successful
      *
      * @return $this
      */
-    public function setShortCode($short_code)
+    public function setSuccess($success)
     {
-        $this->container['short_code'] = $short_code;
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets warning
+     *
+     * @return \ultracart\v2\models\Warning
+     */
+    public function getWarning()
+    {
+        return $this->container['warning'];
+    }
+
+    /**
+     * Sets warning
+     *
+     * @param \ultracart\v2\models\Warning $warning warning
+     *
+     * @return $this
+     */
+    public function setWarning($warning)
+    {
+        $this->container['warning'] = $warning;
 
         return $this;
     }

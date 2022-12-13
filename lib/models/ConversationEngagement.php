@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationCannedMessage
+ * ConversationEngagement
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationCannedMessage Class Doc Comment
+ * ConversationEngagement Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationCannedMessage implements ModelInterface, ArrayAccess
+class ConversationEngagement implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationCannedMessage';
+    protected static $swaggerModelName = 'ConversationEngagement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,13 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'canned_message' => 'string',
-        'conversation_canned_message_oid' => 'int',
-        'conversation_department_oids' => 'int[]',
-        'short_code' => 'string'
+        'conversation_engagement_oid' => 'int',
+        'customer_greeting' => 'string',
+        'department_oids' => 'int[]',
+        'engagement_name' => 'string',
+        'equation' => '\ultracart\v2\models\ConversationEngagementEquation',
+        'time_on_page' => 'int',
+        'visitor_type' => 'string'
     ];
 
     /**
@@ -69,10 +72,13 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'canned_message' => null,
-        'conversation_canned_message_oid' => 'int32',
-        'conversation_department_oids' => null,
-        'short_code' => null
+        'conversation_engagement_oid' => 'int32',
+        'customer_greeting' => null,
+        'department_oids' => null,
+        'engagement_name' => null,
+        'equation' => null,
+        'time_on_page' => 'int32',
+        'visitor_type' => null
     ];
 
     /**
@@ -102,10 +108,13 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'canned_message' => 'canned_message',
-        'conversation_canned_message_oid' => 'conversation_canned_message_oid',
-        'conversation_department_oids' => 'conversation_department_oids',
-        'short_code' => 'short_code'
+        'conversation_engagement_oid' => 'conversation_engagement_oid',
+        'customer_greeting' => 'customer_greeting',
+        'department_oids' => 'department_oids',
+        'engagement_name' => 'engagement_name',
+        'equation' => 'equation',
+        'time_on_page' => 'time_on_page',
+        'visitor_type' => 'visitor_type'
     ];
 
     /**
@@ -114,10 +123,13 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'canned_message' => 'setCannedMessage',
-        'conversation_canned_message_oid' => 'setConversationCannedMessageOid',
-        'conversation_department_oids' => 'setConversationDepartmentOids',
-        'short_code' => 'setShortCode'
+        'conversation_engagement_oid' => 'setConversationEngagementOid',
+        'customer_greeting' => 'setCustomerGreeting',
+        'department_oids' => 'setDepartmentOids',
+        'engagement_name' => 'setEngagementName',
+        'equation' => 'setEquation',
+        'time_on_page' => 'setTimeOnPage',
+        'visitor_type' => 'setVisitorType'
     ];
 
     /**
@@ -126,10 +138,13 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'canned_message' => 'getCannedMessage',
-        'conversation_canned_message_oid' => 'getConversationCannedMessageOid',
-        'conversation_department_oids' => 'getConversationDepartmentOids',
-        'short_code' => 'getShortCode'
+        'conversation_engagement_oid' => 'getConversationEngagementOid',
+        'customer_greeting' => 'getCustomerGreeting',
+        'department_oids' => 'getDepartmentOids',
+        'engagement_name' => 'getEngagementName',
+        'equation' => 'getEquation',
+        'time_on_page' => 'getTimeOnPage',
+        'visitor_type' => 'getVisitorType'
     ];
 
     /**
@@ -192,10 +207,13 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['canned_message'] = isset($data['canned_message']) ? $data['canned_message'] : null;
-        $this->container['conversation_canned_message_oid'] = isset($data['conversation_canned_message_oid']) ? $data['conversation_canned_message_oid'] : null;
-        $this->container['conversation_department_oids'] = isset($data['conversation_department_oids']) ? $data['conversation_department_oids'] : null;
-        $this->container['short_code'] = isset($data['short_code']) ? $data['short_code'] : null;
+        $this->container['conversation_engagement_oid'] = isset($data['conversation_engagement_oid']) ? $data['conversation_engagement_oid'] : null;
+        $this->container['customer_greeting'] = isset($data['customer_greeting']) ? $data['customer_greeting'] : null;
+        $this->container['department_oids'] = isset($data['department_oids']) ? $data['department_oids'] : null;
+        $this->container['engagement_name'] = isset($data['engagement_name']) ? $data['engagement_name'] : null;
+        $this->container['equation'] = isset($data['equation']) ? $data['equation'] : null;
+        $this->container['time_on_page'] = isset($data['time_on_page']) ? $data['time_on_page'] : null;
+        $this->container['visitor_type'] = isset($data['visitor_type']) ? $data['visitor_type'] : null;
     }
 
     /**
@@ -223,97 +241,169 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets canned_message
-     *
-     * @return string
-     */
-    public function getCannedMessage()
-    {
-        return $this->container['canned_message'];
-    }
-
-    /**
-     * Sets canned_message
-     *
-     * @param string $canned_message canned_message
-     *
-     * @return $this
-     */
-    public function setCannedMessage($canned_message)
-    {
-        $this->container['canned_message'] = $canned_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_canned_message_oid
+     * Gets conversation_engagement_oid
      *
      * @return int
      */
-    public function getConversationCannedMessageOid()
+    public function getConversationEngagementOid()
     {
-        return $this->container['conversation_canned_message_oid'];
+        return $this->container['conversation_engagement_oid'];
     }
 
     /**
-     * Sets conversation_canned_message_oid
+     * Sets conversation_engagement_oid
      *
-     * @param int $conversation_canned_message_oid conversation_canned_message_oid
+     * @param int $conversation_engagement_oid conversation_engagement_oid
      *
      * @return $this
      */
-    public function setConversationCannedMessageOid($conversation_canned_message_oid)
+    public function setConversationEngagementOid($conversation_engagement_oid)
     {
-        $this->container['conversation_canned_message_oid'] = $conversation_canned_message_oid;
+        $this->container['conversation_engagement_oid'] = $conversation_engagement_oid;
 
         return $this;
     }
 
     /**
-     * Gets conversation_department_oids
-     *
-     * @return int[]
-     */
-    public function getConversationDepartmentOids()
-    {
-        return $this->container['conversation_department_oids'];
-    }
-
-    /**
-     * Sets conversation_department_oids
-     *
-     * @param int[] $conversation_department_oids conversation_department_oids
-     *
-     * @return $this
-     */
-    public function setConversationDepartmentOids($conversation_department_oids)
-    {
-        $this->container['conversation_department_oids'] = $conversation_department_oids;
-
-        return $this;
-    }
-
-    /**
-     * Gets short_code
+     * Gets customer_greeting
      *
      * @return string
      */
-    public function getShortCode()
+    public function getCustomerGreeting()
     {
-        return $this->container['short_code'];
+        return $this->container['customer_greeting'];
     }
 
     /**
-     * Sets short_code
+     * Sets customer_greeting
      *
-     * @param string $short_code short_code
+     * @param string $customer_greeting customer_greeting
      *
      * @return $this
      */
-    public function setShortCode($short_code)
+    public function setCustomerGreeting($customer_greeting)
     {
-        $this->container['short_code'] = $short_code;
+        $this->container['customer_greeting'] = $customer_greeting;
+
+        return $this;
+    }
+
+    /**
+     * Gets department_oids
+     *
+     * @return int[]
+     */
+    public function getDepartmentOids()
+    {
+        return $this->container['department_oids'];
+    }
+
+    /**
+     * Sets department_oids
+     *
+     * @param int[] $department_oids department_oids
+     *
+     * @return $this
+     */
+    public function setDepartmentOids($department_oids)
+    {
+        $this->container['department_oids'] = $department_oids;
+
+        return $this;
+    }
+
+    /**
+     * Gets engagement_name
+     *
+     * @return string
+     */
+    public function getEngagementName()
+    {
+        return $this->container['engagement_name'];
+    }
+
+    /**
+     * Sets engagement_name
+     *
+     * @param string $engagement_name engagement_name
+     *
+     * @return $this
+     */
+    public function setEngagementName($engagement_name)
+    {
+        $this->container['engagement_name'] = $engagement_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets equation
+     *
+     * @return \ultracart\v2\models\ConversationEngagementEquation
+     */
+    public function getEquation()
+    {
+        return $this->container['equation'];
+    }
+
+    /**
+     * Sets equation
+     *
+     * @param \ultracart\v2\models\ConversationEngagementEquation $equation equation
+     *
+     * @return $this
+     */
+    public function setEquation($equation)
+    {
+        $this->container['equation'] = $equation;
+
+        return $this;
+    }
+
+    /**
+     * Gets time_on_page
+     *
+     * @return int
+     */
+    public function getTimeOnPage()
+    {
+        return $this->container['time_on_page'];
+    }
+
+    /**
+     * Sets time_on_page
+     *
+     * @param int $time_on_page time_on_page
+     *
+     * @return $this
+     */
+    public function setTimeOnPage($time_on_page)
+    {
+        $this->container['time_on_page'] = $time_on_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets visitor_type
+     *
+     * @return string
+     */
+    public function getVisitorType()
+    {
+        return $this->container['visitor_type'];
+    }
+
+    /**
+     * Sets visitor_type
+     *
+     * @param string $visitor_type visitor_type
+     *
+     * @return $this
+     */
+    public function setVisitorType($visitor_type)
+    {
+        $this->container['visitor_type'] = $visitor_type;
 
         return $this;
     }

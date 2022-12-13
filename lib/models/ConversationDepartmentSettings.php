@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationCannedMessage
+ * ConversationDepartmentSettings
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationCannedMessage Class Doc Comment
+ * ConversationDepartmentSettings Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationCannedMessage implements ModelInterface, ArrayAccess
+class ConversationDepartmentSettings implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationCannedMessage';
+    protected static $swaggerModelName = 'ConversationDepartmentSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'canned_message' => 'string',
-        'conversation_canned_message_oid' => 'int',
-        'conversation_department_oids' => 'int[]',
-        'short_code' => 'string'
+        
     ];
 
     /**
@@ -69,10 +66,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'canned_message' => null,
-        'conversation_canned_message_oid' => 'int32',
-        'conversation_department_oids' => null,
-        'short_code' => null
+        
     ];
 
     /**
@@ -102,10 +96,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'canned_message' => 'canned_message',
-        'conversation_canned_message_oid' => 'conversation_canned_message_oid',
-        'conversation_department_oids' => 'conversation_department_oids',
-        'short_code' => 'short_code'
+        
     ];
 
     /**
@@ -114,10 +105,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'canned_message' => 'setCannedMessage',
-        'conversation_canned_message_oid' => 'setConversationCannedMessageOid',
-        'conversation_department_oids' => 'setConversationDepartmentOids',
-        'short_code' => 'setShortCode'
+        
     ];
 
     /**
@@ -126,10 +114,7 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'canned_message' => 'getCannedMessage',
-        'conversation_canned_message_oid' => 'getConversationCannedMessageOid',
-        'conversation_department_oids' => 'getConversationDepartmentOids',
-        'short_code' => 'getShortCode'
+        
     ];
 
     /**
@@ -192,10 +177,6 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['canned_message'] = isset($data['canned_message']) ? $data['canned_message'] : null;
-        $this->container['conversation_canned_message_oid'] = isset($data['conversation_canned_message_oid']) ? $data['conversation_canned_message_oid'] : null;
-        $this->container['conversation_department_oids'] = isset($data['conversation_department_oids']) ? $data['conversation_department_oids'] : null;
-        $this->container['short_code'] = isset($data['short_code']) ? $data['short_code'] : null;
     }
 
     /**
@@ -221,102 +202,6 @@ class ConversationCannedMessage implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets canned_message
-     *
-     * @return string
-     */
-    public function getCannedMessage()
-    {
-        return $this->container['canned_message'];
-    }
-
-    /**
-     * Sets canned_message
-     *
-     * @param string $canned_message canned_message
-     *
-     * @return $this
-     */
-    public function setCannedMessage($canned_message)
-    {
-        $this->container['canned_message'] = $canned_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_canned_message_oid
-     *
-     * @return int
-     */
-    public function getConversationCannedMessageOid()
-    {
-        return $this->container['conversation_canned_message_oid'];
-    }
-
-    /**
-     * Sets conversation_canned_message_oid
-     *
-     * @param int $conversation_canned_message_oid conversation_canned_message_oid
-     *
-     * @return $this
-     */
-    public function setConversationCannedMessageOid($conversation_canned_message_oid)
-    {
-        $this->container['conversation_canned_message_oid'] = $conversation_canned_message_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets conversation_department_oids
-     *
-     * @return int[]
-     */
-    public function getConversationDepartmentOids()
-    {
-        return $this->container['conversation_department_oids'];
-    }
-
-    /**
-     * Sets conversation_department_oids
-     *
-     * @param int[] $conversation_department_oids conversation_department_oids
-     *
-     * @return $this
-     */
-    public function setConversationDepartmentOids($conversation_department_oids)
-    {
-        $this->container['conversation_department_oids'] = $conversation_department_oids;
-
-        return $this;
-    }
-
-    /**
-     * Gets short_code
-     *
-     * @return string
-     */
-    public function getShortCode()
-    {
-        return $this->container['short_code'];
-    }
-
-    /**
-     * Sets short_code
-     *
-     * @param string $short_code short_code
-     *
-     * @return $this
-     */
-    public function setShortCode($short_code)
-    {
-        $this->container['short_code'] = $short_code;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *
