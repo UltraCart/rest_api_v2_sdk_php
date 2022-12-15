@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**date_end** | **string** | End of the range | [optional] 
+**date_start** | **string** | Start of the range | [optional] 
 **email_filter** | **string** |  | [optional] 
 **language_filter** | **string** |  | [optional] 
 **medium_filter** | **string** |  | [optional] 

@@ -670,6 +670,7 @@ Class | Method | HTTP request | Description
  - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
  - [ConversationAutocompleteRequest](docs/Model/ConversationAutocompleteRequest.md)
  - [ConversationAutocompleteResponse](docs/Model/ConversationAutocompleteResponse.md)
+ - [ConversationAutocompleteValue](docs/Model/ConversationAutocompleteValue.md)
  - [ConversationCannedMessage](docs/Model/ConversationCannedMessage.md)
  - [ConversationCannedMessageResponse](docs/Model/ConversationCannedMessageResponse.md)
  - [ConversationCannedMessagesResponse](docs/Model/ConversationCannedMessagesResponse.md)
@@ -1334,6 +1335,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.82 | 12/15/2022 | conversation search - added start date filtering |
 | 3.10.81 | 12/15/2022 | conversation searching |
 | 3.10.80 | 12/13/2022 | conversations - add email and sms_phone to participant object |
 | 3.10.79 | 12/09/2022 | conversations - message translation |
