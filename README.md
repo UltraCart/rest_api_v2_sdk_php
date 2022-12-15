@@ -207,6 +207,8 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/Api/ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/Api/ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
+*ConversationApi* | [**getConversationsAutocomplete**](docs/Api/ConversationApi.md#getconversationsautocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
+*ConversationApi* | [**getConversationsSearch**](docs/Api/ConversationApi.md#getconversationssearch) | **POST** /conversation/conversations/search | Search conversations
 *ConversationApi* | [**insertConversationCannedMessage**](docs/Api/ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/Api/ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/Api/ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
@@ -666,6 +668,8 @@ Class | Method | HTTP request | Description
  - [Conversation](docs/Model/Conversation.md)
  - [ConversationAgentAuth](docs/Model/ConversationAgentAuth.md)
  - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
+ - [ConversationAutocompleteRequest](docs/Model/ConversationAutocompleteRequest.md)
+ - [ConversationAutocompleteResponse](docs/Model/ConversationAutocompleteResponse.md)
  - [ConversationCannedMessage](docs/Model/ConversationCannedMessage.md)
  - [ConversationCannedMessageResponse](docs/Model/ConversationCannedMessageResponse.md)
  - [ConversationCannedMessagesResponse](docs/Model/ConversationCannedMessagesResponse.md)
@@ -694,6 +698,8 @@ Class | Method | HTTP request | Description
  - [ConversationMultimediaUploadUrlResponse](docs/Model/ConversationMultimediaUploadUrlResponse.md)
  - [ConversationParticipant](docs/Model/ConversationParticipant.md)
  - [ConversationResponse](docs/Model/ConversationResponse.md)
+ - [ConversationSearchRequest](docs/Model/ConversationSearchRequest.md)
+ - [ConversationSearchResponse](docs/Model/ConversationSearchResponse.md)
  - [ConversationStartRequest](docs/Model/ConversationStartRequest.md)
  - [ConversationStartResponse](docs/Model/ConversationStartResponse.md)
  - [ConversationSummary](docs/Model/ConversationSummary.md)
@@ -1328,6 +1334,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.81 | 12/15/2022 | conversation searching |
 | 3.10.80 | 12/13/2022 | conversations - add email and sms_phone to participant object |
 | 3.10.79 | 12/09/2022 | conversations - message translation |
 | 3.10.78 | 12/08/2022 | conversation canned messages |
