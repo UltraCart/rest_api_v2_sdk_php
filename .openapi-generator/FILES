@@ -143,6 +143,8 @@ docs/Model/CityStateZip.md
 docs/Model/Conversation.md
 docs/Model/ConversationAgentAuth.md
 docs/Model/ConversationAgentAuthResponse.md
+docs/Model/ConversationAutocompleteRequest.md
+docs/Model/ConversationAutocompleteResponse.md
 docs/Model/ConversationCannedMessage.md
 docs/Model/ConversationCannedMessageResponse.md
 docs/Model/ConversationCannedMessagesResponse.md
@@ -169,6 +171,8 @@ docs/Model/ConversationMultimediaUploadUrl.md
 docs/Model/ConversationMultimediaUploadUrlResponse.md
 docs/Model/ConversationParticipant.md
 docs/Model/ConversationResponse.md
+docs/Model/ConversationSearchRequest.md
+docs/Model/ConversationSearchResponse.md
 docs/Model/ConversationStartRequest.md
 docs/Model/ConversationStartResponse.md
 docs/Model/ConversationSummary.md
@@ -872,6 +876,8 @@ lib/models/CityStateZip.php
 lib/models/Conversation.php
 lib/models/ConversationAgentAuth.php
 lib/models/ConversationAgentAuthResponse.php
+lib/models/ConversationAutocompleteRequest.php
+lib/models/ConversationAutocompleteResponse.php
 lib/models/ConversationCannedMessage.php
 lib/models/ConversationCannedMessageResponse.php
 lib/models/ConversationCannedMessagesResponse.php
@@ -898,6 +904,8 @@ lib/models/ConversationMultimediaUploadUrl.php
 lib/models/ConversationMultimediaUploadUrlResponse.php
 lib/models/ConversationParticipant.php
 lib/models/ConversationResponse.php
+lib/models/ConversationSearchRequest.php
+lib/models/ConversationSearchResponse.php
 lib/models/ConversationStartRequest.php
 lib/models/ConversationStartResponse.php
 lib/models/ConversationSummary.php
