@@ -58,6 +58,8 @@ class ConversationSearchRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
+        'date_end' => 'string',
+        'date_start' => 'string',
         'email_filter' => 'string',
         'language_filter' => 'string',
         'medium_filter' => 'string',
@@ -78,6 +80,8 @@ class ConversationSearchRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'date_end' => 'dateTime',
+        'date_start' => 'dateTime',
         'email_filter' => null,
         'language_filter' => null,
         'medium_filter' => null,
@@ -117,6 +121,8 @@ class ConversationSearchRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
+        'date_end' => 'date_end',
+        'date_start' => 'date_start',
         'email_filter' => 'email_filter',
         'language_filter' => 'language_filter',
         'medium_filter' => 'medium_filter',
@@ -135,6 +141,8 @@ class ConversationSearchRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
+        'date_end' => 'setDateEnd',
+        'date_start' => 'setDateStart',
         'email_filter' => 'setEmailFilter',
         'language_filter' => 'setLanguageFilter',
         'medium_filter' => 'setMediumFilter',
@@ -153,6 +161,8 @@ class ConversationSearchRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
+        'date_end' => 'getDateEnd',
+        'date_start' => 'getDateStart',
         'email_filter' => 'getEmailFilter',
         'language_filter' => 'getLanguageFilter',
         'medium_filter' => 'getMediumFilter',
@@ -222,6 +232,8 @@ class ConversationSearchRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
+        $this->container['date_end'] = $data['date_end'] ?? null;
+        $this->container['date_start'] = $data['date_start'] ?? null;
         $this->container['email_filter'] = $data['email_filter'] ?? null;
         $this->container['language_filter'] = $data['language_filter'] ?? null;
         $this->container['medium_filter'] = $data['medium_filter'] ?? null;
@@ -257,6 +269,54 @@ class ConversationSearchRequest implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets date_end
+     *
+     * @return string|null
+     */
+    public function getDateEnd()
+    {
+        return $this->container['date_end'];
+    }
+
+    /**
+     * Sets date_end
+     *
+     * @param string|null $date_end End of the range
+     *
+     * @return self
+     */
+    public function setDateEnd($date_end)
+    {
+        $this->container['date_end'] = $date_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_start
+     *
+     * @return string|null
+     */
+    public function getDateStart()
+    {
+        return $this->container['date_start'];
+    }
+
+    /**
+     * Sets date_start
+     *
+     * @param string|null $date_start Start of the range
+     *
+     * @return self
+     */
+    public function setDateStart($date_start)
+    {
+        $this->container['date_start'] = $date_start;
+
+        return $this;
+    }
 
     /**
      * Gets email_filter

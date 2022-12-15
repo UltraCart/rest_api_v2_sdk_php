@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationAutocompleteResponse
+ * ConversationAutocompleteValue
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationAutocompleteResponse Class Doc Comment
+ * ConversationAutocompleteValue Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationAutocompleteValue implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationAutocompleteResponse';
+    protected static $openAPIModelName = 'ConversationAutocompleteValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,8 @@ class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'error' => '\ultracart\v2\models\Error',
-        'field' => 'string',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'results' => '\ultracart\v2\models\ConversationAutocompleteValue[]',
-        'success' => 'bool',
-        'term' => 'string',
-        'warning' => '\ultracart\v2\models\Warning'
+        'description' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -75,13 +70,8 @@ class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'error' => null,
-        'field' => null,
-        'metadata' => null,
-        'results' => null,
-        'success' => null,
-        'term' => null,
-        'warning' => null
+        'description' => null,
+        'value' => null
     ];
 
     /**
@@ -111,13 +101,8 @@ class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'field' => 'field',
-        'metadata' => 'metadata',
-        'results' => 'results',
-        'success' => 'success',
-        'term' => 'term',
-        'warning' => 'warning'
+        'description' => 'description',
+        'value' => 'value'
     ];
 
     /**
@@ -126,13 +111,8 @@ class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'field' => 'setField',
-        'metadata' => 'setMetadata',
-        'results' => 'setResults',
-        'success' => 'setSuccess',
-        'term' => 'setTerm',
-        'warning' => 'setWarning'
+        'description' => 'setDescription',
+        'value' => 'setValue'
     ];
 
     /**
@@ -141,13 +121,8 @@ class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'field' => 'getField',
-        'metadata' => 'getMetadata',
-        'results' => 'getResults',
-        'success' => 'getSuccess',
-        'term' => 'getTerm',
-        'warning' => 'getWarning'
+        'description' => 'getDescription',
+        'value' => 'getValue'
     ];
 
     /**
@@ -207,13 +182,8 @@ class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['field'] = $data['field'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['results'] = $data['results'] ?? null;
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['term'] = $data['term'] ?? null;
-        $this->container['warning'] = $data['warning'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -241,169 +211,49 @@ class ConversationAutocompleteResponse implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets error
-     *
-     * @return \ultracart\v2\models\Error|null
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param \ultracart\v2\models\Error|null $error error
-     *
-     * @return self
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets field
+     * Gets description
      *
      * @return string|null
      */
-    public function getField()
+    public function getDescription()
     {
-        return $this->container['field'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets field
+     * Sets description
      *
-     * @param string|null $field field
+     * @param string|null $description description
      *
      * @return self
      */
-    public function setField($field)
+    public function setDescription($description)
     {
-        $this->container['field'] = $field;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets results
-     *
-     * @return \ultracart\v2\models\ConversationAutocompleteValue[]|null
-     */
-    public function getResults()
-    {
-        return $this->container['results'];
-    }
-
-    /**
-     * Sets results
-     *
-     * @param \ultracart\v2\models\ConversationAutocompleteValue[]|null $results results
-     *
-     * @return self
-     */
-    public function setResults($results)
-    {
-        $this->container['results'] = $results;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool|null
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool|null $success Indicates if API call was successful
-     *
-     * @return self
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets term
+     * Gets value
      *
      * @return string|null
      */
-    public function getTerm()
+    public function getValue()
     {
-        return $this->container['term'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets term
+     * Sets value
      *
-     * @param string|null $term term
+     * @param string|null $value value
      *
      * @return self
      */
-    public function setTerm($term)
+    public function setValue($value)
     {
-        $this->container['term'] = $term;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning|null
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning|null $warning warning
-     *
-     * @return self
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['value'] = $value;
 
         return $this;
     }
