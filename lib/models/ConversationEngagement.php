@@ -188,8 +188,25 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const VISITOR_TYPE_ALL = 'all';
+    const VISITOR_TYPE_FIRST_TIME = 'first time';
+    const VISITOR_TYPE_RETURNING = 'returning';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVisitorTypeAllowableValues()
+    {
+        return [
+            self::VISITOR_TYPE_ALL,
+            self::VISITOR_TYPE_FIRST_TIME,
+            self::VISITOR_TYPE_RETURNING,
+        ];
+    }
     
 
     /**
@@ -224,6 +241,14 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getVisitorTypeAllowableValues();
+        if (!is_null($this->container['visitor_type']) && !in_array($this->container['visitor_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'visitor_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -397,12 +422,21 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
     /**
      * Sets visitor_type
      *
-     * @param string $visitor_type visitor_type
+     * @param string $visitor_type The type of visitor
      *
      * @return $this
      */
     public function setVisitorType($visitor_type)
     {
+        $allowedValues = $this->getVisitorTypeAllowableValues();
+        if (!is_null($visitor_type) && !in_array($visitor_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'visitor_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['visitor_type'] = $visitor_type;
 
         return $this;

@@ -681,6 +681,8 @@ Class | Method | HTTP request | Description
  - [ConversationDepartmentsResponse](docs/Model/ConversationDepartmentsResponse.md)
  - [ConversationEngagement](docs/Model/ConversationEngagement.md)
  - [ConversationEngagementEquation](docs/Model/ConversationEngagementEquation.md)
+ - [ConversationEngagementEquationFunction](docs/Model/ConversationEngagementEquationFunction.md)
+ - [ConversationEngagementEquationGroup](docs/Model/ConversationEngagementEquationGroup.md)
  - [ConversationEngagementResponse](docs/Model/ConversationEngagementResponse.md)
  - [ConversationEngagementsResponse](docs/Model/ConversationEngagementsResponse.md)
  - [ConversationEventAddCoupon](docs/Model/ConversationEventAddCoupon.md)
@@ -1335,6 +1337,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.83 | 12/20/2022 | conversation engagement update |
 | 3.10.82 | 12/15/2022 | conversation search - added start date filtering |
 | 3.10.81 | 12/15/2022 | conversation searching |
 | 3.10.80 | 12/13/2022 | conversations - add email and sms_phone to participant object |

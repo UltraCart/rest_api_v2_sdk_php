@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationEngagementEquation
+ * ConversationEngagementEquationGroup
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationEngagementEquation Class Doc Comment
+ * ConversationEngagementEquationGroup Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationEngagementEquation implements ModelInterface, ArrayAccess
+class ConversationEngagementEquationGroup implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationEngagementEquation implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationEngagementEquation';
+    protected static $swaggerModelName = 'ConversationEngagementEquationGroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class ConversationEngagementEquation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'groups' => '\ultracart\v2\models\ConversationEngagementEquationGroup[]'
+        'functions' => '\ultracart\v2\models\ConversationEngagementEquationFunction[]'
     ];
 
     /**
@@ -66,7 +66,7 @@ class ConversationEngagementEquation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'groups' => null
+        'functions' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class ConversationEngagementEquation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'groups' => 'groups'
+        'functions' => 'functions'
     ];
 
     /**
@@ -105,7 +105,7 @@ class ConversationEngagementEquation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'groups' => 'setGroups'
+        'functions' => 'setFunctions'
     ];
 
     /**
@@ -114,7 +114,7 @@ class ConversationEngagementEquation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'groups' => 'getGroups'
+        'functions' => 'getFunctions'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ConversationEngagementEquation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
+        $this->container['functions'] = isset($data['functions']) ? $data['functions'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class ConversationEngagementEquation implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets groups
+     * Gets functions
      *
-     * @return \ultracart\v2\models\ConversationEngagementEquationGroup[]
+     * @return \ultracart\v2\models\ConversationEngagementEquationFunction[]
      */
-    public function getGroups()
+    public function getFunctions()
     {
-        return $this->container['groups'];
+        return $this->container['functions'];
     }
 
     /**
-     * Sets groups
+     * Sets functions
      *
-     * @param \ultracart\v2\models\ConversationEngagementEquationGroup[] $groups groups
+     * @param \ultracart\v2\models\ConversationEngagementEquationFunction[] $functions functions
      *
      * @return $this
      */
-    public function setGroups($groups)
+    public function setFunctions($functions)
     {
-        $this->container['groups'] = $groups;
+        $this->container['functions'] = $functions;
 
         return $this;
     }
