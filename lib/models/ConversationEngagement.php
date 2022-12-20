@@ -62,7 +62,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
         'customer_greeting' => 'string',
         'department_oids' => 'int[]',
         'engagement_name' => 'string',
-        'equation' => 'object',
+        'equation' => '\ultracart\v2\models\ConversationEngagementEquation',
         'time_on_page' => 'int',
         'visitor_type' => 'string'
     ];
@@ -191,6 +191,23 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
+    public const VISITOR_TYPE_ALL = 'all';
+    public const VISITOR_TYPE_FIRST_TIME = 'first time';
+    public const VISITOR_TYPE_RETURNING = 'returning';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVisitorTypeAllowableValues()
+    {
+        return [
+            self::VISITOR_TYPE_ALL,
+            self::VISITOR_TYPE_FIRST_TIME,
+            self::VISITOR_TYPE_RETURNING,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -224,6 +241,15 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getVisitorTypeAllowableValues();
+        if (!is_null($this->container['visitor_type']) && !in_array($this->container['visitor_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'visitor_type', must be one of '%s'",
+                $this->container['visitor_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -339,7 +365,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets equation
      *
-     * @return object|null
+     * @return \ultracart\v2\models\ConversationEngagementEquation|null
      */
     public function getEquation()
     {
@@ -349,7 +375,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets equation
      *
-     * @param object|null $equation equation
+     * @param \ultracart\v2\models\ConversationEngagementEquation|null $equation equation
      *
      * @return self
      */
@@ -397,12 +423,22 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets visitor_type
      *
-     * @param string|null $visitor_type visitor_type
+     * @param string|null $visitor_type The type of visitor
      *
      * @return self
      */
     public function setVisitorType($visitor_type)
     {
+        $allowedValues = $this->getVisitorTypeAllowableValues();
+        if (!is_null($visitor_type) && !in_array($visitor_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'visitor_type', must be one of '%s'",
+                    $visitor_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['visitor_type'] = $visitor_type;
 
         return $this;

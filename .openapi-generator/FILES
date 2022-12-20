@@ -154,6 +154,9 @@ docs/Model/ConversationDepartment.md
 docs/Model/ConversationDepartmentResponse.md
 docs/Model/ConversationDepartmentsResponse.md
 docs/Model/ConversationEngagement.md
+docs/Model/ConversationEngagementEquation.md
+docs/Model/ConversationEngagementEquationFunction.md
+docs/Model/ConversationEngagementEquationGroup.md
 docs/Model/ConversationEngagementResponse.md
 docs/Model/ConversationEngagementsResponse.md
 docs/Model/ConversationEventAddCoupon.md
@@ -888,6 +891,9 @@ lib/models/ConversationDepartment.php
 lib/models/ConversationDepartmentResponse.php
 lib/models/ConversationDepartmentsResponse.php
 lib/models/ConversationEngagement.php
+lib/models/ConversationEngagementEquation.php
+lib/models/ConversationEngagementEquationFunction.php
+lib/models/ConversationEngagementEquationGroup.php
 lib/models/ConversationEngagementResponse.php
 lib/models/ConversationEngagementsResponse.php
 lib/models/ConversationEventAddCoupon.php
