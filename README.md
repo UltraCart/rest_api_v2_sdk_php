@@ -1278,6 +1278,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.101-RC | 12/20/2022 | conversation engagement update |
 | 4.0.100-RC | 12/20/2022 | conversation engagement update |
 | 4.0.99-RC | 12/15/2022 | conversation search - added start date filtering |
 | 4.0.98-RC | 12/15/2022 | conversation searching |
