@@ -58,6 +58,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
+        'active' => 'bool',
         'conversation_engagement_oid' => 'int',
         'customer_greeting' => 'string',
         'department_oids' => 'int[]',
@@ -75,6 +76,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'active' => null,
         'conversation_engagement_oid' => 'int32',
         'customer_greeting' => null,
         'department_oids' => null,
@@ -111,6 +113,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
+        'active' => 'active',
         'conversation_engagement_oid' => 'conversation_engagement_oid',
         'customer_greeting' => 'customer_greeting',
         'department_oids' => 'department_oids',
@@ -126,6 +129,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
+        'active' => 'setActive',
         'conversation_engagement_oid' => 'setConversationEngagementOid',
         'customer_greeting' => 'setCustomerGreeting',
         'department_oids' => 'setDepartmentOids',
@@ -141,6 +145,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
+        'active' => 'getActive',
         'conversation_engagement_oid' => 'getConversationEngagementOid',
         'customer_greeting' => 'getCustomerGreeting',
         'department_oids' => 'getDepartmentOids',
@@ -224,6 +229,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
+        $this->container['active'] = $data['active'] ?? null;
         $this->container['conversation_engagement_oid'] = $data['conversation_engagement_oid'] ?? null;
         $this->container['customer_greeting'] = $data['customer_greeting'] ?? null;
         $this->container['department_oids'] = $data['department_oids'] ?? null;
@@ -265,6 +271,30 @@ class ConversationEngagement implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets active
+     *
+     * @return bool|null
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool|null $active active
+     *
+     * @return self
+     */
+    public function setActive($active)
+    {
+        $this->container['active'] = $active;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_engagement_oid

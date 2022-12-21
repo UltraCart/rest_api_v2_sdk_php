@@ -59,7 +59,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'conversation_department_oid' => 'int',
-        'delete_me' => 'bool',
         'department_name' => 'string',
         'merchant_id' => 'string',
         'settings' => 'object'
@@ -74,7 +73,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'conversation_department_oid' => 'int32',
-        'delete_me' => null,
         'department_name' => null,
         'merchant_id' => null,
         'settings' => null
@@ -108,7 +106,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'conversation_department_oid' => 'conversation_department_oid',
-        'delete_me' => 'delete_me',
         'department_name' => 'department_name',
         'merchant_id' => 'merchant_id',
         'settings' => 'settings'
@@ -121,7 +118,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'conversation_department_oid' => 'setConversationDepartmentOid',
-        'delete_me' => 'setDeleteMe',
         'department_name' => 'setDepartmentName',
         'merchant_id' => 'setMerchantId',
         'settings' => 'setSettings'
@@ -134,7 +130,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'conversation_department_oid' => 'getConversationDepartmentOid',
-        'delete_me' => 'getDeleteMe',
         'department_name' => 'getDepartmentName',
         'merchant_id' => 'getMerchantId',
         'settings' => 'getSettings'
@@ -198,7 +193,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->container['conversation_department_oid'] = $data['conversation_department_oid'] ?? null;
-        $this->container['delete_me'] = $data['delete_me'] ?? null;
         $this->container['department_name'] = $data['department_name'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['settings'] = $data['settings'] ?? null;
@@ -248,30 +242,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess, \JsonSerial
     public function setConversationDepartmentOid($conversation_department_oid)
     {
         $this->container['conversation_department_oid'] = $conversation_department_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets delete_me
-     *
-     * @return bool|null
-     */
-    public function getDeleteMe()
-    {
-        return $this->container['delete_me'];
-    }
-
-    /**
-     * Sets delete_me
-     *
-     * @param bool|null $delete_me delete_me
-     *
-     * @return self
-     */
-    public function setDeleteMe($delete_me)
-    {
-        $this->container['delete_me'] = $delete_me;
 
         return $this;
     }
