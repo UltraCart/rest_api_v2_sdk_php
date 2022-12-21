@@ -58,7 +58,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'conversation_department_oid' => 'int',
-        'delete_me' => 'bool',
         'department_name' => 'string',
         'merchant_id' => 'string',
         'settings' => '\ultracart\v2\models\ConversationDepartmentSettings'
@@ -71,7 +70,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'conversation_department_oid' => 'int32',
-        'delete_me' => null,
         'department_name' => null,
         'merchant_id' => null,
         'settings' => null
@@ -105,7 +103,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'conversation_department_oid' => 'conversation_department_oid',
-        'delete_me' => 'delete_me',
         'department_name' => 'department_name',
         'merchant_id' => 'merchant_id',
         'settings' => 'settings'
@@ -118,7 +115,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'conversation_department_oid' => 'setConversationDepartmentOid',
-        'delete_me' => 'setDeleteMe',
         'department_name' => 'setDepartmentName',
         'merchant_id' => 'setMerchantId',
         'settings' => 'setSettings'
@@ -131,7 +127,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'conversation_department_oid' => 'getConversationDepartmentOid',
-        'delete_me' => 'getDeleteMe',
         'department_name' => 'getDepartmentName',
         'merchant_id' => 'getMerchantId',
         'settings' => 'getSettings'
@@ -198,7 +193,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['conversation_department_oid'] = isset($data['conversation_department_oid']) ? $data['conversation_department_oid'] : null;
-        $this->container['delete_me'] = isset($data['delete_me']) ? $data['delete_me'] : null;
         $this->container['department_name'] = isset($data['department_name']) ? $data['department_name'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['settings'] = isset($data['settings']) ? $data['settings'] : null;
@@ -248,30 +242,6 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
     public function setConversationDepartmentOid($conversation_department_oid)
     {
         $this->container['conversation_department_oid'] = $conversation_department_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets delete_me
-     *
-     * @return bool
-     */
-    public function getDeleteMe()
-    {
-        return $this->container['delete_me'];
-    }
-
-    /**
-     * Sets delete_me
-     *
-     * @param bool $delete_me delete_me
-     *
-     * @return $this
-     */
-    public function setDeleteMe($delete_me)
-    {
-        $this->container['delete_me'] = $delete_me;
 
         return $this;
     }

@@ -57,6 +57,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'active' => 'bool',
         'conversation_engagement_oid' => 'int',
         'customer_greeting' => 'string',
         'department_oids' => 'int[]',
@@ -72,6 +73,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'active' => null,
         'conversation_engagement_oid' => 'int32',
         'customer_greeting' => null,
         'department_oids' => null,
@@ -108,6 +110,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'active' => 'active',
         'conversation_engagement_oid' => 'conversation_engagement_oid',
         'customer_greeting' => 'customer_greeting',
         'department_oids' => 'department_oids',
@@ -123,6 +126,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'active' => 'setActive',
         'conversation_engagement_oid' => 'setConversationEngagementOid',
         'customer_greeting' => 'setCustomerGreeting',
         'department_oids' => 'setDepartmentOids',
@@ -138,6 +142,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'active' => 'getActive',
         'conversation_engagement_oid' => 'getConversationEngagementOid',
         'customer_greeting' => 'getCustomerGreeting',
         'department_oids' => 'getDepartmentOids',
@@ -224,6 +229,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['conversation_engagement_oid'] = isset($data['conversation_engagement_oid']) ? $data['conversation_engagement_oid'] : null;
         $this->container['customer_greeting'] = isset($data['customer_greeting']) ? $data['customer_greeting'] : null;
         $this->container['department_oids'] = isset($data['department_oids']) ? $data['department_oids'] : null;
@@ -264,6 +270,30 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool $active active
+     *
+     * @return $this
+     */
+    public function setActive($active)
+    {
+        $this->container['active'] = $active;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_engagement_oid
