@@ -679,8 +679,12 @@ Class | Method | HTTP request | Description
 - [CouponFreeShippingWithSubtotal](docs/Model/CouponFreeShippingWithSubtotal.md)
 - [CouponItemSearchResult](docs/Model/CouponItemSearchResult.md)
 - [CouponItemSearchResultsResponse](docs/Model/CouponItemSearchResultsResponse.md)
+- [CouponMoreLoyaltyCashback](docs/Model/CouponMoreLoyaltyCashback.md)
+- [CouponMoreLoyaltyPoints](docs/Model/CouponMoreLoyaltyPoints.md)
 - [CouponMultipleAmountsOffItems](docs/Model/CouponMultipleAmountsOffItems.md)
 - [CouponNoDiscount](docs/Model/CouponNoDiscount.md)
+- [CouponPercentMoreLoyaltyCashback](docs/Model/CouponPercentMoreLoyaltyCashback.md)
+- [CouponPercentMoreLoyaltyPoints](docs/Model/CouponPercentMoreLoyaltyPoints.md)
 - [CouponPercentOffItemWithItemsQuantityPurchase](docs/Model/CouponPercentOffItemWithItemsQuantityPurchase.md)
 - [CouponPercentOffItems](docs/Model/CouponPercentOffItems.md)
 - [CouponPercentOffItemsAndFreeShipping](docs/Model/CouponPercentOffItemsAndFreeShipping.md)
@@ -1281,6 +1285,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.103-RC | 12/27/2022 | additional loyalty related coupons |
 | 4.0.102-RC | 12/21/2022 | conversation development |
 | 4.0.101-RC | 12/20/2022 | conversation engagement update |
 | 4.0.100-RC | 12/20/2022 | conversation engagement update |

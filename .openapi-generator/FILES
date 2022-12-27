@@ -224,8 +224,12 @@ docs/Model/CouponFreeShippingWithItemsPurchase.md
 docs/Model/CouponFreeShippingWithSubtotal.md
 docs/Model/CouponItemSearchResult.md
 docs/Model/CouponItemSearchResultsResponse.md
+docs/Model/CouponMoreLoyaltyCashback.md
+docs/Model/CouponMoreLoyaltyPoints.md
 docs/Model/CouponMultipleAmountsOffItems.md
 docs/Model/CouponNoDiscount.md
+docs/Model/CouponPercentMoreLoyaltyCashback.md
+docs/Model/CouponPercentMoreLoyaltyPoints.md
 docs/Model/CouponPercentOffItemWithItemsQuantityPurchase.md
 docs/Model/CouponPercentOffItems.md
 docs/Model/CouponPercentOffItemsAndFreeShipping.md
@@ -961,8 +965,12 @@ lib/models/CouponFreeShippingWithItemsPurchase.php
 lib/models/CouponFreeShippingWithSubtotal.php
 lib/models/CouponItemSearchResult.php
 lib/models/CouponItemSearchResultsResponse.php
+lib/models/CouponMoreLoyaltyCashback.php
+lib/models/CouponMoreLoyaltyPoints.php
 lib/models/CouponMultipleAmountsOffItems.php
 lib/models/CouponNoDiscount.php
+lib/models/CouponPercentMoreLoyaltyCashback.php
+lib/models/CouponPercentMoreLoyaltyPoints.php
 lib/models/CouponPercentOffItemWithItemsQuantityPurchase.php
 lib/models/CouponPercentOffItems.php
 lib/models/CouponPercentOffItemsAndFreeShipping.php

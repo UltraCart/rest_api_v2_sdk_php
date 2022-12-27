@@ -92,8 +92,12 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'hide_from_customer' => 'bool',
         'merchant_code' => 'string',
         'merchant_notes' => 'string',
+        'more_loyalty_cashback' => '\ultracart\v2\models\CouponMoreLoyaltyCashback',
+        'more_loyalty_points' => '\ultracart\v2\models\CouponMoreLoyaltyPoints',
         'multiple_amounts_off_items' => '\ultracart\v2\models\CouponMultipleAmountsOffItems',
         'no_discount' => '\ultracart\v2\models\CouponNoDiscount',
+        'percent_more_loyalty_cashback' => '\ultracart\v2\models\CouponPercentMoreLoyaltyCashback',
+        'percent_more_loyalty_points' => '\ultracart\v2\models\CouponPercentMoreLoyaltyPoints',
         'percent_off_item_with_items_quantity_purchase' => '\ultracart\v2\models\CouponPercentOffItemWithItemsQuantityPurchase',
         'percent_off_items' => '\ultracart\v2\models\CouponPercentOffItems',
         'percent_off_items_and_free_shipping' => '\ultracart\v2\models\CouponPercentOffItemsAndFreeShipping',
@@ -163,8 +167,12 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'hide_from_customer' => null,
         'merchant_code' => null,
         'merchant_notes' => null,
+        'more_loyalty_cashback' => null,
+        'more_loyalty_points' => null,
         'multiple_amounts_off_items' => null,
         'no_discount' => null,
+        'percent_more_loyalty_cashback' => null,
+        'percent_more_loyalty_points' => null,
         'percent_off_item_with_items_quantity_purchase' => null,
         'percent_off_items' => null,
         'percent_off_items_and_free_shipping' => null,
@@ -253,8 +261,12 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'hide_from_customer' => 'hide_from_customer',
         'merchant_code' => 'merchant_code',
         'merchant_notes' => 'merchant_notes',
+        'more_loyalty_cashback' => 'more_loyalty_cashback',
+        'more_loyalty_points' => 'more_loyalty_points',
         'multiple_amounts_off_items' => 'multiple_amounts_off_items',
         'no_discount' => 'no_discount',
+        'percent_more_loyalty_cashback' => 'percent_more_loyalty_cashback',
+        'percent_more_loyalty_points' => 'percent_more_loyalty_points',
         'percent_off_item_with_items_quantity_purchase' => 'percent_off_item_with_items_quantity_purchase',
         'percent_off_items' => 'percent_off_items',
         'percent_off_items_and_free_shipping' => 'percent_off_items_and_free_shipping',
@@ -322,8 +334,12 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'hide_from_customer' => 'setHideFromCustomer',
         'merchant_code' => 'setMerchantCode',
         'merchant_notes' => 'setMerchantNotes',
+        'more_loyalty_cashback' => 'setMoreLoyaltyCashback',
+        'more_loyalty_points' => 'setMoreLoyaltyPoints',
         'multiple_amounts_off_items' => 'setMultipleAmountsOffItems',
         'no_discount' => 'setNoDiscount',
+        'percent_more_loyalty_cashback' => 'setPercentMoreLoyaltyCashback',
+        'percent_more_loyalty_points' => 'setPercentMoreLoyaltyPoints',
         'percent_off_item_with_items_quantity_purchase' => 'setPercentOffItemWithItemsQuantityPurchase',
         'percent_off_items' => 'setPercentOffItems',
         'percent_off_items_and_free_shipping' => 'setPercentOffItemsAndFreeShipping',
@@ -391,8 +407,12 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         'hide_from_customer' => 'getHideFromCustomer',
         'merchant_code' => 'getMerchantCode',
         'merchant_notes' => 'getMerchantNotes',
+        'more_loyalty_cashback' => 'getMoreLoyaltyCashback',
+        'more_loyalty_points' => 'getMoreLoyaltyPoints',
         'multiple_amounts_off_items' => 'getMultipleAmountsOffItems',
         'no_discount' => 'getNoDiscount',
+        'percent_more_loyalty_cashback' => 'getPercentMoreLoyaltyCashback',
+        'percent_more_loyalty_points' => 'getPercentMoreLoyaltyPoints',
         'percent_off_item_with_items_quantity_purchase' => 'getPercentOffItemWithItemsQuantityPurchase',
         'percent_off_items' => 'getPercentOffItems',
         'percent_off_items_and_free_shipping' => 'getPercentOffItemsAndFreeShipping',
@@ -511,8 +531,12 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['hide_from_customer'] = $data['hide_from_customer'] ?? null;
         $this->container['merchant_code'] = $data['merchant_code'] ?? null;
         $this->container['merchant_notes'] = $data['merchant_notes'] ?? null;
+        $this->container['more_loyalty_cashback'] = $data['more_loyalty_cashback'] ?? null;
+        $this->container['more_loyalty_points'] = $data['more_loyalty_points'] ?? null;
         $this->container['multiple_amounts_off_items'] = $data['multiple_amounts_off_items'] ?? null;
         $this->container['no_discount'] = $data['no_discount'] ?? null;
+        $this->container['percent_more_loyalty_cashback'] = $data['percent_more_loyalty_cashback'] ?? null;
+        $this->container['percent_more_loyalty_points'] = $data['percent_more_loyalty_points'] ?? null;
         $this->container['percent_off_item_with_items_quantity_purchase'] = $data['percent_off_item_with_items_quantity_purchase'] ?? null;
         $this->container['percent_off_items'] = $data['percent_off_items'] ?? null;
         $this->container['percent_off_items_and_free_shipping'] = $data['percent_off_items_and_free_shipping'] ?? null;
@@ -1421,6 +1445,54 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets more_loyalty_cashback
+     *
+     * @return \ultracart\v2\models\CouponMoreLoyaltyCashback|null
+     */
+    public function getMoreLoyaltyCashback()
+    {
+        return $this->container['more_loyalty_cashback'];
+    }
+
+    /**
+     * Sets more_loyalty_cashback
+     *
+     * @param \ultracart\v2\models\CouponMoreLoyaltyCashback|null $more_loyalty_cashback more_loyalty_cashback
+     *
+     * @return self
+     */
+    public function setMoreLoyaltyCashback($more_loyalty_cashback)
+    {
+        $this->container['more_loyalty_cashback'] = $more_loyalty_cashback;
+
+        return $this;
+    }
+
+    /**
+     * Gets more_loyalty_points
+     *
+     * @return \ultracart\v2\models\CouponMoreLoyaltyPoints|null
+     */
+    public function getMoreLoyaltyPoints()
+    {
+        return $this->container['more_loyalty_points'];
+    }
+
+    /**
+     * Sets more_loyalty_points
+     *
+     * @param \ultracart\v2\models\CouponMoreLoyaltyPoints|null $more_loyalty_points more_loyalty_points
+     *
+     * @return self
+     */
+    public function setMoreLoyaltyPoints($more_loyalty_points)
+    {
+        $this->container['more_loyalty_points'] = $more_loyalty_points;
+
+        return $this;
+    }
+
+    /**
      * Gets multiple_amounts_off_items
      *
      * @return \ultracart\v2\models\CouponMultipleAmountsOffItems|null
@@ -1464,6 +1536,54 @@ class Coupon implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setNoDiscount($no_discount)
     {
         $this->container['no_discount'] = $no_discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets percent_more_loyalty_cashback
+     *
+     * @return \ultracart\v2\models\CouponPercentMoreLoyaltyCashback|null
+     */
+    public function getPercentMoreLoyaltyCashback()
+    {
+        return $this->container['percent_more_loyalty_cashback'];
+    }
+
+    /**
+     * Sets percent_more_loyalty_cashback
+     *
+     * @param \ultracart\v2\models\CouponPercentMoreLoyaltyCashback|null $percent_more_loyalty_cashback percent_more_loyalty_cashback
+     *
+     * @return self
+     */
+    public function setPercentMoreLoyaltyCashback($percent_more_loyalty_cashback)
+    {
+        $this->container['percent_more_loyalty_cashback'] = $percent_more_loyalty_cashback;
+
+        return $this;
+    }
+
+    /**
+     * Gets percent_more_loyalty_points
+     *
+     * @return \ultracart\v2\models\CouponPercentMoreLoyaltyPoints|null
+     */
+    public function getPercentMoreLoyaltyPoints()
+    {
+        return $this->container['percent_more_loyalty_points'];
+    }
+
+    /**
+     * Sets percent_more_loyalty_points
+     *
+     * @param \ultracart\v2\models\CouponPercentMoreLoyaltyPoints|null $percent_more_loyalty_points percent_more_loyalty_points
+     *
+     * @return self
+     */
+    public function setPercentMoreLoyaltyPoints($percent_more_loyalty_points)
+    {
+        $this->container['percent_more_loyalty_points'] = $percent_more_loyalty_points;
 
         return $this;
     }
