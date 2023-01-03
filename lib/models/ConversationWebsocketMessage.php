@@ -63,6 +63,10 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_conversation_closed' => '\ultracart\v2\models\ConversationSummary',
         'event_new_conversation' => '\ultracart\v2\models\ConversationSummary',
         'event_new_message' => '\ultracart\v2\models\ConversationSummary',
+        'event_participant_join' => '\ultracart\v2\models\ConversationSummary',
+        'event_participant_join_participant' => '\ultracart\v2\models\ConversationParticipant',
+        'event_participant_left' => '\ultracart\v2\models\ConversationSummary',
+        'event_participant_left_participant' => '\ultracart\v2\models\ConversationParticipant',
         'event_participant_update' => '\ultracart\v2\models\ConversationSummary',
         'event_queue_position' => '\ultracart\v2\models\ConversationEventQueuePosition',
         'event_queue_status_update' => '\ultracart\v2\models\ConversationWebchatQueueStatus',
@@ -88,6 +92,10 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_conversation_closed' => null,
         'event_new_conversation' => null,
         'event_new_message' => null,
+        'event_participant_join' => null,
+        'event_participant_join_participant' => null,
+        'event_participant_left' => null,
+        'event_participant_left_participant' => null,
         'event_participant_update' => null,
         'event_queue_position' => null,
         'event_queue_status_update' => null,
@@ -134,6 +142,10 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_conversation_closed' => 'event_conversation_closed',
         'event_new_conversation' => 'event_new_conversation',
         'event_new_message' => 'event_new_message',
+        'event_participant_join' => 'event_participant_join',
+        'event_participant_join_participant' => 'event_participant_join_participant',
+        'event_participant_left' => 'event_participant_left',
+        'event_participant_left_participant' => 'event_participant_left_participant',
         'event_participant_update' => 'event_participant_update',
         'event_queue_position' => 'event_queue_position',
         'event_queue_status_update' => 'event_queue_status_update',
@@ -159,6 +171,10 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_conversation_closed' => 'setEventConversationClosed',
         'event_new_conversation' => 'setEventNewConversation',
         'event_new_message' => 'setEventNewMessage',
+        'event_participant_join' => 'setEventParticipantJoin',
+        'event_participant_join_participant' => 'setEventParticipantJoinParticipant',
+        'event_participant_left' => 'setEventParticipantLeft',
+        'event_participant_left_participant' => 'setEventParticipantLeftParticipant',
         'event_participant_update' => 'setEventParticipantUpdate',
         'event_queue_position' => 'setEventQueuePosition',
         'event_queue_status_update' => 'setEventQueueStatusUpdate',
@@ -184,6 +200,10 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_conversation_closed' => 'getEventConversationClosed',
         'event_new_conversation' => 'getEventNewConversation',
         'event_new_message' => 'getEventNewMessage',
+        'event_participant_join' => 'getEventParticipantJoin',
+        'event_participant_join_participant' => 'getEventParticipantJoinParticipant',
+        'event_participant_left' => 'getEventParticipantLeft',
+        'event_participant_left_participant' => 'getEventParticipantLeftParticipant',
         'event_participant_update' => 'getEventParticipantUpdate',
         'event_queue_position' => 'getEventQueuePosition',
         'event_queue_status_update' => 'getEventQueueStatusUpdate',
@@ -247,6 +267,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     const EVENT_TYPE_QUEUE_STATUS_UPDATE = 'queue status update';
     const EVENT_TYPE_RRWEB = 'rrweb';
     const EVENT_TYPE_PARTICIPANT_UPDATE = 'participant update';
+    const EVENT_TYPE_PARTICIPANT_JOIN = 'participant join';
+    const EVENT_TYPE_PARTICIPANT_LEAVE = 'participant leave';
     const EVENT_TYPE_READ_MESSAGE = 'read message';
     const EVENT_TYPE_TYPING = 'typing';
     const EVENT_TYPE_ADD_COUPON = 'add coupon';
@@ -276,6 +298,8 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
             self::EVENT_TYPE_QUEUE_STATUS_UPDATE,
             self::EVENT_TYPE_RRWEB,
             self::EVENT_TYPE_PARTICIPANT_UPDATE,
+            self::EVENT_TYPE_PARTICIPANT_JOIN,
+            self::EVENT_TYPE_PARTICIPANT_LEAVE,
             self::EVENT_TYPE_READ_MESSAGE,
             self::EVENT_TYPE_TYPING,
             self::EVENT_TYPE_ADD_COUPON,
@@ -321,6 +345,10 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         $this->container['event_conversation_closed'] = isset($data['event_conversation_closed']) ? $data['event_conversation_closed'] : null;
         $this->container['event_new_conversation'] = isset($data['event_new_conversation']) ? $data['event_new_conversation'] : null;
         $this->container['event_new_message'] = isset($data['event_new_message']) ? $data['event_new_message'] : null;
+        $this->container['event_participant_join'] = isset($data['event_participant_join']) ? $data['event_participant_join'] : null;
+        $this->container['event_participant_join_participant'] = isset($data['event_participant_join_participant']) ? $data['event_participant_join_participant'] : null;
+        $this->container['event_participant_left'] = isset($data['event_participant_left']) ? $data['event_participant_left'] : null;
+        $this->container['event_participant_left_participant'] = isset($data['event_participant_left_participant']) ? $data['event_participant_left_participant'] : null;
         $this->container['event_participant_update'] = isset($data['event_participant_update']) ? $data['event_participant_update'] : null;
         $this->container['event_queue_position'] = isset($data['event_queue_position']) ? $data['event_queue_position'] : null;
         $this->container['event_queue_status_update'] = isset($data['event_queue_status_update']) ? $data['event_queue_status_update'] : null;
@@ -514,6 +542,102 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     public function setEventNewMessage($event_new_message)
     {
         $this->container['event_new_message'] = $event_new_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_participant_join
+     *
+     * @return \ultracart\v2\models\ConversationSummary
+     */
+    public function getEventParticipantJoin()
+    {
+        return $this->container['event_participant_join'];
+    }
+
+    /**
+     * Sets event_participant_join
+     *
+     * @param \ultracart\v2\models\ConversationSummary $event_participant_join event_participant_join
+     *
+     * @return $this
+     */
+    public function setEventParticipantJoin($event_participant_join)
+    {
+        $this->container['event_participant_join'] = $event_participant_join;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_participant_join_participant
+     *
+     * @return \ultracart\v2\models\ConversationParticipant
+     */
+    public function getEventParticipantJoinParticipant()
+    {
+        return $this->container['event_participant_join_participant'];
+    }
+
+    /**
+     * Sets event_participant_join_participant
+     *
+     * @param \ultracart\v2\models\ConversationParticipant $event_participant_join_participant event_participant_join_participant
+     *
+     * @return $this
+     */
+    public function setEventParticipantJoinParticipant($event_participant_join_participant)
+    {
+        $this->container['event_participant_join_participant'] = $event_participant_join_participant;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_participant_left
+     *
+     * @return \ultracart\v2\models\ConversationSummary
+     */
+    public function getEventParticipantLeft()
+    {
+        return $this->container['event_participant_left'];
+    }
+
+    /**
+     * Sets event_participant_left
+     *
+     * @param \ultracart\v2\models\ConversationSummary $event_participant_left event_participant_left
+     *
+     * @return $this
+     */
+    public function setEventParticipantLeft($event_participant_left)
+    {
+        $this->container['event_participant_left'] = $event_participant_left;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_participant_left_participant
+     *
+     * @return \ultracart\v2\models\ConversationParticipant
+     */
+    public function getEventParticipantLeftParticipant()
+    {
+        return $this->container['event_participant_left_participant'];
+    }
+
+    /**
+     * Sets event_participant_left_participant
+     *
+     * @param \ultracart\v2\models\ConversationParticipant $event_participant_left_participant event_participant_left_participant
+     *
+     * @return $this
+     */
+    public function setEventParticipantLeftParticipant($event_participant_left_participant)
+    {
+        $this->container['event_participant_left_participant'] = $event_participant_left_participant;
 
         return $this;
     }
