@@ -1121,6 +1121,7 @@ Class | Method | HTTP request | Description
  - [OrderPaymentPurchaseOrder](docs/Model/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/Model/OrderPaymentTransaction.md)
  - [OrderPaymentTransactionDetail](docs/Model/OrderPaymentTransactionDetail.md)
+ - [OrderPointOfSale](docs/Model/OrderPointOfSale.md)
  - [OrderProcessPaymentRequest](docs/Model/OrderProcessPaymentRequest.md)
  - [OrderProcessPaymentResponse](docs/Model/OrderProcessPaymentResponse.md)
  - [OrderProperty](docs/Model/OrderProperty.md)
@@ -1142,6 +1143,9 @@ Class | Method | HTTP request | Description
  - [OrderTrackingNumberDetails](docs/Model/OrderTrackingNumberDetails.md)
  - [OrdersResponse](docs/Model/OrdersResponse.md)
  - [Permission](docs/Model/Permission.md)
+ - [PointOfSaleLocation](docs/Model/PointOfSaleLocation.md)
+ - [PointOfSaleReader](docs/Model/PointOfSaleReader.md)
+ - [PointOfSaleRegister](docs/Model/PointOfSaleRegister.md)
  - [PricingTier](docs/Model/PricingTier.md)
  - [PricingTierNotification](docs/Model/PricingTierNotification.md)
  - [PricingTiersResponse](docs/Model/PricingTiersResponse.md)
@@ -1344,6 +1348,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.87 | 01/03/2023 | order point of sale details |
 | 3.10.86 | 12/27/2022 | additional loyalty related coupons |
 | 3.10.85 | 12/21/2022 | conversation development |
 | 3.10.84 | 12/20/2022 | conversation engagement update |
