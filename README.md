@@ -1289,6 +1289,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.105-RC | 01/03/2023 | conversation events for party leave and join |
 | 4.0.104-RC | 01/03/2023 | order point of sale details |
 | 4.0.103-RC | 12/27/2022 | additional loyalty related coupons |
 | 4.0.102-RC | 12/21/2022 | conversation development |
