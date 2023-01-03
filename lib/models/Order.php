@@ -83,6 +83,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'string',
         'order_id' => 'string',
         'payment' => '\ultracart\v2\models\OrderPayment',
+        'point_of_sale' => '\ultracart\v2\models\OrderPointOfSale',
         'properties' => '\ultracart\v2\models\OrderProperty[]',
         'quote' => '\ultracart\v2\models\OrderQuote',
         'refund_dts' => 'string',
@@ -127,6 +128,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => null,
         'order_id' => null,
         'payment' => null,
+        'point_of_sale' => null,
         'properties' => null,
         'quote' => null,
         'refund_dts' => 'dateTime',
@@ -190,6 +192,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'merchant_id',
         'order_id' => 'order_id',
         'payment' => 'payment',
+        'point_of_sale' => 'point_of_sale',
         'properties' => 'properties',
         'quote' => 'quote',
         'refund_dts' => 'refund_dts',
@@ -232,6 +235,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'setMerchantId',
         'order_id' => 'setOrderId',
         'payment' => 'setPayment',
+        'point_of_sale' => 'setPointOfSale',
         'properties' => 'setProperties',
         'quote' => 'setQuote',
         'refund_dts' => 'setRefundDts',
@@ -274,6 +278,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'getMerchantId',
         'order_id' => 'getOrderId',
         'payment' => 'getPayment',
+        'point_of_sale' => 'getPointOfSale',
         'properties' => 'getProperties',
         'quote' => 'getQuote',
         'refund_dts' => 'getRefundDts',
@@ -402,6 +407,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['order_id'] = $data['order_id'] ?? null;
         $this->container['payment'] = $data['payment'] ?? null;
+        $this->container['point_of_sale'] = $data['point_of_sale'] ?? null;
         $this->container['properties'] = $data['properties'] ?? null;
         $this->container['quote'] = $data['quote'] ?? null;
         $this->container['refund_dts'] = $data['refund_dts'] ?? null;
@@ -1068,6 +1074,30 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPayment($payment)
     {
         $this->container['payment'] = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_of_sale
+     *
+     * @return \ultracart\v2\models\OrderPointOfSale|null
+     */
+    public function getPointOfSale()
+    {
+        return $this->container['point_of_sale'];
+    }
+
+    /**
+     * Sets point_of_sale
+     *
+     * @param \ultracart\v2\models\OrderPointOfSale|null $point_of_sale point_of_sale
+     *
+     * @return self
+     */
+    public function setPointOfSale($point_of_sale)
+    {
+        $this->container['point_of_sale'] = $point_of_sale;
 
         return $this;
     }

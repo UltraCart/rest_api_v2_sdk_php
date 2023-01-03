@@ -592,6 +592,7 @@ docs/Model/OrderPaymentInsurance.md
 docs/Model/OrderPaymentPurchaseOrder.md
 docs/Model/OrderPaymentTransaction.md
 docs/Model/OrderPaymentTransactionDetail.md
+docs/Model/OrderPointOfSale.md
 docs/Model/OrderProcessPaymentRequest.md
 docs/Model/OrderProcessPaymentResponse.md
 docs/Model/OrderProperty.md
@@ -613,6 +614,9 @@ docs/Model/OrderTrackingNumberDetail.md
 docs/Model/OrderTrackingNumberDetails.md
 docs/Model/OrdersResponse.md
 docs/Model/Permission.md
+docs/Model/PointOfSaleLocation.md
+docs/Model/PointOfSaleReader.md
+docs/Model/PointOfSaleRegister.md
 docs/Model/PricingTier.md
 docs/Model/PricingTierNotification.md
 docs/Model/PricingTiersResponse.md
@@ -1334,6 +1338,7 @@ lib/models/OrderPaymentInsurance.php
 lib/models/OrderPaymentPurchaseOrder.php
 lib/models/OrderPaymentTransaction.php
 lib/models/OrderPaymentTransactionDetail.php
+lib/models/OrderPointOfSale.php
 lib/models/OrderProcessPaymentRequest.php
 lib/models/OrderProcessPaymentResponse.php
 lib/models/OrderProperty.php
@@ -1355,6 +1360,9 @@ lib/models/OrderTrackingNumberDetail.php
 lib/models/OrderTrackingNumberDetails.php
 lib/models/OrdersResponse.php
 lib/models/Permission.php
+lib/models/PointOfSaleLocation.php
+lib/models/PointOfSaleReader.php
+lib/models/PointOfSaleRegister.php
 lib/models/PricingTier.php
 lib/models/PricingTierNotification.php
 lib/models/PricingTiersResponse.php
