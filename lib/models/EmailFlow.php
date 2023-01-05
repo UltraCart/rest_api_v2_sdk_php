@@ -74,6 +74,7 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'esp_friendly_name' => 'string',
         'filter_profile_equation_json' => 'string',
         'library_item_oid' => 'int',
+        'maximum_enrolled' => 'bool',
         'merchant_id' => 'string',
         'name' => 'string',
         'open_rate_formatted' => 'string',
@@ -114,6 +115,7 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'esp_friendly_name' => null,
         'filter_profile_equation_json' => null,
         'library_item_oid' => 'int32',
+        'maximum_enrolled' => null,
         'merchant_id' => null,
         'name' => null,
         'open_rate_formatted' => null,
@@ -173,6 +175,7 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'esp_friendly_name' => 'esp_friendly_name',
         'filter_profile_equation_json' => 'filter_profile_equation_json',
         'library_item_oid' => 'library_item_oid',
+        'maximum_enrolled' => 'maximum_enrolled',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
         'open_rate_formatted' => 'open_rate_formatted',
@@ -211,6 +214,7 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'esp_friendly_name' => 'setEspFriendlyName',
         'filter_profile_equation_json' => 'setFilterProfileEquationJson',
         'library_item_oid' => 'setLibraryItemOid',
+        'maximum_enrolled' => 'setMaximumEnrolled',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
         'open_rate_formatted' => 'setOpenRateFormatted',
@@ -249,6 +253,7 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         'esp_friendly_name' => 'getEspFriendlyName',
         'filter_profile_equation_json' => 'getFilterProfileEquationJson',
         'library_item_oid' => 'getLibraryItemOid',
+        'maximum_enrolled' => 'getMaximumEnrolled',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
         'open_rate_formatted' => 'getOpenRateFormatted',
@@ -338,6 +343,7 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['esp_friendly_name'] = $data['esp_friendly_name'] ?? null;
         $this->container['filter_profile_equation_json'] = $data['filter_profile_equation_json'] ?? null;
         $this->container['library_item_oid'] = $data['library_item_oid'] ?? null;
+        $this->container['maximum_enrolled'] = $data['maximum_enrolled'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['open_rate_formatted'] = $data['open_rate_formatted'] ?? null;
@@ -762,6 +768,30 @@ class EmailFlow implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setLibraryItemOid($library_item_oid)
     {
         $this->container['library_item_oid'] = $library_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets maximum_enrolled
+     *
+     * @return bool|null
+     */
+    public function getMaximumEnrolled()
+    {
+        return $this->container['maximum_enrolled'];
+    }
+
+    /**
+     * Sets maximum_enrolled
+     *
+     * @param bool|null $maximum_enrolled The number of maximum customers for the plan are currently enrolled in this flow.
+     *
+     * @return self
+     */
+    public function setMaximumEnrolled($maximum_enrolled)
+    {
+        $this->container['maximum_enrolled'] = $maximum_enrolled;
 
         return $this;
     }
