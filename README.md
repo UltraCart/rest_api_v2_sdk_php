@@ -1289,6 +1289,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.107-RC | 01/06/2023 | conversation search response object bug fix |
 | 4.0.106-RC | 01/05/2023 | communications - added maximum_enrolled flag on flow object |
 | 4.0.105-RC | 01/03/2023 | conversation events for party leave and join |
 | 4.0.104-RC | 01/03/2023 | order point of sale details |
