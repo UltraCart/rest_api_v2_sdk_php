@@ -59,6 +59,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'range_begin' => 'int',
         'range_end' => 'int',
+        'records' => '\ultracart\v2\models\Conversation[]',
         'total' => 'int'
     ];
 
@@ -70,6 +71,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'range_begin' => 'int32',
         'range_end' => 'int32',
+        'records' => null,
         'total' => 'int32'
     ];
 
@@ -102,6 +104,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'range_begin' => 'range_begin',
         'range_end' => 'range_end',
+        'records' => 'records',
         'total' => 'total'
     ];
 
@@ -113,6 +116,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'range_begin' => 'setRangeBegin',
         'range_end' => 'setRangeEnd',
+        'records' => 'setRecords',
         'total' => 'setTotal'
     ];
 
@@ -124,6 +128,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'range_begin' => 'getRangeBegin',
         'range_end' => 'getRangeEnd',
+        'records' => 'getRecords',
         'total' => 'getTotal'
     ];
 
@@ -189,6 +194,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     {
         $this->container['range_begin'] = isset($data['range_begin']) ? $data['range_begin'] : null;
         $this->container['range_end'] = isset($data['range_end']) ? $data['range_end'] : null;
+        $this->container['records'] = isset($data['records']) ? $data['records'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
@@ -260,6 +266,30 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     public function setRangeEnd($range_end)
     {
         $this->container['range_end'] = $range_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets records
+     *
+     * @return \ultracart\v2\models\Conversation[]
+     */
+    public function getRecords()
+    {
+        return $this->container['records'];
+    }
+
+    /**
+     * Sets records
+     *
+     * @param \ultracart\v2\models\Conversation[] $records records
+     *
+     * @return $this
+     */
+    public function setRecords($records)
+    {
+        $this->container['records'] = $records;
 
         return $this;
     }
