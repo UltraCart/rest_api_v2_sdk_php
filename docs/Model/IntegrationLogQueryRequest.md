@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **direction** | **string** |  | [optional]
 **email** | **string** |  | [optional]
 **file_names** | **string[]** |  | [optional]
+**integration_log_oid** | **int** |  | [optional]
 **item_id** | **string** |  | [optional]
 **item_ipn_oid** | **int** |  | [optional]
 **log_dts_begin** | **string** | Log date/time begin | [optional]
