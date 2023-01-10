@@ -63,6 +63,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'direction' => 'string',
         'email' => 'string',
         'file_names' => 'string[]',
+        'integration_log_oid' => 'int',
         'item_id' => 'string',
         'item_ipn_oid' => 'int',
         'log_dts_begin' => 'string',
@@ -86,6 +87,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'direction' => null,
         'email' => null,
         'file_names' => null,
+        'integration_log_oid' => 'int32',
         'item_id' => null,
         'item_ipn_oid' => 'int32',
         'log_dts_begin' => 'dateTime',
@@ -130,6 +132,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'direction' => 'direction',
         'email' => 'email',
         'file_names' => 'file_names',
+        'integration_log_oid' => 'integration_log_oid',
         'item_id' => 'item_id',
         'item_ipn_oid' => 'item_ipn_oid',
         'log_dts_begin' => 'log_dts_begin',
@@ -153,6 +156,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'direction' => 'setDirection',
         'email' => 'setEmail',
         'file_names' => 'setFileNames',
+        'integration_log_oid' => 'setIntegrationLogOid',
         'item_id' => 'setItemId',
         'item_ipn_oid' => 'setItemIpnOid',
         'log_dts_begin' => 'setLogDtsBegin',
@@ -176,6 +180,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         'direction' => 'getDirection',
         'email' => 'getEmail',
         'file_names' => 'getFileNames',
+        'integration_log_oid' => 'getIntegrationLogOid',
         'item_id' => 'getItemId',
         'item_ipn_oid' => 'getItemIpnOid',
         'log_dts_begin' => 'getLogDtsBegin',
@@ -253,6 +258,7 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['file_names'] = isset($data['file_names']) ? $data['file_names'] : null;
+        $this->container['integration_log_oid'] = isset($data['integration_log_oid']) ? $data['integration_log_oid'] : null;
         $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
         $this->container['item_ipn_oid'] = isset($data['item_ipn_oid']) ? $data['item_ipn_oid'] : null;
         $this->container['log_dts_begin'] = isset($data['log_dts_begin']) ? $data['log_dts_begin'] : null;
@@ -428,6 +434,30 @@ class IntegrationLogQueryRequest implements ModelInterface, ArrayAccess
     public function setFileNames($file_names)
     {
         $this->container['file_names'] = $file_names;
+
+        return $this;
+    }
+
+    /**
+     * Gets integration_log_oid
+     *
+     * @return int
+     */
+    public function getIntegrationLogOid()
+    {
+        return $this->container['integration_log_oid'];
+    }
+
+    /**
+     * Sets integration_log_oid
+     *
+     * @param int $integration_log_oid integration_log_oid
+     *
+     * @return $this
+     */
+    public function setIntegrationLogOid($integration_log_oid)
+    {
+        $this->container['integration_log_oid'] = $integration_log_oid;
 
         return $this;
     }

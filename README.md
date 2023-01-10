@@ -1348,6 +1348,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.93 | 01/10/2023 | add method to query integration log record by oid |
 | 3.10.92 | 01/10/2023 | bug fix for typescript enum error due to apost |
 | 3.10.91 | 01/10/2023 | integration log tracking of associated auto order oids |
 | 3.10.90 | 01/06/2023 | conversation search response object bug fix |
