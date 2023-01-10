@@ -1289,6 +1289,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.109-RC | 01/10/2023 | bug fix for typescript enum error due to apost |
 | 4.0.108-RC | 01/10/2023 | integration log tracking of associated auto order oids |
 | 4.0.107-RC | 01/06/2023 | conversation search response object bug fix |
 | 4.0.106-RC | 01/05/2023 | communications - added maximum_enrolled flag on flow object |

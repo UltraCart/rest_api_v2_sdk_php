@@ -249,8 +249,8 @@ class ConversationEngagementEquationFunction implements ModelInterface, ArrayAcc
     public const REFERRING_WEBSITE_LOGIC_IS_EXACTLY = 'is exactly';
     public const REFERRING_WEBSITE_LOGIC_IS_NOT = 'is not';
     public const TYPE_CURRENT_PAGE_URL = 'current page url';
-    public const TYPE_CUSTOMERS_LOCATION = 'customer's location';
-    public const TYPE_CUSTOMERS_BROWSING_TIME = 'customer's browsing time';
+    public const TYPE_CUSTOMERS_LOCATION = 'customers location';
+    public const TYPE_CUSTOMERS_BROWSING_TIME = 'customers browsing time';
     public const TYPE_NUMBER_OF_VIEWED_PAGES = 'number of viewed pages';
     public const TYPE_REFERRING_WEBSITE_ADDRESS = 'referring website address';
     public const TYPE_ANY_PAGE_FROM_SESSION = 'any page from session';
