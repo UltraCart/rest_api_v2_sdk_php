@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **string** |  | [optional] 
+**auto_order_oids** | **int[]** |  | [optional] 
 **direction** | **string** |  | [optional] 
 **email** | **string** |  | [optional] 
 **files** | [**\ultracart\v2\models\IntegrationLogFile[]**](IntegrationLogFile.md) |  | [optional] 

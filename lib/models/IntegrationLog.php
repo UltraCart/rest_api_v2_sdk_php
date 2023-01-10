@@ -58,6 +58,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'action' => 'string',
+        'auto_order_oids' => 'int[]',
         'direction' => 'string',
         'email' => 'string',
         'files' => '\ultracart\v2\models\IntegrationLogFile[]',
@@ -84,6 +85,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'action' => null,
+        'auto_order_oids' => null,
         'direction' => null,
         'email' => null,
         'files' => null,
@@ -131,6 +133,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'action' => 'action',
+        'auto_order_oids' => 'auto_order_oids',
         'direction' => 'direction',
         'email' => 'email',
         'files' => 'files',
@@ -157,6 +160,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'action' => 'setAction',
+        'auto_order_oids' => 'setAutoOrderOids',
         'direction' => 'setDirection',
         'email' => 'setEmail',
         'files' => 'setFiles',
@@ -183,6 +187,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'action' => 'getAction',
+        'auto_order_oids' => 'getAutoOrderOids',
         'direction' => 'getDirection',
         'email' => 'getEmail',
         'files' => 'getFiles',
@@ -263,6 +268,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['action'] = isset($data['action']) ? $data['action'] : null;
+        $this->container['auto_order_oids'] = isset($data['auto_order_oids']) ? $data['auto_order_oids'] : null;
         $this->container['direction'] = isset($data['direction']) ? $data['direction'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['files'] = isset($data['files']) ? $data['files'] : null;
@@ -326,6 +332,30 @@ class IntegrationLog implements ModelInterface, ArrayAccess
     public function setAction($action)
     {
         $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_oids
+     *
+     * @return int[]
+     */
+    public function getAutoOrderOids()
+    {
+        return $this->container['auto_order_oids'];
+    }
+
+    /**
+     * Sets auto_order_oids
+     *
+     * @param int[] $auto_order_oids auto_order_oids
+     *
+     * @return $this
+     */
+    public function setAutoOrderOids($auto_order_oids)
+    {
+        $this->container['auto_order_oids'] = $auto_order_oids;
 
         return $this;
     }
