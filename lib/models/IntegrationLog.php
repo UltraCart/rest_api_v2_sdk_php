@@ -59,6 +59,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'action' => 'string',
+        'auto_order_oids' => 'int[]',
         'direction' => 'string',
         'email' => 'string',
         'files' => '\ultracart\v2\models\IntegrationLogFile[]',
@@ -87,6 +88,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'action' => null,
+        'auto_order_oids' => null,
         'direction' => null,
         'email' => null,
         'files' => null,
@@ -134,6 +136,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'action' => 'action',
+        'auto_order_oids' => 'auto_order_oids',
         'direction' => 'direction',
         'email' => 'email',
         'files' => 'files',
@@ -160,6 +163,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'action' => 'setAction',
+        'auto_order_oids' => 'setAutoOrderOids',
         'direction' => 'setDirection',
         'email' => 'setEmail',
         'files' => 'setFiles',
@@ -186,6 +190,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'action' => 'getAction',
+        'auto_order_oids' => 'getAutoOrderOids',
         'direction' => 'getDirection',
         'email' => 'getEmail',
         'files' => 'getFiles',
@@ -263,6 +268,7 @@ class IntegrationLog implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['action'] = $data['action'] ?? null;
+        $this->container['auto_order_oids'] = $data['auto_order_oids'] ?? null;
         $this->container['direction'] = $data['direction'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['files'] = $data['files'] ?? null;
@@ -326,6 +332,30 @@ class IntegrationLog implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAction($action)
     {
         $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_oids
+     *
+     * @return int[]|null
+     */
+    public function getAutoOrderOids()
+    {
+        return $this->container['auto_order_oids'];
+    }
+
+    /**
+     * Sets auto_order_oids
+     *
+     * @param int[]|null $auto_order_oids auto_order_oids
+     *
+     * @return self
+     */
+    public function setAutoOrderOids($auto_order_oids)
+    {
+        $this->container['auto_order_oids'] = $auto_order_oids;
 
         return $this;
     }
