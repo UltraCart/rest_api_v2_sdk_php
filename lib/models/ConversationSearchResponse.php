@@ -60,7 +60,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess, \JsonSe
     protected static $openAPITypes = [
         'range_begin' => 'int',
         'range_end' => 'int',
-        'records' => '\ultracart\v2\models\Conversation[]',
+        'records' => '\ultracart\v2\models\ConversationSummary[]',
         'total' => 'int'
     ];
 
@@ -273,7 +273,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets records
      *
-     * @return \ultracart\v2\models\Conversation[]|null
+     * @return \ultracart\v2\models\ConversationSummary[]|null
      */
     public function getRecords()
     {
@@ -283,7 +283,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets records
      *
-     * @param \ultracart\v2\models\Conversation[]|null $records records
+     * @param \ultracart\v2\models\ConversationSummary[]|null $records records
      *
      * @return self
      */

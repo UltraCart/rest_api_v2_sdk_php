@@ -1289,6 +1289,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.111-RC | 01/11/2023 | conversations - adjust search results to return multiple convo summaries |
 | 4.0.110-RC | 01/10/2023 | add method to query integration log record by oid |
 | 4.0.109-RC | 01/10/2023 | bug fix for typescript enum error due to apost |
 | 4.0.108-RC | 01/10/2023 | integration log tracking of associated auto order oids |
