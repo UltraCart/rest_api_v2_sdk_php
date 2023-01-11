@@ -59,7 +59,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'range_begin' => 'int',
         'range_end' => 'int',
-        'records' => '\ultracart\v2\models\Conversation[]',
+        'records' => '\ultracart\v2\models\ConversationSummary[]',
         'total' => 'int'
     ];
 
@@ -273,7 +273,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     /**
      * Gets records
      *
-     * @return \ultracart\v2\models\Conversation[]
+     * @return \ultracart\v2\models\ConversationSummary[]
      */
     public function getRecords()
     {
@@ -283,7 +283,7 @@ class ConversationSearchResponse implements ModelInterface, ArrayAccess
     /**
      * Sets records
      *
-     * @param \ultracart\v2\models\Conversation[] $records records
+     * @param \ultracart\v2\models\ConversationSummary[] $records records
      *
      * @return $this
      */
