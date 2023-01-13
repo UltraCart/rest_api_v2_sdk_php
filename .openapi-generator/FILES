@@ -129,7 +129,11 @@ docs/Model/ChannelPartnerOrderItem.md
 docs/Model/ChannelPartnerOrderItemOption.md
 docs/Model/ChannelPartnerOrderTransaction.md
 docs/Model/ChannelPartnerOrderTransactionDetail.md
+docs/Model/ChannelPartnerShipToPreference.md
+docs/Model/ChannelPartnerShipToPreferenceResponse.md
+docs/Model/ChannelPartnerShipToPreferencesResponse.md
 docs/Model/ChannelPartnerShippingEstimate.md
+docs/Model/ChannelPartnersResponse.md
 docs/Model/ChargebackDispute.md
 docs/Model/ChargebackDisputeResponse.md
 docs/Model/ChargebackDisputesResponse.md
@@ -874,7 +878,11 @@ lib/models/ChannelPartnerOrderItem.php
 lib/models/ChannelPartnerOrderItemOption.php
 lib/models/ChannelPartnerOrderTransaction.php
 lib/models/ChannelPartnerOrderTransactionDetail.php
+lib/models/ChannelPartnerShipToPreference.php
+lib/models/ChannelPartnerShipToPreferenceResponse.php
+lib/models/ChannelPartnerShipToPreferencesResponse.php
 lib/models/ChannelPartnerShippingEstimate.php
+lib/models/ChannelPartnersResponse.php
 lib/models/ChargebackDispute.php
 lib/models/ChargebackDisputeResponse.php
 lib/models/ChargebackDisputesResponse.php

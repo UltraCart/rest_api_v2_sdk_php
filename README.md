@@ -97,9 +97,15 @@ Class | Method | HTTP request | Description
 *AutoOrderApi* | [**updateAutoOrdersBatch**](docs/Api/AutoOrderApi.md#updateautoordersbatch) | **PUT** /auto_order/auto_orders/batch | Update multiple auto orders
 *ChannelPartnerApi* | [**cancelOrderByChannelPartnerOrderId**](docs/Api/ChannelPartnerApi.md#cancelorderbychannelpartnerorderid) | **DELETE** /channel_partner/cancel/by_channel_partner_order_id/{order_id} | Cancel channel partner order by channel partner order id
 *ChannelPartnerApi* | [**cancelOrderByUltraCartOrderId**](docs/Api/ChannelPartnerApi.md#cancelorderbyultracartorderid) | **DELETE** /channel_partner/cancel/by_ultracart_order_id/{order_id} | Cancel channel partner order by UltraCart order id
+*ChannelPartnerApi* | [**deleteChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#deletechannelpartnershiptopreference) | **DELETE** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Delete a ship to preference record for the channel partner.
 *ChannelPartnerApi* | [**estimateShippingForChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#estimateshippingforchannelpartnerorder) | **POST** /channel_partner/estimate_shipping | Estimate shipping for channel partner order
 *ChannelPartnerApi* | [**estimateTaxForChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#estimatetaxforchannelpartnerorder) | **POST** /channel_partner/estimate_tax | Estimate tax for channel partner order
+*ChannelPartnerApi* | [**getChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#getchannelpartnershiptopreference) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Retrieve the ship to preference associated with the channel partner and the specific id.
+*ChannelPartnerApi* | [**getChannelPartnerShipToPreferences**](docs/Api/ChannelPartnerApi.md#getchannelpartnershiptopreferences) | **GET** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Retrieve the ship to preferences associated with the channel partner.
+*ChannelPartnerApi* | [**getChannelPartners**](docs/Api/ChannelPartnerApi.md#getchannelpartners) | **GET** /channel_partner/channel_partners | Retrieve the channel partners configured on the account.
 *ChannelPartnerApi* | [**importChannelPartnerOrder**](docs/Api/ChannelPartnerApi.md#importchannelpartnerorder) | **POST** /channel_partner/import | Insert channel partner order
+*ChannelPartnerApi* | [**insertChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#insertchannelpartnershiptopreference) | **POST** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences | Insert a ship to preference record for the channel partner.
+*ChannelPartnerApi* | [**updateChannelPartnerShipToPreference**](docs/Api/ChannelPartnerApi.md#updatechannelpartnershiptopreference) | **PUT** /channel_partner/channel_partners/{channel_partner_oid}/ship_to_preferences/{channel_partner_ship_to_preference_oid} | Update a ship to preference record for the channel partner.
 *ChargebackApi* | [**deleteChargeback**](docs/Api/ChargebackApi.md#deletechargeback) | **DELETE** /chargeback/chargebacks/{chargeback_dispute_oid} | Delete a chargeback
 *ChargebackApi* | [**getChargebackDispute**](docs/Api/ChargebackApi.md#getchargebackdispute) | **GET** /chargeback/chargebacks/{chargeback_dispute_oid} | Retrieve a chargeback
 *ChargebackApi* | [**getChargebackDisputes**](docs/Api/ChargebackApi.md#getchargebackdisputes) | **GET** /chargeback/chargebacks | Retrieve chargebacks
@@ -584,7 +590,11 @@ Class | Method | HTTP request | Description
 - [ChannelPartnerOrderItemOption](docs/Model/ChannelPartnerOrderItemOption.md)
 - [ChannelPartnerOrderTransaction](docs/Model/ChannelPartnerOrderTransaction.md)
 - [ChannelPartnerOrderTransactionDetail](docs/Model/ChannelPartnerOrderTransactionDetail.md)
+- [ChannelPartnerShipToPreference](docs/Model/ChannelPartnerShipToPreference.md)
+- [ChannelPartnerShipToPreferenceResponse](docs/Model/ChannelPartnerShipToPreferenceResponse.md)
+- [ChannelPartnerShipToPreferencesResponse](docs/Model/ChannelPartnerShipToPreferencesResponse.md)
 - [ChannelPartnerShippingEstimate](docs/Model/ChannelPartnerShippingEstimate.md)
+- [ChannelPartnersResponse](docs/Model/ChannelPartnersResponse.md)
 - [ChargebackDispute](docs/Model/ChargebackDispute.md)
 - [ChargebackDisputeResponse](docs/Model/ChargebackDisputeResponse.md)
 - [ChargebackDisputesResponse](docs/Model/ChargebackDisputesResponse.md)
@@ -1289,6 +1299,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.112-RC | 01/13/2023 | channel - ops to manage ship to prefs |
 | 4.0.111-RC | 01/11/2023 | conversations - adjust search results to return multiple convo summaries |
 | 4.0.110-RC | 01/10/2023 | add method to query integration log record by oid |
 | 4.0.109-RC | 01/10/2023 | bug fix for typescript enum error due to apost |
