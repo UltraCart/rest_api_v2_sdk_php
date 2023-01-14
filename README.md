@@ -1358,6 +1358,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.96 | 01/14/2023 | add external_id to the point of sale location object |
 | 3.10.95 | 01/13/2023 | channel - ops to manage ship to prefs |
 | 3.10.94 | 01/11/2023 | conversations - adjust search results to return multiple convo summaries |
 | 3.10.93 | 01/10/2023 | add method to query integration log record by oid |

@@ -62,6 +62,7 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess
         'city' => 'string',
         'country' => 'string',
         'distribution_center_code' => 'string',
+        'external_id' => 'string',
         'merchant_id' => 'string',
         'pos_location_oid' => 'int',
         'postal_code' => 'string',
@@ -79,6 +80,7 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess
         'city' => null,
         'country' => null,
         'distribution_center_code' => null,
+        'external_id' => null,
         'merchant_id' => null,
         'pos_location_oid' => 'int32',
         'postal_code' => null,
@@ -117,6 +119,7 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess
         'city' => 'city',
         'country' => 'country',
         'distribution_center_code' => 'distribution_center_code',
+        'external_id' => 'external_id',
         'merchant_id' => 'merchant_id',
         'pos_location_oid' => 'pos_location_oid',
         'postal_code' => 'postal_code',
@@ -134,6 +137,7 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess
         'city' => 'setCity',
         'country' => 'setCountry',
         'distribution_center_code' => 'setDistributionCenterCode',
+        'external_id' => 'setExternalId',
         'merchant_id' => 'setMerchantId',
         'pos_location_oid' => 'setPosLocationOid',
         'postal_code' => 'setPostalCode',
@@ -151,6 +155,7 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess
         'city' => 'getCity',
         'country' => 'getCountry',
         'distribution_center_code' => 'getDistributionCenterCode',
+        'external_id' => 'getExternalId',
         'merchant_id' => 'getMerchantId',
         'pos_location_oid' => 'getPosLocationOid',
         'postal_code' => 'getPostalCode',
@@ -222,6 +227,7 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
         $this->container['distribution_center_code'] = isset($data['distribution_center_code']) ? $data['distribution_center_code'] : null;
+        $this->container['external_id'] = isset($data['external_id']) ? $data['external_id'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['pos_location_oid'] = isset($data['pos_location_oid']) ? $data['pos_location_oid'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
@@ -236,6 +242,10 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['external_id']) && (mb_strlen($this->container['external_id']) > 100)) {
+            $invalidProperties[] = "invalid value for 'external_id', the character length must be smaller than or equal to 100.";
+        }
 
         return $invalidProperties;
     }
@@ -368,6 +378,34 @@ class PointOfSaleLocation implements ModelInterface, ArrayAccess
     public function setDistributionCenterCode($distribution_center_code)
     {
         $this->container['distribution_center_code'] = $distribution_center_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets external_id
+     *
+     * @return string
+     */
+    public function getExternalId()
+    {
+        return $this->container['external_id'];
+    }
+
+    /**
+     * Sets external_id
+     *
+     * @param string $external_id External Id useful for syncing with a remote filesystem, this may be an MD5 hash or whatever suits your needs.
+     *
+     * @return $this
+     */
+    public function setExternalId($external_id)
+    {
+        if (!is_null($external_id) && (mb_strlen($external_id) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $external_id when calling PointOfSaleLocation., must be smaller than or equal to 100.');
+        }
+
+        $this->container['external_id'] = $external_id;
 
         return $this;
     }
