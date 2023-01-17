@@ -77,6 +77,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'phsyical' => '\ultracart\v2\models\CartItemPhysical',
         'position' => 'int',
         'preorder' => 'bool',
+        'properties' => '\ultracart\v2\models\CartItemProperty[]',
         'quantity' => 'float',
         'schedules' => 'string[]',
         'total_cost' => '\ultracart\v2\models\Currency',
@@ -114,6 +115,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'phsyical' => null,
         'position' => 'int32',
         'preorder' => null,
+        'properties' => null,
         'quantity' => null,
         'schedules' => null,
         'total_cost' => null,
@@ -172,6 +174,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'phsyical' => 'phsyical',
         'position' => 'position',
         'preorder' => 'preorder',
+        'properties' => 'properties',
         'quantity' => 'quantity',
         'schedules' => 'schedules',
         'total_cost' => 'total_cost',
@@ -209,6 +212,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'phsyical' => 'setPhsyical',
         'position' => 'setPosition',
         'preorder' => 'setPreorder',
+        'properties' => 'setProperties',
         'quantity' => 'setQuantity',
         'schedules' => 'setSchedules',
         'total_cost' => 'setTotalCost',
@@ -246,6 +250,7 @@ class CartItem implements ModelInterface, ArrayAccess
         'phsyical' => 'getPhsyical',
         'position' => 'getPosition',
         'preorder' => 'getPreorder',
+        'properties' => 'getProperties',
         'quantity' => 'getQuantity',
         'schedules' => 'getSchedules',
         'total_cost' => 'getTotalCost',
@@ -337,6 +342,7 @@ class CartItem implements ModelInterface, ArrayAccess
         $this->container['phsyical'] = isset($data['phsyical']) ? $data['phsyical'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['preorder'] = isset($data['preorder']) ? $data['preorder'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['schedules'] = isset($data['schedules']) ? $data['schedules'] : null;
         $this->container['total_cost'] = isset($data['total_cost']) ? $data['total_cost'] : null;
@@ -848,6 +854,30 @@ class CartItem implements ModelInterface, ArrayAccess
     public function setPreorder($preorder)
     {
         $this->container['preorder'] = $preorder;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\CartItemProperty[]
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\CartItemProperty[] $properties Properties associated with the item
+     *
+     * @return $this
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

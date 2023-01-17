@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **phsyical** | [**\ultracart\v2\models\CartItemPhysical**](CartItemPhysical.md) |  | [optional] 
 **position** | **int** | Position of the item in the cart | [optional] 
 **preorder** | **bool** | True if this item is on pre-order | [optional] 
+**properties** | [**\ultracart\v2\models\CartItemProperty[]**](CartItemProperty.md) | Properties associated with the item | [optional] 
 **quantity** | **float** | quantity | [optional] 
 **schedules** | **string[]** | Customer selectable auto order schedules | [optional] 
 **total_cost** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
