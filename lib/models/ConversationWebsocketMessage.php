@@ -268,7 +268,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     const EVENT_TYPE_RRWEB = 'rrweb';
     const EVENT_TYPE_PARTICIPANT_UPDATE = 'participant update';
     const EVENT_TYPE_PARTICIPANT_JOIN = 'participant join';
-    const EVENT_TYPE_PARTICIPANT_LEAVE = 'participant leave';
+    const EVENT_TYPE_PARTICIPANT_LEFT = 'participant left';
     const EVENT_TYPE_READ_MESSAGE = 'read message';
     const EVENT_TYPE_TYPING = 'typing';
     const EVENT_TYPE_ADD_COUPON = 'add coupon';
@@ -299,7 +299,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
             self::EVENT_TYPE_RRWEB,
             self::EVENT_TYPE_PARTICIPANT_UPDATE,
             self::EVENT_TYPE_PARTICIPANT_JOIN,
-            self::EVENT_TYPE_PARTICIPANT_LEAVE,
+            self::EVENT_TYPE_PARTICIPANT_LEFT,
             self::EVENT_TYPE_READ_MESSAGE,
             self::EVENT_TYPE_TYPING,
             self::EVENT_TYPE_ADD_COUPON,
