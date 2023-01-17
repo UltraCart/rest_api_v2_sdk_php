@@ -84,6 +84,7 @@ docs/Model/CartItemMultimediaThumbnail.md
 docs/Model/CartItemOption.md
 docs/Model/CartItemOptionValue.md
 docs/Model/CartItemPhysical.md
+docs/Model/CartItemProperty.md
 docs/Model/CartItemVariationSelection.md
 docs/Model/CartKitComponentOption.md
 docs/Model/CartMarketing.md
@@ -833,6 +834,7 @@ lib/models/CartItemMultimediaThumbnail.php
 lib/models/CartItemOption.php
 lib/models/CartItemOptionValue.php
 lib/models/CartItemPhysical.php
+lib/models/CartItemProperty.php
 lib/models/CartItemVariationSelection.php
 lib/models/CartKitComponentOption.php
 lib/models/CartMarketing.php

@@ -545,6 +545,7 @@ Class | Method | HTTP request | Description
 - [CartItemOption](docs/Model/CartItemOption.md)
 - [CartItemOptionValue](docs/Model/CartItemOptionValue.md)
 - [CartItemPhysical](docs/Model/CartItemPhysical.md)
+- [CartItemProperty](docs/Model/CartItemProperty.md)
 - [CartItemVariationSelection](docs/Model/CartItemVariationSelection.md)
 - [CartKitComponentOption](docs/Model/CartKitComponentOption.md)
 - [CartMarketing](docs/Model/CartMarketing.md)
@@ -1299,6 +1300,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.114-RC | 01/17/2023 | support for checkout item properties |
 | 4.0.113-RC | 01/14/2023 | add external_id to the point of sale location object |
 | 4.0.112-RC | 01/13/2023 | channel - ops to manage ship to prefs |
 | 4.0.111-RC | 01/11/2023 | conversations - adjust search results to return multiple convo summaries |
