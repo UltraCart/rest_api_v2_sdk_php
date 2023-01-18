@@ -157,6 +157,7 @@ docs/Model/ConversationCannedMessagesResponse.md
 docs/Model/ConversationCannedMessagesSearch.md
 docs/Model/ConversationDepartment.md
 docs/Model/ConversationDepartmentMember.md
+docs/Model/ConversationDepartmentMembersResponse.md
 docs/Model/ConversationDepartmentResponse.md
 docs/Model/ConversationDepartmentsResponse.md
 docs/Model/ConversationEngagement.md
@@ -908,6 +909,7 @@ lib/models/ConversationCannedMessagesResponse.php
 lib/models/ConversationCannedMessagesSearch.php
 lib/models/ConversationDepartment.php
 lib/models/ConversationDepartmentMember.php
+lib/models/ConversationDepartmentMembersResponse.php
 lib/models/ConversationDepartmentResponse.php
 lib/models/ConversationDepartmentsResponse.php
 lib/models/ConversationEngagement.php
