@@ -60,6 +60,7 @@ class ChannelPartnerShipToPreference implements ModelInterface, ArrayAccess
         'additional_kit_component_item_ids' => 'string[]',
         'channel_partner_oid' => 'int',
         'channel_partner_ship_to_preference_oid' => 'int',
+        'description' => 'string',
         'merchant_id' => 'string',
         'return_policy' => 'string',
         'ship_to_edi_code' => 'string'
@@ -74,6 +75,7 @@ class ChannelPartnerShipToPreference implements ModelInterface, ArrayAccess
         'additional_kit_component_item_ids' => null,
         'channel_partner_oid' => 'int32',
         'channel_partner_ship_to_preference_oid' => 'int32',
+        'description' => null,
         'merchant_id' => null,
         'return_policy' => null,
         'ship_to_edi_code' => null
@@ -109,6 +111,7 @@ class ChannelPartnerShipToPreference implements ModelInterface, ArrayAccess
         'additional_kit_component_item_ids' => 'additional_kit_component_item_ids',
         'channel_partner_oid' => 'channel_partner_oid',
         'channel_partner_ship_to_preference_oid' => 'channel_partner_ship_to_preference_oid',
+        'description' => 'description',
         'merchant_id' => 'merchant_id',
         'return_policy' => 'return_policy',
         'ship_to_edi_code' => 'ship_to_edi_code'
@@ -123,6 +126,7 @@ class ChannelPartnerShipToPreference implements ModelInterface, ArrayAccess
         'additional_kit_component_item_ids' => 'setAdditionalKitComponentItemIds',
         'channel_partner_oid' => 'setChannelPartnerOid',
         'channel_partner_ship_to_preference_oid' => 'setChannelPartnerShipToPreferenceOid',
+        'description' => 'setDescription',
         'merchant_id' => 'setMerchantId',
         'return_policy' => 'setReturnPolicy',
         'ship_to_edi_code' => 'setShipToEdiCode'
@@ -137,6 +141,7 @@ class ChannelPartnerShipToPreference implements ModelInterface, ArrayAccess
         'additional_kit_component_item_ids' => 'getAdditionalKitComponentItemIds',
         'channel_partner_oid' => 'getChannelPartnerOid',
         'channel_partner_ship_to_preference_oid' => 'getChannelPartnerShipToPreferenceOid',
+        'description' => 'getDescription',
         'merchant_id' => 'getMerchantId',
         'return_policy' => 'getReturnPolicy',
         'ship_to_edi_code' => 'getShipToEdiCode'
@@ -205,6 +210,7 @@ class ChannelPartnerShipToPreference implements ModelInterface, ArrayAccess
         $this->container['additional_kit_component_item_ids'] = isset($data['additional_kit_component_item_ids']) ? $data['additional_kit_component_item_ids'] : null;
         $this->container['channel_partner_oid'] = isset($data['channel_partner_oid']) ? $data['channel_partner_oid'] : null;
         $this->container['channel_partner_ship_to_preference_oid'] = isset($data['channel_partner_ship_to_preference_oid']) ? $data['channel_partner_ship_to_preference_oid'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['return_policy'] = isset($data['return_policy']) ? $data['return_policy'] : null;
         $this->container['ship_to_edi_code'] = isset($data['ship_to_edi_code']) ? $data['ship_to_edi_code'] : null;
@@ -218,6 +224,10 @@ class ChannelPartnerShipToPreference implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 100)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 100.";
+        }
 
         return $invalidProperties;
     }
@@ -302,6 +312,34 @@ class ChannelPartnerShipToPreference implements ModelInterface, ArrayAccess
     public function setChannelPartnerShipToPreferenceOid($channel_partner_ship_to_preference_oid)
     {
         $this->container['channel_partner_ship_to_preference_oid'] = $channel_partner_ship_to_preference_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description A description that is meaningful to the merchant.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        if (!is_null($description) && (mb_strlen($description) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling ChannelPartnerShipToPreference., must be smaller than or equal to 100.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }
