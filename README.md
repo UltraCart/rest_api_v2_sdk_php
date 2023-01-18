@@ -690,6 +690,7 @@ Class | Method | HTTP request | Description
  - [ConversationCannedMessagesResponse](docs/Model/ConversationCannedMessagesResponse.md)
  - [ConversationCannedMessagesSearch](docs/Model/ConversationCannedMessagesSearch.md)
  - [ConversationDepartment](docs/Model/ConversationDepartment.md)
+ - [ConversationDepartmentMember](docs/Model/ConversationDepartmentMember.md)
  - [ConversationDepartmentResponse](docs/Model/ConversationDepartmentResponse.md)
  - [ConversationDepartmentSettings](docs/Model/ConversationDepartmentSettings.md)
  - [ConversationDepartmentsResponse](docs/Model/ConversationDepartmentsResponse.md)
@@ -1359,6 +1360,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.100 | 01/18/2023 | conversation dept members |
 | 3.10.99 | 01/18/2023 | channel partner ship to pref desc field |
 | 3.10.98 | 01/17/2023 | changed convo webchat constant |
 | 3.10.97 | 01/17/2023 | support for checkout item properties |

@@ -60,6 +60,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
         'conversation_departments' => '\ultracart\v2\models\ConversationDepartment[]',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'read_only' => 'bool',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -73,6 +74,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
         'conversation_departments' => null,
         'error' => null,
         'metadata' => null,
+        'read_only' => null,
         'success' => null,
         'warning' => null
     ];
@@ -107,6 +109,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
         'conversation_departments' => 'conversation_departments',
         'error' => 'error',
         'metadata' => 'metadata',
+        'read_only' => 'read_only',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -120,6 +123,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
         'conversation_departments' => 'setConversationDepartments',
         'error' => 'setError',
         'metadata' => 'setMetadata',
+        'read_only' => 'setReadOnly',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -133,6 +137,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
         'conversation_departments' => 'getConversationDepartments',
         'error' => 'getError',
         'metadata' => 'getMetadata',
+        'read_only' => 'getReadOnly',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -200,6 +205,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
         $this->container['conversation_departments'] = isset($data['conversation_departments']) ? $data['conversation_departments'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['read_only'] = isset($data['read_only']) ? $data['read_only'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
@@ -296,6 +302,30 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets read_only
+     *
+     * @return bool
+     */
+    public function getReadOnly()
+    {
+        return $this->container['read_only'];
+    }
+
+    /**
+     * Sets read_only
+     *
+     * @param bool $read_only read_only
+     *
+     * @return $this
+     */
+    public function setReadOnly($read_only)
+    {
+        $this->container['read_only'] = $read_only;
 
         return $this;
     }

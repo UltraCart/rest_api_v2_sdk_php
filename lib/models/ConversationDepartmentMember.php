@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationDepartment
+ * ConversationDepartmentMember
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationDepartment Class Doc Comment
+ * ConversationDepartmentMember Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationDepartment implements ModelInterface, ArrayAccess
+class ConversationDepartmentMember implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationDepartment';
+    protected static $swaggerModelName = 'ConversationDepartmentMember';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,9 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation_department_oid' => 'int',
-        'department_name' => 'string',
-        'members' => '\ultracart\v2\models\ConversationDepartmentMember[]',
-        'merchant_id' => 'string',
-        'settings' => '\ultracart\v2\models\ConversationDepartmentSettings'
+        'member' => 'bool',
+        'name' => 'string',
+        'user_id' => 'int'
     ];
 
     /**
@@ -70,11 +68,9 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation_department_oid' => 'int32',
-        'department_name' => null,
-        'members' => null,
-        'merchant_id' => null,
-        'settings' => null
+        'member' => null,
+        'name' => null,
+        'user_id' => 'int32'
     ];
 
     /**
@@ -104,11 +100,9 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_department_oid' => 'conversation_department_oid',
-        'department_name' => 'department_name',
-        'members' => 'members',
-        'merchant_id' => 'merchant_id',
-        'settings' => 'settings'
+        'member' => 'member',
+        'name' => 'name',
+        'user_id' => 'user_id'
     ];
 
     /**
@@ -117,11 +111,9 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversation_department_oid' => 'setConversationDepartmentOid',
-        'department_name' => 'setDepartmentName',
-        'members' => 'setMembers',
-        'merchant_id' => 'setMerchantId',
-        'settings' => 'setSettings'
+        'member' => 'setMember',
+        'name' => 'setName',
+        'user_id' => 'setUserId'
     ];
 
     /**
@@ -130,11 +122,9 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversation_department_oid' => 'getConversationDepartmentOid',
-        'department_name' => 'getDepartmentName',
-        'members' => 'getMembers',
-        'merchant_id' => 'getMerchantId',
-        'settings' => 'getSettings'
+        'member' => 'getMember',
+        'name' => 'getName',
+        'user_id' => 'getUserId'
     ];
 
     /**
@@ -197,11 +187,9 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_department_oid'] = isset($data['conversation_department_oid']) ? $data['conversation_department_oid'] : null;
-        $this->container['department_name'] = isset($data['department_name']) ? $data['department_name'] : null;
-        $this->container['members'] = isset($data['members']) ? $data['members'] : null;
-        $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
-        $this->container['settings'] = isset($data['settings']) ? $data['settings'] : null;
+        $this->container['member'] = isset($data['member']) ? $data['member'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
     }
 
     /**
@@ -229,121 +217,73 @@ class ConversationDepartment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets conversation_department_oid
+     * Gets member
+     *
+     * @return bool
+     */
+    public function getMember()
+    {
+        return $this->container['member'];
+    }
+
+    /**
+     * Sets member
+     *
+     * @param bool $member member
+     *
+     * @return $this
+     */
+    public function setMember($member)
+    {
+        $this->container['member'] = $member;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
      *
      * @return int
      */
-    public function getConversationDepartmentOid()
+    public function getUserId()
     {
-        return $this->container['conversation_department_oid'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets conversation_department_oid
+     * Sets user_id
      *
-     * @param int $conversation_department_oid conversation_department_oid
+     * @param int $user_id user_id
      *
      * @return $this
      */
-    public function setConversationDepartmentOid($conversation_department_oid)
+    public function setUserId($user_id)
     {
-        $this->container['conversation_department_oid'] = $conversation_department_oid;
-
-        return $this;
-    }
-
-    /**
-     * Gets department_name
-     *
-     * @return string
-     */
-    public function getDepartmentName()
-    {
-        return $this->container['department_name'];
-    }
-
-    /**
-     * Sets department_name
-     *
-     * @param string $department_name department_name
-     *
-     * @return $this
-     */
-    public function setDepartmentName($department_name)
-    {
-        $this->container['department_name'] = $department_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets members
-     *
-     * @return \ultracart\v2\models\ConversationDepartmentMember[]
-     */
-    public function getMembers()
-    {
-        return $this->container['members'];
-    }
-
-    /**
-     * Sets members
-     *
-     * @param \ultracart\v2\models\ConversationDepartmentMember[] $members members
-     *
-     * @return $this
-     */
-    public function setMembers($members)
-    {
-        $this->container['members'] = $members;
-
-        return $this;
-    }
-
-    /**
-     * Gets merchant_id
-     *
-     * @return string
-     */
-    public function getMerchantId()
-    {
-        return $this->container['merchant_id'];
-    }
-
-    /**
-     * Sets merchant_id
-     *
-     * @param string $merchant_id merchant_id
-     *
-     * @return $this
-     */
-    public function setMerchantId($merchant_id)
-    {
-        $this->container['merchant_id'] = $merchant_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets settings
-     *
-     * @return \ultracart\v2\models\ConversationDepartmentSettings
-     */
-    public function getSettings()
-    {
-        return $this->container['settings'];
-    }
-
-    /**
-     * Sets settings
-     *
-     * @param \ultracart\v2\models\ConversationDepartmentSettings $settings settings
-     *
-     * @return $this
-     */
-    public function setSettings($settings)
-    {
-        $this->container['settings'] = $settings;
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
