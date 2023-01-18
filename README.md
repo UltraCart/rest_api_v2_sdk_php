@@ -1300,6 +1300,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.116-RC | 01/18/2023 | channel partner ship to pref desc field |
 | 4.0.115-RC | 01/17/2023 | changed convo webchat constant |
 | 4.0.114-RC | 01/17/2023 | support for checkout item properties |
 | 4.0.113-RC | 01/14/2023 | add external_id to the point of sale location object |
