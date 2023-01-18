@@ -210,6 +210,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationCannedMessages**](docs/Api/ConversationApi.md#getconversationcannedmessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
 *ConversationApi* | [**getConversationContext**](docs/Api/ConversationApi.md#getconversationcontext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
+*ConversationApi* | [**getConversationDepartmentMemberList**](docs/Api/ConversationApi.md#getconversationdepartmentmemberlist) | **GET** /conversation/department_members | Retrieve a list of possible department members
 *ConversationApi* | [**getConversationDepartments**](docs/Api/ConversationApi.md#getconversationdepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
 *ConversationApi* | [**getConversationEngagements**](docs/Api/ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
@@ -691,6 +692,7 @@ Class | Method | HTTP request | Description
  - [ConversationCannedMessagesSearch](docs/Model/ConversationCannedMessagesSearch.md)
  - [ConversationDepartment](docs/Model/ConversationDepartment.md)
  - [ConversationDepartmentMember](docs/Model/ConversationDepartmentMember.md)
+ - [ConversationDepartmentMembersResponse](docs/Model/ConversationDepartmentMembersResponse.md)
  - [ConversationDepartmentResponse](docs/Model/ConversationDepartmentResponse.md)
  - [ConversationDepartmentSettings](docs/Model/ConversationDepartmentSettings.md)
  - [ConversationDepartmentsResponse](docs/Model/ConversationDepartmentsResponse.md)
@@ -1360,6 +1362,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.101 | 01/18/2023 | conversation get dept member list method added |
 | 3.10.100 | 01/18/2023 | conversation dept members |
 | 3.10.99 | 01/18/2023 | channel partner ship to pref desc field |
 | 3.10.98 | 01/17/2023 | changed convo webchat constant |
