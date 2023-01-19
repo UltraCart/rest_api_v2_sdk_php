@@ -60,6 +60,7 @@ Name | Type | Description | Notes
 **restrict_by_postal_codes** | **string[]** | Optional list of postal codes which restrict a coupon to within these postal codes. | [optional]
 **restrict_by_screen_branding_theme_codes** | [**\ultracart\v2\models\CouponRestriction[]**](CouponRestriction.md) | Optional list of legacy screen branding theme codes to limit coupon use to only those themes. | [optional]
 **restrict_by_storefronts** | [**\ultracart\v2\models\CouponRestriction[]**](CouponRestriction.md) | Optional list of storefronts to limit coupon use to only those storefronts. | [optional]
+**skip_on_rebill** | **bool** | Skip this coupon when it is on a rebill of an auto order. | [optional]
 **start_dts** | **string** | Date/time when coupon is valid | [optional]
 **super_coupon** | **bool** | If true, this coupon can be used with ANY other coupon regardless of the other coupons configuration | [optional]
 **tiered_amount_off_items** | [**\ultracart\v2\models\CouponTieredAmountOffItems**](CouponTieredAmountOffItems.md) |  | [optional]
