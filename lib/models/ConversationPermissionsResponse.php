@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationDepartmentsResponse
+ * ConversationPermissionsResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationDepartmentsResponse Class Doc Comment
+ * ConversationPermissionsResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
+class ConversationPermissionsResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConversationDepartmentsResponse';
+    protected static $swaggerModelName = 'ConversationPermissionsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'conversation_departments' => '\ultracart\v2\models\ConversationDepartment[]',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'permissions' => '\ultracart\v2\models\ConversationPermissions',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -70,9 +70,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'conversation_departments' => null,
         'error' => null,
         'metadata' => null,
+        'permissions' => null,
         'success' => null,
         'warning' => null
     ];
@@ -104,9 +104,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_departments' => 'conversation_departments',
         'error' => 'error',
         'metadata' => 'metadata',
+        'permissions' => 'permissions',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -117,9 +117,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'conversation_departments' => 'setConversationDepartments',
         'error' => 'setError',
         'metadata' => 'setMetadata',
+        'permissions' => 'setPermissions',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -130,9 +130,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'conversation_departments' => 'getConversationDepartments',
         'error' => 'getError',
         'metadata' => 'getMetadata',
+        'permissions' => 'getPermissions',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -197,9 +197,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_departments'] = isset($data['conversation_departments']) ? $data['conversation_departments'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
@@ -227,30 +227,6 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets conversation_departments
-     *
-     * @return \ultracart\v2\models\ConversationDepartment[]
-     */
-    public function getConversationDepartments()
-    {
-        return $this->container['conversation_departments'];
-    }
-
-    /**
-     * Sets conversation_departments
-     *
-     * @param \ultracart\v2\models\ConversationDepartment[] $conversation_departments conversation_departments
-     *
-     * @return $this
-     */
-    public function setConversationDepartments($conversation_departments)
-    {
-        $this->container['conversation_departments'] = $conversation_departments;
-
-        return $this;
-    }
 
     /**
      * Gets error
@@ -296,6 +272,30 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets permissions
+     *
+     * @return \ultracart\v2\models\ConversationPermissions
+     */
+    public function getPermissions()
+    {
+        return $this->container['permissions'];
+    }
+
+    /**
+     * Sets permissions
+     *
+     * @param \ultracart\v2\models\ConversationPermissions $permissions permissions
+     *
+     * @return $this
+     */
+    public function setPermissions($permissions)
+    {
+        $this->container['permissions'] = $permissions;
 
         return $this;
     }
