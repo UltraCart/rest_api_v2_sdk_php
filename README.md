@@ -1365,6 +1365,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.103 | 01/19/2023 | added skip_on_rebill field to coupon object |
 | 3.10.102 | 01/19/2023 | convo - getConversationPermissions added |
 | 3.10.101 | 01/18/2023 | conversation get dept member list method added |
 | 3.10.100 | 01/18/2023 | conversation dept members |

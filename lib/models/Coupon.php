@@ -113,6 +113,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_postal_codes' => 'string[]',
         'restrict_by_screen_branding_theme_codes' => '\ultracart\v2\models\CouponRestriction[]',
         'restrict_by_storefronts' => '\ultracart\v2\models\CouponRestriction[]',
+        'skip_on_rebill' => 'bool',
         'start_dts' => 'string',
         'super_coupon' => 'bool',
         'tiered_amount_off_items' => '\ultracart\v2\models\CouponTieredAmountOffItems',
@@ -186,6 +187,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_postal_codes' => null,
         'restrict_by_screen_branding_theme_codes' => null,
         'restrict_by_storefronts' => null,
+        'skip_on_rebill' => null,
         'start_dts' => 'dateTime',
         'super_coupon' => null,
         'tiered_amount_off_items' => null,
@@ -280,6 +282,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_postal_codes' => 'restrict_by_postal_codes',
         'restrict_by_screen_branding_theme_codes' => 'restrict_by_screen_branding_theme_codes',
         'restrict_by_storefronts' => 'restrict_by_storefronts',
+        'skip_on_rebill' => 'skip_on_rebill',
         'start_dts' => 'start_dts',
         'super_coupon' => 'super_coupon',
         'tiered_amount_off_items' => 'tiered_amount_off_items',
@@ -353,6 +356,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_postal_codes' => 'setRestrictByPostalCodes',
         'restrict_by_screen_branding_theme_codes' => 'setRestrictByScreenBrandingThemeCodes',
         'restrict_by_storefronts' => 'setRestrictByStorefronts',
+        'skip_on_rebill' => 'setSkipOnRebill',
         'start_dts' => 'setStartDts',
         'super_coupon' => 'setSuperCoupon',
         'tiered_amount_off_items' => 'setTieredAmountOffItems',
@@ -426,6 +430,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'restrict_by_postal_codes' => 'getRestrictByPostalCodes',
         'restrict_by_screen_branding_theme_codes' => 'getRestrictByScreenBrandingThemeCodes',
         'restrict_by_storefronts' => 'getRestrictByStorefronts',
+        'skip_on_rebill' => 'getSkipOnRebill',
         'start_dts' => 'getStartDts',
         'super_coupon' => 'getSuperCoupon',
         'tiered_amount_off_items' => 'getTieredAmountOffItems',
@@ -553,6 +558,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['restrict_by_postal_codes'] = isset($data['restrict_by_postal_codes']) ? $data['restrict_by_postal_codes'] : null;
         $this->container['restrict_by_screen_branding_theme_codes'] = isset($data['restrict_by_screen_branding_theme_codes']) ? $data['restrict_by_screen_branding_theme_codes'] : null;
         $this->container['restrict_by_storefronts'] = isset($data['restrict_by_storefronts']) ? $data['restrict_by_storefronts'] : null;
+        $this->container['skip_on_rebill'] = isset($data['skip_on_rebill']) ? $data['skip_on_rebill'] : null;
         $this->container['start_dts'] = isset($data['start_dts']) ? $data['start_dts'] : null;
         $this->container['super_coupon'] = isset($data['super_coupon']) ? $data['super_coupon'] : null;
         $this->container['tiered_amount_off_items'] = isset($data['tiered_amount_off_items']) ? $data['tiered_amount_off_items'] : null;
@@ -1972,6 +1978,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setRestrictByStorefronts($restrict_by_storefronts)
     {
         $this->container['restrict_by_storefronts'] = $restrict_by_storefronts;
+
+        return $this;
+    }
+
+    /**
+     * Gets skip_on_rebill
+     *
+     * @return bool
+     */
+    public function getSkipOnRebill()
+    {
+        return $this->container['skip_on_rebill'];
+    }
+
+    /**
+     * Sets skip_on_rebill
+     *
+     * @param bool $skip_on_rebill Skip this coupon when it is on a rebill of an auto order.
+     *
+     * @return $this
+     */
+    public function setSkipOnRebill($skip_on_rebill)
+    {
+        $this->container['skip_on_rebill'] = $skip_on_rebill;
 
         return $this;
     }
