@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationDepartmentsResponse
+ * ConversationPermissions
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationDepartmentsResponse Class Doc Comment
+ * ConversationPermissions Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationPermissions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationDepartmentsResponse';
+    protected static $openAPIModelName = 'ConversationPermissions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'conversation_departments' => '\ultracart\v2\models\ConversationDepartment[]',
-        'error' => '\ultracart\v2\models\Error',
-        'metadata' => '\ultracart\v2\models\ResponseMetadata',
-        'success' => 'bool',
-        'warning' => '\ultracart\v2\models\Warning'
+        'edit_settings' => 'bool'
     ];
 
     /**
@@ -73,11 +69,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'conversation_departments' => null,
-        'error' => null,
-        'metadata' => null,
-        'success' => null,
-        'warning' => null
+        'edit_settings' => null
     ];
 
     /**
@@ -107,11 +99,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_departments' => 'conversation_departments',
-        'error' => 'error',
-        'metadata' => 'metadata',
-        'success' => 'success',
-        'warning' => 'warning'
+        'edit_settings' => 'edit_settings'
     ];
 
     /**
@@ -120,11 +108,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'conversation_departments' => 'setConversationDepartments',
-        'error' => 'setError',
-        'metadata' => 'setMetadata',
-        'success' => 'setSuccess',
-        'warning' => 'setWarning'
+        'edit_settings' => 'setEditSettings'
     ];
 
     /**
@@ -133,11 +117,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'conversation_departments' => 'getConversationDepartments',
-        'error' => 'getError',
-        'metadata' => 'getMetadata',
-        'success' => 'getSuccess',
-        'warning' => 'getWarning'
+        'edit_settings' => 'getEditSettings'
     ];
 
     /**
@@ -197,11 +177,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_departments'] = $data['conversation_departments'] ?? null;
-        $this->container['error'] = $data['error'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['warning'] = $data['warning'] ?? null;
+        $this->container['edit_settings'] = $data['edit_settings'] ?? null;
     }
 
     /**
@@ -229,121 +205,25 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets conversation_departments
-     *
-     * @return \ultracart\v2\models\ConversationDepartment[]|null
-     */
-    public function getConversationDepartments()
-    {
-        return $this->container['conversation_departments'];
-    }
-
-    /**
-     * Sets conversation_departments
-     *
-     * @param \ultracart\v2\models\ConversationDepartment[]|null $conversation_departments conversation_departments
-     *
-     * @return self
-     */
-    public function setConversationDepartments($conversation_departments)
-    {
-        $this->container['conversation_departments'] = $conversation_departments;
-
-        return $this;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return \ultracart\v2\models\Error|null
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param \ultracart\v2\models\Error|null $error error
-     *
-     * @return self
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return \ultracart\v2\models\ResponseMetadata|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param \ultracart\v2\models\ResponseMetadata|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
+     * Gets edit_settings
      *
      * @return bool|null
      */
-    public function getSuccess()
+    public function getEditSettings()
     {
-        return $this->container['success'];
+        return $this->container['edit_settings'];
     }
 
     /**
-     * Sets success
+     * Sets edit_settings
      *
-     * @param bool|null $success Indicates if API call was successful
+     * @param bool|null $edit_settings edit_settings
      *
      * @return self
      */
-    public function setSuccess($success)
+    public function setEditSettings($edit_settings)
     {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets warning
-     *
-     * @return \ultracart\v2\models\Warning|null
-     */
-    public function getWarning()
-    {
-        return $this->container['warning'];
-    }
-
-    /**
-     * Sets warning
-     *
-     * @param \ultracart\v2\models\Warning|null $warning warning
-     *
-     * @return self
-     */
-    public function setWarning($warning)
-    {
-        $this->container['warning'] = $warning;
+        $this->container['edit_settings'] = $edit_settings;
 
         return $this;
     }

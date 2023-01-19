@@ -1,6 +1,6 @@
 <?php
 /**
- * ConversationDepartmentsResponse
+ * ConversationPermissionsResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ConversationDepartmentsResponse Class Doc Comment
+ * ConversationPermissionsResponse Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConversationPermissionsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ConversationDepartmentsResponse';
+    protected static $openAPIModelName = 'ConversationPermissionsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'conversation_departments' => '\ultracart\v2\models\ConversationDepartment[]',
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'permissions' => '\ultracart\v2\models\ConversationPermissions',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -73,9 +73,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'conversation_departments' => null,
         'error' => null,
         'metadata' => null,
+        'permissions' => null,
         'success' => null,
         'warning' => null
     ];
@@ -107,9 +107,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'conversation_departments' => 'conversation_departments',
         'error' => 'error',
         'metadata' => 'metadata',
+        'permissions' => 'permissions',
         'success' => 'success',
         'warning' => 'warning'
     ];
@@ -120,9 +120,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'conversation_departments' => 'setConversationDepartments',
         'error' => 'setError',
         'metadata' => 'setMetadata',
+        'permissions' => 'setPermissions',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
     ];
@@ -133,9 +133,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'conversation_departments' => 'getConversationDepartments',
         'error' => 'getError',
         'metadata' => 'getMetadata',
+        'permissions' => 'getPermissions',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
     ];
@@ -197,9 +197,9 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->container['conversation_departments'] = $data['conversation_departments'] ?? null;
         $this->container['error'] = $data['error'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['permissions'] = $data['permissions'] ?? null;
         $this->container['success'] = $data['success'] ?? null;
         $this->container['warning'] = $data['warning'] ?? null;
     }
@@ -227,30 +227,6 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets conversation_departments
-     *
-     * @return \ultracart\v2\models\ConversationDepartment[]|null
-     */
-    public function getConversationDepartments()
-    {
-        return $this->container['conversation_departments'];
-    }
-
-    /**
-     * Sets conversation_departments
-     *
-     * @param \ultracart\v2\models\ConversationDepartment[]|null $conversation_departments conversation_departments
-     *
-     * @return self
-     */
-    public function setConversationDepartments($conversation_departments)
-    {
-        $this->container['conversation_departments'] = $conversation_departments;
-
-        return $this;
-    }
 
     /**
      * Gets error
@@ -296,6 +272,30 @@ class ConversationDepartmentsResponse implements ModelInterface, ArrayAccess, \J
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets permissions
+     *
+     * @return \ultracart\v2\models\ConversationPermissions|null
+     */
+    public function getPermissions()
+    {
+        return $this->container['permissions'];
+    }
+
+    /**
+     * Sets permissions
+     *
+     * @param \ultracart\v2\models\ConversationPermissions|null $permissions permissions
+     *
+     * @return self
+     */
+    public function setPermissions($permissions)
+    {
+        $this->container['permissions'] = $permissions;
 
         return $this;
     }

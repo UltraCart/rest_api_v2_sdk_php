@@ -143,6 +143,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationEngagements**](docs/Api/ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
+*ConversationApi* | [**getConversationPermissions**](docs/Api/ConversationApi.md#getconversationpermissions) | **GET** /conversation/permissions | Retrieve conversation permissions
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/Api/ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/Api/ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**getConversationsAutocomplete**](docs/Api/ConversationApi.md#getconversationsautocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
@@ -643,6 +644,8 @@ Class | Method | HTTP request | Description
 - [ConversationMultimediaUploadUrl](docs/Model/ConversationMultimediaUploadUrl.md)
 - [ConversationMultimediaUploadUrlResponse](docs/Model/ConversationMultimediaUploadUrlResponse.md)
 - [ConversationParticipant](docs/Model/ConversationParticipant.md)
+- [ConversationPermissions](docs/Model/ConversationPermissions.md)
+- [ConversationPermissionsResponse](docs/Model/ConversationPermissionsResponse.md)
 - [ConversationResponse](docs/Model/ConversationResponse.md)
 - [ConversationSearchRequest](docs/Model/ConversationSearchRequest.md)
 - [ConversationSearchResponse](docs/Model/ConversationSearchResponse.md)
@@ -1303,6 +1306,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.119-RC | 01/19/2023 | convo - getConversationPermissions added |
 | 4.0.118-RC | 01/18/2023 | conversation get dept member list method added |
 | 4.0.117-RC | 01/18/2023 | conversation dept members |
 | 4.0.116-RC | 01/18/2023 | channel partner ship to pref desc field |

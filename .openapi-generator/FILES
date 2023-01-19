@@ -181,6 +181,8 @@ docs/Model/ConversationMessagesResponse.md
 docs/Model/ConversationMultimediaUploadUrl.md
 docs/Model/ConversationMultimediaUploadUrlResponse.md
 docs/Model/ConversationParticipant.md
+docs/Model/ConversationPermissions.md
+docs/Model/ConversationPermissionsResponse.md
 docs/Model/ConversationResponse.md
 docs/Model/ConversationSearchRequest.md
 docs/Model/ConversationSearchResponse.md
@@ -933,6 +935,8 @@ lib/models/ConversationMessagesResponse.php
 lib/models/ConversationMultimediaUploadUrl.php
 lib/models/ConversationMultimediaUploadUrlResponse.php
 lib/models/ConversationParticipant.php
+lib/models/ConversationPermissions.php
+lib/models/ConversationPermissionsResponse.php
 lib/models/ConversationResponse.php
 lib/models/ConversationSearchRequest.php
 lib/models/ConversationSearchResponse.php
