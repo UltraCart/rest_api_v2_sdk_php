@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationContext**](docs/Api/ConversationApi.md#getconversationcontext) | **PUT** /conversation/conversations/{conversation_uuid}/context | Get a webchat conversation context
 *ConversationApi* | [**getConversationDepartmentMemberList**](docs/Api/ConversationApi.md#getconversationdepartmentmemberlist) | **GET** /conversation/department_members | Retrieve a list of possible department members
 *ConversationApi* | [**getConversationDepartments**](docs/Api/ConversationApi.md#getconversationdepartments) | **GET** /conversation/departments | Retrieve a list of departments ordered by name
+*ConversationApi* | [**getConversationEngagement**](docs/Api/ConversationApi.md#getconversationengagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/Api/ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
 *ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
@@ -1084,6 +1085,7 @@ Class | Method | HTTP request | Description
 - [OrderTokenResponse](docs/Model/OrderTokenResponse.md)
 - [OrderTrackingNumberDetail](docs/Model/OrderTrackingNumberDetail.md)
 - [OrderTrackingNumberDetails](docs/Model/OrderTrackingNumberDetails.md)
+- [OrderTransactionalMerchantNote](docs/Model/OrderTransactionalMerchantNote.md)
 - [OrdersResponse](docs/Model/OrdersResponse.md)
 - [Permission](docs/Model/Permission.md)
 - [PointOfSaleLocation](docs/Model/PointOfSaleLocation.md)
@@ -1306,6 +1308,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.121-RC | 01/23/2023 | conversation - method to fetch single engagement record |
 | 4.0.120-RC | 01/19/2023 | added skip_on_rebill field to coupon object |
 | 4.0.119-RC | 01/19/2023 | convo - getConversationPermissions added |
 | 4.0.118-RC | 01/18/2023 | conversation get dept member list method added |

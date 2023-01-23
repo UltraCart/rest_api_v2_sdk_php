@@ -621,6 +621,7 @@ docs/Model/OrderTaxes.md
 docs/Model/OrderTokenResponse.md
 docs/Model/OrderTrackingNumberDetail.md
 docs/Model/OrderTrackingNumberDetails.md
+docs/Model/OrderTransactionalMerchantNote.md
 docs/Model/OrdersResponse.md
 docs/Model/Permission.md
 docs/Model/PointOfSaleLocation.md
@@ -1376,6 +1377,7 @@ lib/models/OrderTaxes.php
 lib/models/OrderTokenResponse.php
 lib/models/OrderTrackingNumberDetail.php
 lib/models/OrderTrackingNumberDetails.php
+lib/models/OrderTransactionalMerchantNote.php
 lib/models/OrdersResponse.php
 lib/models/Permission.php
 lib/models/PointOfSaleLocation.php

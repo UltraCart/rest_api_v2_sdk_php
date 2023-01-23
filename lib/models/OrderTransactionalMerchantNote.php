@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderInternal
+ * OrderTransactionalMerchantNote
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * OrderInternal Class Doc Comment
+ * OrderTransactionalMerchantNote Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
+class OrderTransactionalMerchantNote implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OrderInternal';
+    protected static $openAPIModelName = 'OrderTransactionalMerchantNote';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,10 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exported_to_accounting' => 'bool',
-        'merchant_notes' => 'string',
-        'placed_by_user' => 'string',
-        'refund_by_user' => 'string',
-        'sales_rep_code' => 'string',
-        'transactional_merchant_notes' => '\ultracart\v2\models\OrderTransactionalMerchantNote[]'
+        'ip_address' => 'string',
+        'note' => 'string',
+        'note_dts' => 'string',
+        'user' => 'string'
     ];
 
     /**
@@ -74,12 +72,10 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'exported_to_accounting' => null,
-        'merchant_notes' => null,
-        'placed_by_user' => null,
-        'refund_by_user' => null,
-        'sales_rep_code' => null,
-        'transactional_merchant_notes' => null
+        'ip_address' => null,
+        'note' => null,
+        'note_dts' => 'dateTime',
+        'user' => null
     ];
 
     /**
@@ -109,12 +105,10 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'exported_to_accounting' => 'exported_to_accounting',
-        'merchant_notes' => 'merchant_notes',
-        'placed_by_user' => 'placed_by_user',
-        'refund_by_user' => 'refund_by_user',
-        'sales_rep_code' => 'sales_rep_code',
-        'transactional_merchant_notes' => 'transactional_merchant_notes'
+        'ip_address' => 'ip_address',
+        'note' => 'note',
+        'note_dts' => 'note_dts',
+        'user' => 'user'
     ];
 
     /**
@@ -123,12 +117,10 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'exported_to_accounting' => 'setExportedToAccounting',
-        'merchant_notes' => 'setMerchantNotes',
-        'placed_by_user' => 'setPlacedByUser',
-        'refund_by_user' => 'setRefundByUser',
-        'sales_rep_code' => 'setSalesRepCode',
-        'transactional_merchant_notes' => 'setTransactionalMerchantNotes'
+        'ip_address' => 'setIpAddress',
+        'note' => 'setNote',
+        'note_dts' => 'setNoteDts',
+        'user' => 'setUser'
     ];
 
     /**
@@ -137,12 +129,10 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'exported_to_accounting' => 'getExportedToAccounting',
-        'merchant_notes' => 'getMerchantNotes',
-        'placed_by_user' => 'getPlacedByUser',
-        'refund_by_user' => 'getRefundByUser',
-        'sales_rep_code' => 'getSalesRepCode',
-        'transactional_merchant_notes' => 'getTransactionalMerchantNotes'
+        'ip_address' => 'getIpAddress',
+        'note' => 'getNote',
+        'note_dts' => 'getNoteDts',
+        'user' => 'getUser'
     ];
 
     /**
@@ -202,12 +192,10 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['exported_to_accounting'] = $data['exported_to_accounting'] ?? null;
-        $this->container['merchant_notes'] = $data['merchant_notes'] ?? null;
-        $this->container['placed_by_user'] = $data['placed_by_user'] ?? null;
-        $this->container['refund_by_user'] = $data['refund_by_user'] ?? null;
-        $this->container['sales_rep_code'] = $data['sales_rep_code'] ?? null;
-        $this->container['transactional_merchant_notes'] = $data['transactional_merchant_notes'] ?? null;
+        $this->container['ip_address'] = $data['ip_address'] ?? null;
+        $this->container['note'] = $data['note'] ?? null;
+        $this->container['note_dts'] = $data['note_dts'] ?? null;
+        $this->container['user'] = $data['user'] ?? null;
     }
 
     /**
@@ -218,10 +206,6 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['sales_rep_code']) && (mb_strlen($this->container['sales_rep_code']) > 10)) {
-            $invalidProperties[] = "invalid value for 'sales_rep_code', the character length must be smaller than or equal to 10.";
-        }
 
         return $invalidProperties;
     }
@@ -239,149 +223,97 @@ class OrderInternal implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets exported_to_accounting
-     *
-     * @return bool|null
-     */
-    public function getExportedToAccounting()
-    {
-        return $this->container['exported_to_accounting'];
-    }
-
-    /**
-     * Sets exported_to_accounting
-     *
-     * @param bool|null $exported_to_accounting True if the order has been exported to QuickBooks. If QuickBooks is not configured, then this will already be true
-     *
-     * @return self
-     */
-    public function setExportedToAccounting($exported_to_accounting)
-    {
-        $this->container['exported_to_accounting'] = $exported_to_accounting;
-
-        return $this;
-    }
-
-    /**
-     * Gets merchant_notes
+     * Gets ip_address
      *
      * @return string|null
      */
-    public function getMerchantNotes()
+    public function getIpAddress()
     {
-        return $this->container['merchant_notes'];
+        return $this->container['ip_address'];
     }
 
     /**
-     * Sets merchant_notes
+     * Sets ip_address
      *
-     * @param string|null $merchant_notes Merchant notes.  Full notes in non-transactional mode.  Just used to write a new merchant note when transaction merchant notes enabled.
+     * @param string|null $ip_address IP Address
      *
      * @return self
      */
-    public function setMerchantNotes($merchant_notes)
+    public function setIpAddress($ip_address)
     {
-        $this->container['merchant_notes'] = $merchant_notes;
+        $this->container['ip_address'] = $ip_address;
 
         return $this;
     }
 
     /**
-     * Gets placed_by_user
+     * Gets note
      *
      * @return string|null
      */
-    public function getPlacedByUser()
+    public function getNote()
     {
-        return $this->container['placed_by_user'];
+        return $this->container['note'];
     }
 
     /**
-     * Sets placed_by_user
+     * Sets note
      *
-     * @param string|null $placed_by_user If placed via the BEOE, this is the user that placed the order
+     * @param string|null $note note
      *
      * @return self
      */
-    public function setPlacedByUser($placed_by_user)
+    public function setNote($note)
     {
-        $this->container['placed_by_user'] = $placed_by_user;
+        $this->container['note'] = $note;
 
         return $this;
     }
 
     /**
-     * Gets refund_by_user
+     * Gets note_dts
      *
      * @return string|null
      */
-    public function getRefundByUser()
+    public function getNoteDts()
     {
-        return $this->container['refund_by_user'];
+        return $this->container['note_dts'];
     }
 
     /**
-     * Sets refund_by_user
+     * Sets note_dts
      *
-     * @param string|null $refund_by_user User that issued the refund
+     * @param string|null $note_dts Timestamp when the note was added
      *
      * @return self
      */
-    public function setRefundByUser($refund_by_user)
+    public function setNoteDts($note_dts)
     {
-        $this->container['refund_by_user'] = $refund_by_user;
+        $this->container['note_dts'] = $note_dts;
 
         return $this;
     }
 
     /**
-     * Gets sales_rep_code
+     * Gets user
      *
      * @return string|null
      */
-    public function getSalesRepCode()
+    public function getUser()
     {
-        return $this->container['sales_rep_code'];
+        return $this->container['user'];
     }
 
     /**
-     * Sets sales_rep_code
+     * Sets user
      *
-     * @param string|null $sales_rep_code Sales rep code associated with the order
+     * @param string|null $user User that wrote the merchant note
      *
      * @return self
      */
-    public function setSalesRepCode($sales_rep_code)
+    public function setUser($user)
     {
-        if (!is_null($sales_rep_code) && (mb_strlen($sales_rep_code) > 10)) {
-            throw new \InvalidArgumentException('invalid length for $sales_rep_code when calling OrderInternal., must be smaller than or equal to 10.');
-        }
-
-        $this->container['sales_rep_code'] = $sales_rep_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets transactional_merchant_notes
-     *
-     * @return \ultracart\v2\models\OrderTransactionalMerchantNote[]|null
-     */
-    public function getTransactionalMerchantNotes()
-    {
-        return $this->container['transactional_merchant_notes'];
-    }
-
-    /**
-     * Sets transactional_merchant_notes
-     *
-     * @param \ultracart\v2\models\OrderTransactionalMerchantNote[]|null $transactional_merchant_notes Transactional merchant notes
-     *
-     * @return self
-     */
-    public function setTransactionalMerchantNotes($transactional_merchant_notes)
-    {
-        $this->container['transactional_merchant_notes'] = $transactional_merchant_notes;
+        $this->container['user'] = $user;
 
         return $this;
     }
