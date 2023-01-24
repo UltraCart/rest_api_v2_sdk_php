@@ -6,8 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **auth_future_amount** | **float** | Amount to try and authorize for the future rebill | [optional]
 **auth_test_amount** | **float** | Amount to try and test authorize | [optional]
+**auto_order_cancel_charge_minimum_balance** | **bool** | If true, the cost of the cancel item will be the remaining balance of the minimum rebill or lifetime value | [optional]
 **auto_order_cancel_item_id** | **string** | Item id to attempt charging the customer for if they cancel | [optional]
 **auto_order_cancel_item_oid** | **int** | Item object identifier to attempt charging the customer for if they cancel | [optional]
+**auto_order_cancel_minimum_life_time_value** | **float** | The minimum life time value that must be paid in order to not be charged the cancellation item. | [optional]
+**auto_order_cancel_minimum_rebill_value** | **float** | The minimum rebill value that must be paid in order to not be charged the cancellation item. | [optional]
 **auto_order_downgrade_items** | **string[]** | List of downgrade items presented to customer service representatives | [optional]
 **auto_order_paused** | **bool** | True if the rebill processing of this item is paused | [optional]
 **auto_order_prohibit_expiring_cards** | **int** | Minimum number of months before expiration for the card.  Overrides the account level setting if higher.  Set to zero to disable. | [optional]

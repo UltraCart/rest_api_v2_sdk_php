@@ -1308,6 +1308,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.122-RC | 01/24/2023 | auto order - cancel minimum and change balance options |
 | 4.0.121-RC | 01/23/2023 | conversation - method to fetch single engagement record |
 | 4.0.120-RC | 01/19/2023 | added skip_on_rebill field to coupon object |
 | 4.0.119-RC | 01/19/2023 | convo - getConversationPermissions added |

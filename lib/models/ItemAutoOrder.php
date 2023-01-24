@@ -60,8 +60,11 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'auth_future_amount' => 'float',
         'auth_test_amount' => 'float',
+        'auto_order_cancel_charge_minimum_balance' => 'bool',
         'auto_order_cancel_item_id' => 'string',
         'auto_order_cancel_item_oid' => 'int',
+        'auto_order_cancel_minimum_life_time_value' => 'float',
+        'auto_order_cancel_minimum_rebill_value' => 'float',
         'auto_order_downgrade_items' => 'string[]',
         'auto_order_paused' => 'bool',
         'auto_order_prohibit_expiring_cards' => 'int',
@@ -87,8 +90,11 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'auth_future_amount' => null,
         'auth_test_amount' => null,
+        'auto_order_cancel_charge_minimum_balance' => null,
         'auto_order_cancel_item_id' => null,
         'auto_order_cancel_item_oid' => 'int32',
+        'auto_order_cancel_minimum_life_time_value' => null,
+        'auto_order_cancel_minimum_rebill_value' => null,
         'auto_order_downgrade_items' => null,
         'auto_order_paused' => null,
         'auto_order_prohibit_expiring_cards' => 'int32',
@@ -133,8 +139,11 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'auth_future_amount' => 'auth_future_amount',
         'auth_test_amount' => 'auth_test_amount',
+        'auto_order_cancel_charge_minimum_balance' => 'auto_order_cancel_charge_minimum_balance',
         'auto_order_cancel_item_id' => 'auto_order_cancel_item_id',
         'auto_order_cancel_item_oid' => 'auto_order_cancel_item_oid',
+        'auto_order_cancel_minimum_life_time_value' => 'auto_order_cancel_minimum_life_time_value',
+        'auto_order_cancel_minimum_rebill_value' => 'auto_order_cancel_minimum_rebill_value',
         'auto_order_downgrade_items' => 'auto_order_downgrade_items',
         'auto_order_paused' => 'auto_order_paused',
         'auto_order_prohibit_expiring_cards' => 'auto_order_prohibit_expiring_cards',
@@ -158,8 +167,11 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'auth_future_amount' => 'setAuthFutureAmount',
         'auth_test_amount' => 'setAuthTestAmount',
+        'auto_order_cancel_charge_minimum_balance' => 'setAutoOrderCancelChargeMinimumBalance',
         'auto_order_cancel_item_id' => 'setAutoOrderCancelItemId',
         'auto_order_cancel_item_oid' => 'setAutoOrderCancelItemOid',
+        'auto_order_cancel_minimum_life_time_value' => 'setAutoOrderCancelMinimumLifeTimeValue',
+        'auto_order_cancel_minimum_rebill_value' => 'setAutoOrderCancelMinimumRebillValue',
         'auto_order_downgrade_items' => 'setAutoOrderDowngradeItems',
         'auto_order_paused' => 'setAutoOrderPaused',
         'auto_order_prohibit_expiring_cards' => 'setAutoOrderProhibitExpiringCards',
@@ -183,8 +195,11 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'auth_future_amount' => 'getAuthFutureAmount',
         'auth_test_amount' => 'getAuthTestAmount',
+        'auto_order_cancel_charge_minimum_balance' => 'getAutoOrderCancelChargeMinimumBalance',
         'auto_order_cancel_item_id' => 'getAutoOrderCancelItemId',
         'auto_order_cancel_item_oid' => 'getAutoOrderCancelItemOid',
+        'auto_order_cancel_minimum_life_time_value' => 'getAutoOrderCancelMinimumLifeTimeValue',
+        'auto_order_cancel_minimum_rebill_value' => 'getAutoOrderCancelMinimumRebillValue',
         'auto_order_downgrade_items' => 'getAutoOrderDowngradeItems',
         'auto_order_paused' => 'getAutoOrderPaused',
         'auto_order_prohibit_expiring_cards' => 'getAutoOrderProhibitExpiringCards',
@@ -259,8 +274,11 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['auth_future_amount'] = $data['auth_future_amount'] ?? null;
         $this->container['auth_test_amount'] = $data['auth_test_amount'] ?? null;
+        $this->container['auto_order_cancel_charge_minimum_balance'] = $data['auto_order_cancel_charge_minimum_balance'] ?? null;
         $this->container['auto_order_cancel_item_id'] = $data['auto_order_cancel_item_id'] ?? null;
         $this->container['auto_order_cancel_item_oid'] = $data['auto_order_cancel_item_oid'] ?? null;
+        $this->container['auto_order_cancel_minimum_life_time_value'] = $data['auto_order_cancel_minimum_life_time_value'] ?? null;
+        $this->container['auto_order_cancel_minimum_rebill_value'] = $data['auto_order_cancel_minimum_rebill_value'] ?? null;
         $this->container['auto_order_downgrade_items'] = $data['auto_order_downgrade_items'] ?? null;
         $this->container['auto_order_paused'] = $data['auto_order_paused'] ?? null;
         $this->container['auto_order_prohibit_expiring_cards'] = $data['auto_order_prohibit_expiring_cards'] ?? null;
@@ -353,6 +371,30 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets auto_order_cancel_charge_minimum_balance
+     *
+     * @return bool|null
+     */
+    public function getAutoOrderCancelChargeMinimumBalance()
+    {
+        return $this->container['auto_order_cancel_charge_minimum_balance'];
+    }
+
+    /**
+     * Sets auto_order_cancel_charge_minimum_balance
+     *
+     * @param bool|null $auto_order_cancel_charge_minimum_balance If true, the cost of the cancel item will be the remaining balance of the minimum rebill or lifetime value
+     *
+     * @return self
+     */
+    public function setAutoOrderCancelChargeMinimumBalance($auto_order_cancel_charge_minimum_balance)
+    {
+        $this->container['auto_order_cancel_charge_minimum_balance'] = $auto_order_cancel_charge_minimum_balance;
+
+        return $this;
+    }
+
+    /**
      * Gets auto_order_cancel_item_id
      *
      * @return string|null
@@ -400,6 +442,54 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setAutoOrderCancelItemOid($auto_order_cancel_item_oid)
     {
         $this->container['auto_order_cancel_item_oid'] = $auto_order_cancel_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_cancel_minimum_life_time_value
+     *
+     * @return float|null
+     */
+    public function getAutoOrderCancelMinimumLifeTimeValue()
+    {
+        return $this->container['auto_order_cancel_minimum_life_time_value'];
+    }
+
+    /**
+     * Sets auto_order_cancel_minimum_life_time_value
+     *
+     * @param float|null $auto_order_cancel_minimum_life_time_value The minimum life time value that must be paid in order to not be charged the cancellation item.
+     *
+     * @return self
+     */
+    public function setAutoOrderCancelMinimumLifeTimeValue($auto_order_cancel_minimum_life_time_value)
+    {
+        $this->container['auto_order_cancel_minimum_life_time_value'] = $auto_order_cancel_minimum_life_time_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_cancel_minimum_rebill_value
+     *
+     * @return float|null
+     */
+    public function getAutoOrderCancelMinimumRebillValue()
+    {
+        return $this->container['auto_order_cancel_minimum_rebill_value'];
+    }
+
+    /**
+     * Sets auto_order_cancel_minimum_rebill_value
+     *
+     * @param float|null $auto_order_cancel_minimum_rebill_value The minimum rebill value that must be paid in order to not be charged the cancellation item.
+     *
+     * @return self
+     */
+    public function setAutoOrderCancelMinimumRebillValue($auto_order_cancel_minimum_rebill_value)
+    {
+        $this->container['auto_order_cancel_minimum_rebill_value'] = $auto_order_cancel_minimum_rebill_value;
 
         return $this;
     }
