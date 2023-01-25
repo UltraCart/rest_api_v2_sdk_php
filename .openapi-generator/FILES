@@ -582,6 +582,7 @@ docs/Model/OrderFraudScore.md
 docs/Model/OrderGift.md
 docs/Model/OrderGiftCertificate.md
 docs/Model/OrderInternal.md
+docs/Model/OrderInvoiceResponse.md
 docs/Model/OrderItem.md
 docs/Model/OrderItemEdi.md
 docs/Model/OrderItemEdiIdentification.md
@@ -1338,6 +1339,7 @@ lib/models/OrderFraudScore.php
 lib/models/OrderGift.php
 lib/models/OrderGiftCertificate.php
 lib/models/OrderInternal.php
+lib/models/OrderInvoiceResponse.php
 lib/models/OrderItem.php
 lib/models/OrderItemEdi.php
 lib/models/OrderItemEdiIdentification.php

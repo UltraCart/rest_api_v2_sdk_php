@@ -241,6 +241,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**deleteOrder**](docs/Api/OrderApi.md#deleteorder) | **DELETE** /order/orders/{order_id} | Delete an order
 *OrderApi* | [**duplicateOrder**](docs/Api/OrderApi.md#duplicateorder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
 *OrderApi* | [**format**](docs/Api/OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
+*OrderApi* | [**generateInvoice**](docs/Api/OrderApi.md#generateinvoice) | **GET** /order/orders/{order_id}/invoice | Generate an invoice for this order.
 *OrderApi* | [**generateOrderToken**](docs/Api/OrderApi.md#generateordertoken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
 *OrderApi* | [**generatePackingSlipAllDC**](docs/Api/OrderApi.md#generatepackingslipalldc) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
 *OrderApi* | [**generatePackingSlipSpecificDC**](docs/Api/OrderApi.md#generatepackingslipspecificdc) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
@@ -1046,6 +1047,7 @@ Class | Method | HTTP request | Description
 - [OrderGift](docs/Model/OrderGift.md)
 - [OrderGiftCertificate](docs/Model/OrderGiftCertificate.md)
 - [OrderInternal](docs/Model/OrderInternal.md)
+- [OrderInvoiceResponse](docs/Model/OrderInvoiceResponse.md)
 - [OrderItem](docs/Model/OrderItem.md)
 - [OrderItemEdi](docs/Model/OrderItemEdi.md)
 - [OrderItemEdiIdentification](docs/Model/OrderItemEdiIdentification.md)
@@ -1308,6 +1310,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.123-RC | 01/25/2023 | order api method generateInvoice |
 | 4.0.122-RC | 01/24/2023 | auto order - cancel minimum and change balance options |
 | 4.0.121-RC | 01/23/2023 | conversation - method to fetch single engagement record |
 | 4.0.120-RC | 01/19/2023 | added skip_on_rebill field to coupon object |
