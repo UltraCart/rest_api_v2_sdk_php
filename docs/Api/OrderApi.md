@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**deleteOrder**](OrderApi.md#deleteOrder) | **DELETE** /order/orders/{order_id} | Delete an order
 [**duplicateOrder**](OrderApi.md#duplicateOrder) | **POST** /order/orders/{order_id}/duplicate | Duplicate an order
 [**format**](OrderApi.md#format) | **POST** /order/orders/{order_id}/format | Format order
+[**generateInvoice**](OrderApi.md#generateInvoice) | **GET** /order/orders/{order_id}/invoice | Generate an invoice for this order.
 [**generateOrderToken**](OrderApi.md#generateOrderToken) | **GET** /order/orders/token/{order_id} | Generate an order token for a given order id
 [**generatePackingSlipAllDC**](OrderApi.md#generatePackingSlipAllDC) | **GET** /order/orders/{order_id}/packing_slip | Generate a packing slip for this order across all distribution centers.
 [**generatePackingSlipSpecificDC**](OrderApi.md#generatePackingSlipSpecificDC) | **GET** /order/orders/{order_id}/packing_slip/{distribution_center_code} | Generate a packing slip for this order for the given distribution center.
@@ -263,6 +264,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\OrderFormatResponse**](../Model/OrderFormatResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **generateInvoice**
+> \ultracart\v2\models\OrderInvoiceResponse generateInvoice($order_id)
+
+Generate an invoice for this order.
+
+The invoice PDF that is returned is base 64 encoded
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
+
+$order_id = "order_id_example"; // string | Order ID
+
+try {
+    $result = $apiInstance->generateInvoice($order_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->generateInvoice: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **order_id** | **string**| Order ID |
+
+### Return type
+
+[**\ultracart\v2\models\OrderInvoiceResponse**](../Model/OrderInvoiceResponse.md)
 
 ### Authorization
 
