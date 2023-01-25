@@ -271,12 +271,13 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
     public const EVENT_TYPE_RRWEB = 'rrweb';
     public const EVENT_TYPE_PARTICIPANT_UPDATE = 'participant update';
     public const EVENT_TYPE_PARTICIPANT_JOIN = 'participant join';
-    public const EVENT_TYPE_PARTICIPANT_LEFT = 'participant left';
+    public const EVENT_TYPE_PARTICIPANT_LEAVE = 'participant leave';
     public const EVENT_TYPE_READ_MESSAGE = 'read message';
     public const EVENT_TYPE_TYPING = 'typing';
     public const EVENT_TYPE_ADD_COUPON = 'add coupon';
     public const EVENT_TYPE_ADD_ITEM = 'add item';
     public const EVENT_TYPE_WEBCHAT_CONTEXT = 'webchat context';
+    public const EVENT_TYPE_ENGAGE_CUSTOMER = 'engage customer';
     public const TYPE_MESSAGE = 'message';
     public const TYPE_EVENT = 'event';
     public const TYPE_PING = 'ping';
@@ -300,12 +301,13 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
             self::EVENT_TYPE_RRWEB,
             self::EVENT_TYPE_PARTICIPANT_UPDATE,
             self::EVENT_TYPE_PARTICIPANT_JOIN,
-            self::EVENT_TYPE_PARTICIPANT_LEFT,
+            self::EVENT_TYPE_PARTICIPANT_LEAVE,
             self::EVENT_TYPE_READ_MESSAGE,
             self::EVENT_TYPE_TYPING,
             self::EVENT_TYPE_ADD_COUPON,
             self::EVENT_TYPE_ADD_ITEM,
             self::EVENT_TYPE_WEBCHAT_CONTEXT,
+            self::EVENT_TYPE_ENGAGE_CUSTOMER,
         ];
     }
 
