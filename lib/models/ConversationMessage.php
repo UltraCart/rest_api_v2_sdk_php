@@ -230,6 +230,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
 
     const TYPE_MESSAGE = 'message';
     const TYPE_NOTICE = 'notice';
+    const TYPE_ENGAGEMENT_PROMPT = 'engagement prompt';
     
 
     
@@ -243,6 +244,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess
         return [
             self::TYPE_MESSAGE,
             self::TYPE_NOTICE,
+            self::TYPE_ENGAGEMENT_PROMPT,
         ];
     }
     
