@@ -233,6 +233,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
 
     public const TYPE_MESSAGE = 'message';
     public const TYPE_NOTICE = 'notice';
+    public const TYPE_ENGAGEMENT_PROMPT = 'engagement prompt';
 
     /**
      * Gets allowable values of the enum
@@ -244,6 +245,7 @@ class ConversationMessage implements ModelInterface, ArrayAccess, \JsonSerializa
         return [
             self::TYPE_MESSAGE,
             self::TYPE_NOTICE,
+            self::TYPE_ENGAGEMENT_PROMPT,
         ];
     }
 

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **default_tier** | **bool** | Default tier | [optional]
 **display_on_wholesale_signup** | **bool** | Display on wholesale signup | [optional]
 **exclude_from_free_promotion** | **bool** | Exclude from free promotion | [optional]
+**exempt_loyalty_rewards** | **bool** | Exempt from Loyalty Rewards | [optional]
 **exempt_shipping_handling_charge** | **bool** | Exempt shipping handling charge | [optional]
 **free_shipping** | **bool** | Free shipping | [optional]
 **free_shipping_minimum** | **float** | Free shipping minimum | [optional]

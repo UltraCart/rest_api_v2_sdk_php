@@ -1310,6 +1310,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.125-RC | 01/26/2023 | conversation - added message type of engagement prompt |
 | 4.0.124-RC | 01/25/2023 | convo event for engage customer |
 | 4.0.123-RC | 01/25/2023 | order api method generateInvoice |
 | 4.0.122-RC | 01/24/2023 | auto order - cancel minimum and change balance options |
