@@ -70,6 +70,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'default_tier' => 'bool',
         'display_on_wholesale_signup' => 'bool',
         'exclude_from_free_promotion' => 'bool',
+        'exempt_loyalty_rewards' => 'bool',
         'exempt_shipping_handling_charge' => 'bool',
         'free_shipping' => 'bool',
         'free_shipping_minimum' => 'float',
@@ -109,6 +110,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'default_tier' => null,
         'display_on_wholesale_signup' => null,
         'exclude_from_free_promotion' => null,
+        'exempt_loyalty_rewards' => null,
         'exempt_shipping_handling_charge' => null,
         'free_shipping' => null,
         'free_shipping_minimum' => null,
@@ -169,6 +171,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'default_tier' => 'default_tier',
         'display_on_wholesale_signup' => 'display_on_wholesale_signup',
         'exclude_from_free_promotion' => 'exclude_from_free_promotion',
+        'exempt_loyalty_rewards' => 'exempt_loyalty_rewards',
         'exempt_shipping_handling_charge' => 'exempt_shipping_handling_charge',
         'free_shipping' => 'free_shipping',
         'free_shipping_minimum' => 'free_shipping_minimum',
@@ -208,6 +211,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'default_tier' => 'setDefaultTier',
         'display_on_wholesale_signup' => 'setDisplayOnWholesaleSignup',
         'exclude_from_free_promotion' => 'setExcludeFromFreePromotion',
+        'exempt_loyalty_rewards' => 'setExemptLoyaltyRewards',
         'exempt_shipping_handling_charge' => 'setExemptShippingHandlingCharge',
         'free_shipping' => 'setFreeShipping',
         'free_shipping_minimum' => 'setFreeShippingMinimum',
@@ -247,6 +251,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'default_tier' => 'getDefaultTier',
         'display_on_wholesale_signup' => 'getDisplayOnWholesaleSignup',
         'exclude_from_free_promotion' => 'getExcludeFromFreePromotion',
+        'exempt_loyalty_rewards' => 'getExemptLoyaltyRewards',
         'exempt_shipping_handling_charge' => 'getExemptShippingHandlingCharge',
         'free_shipping' => 'getFreeShipping',
         'free_shipping_minimum' => 'getFreeShippingMinimum',
@@ -340,6 +345,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         $this->container['default_tier'] = isset($data['default_tier']) ? $data['default_tier'] : null;
         $this->container['display_on_wholesale_signup'] = isset($data['display_on_wholesale_signup']) ? $data['display_on_wholesale_signup'] : null;
         $this->container['exclude_from_free_promotion'] = isset($data['exclude_from_free_promotion']) ? $data['exclude_from_free_promotion'] : null;
+        $this->container['exempt_loyalty_rewards'] = isset($data['exempt_loyalty_rewards']) ? $data['exempt_loyalty_rewards'] : null;
         $this->container['exempt_shipping_handling_charge'] = isset($data['exempt_shipping_handling_charge']) ? $data['exempt_shipping_handling_charge'] : null;
         $this->container['free_shipping'] = isset($data['free_shipping']) ? $data['free_shipping'] : null;
         $this->container['free_shipping_minimum'] = isset($data['free_shipping_minimum']) ? $data['free_shipping_minimum'] : null;
@@ -696,6 +702,30 @@ class PricingTier implements ModelInterface, ArrayAccess
     public function setExcludeFromFreePromotion($exclude_from_free_promotion)
     {
         $this->container['exclude_from_free_promotion'] = $exclude_from_free_promotion;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_loyalty_rewards
+     *
+     * @return bool
+     */
+    public function getExemptLoyaltyRewards()
+    {
+        return $this->container['exempt_loyalty_rewards'];
+    }
+
+    /**
+     * Sets exempt_loyalty_rewards
+     *
+     * @param bool $exempt_loyalty_rewards Exempt from Loyalty Rewards
+     *
+     * @return $this
+     */
+    public function setExemptLoyaltyRewards($exempt_loyalty_rewards)
+    {
+        $this->container['exempt_loyalty_rewards'] = $exempt_loyalty_rewards;
 
         return $this;
     }
