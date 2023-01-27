@@ -149,6 +149,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversations**](docs/Api/ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
 *ConversationApi* | [**getConversationsAutocomplete**](docs/Api/ConversationApi.md#getconversationsautocomplete) | **POST** /conversation/conversations/autocomplete | Retrieve a list of matching terms for a search field
 *ConversationApi* | [**getConversationsSearch**](docs/Api/ConversationApi.md#getconversationssearch) | **POST** /conversation/conversations/search | Search conversations
+*ConversationApi* | [**getLocationsForEngagement**](docs/Api/ConversationApi.md#getlocationsforengagement) | **POST** /conversation/locations | Get location data for engagement configuration
 *ConversationApi* | [**insertConversationCannedMessage**](docs/Api/ConversationApi.md#insertconversationcannedmessage) | **POST** /conversation/canned_messages | Insert a canned message
 *ConversationApi* | [**insertConversationDepartment**](docs/Api/ConversationApi.md#insertconversationdepartment) | **POST** /conversation/departments | Insert a department
 *ConversationApi* | [**insertConversationEngagement**](docs/Api/ConversationApi.md#insertconversationengagement) | **POST** /conversation/engagements | Insert a engagement
@@ -639,6 +640,9 @@ Class | Method | HTTP request | Description
 - [ConversationEventTyping](docs/Model/ConversationEventTyping.md)
 - [ConversationEventWebchatContext](docs/Model/ConversationEventWebchatContext.md)
 - [ConversationJoinRequest](docs/Model/ConversationJoinRequest.md)
+- [ConversationLocationCountry](docs/Model/ConversationLocationCountry.md)
+- [ConversationLocationStateProvince](docs/Model/ConversationLocationStateProvince.md)
+- [ConversationLocationsResponse](docs/Model/ConversationLocationsResponse.md)
 - [ConversationMessage](docs/Model/ConversationMessage.md)
 - [ConversationMessageTranslation](docs/Model/ConversationMessageTranslation.md)
 - [ConversationMessageTransportStatus](docs/Model/ConversationMessageTransportStatus.md)
@@ -1310,6 +1314,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.127 | 01/27/2023 | conversations - getLocationsForEngagement method |
 | 4.0.126-RC | 01/26/2023 | typo in ConversationWebsocketMessage |
 | 4.0.125-RC | 01/26/2023 | conversation - added message type of engagement prompt |
 | 4.0.124-RC | 01/25/2023 | convo event for engage customer |
