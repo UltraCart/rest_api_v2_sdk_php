@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **event_add_coupon** | [**\ultracart\v2\models\ConversationEventAddCoupon**](ConversationEventAddCoupon.md) |  | [optional] 
 **event_add_item** | [**\ultracart\v2\models\ConversationEventAddItem**](ConversationEventAddItem.md) |  | [optional] 
 **event_conversation_closed** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
+**event_engage_customer** | [**\ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry**](ConversationWebchatQueueStatusQueueEntry.md) |  | [optional] 
 **event_new_conversation** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **event_new_message** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **event_participant_join** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 

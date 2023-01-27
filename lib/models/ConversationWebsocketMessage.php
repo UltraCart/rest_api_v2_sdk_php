@@ -61,6 +61,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_add_coupon' => '\ultracart\v2\models\ConversationEventAddCoupon',
         'event_add_item' => '\ultracart\v2\models\ConversationEventAddItem',
         'event_conversation_closed' => '\ultracart\v2\models\ConversationSummary',
+        'event_engage_customer' => '\ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry',
         'event_new_conversation' => '\ultracart\v2\models\ConversationSummary',
         'event_new_message' => '\ultracart\v2\models\ConversationSummary',
         'event_participant_join' => '\ultracart\v2\models\ConversationSummary',
@@ -90,6 +91,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_add_coupon' => null,
         'event_add_item' => null,
         'event_conversation_closed' => null,
+        'event_engage_customer' => null,
         'event_new_conversation' => null,
         'event_new_message' => null,
         'event_participant_join' => null,
@@ -140,6 +142,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_add_coupon' => 'event_add_coupon',
         'event_add_item' => 'event_add_item',
         'event_conversation_closed' => 'event_conversation_closed',
+        'event_engage_customer' => 'event_engage_customer',
         'event_new_conversation' => 'event_new_conversation',
         'event_new_message' => 'event_new_message',
         'event_participant_join' => 'event_participant_join',
@@ -169,6 +172,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_add_coupon' => 'setEventAddCoupon',
         'event_add_item' => 'setEventAddItem',
         'event_conversation_closed' => 'setEventConversationClosed',
+        'event_engage_customer' => 'setEventEngageCustomer',
         'event_new_conversation' => 'setEventNewConversation',
         'event_new_message' => 'setEventNewMessage',
         'event_participant_join' => 'setEventParticipantJoin',
@@ -198,6 +202,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_add_coupon' => 'getEventAddCoupon',
         'event_add_item' => 'getEventAddItem',
         'event_conversation_closed' => 'getEventConversationClosed',
+        'event_engage_customer' => 'getEventEngageCustomer',
         'event_new_conversation' => 'getEventNewConversation',
         'event_new_message' => 'getEventNewMessage',
         'event_participant_join' => 'getEventParticipantJoin',
@@ -345,6 +350,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         $this->container['event_add_coupon'] = isset($data['event_add_coupon']) ? $data['event_add_coupon'] : null;
         $this->container['event_add_item'] = isset($data['event_add_item']) ? $data['event_add_item'] : null;
         $this->container['event_conversation_closed'] = isset($data['event_conversation_closed']) ? $data['event_conversation_closed'] : null;
+        $this->container['event_engage_customer'] = isset($data['event_engage_customer']) ? $data['event_engage_customer'] : null;
         $this->container['event_new_conversation'] = isset($data['event_new_conversation']) ? $data['event_new_conversation'] : null;
         $this->container['event_new_message'] = isset($data['event_new_message']) ? $data['event_new_message'] : null;
         $this->container['event_participant_join'] = isset($data['event_participant_join']) ? $data['event_participant_join'] : null;
@@ -496,6 +502,30 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     public function setEventConversationClosed($event_conversation_closed)
     {
         $this->container['event_conversation_closed'] = $event_conversation_closed;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_engage_customer
+     *
+     * @return \ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry
+     */
+    public function getEventEngageCustomer()
+    {
+        return $this->container['event_engage_customer'];
+    }
+
+    /**
+     * Sets event_engage_customer
+     *
+     * @param \ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry $event_engage_customer event_engage_customer
+     *
+     * @return $this
+     */
+    public function setEventEngageCustomer($event_engage_customer)
+    {
+        $this->container['event_engage_customer'] = $event_engage_customer;
 
         return $this;
     }
