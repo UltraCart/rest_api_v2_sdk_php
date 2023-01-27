@@ -1314,6 +1314,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.128 | 01/27/2023 | convo - added event_engage_customer property to message |
 | 4.0.127 | 01/27/2023 | conversations - getLocationsForEngagement method |
 | 4.0.126-RC | 01/26/2023 | typo in ConversationWebsocketMessage |
 | 4.0.125-RC | 01/26/2023 | conversation - added message type of engagement prompt |
