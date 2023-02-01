@@ -134,6 +134,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**deleteDepartment**](docs/Api/ConversationApi.md#deletedepartment) | **DELETE** /conversation/departments/{conversation_department_oid} | Delete a conversation department
 *ConversationApi* | [**deleteEngagement**](docs/Api/ConversationApi.md#deleteengagement) | **DELETE** /conversation/engagements/{conversation_engagement_oid} | Delete a conversation engagement
 *ConversationApi* | [**getAgentKeepAlive**](docs/Api/ConversationApi.md#getagentkeepalive) | **GET** /conversation/agent/keepalive | Agent keep alive
+*ConversationApi* | [**getAgentProfile**](docs/Api/ConversationApi.md#getagentprofile) | **GET** /conversation/agent/profile | Get agent profile
 *ConversationApi* | [**getAgentWebsocketAuthorization**](docs/Api/ConversationApi.md#getagentwebsocketauthorization) | **PUT** /conversation/agent/auth | Get agent websocket authorization
 *ConversationApi* | [**getConversation**](docs/Api/ConversationApi.md#getconversation) | **GET** /conversation/conversations/{conversation_uuid} | Retrieve a conversation
 *ConversationApi* | [**getConversationCannedMessages**](docs/Api/ConversationApi.md#getconversationcannedmessages) | **GET** /conversation/canned_messages | Retrieve a list of canned messages ordered by short_code
@@ -158,6 +159,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**markReadConversation**](docs/Api/ConversationApi.md#markreadconversation) | **PUT** /conversation/conversations/{conversation_uuid}/markread | Mark a conversation as read
 *ConversationApi* | [**searchConversationCannedMessages**](docs/Api/ConversationApi.md#searchconversationcannedmessages) | **POST** /conversation/canned_messages/search | Search for canned messages by short_code
 *ConversationApi* | [**startConversation**](docs/Api/ConversationApi.md#startconversation) | **PUT** /conversation/conversations | Start a conversation
+*ConversationApi* | [**updateAgentProfile**](docs/Api/ConversationApi.md#updateagentprofile) | **PUT** /conversation/agent/profile | Update agent profile
 *ConversationApi* | [**updateConversationCannedMessage**](docs/Api/ConversationApi.md#updateconversationcannedmessage) | **PUT** /conversation/canned_messages/{conversation_canned_message_oid} | Update a canned message
 *ConversationApi* | [**updateConversationDepartment**](docs/Api/ConversationApi.md#updateconversationdepartment) | **PUT** /conversation/departments/{conversation_department_oid} | Update a department
 *ConversationApi* | [**updateConversationEngagement**](docs/Api/ConversationApi.md#updateconversationengagement) | **PUT** /conversation/engagements/{conversation_engagement_oid} | Update a engagement
@@ -614,6 +616,8 @@ Class | Method | HTTP request | Description
 - [Conversation](docs/Model/Conversation.md)
 - [ConversationAgentAuth](docs/Model/ConversationAgentAuth.md)
 - [ConversationAgentAuthResponse](docs/Model/ConversationAgentAuthResponse.md)
+- [ConversationAgentProfile](docs/Model/ConversationAgentProfile.md)
+- [ConversationAgentProfileResponse](docs/Model/ConversationAgentProfileResponse.md)
 - [ConversationAutocompleteRequest](docs/Model/ConversationAutocompleteRequest.md)
 - [ConversationAutocompleteResponse](docs/Model/ConversationAutocompleteResponse.md)
 - [ConversationAutocompleteValue](docs/Model/ConversationAutocompleteValue.md)
@@ -1314,6 +1318,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.129 | 02/01/2023 | convo - agent profile get/update methods |
 | 4.0.128 | 01/27/2023 | convo - added event_engage_customer property to message |
 | 4.0.127 | 01/27/2023 | conversations - getLocationsForEngagement method |
 | 4.0.126-RC | 01/26/2023 | typo in ConversationWebsocketMessage |
