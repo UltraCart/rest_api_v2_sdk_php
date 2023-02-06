@@ -58,6 +58,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
+        'conversation_arn' => 'string',
         'conversation_uuid' => 'string',
         'event_add_coupon' => '\ultracart\v2\models\ConversationEventAddCoupon',
         'event_add_item' => '\ultracart\v2\models\ConversationEventAddItem',
@@ -90,6 +91,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'conversation_arn' => null,
         'conversation_uuid' => null,
         'event_add_coupon' => null,
         'event_add_item' => null,
@@ -141,6 +143,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'conversation_arn' => 'conversation_arn',
         'conversation_uuid' => 'conversation_uuid',
         'event_add_coupon' => 'event_add_coupon',
         'event_add_item' => 'event_add_item',
@@ -171,6 +174,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'conversation_arn' => 'setConversationArn',
         'conversation_uuid' => 'setConversationUuid',
         'event_add_coupon' => 'setEventAddCoupon',
         'event_add_item' => 'setEventAddItem',
@@ -201,6 +205,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'conversation_arn' => 'getConversationArn',
         'conversation_uuid' => 'getConversationUuid',
         'event_add_coupon' => 'getEventAddCoupon',
         'event_add_item' => 'getEventAddItem',
@@ -346,6 +351,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
+        $this->container['conversation_arn'] = $data['conversation_arn'] ?? null;
         $this->container['conversation_uuid'] = $data['conversation_uuid'] ?? null;
         $this->container['event_add_coupon'] = $data['event_add_coupon'] ?? null;
         $this->container['event_add_item'] = $data['event_add_item'] ?? null;
@@ -411,6 +417,30 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets conversation_arn
+     *
+     * @return string|null
+     */
+    public function getConversationArn()
+    {
+        return $this->container['conversation_arn'];
+    }
+
+    /**
+     * Sets conversation_arn
+     *
+     * @param string|null $conversation_arn Conversation ARN
+     *
+     * @return self
+     */
+    public function setConversationArn($conversation_arn)
+    {
+        $this->container['conversation_arn'] = $conversation_arn;
+
+        return $this;
+    }
 
     /**
      * Gets conversation_uuid
