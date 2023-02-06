@@ -1377,6 +1377,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.113 | 02/06/2023 | convo - add conversation_arn to ConversationWebsocketMessage |
 | 3.10.112 | 02/01/2023 | convo - agent profile get/update methods |
 | 3.10.111 | 01/27/2023 | convo - added event_engage_customer property to message |
 | 3.10.110 | 01/27/2023 | conversations - getLocationsForEngagement method |
