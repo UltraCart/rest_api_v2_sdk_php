@@ -1377,6 +1377,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.115 | 02/07/2023 | convo - new event for when a customer joins a queue |
 | 3.10.114 | 02/07/2023 | convo - new event for when a customer joins a queue |
 | 3.10.113 | 02/06/2023 | convo - add conversation_arn to ConversationWebsocketMessage |
 | 3.10.112 | 02/01/2023 | convo - agent profile get/update methods |
