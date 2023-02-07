@@ -70,6 +70,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_left' => '\ultracart\v2\models\ConversationSummary',
         'event_participant_left_participant' => '\ultracart\v2\models\ConversationParticipant',
         'event_participant_update' => '\ultracart\v2\models\ConversationSummary',
+        'event_queue_new_member' => '\ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry',
         'event_queue_position' => '\ultracart\v2\models\ConversationEventQueuePosition',
         'event_queue_status_update' => '\ultracart\v2\models\ConversationWebchatQueueStatus',
         'event_read_message' => '\ultracart\v2\models\ConversationEventReadMessage',
@@ -101,6 +102,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_left' => null,
         'event_participant_left_participant' => null,
         'event_participant_update' => null,
+        'event_queue_new_member' => null,
         'event_queue_position' => null,
         'event_queue_status_update' => null,
         'event_read_message' => null,
@@ -153,6 +155,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_left' => 'event_participant_left',
         'event_participant_left_participant' => 'event_participant_left_participant',
         'event_participant_update' => 'event_participant_update',
+        'event_queue_new_member' => 'event_queue_new_member',
         'event_queue_position' => 'event_queue_position',
         'event_queue_status_update' => 'event_queue_status_update',
         'event_read_message' => 'event_read_message',
@@ -184,6 +187,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_left' => 'setEventParticipantLeft',
         'event_participant_left_participant' => 'setEventParticipantLeftParticipant',
         'event_participant_update' => 'setEventParticipantUpdate',
+        'event_queue_new_member' => 'setEventQueueNewMember',
         'event_queue_position' => 'setEventQueuePosition',
         'event_queue_status_update' => 'setEventQueueStatusUpdate',
         'event_read_message' => 'setEventReadMessage',
@@ -215,6 +219,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         'event_participant_left' => 'getEventParticipantLeft',
         'event_participant_left_participant' => 'getEventParticipantLeftParticipant',
         'event_participant_update' => 'getEventParticipantUpdate',
+        'event_queue_new_member' => 'getEventQueueNewMember',
         'event_queue_position' => 'getEventQueuePosition',
         'event_queue_status_update' => 'getEventQueueStatusUpdate',
         'event_read_message' => 'getEventReadMessage',
@@ -285,6 +290,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     const EVENT_TYPE_ADD_ITEM = 'add item';
     const EVENT_TYPE_WEBCHAT_CONTEXT = 'webchat context';
     const EVENT_TYPE_ENGAGE_CUSTOMER = 'engage customer';
+    const EVENT_TYPE_QUEUE_NEW_MEMBER = 'queue new member';
     const TYPE_MESSAGE = 'message';
     const TYPE_EVENT = 'event';
     const TYPE_PING = 'ping';
@@ -317,6 +323,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
             self::EVENT_TYPE_ADD_ITEM,
             self::EVENT_TYPE_WEBCHAT_CONTEXT,
             self::EVENT_TYPE_ENGAGE_CUSTOMER,
+            self::EVENT_TYPE_QUEUE_NEW_MEMBER,
         ];
     }
     
@@ -364,6 +371,7 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
         $this->container['event_participant_left'] = isset($data['event_participant_left']) ? $data['event_participant_left'] : null;
         $this->container['event_participant_left_participant'] = isset($data['event_participant_left_participant']) ? $data['event_participant_left_participant'] : null;
         $this->container['event_participant_update'] = isset($data['event_participant_update']) ? $data['event_participant_update'] : null;
+        $this->container['event_queue_new_member'] = isset($data['event_queue_new_member']) ? $data['event_queue_new_member'] : null;
         $this->container['event_queue_position'] = isset($data['event_queue_position']) ? $data['event_queue_position'] : null;
         $this->container['event_queue_status_update'] = isset($data['event_queue_status_update']) ? $data['event_queue_status_update'] : null;
         $this->container['event_read_message'] = isset($data['event_read_message']) ? $data['event_read_message'] : null;
@@ -724,6 +732,30 @@ class ConversationWebsocketMessage implements ModelInterface, ArrayAccess
     public function setEventParticipantUpdate($event_participant_update)
     {
         $this->container['event_participant_update'] = $event_participant_update;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_queue_new_member
+     *
+     * @return \ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry
+     */
+    public function getEventQueueNewMember()
+    {
+        return $this->container['event_queue_new_member'];
+    }
+
+    /**
+     * Sets event_queue_new_member
+     *
+     * @param \ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry $event_queue_new_member event_queue_new_member
+     *
+     * @return $this
+     */
+    public function setEventQueueNewMember($event_queue_new_member)
+    {
+        $this->container['event_queue_new_member'] = $event_queue_new_member;
 
         return $this;
     }

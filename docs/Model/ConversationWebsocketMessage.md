@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **event_participant_left** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
 **event_participant_left_participant** | [**\ultracart\v2\models\ConversationParticipant**](ConversationParticipant.md) |  | [optional] 
 **event_participant_update** | [**\ultracart\v2\models\ConversationSummary**](ConversationSummary.md) |  | [optional] 
+**event_queue_new_member** | [**\ultracart\v2\models\ConversationWebchatQueueStatusQueueEntry**](ConversationWebchatQueueStatusQueueEntry.md) |  | [optional] 
 **event_queue_position** | [**\ultracart\v2\models\ConversationEventQueuePosition**](ConversationEventQueuePosition.md) |  | [optional] 
 **event_queue_status_update** | [**\ultracart\v2\models\ConversationWebchatQueueStatus**](ConversationWebchatQueueStatus.md) |  | [optional] 
 **event_read_message** | [**\ultracart\v2\models\ConversationEventReadMessage**](ConversationEventReadMessage.md) |  | [optional] 
