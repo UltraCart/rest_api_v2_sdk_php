@@ -60,6 +60,7 @@ class LookupRequest implements ModelInterface, ArrayAccess
         'category' => 'string',
         'matches' => 'string',
         'max_hits' => 'int',
+        'storefront_host_name' => 'string',
         'storefront_oid' => 'int',
         'subcategory' => 'string'
     ];
@@ -73,6 +74,7 @@ class LookupRequest implements ModelInterface, ArrayAccess
         'category' => null,
         'matches' => null,
         'max_hits' => 'int32',
+        'storefront_host_name' => null,
         'storefront_oid' => 'int32',
         'subcategory' => null
     ];
@@ -107,6 +109,7 @@ class LookupRequest implements ModelInterface, ArrayAccess
         'category' => 'category',
         'matches' => 'matches',
         'max_hits' => 'max_hits',
+        'storefront_host_name' => 'storefront_host_name',
         'storefront_oid' => 'storefront_oid',
         'subcategory' => 'subcategory'
     ];
@@ -120,6 +123,7 @@ class LookupRequest implements ModelInterface, ArrayAccess
         'category' => 'setCategory',
         'matches' => 'setMatches',
         'max_hits' => 'setMaxHits',
+        'storefront_host_name' => 'setStorefrontHostName',
         'storefront_oid' => 'setStorefrontOid',
         'subcategory' => 'setSubcategory'
     ];
@@ -133,6 +137,7 @@ class LookupRequest implements ModelInterface, ArrayAccess
         'category' => 'getCategory',
         'matches' => 'getMatches',
         'max_hits' => 'getMaxHits',
+        'storefront_host_name' => 'getStorefrontHostName',
         'storefront_oid' => 'getStorefrontOid',
         'subcategory' => 'getSubcategory'
     ];
@@ -200,6 +205,7 @@ class LookupRequest implements ModelInterface, ArrayAccess
         $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['matches'] = isset($data['matches']) ? $data['matches'] : null;
         $this->container['max_hits'] = isset($data['max_hits']) ? $data['max_hits'] : null;
+        $this->container['storefront_host_name'] = isset($data['storefront_host_name']) ? $data['storefront_host_name'] : null;
         $this->container['storefront_oid'] = isset($data['storefront_oid']) ? $data['storefront_oid'] : null;
         $this->container['subcategory'] = isset($data['subcategory']) ? $data['subcategory'] : null;
     }
@@ -296,6 +302,30 @@ class LookupRequest implements ModelInterface, ArrayAccess
     public function setMaxHits($max_hits)
     {
         $this->container['max_hits'] = $max_hits;
+
+        return $this;
+    }
+
+    /**
+     * Gets storefront_host_name
+     *
+     * @return string
+     */
+    public function getStorefrontHostName()
+    {
+        return $this->container['storefront_host_name'];
+    }
+
+    /**
+     * Sets storefront_host_name
+     *
+     * @param string $storefront_host_name storefront_host_name
+     *
+     * @return $this
+     */
+    public function setStorefrontHostName($storefront_host_name)
+    {
+        $this->container['storefront_host_name'] = $storefront_host_name;
 
         return $this;
     }
