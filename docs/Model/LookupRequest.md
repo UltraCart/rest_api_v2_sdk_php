@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **category** | **string** |  | [optional]
 **matches** | **string** |  | [optional]
 **max_hits** | **int** |  | [optional]
+**storefront_host_name** | **string** |  | [optional]
 **storefront_oid** | **int** |  | [optional]
 **subcategory** | **string** |  | [optional]
 

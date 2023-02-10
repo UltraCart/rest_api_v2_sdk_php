@@ -1318,6 +1318,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.133 | 02/10/2023 | convo - add storefront_host_name to search request |
 | 4.0.132 | 02/07/2023 | convo - new event for when a customer joins a queue |
 | 4.0.131 | 02/07/2023 | convo - new event for when a customer joins a queue |
 | 4.0.130 | 02/06/2023 | convo - add conversation_arn to ConversationWebsocketMessage |
