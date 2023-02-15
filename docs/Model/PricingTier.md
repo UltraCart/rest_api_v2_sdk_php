@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **not_valid_when_coupon_present** | **bool** | Not valid when coupon present | [optional]
 **pricing_tier_oid** | **int** | Pricing Tier Oid | [optional]
 **realtime_percentage_discount** | **float** | Realtime percentage discount | [optional]
+**restrict_to_distribution_center_oid** | **int** | Restrict inventory to this distribution center oid | [optional]
 **signup_notification** | [**\ultracart\v2\models\PricingTierNotification**](PricingTierNotification.md) |  | [optional]
 **suppress_buysafe** | **bool** | Suppress buySAFE (deprecated) | [optional]
 **suppress_mailing_list** | **bool** | Suppress mailing list | [optional]

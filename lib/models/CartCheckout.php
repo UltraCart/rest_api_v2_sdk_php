@@ -60,12 +60,15 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'comments' => 'string',
         'custom_field1' => 'string',
+        'custom_field10' => 'string',
         'custom_field2' => 'string',
         'custom_field3' => 'string',
         'custom_field4' => 'string',
         'custom_field5' => 'string',
         'custom_field6' => 'string',
         'custom_field7' => 'string',
+        'custom_field8' => 'string',
+        'custom_field9' => 'string',
         'ip_address' => 'string',
         'return_code' => 'string',
         'return_url' => 'string',
@@ -84,12 +87,15 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'comments' => null,
         'custom_field1' => null,
+        'custom_field10' => null,
         'custom_field2' => null,
         'custom_field3' => null,
         'custom_field4' => null,
         'custom_field5' => null,
         'custom_field6' => null,
         'custom_field7' => null,
+        'custom_field8' => null,
+        'custom_field9' => null,
         'ip_address' => null,
         'return_code' => null,
         'return_url' => null,
@@ -127,12 +133,15 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'comments' => 'comments',
         'custom_field1' => 'custom_field1',
+        'custom_field10' => 'custom_field10',
         'custom_field2' => 'custom_field2',
         'custom_field3' => 'custom_field3',
         'custom_field4' => 'custom_field4',
         'custom_field5' => 'custom_field5',
         'custom_field6' => 'custom_field6',
         'custom_field7' => 'custom_field7',
+        'custom_field8' => 'custom_field8',
+        'custom_field9' => 'custom_field9',
         'ip_address' => 'ip_address',
         'return_code' => 'return_code',
         'return_url' => 'return_url',
@@ -149,12 +158,15 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'comments' => 'setComments',
         'custom_field1' => 'setCustomField1',
+        'custom_field10' => 'setCustomField10',
         'custom_field2' => 'setCustomField2',
         'custom_field3' => 'setCustomField3',
         'custom_field4' => 'setCustomField4',
         'custom_field5' => 'setCustomField5',
         'custom_field6' => 'setCustomField6',
         'custom_field7' => 'setCustomField7',
+        'custom_field8' => 'setCustomField8',
+        'custom_field9' => 'setCustomField9',
         'ip_address' => 'setIpAddress',
         'return_code' => 'setReturnCode',
         'return_url' => 'setReturnUrl',
@@ -171,12 +183,15 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'comments' => 'getComments',
         'custom_field1' => 'getCustomField1',
+        'custom_field10' => 'getCustomField10',
         'custom_field2' => 'getCustomField2',
         'custom_field3' => 'getCustomField3',
         'custom_field4' => 'getCustomField4',
         'custom_field5' => 'getCustomField5',
         'custom_field6' => 'getCustomField6',
         'custom_field7' => 'getCustomField7',
+        'custom_field8' => 'getCustomField8',
+        'custom_field9' => 'getCustomField9',
         'ip_address' => 'getIpAddress',
         'return_code' => 'getReturnCode',
         'return_url' => 'getReturnUrl',
@@ -244,12 +259,15 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['comments'] = $data['comments'] ?? null;
         $this->container['custom_field1'] = $data['custom_field1'] ?? null;
+        $this->container['custom_field10'] = $data['custom_field10'] ?? null;
         $this->container['custom_field2'] = $data['custom_field2'] ?? null;
         $this->container['custom_field3'] = $data['custom_field3'] ?? null;
         $this->container['custom_field4'] = $data['custom_field4'] ?? null;
         $this->container['custom_field5'] = $data['custom_field5'] ?? null;
         $this->container['custom_field6'] = $data['custom_field6'] ?? null;
         $this->container['custom_field7'] = $data['custom_field7'] ?? null;
+        $this->container['custom_field8'] = $data['custom_field8'] ?? null;
+        $this->container['custom_field9'] = $data['custom_field9'] ?? null;
         $this->container['ip_address'] = $data['ip_address'] ?? null;
         $this->container['return_code'] = $data['return_code'] ?? null;
         $this->container['return_url'] = $data['return_url'] ?? null;
@@ -275,6 +293,10 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'custom_field1', the character length must be smaller than or equal to 50.";
         }
 
+        if (!is_null($this->container['custom_field10']) && (mb_strlen($this->container['custom_field10']) > 200)) {
+            $invalidProperties[] = "invalid value for 'custom_field10', the character length must be smaller than or equal to 200.";
+        }
+
         if (!is_null($this->container['custom_field2']) && (mb_strlen($this->container['custom_field2']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field2', the character length must be smaller than or equal to 50.";
         }
@@ -297,6 +319,14 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['custom_field7']) && (mb_strlen($this->container['custom_field7']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field7', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['custom_field8']) && (mb_strlen($this->container['custom_field8']) > 200)) {
+            $invalidProperties[] = "invalid value for 'custom_field8', the character length must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['custom_field9']) && (mb_strlen($this->container['custom_field9']) > 200)) {
+            $invalidProperties[] = "invalid value for 'custom_field9', the character length must be smaller than or equal to 200.";
         }
 
         if (!is_null($this->container['return_url']) && (mb_strlen($this->container['return_url']) > 2048)) {
@@ -374,6 +404,34 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['custom_field1'] = $custom_field1;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field10
+     *
+     * @return string|null
+     */
+    public function getCustomField10()
+    {
+        return $this->container['custom_field10'];
+    }
+
+    /**
+     * Sets custom_field10
+     *
+     * @param string|null $custom_field10 Custom field 10
+     *
+     * @return self
+     */
+    public function setCustomField10($custom_field10)
+    {
+        if (!is_null($custom_field10) && (mb_strlen($custom_field10) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $custom_field10 when calling CartCheckout., must be smaller than or equal to 200.');
+        }
+
+        $this->container['custom_field10'] = $custom_field10;
 
         return $this;
     }
@@ -542,6 +600,62 @@ class CartCheckout implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['custom_field7'] = $custom_field7;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field8
+     *
+     * @return string|null
+     */
+    public function getCustomField8()
+    {
+        return $this->container['custom_field8'];
+    }
+
+    /**
+     * Sets custom_field8
+     *
+     * @param string|null $custom_field8 Custom field 8
+     *
+     * @return self
+     */
+    public function setCustomField8($custom_field8)
+    {
+        if (!is_null($custom_field8) && (mb_strlen($custom_field8) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $custom_field8 when calling CartCheckout., must be smaller than or equal to 200.');
+        }
+
+        $this->container['custom_field8'] = $custom_field8;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field9
+     *
+     * @return string|null
+     */
+    public function getCustomField9()
+    {
+        return $this->container['custom_field9'];
+    }
+
+    /**
+     * Sets custom_field9
+     *
+     * @param string|null $custom_field9 Custom field 9
+     *
+     * @return self
+     */
+    public function setCustomField9($custom_field9)
+    {
+        if (!is_null($custom_field9) && (mb_strlen($custom_field9) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $custom_field9 when calling CartCheckout., must be smaller than or equal to 200.');
+        }
+
+        $this->container['custom_field9'] = $custom_field9;
 
         return $this;
     }

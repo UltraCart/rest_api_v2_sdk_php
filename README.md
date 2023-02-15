@@ -1096,6 +1096,7 @@ Class | Method | HTTP request | Description
 - [OrderTrackingNumberDetail](docs/Model/OrderTrackingNumberDetail.md)
 - [OrderTrackingNumberDetails](docs/Model/OrderTrackingNumberDetails.md)
 - [OrderTransactionalMerchantNote](docs/Model/OrderTransactionalMerchantNote.md)
+- [OrderUtm](docs/Model/OrderUtm.md)
 - [OrdersResponse](docs/Model/OrdersResponse.md)
 - [Permission](docs/Model/Permission.md)
 - [PointOfSaleLocation](docs/Model/PointOfSaleLocation.md)
@@ -1318,6 +1319,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.134 | 02/15/2023 | added auto order sorting by next_shipment_dts |
 | 4.0.133 | 02/10/2023 | convo - add storefront_host_name to search request |
 | 4.0.132 | 02/07/2023 | convo - new event for when a customer joins a queue |
 | 4.0.131 | 02/07/2023 | convo - new event for when a customer joins a queue |
