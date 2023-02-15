@@ -60,12 +60,15 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'browser' => '\ultracart\v2\models\Browser',
         'comments' => 'string',
         'custom_field1' => 'string',
+        'custom_field10' => 'string',
         'custom_field2' => 'string',
         'custom_field3' => 'string',
         'custom_field4' => 'string',
         'custom_field5' => 'string',
         'custom_field6' => 'string',
         'custom_field7' => 'string',
+        'custom_field8' => 'string',
+        'custom_field9' => 'string',
         'customer_ip_address' => 'string',
         'screen_branding_theme_code' => 'string',
         'screen_size' => 'string',
@@ -82,12 +85,15 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'browser' => null,
         'comments' => null,
         'custom_field1' => null,
+        'custom_field10' => null,
         'custom_field2' => null,
         'custom_field3' => null,
         'custom_field4' => null,
         'custom_field5' => null,
         'custom_field6' => null,
         'custom_field7' => null,
+        'custom_field8' => null,
+        'custom_field9' => null,
         'customer_ip_address' => null,
         'screen_branding_theme_code' => null,
         'screen_size' => null,
@@ -125,12 +131,15 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'browser' => 'browser',
         'comments' => 'comments',
         'custom_field1' => 'custom_field1',
+        'custom_field10' => 'custom_field10',
         'custom_field2' => 'custom_field2',
         'custom_field3' => 'custom_field3',
         'custom_field4' => 'custom_field4',
         'custom_field5' => 'custom_field5',
         'custom_field6' => 'custom_field6',
         'custom_field7' => 'custom_field7',
+        'custom_field8' => 'custom_field8',
+        'custom_field9' => 'custom_field9',
         'customer_ip_address' => 'customer_ip_address',
         'screen_branding_theme_code' => 'screen_branding_theme_code',
         'screen_size' => 'screen_size',
@@ -147,12 +156,15 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'browser' => 'setBrowser',
         'comments' => 'setComments',
         'custom_field1' => 'setCustomField1',
+        'custom_field10' => 'setCustomField10',
         'custom_field2' => 'setCustomField2',
         'custom_field3' => 'setCustomField3',
         'custom_field4' => 'setCustomField4',
         'custom_field5' => 'setCustomField5',
         'custom_field6' => 'setCustomField6',
         'custom_field7' => 'setCustomField7',
+        'custom_field8' => 'setCustomField8',
+        'custom_field9' => 'setCustomField9',
         'customer_ip_address' => 'setCustomerIpAddress',
         'screen_branding_theme_code' => 'setScreenBrandingThemeCode',
         'screen_size' => 'setScreenSize',
@@ -169,12 +181,15 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         'browser' => 'getBrowser',
         'comments' => 'getComments',
         'custom_field1' => 'getCustomField1',
+        'custom_field10' => 'getCustomField10',
         'custom_field2' => 'getCustomField2',
         'custom_field3' => 'getCustomField3',
         'custom_field4' => 'getCustomField4',
         'custom_field5' => 'getCustomField5',
         'custom_field6' => 'getCustomField6',
         'custom_field7' => 'getCustomField7',
+        'custom_field8' => 'getCustomField8',
+        'custom_field9' => 'getCustomField9',
         'customer_ip_address' => 'getCustomerIpAddress',
         'screen_branding_theme_code' => 'getScreenBrandingThemeCode',
         'screen_size' => 'getScreenSize',
@@ -245,12 +260,15 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         $this->container['browser'] = isset($data['browser']) ? $data['browser'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['custom_field1'] = isset($data['custom_field1']) ? $data['custom_field1'] : null;
+        $this->container['custom_field10'] = isset($data['custom_field10']) ? $data['custom_field10'] : null;
         $this->container['custom_field2'] = isset($data['custom_field2']) ? $data['custom_field2'] : null;
         $this->container['custom_field3'] = isset($data['custom_field3']) ? $data['custom_field3'] : null;
         $this->container['custom_field4'] = isset($data['custom_field4']) ? $data['custom_field4'] : null;
         $this->container['custom_field5'] = isset($data['custom_field5']) ? $data['custom_field5'] : null;
         $this->container['custom_field6'] = isset($data['custom_field6']) ? $data['custom_field6'] : null;
         $this->container['custom_field7'] = isset($data['custom_field7']) ? $data['custom_field7'] : null;
+        $this->container['custom_field8'] = isset($data['custom_field8']) ? $data['custom_field8'] : null;
+        $this->container['custom_field9'] = isset($data['custom_field9']) ? $data['custom_field9'] : null;
         $this->container['customer_ip_address'] = isset($data['customer_ip_address']) ? $data['customer_ip_address'] : null;
         $this->container['screen_branding_theme_code'] = isset($data['screen_branding_theme_code']) ? $data['screen_branding_theme_code'] : null;
         $this->container['screen_size'] = isset($data['screen_size']) ? $data['screen_size'] : null;
@@ -269,6 +287,10 @@ class OrderCheckout implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['custom_field1']) && (mb_strlen($this->container['custom_field1']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field1', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['custom_field10']) && (mb_strlen($this->container['custom_field10']) > 200)) {
+            $invalidProperties[] = "invalid value for 'custom_field10', the character length must be smaller than or equal to 200.";
         }
 
         if (!is_null($this->container['custom_field2']) && (mb_strlen($this->container['custom_field2']) > 50)) {
@@ -293,6 +315,14 @@ class OrderCheckout implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['custom_field7']) && (mb_strlen($this->container['custom_field7']) > 50)) {
             $invalidProperties[] = "invalid value for 'custom_field7', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['custom_field8']) && (mb_strlen($this->container['custom_field8']) > 200)) {
+            $invalidProperties[] = "invalid value for 'custom_field8', the character length must be smaller than or equal to 200.";
+        }
+
+        if (!is_null($this->container['custom_field9']) && (mb_strlen($this->container['custom_field9']) > 200)) {
+            $invalidProperties[] = "invalid value for 'custom_field9', the character length must be smaller than or equal to 200.";
         }
 
         if (!is_null($this->container['screen_branding_theme_code']) && (mb_strlen($this->container['screen_branding_theme_code']) > 10)) {
@@ -386,6 +416,34 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         }
 
         $this->container['custom_field1'] = $custom_field1;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field10
+     *
+     * @return string
+     */
+    public function getCustomField10()
+    {
+        return $this->container['custom_field10'];
+    }
+
+    /**
+     * Sets custom_field10
+     *
+     * @param string $custom_field10 Custom field 10
+     *
+     * @return $this
+     */
+    public function setCustomField10($custom_field10)
+    {
+        if (!is_null($custom_field10) && (mb_strlen($custom_field10) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $custom_field10 when calling OrderCheckout., must be smaller than or equal to 200.');
+        }
+
+        $this->container['custom_field10'] = $custom_field10;
 
         return $this;
     }
@@ -554,6 +612,62 @@ class OrderCheckout implements ModelInterface, ArrayAccess
         }
 
         $this->container['custom_field7'] = $custom_field7;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field8
+     *
+     * @return string
+     */
+    public function getCustomField8()
+    {
+        return $this->container['custom_field8'];
+    }
+
+    /**
+     * Sets custom_field8
+     *
+     * @param string $custom_field8 Custom field 8
+     *
+     * @return $this
+     */
+    public function setCustomField8($custom_field8)
+    {
+        if (!is_null($custom_field8) && (mb_strlen($custom_field8) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $custom_field8 when calling OrderCheckout., must be smaller than or equal to 200.');
+        }
+
+        $this->container['custom_field8'] = $custom_field8;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field9
+     *
+     * @return string
+     */
+    public function getCustomField9()
+    {
+        return $this->container['custom_field9'];
+    }
+
+    /**
+     * Sets custom_field9
+     *
+     * @param string $custom_field9 Custom field 9
+     *
+     * @return $this
+     */
+    public function setCustomField9($custom_field9)
+    {
+        if (!is_null($custom_field9) && (mb_strlen($custom_field9) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $custom_field9 when calling OrderCheckout., must be smaller than or equal to 200.');
+        }
+
+        $this->container['custom_field9'] = $custom_field9;
 
         return $this;
     }

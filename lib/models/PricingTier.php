@@ -84,6 +84,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'not_valid_when_coupon_present' => 'bool',
         'pricing_tier_oid' => 'int',
         'realtime_percentage_discount' => 'float',
+        'restrict_to_distribution_center_oid' => 'int',
         'signup_notification' => '\ultracart\v2\models\PricingTierNotification',
         'suppress_buysafe' => 'bool',
         'suppress_mailing_list' => 'bool',
@@ -124,6 +125,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'not_valid_when_coupon_present' => null,
         'pricing_tier_oid' => 'int32',
         'realtime_percentage_discount' => null,
+        'restrict_to_distribution_center_oid' => 'int32',
         'signup_notification' => null,
         'suppress_buysafe' => null,
         'suppress_mailing_list' => null,
@@ -185,6 +187,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'not_valid_when_coupon_present' => 'not_valid_when_coupon_present',
         'pricing_tier_oid' => 'pricing_tier_oid',
         'realtime_percentage_discount' => 'realtime_percentage_discount',
+        'restrict_to_distribution_center_oid' => 'restrict_to_distribution_center_oid',
         'signup_notification' => 'signup_notification',
         'suppress_buysafe' => 'suppress_buysafe',
         'suppress_mailing_list' => 'suppress_mailing_list',
@@ -225,6 +228,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'not_valid_when_coupon_present' => 'setNotValidWhenCouponPresent',
         'pricing_tier_oid' => 'setPricingTierOid',
         'realtime_percentage_discount' => 'setRealtimePercentageDiscount',
+        'restrict_to_distribution_center_oid' => 'setRestrictToDistributionCenterOid',
         'signup_notification' => 'setSignupNotification',
         'suppress_buysafe' => 'setSuppressBuysafe',
         'suppress_mailing_list' => 'setSuppressMailingList',
@@ -265,6 +269,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         'not_valid_when_coupon_present' => 'getNotValidWhenCouponPresent',
         'pricing_tier_oid' => 'getPricingTierOid',
         'realtime_percentage_discount' => 'getRealtimePercentageDiscount',
+        'restrict_to_distribution_center_oid' => 'getRestrictToDistributionCenterOid',
         'signup_notification' => 'getSignupNotification',
         'suppress_buysafe' => 'getSuppressBuysafe',
         'suppress_mailing_list' => 'getSuppressMailingList',
@@ -359,6 +364,7 @@ class PricingTier implements ModelInterface, ArrayAccess
         $this->container['not_valid_when_coupon_present'] = isset($data['not_valid_when_coupon_present']) ? $data['not_valid_when_coupon_present'] : null;
         $this->container['pricing_tier_oid'] = isset($data['pricing_tier_oid']) ? $data['pricing_tier_oid'] : null;
         $this->container['realtime_percentage_discount'] = isset($data['realtime_percentage_discount']) ? $data['realtime_percentage_discount'] : null;
+        $this->container['restrict_to_distribution_center_oid'] = isset($data['restrict_to_distribution_center_oid']) ? $data['restrict_to_distribution_center_oid'] : null;
         $this->container['signup_notification'] = isset($data['signup_notification']) ? $data['signup_notification'] : null;
         $this->container['suppress_buysafe'] = isset($data['suppress_buysafe']) ? $data['suppress_buysafe'] : null;
         $this->container['suppress_mailing_list'] = isset($data['suppress_mailing_list']) ? $data['suppress_mailing_list'] : null;
@@ -1042,6 +1048,30 @@ class PricingTier implements ModelInterface, ArrayAccess
     public function setRealtimePercentageDiscount($realtime_percentage_discount)
     {
         $this->container['realtime_percentage_discount'] = $realtime_percentage_discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets restrict_to_distribution_center_oid
+     *
+     * @return int
+     */
+    public function getRestrictToDistributionCenterOid()
+    {
+        return $this->container['restrict_to_distribution_center_oid'];
+    }
+
+    /**
+     * Sets restrict_to_distribution_center_oid
+     *
+     * @param int $restrict_to_distribution_center_oid Restrict inventory to this distribution center oid
+     *
+     * @return $this
+     */
+    public function setRestrictToDistributionCenterOid($restrict_to_distribution_center_oid)
+    {
+        $this->container['restrict_to_distribution_center_oid'] = $restrict_to_distribution_center_oid;
 
         return $this;
     }

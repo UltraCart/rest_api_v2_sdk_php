@@ -91,7 +91,8 @@ class Order implements ModelInterface, ArrayAccess
         'shipping' => '\ultracart\v2\models\OrderShipping',
         'summary' => '\ultracart\v2\models\OrderSummary',
         'tags' => '\ultracart\v2\models\OrderTag[]',
-        'taxes' => '\ultracart\v2\models\OrderTaxes'
+        'taxes' => '\ultracart\v2\models\OrderTaxes',
+        'utms' => '\ultracart\v2\models\OrderUtm[]'
     ];
 
     /**
@@ -134,7 +135,8 @@ class Order implements ModelInterface, ArrayAccess
         'shipping' => null,
         'summary' => null,
         'tags' => null,
-        'taxes' => null
+        'taxes' => null,
+        'utms' => null
     ];
 
     /**
@@ -198,7 +200,8 @@ class Order implements ModelInterface, ArrayAccess
         'shipping' => 'shipping',
         'summary' => 'summary',
         'tags' => 'Tags',
-        'taxes' => 'taxes'
+        'taxes' => 'taxes',
+        'utms' => 'utms'
     ];
 
     /**
@@ -241,7 +244,8 @@ class Order implements ModelInterface, ArrayAccess
         'shipping' => 'setShipping',
         'summary' => 'setSummary',
         'tags' => 'setTags',
-        'taxes' => 'setTaxes'
+        'taxes' => 'setTaxes',
+        'utms' => 'setUtms'
     ];
 
     /**
@@ -284,7 +288,8 @@ class Order implements ModelInterface, ArrayAccess
         'shipping' => 'getShipping',
         'summary' => 'getSummary',
         'tags' => 'getTags',
-        'taxes' => 'getTaxes'
+        'taxes' => 'getTaxes',
+        'utms' => 'getUtms'
     ];
 
     /**
@@ -417,6 +422,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['taxes'] = isset($data['taxes']) ? $data['taxes'] : null;
+        $this->container['utms'] = isset($data['utms']) ? $data['utms'] : null;
     }
 
     /**
@@ -1312,6 +1318,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setTaxes($taxes)
     {
         $this->container['taxes'] = $taxes;
+
+        return $this;
+    }
+
+    /**
+     * Gets utms
+     *
+     * @return \ultracart\v2\models\OrderUtm[]
+     */
+    public function getUtms()
+    {
+        return $this->container['utms'];
+    }
+
+    /**
+     * Sets utms
+     *
+     * @param \ultracart\v2\models\OrderUtm[] $utms UTM clicks.  The zero index is the most recent (last) UTM click
+     *
+     * @return $this
+     */
+    public function setUtms($utms)
+    {
+        $this->container['utms'] = $utms;
 
         return $this;
     }
