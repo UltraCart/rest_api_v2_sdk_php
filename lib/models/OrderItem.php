@@ -101,6 +101,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'float',
         'quantity_refunded' => 'float',
         'quickbooks_class' => 'string',
+        'refund_reason' => 'string',
+        'return_reason' => 'string',
         'ship_separately' => 'bool',
         'shipped_by_user' => 'string',
         'shipped_dts' => 'string',
@@ -170,6 +172,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => null,
         'quantity_refunded' => null,
         'quickbooks_class' => null,
+        'refund_reason' => null,
+        'return_reason' => null,
         'ship_separately' => null,
         'shipped_by_user' => null,
         'shipped_dts' => 'dateTime',
@@ -258,6 +262,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'quantity',
         'quantity_refunded' => 'quantity_refunded',
         'quickbooks_class' => 'quickbooks_class',
+        'refund_reason' => 'refund_reason',
+        'return_reason' => 'return_reason',
         'ship_separately' => 'ship_separately',
         'shipped_by_user' => 'shipped_by_user',
         'shipped_dts' => 'shipped_dts',
@@ -325,6 +331,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'setQuantity',
         'quantity_refunded' => 'setQuantityRefunded',
         'quickbooks_class' => 'setQuickbooksClass',
+        'refund_reason' => 'setRefundReason',
+        'return_reason' => 'setReturnReason',
         'ship_separately' => 'setShipSeparately',
         'shipped_by_user' => 'setShippedByUser',
         'shipped_dts' => 'setShippedDts',
@@ -392,6 +400,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         'quantity' => 'getQuantity',
         'quantity_refunded' => 'getQuantityRefunded',
         'quickbooks_class' => 'getQuickbooksClass',
+        'refund_reason' => 'getRefundReason',
+        'return_reason' => 'getReturnReason',
         'ship_separately' => 'getShipSeparately',
         'shipped_by_user' => 'getShippedByUser',
         'shipped_dts' => 'getShippedDts',
@@ -529,6 +539,8 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['quantity'] = $data['quantity'] ?? null;
         $this->container['quantity_refunded'] = $data['quantity_refunded'] ?? null;
         $this->container['quickbooks_class'] = $data['quickbooks_class'] ?? null;
+        $this->container['refund_reason'] = $data['refund_reason'] ?? null;
+        $this->container['return_reason'] = $data['return_reason'] ?? null;
         $this->container['ship_separately'] = $data['ship_separately'] ?? null;
         $this->container['shipped_by_user'] = $data['shipped_by_user'] ?? null;
         $this->container['shipped_dts'] = $data['shipped_dts'] ?? null;
@@ -1664,6 +1676,54 @@ class OrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['quickbooks_class'] = $quickbooks_class;
+
+        return $this;
+    }
+
+    /**
+     * Gets refund_reason
+     *
+     * @return string|null
+     */
+    public function getRefundReason()
+    {
+        return $this->container['refund_reason'];
+    }
+
+    /**
+     * Sets refund_reason
+     *
+     * @param string|null $refund_reason Refund reason code.  This can only be written during a refund operation otherwise this field is read only.
+     *
+     * @return self
+     */
+    public function setRefundReason($refund_reason)
+    {
+        $this->container['refund_reason'] = $refund_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_reason
+     *
+     * @return string|null
+     */
+    public function getReturnReason()
+    {
+        return $this->container['return_reason'];
+    }
+
+    /**
+     * Sets return_reason
+     *
+     * @param string|null $return_reason Return reason code.  This can only be written during a refund operation otherwise this field is read only.
+     *
+     * @return self
+     */
+    public function setReturnReason($return_reason)
+    {
+        $this->container['return_reason'] = $return_reason;
 
         return $this;
     }
