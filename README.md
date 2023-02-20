@@ -1157,6 +1157,7 @@ Class | Method | HTTP request | Description
  - [OrderQuery](docs/Model/OrderQuery.md)
  - [OrderQueryBatch](docs/Model/OrderQueryBatch.md)
  - [OrderQuote](docs/Model/OrderQuote.md)
+ - [OrderReason](docs/Model/OrderReason.md)
  - [OrderRefundableResponse](docs/Model/OrderRefundableResponse.md)
  - [OrderReplacement](docs/Model/OrderReplacement.md)
  - [OrderReplacementItem](docs/Model/OrderReplacementItem.md)
@@ -1379,6 +1380,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.119 | 02/20/2023 | refund reasons |
 | 3.10.118 | 02/17/2023 | convo api - smsUnsubscribeConversation method |
 | 3.10.117 | 02/15/2023 | added auto order sorting by next_shipment_dts |
 | 3.10.116 | 02/10/2023 | convo - add storefront_host_name to search request |

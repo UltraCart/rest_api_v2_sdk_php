@@ -58,7 +58,13 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'error' => '\ultracart\v2\models\Error',
+        'item_level_refund_reason_required' => 'bool',
+        'item_level_refund_reasons' => '\ultracart\v2\models\OrderReason[]',
+        'item_level_return_reasons' => '\ultracart\v2\models\OrderReason[]',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
+        'order_level_refund_reason_required' => 'bool',
+        'order_level_refund_reasons' => '\ultracart\v2\models\OrderReason[]',
+        'order_level_reject_reasons' => '\ultracart\v2\models\OrderReason[]',
         'refundable' => 'bool',
         'success' => 'bool',
         'warning' => '\ultracart\v2\models\Warning'
@@ -71,7 +77,13 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'error' => null,
+        'item_level_refund_reason_required' => null,
+        'item_level_refund_reasons' => null,
+        'item_level_return_reasons' => null,
         'metadata' => null,
+        'order_level_refund_reason_required' => null,
+        'order_level_refund_reasons' => null,
+        'order_level_reject_reasons' => null,
         'refundable' => null,
         'success' => null,
         'warning' => null
@@ -105,7 +117,13 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'error' => 'error',
+        'item_level_refund_reason_required' => 'item_level_refund_reason_required',
+        'item_level_refund_reasons' => 'item_level_refund_reasons',
+        'item_level_return_reasons' => 'item_level_return_reasons',
         'metadata' => 'metadata',
+        'order_level_refund_reason_required' => 'order_level_refund_reason_required',
+        'order_level_refund_reasons' => 'order_level_refund_reasons',
+        'order_level_reject_reasons' => 'order_level_reject_reasons',
         'refundable' => 'refundable',
         'success' => 'success',
         'warning' => 'warning'
@@ -118,7 +136,13 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'error' => 'setError',
+        'item_level_refund_reason_required' => 'setItemLevelRefundReasonRequired',
+        'item_level_refund_reasons' => 'setItemLevelRefundReasons',
+        'item_level_return_reasons' => 'setItemLevelReturnReasons',
         'metadata' => 'setMetadata',
+        'order_level_refund_reason_required' => 'setOrderLevelRefundReasonRequired',
+        'order_level_refund_reasons' => 'setOrderLevelRefundReasons',
+        'order_level_reject_reasons' => 'setOrderLevelRejectReasons',
         'refundable' => 'setRefundable',
         'success' => 'setSuccess',
         'warning' => 'setWarning'
@@ -131,7 +155,13 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'error' => 'getError',
+        'item_level_refund_reason_required' => 'getItemLevelRefundReasonRequired',
+        'item_level_refund_reasons' => 'getItemLevelRefundReasons',
+        'item_level_return_reasons' => 'getItemLevelReturnReasons',
         'metadata' => 'getMetadata',
+        'order_level_refund_reason_required' => 'getOrderLevelRefundReasonRequired',
+        'order_level_refund_reasons' => 'getOrderLevelRefundReasons',
+        'order_level_reject_reasons' => 'getOrderLevelRejectReasons',
         'refundable' => 'getRefundable',
         'success' => 'getSuccess',
         'warning' => 'getWarning'
@@ -198,7 +228,13 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['item_level_refund_reason_required'] = isset($data['item_level_refund_reason_required']) ? $data['item_level_refund_reason_required'] : null;
+        $this->container['item_level_refund_reasons'] = isset($data['item_level_refund_reasons']) ? $data['item_level_refund_reasons'] : null;
+        $this->container['item_level_return_reasons'] = isset($data['item_level_return_reasons']) ? $data['item_level_return_reasons'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
+        $this->container['order_level_refund_reason_required'] = isset($data['order_level_refund_reason_required']) ? $data['order_level_refund_reason_required'] : null;
+        $this->container['order_level_refund_reasons'] = isset($data['order_level_refund_reasons']) ? $data['order_level_refund_reasons'] : null;
+        $this->container['order_level_reject_reasons'] = isset($data['order_level_reject_reasons']) ? $data['order_level_reject_reasons'] : null;
         $this->container['refundable'] = isset($data['refundable']) ? $data['refundable'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
@@ -253,6 +289,78 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets item_level_refund_reason_required
+     *
+     * @return bool
+     */
+    public function getItemLevelRefundReasonRequired()
+    {
+        return $this->container['item_level_refund_reason_required'];
+    }
+
+    /**
+     * Sets item_level_refund_reason_required
+     *
+     * @param bool $item_level_refund_reason_required True if the item level refund reason is required
+     *
+     * @return $this
+     */
+    public function setItemLevelRefundReasonRequired($item_level_refund_reason_required)
+    {
+        $this->container['item_level_refund_reason_required'] = $item_level_refund_reason_required;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_level_refund_reasons
+     *
+     * @return \ultracart\v2\models\OrderReason[]
+     */
+    public function getItemLevelRefundReasons()
+    {
+        return $this->container['item_level_refund_reasons'];
+    }
+
+    /**
+     * Sets item_level_refund_reasons
+     *
+     * @param \ultracart\v2\models\OrderReason[] $item_level_refund_reasons Reason codes available at the item level.
+     *
+     * @return $this
+     */
+    public function setItemLevelRefundReasons($item_level_refund_reasons)
+    {
+        $this->container['item_level_refund_reasons'] = $item_level_refund_reasons;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_level_return_reasons
+     *
+     * @return \ultracart\v2\models\OrderReason[]
+     */
+    public function getItemLevelReturnReasons()
+    {
+        return $this->container['item_level_return_reasons'];
+    }
+
+    /**
+     * Sets item_level_return_reasons
+     *
+     * @param \ultracart\v2\models\OrderReason[] $item_level_return_reasons Return codes available at the item level.
+     *
+     * @return $this
+     */
+    public function setItemLevelReturnReasons($item_level_return_reasons)
+    {
+        $this->container['item_level_return_reasons'] = $item_level_return_reasons;
+
+        return $this;
+    }
+
+    /**
      * Gets metadata
      *
      * @return \ultracart\v2\models\ResponseMetadata
@@ -272,6 +380,78 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess
     public function setMetadata($metadata)
     {
         $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_level_refund_reason_required
+     *
+     * @return bool
+     */
+    public function getOrderLevelRefundReasonRequired()
+    {
+        return $this->container['order_level_refund_reason_required'];
+    }
+
+    /**
+     * Sets order_level_refund_reason_required
+     *
+     * @param bool $order_level_refund_reason_required True if the order level refund reason is required
+     *
+     * @return $this
+     */
+    public function setOrderLevelRefundReasonRequired($order_level_refund_reason_required)
+    {
+        $this->container['order_level_refund_reason_required'] = $order_level_refund_reason_required;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_level_refund_reasons
+     *
+     * @return \ultracart\v2\models\OrderReason[]
+     */
+    public function getOrderLevelRefundReasons()
+    {
+        return $this->container['order_level_refund_reasons'];
+    }
+
+    /**
+     * Sets order_level_refund_reasons
+     *
+     * @param \ultracart\v2\models\OrderReason[] $order_level_refund_reasons Reason codes available at the order level.
+     *
+     * @return $this
+     */
+    public function setOrderLevelRefundReasons($order_level_refund_reasons)
+    {
+        $this->container['order_level_refund_reasons'] = $order_level_refund_reasons;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_level_reject_reasons
+     *
+     * @return \ultracart\v2\models\OrderReason[]
+     */
+    public function getOrderLevelRejectReasons()
+    {
+        return $this->container['order_level_reject_reasons'];
+    }
+
+    /**
+     * Sets order_level_reject_reasons
+     *
+     * @param \ultracart\v2\models\OrderReason[] $order_level_reject_reasons Reject codes available at the order level.
+     *
+     * @return $this
+     */
+    public function setOrderLevelRejectReasons($order_level_reject_reasons)
+    {
+        $this->container['order_level_reject_reasons'] = $order_level_reject_reasons;
 
         return $this;
     }

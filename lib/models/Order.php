@@ -86,7 +86,9 @@ class Order implements ModelInterface, ArrayAccess
         'properties' => '\ultracart\v2\models\OrderProperty[]',
         'quote' => '\ultracart\v2\models\OrderQuote',
         'refund_dts' => 'string',
+        'refund_reason' => 'string',
         'reject_dts' => 'string',
+        'reject_reason' => 'string',
         'salesforce' => '\ultracart\v2\models\OrderSalesforce',
         'shipping' => '\ultracart\v2\models\OrderShipping',
         'summary' => '\ultracart\v2\models\OrderSummary',
@@ -130,7 +132,9 @@ class Order implements ModelInterface, ArrayAccess
         'properties' => null,
         'quote' => null,
         'refund_dts' => 'dateTime',
+        'refund_reason' => null,
         'reject_dts' => 'dateTime',
+        'reject_reason' => null,
         'salesforce' => null,
         'shipping' => null,
         'summary' => null,
@@ -195,7 +199,9 @@ class Order implements ModelInterface, ArrayAccess
         'properties' => 'properties',
         'quote' => 'quote',
         'refund_dts' => 'refund_dts',
+        'refund_reason' => 'refund_reason',
         'reject_dts' => 'reject_dts',
+        'reject_reason' => 'reject_reason',
         'salesforce' => 'salesforce',
         'shipping' => 'shipping',
         'summary' => 'summary',
@@ -239,7 +245,9 @@ class Order implements ModelInterface, ArrayAccess
         'properties' => 'setProperties',
         'quote' => 'setQuote',
         'refund_dts' => 'setRefundDts',
+        'refund_reason' => 'setRefundReason',
         'reject_dts' => 'setRejectDts',
+        'reject_reason' => 'setRejectReason',
         'salesforce' => 'setSalesforce',
         'shipping' => 'setShipping',
         'summary' => 'setSummary',
@@ -283,7 +291,9 @@ class Order implements ModelInterface, ArrayAccess
         'properties' => 'getProperties',
         'quote' => 'getQuote',
         'refund_dts' => 'getRefundDts',
+        'refund_reason' => 'getRefundReason',
         'reject_dts' => 'getRejectDts',
+        'reject_reason' => 'getRejectReason',
         'salesforce' => 'getSalesforce',
         'shipping' => 'getShipping',
         'summary' => 'getSummary',
@@ -416,7 +426,9 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['quote'] = isset($data['quote']) ? $data['quote'] : null;
         $this->container['refund_dts'] = isset($data['refund_dts']) ? $data['refund_dts'] : null;
+        $this->container['refund_reason'] = isset($data['refund_reason']) ? $data['refund_reason'] : null;
         $this->container['reject_dts'] = isset($data['reject_dts']) ? $data['reject_dts'] : null;
+        $this->container['reject_reason'] = isset($data['reject_reason']) ? $data['reject_reason'] : null;
         $this->container['salesforce'] = isset($data['salesforce']) ? $data['salesforce'] : null;
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
@@ -1179,6 +1191,30 @@ class Order implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets refund_reason
+     *
+     * @return string
+     */
+    public function getRefundReason()
+    {
+        return $this->container['refund_reason'];
+    }
+
+    /**
+     * Sets refund_reason
+     *
+     * @param string $refund_reason Refund reason code.  This can only be written during a refund operation otherwise this field is read only.
+     *
+     * @return $this
+     */
+    public function setRefundReason($refund_reason)
+    {
+        $this->container['refund_reason'] = $refund_reason;
+
+        return $this;
+    }
+
+    /**
      * Gets reject_dts
      *
      * @return string
@@ -1198,6 +1234,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setRejectDts($reject_dts)
     {
         $this->container['reject_dts'] = $reject_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets reject_reason
+     *
+     * @return string
+     */
+    public function getRejectReason()
+    {
+        return $this->container['reject_reason'];
+    }
+
+    /**
+     * Sets reject_reason
+     *
+     * @param string $reject_reason Reject reason code.  This can only be written during a reject operation otherwise this field is read only.
+     *
+     * @return $this
+     */
+    public function setRejectReason($reject_reason)
+    {
+        $this->container['reject_reason'] = $reject_reason;
 
         return $this;
     }
