@@ -60,6 +60,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
         'active' => 'bool',
         'conversation_engagement_oid' => 'int',
         'customer_greeting' => 'string',
+        'customer_initiated' => 'bool',
         'department_oids' => 'int[]',
         'engagement_name' => 'string',
         'equation' => '\ultracart\v2\models\ConversationEngagementEquation',
@@ -76,6 +77,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
         'active' => null,
         'conversation_engagement_oid' => 'int32',
         'customer_greeting' => null,
+        'customer_initiated' => null,
         'department_oids' => null,
         'engagement_name' => null,
         'equation' => null,
@@ -113,6 +115,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
         'active' => 'active',
         'conversation_engagement_oid' => 'conversation_engagement_oid',
         'customer_greeting' => 'customer_greeting',
+        'customer_initiated' => 'customer_initiated',
         'department_oids' => 'department_oids',
         'engagement_name' => 'engagement_name',
         'equation' => 'equation',
@@ -129,6 +132,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
         'active' => 'setActive',
         'conversation_engagement_oid' => 'setConversationEngagementOid',
         'customer_greeting' => 'setCustomerGreeting',
+        'customer_initiated' => 'setCustomerInitiated',
         'department_oids' => 'setDepartmentOids',
         'engagement_name' => 'setEngagementName',
         'equation' => 'setEquation',
@@ -145,6 +149,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
         'active' => 'getActive',
         'conversation_engagement_oid' => 'getConversationEngagementOid',
         'customer_greeting' => 'getCustomerGreeting',
+        'customer_initiated' => 'getCustomerInitiated',
         'department_oids' => 'getDepartmentOids',
         'engagement_name' => 'getEngagementName',
         'equation' => 'getEquation',
@@ -232,6 +237,7 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['conversation_engagement_oid'] = isset($data['conversation_engagement_oid']) ? $data['conversation_engagement_oid'] : null;
         $this->container['customer_greeting'] = isset($data['customer_greeting']) ? $data['customer_greeting'] : null;
+        $this->container['customer_initiated'] = isset($data['customer_initiated']) ? $data['customer_initiated'] : null;
         $this->container['department_oids'] = isset($data['department_oids']) ? $data['department_oids'] : null;
         $this->container['engagement_name'] = isset($data['engagement_name']) ? $data['engagement_name'] : null;
         $this->container['equation'] = isset($data['equation']) ? $data['equation'] : null;
@@ -339,6 +345,30 @@ class ConversationEngagement implements ModelInterface, ArrayAccess
     public function setCustomerGreeting($customer_greeting)
     {
         $this->container['customer_greeting'] = $customer_greeting;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_initiated
+     *
+     * @return bool
+     */
+    public function getCustomerInitiated()
+    {
+        return $this->container['customer_initiated'];
+    }
+
+    /**
+     * Sets customer_initiated
+     *
+     * @param bool $customer_initiated customer_initiated
+     *
+     * @return $this
+     */
+    public function setCustomerInitiated($customer_initiated)
+    {
+        $this->container['customer_initiated'] = $customer_initiated;
 
         return $this;
     }
