@@ -73,6 +73,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
         'message_count' => 'int',
         'messages' => '\ultracart\v2\models\ConversationMessage[]',
         'participants' => '\ultracart\v2\models\ConversationParticipant[]',
+        'sentiment' => '\ultracart\v2\models\ConversationSentiment',
         'start_dts' => 'string',
         'unread_messages' => 'bool',
         'visible' => 'bool'
@@ -101,6 +102,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
         'message_count' => 'int32',
         'messages' => null,
         'participants' => null,
+        'sentiment' => null,
         'start_dts' => 'dateTime',
         'unread_messages' => null,
         'visible' => null
@@ -148,6 +150,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
         'message_count' => 'message_count',
         'messages' => 'messages',
         'participants' => 'participants',
+        'sentiment' => 'sentiment',
         'start_dts' => 'start_dts',
         'unread_messages' => 'unread_messages',
         'visible' => 'visible'
@@ -174,6 +177,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
         'message_count' => 'setMessageCount',
         'messages' => 'setMessages',
         'participants' => 'setParticipants',
+        'sentiment' => 'setSentiment',
         'start_dts' => 'setStartDts',
         'unread_messages' => 'setUnreadMessages',
         'visible' => 'setVisible'
@@ -200,6 +204,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
         'message_count' => 'getMessageCount',
         'messages' => 'getMessages',
         'participants' => 'getParticipants',
+        'sentiment' => 'getSentiment',
         'start_dts' => 'getStartDts',
         'unread_messages' => 'getUnreadMessages',
         'visible' => 'getVisible'
@@ -292,6 +297,7 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['message_count'] = $data['message_count'] ?? null;
         $this->container['messages'] = $data['messages'] ?? null;
         $this->container['participants'] = $data['participants'] ?? null;
+        $this->container['sentiment'] = $data['sentiment'] ?? null;
         $this->container['start_dts'] = $data['start_dts'] ?? null;
         $this->container['unread_messages'] = $data['unread_messages'] ?? null;
         $this->container['visible'] = $data['visible'] ?? null;
@@ -696,6 +702,30 @@ class Conversation implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setParticipants($participants)
     {
         $this->container['participants'] = $participants;
+
+        return $this;
+    }
+
+    /**
+     * Gets sentiment
+     *
+     * @return \ultracart\v2\models\ConversationSentiment|null
+     */
+    public function getSentiment()
+    {
+        return $this->container['sentiment'];
+    }
+
+    /**
+     * Sets sentiment
+     *
+     * @param \ultracart\v2\models\ConversationSentiment|null $sentiment sentiment
+     *
+     * @return self
+     */
+    public function setSentiment($sentiment)
+    {
+        $this->container['sentiment'] = $sentiment;
 
         return $this;
     }

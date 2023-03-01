@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **message_count** | **int** |  | [optional]
 **messages** | [**\ultracart\v2\models\ConversationMessage[]**](ConversationMessage.md) |  | [optional]
 **participants** | [**\ultracart\v2\models\ConversationParticipant[]**](ConversationParticipant.md) |  | [optional]
+**sentiment** | [**\ultracart\v2\models\ConversationSentiment**](ConversationSentiment.md) |  | [optional]
 **start_dts** | **string** | Start of the conversation date/time | [optional]
 **unread_messages** | **bool** |  | [optional]
 **visible** | **bool** |  | [optional]

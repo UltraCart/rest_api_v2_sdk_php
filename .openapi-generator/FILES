@@ -191,6 +191,7 @@ docs/Model/ConversationPermissionsResponse.md
 docs/Model/ConversationResponse.md
 docs/Model/ConversationSearchRequest.md
 docs/Model/ConversationSearchResponse.md
+docs/Model/ConversationSentiment.md
 docs/Model/ConversationStartRequest.md
 docs/Model/ConversationStartResponse.md
 docs/Model/ConversationSummary.md
@@ -954,6 +955,7 @@ lib/models/ConversationPermissionsResponse.php
 lib/models/ConversationResponse.php
 lib/models/ConversationSearchRequest.php
 lib/models/ConversationSearchResponse.php
+lib/models/ConversationSentiment.php
 lib/models/ConversationStartRequest.php
 lib/models/ConversationStartResponse.php
 lib/models/ConversationSummary.php
