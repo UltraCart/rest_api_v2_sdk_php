@@ -325,6 +325,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**getAccountsReceivableRetryStats**](docs/Api/OrderApi.md#getaccountsreceivableretrystats) | **GET** /order/accountsReceivableRetryConfig/stats | Retrieve A/R Retry Statistics
 *OrderApi* | [**getOrder**](docs/Api/OrderApi.md#getorder) | **GET** /order/orders/{order_id} | Retrieve an order
 *OrderApi* | [**getOrderByToken**](docs/Api/OrderApi.md#getorderbytoken) | **POST** /order/orders/token | Retrieve an order using a token
+*OrderApi* | [**getOrderEdiDocuments**](docs/Api/OrderApi.md#getorderedidocuments) | **GET** /order/orders/{order_id}/edi | Retrieve EDI documents associated with this order.
 *OrderApi* | [**getOrders**](docs/Api/OrderApi.md#getorders) | **GET** /order/orders | Retrieve orders
 *OrderApi* | [**getOrdersBatch**](docs/Api/OrderApi.md#getordersbatch) | **POST** /order/orders/batch | Retrieve order batch
 *OrderApi* | [**getOrdersByQuery**](docs/Api/OrderApi.md#getordersbyquery) | **POST** /order/orders/query | Retrieve orders by query
@@ -1125,6 +1126,8 @@ Class | Method | HTTP request | Description
  - [OrderDigitalItem](docs/Model/OrderDigitalItem.md)
  - [OrderDigitalOrder](docs/Model/OrderDigitalOrder.md)
  - [OrderEdi](docs/Model/OrderEdi.md)
+ - [OrderEdiDocument](docs/Model/OrderEdiDocument.md)
+ - [OrderEdiDocumentsResponse](docs/Model/OrderEdiDocumentsResponse.md)
  - [OrderFormat](docs/Model/OrderFormat.md)
  - [OrderFormatResponse](docs/Model/OrderFormatResponse.md)
  - [OrderFraudScore](docs/Model/OrderFraudScore.md)
@@ -1381,6 +1384,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.122 | 03/14/2023 | order.getOrderEdiDocuments |
 | 3.10.121 | 03/01/2023 | convo - add sentiment record to conversation obj |
 | 3.10.120 | 02/22/2023 | convo - customer initiated flag on engagement |
 | 3.10.119 | 02/20/2023 | refund reasons |
