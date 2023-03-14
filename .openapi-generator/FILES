@@ -582,6 +582,8 @@ docs/Model/OrderCoupon.md
 docs/Model/OrderDigitalItem.md
 docs/Model/OrderDigitalOrder.md
 docs/Model/OrderEdi.md
+docs/Model/OrderEdiDocument.md
+docs/Model/OrderEdiDocumentsResponse.md
 docs/Model/OrderFormat.md
 docs/Model/OrderFormatResponse.md
 docs/Model/OrderFraudScore.md
@@ -1347,6 +1349,8 @@ lib/models/OrderCoupon.php
 lib/models/OrderDigitalItem.php
 lib/models/OrderDigitalOrder.php
 lib/models/OrderEdi.php
+lib/models/OrderEdiDocument.php
+lib/models/OrderEdiDocumentsResponse.php
 lib/models/OrderFormat.php
 lib/models/OrderFormatResponse.php
 lib/models/OrderFraudScore.php
