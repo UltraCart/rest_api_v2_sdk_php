@@ -1384,6 +1384,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.123 | 03/21/2023 | order api - new stage named Hold |
 | 3.10.122 | 03/14/2023 | order.getOrderEdiDocuments |
 | 3.10.121 | 03/01/2023 | convo - add sentiment record to conversation obj |
 | 3.10.120 | 02/22/2023 | convo - customer initiated flag on engagement |

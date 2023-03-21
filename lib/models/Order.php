@@ -355,6 +355,7 @@ class Order implements ModelInterface, ArrayAccess
     const CURRENT_STAGE_UNKNOWN = 'Unknown';
     const CURRENT_STAGE_PRE_ORDERED = 'Pre-ordered';
     const CURRENT_STAGE_ADVANCED_ORDER_ROUTING = 'Advanced Order Routing';
+    const CURRENT_STAGE_HOLD = 'Hold';
     
 
     
@@ -378,6 +379,7 @@ class Order implements ModelInterface, ArrayAccess
             self::CURRENT_STAGE_UNKNOWN,
             self::CURRENT_STAGE_PRE_ORDERED,
             self::CURRENT_STAGE_ADVANCED_ORDER_ROUTING,
+            self::CURRENT_STAGE_HOLD,
         ];
     }
     
