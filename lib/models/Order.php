@@ -358,6 +358,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     public const CURRENT_STAGE_UNKNOWN = 'Unknown';
     public const CURRENT_STAGE_PRE_ORDERED = 'Pre-ordered';
     public const CURRENT_STAGE_ADVANCED_ORDER_ROUTING = 'Advanced Order Routing';
+    public const CURRENT_STAGE_HOLD = 'Hold';
 
     /**
      * Gets allowable values of the enum
@@ -379,6 +380,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
             self::CURRENT_STAGE_UNKNOWN,
             self::CURRENT_STAGE_PRE_ORDERED,
             self::CURRENT_STAGE_ADVANCED_ORDER_ROUTING,
+            self::CURRENT_STAGE_HOLD,
         ];
     }
 
