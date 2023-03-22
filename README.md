@@ -1209,6 +1209,7 @@ Class | Method | HTTP request | Description
  - [ReportDataSetResponse](docs/Model/ReportDataSetResponse.md)
  - [ReportDataSetRow](docs/Model/ReportDataSetRow.md)
  - [ReportDataSetSchema](docs/Model/ReportDataSetSchema.md)
+ - [ReportDataSetSummary](docs/Model/ReportDataSetSummary.md)
  - [ReportDataSource](docs/Model/ReportDataSource.md)
  - [ReportDataSourceSchema](docs/Model/ReportDataSourceSchema.md)
  - [ReportExecuteQueriesRequest](docs/Model/ReportExecuteQueriesRequest.md)
@@ -1219,6 +1220,7 @@ Class | Method | HTTP request | Description
  - [ReportPageVisualizationDimension](docs/Model/ReportPageVisualizationDimension.md)
  - [ReportPageVisualizationMetric](docs/Model/ReportPageVisualizationMetric.md)
  - [ReportResponse](docs/Model/ReportResponse.md)
+ - [ReportWebsocketEvent](docs/Model/ReportWebsocketEvent.md)
  - [ReportsResponse](docs/Model/ReportsResponse.md)
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
@@ -1415,6 +1417,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.126 | 03/22/2023 | data warehouse internal dev |
 | 3.10.125 | 03/22/2023 | dw initial framework |
 | 3.10.124 | 03/22/2023 | order api - refundable response added manual_because_multiple_charges boolean field |
 | 3.10.123 | 03/21/2023 | order api - new stage named Hold |
