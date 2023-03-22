@@ -1325,6 +1325,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.141 | 03/22/2023 | order api - refundable response added manual_because_multiple_charges boolean field |
 | 4.0.140 | 03/21/2023 | order api - new stage named Hold |
 | 4.0.139 | 03/14/2023 | order.getOrderEdiDocuments |
 | 4.0.138 | 03/01/2023 | convo - add sentiment record to conversation obj |

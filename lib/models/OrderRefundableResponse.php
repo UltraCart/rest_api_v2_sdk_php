@@ -62,6 +62,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'item_level_refund_reason_required' => 'bool',
         'item_level_refund_reasons' => '\ultracart\v2\models\OrderReason[]',
         'item_level_return_reasons' => '\ultracart\v2\models\OrderReason[]',
+        'manual_because_multiple_charges' => 'bool',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'order_level_refund_reason_required' => 'bool',
         'order_level_refund_reasons' => '\ultracart\v2\models\OrderReason[]',
@@ -83,6 +84,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'item_level_refund_reason_required' => null,
         'item_level_refund_reasons' => null,
         'item_level_return_reasons' => null,
+        'manual_because_multiple_charges' => null,
         'metadata' => null,
         'order_level_refund_reason_required' => null,
         'order_level_refund_reasons' => null,
@@ -123,6 +125,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'item_level_refund_reason_required' => 'item_level_refund_reason_required',
         'item_level_refund_reasons' => 'item_level_refund_reasons',
         'item_level_return_reasons' => 'item_level_return_reasons',
+        'manual_because_multiple_charges' => 'manual_because_multiple_charges',
         'metadata' => 'metadata',
         'order_level_refund_reason_required' => 'order_level_refund_reason_required',
         'order_level_refund_reasons' => 'order_level_refund_reasons',
@@ -142,6 +145,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'item_level_refund_reason_required' => 'setItemLevelRefundReasonRequired',
         'item_level_refund_reasons' => 'setItemLevelRefundReasons',
         'item_level_return_reasons' => 'setItemLevelReturnReasons',
+        'manual_because_multiple_charges' => 'setManualBecauseMultipleCharges',
         'metadata' => 'setMetadata',
         'order_level_refund_reason_required' => 'setOrderLevelRefundReasonRequired',
         'order_level_refund_reasons' => 'setOrderLevelRefundReasons',
@@ -161,6 +165,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'item_level_refund_reason_required' => 'getItemLevelRefundReasonRequired',
         'item_level_refund_reasons' => 'getItemLevelRefundReasons',
         'item_level_return_reasons' => 'getItemLevelReturnReasons',
+        'manual_because_multiple_charges' => 'getManualBecauseMultipleCharges',
         'metadata' => 'getMetadata',
         'order_level_refund_reason_required' => 'getOrderLevelRefundReasonRequired',
         'order_level_refund_reasons' => 'getOrderLevelRefundReasons',
@@ -231,6 +236,7 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['item_level_refund_reason_required'] = $data['item_level_refund_reason_required'] ?? null;
         $this->container['item_level_refund_reasons'] = $data['item_level_refund_reasons'] ?? null;
         $this->container['item_level_return_reasons'] = $data['item_level_return_reasons'] ?? null;
+        $this->container['manual_because_multiple_charges'] = $data['manual_because_multiple_charges'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['order_level_refund_reason_required'] = $data['order_level_refund_reason_required'] ?? null;
         $this->container['order_level_refund_reasons'] = $data['order_level_refund_reasons'] ?? null;
@@ -356,6 +362,30 @@ class OrderRefundableResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public function setItemLevelReturnReasons($item_level_return_reasons)
     {
         $this->container['item_level_return_reasons'] = $item_level_return_reasons;
+
+        return $this;
+    }
+
+    /**
+     * Gets manual_because_multiple_charges
+     *
+     * @return bool|null
+     */
+    public function getManualBecauseMultipleCharges()
+    {
+        return $this->container['manual_because_multiple_charges'];
+    }
+
+    /**
+     * Sets manual_because_multiple_charges
+     *
+     * @param bool|null $manual_because_multiple_charges If true, this refund will have to be manually done because of additional charges with the virtual terminal were made
+     *
+     * @return self
+     */
+    public function setManualBecauseMultipleCharges($manual_because_multiple_charges)
+    {
+        $this->container['manual_because_multiple_charges'] = $manual_because_multiple_charges;
 
         return $this;
     }
