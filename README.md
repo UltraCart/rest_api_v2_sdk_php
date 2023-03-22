@@ -275,6 +275,15 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateCustomer**](docs/Api/CustomerApi.md#updatecustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**validateEmailVerificationToken**](docs/Api/CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
+*DatawarehouseApi* | [**deleteReport**](docs/Api/DatawarehouseApi.md#deletereport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
+*DatawarehouseApi* | [**executeReportQueries**](docs/Api/DatawarehouseApi.md#executereportqueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
+*DatawarehouseApi* | [**getReport**](docs/Api/DatawarehouseApi.md#getreport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
+*DatawarehouseApi* | [**getReportDataSet**](docs/Api/DatawarehouseApi.md#getreportdataset) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
+*DatawarehouseApi* | [**getReportDataSetPage**](docs/Api/DatawarehouseApi.md#getreportdatasetpage) | **GET** /datawarehouse/reports/dataset/{dataset_uuid}/pages/{page_number} | Get a report data set page
+*DatawarehouseApi* | [**getReportWebsocketAuthorization**](docs/Api/DatawarehouseApi.md#getreportwebsocketauthorization) | **PUT** /datawarehouse/reports/auth | Get report websocket authorization
+*DatawarehouseApi* | [**getReports**](docs/Api/DatawarehouseApi.md#getreports) | **GET** /datawarehouse/reports | Get list of reports available
+*DatawarehouseApi* | [**insertReport**](docs/Api/DatawarehouseApi.md#insertreport) | **POST** /datawarehouse/reports | Create a report
+*DatawarehouseApi* | [**updateReport**](docs/Api/DatawarehouseApi.md#updatereport) | **PUT** /datawarehouse/reports/{report_oid} | Update a report
 *FulfillmentApi* | [**acknowledgeOrders**](docs/Api/FulfillmentApi.md#acknowledgeorders) | **PUT** /fulfillment/distribution_centers/{distribution_center_code}/acknowledgements | Acknowledge receipt of orders.
 *FulfillmentApi* | [**generatePackingSlip**](docs/Api/FulfillmentApi.md#generatepackingslip) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders/{order_id} | Generate a packing slip for this order for the given distribution center.
 *FulfillmentApi* | [**getDistributionCenterOrders**](docs/Api/FulfillmentApi.md#getdistributioncenterorders) | **GET** /fulfillment/distribution_centers/{distribution_center_code}/orders | Retrieve orders queued up for this distribution center.
@@ -1189,6 +1198,28 @@ Class | Method | HTTP request | Description
  - [PublishLibraryItemRequest](docs/Model/PublishLibraryItemRequest.md)
  - [RegisterAffiliateClickRequest](docs/Model/RegisterAffiliateClickRequest.md)
  - [RegisterAffiliateClickResponse](docs/Model/RegisterAffiliateClickResponse.md)
+ - [Report](docs/Model/Report.md)
+ - [ReportAuth](docs/Model/ReportAuth.md)
+ - [ReportAuthResponse](docs/Model/ReportAuthResponse.md)
+ - [ReportDataSet](docs/Model/ReportDataSet.md)
+ - [ReportDataSetColumn](docs/Model/ReportDataSetColumn.md)
+ - [ReportDataSetPage](docs/Model/ReportDataSetPage.md)
+ - [ReportDataSetPageResponse](docs/Model/ReportDataSetPageResponse.md)
+ - [ReportDataSetQuery](docs/Model/ReportDataSetQuery.md)
+ - [ReportDataSetResponse](docs/Model/ReportDataSetResponse.md)
+ - [ReportDataSetRow](docs/Model/ReportDataSetRow.md)
+ - [ReportDataSetSchema](docs/Model/ReportDataSetSchema.md)
+ - [ReportDataSource](docs/Model/ReportDataSource.md)
+ - [ReportDataSourceSchema](docs/Model/ReportDataSourceSchema.md)
+ - [ReportExecuteQueriesRequest](docs/Model/ReportExecuteQueriesRequest.md)
+ - [ReportFilter](docs/Model/ReportFilter.md)
+ - [ReportFilterConnection](docs/Model/ReportFilterConnection.md)
+ - [ReportPage](docs/Model/ReportPage.md)
+ - [ReportPageVisualization](docs/Model/ReportPageVisualization.md)
+ - [ReportPageVisualizationDimension](docs/Model/ReportPageVisualizationDimension.md)
+ - [ReportPageVisualizationMetric](docs/Model/ReportPageVisualizationMetric.md)
+ - [ReportResponse](docs/Model/ReportResponse.md)
+ - [ReportsResponse](docs/Model/ReportsResponse.md)
  - [ResponseMetadata](docs/Model/ResponseMetadata.md)
  - [ResultSet](docs/Model/ResultSet.md)
  - [RulerValidationRequest](docs/Model/RulerValidationRequest.md)
@@ -1384,6 +1415,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.125 | 03/22/2023 | dw initial framework |
 | 3.10.124 | 03/22/2023 | order api - refundable response added manual_because_multiple_charges boolean field |
 | 3.10.123 | 03/21/2023 | order api - new stage named Hold |
 | 3.10.122 | 03/14/2023 | order.getOrderEdiDocuments |
