@@ -657,6 +657,7 @@ docs/Model/ReportDataSetQuery.md
 docs/Model/ReportDataSetResponse.md
 docs/Model/ReportDataSetRow.md
 docs/Model/ReportDataSetSchema.md
+docs/Model/ReportDataSetSummary.md
 docs/Model/ReportDataSource.md
 docs/Model/ReportDataSourceSchema.md
 docs/Model/ReportExecuteQueriesRequest.md
@@ -667,6 +668,7 @@ docs/Model/ReportPageVisualization.md
 docs/Model/ReportPageVisualizationDimension.md
 docs/Model/ReportPageVisualizationMetric.md
 docs/Model/ReportResponse.md
+docs/Model/ReportWebsocketEvent.md
 docs/Model/ReportsResponse.md
 docs/Model/ResponseMetadata.md
 docs/Model/ResultSet.md
@@ -1447,6 +1449,7 @@ lib/models/ReportDataSetQuery.php
 lib/models/ReportDataSetResponse.php
 lib/models/ReportDataSetRow.php
 lib/models/ReportDataSetSchema.php
+lib/models/ReportDataSetSummary.php
 lib/models/ReportDataSource.php
 lib/models/ReportDataSourceSchema.php
 lib/models/ReportExecuteQueriesRequest.php
@@ -1457,6 +1460,7 @@ lib/models/ReportPageVisualization.php
 lib/models/ReportPageVisualizationDimension.php
 lib/models/ReportPageVisualizationMetric.php
 lib/models/ReportResponse.php
+lib/models/ReportWebsocketEvent.php
 lib/models/ReportsResponse.php
 lib/models/ResponseMetadata.php
 lib/models/ResultSet.php
