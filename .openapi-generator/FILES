@@ -657,7 +657,6 @@ docs/Model/ReportDataSetQuery.md
 docs/Model/ReportDataSetResponse.md
 docs/Model/ReportDataSetRow.md
 docs/Model/ReportDataSetSchema.md
-docs/Model/ReportDataSetSummary.md
 docs/Model/ReportDataSource.md
 docs/Model/ReportDataSourceSchema.md
 docs/Model/ReportExecuteQueriesRequest.md
@@ -1449,7 +1448,6 @@ lib/models/ReportDataSetQuery.php
 lib/models/ReportDataSetResponse.php
 lib/models/ReportDataSetRow.php
 lib/models/ReportDataSetSchema.php
-lib/models/ReportDataSetSummary.php
 lib/models/ReportDataSource.php
 lib/models/ReportDataSourceSchema.php
 lib/models/ReportExecuteQueriesRequest.php

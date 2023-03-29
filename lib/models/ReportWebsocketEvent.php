@@ -59,7 +59,7 @@ class ReportWebsocketEvent implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'event_type' => 'string',
-        'query_completion' => '\ultracart\v2\models\ReportDataSetSummary'
+        'query_completion' => '\ultracart\v2\models\ReportDataSet'
     ];
 
     /**
@@ -271,7 +271,7 @@ class ReportWebsocketEvent implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets query_completion
      *
-     * @return \ultracart\v2\models\ReportDataSetSummary|null
+     * @return \ultracart\v2\models\ReportDataSet|null
      */
     public function getQueryCompletion()
     {
@@ -281,7 +281,7 @@ class ReportWebsocketEvent implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets query_completion
      *
-     * @param \ultracart\v2\models\ReportDataSetSummary|null $query_completion query_completion
+     * @param \ultracart\v2\models\ReportDataSet|null $query_completion query_completion
      *
      * @return self
      */

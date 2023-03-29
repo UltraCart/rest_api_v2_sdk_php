@@ -1135,7 +1135,6 @@ Class | Method | HTTP request | Description
 - [ReportDataSetResponse](docs/Model/ReportDataSetResponse.md)
 - [ReportDataSetRow](docs/Model/ReportDataSetRow.md)
 - [ReportDataSetSchema](docs/Model/ReportDataSetSchema.md)
-- [ReportDataSetSummary](docs/Model/ReportDataSetSummary.md)
 - [ReportDataSource](docs/Model/ReportDataSource.md)
 - [ReportDataSourceSchema](docs/Model/ReportDataSourceSchema.md)
 - [ReportExecuteQueriesRequest](docs/Model/ReportExecuteQueriesRequest.md)
@@ -1358,6 +1357,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.144 | 03/29/2023 | internal development |
 | 4.0.143 | 03/22/2023 | data warehouse internal dev |
 | 4.0.142 | 03/22/2023 | dw initial framework |
 | 4.0.141 | 03/22/2023 | order api - refundable response added manual_because_multiple_charges boolean field |

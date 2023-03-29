@@ -68,7 +68,12 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'string',
         'objective' => 'string',
         'objective_parameter' => 'string',
+        'openai_current_iteration' => 'int',
+        'openai_element_type' => 'string',
+        'openai_model' => 'string',
+        'openai_total_iterations' => 'int',
         'optimization_type' => 'string',
+        'p_value' => 'float',
         'session_count' => 'int',
         'start_dts' => 'string',
         'status' => 'string',
@@ -96,7 +101,12 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => null,
         'objective' => null,
         'objective_parameter' => null,
+        'openai_current_iteration' => 'int32',
+        'openai_element_type' => null,
+        'openai_model' => null,
+        'openai_total_iterations' => 'int32',
         'optimization_type' => null,
+        'p_value' => null,
         'session_count' => 'int32',
         'start_dts' => 'dateTime',
         'status' => null,
@@ -143,7 +153,12 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'notes',
         'objective' => 'objective',
         'objective_parameter' => 'objective_parameter',
+        'openai_current_iteration' => 'openai_current_iteration',
+        'openai_element_type' => 'openai_element_type',
+        'openai_model' => 'openai_model',
+        'openai_total_iterations' => 'openai_total_iterations',
         'optimization_type' => 'optimization_type',
+        'p_value' => 'p_value',
         'session_count' => 'session_count',
         'start_dts' => 'start_dts',
         'status' => 'status',
@@ -169,7 +184,12 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'setNotes',
         'objective' => 'setObjective',
         'objective_parameter' => 'setObjectiveParameter',
+        'openai_current_iteration' => 'setOpenaiCurrentIteration',
+        'openai_element_type' => 'setOpenaiElementType',
+        'openai_model' => 'setOpenaiModel',
+        'openai_total_iterations' => 'setOpenaiTotalIterations',
         'optimization_type' => 'setOptimizationType',
+        'p_value' => 'setPValue',
         'session_count' => 'setSessionCount',
         'start_dts' => 'setStartDts',
         'status' => 'setStatus',
@@ -195,7 +215,12 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'notes' => 'getNotes',
         'objective' => 'getObjective',
         'objective_parameter' => 'getObjectiveParameter',
+        'openai_current_iteration' => 'getOpenaiCurrentIteration',
+        'openai_element_type' => 'getOpenaiElementType',
+        'openai_model' => 'getOpenaiModel',
+        'openai_total_iterations' => 'getOpenaiTotalIterations',
         'optimization_type' => 'getOptimizationType',
+        'p_value' => 'getPValue',
         'session_count' => 'getSessionCount',
         'start_dts' => 'getStartDts',
         'status' => 'getStatus',
@@ -246,9 +271,26 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const OPENAI_ELEMENT_TYPE_HEADLINE = 'headline';
+    public const OPENAI_ELEMENT_TYPE_TEXT = 'text';
+    public const OPENAI_ELEMENT_TYPE_TEXTBLOCK = 'textblock';
     public const STATUS_RUNNING = 'Running';
     public const STATUS_ENDED = 'Ended';
     public const STATUS_DELETED = 'Deleted';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getOpenaiElementTypeAllowableValues()
+    {
+        return [
+            self::OPENAI_ELEMENT_TYPE_HEADLINE,
+            self::OPENAI_ELEMENT_TYPE_TEXT,
+            self::OPENAI_ELEMENT_TYPE_TEXTBLOCK,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -289,7 +331,12 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['notes'] = $data['notes'] ?? null;
         $this->container['objective'] = $data['objective'] ?? null;
         $this->container['objective_parameter'] = $data['objective_parameter'] ?? null;
+        $this->container['openai_current_iteration'] = $data['openai_current_iteration'] ?? null;
+        $this->container['openai_element_type'] = $data['openai_element_type'] ?? null;
+        $this->container['openai_model'] = $data['openai_model'] ?? null;
+        $this->container['openai_total_iterations'] = $data['openai_total_iterations'] ?? null;
         $this->container['optimization_type'] = $data['optimization_type'] ?? null;
+        $this->container['p_value'] = $data['p_value'] ?? null;
         $this->container['session_count'] = $data['session_count'] ?? null;
         $this->container['start_dts'] = $data['start_dts'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
@@ -307,6 +354,15 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getOpenaiElementTypeAllowableValues();
+        if (!is_null($this->container['openai_element_type']) && !in_array($this->container['openai_element_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'openai_element_type', must be one of '%s'",
+                $this->container['openai_element_type'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
@@ -573,6 +629,112 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets openai_current_iteration
+     *
+     * @return int|null
+     */
+    public function getOpenaiCurrentIteration()
+    {
+        return $this->container['openai_current_iteration'];
+    }
+
+    /**
+     * Sets openai_current_iteration
+     *
+     * @param int|null $openai_current_iteration The current iteration of the OpenAI related experiment
+     *
+     * @return self
+     */
+    public function setOpenaiCurrentIteration($openai_current_iteration)
+    {
+        $this->container['openai_current_iteration'] = $openai_current_iteration;
+
+        return $this;
+    }
+
+    /**
+     * Gets openai_element_type
+     *
+     * @return string|null
+     */
+    public function getOpenaiElementType()
+    {
+        return $this->container['openai_element_type'];
+    }
+
+    /**
+     * Sets openai_element_type
+     *
+     * @param string|null $openai_element_type The type of OpenAI element being experimented on
+     *
+     * @return self
+     */
+    public function setOpenaiElementType($openai_element_type)
+    {
+        $allowedValues = $this->getOpenaiElementTypeAllowableValues();
+        if (!is_null($openai_element_type) && !in_array($openai_element_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'openai_element_type', must be one of '%s'",
+                    $openai_element_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['openai_element_type'] = $openai_element_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets openai_model
+     *
+     * @return string|null
+     */
+    public function getOpenaiModel()
+    {
+        return $this->container['openai_model'];
+    }
+
+    /**
+     * Sets openai_model
+     *
+     * @param string|null $openai_model The type of OpenAI model used
+     *
+     * @return self
+     */
+    public function setOpenaiModel($openai_model)
+    {
+        $this->container['openai_model'] = $openai_model;
+
+        return $this;
+    }
+
+    /**
+     * Gets openai_total_iterations
+     *
+     * @return int|null
+     */
+    public function getOpenaiTotalIterations()
+    {
+        return $this->container['openai_total_iterations'];
+    }
+
+    /**
+     * Sets openai_total_iterations
+     *
+     * @param int|null $openai_total_iterations The total number of iterations to perform on the experiment
+     *
+     * @return self
+     */
+    public function setOpenaiTotalIterations($openai_total_iterations)
+    {
+        $this->container['openai_total_iterations'] = $openai_total_iterations;
+
+        return $this;
+    }
+
+    /**
      * Gets optimization_type
      *
      * @return string|null
@@ -592,6 +754,30 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOptimizationType($optimization_type)
     {
         $this->container['optimization_type'] = $optimization_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets p_value
+     *
+     * @return float|null
+     */
+    public function getPValue()
+    {
+        return $this->container['p_value'];
+    }
+
+    /**
+     * Sets p_value
+     *
+     * @param float|null $p_value Statistics p-value for the experiment
+     *
+     * @return self
+     */
+    public function setPValue($p_value)
+    {
+        $this->container['p_value'] = $p_value;
 
         return $this;
     }
