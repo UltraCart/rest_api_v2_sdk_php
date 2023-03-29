@@ -58,7 +58,7 @@ class ReportWebsocketEvent implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'event_type' => 'string',
-        'query_completion' => '\ultracart\v2\models\ReportDataSetSummary'
+        'query_completion' => '\ultracart\v2\models\ReportDataSet'
     ];
 
     /**
@@ -269,7 +269,7 @@ class ReportWebsocketEvent implements ModelInterface, ArrayAccess
     /**
      * Gets query_completion
      *
-     * @return \ultracart\v2\models\ReportDataSetSummary
+     * @return \ultracart\v2\models\ReportDataSet
      */
     public function getQueryCompletion()
     {
@@ -279,7 +279,7 @@ class ReportWebsocketEvent implements ModelInterface, ArrayAccess
     /**
      * Sets query_completion
      *
-     * @param \ultracart\v2\models\ReportDataSetSummary $query_completion query_completion
+     * @param \ultracart\v2\models\ReportDataSet $query_completion query_completion
      *
      * @return $this
      */
