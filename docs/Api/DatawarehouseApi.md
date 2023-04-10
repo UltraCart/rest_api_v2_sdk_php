@@ -5,6 +5,7 @@ All URIs are relative to *https://secure.ultracart.com/rest/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteReport**](DatawarehouseApi.md#deleteReport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
+[**dryRunReportQueries**](DatawarehouseApi.md#dryRunReportQueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
 [**executeReportQueries**](DatawarehouseApi.md#executeReportQueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
 [**getReport**](DatawarehouseApi.md#getReport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 [**getReportDataSet**](DatawarehouseApi.md#getReportDataSet) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
@@ -50,6 +51,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **dryRunReportQueries**
+> \ultracart\v2\models\ReportDryRunQueriesResponse dryRunReportQueries($query_request)
+
+Dry run the report queries
+
+Dry run the report queries
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\DatawarehouseApi::usingApiKey($simple_key);
+
+$query_request = new \ultracart\v2\models\ReportDryRunQueriesRequest(); // \ultracart\v2\models\ReportDryRunQueriesRequest | Dry run request
+
+try {
+    $result = $apiInstance->dryRunReportQueries($query_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DatawarehouseApi->dryRunReportQueries: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query_request** | [**\ultracart\v2\models\ReportDryRunQueriesRequest**](../Model/ReportDryRunQueriesRequest.md)| Dry run request |
+
+### Return type
+
+[**\ultracart\v2\models\ReportDryRunQueriesResponse**](../Model/ReportDryRunQueriesResponse.md)
 
 ### Authorization
 
