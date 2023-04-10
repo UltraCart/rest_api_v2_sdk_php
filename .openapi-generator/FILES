@@ -30,6 +30,7 @@ docs/Model/AccountsReceivableRetryStatAccount.md
 docs/Model/AccountsReceivableRetryStatMetrics.md
 docs/Model/AccountsReceivableRetryStatRevenue.md
 docs/Model/AccountsReceivableRetryStatsResponse.md
+docs/Model/AccountsReceivableRetryTransactionReject.md
 docs/Model/Activity.md
 docs/Model/AddLibraryItemRequest.md
 docs/Model/AdjustInternalCertificateRequest.md
@@ -659,6 +660,9 @@ docs/Model/ReportDataSetRow.md
 docs/Model/ReportDataSetSchema.md
 docs/Model/ReportDataSource.md
 docs/Model/ReportDataSourceSchema.md
+docs/Model/ReportDryRunQueriesRequest.md
+docs/Model/ReportDryRunQueriesResponse.md
+docs/Model/ReportDryRunQueryResult.md
 docs/Model/ReportExecuteQueriesRequest.md
 docs/Model/ReportFilter.md
 docs/Model/ReportFilterConnection.md
@@ -820,6 +824,7 @@ lib/models/AccountsReceivableRetryStatAccount.php
 lib/models/AccountsReceivableRetryStatMetrics.php
 lib/models/AccountsReceivableRetryStatRevenue.php
 lib/models/AccountsReceivableRetryStatsResponse.php
+lib/models/AccountsReceivableRetryTransactionReject.php
 lib/models/Activity.php
 lib/models/AddLibraryItemRequest.php
 lib/models/AdjustInternalCertificateRequest.php
@@ -1450,6 +1455,9 @@ lib/models/ReportDataSetRow.php
 lib/models/ReportDataSetSchema.php
 lib/models/ReportDataSource.php
 lib/models/ReportDataSourceSchema.php
+lib/models/ReportDryRunQueriesRequest.php
+lib/models/ReportDryRunQueriesResponse.php
+lib/models/ReportDryRunQueryResult.php
 lib/models/ReportExecuteQueriesRequest.php
 lib/models/ReportFilter.php
 lib/models/ReportFilterConnection.php

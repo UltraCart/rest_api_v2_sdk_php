@@ -71,6 +71,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess, \Jso
         'process_linked_accounts' => 'bool',
         'processing_percentage' => 'string',
         'reject_at_end' => 'bool',
+        'transaction_rejects' => '\ultracart\v2\models\AccountsReceivableRetryTransactionReject[]',
         'trial_mode' => 'bool',
         'trial_mode_expiration_dts' => 'string'
     ];
@@ -96,6 +97,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess, \Jso
         'process_linked_accounts' => null,
         'processing_percentage' => null,
         'reject_at_end' => null,
+        'transaction_rejects' => null,
         'trial_mode' => null,
         'trial_mode_expiration_dts' => 'dateTime'
     ];
@@ -140,6 +142,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess, \Jso
         'process_linked_accounts' => 'process_linked_accounts',
         'processing_percentage' => 'processing_percentage',
         'reject_at_end' => 'reject_at_end',
+        'transaction_rejects' => 'transaction_rejects',
         'trial_mode' => 'trial_mode',
         'trial_mode_expiration_dts' => 'trial_mode_expiration_dts'
     ];
@@ -163,6 +166,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess, \Jso
         'process_linked_accounts' => 'setProcessLinkedAccounts',
         'processing_percentage' => 'setProcessingPercentage',
         'reject_at_end' => 'setRejectAtEnd',
+        'transaction_rejects' => 'setTransactionRejects',
         'trial_mode' => 'setTrialMode',
         'trial_mode_expiration_dts' => 'setTrialModeExpirationDts'
     ];
@@ -186,6 +190,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess, \Jso
         'process_linked_accounts' => 'getProcessLinkedAccounts',
         'processing_percentage' => 'getProcessingPercentage',
         'reject_at_end' => 'getRejectAtEnd',
+        'transaction_rejects' => 'getTransactionRejects',
         'trial_mode' => 'getTrialMode',
         'trial_mode_expiration_dts' => 'getTrialModeExpirationDts'
     ];
@@ -260,6 +265,7 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess, \Jso
         $this->container['process_linked_accounts'] = $data['process_linked_accounts'] ?? null;
         $this->container['processing_percentage'] = $data['processing_percentage'] ?? null;
         $this->container['reject_at_end'] = $data['reject_at_end'] ?? null;
+        $this->container['transaction_rejects'] = $data['transaction_rejects'] ?? null;
         $this->container['trial_mode'] = $data['trial_mode'] ?? null;
         $this->container['trial_mode_expiration_dts'] = $data['trial_mode_expiration_dts'] ?? null;
     }
@@ -596,6 +602,30 @@ class AccountsReceivableRetryConfig implements ModelInterface, ArrayAccess, \Jso
     public function setRejectAtEnd($reject_at_end)
     {
         $this->container['reject_at_end'] = $reject_at_end;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_rejects
+     *
+     * @return \ultracart\v2\models\AccountsReceivableRetryTransactionReject[]|null
+     */
+    public function getTransactionRejects()
+    {
+        return $this->container['transaction_rejects'];
+    }
+
+    /**
+     * Sets transaction_rejects
+     *
+     * @param \ultracart\v2\models\AccountsReceivableRetryTransactionReject[]|null $transaction_rejects Array of key/value pairs that when found in the response cause the rejection of the transaction.
+     *
+     * @return self
+     */
+    public function setTransactionRejects($transaction_rejects)
+    {
+        $this->container['transaction_rejects'] = $transaction_rejects;
 
         return $this;
     }

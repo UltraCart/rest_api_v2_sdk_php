@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **process_linked_accounts** | **bool** | If true, all linked accounts are also processed using the same rules. | [optional]
 **processing_percentage** | **string** | The percentage rate charged for the service. | [optional]
 **reject_at_end** | **bool** | If true, the order is rejected the day after the last configured activity day | [optional]
+**transaction_rejects** | [**\ultracart\v2\models\AccountsReceivableRetryTransactionReject[]**](AccountsReceivableRetryTransactionReject.md) | Array of key/value pairs that when found in the response cause the rejection of the transaction. | [optional]
 **trial_mode** | **bool** | True if the account is currently in trial mode.  Set to false to exit trial mode. | [optional]
 **trial_mode_expiration_dts** | **string** | The date when trial mode expires.  If this date is reached without exiting trial mode, the service will de-activate. | [optional]
 

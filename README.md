@@ -204,6 +204,7 @@ Class | Method | HTTP request | Description
 *CustomerApi* | [**updateCustomerEmailLists**](docs/Api/CustomerApi.md#updatecustomeremaillists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
 *CustomerApi* | [**validateEmailVerificationToken**](docs/Api/CustomerApi.md#validateemailverificationtoken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 *DatawarehouseApi* | [**deleteReport**](docs/Api/DatawarehouseApi.md#deletereport) | **DELETE** /datawarehouse/reports/{report_oid} | Delete a report
+*DatawarehouseApi* | [**dryRunReportQueries**](docs/Api/DatawarehouseApi.md#dryrunreportqueries) | **PUT** /datawarehouse/reports/dryrun | Dry run the report queries
 *DatawarehouseApi* | [**executeReportQueries**](docs/Api/DatawarehouseApi.md#executereportqueries) | **PUT** /datawarehouse/reports/execute | Execute the report queries
 *DatawarehouseApi* | [**getReport**](docs/Api/DatawarehouseApi.md#getreport) | **GET** /datawarehouse/reports/{report_oid} | Get a report
 *DatawarehouseApi* | [**getReportDataSet**](docs/Api/DatawarehouseApi.md#getreportdataset) | **GET** /datawarehouse/reports/dataset/{dataset_uuid} | Get a report data set
@@ -508,6 +509,7 @@ Class | Method | HTTP request | Description
 - [AccountsReceivableRetryStatMetrics](docs/Model/AccountsReceivableRetryStatMetrics.md)
 - [AccountsReceivableRetryStatRevenue](docs/Model/AccountsReceivableRetryStatRevenue.md)
 - [AccountsReceivableRetryStatsResponse](docs/Model/AccountsReceivableRetryStatsResponse.md)
+- [AccountsReceivableRetryTransactionReject](docs/Model/AccountsReceivableRetryTransactionReject.md)
 - [Activity](docs/Model/Activity.md)
 - [AddLibraryItemRequest](docs/Model/AddLibraryItemRequest.md)
 - [AdjustInternalCertificateRequest](docs/Model/AdjustInternalCertificateRequest.md)
@@ -1137,6 +1139,9 @@ Class | Method | HTTP request | Description
 - [ReportDataSetSchema](docs/Model/ReportDataSetSchema.md)
 - [ReportDataSource](docs/Model/ReportDataSource.md)
 - [ReportDataSourceSchema](docs/Model/ReportDataSourceSchema.md)
+- [ReportDryRunQueriesRequest](docs/Model/ReportDryRunQueriesRequest.md)
+- [ReportDryRunQueriesResponse](docs/Model/ReportDryRunQueriesResponse.md)
+- [ReportDryRunQueryResult](docs/Model/ReportDryRunQueryResult.md)
 - [ReportExecuteQueriesRequest](docs/Model/ReportExecuteQueriesRequest.md)
 - [ReportFilter](docs/Model/ReportFilter.md)
 - [ReportFilterConnection](docs/Model/ReportFilterConnection.md)
@@ -1357,6 +1362,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.145 | 04/10/2023 | data warehouse internal dev |
 | 4.0.144 | 03/29/2023 | internal development |
 | 4.0.143 | 03/22/2023 | data warehouse internal dev |
 | 4.0.142 | 03/22/2023 | dw initial framework |
