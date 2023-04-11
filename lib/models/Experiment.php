@@ -73,6 +73,7 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'openai_model' => 'string',
         'openai_total_iterations' => 'int',
         'optimization_type' => 'string',
+        'p95_sessions_needed' => 'int',
         'p_value' => 'float',
         'session_count' => 'int',
         'start_dts' => 'string',
@@ -106,6 +107,7 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'openai_model' => null,
         'openai_total_iterations' => 'int32',
         'optimization_type' => null,
+        'p95_sessions_needed' => 'int32',
         'p_value' => null,
         'session_count' => 'int32',
         'start_dts' => 'dateTime',
@@ -158,6 +160,7 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'openai_model' => 'openai_model',
         'openai_total_iterations' => 'openai_total_iterations',
         'optimization_type' => 'optimization_type',
+        'p95_sessions_needed' => 'p95_sessions_needed',
         'p_value' => 'p_value',
         'session_count' => 'session_count',
         'start_dts' => 'start_dts',
@@ -189,6 +192,7 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'openai_model' => 'setOpenaiModel',
         'openai_total_iterations' => 'setOpenaiTotalIterations',
         'optimization_type' => 'setOptimizationType',
+        'p95_sessions_needed' => 'setP95SessionsNeeded',
         'p_value' => 'setPValue',
         'session_count' => 'setSessionCount',
         'start_dts' => 'setStartDts',
@@ -220,6 +224,7 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         'openai_model' => 'getOpenaiModel',
         'openai_total_iterations' => 'getOpenaiTotalIterations',
         'optimization_type' => 'getOptimizationType',
+        'p95_sessions_needed' => 'getP95SessionsNeeded',
         'p_value' => 'getPValue',
         'session_count' => 'getSessionCount',
         'start_dts' => 'getStartDts',
@@ -336,6 +341,7 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['openai_model'] = $data['openai_model'] ?? null;
         $this->container['openai_total_iterations'] = $data['openai_total_iterations'] ?? null;
         $this->container['optimization_type'] = $data['optimization_type'] ?? null;
+        $this->container['p95_sessions_needed'] = $data['p95_sessions_needed'] ?? null;
         $this->container['p_value'] = $data['p_value'] ?? null;
         $this->container['session_count'] = $data['session_count'] ?? null;
         $this->container['start_dts'] = $data['start_dts'] ?? null;
@@ -754,6 +760,30 @@ class Experiment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setOptimizationType($optimization_type)
     {
         $this->container['optimization_type'] = $optimization_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets p95_sessions_needed
+     *
+     * @return int|null
+     */
+    public function getP95SessionsNeeded()
+    {
+        return $this->container['p95_sessions_needed'];
+    }
+
+    /**
+     * Sets p95_sessions_needed
+     *
+     * @param int|null $p95_sessions_needed Estimated sessions needed to achieve P95
+     *
+     * @return self
+     */
+    public function setP95SessionsNeeded($p95_sessions_needed)
+    {
+        $this->container['p95_sessions_needed'] = $p95_sessions_needed;
 
         return $this;
     }
