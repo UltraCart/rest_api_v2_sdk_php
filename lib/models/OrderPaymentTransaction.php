@@ -61,6 +61,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess, \JsonSeria
         'details' => '\ultracart\v2\models\OrderPaymentTransactionDetail[]',
         'successful' => 'bool',
         'transaction_gateway' => 'string',
+        'transaction_id' => 'int',
         'transaction_timestamp' => 'string'
     ];
 
@@ -75,6 +76,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess, \JsonSeria
         'details' => null,
         'successful' => null,
         'transaction_gateway' => null,
+        'transaction_id' => 'int32',
         'transaction_timestamp' => 'dateTime'
     ];
 
@@ -108,6 +110,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess, \JsonSeria
         'details' => 'details',
         'successful' => 'successful',
         'transaction_gateway' => 'transaction_gateway',
+        'transaction_id' => 'transaction_id',
         'transaction_timestamp' => 'transaction_timestamp'
     ];
 
@@ -120,6 +123,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess, \JsonSeria
         'details' => 'setDetails',
         'successful' => 'setSuccessful',
         'transaction_gateway' => 'setTransactionGateway',
+        'transaction_id' => 'setTransactionId',
         'transaction_timestamp' => 'setTransactionTimestamp'
     ];
 
@@ -132,6 +136,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess, \JsonSeria
         'details' => 'getDetails',
         'successful' => 'getSuccessful',
         'transaction_gateway' => 'getTransactionGateway',
+        'transaction_id' => 'getTransactionId',
         'transaction_timestamp' => 'getTransactionTimestamp'
     ];
 
@@ -195,6 +200,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['details'] = $data['details'] ?? null;
         $this->container['successful'] = $data['successful'] ?? null;
         $this->container['transaction_gateway'] = $data['transaction_gateway'] ?? null;
+        $this->container['transaction_id'] = $data['transaction_id'] ?? null;
         $this->container['transaction_timestamp'] = $data['transaction_timestamp'] ?? null;
     }
 
@@ -290,6 +296,30 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess, \JsonSeria
     public function setTransactionGateway($transaction_gateway)
     {
         $this->container['transaction_gateway'] = $transaction_gateway;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_id
+     *
+     * @return int|null
+     */
+    public function getTransactionId()
+    {
+        return $this->container['transaction_id'];
+    }
+
+    /**
+     * Sets transaction_id
+     *
+     * @param int|null $transaction_id Transaction ID
+     *
+     * @return self
+     */
+    public function setTransactionId($transaction_id)
+    {
+        $this->container['transaction_id'] = $transaction_id;
 
         return $this;
     }
