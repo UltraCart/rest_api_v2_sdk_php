@@ -60,6 +60,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
         'details' => '\ultracart\v2\models\OrderPaymentTransactionDetail[]',
         'successful' => 'bool',
         'transaction_gateway' => 'string',
+        'transaction_id' => 'int',
         'transaction_timestamp' => 'string'
     ];
 
@@ -72,6 +73,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
         'details' => null,
         'successful' => null,
         'transaction_gateway' => null,
+        'transaction_id' => 'int32',
         'transaction_timestamp' => 'dateTime'
     ];
 
@@ -105,6 +107,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
         'details' => 'details',
         'successful' => 'successful',
         'transaction_gateway' => 'transaction_gateway',
+        'transaction_id' => 'transaction_id',
         'transaction_timestamp' => 'transaction_timestamp'
     ];
 
@@ -117,6 +120,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
         'details' => 'setDetails',
         'successful' => 'setSuccessful',
         'transaction_gateway' => 'setTransactionGateway',
+        'transaction_id' => 'setTransactionId',
         'transaction_timestamp' => 'setTransactionTimestamp'
     ];
 
@@ -129,6 +133,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
         'details' => 'getDetails',
         'successful' => 'getSuccessful',
         'transaction_gateway' => 'getTransactionGateway',
+        'transaction_id' => 'getTransactionId',
         'transaction_timestamp' => 'getTransactionTimestamp'
     ];
 
@@ -195,6 +200,7 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
         $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
         $this->container['transaction_gateway'] = isset($data['transaction_gateway']) ? $data['transaction_gateway'] : null;
+        $this->container['transaction_id'] = isset($data['transaction_id']) ? $data['transaction_id'] : null;
         $this->container['transaction_timestamp'] = isset($data['transaction_timestamp']) ? $data['transaction_timestamp'] : null;
     }
 
@@ -290,6 +296,30 @@ class OrderPaymentTransaction implements ModelInterface, ArrayAccess
     public function setTransactionGateway($transaction_gateway)
     {
         $this->container['transaction_gateway'] = $transaction_gateway;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_id
+     *
+     * @return int
+     */
+    public function getTransactionId()
+    {
+        return $this->container['transaction_id'];
+    }
+
+    /**
+     * Sets transaction_id
+     *
+     * @param int $transaction_id Transaction ID
+     *
+     * @return $this
+     */
+    public function setTransactionId($transaction_id)
+    {
+        $this->container['transaction_id'] = $transaction_id;
 
         return $this;
     }

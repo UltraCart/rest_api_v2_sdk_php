@@ -1421,6 +1421,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.130 | 04/17/2023 | OrderPaymentTransaction - expose the transaction id |
 | 3.10.129 | 04/11/2023 | missing sezzle payment constant |
 | 3.10.128 | 04/10/2023 | data warehouse internal dev |
 | 3.10.127 | 03/29/2023 | internal development |
