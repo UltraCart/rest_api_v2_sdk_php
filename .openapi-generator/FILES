@@ -667,6 +667,7 @@ docs/Model/ReportExecuteQueriesRequest.md
 docs/Model/ReportFilter.md
 docs/Model/ReportFilterConnection.md
 docs/Model/ReportPage.md
+docs/Model/ReportPageFilter.md
 docs/Model/ReportPageVisualization.md
 docs/Model/ReportPageVisualizationDimension.md
 docs/Model/ReportPageVisualizationMetric.md
@@ -1462,6 +1463,7 @@ lib/models/ReportExecuteQueriesRequest.php
 lib/models/ReportFilter.php
 lib/models/ReportFilterConnection.php
 lib/models/ReportPage.php
+lib/models/ReportPageFilter.php
 lib/models/ReportPageVisualization.php
 lib/models/ReportPageVisualizationDimension.php
 lib/models/ReportPageVisualizationMetric.php

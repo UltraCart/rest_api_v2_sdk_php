@@ -1,6 +1,6 @@
 <?php
 /**
- * ReportPage
+ * ReportPageFilter
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * ReportPage Class Doc Comment
+ * ReportPageFilter Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
+class ReportPageFilter implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReportPage';
+    protected static $openAPIModelName = 'ReportPageFilter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,10 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'filters' => '\ultracart\v2\models\ReportPageFilter[]',
-        'height' => 'float',
-        'title' => 'string',
-        'visualizations' => '\ultracart\v2\models\ReportPageVisualization[]',
-        'width' => 'float'
+        'config' => 'string',
+        'name' => 'string',
+        'styles' => 'string',
+        'uuid' => 'string'
     ];
 
     /**
@@ -73,11 +72,10 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'filters' => null,
-        'height' => null,
-        'title' => null,
-        'visualizations' => null,
-        'width' => null
+        'config' => null,
+        'name' => null,
+        'styles' => null,
+        'uuid' => null
     ];
 
     /**
@@ -107,11 +105,10 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'filters' => 'filters',
-        'height' => 'height',
-        'title' => 'title',
-        'visualizations' => 'visualizations',
-        'width' => 'width'
+        'config' => 'config',
+        'name' => 'name',
+        'styles' => 'styles',
+        'uuid' => 'uuid'
     ];
 
     /**
@@ -120,11 +117,10 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'filters' => 'setFilters',
-        'height' => 'setHeight',
-        'title' => 'setTitle',
-        'visualizations' => 'setVisualizations',
-        'width' => 'setWidth'
+        'config' => 'setConfig',
+        'name' => 'setName',
+        'styles' => 'setStyles',
+        'uuid' => 'setUuid'
     ];
 
     /**
@@ -133,11 +129,10 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'filters' => 'getFilters',
-        'height' => 'getHeight',
-        'title' => 'getTitle',
-        'visualizations' => 'getVisualizations',
-        'width' => 'getWidth'
+        'config' => 'getConfig',
+        'name' => 'getName',
+        'styles' => 'getStyles',
+        'uuid' => 'getUuid'
     ];
 
     /**
@@ -197,11 +192,10 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['filters'] = $data['filters'] ?? null;
-        $this->container['height'] = $data['height'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['visualizations'] = $data['visualizations'] ?? null;
-        $this->container['width'] = $data['width'] ?? null;
+        $this->container['config'] = $data['config'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['styles'] = $data['styles'] ?? null;
+        $this->container['uuid'] = $data['uuid'] ?? null;
     }
 
     /**
@@ -229,121 +223,97 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets filters
-     *
-     * @return \ultracart\v2\models\ReportPageFilter[]|null
-     */
-    public function getFilters()
-    {
-        return $this->container['filters'];
-    }
-
-    /**
-     * Sets filters
-     *
-     * @param \ultracart\v2\models\ReportPageFilter[]|null $filters filters
-     *
-     * @return self
-     */
-    public function setFilters($filters)
-    {
-        $this->container['filters'] = $filters;
-
-        return $this;
-    }
-
-    /**
-     * Gets height
-     *
-     * @return float|null
-     */
-    public function getHeight()
-    {
-        return $this->container['height'];
-    }
-
-    /**
-     * Sets height
-     *
-     * @param float|null $height Height of the report page in inches
-     *
-     * @return self
-     */
-    public function setHeight($height)
-    {
-        $this->container['height'] = $height;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
+     * Gets config
      *
      * @return string|null
      */
-    public function getTitle()
+    public function getConfig()
     {
-        return $this->container['title'];
+        return $this->container['config'];
     }
 
     /**
-     * Sets title
+     * Sets config
      *
-     * @param string|null $title title
+     * @param string|null $config A JSON representation of the configuration for this visualization
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setConfig($config)
     {
-        $this->container['title'] = $title;
+        $this->container['config'] = $config;
 
         return $this;
     }
 
     /**
-     * Gets visualizations
+     * Gets name
      *
-     * @return \ultracart\v2\models\ReportPageVisualization[]|null
+     * @return string|null
      */
-    public function getVisualizations()
+    public function getName()
     {
-        return $this->container['visualizations'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets visualizations
+     * Sets name
      *
-     * @param \ultracart\v2\models\ReportPageVisualization[]|null $visualizations Visualizations on the report page.
+     * @param string|null $name name
      *
      * @return self
      */
-    public function setVisualizations($visualizations)
+    public function setName($name)
     {
-        $this->container['visualizations'] = $visualizations;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets width
+     * Gets styles
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getWidth()
+    public function getStyles()
     {
-        return $this->container['width'];
+        return $this->container['styles'];
     }
 
     /**
-     * Sets width
+     * Sets styles
      *
-     * @param float|null $width Width of the report page in inches
+     * @param string|null $styles A JSON representation of the style configuration for this visualization
      *
      * @return self
      */
-    public function setWidth($width)
+    public function setStyles($styles)
     {
-        $this->container['width'] = $width;
+        $this->container['styles'] = $styles;
+
+        return $this;
+    }
+
+    /**
+     * Gets uuid
+     *
+     * @return string|null
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string|null $uuid Unique UUID assigned to the filter.  Assists when returning values that the filter can use.
+     *
+     * @return self
+     */
+    public function setUuid($uuid)
+    {
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }
