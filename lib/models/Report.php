@@ -62,7 +62,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'data_sources' => '\ultracart\v2\models\ReportDataSource[]',
         'default_dataset_id' => 'string',
         'default_project_id' => 'string',
-        'filters' => '\ultracart\v2\models\ReportFilter[]',
         'merchant_id' => 'string',
         'name' => 'string',
         'pages' => '\ultracart\v2\models\ReportPage[]',
@@ -82,7 +81,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'data_sources' => null,
         'default_dataset_id' => null,
         'default_project_id' => null,
-        'filters' => null,
         'merchant_id' => null,
         'name' => null,
         'pages' => null,
@@ -121,7 +119,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'data_sources' => 'data_sources',
         'default_dataset_id' => 'default_dataset_id',
         'default_project_id' => 'default_project_id',
-        'filters' => 'filters',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
         'pages' => 'pages',
@@ -139,7 +136,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'data_sources' => 'setDataSources',
         'default_dataset_id' => 'setDefaultDatasetId',
         'default_project_id' => 'setDefaultProjectId',
-        'filters' => 'setFilters',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
         'pages' => 'setPages',
@@ -157,7 +153,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'data_sources' => 'getDataSources',
         'default_dataset_id' => 'getDefaultDatasetId',
         'default_project_id' => 'getDefaultProjectId',
-        'filters' => 'getFilters',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
         'pages' => 'getPages',
@@ -245,7 +240,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['data_sources'] = $data['data_sources'] ?? null;
         $this->container['default_dataset_id'] = $data['default_dataset_id'] ?? null;
         $this->container['default_project_id'] = $data['default_project_id'] ?? null;
-        $this->container['filters'] = $data['filters'] ?? null;
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['pages'] = $data['pages'] ?? null;
@@ -378,30 +372,6 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setDefaultProjectId($default_project_id)
     {
         $this->container['default_project_id'] = $default_project_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets filters
-     *
-     * @return \ultracart\v2\models\ReportFilter[]|null
-     */
-    public function getFilters()
-    {
-        return $this->container['filters'];
-    }
-
-    /**
-     * Sets filters
-     *
-     * @param \ultracart\v2\models\ReportFilter[]|null $filters filters
-     *
-     * @return self
-     */
-    public function setFilters($filters)
-    {
-        $this->container['filters'] = $filters;
 
         return $this;
     }

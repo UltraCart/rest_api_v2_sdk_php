@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**filters** | [**\ultracart\v2\models\ReportFilter[]**](ReportFilter.md) |  | [optional]
 **height** | **float** | Height of the report page in inches | [optional]
 **title** | **string** |  | [optional]
 **visualizations** | [**\ultracart\v2\models\ReportPageVisualization[]**](ReportPageVisualization.md) | Visualizations on the report page. | [optional]

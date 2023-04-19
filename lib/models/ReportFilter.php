@@ -58,8 +58,10 @@ class ReportFilter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'config' => 'string',
         'connections' => '\ultracart\v2\models\ReportFilterConnection[]',
         'name' => 'string',
+        'styles' => 'string',
         'timezone' => 'string',
         'type' => 'string',
         'uuid' => 'string',
@@ -74,8 +76,10 @@ class ReportFilter implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'config' => null,
         'connections' => null,
         'name' => null,
+        'styles' => null,
         'timezone' => null,
         'type' => null,
         'uuid' => null,
@@ -109,8 +113,10 @@ class ReportFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'config' => 'config',
         'connections' => 'connections',
         'name' => 'name',
+        'styles' => 'styles',
         'timezone' => 'timezone',
         'type' => 'type',
         'uuid' => 'uuid',
@@ -123,8 +129,10 @@ class ReportFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'config' => 'setConfig',
         'connections' => 'setConnections',
         'name' => 'setName',
+        'styles' => 'setStyles',
         'timezone' => 'setTimezone',
         'type' => 'setType',
         'uuid' => 'setUuid',
@@ -137,8 +145,10 @@ class ReportFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'config' => 'getConfig',
         'connections' => 'getConnections',
         'name' => 'getName',
+        'styles' => 'getStyles',
         'timezone' => 'getTimezone',
         'type' => 'getType',
         'uuid' => 'getUuid',
@@ -221,8 +231,10 @@ class ReportFilter implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['config'] = $data['config'] ?? null;
         $this->container['connections'] = $data['connections'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
+        $this->container['styles'] = $data['styles'] ?? null;
         $this->container['timezone'] = $data['timezone'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['uuid'] = $data['uuid'] ?? null;
@@ -261,6 +273,30 @@ class ReportFilter implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets config
+     *
+     * @return string|null
+     */
+    public function getConfig()
+    {
+        return $this->container['config'];
+    }
+
+    /**
+     * Sets config
+     *
+     * @param string|null $config A JSON representation of the configuration for this visualization
+     *
+     * @return self
+     */
+    public function setConfig($config)
+    {
+        $this->container['config'] = $config;
+
+        return $this;
+    }
 
     /**
      * Gets connections
@@ -306,6 +342,30 @@ class ReportFilter implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets styles
+     *
+     * @return string|null
+     */
+    public function getStyles()
+    {
+        return $this->container['styles'];
+    }
+
+    /**
+     * Sets styles
+     *
+     * @param string|null $styles A JSON representation of the style configuration for this visualization
+     *
+     * @return self
+     */
+    public function setStyles($styles)
+    {
+        $this->container['styles'] = $styles;
 
         return $this;
     }
