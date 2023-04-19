@@ -1220,6 +1220,7 @@ Class | Method | HTTP request | Description
  - [ReportFilter](docs/Model/ReportFilter.md)
  - [ReportFilterConnection](docs/Model/ReportFilterConnection.md)
  - [ReportPage](docs/Model/ReportPage.md)
+ - [ReportPageFilter](docs/Model/ReportPageFilter.md)
  - [ReportPageVisualization](docs/Model/ReportPageVisualization.md)
  - [ReportPageVisualizationDimension](docs/Model/ReportPageVisualizationDimension.md)
  - [ReportPageVisualizationMetric](docs/Model/ReportPageVisualizationMetric.md)
@@ -1421,6 +1422,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.132 | 04/19/2023 | internal development - data warehouse |
 | 3.10.131 | 04/19/2023 | internal dev - data warehouse |
 | 3.10.130 | 04/17/2023 | OrderPaymentTransaction - expose the transaction id |
 | 3.10.129 | 04/11/2023 | missing sezzle payment constant |

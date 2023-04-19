@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **data_sources** | [**\ultracart\v2\models\ReportDataSource[]**](ReportDataSource.md) |  | [optional] 
 **default_dataset_id** | **string** |  | [optional] 
 **default_project_id** | **string** |  | [optional] 
+**filters** | [**\ultracart\v2\models\ReportFilter[]**](ReportFilter.md) |  | [optional] 
 **merchant_id** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
 **pages** | [**\ultracart\v2\models\ReportPage[]**](ReportPage.md) |  | [optional] 
