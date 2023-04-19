@@ -57,6 +57,7 @@ class ReportPage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'filters' => '\ultracart\v2\models\ReportFilter[]',
         'height' => 'float',
         'title' => 'string',
         'visualizations' => '\ultracart\v2\models\ReportPageVisualization[]',
@@ -69,6 +70,7 @@ class ReportPage implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'filters' => null,
         'height' => null,
         'title' => null,
         'visualizations' => null,
@@ -102,6 +104,7 @@ class ReportPage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'filters' => 'filters',
         'height' => 'height',
         'title' => 'title',
         'visualizations' => 'visualizations',
@@ -114,6 +117,7 @@ class ReportPage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'filters' => 'setFilters',
         'height' => 'setHeight',
         'title' => 'setTitle',
         'visualizations' => 'setVisualizations',
@@ -126,6 +130,7 @@ class ReportPage implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'filters' => 'getFilters',
         'height' => 'getHeight',
         'title' => 'getTitle',
         'visualizations' => 'getVisualizations',
@@ -192,6 +197,7 @@ class ReportPage implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['visualizations'] = isset($data['visualizations']) ? $data['visualizations'] : null;
@@ -221,6 +227,30 @@ class ReportPage implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets filters
+     *
+     * @return \ultracart\v2\models\ReportFilter[]
+     */
+    public function getFilters()
+    {
+        return $this->container['filters'];
+    }
+
+    /**
+     * Sets filters
+     *
+     * @param \ultracart\v2\models\ReportFilter[] $filters filters
+     *
+     * @return $this
+     */
+    public function setFilters($filters)
+    {
+        $this->container['filters'] = $filters;
+
+        return $this;
+    }
 
     /**
      * Gets height

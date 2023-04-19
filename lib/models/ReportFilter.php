@@ -57,8 +57,10 @@ class ReportFilter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'config' => 'string',
         'connections' => '\ultracart\v2\models\ReportFilterConnection[]',
         'name' => 'string',
+        'styles' => 'string',
         'timezone' => 'string',
         'type' => 'string',
         'uuid' => 'string',
@@ -71,8 +73,10 @@ class ReportFilter implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'config' => null,
         'connections' => null,
         'name' => null,
+        'styles' => null,
         'timezone' => null,
         'type' => null,
         'uuid' => null,
@@ -106,8 +110,10 @@ class ReportFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'config' => 'config',
         'connections' => 'connections',
         'name' => 'name',
+        'styles' => 'styles',
         'timezone' => 'timezone',
         'type' => 'type',
         'uuid' => 'uuid',
@@ -120,8 +126,10 @@ class ReportFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'config' => 'setConfig',
         'connections' => 'setConnections',
         'name' => 'setName',
+        'styles' => 'setStyles',
         'timezone' => 'setTimezone',
         'type' => 'setType',
         'uuid' => 'setUuid',
@@ -134,8 +142,10 @@ class ReportFilter implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'config' => 'getConfig',
         'connections' => 'getConnections',
         'name' => 'getName',
+        'styles' => 'getStyles',
         'timezone' => 'getTimezone',
         'type' => 'getType',
         'uuid' => 'getUuid',
@@ -221,8 +231,10 @@ class ReportFilter implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['connections'] = isset($data['connections']) ? $data['connections'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['styles'] = isset($data['styles']) ? $data['styles'] : null;
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
@@ -260,6 +272,30 @@ class ReportFilter implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets config
+     *
+     * @return string
+     */
+    public function getConfig()
+    {
+        return $this->container['config'];
+    }
+
+    /**
+     * Sets config
+     *
+     * @param string $config A JSON representation of the configuration for this visualization
+     *
+     * @return $this
+     */
+    public function setConfig($config)
+    {
+        $this->container['config'] = $config;
+
+        return $this;
+    }
 
     /**
      * Gets connections
@@ -305,6 +341,30 @@ class ReportFilter implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets styles
+     *
+     * @return string
+     */
+    public function getStyles()
+    {
+        return $this->container['styles'];
+    }
+
+    /**
+     * Sets styles
+     *
+     * @param string $styles A JSON representation of the style configuration for this visualization
+     *
+     * @return $this
+     */
+    public function setStyles($styles)
+    {
+        $this->container['styles'] = $styles;
 
         return $this;
     }
