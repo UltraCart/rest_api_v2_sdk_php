@@ -58,7 +58,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'columns' => '\ultracart\v2\models\ReportDataSetColumn[]'
+        'c' => '\ultracart\v2\models\ReportDataSetColumn[]'
     ];
 
     /**
@@ -69,7 +69,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'columns' => null
+        'c' => null
     ];
 
     /**
@@ -99,7 +99,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'columns' => 'columns'
+        'c' => 'c'
     ];
 
     /**
@@ -108,7 +108,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'columns' => 'setColumns'
+        'c' => 'setC'
     ];
 
     /**
@@ -117,7 +117,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'columns' => 'getColumns'
+        'c' => 'getC'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['columns'] = $data['columns'] ?? null;
+        $this->container['c'] = $data['c'] ?? null;
     }
 
     /**
@@ -205,25 +205,25 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets columns
+     * Gets c
      *
      * @return \ultracart\v2\models\ReportDataSetColumn[]|null
      */
-    public function getColumns()
+    public function getC()
     {
-        return $this->container['columns'];
+        return $this->container['c'];
     }
 
     /**
-     * Sets columns
+     * Sets c
      *
-     * @param \ultracart\v2\models\ReportDataSetColumn[]|null $columns columns
+     * @param \ultracart\v2\models\ReportDataSetColumn[]|null $c c
      *
      * @return self
      */
-    public function setColumns($columns)
+    public function setC($c)
     {
-        $this->container['columns'] = $columns;
+        $this->container['c'] = $c;
 
         return $this;
     }

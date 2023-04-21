@@ -58,7 +58,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string'
+        'in' => 'bool',
+        'n' => 'string',
+        'vd' => 'string',
+        'vdt' => 'string',
+        'vn' => 'float',
+        'vs' => 'string'
     ];
 
     /**
@@ -69,7 +74,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null
+        'in' => null,
+        'n' => null,
+        'vd' => null,
+        'vdt' => null,
+        'vn' => null,
+        'vs' => null
     ];
 
     /**
@@ -99,7 +109,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'in' => 'in',
+        'n' => 'n',
+        'vd' => 'vd',
+        'vdt' => 'vdt',
+        'vn' => 'vn',
+        'vs' => 'vs'
     ];
 
     /**
@@ -108,7 +123,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'in' => 'setIn',
+        'n' => 'setN',
+        'vd' => 'setVd',
+        'vdt' => 'setVdt',
+        'vn' => 'setVn',
+        'vs' => 'setVs'
     ];
 
     /**
@@ -117,7 +137,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'in' => 'getIn',
+        'n' => 'getN',
+        'vd' => 'getVd',
+        'vdt' => 'getVdt',
+        'vn' => 'getVn',
+        'vs' => 'getVs'
     ];
 
     /**
@@ -177,7 +202,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
+        $this->container['in'] = $data['in'] ?? null;
+        $this->container['n'] = $data['n'] ?? null;
+        $this->container['vd'] = $data['vd'] ?? null;
+        $this->container['vdt'] = $data['vdt'] ?? null;
+        $this->container['vn'] = $data['vn'] ?? null;
+        $this->container['vs'] = $data['vs'] ?? null;
     }
 
     /**
@@ -205,25 +235,145 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets name
+     * Gets in
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getName()
+    public function getIn()
     {
-        return $this->container['name'];
+        return $this->container['in'];
     }
 
     /**
-     * Sets name
+     * Sets in
      *
-     * @param string|null $name name
+     * @param bool|null $in in
      *
      * @return self
      */
-    public function setName($name)
+    public function setIn($in)
     {
-        $this->container['name'] = $name;
+        $this->container['in'] = $in;
+
+        return $this;
+    }
+
+    /**
+     * Gets n
+     *
+     * @return string|null
+     */
+    public function getN()
+    {
+        return $this->container['n'];
+    }
+
+    /**
+     * Sets n
+     *
+     * @param string|null $n n
+     *
+     * @return self
+     */
+    public function setN($n)
+    {
+        $this->container['n'] = $n;
+
+        return $this;
+    }
+
+    /**
+     * Gets vd
+     *
+     * @return string|null
+     */
+    public function getVd()
+    {
+        return $this->container['vd'];
+    }
+
+    /**
+     * Sets vd
+     *
+     * @param string|null $vd vd
+     *
+     * @return self
+     */
+    public function setVd($vd)
+    {
+        $this->container['vd'] = $vd;
+
+        return $this;
+    }
+
+    /**
+     * Gets vdt
+     *
+     * @return string|null
+     */
+    public function getVdt()
+    {
+        return $this->container['vdt'];
+    }
+
+    /**
+     * Sets vdt
+     *
+     * @param string|null $vdt vdt
+     *
+     * @return self
+     */
+    public function setVdt($vdt)
+    {
+        $this->container['vdt'] = $vdt;
+
+        return $this;
+    }
+
+    /**
+     * Gets vn
+     *
+     * @return float|null
+     */
+    public function getVn()
+    {
+        return $this->container['vn'];
+    }
+
+    /**
+     * Sets vn
+     *
+     * @param float|null $vn vn
+     *
+     * @return self
+     */
+    public function setVn($vn)
+    {
+        $this->container['vn'] = $vn;
+
+        return $this;
+    }
+
+    /**
+     * Gets vs
+     *
+     * @return string|null
+     */
+    public function getVs()
+    {
+        return $this->container['vs'];
+    }
+
+    /**
+     * Sets vs
+     *
+     * @param string|null $vs vs
+     *
+     * @return self
+     */
+    public function setVs($vs)
+    {
+        $this->container['vs'] = $vs;
 
         return $this;
     }
