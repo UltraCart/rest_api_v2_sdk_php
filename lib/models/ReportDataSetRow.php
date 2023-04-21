@@ -57,7 +57,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'columns' => '\ultracart\v2\models\ReportDataSetColumn[]'
+        'c' => '\ultracart\v2\models\ReportDataSetColumn[]'
     ];
 
     /**
@@ -66,7 +66,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'columns' => null
+        'c' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'columns' => 'columns'
+        'c' => 'c'
     ];
 
     /**
@@ -105,7 +105,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'columns' => 'setColumns'
+        'c' => 'setC'
     ];
 
     /**
@@ -114,7 +114,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'columns' => 'getColumns'
+        'c' => 'getC'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['columns'] = isset($data['columns']) ? $data['columns'] : null;
+        $this->container['c'] = isset($data['c']) ? $data['c'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class ReportDataSetRow implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets columns
+     * Gets c
      *
      * @return \ultracart\v2\models\ReportDataSetColumn[]
      */
-    public function getColumns()
+    public function getC()
     {
-        return $this->container['columns'];
+        return $this->container['c'];
     }
 
     /**
-     * Sets columns
+     * Sets c
      *
-     * @param \ultracart\v2\models\ReportDataSetColumn[] $columns columns
+     * @param \ultracart\v2\models\ReportDataSetColumn[] $c c
      *
      * @return $this
      */
-    public function setColumns($columns)
+    public function setC($c)
     {
-        $this->container['columns'] = $columns;
+        $this->container['c'] = $c;
 
         return $this;
     }

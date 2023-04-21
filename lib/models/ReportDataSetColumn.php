@@ -57,7 +57,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string'
+        'in' => 'bool',
+        'n' => 'string',
+        'vd' => 'string',
+        'vdt' => 'string',
+        'vn' => 'float',
+        'vs' => 'string'
     ];
 
     /**
@@ -66,7 +71,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null
+        'in' => null,
+        'n' => null,
+        'vd' => null,
+        'vdt' => null,
+        'vn' => null,
+        'vs' => null
     ];
 
     /**
@@ -96,7 +106,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'in' => 'in',
+        'n' => 'n',
+        'vd' => 'vd',
+        'vdt' => 'vdt',
+        'vn' => 'vn',
+        'vs' => 'vs'
     ];
 
     /**
@@ -105,7 +120,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'in' => 'setIn',
+        'n' => 'setN',
+        'vd' => 'setVd',
+        'vdt' => 'setVdt',
+        'vn' => 'setVn',
+        'vs' => 'setVs'
     ];
 
     /**
@@ -114,7 +134,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'in' => 'getIn',
+        'n' => 'getN',
+        'vd' => 'getVd',
+        'vdt' => 'getVdt',
+        'vn' => 'getVn',
+        'vs' => 'getVs'
     ];
 
     /**
@@ -177,7 +202,12 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['in'] = isset($data['in']) ? $data['in'] : null;
+        $this->container['n'] = isset($data['n']) ? $data['n'] : null;
+        $this->container['vd'] = isset($data['vd']) ? $data['vd'] : null;
+        $this->container['vdt'] = isset($data['vdt']) ? $data['vdt'] : null;
+        $this->container['vn'] = isset($data['vn']) ? $data['vn'] : null;
+        $this->container['vs'] = isset($data['vs']) ? $data['vs'] : null;
     }
 
     /**
@@ -205,25 +235,145 @@ class ReportDataSetColumn implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets in
      *
-     * @return string
+     * @return bool
      */
-    public function getName()
+    public function getIn()
     {
-        return $this->container['name'];
+        return $this->container['in'];
     }
 
     /**
-     * Sets name
+     * Sets in
      *
-     * @param string $name name
+     * @param bool $in in
      *
      * @return $this
      */
-    public function setName($name)
+    public function setIn($in)
     {
-        $this->container['name'] = $name;
+        $this->container['in'] = $in;
+
+        return $this;
+    }
+
+    /**
+     * Gets n
+     *
+     * @return string
+     */
+    public function getN()
+    {
+        return $this->container['n'];
+    }
+
+    /**
+     * Sets n
+     *
+     * @param string $n n
+     *
+     * @return $this
+     */
+    public function setN($n)
+    {
+        $this->container['n'] = $n;
+
+        return $this;
+    }
+
+    /**
+     * Gets vd
+     *
+     * @return string
+     */
+    public function getVd()
+    {
+        return $this->container['vd'];
+    }
+
+    /**
+     * Sets vd
+     *
+     * @param string $vd vd
+     *
+     * @return $this
+     */
+    public function setVd($vd)
+    {
+        $this->container['vd'] = $vd;
+
+        return $this;
+    }
+
+    /**
+     * Gets vdt
+     *
+     * @return string
+     */
+    public function getVdt()
+    {
+        return $this->container['vdt'];
+    }
+
+    /**
+     * Sets vdt
+     *
+     * @param string $vdt vdt
+     *
+     * @return $this
+     */
+    public function setVdt($vdt)
+    {
+        $this->container['vdt'] = $vdt;
+
+        return $this;
+    }
+
+    /**
+     * Gets vn
+     *
+     * @return float
+     */
+    public function getVn()
+    {
+        return $this->container['vn'];
+    }
+
+    /**
+     * Sets vn
+     *
+     * @param float $vn vn
+     *
+     * @return $this
+     */
+    public function setVn($vn)
+    {
+        $this->container['vn'] = $vn;
+
+        return $this;
+    }
+
+    /**
+     * Gets vs
+     *
+     * @return string
+     */
+    public function getVs()
+    {
+        return $this->container['vs'];
+    }
+
+    /**
+     * Sets vs
+     *
+     * @param string $vs vs
+     *
+     * @return $this
+     */
+    public function setVs($vs)
+    {
+        $this->container['vs'] = $vs;
 
         return $this;
     }
