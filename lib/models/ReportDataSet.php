@@ -553,7 +553,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets page_count
      *
-     * @param int|null $page_count The size of the pages
+     * @param int|null $page_count The total number of pages in the result set
      *
      * @return self
      */

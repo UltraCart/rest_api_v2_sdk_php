@@ -58,6 +58,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
+        'config' => 'string',
         'dimension' => 'bool',
         'name' => 'string',
         'type' => 'string'
@@ -71,6 +72,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'config' => null,
         'dimension' => null,
         'name' => null,
         'type' => null
@@ -103,6 +105,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
+        'config' => 'config',
         'dimension' => 'dimension',
         'name' => 'name',
         'type' => 'type'
@@ -114,6 +117,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
+        'config' => 'setConfig',
         'dimension' => 'setDimension',
         'name' => 'setName',
         'type' => 'setType'
@@ -125,6 +129,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
+        'config' => 'getConfig',
         'dimension' => 'getDimension',
         'name' => 'getName',
         'type' => 'getType'
@@ -220,6 +225,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
+        $this->container['config'] = $data['config'] ?? null;
         $this->container['dimension'] = $data['dimension'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
@@ -257,6 +263,30 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets config
+     *
+     * @return string|null
+     */
+    public function getConfig()
+    {
+        return $this->container['config'];
+    }
+
+    /**
+     * Sets config
+     *
+     * @param string|null $config A JSON representation of the configuration for this visualization
+     *
+     * @return self
+     */
+    public function setConfig($config)
+    {
+        $this->container['config'] = $config;
+
+        return $this;
+    }
 
     /**
      * Gets dimension

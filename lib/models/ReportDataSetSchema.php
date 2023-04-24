@@ -58,6 +58,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'config' => 'string',
         'name' => 'string',
         'type' => 'string'
     ];
@@ -70,6 +71,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'config' => null,
         'name' => null,
         'type' => null
     ];
@@ -101,6 +103,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'config' => 'config',
         'name' => 'name',
         'type' => 'type'
     ];
@@ -111,6 +114,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'config' => 'setConfig',
         'name' => 'setName',
         'type' => 'setType'
     ];
@@ -121,6 +125,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'config' => 'getConfig',
         'name' => 'getName',
         'type' => 'getType'
     ];
@@ -215,6 +220,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
+        $this->container['config'] = $data['config'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
     }
@@ -251,6 +257,30 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets config
+     *
+     * @return string|null
+     */
+    public function getConfig()
+    {
+        return $this->container['config'];
+    }
+
+    /**
+     * Sets config
+     *
+     * @param string|null $config A JSON representation of the configuration for this visualization
+     *
+     * @return self
+     */
+    public function setConfig($config)
+    {
+        $this->container['config'] = $config;
+
+        return $this;
+    }
 
     /**
      * Gets name

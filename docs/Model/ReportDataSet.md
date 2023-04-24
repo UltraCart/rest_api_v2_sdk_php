@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **initial_pages** | [**\ultracart\v2\models\ReportDataSetPage[]**](ReportDataSetPage.md) | Initial pages returned in the dataset | [optional]
 **max_results** | **int** | The total number of results | [optional]
 **merchant_id** | **string** | Merchant that owns this data set | [optional]
-**page_count** | **int** | The size of the pages | [optional]
+**page_count** | **int** | The total number of pages in the result set | [optional]
 **page_size** | **int** | The size of the pages | [optional]
 **schema** | [**\ultracart\v2\models\ReportDataSetSchema[]**](ReportDataSetSchema.md) | The schema associated with the data set. | [optional]
 **security_level** | **string** | Security level this dataset was read from. | [optional]
