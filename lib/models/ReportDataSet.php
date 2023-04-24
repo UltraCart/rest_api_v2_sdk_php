@@ -551,7 +551,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess
     /**
      * Sets page_count
      *
-     * @param int $page_count The size of the pages
+     * @param int $page_count The total number of pages in the result set
      *
      * @return $this
      */

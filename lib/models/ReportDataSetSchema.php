@@ -57,6 +57,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'config' => 'string',
         'name' => 'string',
         'type' => 'string'
     ];
@@ -67,6 +68,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'config' => null,
         'name' => null,
         'type' => null
     ];
@@ -98,6 +100,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'config' => 'config',
         'name' => 'name',
         'type' => 'type'
     ];
@@ -108,6 +111,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'config' => 'setConfig',
         'name' => 'setName',
         'type' => 'setType'
     ];
@@ -118,6 +122,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'config' => 'getConfig',
         'name' => 'getName',
         'type' => 'getType'
     ];
@@ -215,6 +220,7 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -250,6 +256,30 @@ class ReportDataSetSchema implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets config
+     *
+     * @return string
+     */
+    public function getConfig()
+    {
+        return $this->container['config'];
+    }
+
+    /**
+     * Sets config
+     *
+     * @param string $config A JSON representation of the configuration for this visualization
+     *
+     * @return $this
+     */
+    public function setConfig($config)
+    {
+        $this->container['config'] = $config;
+
+        return $this;
+    }
 
     /**
      * Gets name

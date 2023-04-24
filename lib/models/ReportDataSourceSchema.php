@@ -57,6 +57,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'config' => 'string',
         'dimension' => 'bool',
         'name' => 'string',
         'type' => 'string'
@@ -68,6 +69,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'config' => null,
         'dimension' => null,
         'name' => null,
         'type' => null
@@ -100,6 +102,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'config' => 'config',
         'dimension' => 'dimension',
         'name' => 'name',
         'type' => 'type'
@@ -111,6 +114,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'config' => 'setConfig',
         'dimension' => 'setDimension',
         'name' => 'setName',
         'type' => 'setType'
@@ -122,6 +126,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'config' => 'getConfig',
         'dimension' => 'getDimension',
         'name' => 'getName',
         'type' => 'getType'
@@ -220,6 +225,7 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['config'] = isset($data['config']) ? $data['config'] : null;
         $this->container['dimension'] = isset($data['dimension']) ? $data['dimension'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -256,6 +262,30 @@ class ReportDataSourceSchema implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets config
+     *
+     * @return string
+     */
+    public function getConfig()
+    {
+        return $this->container['config'];
+    }
+
+    /**
+     * Sets config
+     *
+     * @param string $config A JSON representation of the configuration for this visualization
+     *
+     * @return $this
+     */
+    public function setConfig($config)
+    {
+        $this->container['config'] = $config;
+
+        return $this;
+    }
 
     /**
      * Gets dimension
