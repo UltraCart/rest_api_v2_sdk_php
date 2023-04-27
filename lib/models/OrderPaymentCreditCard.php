@@ -67,7 +67,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number_token' => 'string',
         'card_number_truncated' => 'bool',
         'card_type' => 'string',
-        'card_verification_number_token' => 'string'
+        'card_verification_number_token' => 'string',
+        'dual_vaulted' => '\ultracart\v2\models\OrderPaymentCreditCardDualVaulted'
     ];
 
     /**
@@ -86,7 +87,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number_token' => null,
         'card_number_truncated' => null,
         'card_type' => null,
-        'card_verification_number_token' => null
+        'card_verification_number_token' => null,
+        'dual_vaulted' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number_token' => 'card_number_token',
         'card_number_truncated' => 'card_number_truncated',
         'card_type' => 'card_type',
-        'card_verification_number_token' => 'card_verification_number_token'
+        'card_verification_number_token' => 'card_verification_number_token',
+        'dual_vaulted' => 'dual_vaulted'
     ];
 
     /**
@@ -145,7 +148,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number_token' => 'setCardNumberToken',
         'card_number_truncated' => 'setCardNumberTruncated',
         'card_type' => 'setCardType',
-        'card_verification_number_token' => 'setCardVerificationNumberToken'
+        'card_verification_number_token' => 'setCardVerificationNumberToken',
+        'dual_vaulted' => 'setDualVaulted'
     ];
 
     /**
@@ -164,7 +168,8 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         'card_number_token' => 'getCardNumberToken',
         'card_number_truncated' => 'getCardNumberTruncated',
         'card_type' => 'getCardType',
-        'card_verification_number_token' => 'getCardVerificationNumberToken'
+        'card_verification_number_token' => 'getCardVerificationNumberToken',
+        'dual_vaulted' => 'getDualVaulted'
     ];
 
     /**
@@ -261,6 +266,7 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
         $this->container['card_number_truncated'] = isset($data['card_number_truncated']) ? $data['card_number_truncated'] : null;
         $this->container['card_type'] = isset($data['card_type']) ? $data['card_type'] : null;
         $this->container['card_verification_number_token'] = isset($data['card_verification_number_token']) ? $data['card_verification_number_token'] : null;
+        $this->container['dual_vaulted'] = isset($data['dual_vaulted']) ? $data['dual_vaulted'] : null;
     }
 
     /**
@@ -564,6 +570,30 @@ class OrderPaymentCreditCard implements ModelInterface, ArrayAccess
     public function setCardVerificationNumberToken($card_verification_number_token)
     {
         $this->container['card_verification_number_token'] = $card_verification_number_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets dual_vaulted
+     *
+     * @return \ultracart\v2\models\OrderPaymentCreditCardDualVaulted
+     */
+    public function getDualVaulted()
+    {
+        return $this->container['dual_vaulted'];
+    }
+
+    /**
+     * Sets dual_vaulted
+     *
+     * @param \ultracart\v2\models\OrderPaymentCreditCardDualVaulted $dual_vaulted dual_vaulted
+     *
+     * @return $this
+     */
+    public function setDualVaulted($dual_vaulted)
+    {
+        $this->container['dual_vaulted'] = $dual_vaulted;
 
         return $this;
     }
