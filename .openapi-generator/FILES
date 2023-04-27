@@ -607,6 +607,8 @@ docs/Model/OrderPackingSlipResponse.md
 docs/Model/OrderPayment.md
 docs/Model/OrderPaymentCheck.md
 docs/Model/OrderPaymentCreditCard.md
+docs/Model/OrderPaymentCreditCardDualVaulted.md
+docs/Model/OrderPaymentCreditCardDualVaultedProperty.md
 docs/Model/OrderPaymentECheck.md
 docs/Model/OrderPaymentInsurance.md
 docs/Model/OrderPaymentPurchaseOrder.md
@@ -1403,6 +1405,8 @@ lib/models/OrderPackingSlipResponse.php
 lib/models/OrderPayment.php
 lib/models/OrderPaymentCheck.php
 lib/models/OrderPaymentCreditCard.php
+lib/models/OrderPaymentCreditCardDualVaulted.php
+lib/models/OrderPaymentCreditCardDualVaultedProperty.php
 lib/models/OrderPaymentECheck.php
 lib/models/OrderPaymentInsurance.php
 lib/models/OrderPaymentPurchaseOrder.php
