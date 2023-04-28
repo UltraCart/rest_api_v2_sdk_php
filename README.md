@@ -1365,6 +1365,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.153 | 04/28/2023 | item - pricing tier level flag for exempt from min item count |
 | 4.0.152 | 04/27/2023 | order - expose dual vaulted identifiers |
 | 4.0.151 | 04/24/2023 | internal development - data warehouse |
 | 4.0.150 | 04/21/2023 | internal development - data warehouse |

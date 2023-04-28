@@ -59,6 +59,7 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'cumulative_order_limit' => 'int',
+        'exempt_from_minimum_item_count' => 'bool',
         'individual_order_limit' => 'int',
         'multiple_quantity' => 'int'
     ];
@@ -72,6 +73,7 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'cumulative_order_limit' => 'int32',
+        'exempt_from_minimum_item_count' => null,
         'individual_order_limit' => 'int32',
         'multiple_quantity' => 'int32'
     ];
@@ -104,6 +106,7 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'cumulative_order_limit' => 'cumulative_order_limit',
+        'exempt_from_minimum_item_count' => 'exempt_from_minimum_item_count',
         'individual_order_limit' => 'individual_order_limit',
         'multiple_quantity' => 'multiple_quantity'
     ];
@@ -115,6 +118,7 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'cumulative_order_limit' => 'setCumulativeOrderLimit',
+        'exempt_from_minimum_item_count' => 'setExemptFromMinimumItemCount',
         'individual_order_limit' => 'setIndividualOrderLimit',
         'multiple_quantity' => 'setMultipleQuantity'
     ];
@@ -126,6 +130,7 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'cumulative_order_limit' => 'getCumulativeOrderLimit',
+        'exempt_from_minimum_item_count' => 'getExemptFromMinimumItemCount',
         'individual_order_limit' => 'getIndividualOrderLimit',
         'multiple_quantity' => 'getMultipleQuantity'
     ];
@@ -188,6 +193,7 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->container['cumulative_order_limit'] = $data['cumulative_order_limit'] ?? null;
+        $this->container['exempt_from_minimum_item_count'] = $data['exempt_from_minimum_item_count'] ?? null;
         $this->container['individual_order_limit'] = $data['individual_order_limit'] ?? null;
         $this->container['multiple_quantity'] = $data['multiple_quantity'] ?? null;
     }
@@ -236,6 +242,30 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setCumulativeOrderLimit($cumulative_order_limit)
     {
         $this->container['cumulative_order_limit'] = $cumulative_order_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets exempt_from_minimum_item_count
+     *
+     * @return bool|null
+     */
+    public function getExemptFromMinimumItemCount()
+    {
+        return $this->container['exempt_from_minimum_item_count'];
+    }
+
+    /**
+     * Sets exempt_from_minimum_item_count
+     *
+     * @param bool|null $exempt_from_minimum_item_count Exempt from Minimum Item Count
+     *
+     * @return self
+     */
+    public function setExemptFromMinimumItemCount($exempt_from_minimum_item_count)
+    {
+        $this->container['exempt_from_minimum_item_count'] = $exempt_from_minimum_item_count;
 
         return $this;
     }
