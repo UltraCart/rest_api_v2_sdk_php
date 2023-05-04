@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteDigitalItem**](ItemApi.md#deleteDigitalItem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 [**deleteItem**](ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**deleteReview**](ItemApi.md#deleteReview) | **DELETE** /item/items/{merchant_item_oid}/reviews/{review_oid} | Delete a review
 [**getDigitalItem**](ItemApi.md#getDigitalItem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**getDigitalItems**](ItemApi.md#getDigitalItems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**getDigitalItemsByExternalId**](ItemApi.md#getDigitalItemsByExternalId) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
@@ -13,12 +14,16 @@ Method | HTTP request | Description
 [**getItemByMerchantItemId**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 [**getPricingTiers**](ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**getReview**](ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
+[**getReviews**](ItemApi.md#getReviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
 [**getUnassociatedDigitalItems**](ItemApi.md#getUnassociatedDigitalItems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 [**insertDigitalItem**](ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
+[**insertReview**](ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**updateDigitalItem**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
+[**updateReview**](ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**uploadTemporaryMultimedia**](ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
@@ -112,6 +117,55 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deleteReview**
+> deleteReview($review_oid, $merchant_item_oid)
+
+Delete a review
+
+Delete an item review.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+$review_oid = 56; // int | The review oid to delete.
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+
+try {
+    $apiInstance->deleteReview($review_oid, $merchant_item_oid);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->deleteReview: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to delete. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -484,6 +538,104 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getReview**
+> \ultracart\v2\models\ItemReviewResponse getReview($review_oid, $merchant_item_oid)
+
+get a review
+
+Retrieve an item review.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+$review_oid = 56; // int | The review oid to retrieve.
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+
+try {
+    $result = $apiInstance->getReview($review_oid, $merchant_item_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getReview: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to retrieve. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+[**\ultracart\v2\models\ItemReviewResponse**](../Model/ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getReviews**
+> \ultracart\v2\models\ItemReviewsResponse getReviews($merchant_item_oid)
+
+get reviews for an item
+
+Retrieve item reviews.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+
+try {
+    $result = $apiInstance->getReviews($merchant_item_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getReviews: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+[**\ultracart\v2\models\ItemReviewsResponse**](../Model/ItemReviewsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getUnassociatedDigitalItems**
 > \ultracart\v2\models\ItemDigitalItemsResponse getUnassociatedDigitalItems($_limit, $_offset, $_since, $_sort, $_expand, $_placeholders)
 
@@ -642,6 +794,56 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **insertReview**
+> \ultracart\v2\models\ItemReviewResponse insertReview($review, $merchant_item_oid)
+
+Insert a review
+
+Insert a item review.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+$review = new \ultracart\v2\models\ItemReview(); // \ultracart\v2\models\ItemReview | Review to insert
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+
+try {
+    $result = $apiInstance->insertReview($review, $merchant_item_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->insertReview: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review** | [**\ultracart\v2\models\ItemReview**](../Model/ItemReview.md)| Review to insert |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+[**\ultracart\v2\models\ItemReviewResponse**](../Model/ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **updateDigitalItem**
 > \ultracart\v2\models\ItemDigitalItemResponse updateDigitalItem($digital_item_oid, $digital_item)
 
@@ -788,6 +990,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json; charset=UTF-8
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateReview**
+> \ultracart\v2\models\ItemReviewResponse updateReview($review, $review_oid, $merchant_item_oid)
+
+Update a review
+
+Update an item review.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Create a Simple Key: https://ultracart.atlassian.net/wiki/spaces/ucdoc/pages/38688545/API+Simple+Key
+$simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00';
+$api_instance = ultracart\v2\api\ItemApi::usingApiKey($simple_key);
+
+$review = new \ultracart\v2\models\ItemReview(); // \ultracart\v2\models\ItemReview | Review to update
+$review_oid = 56; // int | The review oid to update.
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+
+try {
+    $result = $apiInstance->updateReview($review, $review_oid, $merchant_item_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->updateReview: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review** | [**\ultracart\v2\models\ItemReview**](../Model/ItemReview.md)| Review to update |
+ **review_oid** | **int**| The review oid to update. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+[**\ultracart\v2\models\ItemReviewResponse**](../Model/ItemReviewResponse.md)
 
 ### Authorization
 

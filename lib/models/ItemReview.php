@@ -338,8 +338,27 @@ class ItemReview implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const STATUS_APPROVED = 'approved';
+    const STATUS_UNAPPROVED = 'unapproved';
+    const STATUS_REJECTED = 'rejected';
+    const STATUS_MULTIMEDIA_PROCESSING = 'multimedia processing';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_APPROVED,
+            self::STATUS_UNAPPROVED,
+            self::STATUS_REJECTED,
+            self::STATUS_MULTIMEDIA_PROCESSING,
+        ];
+    }
     
 
     /**
@@ -404,6 +423,78 @@ class ItemReview implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['rating_name1']) && (mb_strlen($this->container['rating_name1']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name1', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name10']) && (mb_strlen($this->container['rating_name10']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name10', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name2']) && (mb_strlen($this->container['rating_name2']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name2', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name3']) && (mb_strlen($this->container['rating_name3']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name3', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name4']) && (mb_strlen($this->container['rating_name4']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name4', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name5']) && (mb_strlen($this->container['rating_name5']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name5', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name6']) && (mb_strlen($this->container['rating_name6']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name6', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name7']) && (mb_strlen($this->container['rating_name7']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name7', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name8']) && (mb_strlen($this->container['rating_name8']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name8', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['rating_name9']) && (mb_strlen($this->container['rating_name9']) > 100)) {
+            $invalidProperties[] = "invalid value for 'rating_name9', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['review']) && (mb_strlen($this->container['review']) > 10000)) {
+            $invalidProperties[] = "invalid value for 'review', the character length must be smaller than or equal to 10000.";
+        }
+
+        if (!is_null($this->container['reviewed_nickname']) && (mb_strlen($this->container['reviewed_nickname']) > 25)) {
+            $invalidProperties[] = "invalid value for 'reviewed_nickname', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['reviewer_email']) && (mb_strlen($this->container['reviewer_email']) > 100)) {
+            $invalidProperties[] = "invalid value for 'reviewer_email', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['reviewer_location']) && (mb_strlen($this->container['reviewer_location']) > 25)) {
+            $invalidProperties[] = "invalid value for 'reviewer_location', the character length must be smaller than or equal to 25.";
+        }
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['store_feedback']) && (mb_strlen($this->container['store_feedback']) > 10000)) {
+            $invalidProperties[] = "invalid value for 'store_feedback', the character length must be smaller than or equal to 10000.";
+        }
+
+        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 250)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 250.";
+        }
 
         return $invalidProperties;
     }
@@ -577,12 +668,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name1
      *
-     * @param string $rating_name1 rating_name1
+     * @param string $rating_name1 Rating Name 1
      *
      * @return $this
      */
     public function setRatingName1($rating_name1)
     {
+        if (!is_null($rating_name1) && (mb_strlen($rating_name1) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name1 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name1'] = $rating_name1;
 
         return $this;
@@ -601,12 +696,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name10
      *
-     * @param string $rating_name10 rating_name10
+     * @param string $rating_name10 Rating Name 10
      *
      * @return $this
      */
     public function setRatingName10($rating_name10)
     {
+        if (!is_null($rating_name10) && (mb_strlen($rating_name10) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name10 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name10'] = $rating_name10;
 
         return $this;
@@ -625,12 +724,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name2
      *
-     * @param string $rating_name2 rating_name2
+     * @param string $rating_name2 Rating Name 2
      *
      * @return $this
      */
     public function setRatingName2($rating_name2)
     {
+        if (!is_null($rating_name2) && (mb_strlen($rating_name2) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name2 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name2'] = $rating_name2;
 
         return $this;
@@ -649,12 +752,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name3
      *
-     * @param string $rating_name3 rating_name3
+     * @param string $rating_name3 Rating Name 3
      *
      * @return $this
      */
     public function setRatingName3($rating_name3)
     {
+        if (!is_null($rating_name3) && (mb_strlen($rating_name3) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name3 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name3'] = $rating_name3;
 
         return $this;
@@ -673,12 +780,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name4
      *
-     * @param string $rating_name4 rating_name4
+     * @param string $rating_name4 Rating Name 4
      *
      * @return $this
      */
     public function setRatingName4($rating_name4)
     {
+        if (!is_null($rating_name4) && (mb_strlen($rating_name4) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name4 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name4'] = $rating_name4;
 
         return $this;
@@ -697,12 +808,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name5
      *
-     * @param string $rating_name5 rating_name5
+     * @param string $rating_name5 Rating Name 5
      *
      * @return $this
      */
     public function setRatingName5($rating_name5)
     {
+        if (!is_null($rating_name5) && (mb_strlen($rating_name5) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name5 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name5'] = $rating_name5;
 
         return $this;
@@ -721,12 +836,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name6
      *
-     * @param string $rating_name6 rating_name6
+     * @param string $rating_name6 Rating Name 6
      *
      * @return $this
      */
     public function setRatingName6($rating_name6)
     {
+        if (!is_null($rating_name6) && (mb_strlen($rating_name6) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name6 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name6'] = $rating_name6;
 
         return $this;
@@ -745,12 +864,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name7
      *
-     * @param string $rating_name7 rating_name7
+     * @param string $rating_name7 Rating Name 7
      *
      * @return $this
      */
     public function setRatingName7($rating_name7)
     {
+        if (!is_null($rating_name7) && (mb_strlen($rating_name7) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name7 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name7'] = $rating_name7;
 
         return $this;
@@ -769,12 +892,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name8
      *
-     * @param string $rating_name8 rating_name8
+     * @param string $rating_name8 Rating Name 8
      *
      * @return $this
      */
     public function setRatingName8($rating_name8)
     {
+        if (!is_null($rating_name8) && (mb_strlen($rating_name8) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name8 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name8'] = $rating_name8;
 
         return $this;
@@ -793,12 +920,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets rating_name9
      *
-     * @param string $rating_name9 rating_name9
+     * @param string $rating_name9 Rating Name 9
      *
      * @return $this
      */
     public function setRatingName9($rating_name9)
     {
+        if (!is_null($rating_name9) && (mb_strlen($rating_name9) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $rating_name9 when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['rating_name9'] = $rating_name9;
 
         return $this;
@@ -1105,12 +1236,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets review
      *
-     * @param string $review review
+     * @param string $review Review
      *
      * @return $this
      */
     public function setReview($review)
     {
+        if (!is_null($review) && (mb_strlen($review) > 10000)) {
+            throw new \InvalidArgumentException('invalid length for $review when calling ItemReview., must be smaller than or equal to 10000.');
+        }
+
         $this->container['review'] = $review;
 
         return $this;
@@ -1153,12 +1288,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets reviewed_nickname
      *
-     * @param string $reviewed_nickname reviewed_nickname
+     * @param string $reviewed_nickname Nickname
      *
      * @return $this
      */
     public function setReviewedNickname($reviewed_nickname)
     {
+        if (!is_null($reviewed_nickname) && (mb_strlen($reviewed_nickname) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $reviewed_nickname when calling ItemReview., must be smaller than or equal to 25.');
+        }
+
         $this->container['reviewed_nickname'] = $reviewed_nickname;
 
         return $this;
@@ -1177,12 +1316,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets reviewer_email
      *
-     * @param string $reviewer_email reviewer_email
+     * @param string $reviewer_email Reviewer Email
      *
      * @return $this
      */
     public function setReviewerEmail($reviewer_email)
     {
+        if (!is_null($reviewer_email) && (mb_strlen($reviewer_email) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $reviewer_email when calling ItemReview., must be smaller than or equal to 100.');
+        }
+
         $this->container['reviewer_email'] = $reviewer_email;
 
         return $this;
@@ -1201,12 +1344,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets reviewer_location
      *
-     * @param string $reviewer_location reviewer_location
+     * @param string $reviewer_location Location
      *
      * @return $this
      */
     public function setReviewerLocation($reviewer_location)
     {
+        if (!is_null($reviewer_location) && (mb_strlen($reviewer_location) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $reviewer_location when calling ItemReview., must be smaller than or equal to 25.');
+        }
+
         $this->container['reviewer_location'] = $reviewer_location;
 
         return $this;
@@ -1225,12 +1372,21 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status Status of the review
      *
      * @return $this
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;
@@ -1249,12 +1405,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets store_feedback
      *
-     * @param string $store_feedback store_feedback
+     * @param string $store_feedback Store Feedback
      *
      * @return $this
      */
     public function setStoreFeedback($store_feedback)
     {
+        if (!is_null($store_feedback) && (mb_strlen($store_feedback) > 10000)) {
+            throw new \InvalidArgumentException('invalid length for $store_feedback when calling ItemReview., must be smaller than or equal to 10000.');
+        }
+
         $this->container['store_feedback'] = $store_feedback;
 
         return $this;
@@ -1297,12 +1457,16 @@ class ItemReview implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string $title title
+     * @param string $title Title
      *
      * @return $this
      */
     public function setTitle($title)
     {
+        if (!is_null($title) && (mb_strlen($title) > 250)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling ItemReview., must be smaller than or equal to 250.');
+        }
+
         $this->container['title'] = $title;
 
         return $this;

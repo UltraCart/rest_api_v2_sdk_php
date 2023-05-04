@@ -306,6 +306,7 @@ Class | Method | HTTP request | Description
 *IntegrationLogApi* | [**getIntegrationLogsQuery**](docs/Api/IntegrationLogApi.md#getintegrationlogsquery) | **POST** /integration_log/query | Retrieve integration logs
 *ItemApi* | [**deleteDigitalItem**](docs/Api/ItemApi.md#deletedigitalitem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 *ItemApi* | [**deleteItem**](docs/Api/ItemApi.md#deleteitem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+*ItemApi* | [**deleteReview**](docs/Api/ItemApi.md#deletereview) | **DELETE** /item/items/{merchant_item_oid}/reviews/{review_oid} | Delete a review
 *ItemApi* | [**getDigitalItem**](docs/Api/ItemApi.md#getdigitalitem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItems**](docs/Api/ItemApi.md#getdigitalitems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 *ItemApi* | [**getDigitalItemsByExternalId**](docs/Api/ItemApi.md#getdigitalitemsbyexternalid) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
@@ -313,12 +314,16 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/Api/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/Api/ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+*ItemApi* | [**getReview**](docs/Api/ItemApi.md#getreview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
+*ItemApi* | [**getReviews**](docs/Api/ItemApi.md#getreviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
 *ItemApi* | [**getUnassociatedDigitalItems**](docs/Api/ItemApi.md#getunassociateddigitalitems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 *ItemApi* | [**insertDigitalItem**](docs/Api/ItemApi.md#insertdigitalitem) | **POST** /item/digital_library | Create a file within the digital library
 *ItemApi* | [**insertItem**](docs/Api/ItemApi.md#insertitem) | **POST** /item/items | Create an item
+*ItemApi* | [**insertReview**](docs/Api/ItemApi.md#insertreview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 *ItemApi* | [**updateDigitalItem**](docs/Api/ItemApi.md#updatedigitalitem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 *ItemApi* | [**updateItem**](docs/Api/ItemApi.md#updateitem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 *ItemApi* | [**updateItems**](docs/Api/ItemApi.md#updateitems) | **PUT** /item/items/batch | Update multiple items
+*ItemApi* | [**updateReview**](docs/Api/ItemApi.md#updatereview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 *ItemApi* | [**uploadTemporaryMultimedia**](docs/Api/ItemApi.md#uploadtemporarymultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 *OauthApi* | [**oauthAccessToken**](docs/Api/OauthApi.md#oauthaccesstoken) | **POST** /oauth/token | Exchange authorization code for access token.
 *OauthApi* | [**oauthRevoke**](docs/Api/OauthApi.md#oauthrevoke) | **POST** /oauth/revoke | Revoke this OAuth application.
@@ -1081,7 +1086,9 @@ Class | Method | HTTP request | Description
  - [ItemRestrictionItem](docs/Model/ItemRestrictionItem.md)
  - [ItemRevguard](docs/Model/ItemRevguard.md)
  - [ItemReview](docs/Model/ItemReview.md)
+ - [ItemReviewResponse](docs/Model/ItemReviewResponse.md)
  - [ItemReviews](docs/Model/ItemReviews.md)
+ - [ItemReviewsResponse](docs/Model/ItemReviewsResponse.md)
  - [ItemSalesforce](docs/Model/ItemSalesforce.md)
  - [ItemShipping](docs/Model/ItemShipping.md)
  - [ItemShippingCase](docs/Model/ItemShippingCase.md)
@@ -1424,6 +1431,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.137 | 05/04/2023 | item api added methods for items reviews |
 | 3.10.136 | 04/28/2023 | item - pricing tier level flag for exempt from min item count |
 | 3.10.135 | 04/27/2023 | order - expose dual vaulted identifiers |
 | 3.10.134 | 04/24/2023 | internal development - data warehouse |
