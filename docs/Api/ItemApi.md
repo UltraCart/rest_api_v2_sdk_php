@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteDigitalItem()**](ItemApi.md#deleteDigitalItem) | **DELETE** /item/digital_library/{digital_item_oid} | Delete a digital item, which is a file within the digital library, not an actual merchant item
 [**deleteItem()**](ItemApi.md#deleteItem) | **DELETE** /item/items/{merchant_item_oid} | Delete an item
+[**deleteReview()**](ItemApi.md#deleteReview) | **DELETE** /item/items/{merchant_item_oid}/reviews/{review_oid} | Delete a review
 [**getDigitalItem()**](ItemApi.md#getDigitalItem) | **GET** /item/digital_library/{digital_item_oid} | Retrieve a digital item from the digital library, which are digital files that may be attached to normal items
 [**getDigitalItems()**](ItemApi.md#getDigitalItems) | **GET** /item/digital_library | Retrieve digital items from the digital library which are digital files that may be attached to normal items
 [**getDigitalItemsByExternalId()**](ItemApi.md#getDigitalItemsByExternalId) | **GET** /item/digital_library/by_external/{external_id} | Retrieves digital items from the digital library (which are digital files that may be attached to normal items) that having a matching external id
@@ -13,12 +14,16 @@ Method | HTTP request | Description
 [**getItemByMerchantItemId()**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**getItems()**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 [**getPricingTiers()**](ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
+[**getReview()**](ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
+[**getReviews()**](ItemApi.md#getReviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
 [**getUnassociatedDigitalItems()**](ItemApi.md#getUnassociatedDigitalItems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 [**insertDigitalItem()**](ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 [**insertItem()**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
+[**insertReview()**](ItemApi.md#insertReview) | **POST** /item/items/{merchant_item_oid}/reviews | Insert a review
 [**updateDigitalItem()**](ItemApi.md#updateDigitalItem) | **PUT** /item/digital_library/{digital_item_oid} | Updates a file within the digital library
 [**updateItem()**](ItemApi.md#updateItem) | **PUT** /item/items/{merchant_item_oid} | Update an item
 [**updateItems()**](ItemApi.md#updateItems) | **PUT** /item/items/batch | Update multiple items
+[**updateReview()**](ItemApi.md#updateReview) | **PUT** /item/items/{merchant_item_oid}/reviews/{review_oid} | Update a review
 [**uploadTemporaryMultimedia()**](ItemApi.md#uploadTemporaryMultimedia) | **POST** /item/temp_multimedia | Upload an image to the temporary multimedia.
 
 
@@ -116,6 +121,64 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **merchant_item_oid** | **int**| The item oid to delete. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteReview()`
+
+```php
+deleteReview($review_oid, $merchant_item_oid)
+```
+
+Delete a review
+
+Delete an item review.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$review_oid = 56; // int | The review oid to delete.
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+
+try {
+    $apiInstance->deleteReview($review_oid, $merchant_item_oid);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->deleteReview: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to delete. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
 
 ### Return type
 
@@ -565,6 +628,122 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getReview()`
+
+```php
+getReview($review_oid, $merchant_item_oid): \ultracart\v2\models\ItemReviewResponse
+```
+
+get a review
+
+Retrieve an item review.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$review_oid = 56; // int | The review oid to retrieve.
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+
+try {
+    $result = $apiInstance->getReview($review_oid, $merchant_item_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getReview: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to retrieve. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+[**\ultracart\v2\models\ItemReviewResponse**](../Model/ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getReviews()`
+
+```php
+getReviews($merchant_item_oid): \ultracart\v2\models\ItemReviewsResponse
+```
+
+get reviews for an item
+
+Retrieve item reviews.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+
+try {
+    $result = $apiInstance->getReviews($merchant_item_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getReviews: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+
+### Return type
+
+[**\ultracart\v2\models\ItemReviewsResponse**](../Model/ItemReviewsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getUnassociatedDigitalItems()`
 
 ```php
@@ -750,6 +929,65 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `insertReview()`
+
+```php
+insertReview($merchant_item_oid, $review): \ultracart\v2\models\ItemReviewResponse
+```
+
+Insert a review
+
+Insert a item review.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+$review = new \ultracart\v2\models\ItemReview(); // \ultracart\v2\models\ItemReview | Review to insert
+
+try {
+    $result = $apiInstance->insertReview($merchant_item_oid, $review);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->insertReview: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+ **review** | [**\ultracart\v2\models\ItemReview**](../Model/ItemReview.md)| Review to insert |
+
+### Return type
+
+[**\ultracart\v2\models\ItemReviewResponse**](../Model/ItemReviewResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateDigitalItem()`
 
 ```php
@@ -921,6 +1159,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\ItemsResponse**](../Model/ItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateReview()`
+
+```php
+updateReview($review_oid, $merchant_item_oid, $review): \ultracart\v2\models\ItemReviewResponse
+```
+
+Update a review
+
+Update an item review.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\ItemApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$review_oid = 56; // int | The review oid to update.
+$merchant_item_oid = 56; // int | The item oid the review is associated with.
+$review = new \ultracart\v2\models\ItemReview(); // \ultracart\v2\models\ItemReview | Review to update
+
+try {
+    $result = $apiInstance->updateReview($review_oid, $merchant_item_oid, $review);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->updateReview: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **review_oid** | **int**| The review oid to update. |
+ **merchant_item_oid** | **int**| The item oid the review is associated with. |
+ **review** | [**\ultracart\v2\models\ItemReview**](../Model/ItemReview.md)| Review to update |
+
+### Return type
+
+[**\ultracart\v2\models\ItemReviewResponse**](../Model/ItemReviewResponse.md)
 
 ### Authorization
 

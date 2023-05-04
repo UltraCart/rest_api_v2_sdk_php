@@ -528,7 +528,9 @@ docs/Model/ItemRestriction.md
 docs/Model/ItemRestrictionItem.md
 docs/Model/ItemRevguard.md
 docs/Model/ItemReview.md
+docs/Model/ItemReviewResponse.md
 docs/Model/ItemReviews.md
+docs/Model/ItemReviewsResponse.md
 docs/Model/ItemSalesforce.md
 docs/Model/ItemShipping.md
 docs/Model/ItemShippingCase.md
@@ -1325,7 +1327,9 @@ lib/models/ItemRestriction.php
 lib/models/ItemRestrictionItem.php
 lib/models/ItemRevguard.php
 lib/models/ItemReview.php
+lib/models/ItemReviewResponse.php
 lib/models/ItemReviews.php
+lib/models/ItemReviewsResponse.php
 lib/models/ItemSalesforce.php
 lib/models/ItemShipping.php
 lib/models/ItemShippingCase.php
