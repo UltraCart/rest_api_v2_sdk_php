@@ -61,7 +61,8 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
         'cumulative_order_limit' => 'int',
         'exempt_from_minimum_item_count' => 'bool',
         'individual_order_limit' => 'int',
-        'multiple_quantity' => 'int'
+        'multiple_quantity' => 'int',
+        'payment_method_validity' => 'string[]'
     ];
 
     /**
@@ -75,7 +76,8 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
         'cumulative_order_limit' => 'int32',
         'exempt_from_minimum_item_count' => null,
         'individual_order_limit' => 'int32',
-        'multiple_quantity' => 'int32'
+        'multiple_quantity' => 'int32',
+        'payment_method_validity' => null
     ];
 
     /**
@@ -108,7 +110,8 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
         'cumulative_order_limit' => 'cumulative_order_limit',
         'exempt_from_minimum_item_count' => 'exempt_from_minimum_item_count',
         'individual_order_limit' => 'individual_order_limit',
-        'multiple_quantity' => 'multiple_quantity'
+        'multiple_quantity' => 'multiple_quantity',
+        'payment_method_validity' => 'payment_method_validity'
     ];
 
     /**
@@ -120,7 +123,8 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
         'cumulative_order_limit' => 'setCumulativeOrderLimit',
         'exempt_from_minimum_item_count' => 'setExemptFromMinimumItemCount',
         'individual_order_limit' => 'setIndividualOrderLimit',
-        'multiple_quantity' => 'setMultipleQuantity'
+        'multiple_quantity' => 'setMultipleQuantity',
+        'payment_method_validity' => 'setPaymentMethodValidity'
     ];
 
     /**
@@ -132,7 +136,8 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
         'cumulative_order_limit' => 'getCumulativeOrderLimit',
         'exempt_from_minimum_item_count' => 'getExemptFromMinimumItemCount',
         'individual_order_limit' => 'getIndividualOrderLimit',
-        'multiple_quantity' => 'getMultipleQuantity'
+        'multiple_quantity' => 'getMultipleQuantity',
+        'payment_method_validity' => 'getPaymentMethodValidity'
     ];
 
     /**
@@ -196,6 +201,7 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['exempt_from_minimum_item_count'] = $data['exempt_from_minimum_item_count'] ?? null;
         $this->container['individual_order_limit'] = $data['individual_order_limit'] ?? null;
         $this->container['multiple_quantity'] = $data['multiple_quantity'] ?? null;
+        $this->container['payment_method_validity'] = $data['payment_method_validity'] ?? null;
     }
 
     /**
@@ -314,6 +320,30 @@ class ItemPricingTierLimit implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setMultipleQuantity($multiple_quantity)
     {
         $this->container['multiple_quantity'] = $multiple_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_method_validity
+     *
+     * @return string[]|null
+     */
+    public function getPaymentMethodValidity()
+    {
+        return $this->container['payment_method_validity'];
+    }
+
+    /**
+     * Sets payment_method_validity
+     *
+     * @param string[]|null $payment_method_validity Payment method validity
+     *
+     * @return self
+     */
+    public function setPaymentMethodValidity($payment_method_validity)
+    {
+        $this->container['payment_method_validity'] = $payment_method_validity;
 
         return $this;
     }
