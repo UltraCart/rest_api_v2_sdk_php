@@ -61,6 +61,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess
         'data_set_uuid' => 'string',
         'destination_table_id' => 'string',
         'error_message' => 'string',
+        'executed_sql' => 'string',
         'for_object_id' => 'string',
         'for_object_type' => 'string',
         'initial_pages' => '\ultracart\v2\models\ReportDataSetPage[]',
@@ -84,6 +85,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess
         'data_set_uuid' => null,
         'destination_table_id' => null,
         'error_message' => null,
+        'executed_sql' => null,
         'for_object_id' => null,
         'for_object_type' => null,
         'initial_pages' => null,
@@ -128,6 +130,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess
         'data_set_uuid' => 'data_set_uuid',
         'destination_table_id' => 'destination_table_id',
         'error_message' => 'error_message',
+        'executed_sql' => 'executed_sql',
         'for_object_id' => 'for_object_id',
         'for_object_type' => 'for_object_type',
         'initial_pages' => 'initial_pages',
@@ -151,6 +154,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess
         'data_set_uuid' => 'setDataSetUuid',
         'destination_table_id' => 'setDestinationTableId',
         'error_message' => 'setErrorMessage',
+        'executed_sql' => 'setExecutedSql',
         'for_object_id' => 'setForObjectId',
         'for_object_type' => 'setForObjectType',
         'initial_pages' => 'setInitialPages',
@@ -174,6 +178,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess
         'data_set_uuid' => 'getDataSetUuid',
         'destination_table_id' => 'getDestinationTableId',
         'error_message' => 'getErrorMessage',
+        'executed_sql' => 'getExecutedSql',
         'for_object_id' => 'getForObjectId',
         'for_object_type' => 'getForObjectType',
         'initial_pages' => 'getInitialPages',
@@ -268,6 +273,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess
         $this->container['data_set_uuid'] = isset($data['data_set_uuid']) ? $data['data_set_uuid'] : null;
         $this->container['destination_table_id'] = isset($data['destination_table_id']) ? $data['destination_table_id'] : null;
         $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
+        $this->container['executed_sql'] = isset($data['executed_sql']) ? $data['executed_sql'] : null;
         $this->container['for_object_id'] = isset($data['for_object_id']) ? $data['for_object_id'] : null;
         $this->container['for_object_type'] = isset($data['for_object_type']) ? $data['for_object_type'] : null;
         $this->container['initial_pages'] = isset($data['initial_pages']) ? $data['initial_pages'] : null;
@@ -405,6 +411,30 @@ class ReportDataSet implements ModelInterface, ArrayAccess
     public function setErrorMessage($error_message)
     {
         $this->container['error_message'] = $error_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets executed_sql
+     *
+     * @return string
+     */
+    public function getExecutedSql()
+    {
+        return $this->container['executed_sql'];
+    }
+
+    /**
+     * Sets executed_sql
+     *
+     * @param string $executed_sql executed_sql
+     *
+     * @return $this
+     */
+    public function setExecutedSql($executed_sql)
+    {
+        $this->container['executed_sql'] = $executed_sql;
 
         return $this;
     }

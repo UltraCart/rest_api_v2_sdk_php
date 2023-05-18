@@ -64,6 +64,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => 'float',
         'arbitrary_unit_cost_remaining_orders' => 'int',
         'auto_order_item_oid' => 'int',
+        'first_order_dts' => 'string',
         'frequency' => 'string',
         'future_schedules' => '\ultracart\v2\models\AutoOrderItemFutureSchedule[]',
         'last_order_dts' => 'string',
@@ -75,6 +76,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'options' => '\ultracart\v2\models\AutoOrderItemOption[]',
         'original_item_id' => 'string',
         'original_quantity' => 'float',
+        'paused' => 'bool',
         'paypal_payer_id' => 'string',
         'paypal_recurring_payment_profile_id' => 'string',
         'preshipment_notice_sent' => 'bool',
@@ -96,6 +98,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => null,
         'arbitrary_unit_cost_remaining_orders' => 'int32',
         'auto_order_item_oid' => 'int32',
+        'first_order_dts' => 'dateTime',
         'frequency' => null,
         'future_schedules' => null,
         'last_order_dts' => 'dateTime',
@@ -107,6 +110,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'options' => null,
         'original_item_id' => null,
         'original_quantity' => null,
+        'paused' => null,
         'paypal_payer_id' => null,
         'paypal_recurring_payment_profile_id' => null,
         'preshipment_notice_sent' => null,
@@ -149,6 +153,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => 'arbitrary_unit_cost',
         'arbitrary_unit_cost_remaining_orders' => 'arbitrary_unit_cost_remaining_orders',
         'auto_order_item_oid' => 'auto_order_item_oid',
+        'first_order_dts' => 'first_order_dts',
         'frequency' => 'frequency',
         'future_schedules' => 'future_schedules',
         'last_order_dts' => 'last_order_dts',
@@ -160,6 +165,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'options' => 'options',
         'original_item_id' => 'original_item_id',
         'original_quantity' => 'original_quantity',
+        'paused' => 'paused',
         'paypal_payer_id' => 'paypal_payer_id',
         'paypal_recurring_payment_profile_id' => 'paypal_recurring_payment_profile_id',
         'preshipment_notice_sent' => 'preshipment_notice_sent',
@@ -181,6 +187,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => 'setArbitraryUnitCost',
         'arbitrary_unit_cost_remaining_orders' => 'setArbitraryUnitCostRemainingOrders',
         'auto_order_item_oid' => 'setAutoOrderItemOid',
+        'first_order_dts' => 'setFirstOrderDts',
         'frequency' => 'setFrequency',
         'future_schedules' => 'setFutureSchedules',
         'last_order_dts' => 'setLastOrderDts',
@@ -192,6 +199,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'options' => 'setOptions',
         'original_item_id' => 'setOriginalItemId',
         'original_quantity' => 'setOriginalQuantity',
+        'paused' => 'setPaused',
         'paypal_payer_id' => 'setPaypalPayerId',
         'paypal_recurring_payment_profile_id' => 'setPaypalRecurringPaymentProfileId',
         'preshipment_notice_sent' => 'setPreshipmentNoticeSent',
@@ -213,6 +221,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'arbitrary_unit_cost' => 'getArbitraryUnitCost',
         'arbitrary_unit_cost_remaining_orders' => 'getArbitraryUnitCostRemainingOrders',
         'auto_order_item_oid' => 'getAutoOrderItemOid',
+        'first_order_dts' => 'getFirstOrderDts',
         'frequency' => 'getFrequency',
         'future_schedules' => 'getFutureSchedules',
         'last_order_dts' => 'getLastOrderDts',
@@ -224,6 +233,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         'options' => 'getOptions',
         'original_item_id' => 'getOriginalItemId',
         'original_quantity' => 'getOriginalQuantity',
+        'paused' => 'getPaused',
         'paypal_payer_id' => 'getPaypalPayerId',
         'paypal_recurring_payment_profile_id' => 'getPaypalRecurringPaymentProfileId',
         'preshipment_notice_sent' => 'getPreshipmentNoticeSent',
@@ -336,6 +346,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         $this->container['arbitrary_unit_cost'] = isset($data['arbitrary_unit_cost']) ? $data['arbitrary_unit_cost'] : null;
         $this->container['arbitrary_unit_cost_remaining_orders'] = isset($data['arbitrary_unit_cost_remaining_orders']) ? $data['arbitrary_unit_cost_remaining_orders'] : null;
         $this->container['auto_order_item_oid'] = isset($data['auto_order_item_oid']) ? $data['auto_order_item_oid'] : null;
+        $this->container['first_order_dts'] = isset($data['first_order_dts']) ? $data['first_order_dts'] : null;
         $this->container['frequency'] = isset($data['frequency']) ? $data['frequency'] : null;
         $this->container['future_schedules'] = isset($data['future_schedules']) ? $data['future_schedules'] : null;
         $this->container['last_order_dts'] = isset($data['last_order_dts']) ? $data['last_order_dts'] : null;
@@ -347,6 +358,7 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['original_item_id'] = isset($data['original_item_id']) ? $data['original_item_id'] : null;
         $this->container['original_quantity'] = isset($data['original_quantity']) ? $data['original_quantity'] : null;
+        $this->container['paused'] = isset($data['paused']) ? $data['paused'] : null;
         $this->container['paypal_payer_id'] = isset($data['paypal_payer_id']) ? $data['paypal_payer_id'] : null;
         $this->container['paypal_recurring_payment_profile_id'] = isset($data['paypal_recurring_payment_profile_id']) ? $data['paypal_recurring_payment_profile_id'] : null;
         $this->container['preshipment_notice_sent'] = isset($data['preshipment_notice_sent']) ? $data['preshipment_notice_sent'] : null;
@@ -551,6 +563,30 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     public function setAutoOrderItemOid($auto_order_item_oid)
     {
         $this->container['auto_order_item_oid'] = $auto_order_item_oid;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_order_dts
+     *
+     * @return string
+     */
+    public function getFirstOrderDts()
+    {
+        return $this->container['first_order_dts'];
+    }
+
+    /**
+     * Sets first_order_dts
+     *
+     * @param string $first_order_dts Date/time of the first order of this item.  Null if item added to auto order and has not been rebilled yet.
+     *
+     * @return $this
+     */
+    public function setFirstOrderDts($first_order_dts)
+    {
+        $this->container['first_order_dts'] = $first_order_dts;
 
         return $this;
     }
@@ -824,6 +860,30 @@ class AutoOrderItem implements ModelInterface, ArrayAccess
     public function setOriginalQuantity($original_quantity)
     {
         $this->container['original_quantity'] = $original_quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets paused
+     *
+     * @return bool
+     */
+    public function getPaused()
+    {
+        return $this->container['paused'];
+    }
+
+    /**
+     * Sets paused
+     *
+     * @param bool $paused True if paused.  This field is an object instead of a primitive for backwards compatibility.
+     *
+     * @return $this
+     */
+    public function setPaused($paused)
+    {
+        $this->container['paused'] = $paused;
 
         return $this;
     }

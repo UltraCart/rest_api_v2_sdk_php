@@ -14,8 +14,8 @@ Method | HTTP request | Description
 [**getItemByMerchantItemId**](ItemApi.md#getItemByMerchantItemId) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 [**getItems**](ItemApi.md#getItems) | **GET** /item/items | Retrieve items
 [**getPricingTiers**](ItemApi.md#getPricingTiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
-[**getReview**](ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
-[**getReviews**](ItemApi.md#getReviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
+[**getReview**](ItemApi.md#getReview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
+[**getReviews**](ItemApi.md#getReviews) | **GET** /item/items/{merchant_item_oid}/reviews | Get reviews for an item
 [**getUnassociatedDigitalItems**](ItemApi.md#getUnassociatedDigitalItems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 [**insertDigitalItem**](ItemApi.md#insertDigitalItem) | **POST** /item/digital_library | Create a file within the digital library
 [**insertItem**](ItemApi.md#insertItem) | **POST** /item/items | Create an item
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 # **getReview**
 > \ultracart\v2\models\ItemReviewResponse getReview($review_oid, $merchant_item_oid)
 
-get a review
+Get a review
 
 Retrieve an item review.
 
@@ -591,7 +591,7 @@ Name | Type | Description  | Notes
 # **getReviews**
 > \ultracart\v2\models\ItemReviewsResponse getReviews($merchant_item_oid)
 
-get reviews for an item
+Get reviews for an item
 
 Retrieve item reviews.
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **data_set_uuid** | **string** | A unique identifier assigned to the data set that is returned. | [optional] 
 **destination_table_id** | **string** | The BigQuery destination table id that contains the result. | [optional] 
 **error_message** | **string** | Error message if the query failed. | [optional] 
+**executed_sql** | **string** |  | [optional] 
 **for_object_id** | **string** | An identifier that can be used to help match up the returned data set | [optional] 
 **for_object_type** | **string** | The type of object this data set is for | [optional] 
 **initial_pages** | [**\ultracart\v2\models\ReportDataSetPage[]**](ReportDataSetPage.md) | Initial pages returned in the dataset | [optional] 

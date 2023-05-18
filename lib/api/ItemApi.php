@@ -3527,7 +3527,7 @@ class ItemApi
     /**
      * Operation getReview
      *
-     * get a review
+     * Get a review
      *
      * @param  int $review_oid The review oid to retrieve. (required)
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
@@ -3546,7 +3546,7 @@ class ItemApi
     /**
      * Operation getReviewWithHttpInfo
      *
-     * get a review
+     * Get a review
      *
      * @param  int $review_oid The review oid to retrieve. (required)
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
@@ -3564,7 +3564,7 @@ class ItemApi
     /**
      * Operation getReviewWithHttpInfoRetry
      *
-     * get a review
+     * Get a review
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $review_oid The review oid to retrieve. (required)
@@ -3682,7 +3682,7 @@ class ItemApi
     /**
      * Operation getReviewAsync
      *
-     * get a review
+     * Get a review
      *
      * @param  int $review_oid The review oid to retrieve. (required)
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
@@ -3703,7 +3703,7 @@ class ItemApi
     /**
      * Operation getReviewAsyncWithHttpInfo
      *
-     * get a review
+     * Get a review
      *
      * @param  int $review_oid The review oid to retrieve. (required)
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
@@ -3885,7 +3885,7 @@ class ItemApi
     /**
      * Operation getReviews
      *
-     * get reviews for an item
+     * Get reviews for an item
      *
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
      *
@@ -3903,7 +3903,7 @@ class ItemApi
     /**
      * Operation getReviewsWithHttpInfo
      *
-     * get reviews for an item
+     * Get reviews for an item
      *
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
      *
@@ -3920,7 +3920,7 @@ class ItemApi
     /**
      * Operation getReviewsWithHttpInfoRetry
      *
-     * get reviews for an item
+     * Get reviews for an item
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
@@ -4037,7 +4037,7 @@ class ItemApi
     /**
      * Operation getReviewsAsync
      *
-     * get reviews for an item
+     * Get reviews for an item
      *
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
      *
@@ -4057,7 +4057,7 @@ class ItemApi
     /**
      * Operation getReviewsAsyncWithHttpInfo
      *
-     * get reviews for an item
+     * Get reviews for an item
      *
      * @param  int $merchant_item_oid The item oid the review is associated with. (required)
      *

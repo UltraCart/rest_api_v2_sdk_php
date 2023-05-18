@@ -314,8 +314,8 @@ Class | Method | HTTP request | Description
 *ItemApi* | [**getItemByMerchantItemId**](docs/Api/ItemApi.md#getitembymerchantitemid) | **GET** /item/items/merchant_item_id/{merchant_item_id} | Retrieve an item by item id
 *ItemApi* | [**getItems**](docs/Api/ItemApi.md#getitems) | **GET** /item/items | Retrieve items
 *ItemApi* | [**getPricingTiers**](docs/Api/ItemApi.md#getpricingtiers) | **GET** /item/pricing_tiers | Retrieve pricing tiers
-*ItemApi* | [**getReview**](docs/Api/ItemApi.md#getreview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | get a review
-*ItemApi* | [**getReviews**](docs/Api/ItemApi.md#getreviews) | **GET** /item/items/{merchant_item_oid}/reviews | get reviews for an item
+*ItemApi* | [**getReview**](docs/Api/ItemApi.md#getreview) | **GET** /item/items/{merchant_item_oid}/reviews/{review_oid} | Get a review
+*ItemApi* | [**getReviews**](docs/Api/ItemApi.md#getreviews) | **GET** /item/items/{merchant_item_oid}/reviews | Get reviews for an item
 *ItemApi* | [**getUnassociatedDigitalItems**](docs/Api/ItemApi.md#getunassociateddigitalitems) | **GET** /item/digital_library/unassociated | Retrieve digital items from the digital library (which are digital files that may be attached to normal items) not yet associated with actual items
 *ItemApi* | [**insertDigitalItem**](docs/Api/ItemApi.md#insertdigitalitem) | **POST** /item/digital_library | Create a file within the digital library
 *ItemApi* | [**insertItem**](docs/Api/ItemApi.md#insertitem) | **POST** /item/items | Create an item
@@ -1431,6 +1431,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.138 | 05/18/2023 | dw bi - send back the executed SQL |
 | 3.10.137 | 05/04/2023 | item api added methods for items reviews |
 | 3.10.136 | 04/28/2023 | item - pricing tier level flag for exempt from min item count |
 | 3.10.135 | 04/27/2023 | order - expose dual vaulted identifiers |
