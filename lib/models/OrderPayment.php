@@ -264,6 +264,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_WALMART = 'Walmart';
     const PAYMENT_METHOD_SHOPCOM = 'Shop.com';
     const PAYMENT_METHOD_SEZZLE = 'Sezzle';
+    const PAYMENT_METHOD_VENMO = 'Venmo';
     const PAYMENT_STATUS_UNPROCESSED = 'Unprocessed';
     const PAYMENT_STATUS_AUTHORIZED = 'Authorized';
     const PAYMENT_STATUS_CAPTURE_FAILED = 'Capture Failed';
@@ -304,6 +305,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_WALMART,
             self::PAYMENT_METHOD_SHOPCOM,
             self::PAYMENT_METHOD_SEZZLE,
+            self::PAYMENT_METHOD_VENMO,
         ];
     }
     
