@@ -1372,6 +1372,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.156 | 05/25/2023 | added venmo constants for payment type |
 | 4.0.155 | 05/18/2023 | dw bi - send back the executed SQL |
 | 4.0.154 | 05/04/2023 | item api added methods for items reviews |
 | 4.0.153 | 04/28/2023 | item - pricing tier level flag for exempt from min item count |
