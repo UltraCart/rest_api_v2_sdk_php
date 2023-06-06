@@ -57,6 +57,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'add_ons' => '\ultracart\v2\models\AutoOrderAddonItem[]',
         'auto_order_code' => 'string',
         'auto_order_oid' => 'int',
         'cancel_after_next_x_orders' => 'int',
@@ -88,6 +89,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'add_ons' => null,
         'auto_order_code' => null,
         'auto_order_oid' => 'int32',
         'cancel_after_next_x_orders' => 'int32',
@@ -140,6 +142,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'add_ons' => 'add_ons',
         'auto_order_code' => 'auto_order_code',
         'auto_order_oid' => 'auto_order_oid',
         'cancel_after_next_x_orders' => 'cancel_after_next_x_orders',
@@ -171,6 +174,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'add_ons' => 'setAddOns',
         'auto_order_code' => 'setAutoOrderCode',
         'auto_order_oid' => 'setAutoOrderOid',
         'cancel_after_next_x_orders' => 'setCancelAfterNextXOrders',
@@ -202,6 +206,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'add_ons' => 'getAddOns',
         'auto_order_code' => 'getAutoOrderCode',
         'auto_order_oid' => 'getAutoOrderOid',
         'cancel_after_next_x_orders' => 'getCancelAfterNextXOrders',
@@ -304,6 +309,7 @@ class AutoOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['add_ons'] = isset($data['add_ons']) ? $data['add_ons'] : null;
         $this->container['auto_order_code'] = isset($data['auto_order_code']) ? $data['auto_order_code'] : null;
         $this->container['auto_order_oid'] = isset($data['auto_order_oid']) ? $data['auto_order_oid'] : null;
         $this->container['cancel_after_next_x_orders'] = isset($data['cancel_after_next_x_orders']) ? $data['cancel_after_next_x_orders'] : null;
@@ -360,6 +366,30 @@ class AutoOrder implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets add_ons
+     *
+     * @return \ultracart\v2\models\AutoOrderAddonItem[]
+     */
+    public function getAddOns()
+    {
+        return $this->container['add_ons'];
+    }
+
+    /**
+     * Sets add_ons
+     *
+     * @param \ultracart\v2\models\AutoOrderAddonItem[] $add_ons Array of addon objects instructing which items to add to auto order and how many times they should be added.
+     *
+     * @return $this
+     */
+    public function setAddOns($add_ons)
+    {
+        $this->container['add_ons'] = $add_ons;
+
+        return $this;
+    }
 
     /**
      * Gets auto_order_code

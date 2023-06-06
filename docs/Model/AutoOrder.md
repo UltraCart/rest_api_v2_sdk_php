@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**add_ons** | [**\ultracart\v2\models\AutoOrderAddonItem[]**](AutoOrderAddonItem.md) | Array of addon objects instructing which items to add to auto order and how many times they should be added. | [optional] 
 **auto_order_code** | **string** | Unique code assigned to this auto order | [optional] 
 **auto_order_oid** | **int** | Auto order object identifier | [optional] 
 **cancel_after_next_x_orders** | **int** | Cancel this auto order after X additional rebills | [optional] 

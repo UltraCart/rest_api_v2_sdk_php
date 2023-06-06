@@ -62,7 +62,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_charge_minimum_balance' => 'bool',
         'auto_order_cancel_item_id' => 'string',
         'auto_order_cancel_item_oid' => 'int',
+        'auto_order_cancel_minimum_life_time_count' => 'int',
         'auto_order_cancel_minimum_life_time_value' => 'float',
+        'auto_order_cancel_minimum_rebill_count' => 'int',
         'auto_order_cancel_minimum_rebill_value' => 'float',
         'auto_order_downgrade_items' => 'string[]',
         'auto_order_paused' => 'bool',
@@ -90,7 +92,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_charge_minimum_balance' => null,
         'auto_order_cancel_item_id' => null,
         'auto_order_cancel_item_oid' => 'int32',
+        'auto_order_cancel_minimum_life_time_count' => 'int32',
         'auto_order_cancel_minimum_life_time_value' => null,
+        'auto_order_cancel_minimum_rebill_count' => 'int32',
         'auto_order_cancel_minimum_rebill_value' => null,
         'auto_order_downgrade_items' => null,
         'auto_order_paused' => null,
@@ -139,7 +143,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_charge_minimum_balance' => 'auto_order_cancel_charge_minimum_balance',
         'auto_order_cancel_item_id' => 'auto_order_cancel_item_id',
         'auto_order_cancel_item_oid' => 'auto_order_cancel_item_oid',
+        'auto_order_cancel_minimum_life_time_count' => 'auto_order_cancel_minimum_life_time_count',
         'auto_order_cancel_minimum_life_time_value' => 'auto_order_cancel_minimum_life_time_value',
+        'auto_order_cancel_minimum_rebill_count' => 'auto_order_cancel_minimum_rebill_count',
         'auto_order_cancel_minimum_rebill_value' => 'auto_order_cancel_minimum_rebill_value',
         'auto_order_downgrade_items' => 'auto_order_downgrade_items',
         'auto_order_paused' => 'auto_order_paused',
@@ -167,7 +173,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_charge_minimum_balance' => 'setAutoOrderCancelChargeMinimumBalance',
         'auto_order_cancel_item_id' => 'setAutoOrderCancelItemId',
         'auto_order_cancel_item_oid' => 'setAutoOrderCancelItemOid',
+        'auto_order_cancel_minimum_life_time_count' => 'setAutoOrderCancelMinimumLifeTimeCount',
         'auto_order_cancel_minimum_life_time_value' => 'setAutoOrderCancelMinimumLifeTimeValue',
+        'auto_order_cancel_minimum_rebill_count' => 'setAutoOrderCancelMinimumRebillCount',
         'auto_order_cancel_minimum_rebill_value' => 'setAutoOrderCancelMinimumRebillValue',
         'auto_order_downgrade_items' => 'setAutoOrderDowngradeItems',
         'auto_order_paused' => 'setAutoOrderPaused',
@@ -195,7 +203,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         'auto_order_cancel_charge_minimum_balance' => 'getAutoOrderCancelChargeMinimumBalance',
         'auto_order_cancel_item_id' => 'getAutoOrderCancelItemId',
         'auto_order_cancel_item_oid' => 'getAutoOrderCancelItemOid',
+        'auto_order_cancel_minimum_life_time_count' => 'getAutoOrderCancelMinimumLifeTimeCount',
         'auto_order_cancel_minimum_life_time_value' => 'getAutoOrderCancelMinimumLifeTimeValue',
+        'auto_order_cancel_minimum_rebill_count' => 'getAutoOrderCancelMinimumRebillCount',
         'auto_order_cancel_minimum_rebill_value' => 'getAutoOrderCancelMinimumRebillValue',
         'auto_order_downgrade_items' => 'getAutoOrderDowngradeItems',
         'auto_order_paused' => 'getAutoOrderPaused',
@@ -277,7 +287,9 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
         $this->container['auto_order_cancel_charge_minimum_balance'] = isset($data['auto_order_cancel_charge_minimum_balance']) ? $data['auto_order_cancel_charge_minimum_balance'] : null;
         $this->container['auto_order_cancel_item_id'] = isset($data['auto_order_cancel_item_id']) ? $data['auto_order_cancel_item_id'] : null;
         $this->container['auto_order_cancel_item_oid'] = isset($data['auto_order_cancel_item_oid']) ? $data['auto_order_cancel_item_oid'] : null;
+        $this->container['auto_order_cancel_minimum_life_time_count'] = isset($data['auto_order_cancel_minimum_life_time_count']) ? $data['auto_order_cancel_minimum_life_time_count'] : null;
         $this->container['auto_order_cancel_minimum_life_time_value'] = isset($data['auto_order_cancel_minimum_life_time_value']) ? $data['auto_order_cancel_minimum_life_time_value'] : null;
+        $this->container['auto_order_cancel_minimum_rebill_count'] = isset($data['auto_order_cancel_minimum_rebill_count']) ? $data['auto_order_cancel_minimum_rebill_count'] : null;
         $this->container['auto_order_cancel_minimum_rebill_value'] = isset($data['auto_order_cancel_minimum_rebill_value']) ? $data['auto_order_cancel_minimum_rebill_value'] : null;
         $this->container['auto_order_downgrade_items'] = isset($data['auto_order_downgrade_items']) ? $data['auto_order_downgrade_items'] : null;
         $this->container['auto_order_paused'] = isset($data['auto_order_paused']) ? $data['auto_order_paused'] : null;
@@ -447,6 +459,30 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets auto_order_cancel_minimum_life_time_count
+     *
+     * @return int
+     */
+    public function getAutoOrderCancelMinimumLifeTimeCount()
+    {
+        return $this->container['auto_order_cancel_minimum_life_time_count'];
+    }
+
+    /**
+     * Sets auto_order_cancel_minimum_life_time_count
+     *
+     * @param int $auto_order_cancel_minimum_life_time_count The minimum life time count that must be billed in order to not be charged the cancellation item.
+     *
+     * @return $this
+     */
+    public function setAutoOrderCancelMinimumLifeTimeCount($auto_order_cancel_minimum_life_time_count)
+    {
+        $this->container['auto_order_cancel_minimum_life_time_count'] = $auto_order_cancel_minimum_life_time_count;
+
+        return $this;
+    }
+
+    /**
      * Gets auto_order_cancel_minimum_life_time_value
      *
      * @return float
@@ -466,6 +502,30 @@ class ItemAutoOrder implements ModelInterface, ArrayAccess
     public function setAutoOrderCancelMinimumLifeTimeValue($auto_order_cancel_minimum_life_time_value)
     {
         $this->container['auto_order_cancel_minimum_life_time_value'] = $auto_order_cancel_minimum_life_time_value;
+
+        return $this;
+    }
+
+    /**
+     * Gets auto_order_cancel_minimum_rebill_count
+     *
+     * @return int
+     */
+    public function getAutoOrderCancelMinimumRebillCount()
+    {
+        return $this->container['auto_order_cancel_minimum_rebill_count'];
+    }
+
+    /**
+     * Sets auto_order_cancel_minimum_rebill_count
+     *
+     * @param int $auto_order_cancel_minimum_rebill_count The minimum rebill count that must be billed in order to not be charged the cancellation item.
+     *
+     * @return $this
+     */
+    public function setAutoOrderCancelMinimumRebillCount($auto_order_cancel_minimum_rebill_count)
+    {
+        $this->container['auto_order_cancel_minimum_rebill_count'] = $auto_order_cancel_minimum_rebill_count;
 
         return $this;
     }
