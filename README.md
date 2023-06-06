@@ -530,6 +530,8 @@ Class | Method | HTTP request | Description
 - [ApplyLibraryItemRequest](docs/Model/ApplyLibraryItemRequest.md)
 - [ApplyLibraryItemResponse](docs/Model/ApplyLibraryItemResponse.md)
 - [AutoOrder](docs/Model/AutoOrder.md)
+- [AutoOrderAddonItem](docs/Model/AutoOrderAddonItem.md)
+- [AutoOrderAddonItemOption](docs/Model/AutoOrderAddonItemOption.md)
 - [AutoOrderItem](docs/Model/AutoOrderItem.md)
 - [AutoOrderItemFutureSchedule](docs/Model/AutoOrderItemFutureSchedule.md)
 - [AutoOrderItemOption](docs/Model/AutoOrderItemOption.md)
@@ -1372,6 +1374,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.157 | 06/06/2023 | auto order add_ons |
 | 4.0.156 | 05/25/2023 | added venmo constants for payment type |
 | 4.0.155 | 05/18/2023 | dw bi - send back the executed SQL |
 | 4.0.154 | 05/04/2023 | item api added methods for items reviews |

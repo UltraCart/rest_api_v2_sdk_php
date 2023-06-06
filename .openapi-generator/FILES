@@ -46,6 +46,8 @@ docs/Model/ApiUserApplicationProfile.md
 docs/Model/ApplyLibraryItemRequest.md
 docs/Model/ApplyLibraryItemResponse.md
 docs/Model/AutoOrder.md
+docs/Model/AutoOrderAddonItem.md
+docs/Model/AutoOrderAddonItemOption.md
 docs/Model/AutoOrderItem.md
 docs/Model/AutoOrderItemFutureSchedule.md
 docs/Model/AutoOrderItemOption.md
@@ -845,6 +847,8 @@ lib/models/ApiUserApplicationProfile.php
 lib/models/ApplyLibraryItemRequest.php
 lib/models/ApplyLibraryItemResponse.php
 lib/models/AutoOrder.php
+lib/models/AutoOrderAddonItem.php
+lib/models/AutoOrderAddonItemOption.php
 lib/models/AutoOrderItem.php
 lib/models/AutoOrderItemFutureSchedule.php
 lib/models/AutoOrderItemOption.php
