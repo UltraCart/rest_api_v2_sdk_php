@@ -100,6 +100,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'privacy' => '\ultracart\v2\models\CustomerPrivacy',
         'qb_class' => 'string',
         'qb_code' => 'string',
+        'qb_tax_exemption_reason_code' => 'int',
         'quotes' => '\ultracart\v2\models\Order[]',
         'quotes_summary' => '\ultracart\v2\models\CustomerQuotesSummary',
         'referral_source' => 'string',
@@ -171,6 +172,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'privacy' => null,
         'qb_class' => null,
         'qb_code' => null,
+        'qb_tax_exemption_reason_code' => 'int32',
         'quotes' => null,
         'quotes_summary' => null,
         'referral_source' => null,
@@ -261,6 +263,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'privacy' => 'privacy',
         'qb_class' => 'qb_class',
         'qb_code' => 'qb_code',
+        'qb_tax_exemption_reason_code' => 'qb_tax_exemption_reason_code',
         'quotes' => 'quotes',
         'quotes_summary' => 'quotes_summary',
         'referral_source' => 'referral_source',
@@ -330,6 +333,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'privacy' => 'setPrivacy',
         'qb_class' => 'setQbClass',
         'qb_code' => 'setQbCode',
+        'qb_tax_exemption_reason_code' => 'setQbTaxExemptionReasonCode',
         'quotes' => 'setQuotes',
         'quotes_summary' => 'setQuotesSummary',
         'referral_source' => 'setReferralSource',
@@ -399,6 +403,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'privacy' => 'getPrivacy',
         'qb_class' => 'getQbClass',
         'qb_code' => 'getQbCode',
+        'qb_tax_exemption_reason_code' => 'getQbTaxExemptionReasonCode',
         'quotes' => 'getQuotes',
         'quotes_summary' => 'getQuotesSummary',
         'referral_source' => 'getReferralSource',
@@ -519,6 +524,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['privacy'] = $data['privacy'] ?? null;
         $this->container['qb_class'] = $data['qb_class'] ?? null;
         $this->container['qb_code'] = $data['qb_code'] ?? null;
+        $this->container['qb_tax_exemption_reason_code'] = $data['qb_tax_exemption_reason_code'] ?? null;
         $this->container['quotes'] = $data['quotes'] ?? null;
         $this->container['quotes_summary'] = $data['quotes_summary'] ?? null;
         $this->container['referral_source'] = $data['referral_source'] ?? null;
@@ -1636,6 +1642,30 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setQbCode($qb_code)
     {
         $this->container['qb_code'] = $qb_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets qb_tax_exemption_reason_code
+     *
+     * @return int|null
+     */
+    public function getQbTaxExemptionReasonCode()
+    {
+        return $this->container['qb_tax_exemption_reason_code'];
+    }
+
+    /**
+     * Sets qb_tax_exemption_reason_code
+     *
+     * @param int|null $qb_tax_exemption_reason_code QuickBooks tax exemption reason code
+     *
+     * @return self
+     */
+    public function setQbTaxExemptionReasonCode($qb_tax_exemption_reason_code)
+    {
+        $this->container['qb_tax_exemption_reason_code'] = $qb_tax_exemption_reason_code;
 
         return $this;
     }
