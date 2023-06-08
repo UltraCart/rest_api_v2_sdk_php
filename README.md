@@ -1433,6 +1433,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.141 | 06/08/2023 | customer profile qb tax exempt reason code field |
 | 3.10.140 | 06/06/2023 | auto order add_ons |
 | 3.10.139 | 05/25/2023 | added venmo constants for payment type |
 | 3.10.138 | 05/18/2023 | dw bi - send back the executed SQL |

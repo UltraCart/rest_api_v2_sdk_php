@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **privacy** | [**\ultracart\v2\models\CustomerPrivacy**](CustomerPrivacy.md) |  | [optional] 
 **qb_class** | **string** | QuickBooks class to import this customer as | [optional] 
 **qb_code** | **string** | QuickBooks name to import this customer as | [optional] 
+**qb_tax_exemption_reason_code** | **int** | QuickBooks tax exemption reason code | [optional] 
 **quotes** | [**\ultracart\v2\models\Order[]**](Order.md) | Quotes associated with this customer profile | [optional] 
 **quotes_summary** | [**\ultracart\v2\models\CustomerQuotesSummary**](CustomerQuotesSummary.md) |  | [optional] 
 **referral_source** | **string** | Referral Source | [optional] 
