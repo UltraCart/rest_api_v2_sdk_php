@@ -77,6 +77,21 @@ class DistributionCenter implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'string',
         'no_customer_direct_shipments' => 'bool',
         'no_split_shipment' => 'bool',
+        'pickup_cutoff_time_friday' => 'string',
+        'pickup_cutoff_time_monday' => 'string',
+        'pickup_cutoff_time_saturday' => 'string',
+        'pickup_cutoff_time_sunday' => 'string',
+        'pickup_cutoff_time_thursday' => 'string',
+        'pickup_cutoff_time_tuesday' => 'string',
+        'pickup_cutoff_time_wednesday' => 'string',
+        'pickup_start_time_friday' => 'string',
+        'pickup_start_time_monday' => 'string',
+        'pickup_start_time_saturday' => 'string',
+        'pickup_start_time_sunday' => 'string',
+        'pickup_start_time_thursday' => 'string',
+        'pickup_start_time_tuesday' => 'string',
+        'pickup_start_time_wednesday' => 'string',
+        'pickup_tz' => 'string',
         'postal_code' => 'string',
         'process_days' => 'int',
         'process_inventory_start_time' => 'string',
@@ -122,6 +137,21 @@ class DistributionCenter implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => null,
         'no_customer_direct_shipments' => null,
         'no_split_shipment' => null,
+        'pickup_cutoff_time_friday' => null,
+        'pickup_cutoff_time_monday' => null,
+        'pickup_cutoff_time_saturday' => null,
+        'pickup_cutoff_time_sunday' => null,
+        'pickup_cutoff_time_thursday' => null,
+        'pickup_cutoff_time_tuesday' => null,
+        'pickup_cutoff_time_wednesday' => null,
+        'pickup_start_time_friday' => null,
+        'pickup_start_time_monday' => null,
+        'pickup_start_time_saturday' => null,
+        'pickup_start_time_sunday' => null,
+        'pickup_start_time_thursday' => null,
+        'pickup_start_time_tuesday' => null,
+        'pickup_start_time_wednesday' => null,
+        'pickup_tz' => null,
         'postal_code' => null,
         'process_days' => 'int32',
         'process_inventory_start_time' => null,
@@ -186,6 +216,21 @@ class DistributionCenter implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'name',
         'no_customer_direct_shipments' => 'no_customer_direct_shipments',
         'no_split_shipment' => 'no_split_shipment',
+        'pickup_cutoff_time_friday' => 'pickup_cutoff_time_friday',
+        'pickup_cutoff_time_monday' => 'pickup_cutoff_time_monday',
+        'pickup_cutoff_time_saturday' => 'pickup_cutoff_time_saturday',
+        'pickup_cutoff_time_sunday' => 'pickup_cutoff_time_sunday',
+        'pickup_cutoff_time_thursday' => 'pickup_cutoff_time_thursday',
+        'pickup_cutoff_time_tuesday' => 'pickup_cutoff_time_tuesday',
+        'pickup_cutoff_time_wednesday' => 'pickup_cutoff_time_wednesday',
+        'pickup_start_time_friday' => 'pickup_start_time_friday',
+        'pickup_start_time_monday' => 'pickup_start_time_monday',
+        'pickup_start_time_saturday' => 'pickup_start_time_saturday',
+        'pickup_start_time_sunday' => 'pickup_start_time_sunday',
+        'pickup_start_time_thursday' => 'pickup_start_time_thursday',
+        'pickup_start_time_tuesday' => 'pickup_start_time_tuesday',
+        'pickup_start_time_wednesday' => 'pickup_start_time_wednesday',
+        'pickup_tz' => 'pickup_tz',
         'postal_code' => 'postal_code',
         'process_days' => 'process_days',
         'process_inventory_start_time' => 'process_inventory_start_time',
@@ -229,6 +274,21 @@ class DistributionCenter implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'setName',
         'no_customer_direct_shipments' => 'setNoCustomerDirectShipments',
         'no_split_shipment' => 'setNoSplitShipment',
+        'pickup_cutoff_time_friday' => 'setPickupCutoffTimeFriday',
+        'pickup_cutoff_time_monday' => 'setPickupCutoffTimeMonday',
+        'pickup_cutoff_time_saturday' => 'setPickupCutoffTimeSaturday',
+        'pickup_cutoff_time_sunday' => 'setPickupCutoffTimeSunday',
+        'pickup_cutoff_time_thursday' => 'setPickupCutoffTimeThursday',
+        'pickup_cutoff_time_tuesday' => 'setPickupCutoffTimeTuesday',
+        'pickup_cutoff_time_wednesday' => 'setPickupCutoffTimeWednesday',
+        'pickup_start_time_friday' => 'setPickupStartTimeFriday',
+        'pickup_start_time_monday' => 'setPickupStartTimeMonday',
+        'pickup_start_time_saturday' => 'setPickupStartTimeSaturday',
+        'pickup_start_time_sunday' => 'setPickupStartTimeSunday',
+        'pickup_start_time_thursday' => 'setPickupStartTimeThursday',
+        'pickup_start_time_tuesday' => 'setPickupStartTimeTuesday',
+        'pickup_start_time_wednesday' => 'setPickupStartTimeWednesday',
+        'pickup_tz' => 'setPickupTz',
         'postal_code' => 'setPostalCode',
         'process_days' => 'setProcessDays',
         'process_inventory_start_time' => 'setProcessInventoryStartTime',
@@ -272,6 +332,21 @@ class DistributionCenter implements ModelInterface, ArrayAccess, \JsonSerializab
         'name' => 'getName',
         'no_customer_direct_shipments' => 'getNoCustomerDirectShipments',
         'no_split_shipment' => 'getNoSplitShipment',
+        'pickup_cutoff_time_friday' => 'getPickupCutoffTimeFriday',
+        'pickup_cutoff_time_monday' => 'getPickupCutoffTimeMonday',
+        'pickup_cutoff_time_saturday' => 'getPickupCutoffTimeSaturday',
+        'pickup_cutoff_time_sunday' => 'getPickupCutoffTimeSunday',
+        'pickup_cutoff_time_thursday' => 'getPickupCutoffTimeThursday',
+        'pickup_cutoff_time_tuesday' => 'getPickupCutoffTimeTuesday',
+        'pickup_cutoff_time_wednesday' => 'getPickupCutoffTimeWednesday',
+        'pickup_start_time_friday' => 'getPickupStartTimeFriday',
+        'pickup_start_time_monday' => 'getPickupStartTimeMonday',
+        'pickup_start_time_saturday' => 'getPickupStartTimeSaturday',
+        'pickup_start_time_sunday' => 'getPickupStartTimeSunday',
+        'pickup_start_time_thursday' => 'getPickupStartTimeThursday',
+        'pickup_start_time_tuesday' => 'getPickupStartTimeTuesday',
+        'pickup_start_time_wednesday' => 'getPickupStartTimeWednesday',
+        'pickup_tz' => 'getPickupTz',
         'postal_code' => 'getPostalCode',
         'process_days' => 'getProcessDays',
         'process_inventory_start_time' => 'getProcessInventoryStartTime',
@@ -366,6 +441,21 @@ class DistributionCenter implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['name'] = $data['name'] ?? null;
         $this->container['no_customer_direct_shipments'] = $data['no_customer_direct_shipments'] ?? null;
         $this->container['no_split_shipment'] = $data['no_split_shipment'] ?? null;
+        $this->container['pickup_cutoff_time_friday'] = $data['pickup_cutoff_time_friday'] ?? null;
+        $this->container['pickup_cutoff_time_monday'] = $data['pickup_cutoff_time_monday'] ?? null;
+        $this->container['pickup_cutoff_time_saturday'] = $data['pickup_cutoff_time_saturday'] ?? null;
+        $this->container['pickup_cutoff_time_sunday'] = $data['pickup_cutoff_time_sunday'] ?? null;
+        $this->container['pickup_cutoff_time_thursday'] = $data['pickup_cutoff_time_thursday'] ?? null;
+        $this->container['pickup_cutoff_time_tuesday'] = $data['pickup_cutoff_time_tuesday'] ?? null;
+        $this->container['pickup_cutoff_time_wednesday'] = $data['pickup_cutoff_time_wednesday'] ?? null;
+        $this->container['pickup_start_time_friday'] = $data['pickup_start_time_friday'] ?? null;
+        $this->container['pickup_start_time_monday'] = $data['pickup_start_time_monday'] ?? null;
+        $this->container['pickup_start_time_saturday'] = $data['pickup_start_time_saturday'] ?? null;
+        $this->container['pickup_start_time_sunday'] = $data['pickup_start_time_sunday'] ?? null;
+        $this->container['pickup_start_time_thursday'] = $data['pickup_start_time_thursday'] ?? null;
+        $this->container['pickup_start_time_tuesday'] = $data['pickup_start_time_tuesday'] ?? null;
+        $this->container['pickup_start_time_wednesday'] = $data['pickup_start_time_wednesday'] ?? null;
+        $this->container['pickup_tz'] = $data['pickup_tz'] ?? null;
         $this->container['postal_code'] = $data['postal_code'] ?? null;
         $this->container['process_days'] = $data['process_days'] ?? null;
         $this->container['process_inventory_start_time'] = $data['process_inventory_start_time'] ?? null;
@@ -860,6 +950,366 @@ class DistributionCenter implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setNoSplitShipment($no_split_shipment)
     {
         $this->container['no_split_shipment'] = $no_split_shipment;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_cutoff_time_friday
+     *
+     * @return string|null
+     */
+    public function getPickupCutoffTimeFriday()
+    {
+        return $this->container['pickup_cutoff_time_friday'];
+    }
+
+    /**
+     * Sets pickup_cutoff_time_friday
+     *
+     * @param string|null $pickup_cutoff_time_friday The time (EST) after which pickups will not be available on Friday
+     *
+     * @return self
+     */
+    public function setPickupCutoffTimeFriday($pickup_cutoff_time_friday)
+    {
+        $this->container['pickup_cutoff_time_friday'] = $pickup_cutoff_time_friday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_cutoff_time_monday
+     *
+     * @return string|null
+     */
+    public function getPickupCutoffTimeMonday()
+    {
+        return $this->container['pickup_cutoff_time_monday'];
+    }
+
+    /**
+     * Sets pickup_cutoff_time_monday
+     *
+     * @param string|null $pickup_cutoff_time_monday The time (EST) after which pickups will not be available on Monday
+     *
+     * @return self
+     */
+    public function setPickupCutoffTimeMonday($pickup_cutoff_time_monday)
+    {
+        $this->container['pickup_cutoff_time_monday'] = $pickup_cutoff_time_monday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_cutoff_time_saturday
+     *
+     * @return string|null
+     */
+    public function getPickupCutoffTimeSaturday()
+    {
+        return $this->container['pickup_cutoff_time_saturday'];
+    }
+
+    /**
+     * Sets pickup_cutoff_time_saturday
+     *
+     * @param string|null $pickup_cutoff_time_saturday The time (EST) after which pickups will not be available on Saturday
+     *
+     * @return self
+     */
+    public function setPickupCutoffTimeSaturday($pickup_cutoff_time_saturday)
+    {
+        $this->container['pickup_cutoff_time_saturday'] = $pickup_cutoff_time_saturday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_cutoff_time_sunday
+     *
+     * @return string|null
+     */
+    public function getPickupCutoffTimeSunday()
+    {
+        return $this->container['pickup_cutoff_time_sunday'];
+    }
+
+    /**
+     * Sets pickup_cutoff_time_sunday
+     *
+     * @param string|null $pickup_cutoff_time_sunday The time (EST) after which pickups will not be available on Sunday
+     *
+     * @return self
+     */
+    public function setPickupCutoffTimeSunday($pickup_cutoff_time_sunday)
+    {
+        $this->container['pickup_cutoff_time_sunday'] = $pickup_cutoff_time_sunday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_cutoff_time_thursday
+     *
+     * @return string|null
+     */
+    public function getPickupCutoffTimeThursday()
+    {
+        return $this->container['pickup_cutoff_time_thursday'];
+    }
+
+    /**
+     * Sets pickup_cutoff_time_thursday
+     *
+     * @param string|null $pickup_cutoff_time_thursday The time (EST) after which pickups will not be available on Thursday
+     *
+     * @return self
+     */
+    public function setPickupCutoffTimeThursday($pickup_cutoff_time_thursday)
+    {
+        $this->container['pickup_cutoff_time_thursday'] = $pickup_cutoff_time_thursday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_cutoff_time_tuesday
+     *
+     * @return string|null
+     */
+    public function getPickupCutoffTimeTuesday()
+    {
+        return $this->container['pickup_cutoff_time_tuesday'];
+    }
+
+    /**
+     * Sets pickup_cutoff_time_tuesday
+     *
+     * @param string|null $pickup_cutoff_time_tuesday The time (EST) after which pickups will not be available on Tuesday
+     *
+     * @return self
+     */
+    public function setPickupCutoffTimeTuesday($pickup_cutoff_time_tuesday)
+    {
+        $this->container['pickup_cutoff_time_tuesday'] = $pickup_cutoff_time_tuesday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_cutoff_time_wednesday
+     *
+     * @return string|null
+     */
+    public function getPickupCutoffTimeWednesday()
+    {
+        return $this->container['pickup_cutoff_time_wednesday'];
+    }
+
+    /**
+     * Sets pickup_cutoff_time_wednesday
+     *
+     * @param string|null $pickup_cutoff_time_wednesday The time (EST) after which pickups will not be available on Wednesday
+     *
+     * @return self
+     */
+    public function setPickupCutoffTimeWednesday($pickup_cutoff_time_wednesday)
+    {
+        $this->container['pickup_cutoff_time_wednesday'] = $pickup_cutoff_time_wednesday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_start_time_friday
+     *
+     * @return string|null
+     */
+    public function getPickupStartTimeFriday()
+    {
+        return $this->container['pickup_start_time_friday'];
+    }
+
+    /**
+     * Sets pickup_start_time_friday
+     *
+     * @param string|null $pickup_start_time_friday The time (EST) after which pickups are available on Friday
+     *
+     * @return self
+     */
+    public function setPickupStartTimeFriday($pickup_start_time_friday)
+    {
+        $this->container['pickup_start_time_friday'] = $pickup_start_time_friday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_start_time_monday
+     *
+     * @return string|null
+     */
+    public function getPickupStartTimeMonday()
+    {
+        return $this->container['pickup_start_time_monday'];
+    }
+
+    /**
+     * Sets pickup_start_time_monday
+     *
+     * @param string|null $pickup_start_time_monday The time (EST) after which pickups are available on Monday
+     *
+     * @return self
+     */
+    public function setPickupStartTimeMonday($pickup_start_time_monday)
+    {
+        $this->container['pickup_start_time_monday'] = $pickup_start_time_monday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_start_time_saturday
+     *
+     * @return string|null
+     */
+    public function getPickupStartTimeSaturday()
+    {
+        return $this->container['pickup_start_time_saturday'];
+    }
+
+    /**
+     * Sets pickup_start_time_saturday
+     *
+     * @param string|null $pickup_start_time_saturday The time (EST) after which pickups are available on Saturday
+     *
+     * @return self
+     */
+    public function setPickupStartTimeSaturday($pickup_start_time_saturday)
+    {
+        $this->container['pickup_start_time_saturday'] = $pickup_start_time_saturday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_start_time_sunday
+     *
+     * @return string|null
+     */
+    public function getPickupStartTimeSunday()
+    {
+        return $this->container['pickup_start_time_sunday'];
+    }
+
+    /**
+     * Sets pickup_start_time_sunday
+     *
+     * @param string|null $pickup_start_time_sunday The time (EST) after which pickups are available on Sunday
+     *
+     * @return self
+     */
+    public function setPickupStartTimeSunday($pickup_start_time_sunday)
+    {
+        $this->container['pickup_start_time_sunday'] = $pickup_start_time_sunday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_start_time_thursday
+     *
+     * @return string|null
+     */
+    public function getPickupStartTimeThursday()
+    {
+        return $this->container['pickup_start_time_thursday'];
+    }
+
+    /**
+     * Sets pickup_start_time_thursday
+     *
+     * @param string|null $pickup_start_time_thursday The time (EST) after which pickups are available on Thursday
+     *
+     * @return self
+     */
+    public function setPickupStartTimeThursday($pickup_start_time_thursday)
+    {
+        $this->container['pickup_start_time_thursday'] = $pickup_start_time_thursday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_start_time_tuesday
+     *
+     * @return string|null
+     */
+    public function getPickupStartTimeTuesday()
+    {
+        return $this->container['pickup_start_time_tuesday'];
+    }
+
+    /**
+     * Sets pickup_start_time_tuesday
+     *
+     * @param string|null $pickup_start_time_tuesday The time (EST) after which pickups are available on Tuesday
+     *
+     * @return self
+     */
+    public function setPickupStartTimeTuesday($pickup_start_time_tuesday)
+    {
+        $this->container['pickup_start_time_tuesday'] = $pickup_start_time_tuesday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_start_time_wednesday
+     *
+     * @return string|null
+     */
+    public function getPickupStartTimeWednesday()
+    {
+        return $this->container['pickup_start_time_wednesday'];
+    }
+
+    /**
+     * Sets pickup_start_time_wednesday
+     *
+     * @param string|null $pickup_start_time_wednesday The time (EST) after which pickups are available on Wednesday
+     *
+     * @return self
+     */
+    public function setPickupStartTimeWednesday($pickup_start_time_wednesday)
+    {
+        $this->container['pickup_start_time_wednesday'] = $pickup_start_time_wednesday;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_tz
+     *
+     * @return string|null
+     */
+    public function getPickupTz()
+    {
+        return $this->container['pickup_tz'];
+    }
+
+    /**
+     * Sets pickup_tz
+     *
+     * @param string|null $pickup_tz The IANA timezone for all pickup times
+     *
+     * @return self
+     */
+    public function setPickupTz($pickup_tz)
+    {
+        $this->container['pickup_tz'] = $pickup_tz;
 
         return $this;
     }

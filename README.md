@@ -1374,6 +1374,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.159 | 06/09/2023 | distribution center pickup times |
 | 4.0.158 | 06/08/2023 | customer profile qb tax exempt reason code field |
 | 4.0.157 | 06/06/2023 | auto order add_ons |
 | 4.0.156 | 05/25/2023 | added venmo constants for payment type |
