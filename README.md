@@ -1374,6 +1374,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.160 | 06/14/2023 | dw bi: add request_dts on the execute queries request and report data set objects |
 | 4.0.159 | 06/09/2023 | distribution center pickup times |
 | 4.0.158 | 06/08/2023 | customer profile qb tax exempt reason code field |
 | 4.0.157 | 06/06/2023 | auto order add_ons |

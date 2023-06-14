@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **default_project_id** | **string** |  | [optional]
 **merchant_id** | **string** |  | [optional]
 **queries** | [**\ultracart\v2\models\ReportDataSetQuery[]**](ReportDataSetQuery.md) | An array of queries that we want the lambda function to execute. | [optional]
+**request_dts** | **string** | Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results | [optional]
 **security_level** | **string** | Security level to execute report under | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

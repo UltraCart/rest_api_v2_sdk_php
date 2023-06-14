@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **merchant_id** | **string** | Merchant that owns this data set | [optional]
 **page_count** | **int** | The total number of pages in the result set | [optional]
 **page_size** | **int** | The size of the pages | [optional]
+**request_dts** | **string** | Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results | [optional]
 **schema** | [**\ultracart\v2\models\ReportDataSetSchema[]**](ReportDataSetSchema.md) | The schema associated with the data set. | [optional]
 **security_level** | **string** | Security level this dataset was read from. | [optional]
 **timezone** | **string** |  | [optional]

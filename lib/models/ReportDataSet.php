@@ -70,6 +70,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'string',
         'page_count' => 'int',
         'page_size' => 'int',
+        'request_dts' => 'string',
         'schema' => '\ultracart\v2\models\ReportDataSetSchema[]',
         'security_level' => 'string',
         'timezone' => 'string',
@@ -96,6 +97,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => null,
         'page_count' => 'int32',
         'page_size' => 'int32',
+        'request_dts' => 'dateTime',
         'schema' => null,
         'security_level' => null,
         'timezone' => null,
@@ -141,6 +143,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'merchant_id',
         'page_count' => 'page_count',
         'page_size' => 'page_size',
+        'request_dts' => 'request_dts',
         'schema' => 'schema',
         'security_level' => 'security_level',
         'timezone' => 'timezone',
@@ -165,6 +168,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'setMerchantId',
         'page_count' => 'setPageCount',
         'page_size' => 'setPageSize',
+        'request_dts' => 'setRequestDts',
         'schema' => 'setSchema',
         'security_level' => 'setSecurityLevel',
         'timezone' => 'setTimezone',
@@ -189,6 +193,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant_id' => 'getMerchantId',
         'page_count' => 'getPageCount',
         'page_size' => 'getPageSize',
+        'request_dts' => 'getRequestDts',
         'schema' => 'getSchema',
         'security_level' => 'getSecurityLevel',
         'timezone' => 'getTimezone',
@@ -281,6 +286,7 @@ class ReportDataSet implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchant_id'] = $data['merchant_id'] ?? null;
         $this->container['page_count'] = $data['page_count'] ?? null;
         $this->container['page_size'] = $data['page_size'] ?? null;
+        $this->container['request_dts'] = $data['request_dts'] ?? null;
         $this->container['schema'] = $data['schema'] ?? null;
         $this->container['security_level'] = $data['security_level'] ?? null;
         $this->container['timezone'] = $data['timezone'] ?? null;
@@ -614,6 +620,30 @@ class ReportDataSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPageSize($page_size)
     {
         $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_dts
+     *
+     * @return string|null
+     */
+    public function getRequestDts()
+    {
+        return $this->container['request_dts'];
+    }
+
+    /**
+     * Sets request_dts
+     *
+     * @param string|null $request_dts Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results
+     *
+     * @return self
+     */
+    public function setRequestDts($request_dts)
+    {
+        $this->container['request_dts'] = $request_dts;
 
         return $this;
     }
