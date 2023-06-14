@@ -63,6 +63,7 @@ class ReportExecuteQueriesRequest implements ModelInterface, ArrayAccess
         'default_project_id' => 'string',
         'merchant_id' => 'string',
         'queries' => '\ultracart\v2\models\ReportDataSetQuery[]',
+        'request_dts' => 'string',
         'security_level' => 'string'
     ];
 
@@ -78,6 +79,7 @@ class ReportExecuteQueriesRequest implements ModelInterface, ArrayAccess
         'default_project_id' => null,
         'merchant_id' => null,
         'queries' => null,
+        'request_dts' => 'dateTime',
         'security_level' => null
     ];
 
@@ -114,6 +116,7 @@ class ReportExecuteQueriesRequest implements ModelInterface, ArrayAccess
         'default_project_id' => 'default_project_id',
         'merchant_id' => 'merchant_id',
         'queries' => 'queries',
+        'request_dts' => 'request_dts',
         'security_level' => 'security_level'
     ];
 
@@ -129,6 +132,7 @@ class ReportExecuteQueriesRequest implements ModelInterface, ArrayAccess
         'default_project_id' => 'setDefaultProjectId',
         'merchant_id' => 'setMerchantId',
         'queries' => 'setQueries',
+        'request_dts' => 'setRequestDts',
         'security_level' => 'setSecurityLevel'
     ];
 
@@ -144,6 +148,7 @@ class ReportExecuteQueriesRequest implements ModelInterface, ArrayAccess
         'default_project_id' => 'getDefaultProjectId',
         'merchant_id' => 'getMerchantId',
         'queries' => 'getQueries',
+        'request_dts' => 'getRequestDts',
         'security_level' => 'getSecurityLevel'
     ];
 
@@ -232,6 +237,7 @@ class ReportExecuteQueriesRequest implements ModelInterface, ArrayAccess
         $this->container['default_project_id'] = isset($data['default_project_id']) ? $data['default_project_id'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['queries'] = isset($data['queries']) ? $data['queries'] : null;
+        $this->container['request_dts'] = isset($data['request_dts']) ? $data['request_dts'] : null;
         $this->container['security_level'] = isset($data['security_level']) ? $data['security_level'] : null;
     }
 
@@ -407,6 +413,30 @@ class ReportExecuteQueriesRequest implements ModelInterface, ArrayAccess
     public function setQueries($queries)
     {
         $this->container['queries'] = $queries;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_dts
+     *
+     * @return string
+     */
+    public function getRequestDts()
+    {
+        return $this->container['request_dts'];
+    }
+
+    /**
+     * Sets request_dts
+     *
+     * @param string $request_dts Date/Time of the client submitted the request.  Can be used to resolve out of order query completion results
+     *
+     * @return $this
+     */
+    public function setRequestDts($request_dts)
+    {
+        $this->container['request_dts'] = $request_dts;
 
         return $this;
     }
