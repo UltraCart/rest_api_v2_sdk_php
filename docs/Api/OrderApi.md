@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **cancelOrder**
-> \ultracart\v2\models\BaseResponse cancelOrder($order_id)
+> \ultracart\v2\models\BaseResponse cancelOrder($order_id, $lock_self_ship_orders, $skip_refund_and_hold)
 
 Cancel an order
 
@@ -99,9 +99,11 @@ $simple_key = '109ee846ee69f50177018ab12f008a00748a25aa28dbdc0177018ab12f008a00'
 $api_instance = ultracart\v2\api\OrderApi::usingApiKey($simple_key);
 
 $order_id = "order_id_example"; // string | The order id to cancel.
+$lock_self_ship_orders = true; // bool | Flag to prevent a order shipping during a refund process
+$skip_refund_and_hold = true; // bool | Skip refund and move order to Held Orders department
 
 try {
-    $result = $apiInstance->cancelOrder($order_id);
+    $result = $apiInstance->cancelOrder($order_id, $lock_self_ship_orders, $skip_refund_and_hold);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrderApi->cancelOrder: ', $e->getMessage(), PHP_EOL;
@@ -114,6 +116,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **order_id** | **string**| The order id to cancel. |
+ **lock_self_ship_orders** | **bool**| Flag to prevent a order shipping during a refund process | [optional]
+ **skip_refund_and_hold** | **bool**| Skip refund and move order to Held Orders department | [optional]
 
 ### Return type
 

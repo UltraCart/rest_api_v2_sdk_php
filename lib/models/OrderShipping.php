@@ -72,6 +72,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'least_cost_route' => 'bool',
         'least_cost_route_shipping_methods' => 'string[]',
         'lift_gate' => 'bool',
+        'pickup_dts' => 'string',
         'postal_code' => 'string',
         'rma' => 'string',
         'ship_on_date' => 'string',
@@ -110,6 +111,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'least_cost_route' => null,
         'least_cost_route_shipping_methods' => null,
         'lift_gate' => null,
+        'pickup_dts' => 'dateTime',
         'postal_code' => null,
         'rma' => null,
         'ship_on_date' => 'dateTime',
@@ -169,6 +171,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'least_cost_route' => 'least_cost_route',
         'least_cost_route_shipping_methods' => 'least_cost_route_shipping_methods',
         'lift_gate' => 'lift_gate',
+        'pickup_dts' => 'pickup_dts',
         'postal_code' => 'postal_code',
         'rma' => 'rma',
         'ship_on_date' => 'ship_on_date',
@@ -207,6 +210,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'least_cost_route' => 'setLeastCostRoute',
         'least_cost_route_shipping_methods' => 'setLeastCostRouteShippingMethods',
         'lift_gate' => 'setLiftGate',
+        'pickup_dts' => 'setPickupDts',
         'postal_code' => 'setPostalCode',
         'rma' => 'setRma',
         'ship_on_date' => 'setShipOnDate',
@@ -245,6 +249,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         'least_cost_route' => 'getLeastCostRoute',
         'least_cost_route_shipping_methods' => 'getLeastCostRouteShippingMethods',
         'lift_gate' => 'getLiftGate',
+        'pickup_dts' => 'getPickupDts',
         'postal_code' => 'getPostalCode',
         'rma' => 'getRma',
         'ship_on_date' => 'getShipOnDate',
@@ -337,6 +342,7 @@ class OrderShipping implements ModelInterface, ArrayAccess
         $this->container['least_cost_route'] = isset($data['least_cost_route']) ? $data['least_cost_route'] : null;
         $this->container['least_cost_route_shipping_methods'] = isset($data['least_cost_route_shipping_methods']) ? $data['least_cost_route_shipping_methods'] : null;
         $this->container['lift_gate'] = isset($data['lift_gate']) ? $data['lift_gate'] : null;
+        $this->container['pickup_dts'] = isset($data['pickup_dts']) ? $data['pickup_dts'] : null;
         $this->container['postal_code'] = isset($data['postal_code']) ? $data['postal_code'] : null;
         $this->container['rma'] = isset($data['rma']) ? $data['rma'] : null;
         $this->container['ship_on_date'] = isset($data['ship_on_date']) ? $data['ship_on_date'] : null;
@@ -846,6 +852,30 @@ class OrderShipping implements ModelInterface, ArrayAccess
     public function setLiftGate($lift_gate)
     {
         $this->container['lift_gate'] = $lift_gate;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup_dts
+     *
+     * @return string
+     */
+    public function getPickupDts()
+    {
+        return $this->container['pickup_dts'];
+    }
+
+    /**
+     * Sets pickup_dts
+     *
+     * @param string $pickup_dts Date/time the order should be picked up locally.
+     *
+     * @return $this
+     */
+    public function setPickupDts($pickup_dts)
+    {
+        $this->container['pickup_dts'] = $pickup_dts;
 
         return $this;
     }

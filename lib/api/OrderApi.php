@@ -469,14 +469,16 @@ class OrderApi
      * Cancel an order
      *
      * @param  string $order_id The order id to cancel. (required)
+     * @param  bool $lock_self_ship_orders Flag to prevent a order shipping during a refund process (optional)
+     * @param  bool $skip_refund_and_hold Skip refund and move order to Held Orders department (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\BaseResponse
      */
-    public function cancelOrder($order_id)
+    public function cancelOrder($order_id, $lock_self_ship_orders = null, $skip_refund_and_hold = null)
     {
-        list($response) = $this->cancelOrderWithHttpInfo($order_id);
+        list($response) = $this->cancelOrderWithHttpInfo($order_id, $lock_self_ship_orders, $skip_refund_and_hold);
         return $response;
     }
 
@@ -487,14 +489,16 @@ class OrderApi
      * Cancel an order
      *
      * @param  string $order_id The order id to cancel. (required)
+     * @param  bool $lock_self_ship_orders Flag to prevent a order shipping during a refund process (optional)
+     * @param  bool $skip_refund_and_hold Skip refund and move order to Held Orders department (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrderWithHttpInfo($order_id)
+    public function cancelOrderWithHttpInfo($order_id, $lock_self_ship_orders = null, $skip_refund_and_hold = null)
     {
-        return $this->cancelOrderWithHttpInfoRetry(true ,   $order_id);
+        return $this->cancelOrderWithHttpInfoRetry(true ,   $order_id,   $lock_self_ship_orders,   $skip_refund_and_hold);
     }
 
 
@@ -505,15 +509,17 @@ class OrderApi
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $order_id The order id to cancel. (required)
+     * @param  bool $lock_self_ship_orders Flag to prevent a order shipping during a refund process (optional)
+     * @param  bool $skip_refund_and_hold Skip refund and move order to Held Orders department (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\BaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrderWithHttpInfoRetry($retry ,  $order_id)
+    public function cancelOrderWithHttpInfoRetry($retry ,  $order_id,  $lock_self_ship_orders = null,  $skip_refund_and_hold = null)
     {
         $returnType = '\ultracart\v2\models\BaseResponse';
-        $request = $this->cancelOrderRequest($order_id);
+        $request = $this->cancelOrderRequest($order_id, $lock_self_ship_orders, $skip_refund_and_hold);
 
         try {
             $options = $this->createHttpClientOption();
@@ -532,7 +538,7 @@ class OrderApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->cancelOrderWithHttpInfoRetry(false ,   $order_id);
+                        return $this->cancelOrderWithHttpInfoRetry(false ,   $order_id,   $lock_self_ship_orders,   $skip_refund_and_hold);
                     }
                 }
 
@@ -621,13 +627,15 @@ class OrderApi
      * Cancel an order
      *
      * @param  string $order_id The order id to cancel. (required)
+     * @param  bool $lock_self_ship_orders Flag to prevent a order shipping during a refund process (optional)
+     * @param  bool $skip_refund_and_hold Skip refund and move order to Held Orders department (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsync($order_id)
+    public function cancelOrderAsync($order_id, $lock_self_ship_orders = null, $skip_refund_and_hold = null)
     {
-        return $this->cancelOrderAsyncWithHttpInfo($order_id)
+        return $this->cancelOrderAsyncWithHttpInfo($order_id, $lock_self_ship_orders, $skip_refund_and_hold)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -641,14 +649,16 @@ class OrderApi
      * Cancel an order
      *
      * @param  string $order_id The order id to cancel. (required)
+     * @param  bool $lock_self_ship_orders Flag to prevent a order shipping during a refund process (optional)
+     * @param  bool $skip_refund_and_hold Skip refund and move order to Held Orders department (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsyncWithHttpInfo($order_id)
+    public function cancelOrderAsyncWithHttpInfo($order_id, $lock_self_ship_orders = null, $skip_refund_and_hold = null)
     {
         $returnType = '\ultracart\v2\models\BaseResponse';
-        $request = $this->cancelOrderRequest($order_id);
+        $request = $this->cancelOrderRequest($order_id, $lock_self_ship_orders, $skip_refund_and_hold);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -691,11 +701,13 @@ class OrderApi
      * Create request for operation 'cancelOrder'
      *
      * @param  string $order_id The order id to cancel. (required)
+     * @param  bool $lock_self_ship_orders Flag to prevent a order shipping during a refund process (optional)
+     * @param  bool $skip_refund_and_hold Skip refund and move order to Held Orders department (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelOrderRequest($order_id)
+    protected function cancelOrderRequest($order_id, $lock_self_ship_orders = null, $skip_refund_and_hold = null)
     {
         // verify the required parameter 'order_id' is set
         if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
@@ -711,6 +723,14 @@ class OrderApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($lock_self_ship_orders !== null) {
+            $queryParams['lock_self_ship_orders'] = ObjectSerializer::toQueryValue($lock_self_ship_orders);
+        }
+        // query params
+        if ($skip_refund_and_hold !== null) {
+            $queryParams['skip_refund_and_hold'] = ObjectSerializer::toQueryValue($skip_refund_and_hold);
+        }
 
         // path params
         if ($order_id !== null) {
