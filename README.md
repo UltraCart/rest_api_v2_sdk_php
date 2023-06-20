@@ -1433,6 +1433,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.145 | 06/20/2023 | coupon add allowed values for usable_by and new OncePerNewCustomerForItem flag |
 | 3.10.144 | 06/15/2023 | add pickup_dts to order.shipping object |
 | 3.10.143 | 06/14/2023 | dw bi: add request_dts on the execute queries request and report data set objects |
 | 3.10.142 | 06/09/2023 | distribution center pickup times |

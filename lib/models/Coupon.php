@@ -483,8 +483,29 @@ class Coupon implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const USABLE_BY_ANYONE = 'Anyone';
+    const USABLE_BY_UNIQUE_CODE = 'UniqueCode';
+    const USABLE_BY_ONCE_PER_CUSTOMER = 'OncePerCustomer';
+    const USABLE_BY_ONCE_PER_NEW_CUSTOMER = 'OncePerNewCustomer';
+    const USABLE_BY_ONCE_PER_NEW_CUSTOMER_FOR_ITEM = 'OncePerNewCustomerForItem';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUsableByAllowableValues()
+    {
+        return [
+            self::USABLE_BY_ANYONE,
+            self::USABLE_BY_UNIQUE_CODE,
+            self::USABLE_BY_ONCE_PER_CUSTOMER,
+            self::USABLE_BY_ONCE_PER_NEW_CUSTOMER,
+            self::USABLE_BY_ONCE_PER_NEW_CUSTOMER_FOR_ITEM,
+        ];
+    }
     
 
     /**
@@ -597,6 +618,14 @@ class Coupon implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['quickbooks_code']) && (mb_strlen($this->container['quickbooks_code']) > 20)) {
             $invalidProperties[] = "invalid value for 'quickbooks_code', the character length must be smaller than or equal to 20.";
+        }
+
+        $allowedValues = $this->getUsableByAllowableValues();
+        if (!is_null($this->container['usable_by']) && !in_array($this->container['usable_by'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'usable_by', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         if (!is_null($this->container['usable_by']) && (mb_strlen($this->container['usable_by']) > 50)) {
@@ -2217,6 +2246,15 @@ class Coupon implements ModelInterface, ArrayAccess
      */
     public function setUsableBy($usable_by)
     {
+        $allowedValues = $this->getUsableByAllowableValues();
+        if (!is_null($usable_by) && !in_array($usable_by, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'usable_by', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         if (!is_null($usable_by) && (mb_strlen($usable_by) > 50)) {
             throw new \InvalidArgumentException('invalid length for $usable_by when calling Coupon., must be smaller than or equal to 50.');
         }
