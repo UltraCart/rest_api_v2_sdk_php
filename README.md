@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AffiliateApi* | [**getClicksByQuery**](docs/Api/AffiliateApi.md#getclicksbyquery) | **POST** /affiliate/clicks/query | Retrieve clicks
 *AffiliateApi* | [**getLedgersByQuery**](docs/Api/AffiliateApi.md#getledgersbyquery) | **POST** /affiliate/ledgers/query | Retrieve ledger entries
+*AutoOrderApi* | [**establishAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#establishautoorderbyreferenceorderid) | **POST** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Establish an auto order by referencing a regular order id
 *AutoOrderApi* | [**getAutoOrder**](docs/Api/AutoOrderApi.md#getautoorder) | **GET** /auto_order/auto_orders/{auto_order_oid} | Retrieve an auto order by oid
 *AutoOrderApi* | [**getAutoOrderByCode**](docs/Api/AutoOrderApi.md#getautoorderbycode) | **GET** /auto_order/auto_orders/code/{auto_order_code} | Retrieve an auto order by code
 *AutoOrderApi* | [**getAutoOrderByReferenceOrderId**](docs/Api/AutoOrderApi.md#getautoorderbyreferenceorderid) | **GET** /auto_order/auto_orders/reference_order_id/{reference_order_id} | Retrieve an auto order by order id
@@ -1374,6 +1375,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.163 | 06/20/2023 | auto order - establishAutoOrderByReferenceOrderId method added |
 | 4.0.162 | 06/20/2023 | coupon add allowed values for usable_by and new OncePerNewCustomerForItem flag |
 | 4.0.161 | 06/15/2023 | add pickup_dts to order.shipping object |
 | 4.0.160 | 06/14/2023 | dw bi: add request_dts on the execute queries request and report data set objects |
