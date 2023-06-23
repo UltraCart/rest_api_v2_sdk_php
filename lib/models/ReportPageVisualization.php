@@ -203,6 +203,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess
     const TYPE_BAR_CHART = 'bar chart';
     const TYPE_TEXT = 'text';
     const TYPE_TABLE = 'table';
+    const TYPE_GAUGE = 'gauge';
     
 
     
@@ -219,6 +220,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess
             self::TYPE_BAR_CHART,
             self::TYPE_TEXT,
             self::TYPE_TABLE,
+            self::TYPE_GAUGE,
         ];
     }
     
