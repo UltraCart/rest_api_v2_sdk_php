@@ -1375,6 +1375,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.164 | 06/23/2023 | gauge constant for page visualization library |
 | 4.0.163 | 06/20/2023 | auto order - establishAutoOrderByReferenceOrderId method added |
 | 4.0.162 | 06/20/2023 | coupon add allowed values for usable_by and new OncePerNewCustomerForItem flag |
 | 4.0.161 | 06/15/2023 | add pickup_dts to order.shipping object |

@@ -206,6 +206,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
     public const TYPE_BAR_CHART = 'bar chart';
     public const TYPE_TEXT = 'text';
     public const TYPE_TABLE = 'table';
+    public const TYPE_GAUGE = 'gauge';
 
     /**
      * Gets allowable values of the enum
@@ -220,6 +221,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
             self::TYPE_BAR_CHART,
             self::TYPE_TEXT,
             self::TYPE_TABLE,
+            self::TYPE_GAUGE,
         ];
     }
 
