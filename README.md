@@ -1434,6 +1434,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.148 | 07/03/2023 | chart constant for dw report tool |
 | 3.10.147 | 06/23/2023 | gauge constant for page visualization library |
 | 3.10.146 | 06/20/2023 | auto order - establishAutoOrderByReferenceOrderId method added |
 | 3.10.145 | 06/20/2023 | coupon add allowed values for usable_by and new OncePerNewCustomerForItem flag |
