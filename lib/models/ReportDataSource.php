@@ -58,6 +58,7 @@ class ReportDataSource implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'data_source_uuid' => 'string',
         'name' => 'string',
         'partition_date_column' => 'string',
         'partition_date_safety_days' => 'int',
@@ -74,6 +75,7 @@ class ReportDataSource implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'data_source_uuid' => null,
         'name' => null,
         'partition_date_column' => null,
         'partition_date_safety_days' => 'int32',
@@ -109,6 +111,7 @@ class ReportDataSource implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'data_source_uuid' => 'data_source_uuid',
         'name' => 'name',
         'partition_date_column' => 'partition_date_column',
         'partition_date_safety_days' => 'partition_date_safety_days',
@@ -123,6 +126,7 @@ class ReportDataSource implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'data_source_uuid' => 'setDataSourceUuid',
         'name' => 'setName',
         'partition_date_column' => 'setPartitionDateColumn',
         'partition_date_safety_days' => 'setPartitionDateSafetyDays',
@@ -137,6 +141,7 @@ class ReportDataSource implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'data_source_uuid' => 'getDataSourceUuid',
         'name' => 'getName',
         'partition_date_column' => 'getPartitionDateColumn',
         'partition_date_safety_days' => 'getPartitionDateSafetyDays',
@@ -202,6 +207,7 @@ class ReportDataSource implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['data_source_uuid'] = $data['data_source_uuid'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['partition_date_column'] = $data['partition_date_column'] ?? null;
         $this->container['partition_date_safety_days'] = $data['partition_date_safety_days'] ?? null;
@@ -233,6 +239,30 @@ class ReportDataSource implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets data_source_uuid
+     *
+     * @return string|null
+     */
+    public function getDataSourceUuid()
+    {
+        return $this->container['data_source_uuid'];
+    }
+
+    /**
+     * Sets data_source_uuid
+     *
+     * @param string|null $data_source_uuid A unique identifier assigned to the data source.
+     *
+     * @return self
+     */
+    public function setDataSourceUuid($data_source_uuid)
+    {
+        $this->container['data_source_uuid'] = $data_source_uuid;
+
+        return $this;
+    }
 
     /**
      * Gets name
