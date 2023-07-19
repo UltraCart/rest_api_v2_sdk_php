@@ -1375,6 +1375,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.167 | 07/19/2023 | dw bi - add data_source_uuid to page visualization obj |
 | 4.0.166 | 07/19/2023 | dw bi - add data_source_uuid to report data source |
 | 4.0.165 | 07/03/2023 | chart constant for dw report tool |
 | 4.0.164 | 06/23/2023 | gauge constant for page visualization library |

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **config** | **string** | A JSON representation of the configuration for this visualization | [optional]
 **data_source_name** | **string** |  | [optional]
+**data_source_uuid** | **string** | A unique identifier assigned to the data source. | [optional]
 **dimensions** | [**\ultracart\v2\models\ReportPageVisualizationDimension[]**](ReportPageVisualizationDimension.md) |  | [optional]
 **metrics** | [**\ultracart\v2\models\ReportPageVisualizationMetric[]**](ReportPageVisualizationMetric.md) |  | [optional]
 **name** | **string** |  | [optional]

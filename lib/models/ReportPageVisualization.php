@@ -60,6 +60,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'config' => 'string',
         'data_source_name' => 'string',
+        'data_source_uuid' => 'string',
         'dimensions' => '\ultracart\v2\models\ReportPageVisualizationDimension[]',
         'metrics' => '\ultracart\v2\models\ReportPageVisualizationMetric[]',
         'name' => 'string',
@@ -79,6 +80,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'config' => null,
         'data_source_name' => null,
+        'data_source_uuid' => null,
         'dimensions' => null,
         'metrics' => null,
         'name' => null,
@@ -117,6 +119,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'config' => 'config',
         'data_source_name' => 'data_source_name',
+        'data_source_uuid' => 'data_source_uuid',
         'dimensions' => 'dimensions',
         'metrics' => 'metrics',
         'name' => 'name',
@@ -134,6 +137,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'config' => 'setConfig',
         'data_source_name' => 'setDataSourceName',
+        'data_source_uuid' => 'setDataSourceUuid',
         'dimensions' => 'setDimensions',
         'metrics' => 'setMetrics',
         'name' => 'setName',
@@ -151,6 +155,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'config' => 'getConfig',
         'data_source_name' => 'getDataSourceName',
+        'data_source_uuid' => 'getDataSourceUuid',
         'dimensions' => 'getDimensions',
         'metrics' => 'getMetrics',
         'name' => 'getName',
@@ -244,6 +249,7 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $this->container['config'] = $data['config'] ?? null;
         $this->container['data_source_name'] = $data['data_source_name'] ?? null;
+        $this->container['data_source_uuid'] = $data['data_source_uuid'] ?? null;
         $this->container['dimensions'] = $data['dimensions'] ?? null;
         $this->container['metrics'] = $data['metrics'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
@@ -330,6 +336,30 @@ class ReportPageVisualization implements ModelInterface, ArrayAccess, \JsonSeria
     public function setDataSourceName($data_source_name)
     {
         $this->container['data_source_name'] = $data_source_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets data_source_uuid
+     *
+     * @return string|null
+     */
+    public function getDataSourceUuid()
+    {
+        return $this->container['data_source_uuid'];
+    }
+
+    /**
+     * Sets data_source_uuid
+     *
+     * @param string|null $data_source_uuid A unique identifier assigned to the data source.
+     *
+     * @return self
+     */
+    public function setDataSourceUuid($data_source_uuid)
+    {
+        $this->container['data_source_uuid'] = $data_source_uuid;
 
         return $this;
     }
