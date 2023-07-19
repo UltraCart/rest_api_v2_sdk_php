@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **channel_partner_oid** | **int** | Channel partner object id | [optional] 
 **code** | **string** | Code associated with the channel partner | [optional] 
 **communication_method** | **string** | Communication method of the channel partner | [optional] 
+**dont_hold_shipment** | **bool** | True if shipments should immediately process for this channel partner. | [optional] 
 **inactive** | **bool** | True if the channel partner is inactive | [optional] 
 **merchant_id** | **string** | Merchant ID of the channel partner | [optional] 
 **name** | **string** | Name of the channel partner | [optional] 

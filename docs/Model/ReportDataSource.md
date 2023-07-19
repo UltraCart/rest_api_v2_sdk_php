@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**data_source_uuid** | **string** | A unique identifier assigned to the data source. | [optional] 
 **name** | **string** |  | [optional] 
 **partition_date_column** | **string** |  | [optional] 
 **partition_date_safety_days** | **int** |  | [optional] 

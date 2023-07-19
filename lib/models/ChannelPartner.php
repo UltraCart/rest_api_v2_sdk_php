@@ -60,6 +60,7 @@ class ChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_oid' => 'int',
         'code' => 'string',
         'communication_method' => 'string',
+        'dont_hold_shipment' => 'bool',
         'inactive' => 'bool',
         'merchant_id' => 'string',
         'name' => 'string',
@@ -75,6 +76,7 @@ class ChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_oid' => 'int32',
         'code' => null,
         'communication_method' => null,
+        'dont_hold_shipment' => null,
         'inactive' => null,
         'merchant_id' => null,
         'name' => null,
@@ -111,6 +113,7 @@ class ChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_oid' => 'channel_partner_oid',
         'code' => 'code',
         'communication_method' => 'communication_method',
+        'dont_hold_shipment' => 'dont_hold_shipment',
         'inactive' => 'inactive',
         'merchant_id' => 'merchant_id',
         'name' => 'name',
@@ -126,6 +129,7 @@ class ChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_oid' => 'setChannelPartnerOid',
         'code' => 'setCode',
         'communication_method' => 'setCommunicationMethod',
+        'dont_hold_shipment' => 'setDontHoldShipment',
         'inactive' => 'setInactive',
         'merchant_id' => 'setMerchantId',
         'name' => 'setName',
@@ -141,6 +145,7 @@ class ChannelPartner implements ModelInterface, ArrayAccess
         'channel_partner_oid' => 'getChannelPartnerOid',
         'code' => 'getCode',
         'communication_method' => 'getCommunicationMethod',
+        'dont_hold_shipment' => 'getDontHoldShipment',
         'inactive' => 'getInactive',
         'merchant_id' => 'getMerchantId',
         'name' => 'getName',
@@ -210,6 +215,7 @@ class ChannelPartner implements ModelInterface, ArrayAccess
         $this->container['channel_partner_oid'] = isset($data['channel_partner_oid']) ? $data['channel_partner_oid'] : null;
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['communication_method'] = isset($data['communication_method']) ? $data['communication_method'] : null;
+        $this->container['dont_hold_shipment'] = isset($data['dont_hold_shipment']) ? $data['dont_hold_shipment'] : null;
         $this->container['inactive'] = isset($data['inactive']) ? $data['inactive'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
@@ -308,6 +314,30 @@ class ChannelPartner implements ModelInterface, ArrayAccess
     public function setCommunicationMethod($communication_method)
     {
         $this->container['communication_method'] = $communication_method;
+
+        return $this;
+    }
+
+    /**
+     * Gets dont_hold_shipment
+     *
+     * @return bool
+     */
+    public function getDontHoldShipment()
+    {
+        return $this->container['dont_hold_shipment'];
+    }
+
+    /**
+     * Sets dont_hold_shipment
+     *
+     * @param bool $dont_hold_shipment True if shipments should immediately process for this channel partner.
+     *
+     * @return $this
+     */
+    public function setDontHoldShipment($dont_hold_shipment)
+    {
+        $this->container['dont_hold_shipment'] = $dont_hold_shipment;
 
         return $this;
     }
