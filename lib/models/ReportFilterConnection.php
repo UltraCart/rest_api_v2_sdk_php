@@ -58,7 +58,8 @@ class ReportFilterConnection implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'column' => 'string',
-        'data_source_name' => 'string'
+        'data_source_name' => 'string',
+        'data_source_uuid' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class ReportFilterConnection implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'column' => null,
-        'data_source_name' => null
+        'data_source_name' => null,
+        'data_source_uuid' => null
     ];
 
     /**
@@ -99,7 +101,8 @@ class ReportFilterConnection implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'column' => 'column',
-        'data_source_name' => 'data_source_name'
+        'data_source_name' => 'data_source_name',
+        'data_source_uuid' => 'data_source_uuid'
     ];
 
     /**
@@ -109,7 +112,8 @@ class ReportFilterConnection implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'column' => 'setColumn',
-        'data_source_name' => 'setDataSourceName'
+        'data_source_name' => 'setDataSourceName',
+        'data_source_uuid' => 'setDataSourceUuid'
     ];
 
     /**
@@ -119,7 +123,8 @@ class ReportFilterConnection implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'column' => 'getColumn',
-        'data_source_name' => 'getDataSourceName'
+        'data_source_name' => 'getDataSourceName',
+        'data_source_uuid' => 'getDataSourceUuid'
     ];
 
     /**
@@ -184,6 +189,7 @@ class ReportFilterConnection implements ModelInterface, ArrayAccess
     {
         $this->container['column'] = isset($data['column']) ? $data['column'] : null;
         $this->container['data_source_name'] = isset($data['data_source_name']) ? $data['data_source_name'] : null;
+        $this->container['data_source_uuid'] = isset($data['data_source_uuid']) ? $data['data_source_uuid'] : null;
     }
 
     /**
@@ -254,6 +260,30 @@ class ReportFilterConnection implements ModelInterface, ArrayAccess
     public function setDataSourceName($data_source_name)
     {
         $this->container['data_source_name'] = $data_source_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets data_source_uuid
+     *
+     * @return string
+     */
+    public function getDataSourceUuid()
+    {
+        return $this->container['data_source_uuid'];
+    }
+
+    /**
+     * Sets data_source_uuid
+     *
+     * @param string $data_source_uuid A unique identifier assigned to the data source.
+     *
+     * @return $this
+     */
+    public function setDataSourceUuid($data_source_uuid)
+    {
+        $this->container['data_source_uuid'] = $data_source_uuid;
 
         return $this;
     }

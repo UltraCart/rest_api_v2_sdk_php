@@ -1434,6 +1434,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.151 | 07/19/2023 | dw bi - add data_source_uuid to filter connection obj |
 | 3.10.150 | 07/19/2023 | dw bi - add data_source_uuid to page visualization obj |
 | 3.10.149 | 07/19/2023 | dw bi - add data_source_uuid to report data source |
 | 3.10.148 | 07/03/2023 | chart constant for dw report tool |
