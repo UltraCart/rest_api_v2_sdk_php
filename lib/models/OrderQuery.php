@@ -376,6 +376,9 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PAYMENT_METHOD_QUOTE_REQUEST = 'Quote Request';
     public const PAYMENT_METHOD_UNKNOWN = 'Unknown';
     public const PAYMENT_METHOD_WIRE_TRANSFER = 'Wire Transfer';
+    public const PAYMENT_METHOD_VENMO = 'Venmo';
+    public const PAYMENT_METHOD_APPLE_PAY = 'Apple Pay';
+    public const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
 
     /**
      * Gets allowable values of the enum
@@ -421,6 +424,9 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
             self::PAYMENT_METHOD_QUOTE_REQUEST,
             self::PAYMENT_METHOD_UNKNOWN,
             self::PAYMENT_METHOD_WIRE_TRANSFER,
+            self::PAYMENT_METHOD_VENMO,
+            self::PAYMENT_METHOD_APPLE_PAY,
+            self::PAYMENT_METHOD_GOOGLE_PAY,
         ];
     }
 

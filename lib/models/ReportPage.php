@@ -60,6 +60,7 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'filters' => '\ultracart\v2\models\ReportPageFilter[]',
         'height' => 'float',
+        'settings' => 'string',
         'title' => 'string',
         'visualizations' => '\ultracart\v2\models\ReportPageVisualization[]',
         'width' => 'float'
@@ -75,6 +76,7 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'filters' => null,
         'height' => null,
+        'settings' => null,
         'title' => null,
         'visualizations' => null,
         'width' => null
@@ -109,6 +111,7 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'filters' => 'filters',
         'height' => 'height',
+        'settings' => 'settings',
         'title' => 'title',
         'visualizations' => 'visualizations',
         'width' => 'width'
@@ -122,6 +125,7 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'filters' => 'setFilters',
         'height' => 'setHeight',
+        'settings' => 'setSettings',
         'title' => 'setTitle',
         'visualizations' => 'setVisualizations',
         'width' => 'setWidth'
@@ -135,6 +139,7 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'filters' => 'getFilters',
         'height' => 'getHeight',
+        'settings' => 'getSettings',
         'title' => 'getTitle',
         'visualizations' => 'getVisualizations',
         'width' => 'getWidth'
@@ -199,6 +204,7 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['filters'] = $data['filters'] ?? null;
         $this->container['height'] = $data['height'] ?? null;
+        $this->container['settings'] = $data['settings'] ?? null;
         $this->container['title'] = $data['title'] ?? null;
         $this->container['visualizations'] = $data['visualizations'] ?? null;
         $this->container['width'] = $data['width'] ?? null;
@@ -272,6 +278,30 @@ class ReportPage implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setHeight($height)
     {
         $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets settings
+     *
+     * @return string|null
+     */
+    public function getSettings()
+    {
+        return $this->container['settings'];
+    }
+
+    /**
+     * Sets settings
+     *
+     * @param string|null $settings A JSON representation of the settings for this report
+     *
+     * @return self
+     */
+    public function setSettings($settings)
+    {
+        $this->container['settings'] = $settings;
 
         return $this;
     }

@@ -67,7 +67,8 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'pages' => '\ultracart\v2\models\ReportPage[]',
         'report_oid' => 'int',
-        'security_level' => 'string'
+        'security_level' => 'string',
+        'settings' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'pages' => null,
         'report_oid' => 'int32',
-        'security_level' => null
+        'security_level' => null,
+        'settings' => null
     ];
 
     /**
@@ -126,7 +128,8 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'pages' => 'pages',
         'report_oid' => 'report_oid',
-        'security_level' => 'security_level'
+        'security_level' => 'security_level',
+        'settings' => 'settings'
     ];
 
     /**
@@ -144,7 +147,8 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'pages' => 'setPages',
         'report_oid' => 'setReportOid',
-        'security_level' => 'setSecurityLevel'
+        'security_level' => 'setSecurityLevel',
+        'settings' => 'setSettings'
     ];
 
     /**
@@ -162,7 +166,8 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'pages' => 'getPages',
         'report_oid' => 'getReportOid',
-        'security_level' => 'getSecurityLevel'
+        'security_level' => 'getSecurityLevel',
+        'settings' => 'getSettings'
     ];
 
     /**
@@ -251,6 +256,7 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['pages'] = $data['pages'] ?? null;
         $this->container['report_oid'] = $data['report_oid'] ?? null;
         $this->container['security_level'] = $data['security_level'] ?? null;
+        $this->container['settings'] = $data['settings'] ?? null;
     }
 
     /**
@@ -532,6 +538,30 @@ class Report implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['security_level'] = $security_level;
+
+        return $this;
+    }
+
+    /**
+     * Gets settings
+     *
+     * @return string|null
+     */
+    public function getSettings()
+    {
+        return $this->container['settings'];
+    }
+
+    /**
+     * Sets settings
+     *
+     * @param string|null $settings A JSON representation of the settings for this report
+     *
+     * @return self
+     */
+    public function setSettings($settings)
+    {
+        $this->container['settings'] = $settings;
 
         return $this;
     }
