@@ -373,6 +373,9 @@ class OrderQuery implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_QUOTE_REQUEST = 'Quote Request';
     const PAYMENT_METHOD_UNKNOWN = 'Unknown';
     const PAYMENT_METHOD_WIRE_TRANSFER = 'Wire Transfer';
+    const PAYMENT_METHOD_VENMO = 'Venmo';
+    const PAYMENT_METHOD_APPLE_PAY = 'Apple Pay';
+    const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
     
 
     
@@ -420,6 +423,9 @@ class OrderQuery implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_QUOTE_REQUEST,
             self::PAYMENT_METHOD_UNKNOWN,
             self::PAYMENT_METHOD_WIRE_TRANSFER,
+            self::PAYMENT_METHOD_VENMO,
+            self::PAYMENT_METHOD_APPLE_PAY,
+            self::PAYMENT_METHOD_GOOGLE_PAY,
         ];
     }
     

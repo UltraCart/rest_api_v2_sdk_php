@@ -59,6 +59,7 @@ class ReportPage implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'filters' => '\ultracart\v2\models\ReportPageFilter[]',
         'height' => 'float',
+        'settings' => 'string',
         'title' => 'string',
         'visualizations' => '\ultracart\v2\models\ReportPageVisualization[]',
         'width' => 'float'
@@ -72,6 +73,7 @@ class ReportPage implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'filters' => null,
         'height' => null,
+        'settings' => null,
         'title' => null,
         'visualizations' => null,
         'width' => null
@@ -106,6 +108,7 @@ class ReportPage implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'filters' => 'filters',
         'height' => 'height',
+        'settings' => 'settings',
         'title' => 'title',
         'visualizations' => 'visualizations',
         'width' => 'width'
@@ -119,6 +122,7 @@ class ReportPage implements ModelInterface, ArrayAccess
     protected static $setters = [
         'filters' => 'setFilters',
         'height' => 'setHeight',
+        'settings' => 'setSettings',
         'title' => 'setTitle',
         'visualizations' => 'setVisualizations',
         'width' => 'setWidth'
@@ -132,6 +136,7 @@ class ReportPage implements ModelInterface, ArrayAccess
     protected static $getters = [
         'filters' => 'getFilters',
         'height' => 'getHeight',
+        'settings' => 'getSettings',
         'title' => 'getTitle',
         'visualizations' => 'getVisualizations',
         'width' => 'getWidth'
@@ -199,6 +204,7 @@ class ReportPage implements ModelInterface, ArrayAccess
     {
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['settings'] = isset($data['settings']) ? $data['settings'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['visualizations'] = isset($data['visualizations']) ? $data['visualizations'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
@@ -272,6 +278,30 @@ class ReportPage implements ModelInterface, ArrayAccess
     public function setHeight($height)
     {
         $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets settings
+     *
+     * @return string
+     */
+    public function getSettings()
+    {
+        return $this->container['settings'];
+    }
+
+    /**
+     * Sets settings
+     *
+     * @param string $settings A JSON representation of the settings for this report
+     *
+     * @return $this
+     */
+    public function setSettings($settings)
+    {
+        $this->container['settings'] = $settings;
 
         return $this;
     }

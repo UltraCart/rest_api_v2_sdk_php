@@ -1434,6 +1434,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.152 | 07/27/2023 | dw bi - add settings to the report and page objects |
 | 3.10.151 | 07/19/2023 | dw bi - add data_source_uuid to filter connection obj |
 | 3.10.150 | 07/19/2023 | dw bi - add data_source_uuid to page visualization obj |
 | 3.10.149 | 07/19/2023 | dw bi - add data_source_uuid to report data source |

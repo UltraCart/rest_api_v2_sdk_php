@@ -265,6 +265,8 @@ class OrderPayment implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_SHOPCOM = 'Shop.com';
     const PAYMENT_METHOD_SEZZLE = 'Sezzle';
     const PAYMENT_METHOD_VENMO = 'Venmo';
+    const PAYMENT_METHOD_APPLE_PAY = 'Apple Pay';
+    const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
     const PAYMENT_STATUS_UNPROCESSED = 'Unprocessed';
     const PAYMENT_STATUS_AUTHORIZED = 'Authorized';
     const PAYMENT_STATUS_CAPTURE_FAILED = 'Capture Failed';
@@ -306,6 +308,8 @@ class OrderPayment implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_SHOPCOM,
             self::PAYMENT_METHOD_SEZZLE,
             self::PAYMENT_METHOD_VENMO,
+            self::PAYMENT_METHOD_APPLE_PAY,
+            self::PAYMENT_METHOD_GOOGLE_PAY,
         ];
     }
     
