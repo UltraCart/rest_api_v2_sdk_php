@@ -354,6 +354,7 @@ Class | Method | HTTP request | Description
 *OrderApi* | [**resendShipmentConfirmation**](docs/Api/OrderApi.md#resendshipmentconfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 *OrderApi* | [**updateAccountsReceivableRetryConfig**](docs/Api/OrderApi.md#updateaccountsreceivableretryconfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 *OrderApi* | [**updateOrder**](docs/Api/OrderApi.md#updateorder) | **PUT** /order/orders/{order_id} | Update an order
+*OrderApi* | [**validateOrder**](docs/Api/OrderApi.md#validateorder) | **POST** /order/validate | Validate
 *SsoApi* | [**getSsoSessionUser**](docs/Api/SsoApi.md#getssosessionuser) | **GET** /sso/session/user | Get single sign on session user
 *SsoApi* | [**ssoAuthorize**](docs/Api/SsoApi.md#ssoauthorize) | **PUT** /sso/authorize | Authorize a single sign on session
 *SsoApi* | [**ssoSessionRevoke**](docs/Api/SsoApi.md#ssosessionrevoke) | **DELETE** /sso/session/revoke | Revoke single sign on session
@@ -1200,6 +1201,8 @@ Class | Method | HTTP request | Description
  - [OrderTrackingNumberDetails](docs/Model/OrderTrackingNumberDetails.md)
  - [OrderTransactionalMerchantNote](docs/Model/OrderTransactionalMerchantNote.md)
  - [OrderUtm](docs/Model/OrderUtm.md)
+ - [OrderValidationRequest](docs/Model/OrderValidationRequest.md)
+ - [OrderValidationResponse](docs/Model/OrderValidationResponse.md)
  - [OrdersResponse](docs/Model/OrdersResponse.md)
  - [Permission](docs/Model/Permission.md)
  - [PointOfSaleLocation](docs/Model/PointOfSaleLocation.md)
@@ -1434,6 +1437,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.153 | 08/14/2023 | esp - expose rate limiter values in settings object |
 | 3.10.152 | 07/27/2023 | dw bi - add settings to the report and page objects |
 | 3.10.151 | 07/19/2023 | dw bi - add data_source_uuid to filter connection obj |
 | 3.10.150 | 07/19/2023 | dw bi - add data_source_uuid to page visualization obj |

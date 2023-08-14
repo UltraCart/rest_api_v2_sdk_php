@@ -57,6 +57,9 @@ class EmailSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'emails_per_day' => 'int',
+        'emails_per_hour' => 'int',
+        'emails_per_month' => 'int',
         'marketing_esp_domain_user' => 'string',
         'marketing_esp_domain_uuid' => 'string',
         'marketing_esp_friendly_name' => 'string',
@@ -80,6 +83,9 @@ class EmailSettings implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'emails_per_day' => 'int32',
+        'emails_per_hour' => 'int32',
+        'emails_per_month' => 'int32',
         'marketing_esp_domain_user' => null,
         'marketing_esp_domain_uuid' => null,
         'marketing_esp_friendly_name' => null,
@@ -124,6 +130,9 @@ class EmailSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'emails_per_day' => 'emails_per_day',
+        'emails_per_hour' => 'emails_per_hour',
+        'emails_per_month' => 'emails_per_month',
         'marketing_esp_domain_user' => 'marketing_esp_domain_user',
         'marketing_esp_domain_uuid' => 'marketing_esp_domain_uuid',
         'marketing_esp_friendly_name' => 'marketing_esp_friendly_name',
@@ -147,6 +156,9 @@ class EmailSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'emails_per_day' => 'setEmailsPerDay',
+        'emails_per_hour' => 'setEmailsPerHour',
+        'emails_per_month' => 'setEmailsPerMonth',
         'marketing_esp_domain_user' => 'setMarketingEspDomainUser',
         'marketing_esp_domain_uuid' => 'setMarketingEspDomainUuid',
         'marketing_esp_friendly_name' => 'setMarketingEspFriendlyName',
@@ -170,6 +182,9 @@ class EmailSettings implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'emails_per_day' => 'getEmailsPerDay',
+        'emails_per_hour' => 'getEmailsPerHour',
+        'emails_per_month' => 'getEmailsPerMonth',
         'marketing_esp_domain_user' => 'getMarketingEspDomainUser',
         'marketing_esp_domain_uuid' => 'getMarketingEspDomainUuid',
         'marketing_esp_friendly_name' => 'getMarketingEspFriendlyName',
@@ -247,6 +262,9 @@ class EmailSettings implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['emails_per_day'] = isset($data['emails_per_day']) ? $data['emails_per_day'] : null;
+        $this->container['emails_per_hour'] = isset($data['emails_per_hour']) ? $data['emails_per_hour'] : null;
+        $this->container['emails_per_month'] = isset($data['emails_per_month']) ? $data['emails_per_month'] : null;
         $this->container['marketing_esp_domain_user'] = isset($data['marketing_esp_domain_user']) ? $data['marketing_esp_domain_user'] : null;
         $this->container['marketing_esp_domain_uuid'] = isset($data['marketing_esp_domain_uuid']) ? $data['marketing_esp_domain_uuid'] : null;
         $this->container['marketing_esp_friendly_name'] = isset($data['marketing_esp_friendly_name']) ? $data['marketing_esp_friendly_name'] : null;
@@ -287,6 +305,78 @@ class EmailSettings implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets emails_per_day
+     *
+     * @return int
+     */
+    public function getEmailsPerDay()
+    {
+        return $this->container['emails_per_day'];
+    }
+
+    /**
+     * Sets emails_per_day
+     *
+     * @param int $emails_per_day Emails per day allowed
+     *
+     * @return $this
+     */
+    public function setEmailsPerDay($emails_per_day)
+    {
+        $this->container['emails_per_day'] = $emails_per_day;
+
+        return $this;
+    }
+
+    /**
+     * Gets emails_per_hour
+     *
+     * @return int
+     */
+    public function getEmailsPerHour()
+    {
+        return $this->container['emails_per_hour'];
+    }
+
+    /**
+     * Sets emails_per_hour
+     *
+     * @param int $emails_per_hour Emails per hour allowed
+     *
+     * @return $this
+     */
+    public function setEmailsPerHour($emails_per_hour)
+    {
+        $this->container['emails_per_hour'] = $emails_per_hour;
+
+        return $this;
+    }
+
+    /**
+     * Gets emails_per_month
+     *
+     * @return int
+     */
+    public function getEmailsPerMonth()
+    {
+        return $this->container['emails_per_month'];
+    }
+
+    /**
+     * Sets emails_per_month
+     *
+     * @param int $emails_per_month Emails per month allowed
+     *
+     * @return $this
+     */
+    public function setEmailsPerMonth($emails_per_month)
+    {
+        $this->container['emails_per_month'] = $emails_per_month;
+
+        return $this;
+    }
 
     /**
      * Gets marketing_esp_domain_user

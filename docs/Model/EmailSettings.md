@@ -3,6 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**emails_per_day** | **int** | Emails per day allowed | [optional] 
+**emails_per_hour** | **int** | Emails per hour allowed | [optional] 
+**emails_per_month** | **int** | Emails per month allowed | [optional] 
 **marketing_esp_domain_user** | **string** |  | [optional] 
 **marketing_esp_domain_uuid** | **string** |  | [optional] 
 **marketing_esp_friendly_name** | **string** |  | [optional] 
