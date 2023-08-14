@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**resendShipmentConfirmation()**](OrderApi.md#resendShipmentConfirmation) | **POST** /order/orders/{order_id}/resend_shipment_confirmation | Resend shipment confirmation
 [**updateAccountsReceivableRetryConfig()**](OrderApi.md#updateAccountsReceivableRetryConfig) | **POST** /order/accountsReceivableRetryConfig | Update A/R Retry Configuration
 [**updateOrder()**](OrderApi.md#updateOrder) | **PUT** /order/orders/{order_id} | Update an order
+[**validateOrder()**](OrderApi.md#validateOrder) | **POST** /order/validate | Validate
 
 
 ## `adjustOrderTotal()`
@@ -1618,6 +1619,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `validateOrder()`
+
+```php
+validateOrder($validation_request): \ultracart\v2\models\OrderValidationResponse
+```
+
+Validate
+
+Validate the order for errors.  Specific checks can be passed to fine tune what is validated. Read and write permissions are required because the validate method may fix obvious address issues automatically which require update permission.This rest call makes use of the built-in translation of rest objects to UltraCart internal objects which also contains a multitude of validation checks that cannot be trapped.  Therefore any time this call is made, you should also trap api exceptions and examine their content because it may contain validation issues.  So check the response object and trap any exceptions.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\OrderApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$validation_request = new \ultracart\v2\models\OrderValidationRequest(); // \ultracart\v2\models\OrderValidationRequest | Validation request
+
+try {
+    $result = $apiInstance->validateOrder($validation_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->validateOrder: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **validation_request** | [**\ultracart\v2\models\OrderValidationRequest**](../Model/OrderValidationRequest.md)| Validation request |
+
+### Return type
+
+[**\ultracart\v2\models\OrderValidationResponse**](../Model/OrderValidationResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

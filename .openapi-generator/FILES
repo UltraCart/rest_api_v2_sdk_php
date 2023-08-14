@@ -641,6 +641,8 @@ docs/Model/OrderTrackingNumberDetail.md
 docs/Model/OrderTrackingNumberDetails.md
 docs/Model/OrderTransactionalMerchantNote.md
 docs/Model/OrderUtm.md
+docs/Model/OrderValidationRequest.md
+docs/Model/OrderValidationResponse.md
 docs/Model/OrdersResponse.md
 docs/Model/Permission.md
 docs/Model/PointOfSaleLocation.md
@@ -1443,6 +1445,8 @@ lib/models/OrderTrackingNumberDetail.php
 lib/models/OrderTrackingNumberDetails.php
 lib/models/OrderTransactionalMerchantNote.php
 lib/models/OrderUtm.php
+lib/models/OrderValidationRequest.php
+lib/models/OrderValidationResponse.php
 lib/models/OrdersResponse.php
 lib/models/Permission.php
 lib/models/PointOfSaleLocation.php
