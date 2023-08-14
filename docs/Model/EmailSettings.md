@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **postcard_from_name** | **string** |  | [optional]
 **postcard_from_postal_code** | **string** |  | [optional]
 **postcard_from_state** | **string** |  | [optional]
+**require_order_within_last** | **int** | Require order within last | [optional]
 **reviews_io_configured** | **bool** | True if the Reviews.io integration is configured | [optional]
 **sms_esp_twilio_uuid** | **string** |  | [optional]
 **sms_phone_number** | **string** |  | [optional]

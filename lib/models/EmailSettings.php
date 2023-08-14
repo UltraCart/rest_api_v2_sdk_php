@@ -70,6 +70,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => 'string',
         'postcard_from_postal_code' => 'string',
         'postcard_from_state' => 'string',
+        'require_order_within_last' => 'int',
         'reviews_io_configured' => 'bool',
         'sms_esp_twilio_uuid' => 'string',
         'sms_phone_number' => 'string',
@@ -98,6 +99,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => null,
         'postcard_from_postal_code' => null,
         'postcard_from_state' => null,
+        'require_order_within_last' => 'int32',
         'reviews_io_configured' => null,
         'sms_esp_twilio_uuid' => null,
         'sms_phone_number' => null,
@@ -145,6 +147,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => 'postcard_from_name',
         'postcard_from_postal_code' => 'postcard_from_postal_code',
         'postcard_from_state' => 'postcard_from_state',
+        'require_order_within_last' => 'require_order_within_last',
         'reviews_io_configured' => 'reviews_io_configured',
         'sms_esp_twilio_uuid' => 'sms_esp_twilio_uuid',
         'sms_phone_number' => 'sms_phone_number',
@@ -171,6 +174,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => 'setPostcardFromName',
         'postcard_from_postal_code' => 'setPostcardFromPostalCode',
         'postcard_from_state' => 'setPostcardFromState',
+        'require_order_within_last' => 'setRequireOrderWithinLast',
         'reviews_io_configured' => 'setReviewsIoConfigured',
         'sms_esp_twilio_uuid' => 'setSmsEspTwilioUuid',
         'sms_phone_number' => 'setSmsPhoneNumber',
@@ -197,6 +201,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         'postcard_from_name' => 'getPostcardFromName',
         'postcard_from_postal_code' => 'getPostcardFromPostalCode',
         'postcard_from_state' => 'getPostcardFromState',
+        'require_order_within_last' => 'getRequireOrderWithinLast',
         'reviews_io_configured' => 'getReviewsIoConfigured',
         'sms_esp_twilio_uuid' => 'getSmsEspTwilioUuid',
         'sms_phone_number' => 'getSmsPhoneNumber',
@@ -274,6 +279,7 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['postcard_from_name'] = $data['postcard_from_name'] ?? null;
         $this->container['postcard_from_postal_code'] = $data['postcard_from_postal_code'] ?? null;
         $this->container['postcard_from_state'] = $data['postcard_from_state'] ?? null;
+        $this->container['require_order_within_last'] = $data['require_order_within_last'] ?? null;
         $this->container['reviews_io_configured'] = $data['reviews_io_configured'] ?? null;
         $this->container['sms_esp_twilio_uuid'] = $data['sms_esp_twilio_uuid'] ?? null;
         $this->container['sms_phone_number'] = $data['sms_phone_number'] ?? null;
@@ -590,6 +596,30 @@ class EmailSettings implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setPostcardFromState($postcard_from_state)
     {
         $this->container['postcard_from_state'] = $postcard_from_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets require_order_within_last
+     *
+     * @return int|null
+     */
+    public function getRequireOrderWithinLast()
+    {
+        return $this->container['require_order_within_last'];
+    }
+
+    /**
+     * Sets require_order_within_last
+     *
+     * @param int|null $require_order_within_last Require order within last
+     *
+     * @return self
+     */
+    public function setRequireOrderWithinLast($require_order_within_last)
+    {
+        $this->container['require_order_within_last'] = $require_order_within_last;
 
         return $this;
     }

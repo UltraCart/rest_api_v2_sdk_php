@@ -1378,6 +1378,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.171 | 08/14/2023 | esp - add require_order_within_last to the settings object |
 | 4.0.170 | 08/14/2023 | esp - expose rate limiter values in settings object |
 | 4.0.169 | 07/27/2023 | dw bi - add settings to the report and page objects |
 | 4.0.168 | 07/19/2023 | dw bi - add data_source_uuid to filter connection obj |
