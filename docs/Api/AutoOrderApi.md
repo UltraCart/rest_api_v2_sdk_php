@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAutoOrder**
-> \ultracart\v2\models\AutoOrderResponse updateAutoOrder($auto_order, $auto_order_oid, $_expand)
+> \ultracart\v2\models\AutoOrderResponse updateAutoOrder($auto_order, $auto_order_oid, $validate_original_order, $_expand)
 
 Update an auto order
 
@@ -431,10 +431,11 @@ $api_instance = ultracart\v2\api\AutoOrderApi::usingApiKey($simple_key);
 
 $auto_order = new \ultracart\v2\models\AutoOrder(); // \ultracart\v2\models\AutoOrder | Auto order to update
 $auto_order_oid = 56; // int | The auto order oid to update.
+$validate_original_order = "validate_original_order_example"; // string | Validate original order before updating
 $_expand = "_expand_example"; // string | The object expansion to perform on the result.  See documentation for examples
 
 try {
-    $result = $apiInstance->updateAutoOrder($auto_order, $auto_order_oid, $_expand);
+    $result = $apiInstance->updateAutoOrder($auto_order, $auto_order_oid, $validate_original_order, $_expand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AutoOrderApi->updateAutoOrder: ', $e->getMessage(), PHP_EOL;
@@ -448,6 +449,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **auto_order** | [**\ultracart\v2\models\AutoOrder**](../Model/AutoOrder.md)| Auto order to update |
  **auto_order_oid** | **int**| The auto order oid to update. |
+ **validate_original_order** | **string**| Validate original order before updating | [optional]
  **_expand** | **string**| The object expansion to perform on the result.  See documentation for examples | [optional]
 
 ### Return type

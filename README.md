@@ -1437,6 +1437,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.155 | 08/16/2023 | added validate_original_order query param to auto order update method |
 | 3.10.154 | 08/14/2023 | esp - add require_order_within_last to the settings object |
 | 3.10.153 | 08/14/2023 | esp - expose rate limiter values in settings object |
 | 3.10.152 | 07/27/2023 | dw bi - add settings to the report and page objects |
