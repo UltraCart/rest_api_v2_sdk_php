@@ -3712,15 +3712,16 @@ class AutoOrderApi
      *
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  string $validate_original_order Validate original order before updating (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ultracart\v2\models\AutoOrderResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse
      */
-    public function updateAutoOrder($auto_order_oid, $auto_order, $_expand = null)
+    public function updateAutoOrder($auto_order_oid, $auto_order, $validate_original_order = null, $_expand = null)
     {
-        list($response) = $this->updateAutoOrderWithHttpInfo($auto_order_oid, $auto_order, $_expand);
+        list($response) = $this->updateAutoOrderWithHttpInfo($auto_order_oid, $auto_order, $validate_original_order, $_expand);
         return $response;
     }
 
@@ -3731,15 +3732,16 @@ class AutoOrderApi
      *
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  string $validate_original_order Validate original order before updating (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\AutoOrderResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAutoOrderWithHttpInfo($auto_order_oid, $auto_order, $_expand = null)
+    public function updateAutoOrderWithHttpInfo($auto_order_oid, $auto_order, $validate_original_order = null, $_expand = null)
     {
-        return $this->updateAutoOrderWithHttpInfoRetry(true ,   $auto_order_oid,   $auto_order,   $_expand);
+        return $this->updateAutoOrderWithHttpInfoRetry(true ,   $auto_order_oid,   $auto_order,   $validate_original_order,   $_expand);
     }
 
 
@@ -3752,16 +3754,17 @@ class AutoOrderApi
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  string $validate_original_order Validate original order before updating (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ultracart\v2\models\AutoOrderResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse|\ultracart\v2\models\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAutoOrderWithHttpInfoRetry($retry , $auto_order_oid, $auto_order, $_expand = null)
+    public function updateAutoOrderWithHttpInfoRetry($retry , $auto_order_oid, $auto_order, $validate_original_order = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\AutoOrderResponse';
-        $request = $this->updateAutoOrderRequest($auto_order_oid, $auto_order, $_expand);
+        $request = $this->updateAutoOrderRequest($auto_order_oid, $auto_order, $validate_original_order, $_expand);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3780,7 +3783,7 @@ class AutoOrderApi
 
                     if ($statusCode == 429 && $retry && $retryAfter > 0 && $retryAfter <= $this->config->getMaxRetrySeconds()) {
                         sleep($retryAfter);
-                        return $this->updateAutoOrderWithHttpInfoRetry(false ,   $auto_order_oid,   $auto_order,   $_expand);
+                        return $this->updateAutoOrderWithHttpInfoRetry(false ,   $auto_order_oid,   $auto_order,   $validate_original_order,   $_expand);
                     }
                 }
 
@@ -3989,14 +3992,15 @@ class AutoOrderApi
      *
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  string $validate_original_order Validate original order before updating (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAutoOrderAsync($auto_order_oid, $auto_order, $_expand = null)
+    public function updateAutoOrderAsync($auto_order_oid, $auto_order, $validate_original_order = null, $_expand = null)
     {
-        return $this->updateAutoOrderAsyncWithHttpInfo($auto_order_oid, $auto_order, $_expand)
+        return $this->updateAutoOrderAsyncWithHttpInfo($auto_order_oid, $auto_order, $validate_original_order, $_expand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4011,15 +4015,16 @@ class AutoOrderApi
      *
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  string $validate_original_order Validate original order before updating (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAutoOrderAsyncWithHttpInfo($auto_order_oid, $auto_order, $_expand = null)
+    public function updateAutoOrderAsyncWithHttpInfo($auto_order_oid, $auto_order, $validate_original_order = null, $_expand = null)
     {
         $returnType = '\ultracart\v2\models\AutoOrderResponse';
-        $request = $this->updateAutoOrderRequest($auto_order_oid, $auto_order, $_expand);
+        $request = $this->updateAutoOrderRequest($auto_order_oid, $auto_order, $validate_original_order, $_expand);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4062,12 +4067,13 @@ class AutoOrderApi
      *
      * @param  int $auto_order_oid The auto order oid to update. (required)
      * @param  \ultracart\v2\models\AutoOrder $auto_order Auto order to update (required)
+     * @param  string $validate_original_order Validate original order before updating (optional)
      * @param  string $_expand The object expansion to perform on the result.  See documentation for examples (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAutoOrderRequest($auto_order_oid, $auto_order, $_expand = null)
+    public function updateAutoOrderRequest($auto_order_oid, $auto_order, $validate_original_order = null, $_expand = null)
     {
         // verify the required parameter 'auto_order_oid' is set
         if ($auto_order_oid === null || (is_array($auto_order_oid) && count($auto_order_oid) === 0)) {
@@ -4089,6 +4095,15 @@ class AutoOrderApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $validate_original_order,
+            'validate_original_order', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $_expand,
