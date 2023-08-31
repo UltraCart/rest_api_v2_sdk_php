@@ -794,6 +794,7 @@ Class | Method | HTTP request | Description
  - [CouponExistsResponse](docs/Model/CouponExistsResponse.md)
  - [CouponFreeItemAndShippingWithSubtotal](docs/Model/CouponFreeItemAndShippingWithSubtotal.md)
  - [CouponFreeItemWithItemPurchase](docs/Model/CouponFreeItemWithItemPurchase.md)
+ - [CouponFreeItemWithItemPurchaseAndFreeShipping](docs/Model/CouponFreeItemWithItemPurchaseAndFreeShipping.md)
  - [CouponFreeItemWithSubtotal](docs/Model/CouponFreeItemWithSubtotal.md)
  - [CouponFreeItemsWithItemPurchase](docs/Model/CouponFreeItemsWithItemPurchase.md)
  - [CouponFreeItemsWithMixMatchPurchase](docs/Model/CouponFreeItemsWithMixMatchPurchase.md)
@@ -857,6 +858,7 @@ Class | Method | HTTP request | Description
  - [CustomerOrdersSummary](docs/Model/CustomerOrdersSummary.md)
  - [CustomerPricingTier](docs/Model/CustomerPricingTier.md)
  - [CustomerPrivacy](docs/Model/CustomerPrivacy.md)
+ - [CustomerProperty](docs/Model/CustomerProperty.md)
  - [CustomerQuery](docs/Model/CustomerQuery.md)
  - [CustomerQuotesSummary](docs/Model/CustomerQuotesSummary.md)
  - [CustomerResponse](docs/Model/CustomerResponse.md)
@@ -1437,6 +1439,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.156 | 08/31/2023 | new coupon - free item and free shipping with purchase |
 | 3.10.155 | 08/16/2023 | added validate_original_order query param to auto order update method |
 | 3.10.154 | 08/14/2023 | esp - add require_order_within_last to the settings object |
 | 3.10.153 | 08/14/2023 | esp - expose rate limiter values in settings object |

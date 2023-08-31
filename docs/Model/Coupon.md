@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **expiration_dts** | **string** | Date/time when coupon expires | [optional] 
 **free_item_and_shipping_with_subtotal** | [**\ultracart\v2\models\CouponFreeItemAndShippingWithSubtotal**](CouponFreeItemAndShippingWithSubtotal.md) |  | [optional] 
 **free_item_with_item_purchase** | [**\ultracart\v2\models\CouponFreeItemWithItemPurchase**](CouponFreeItemWithItemPurchase.md) |  | [optional] 
+**free_item_with_item_purchase_and_free_shipping** | [**\ultracart\v2\models\CouponFreeItemWithItemPurchaseAndFreeShipping**](CouponFreeItemWithItemPurchaseAndFreeShipping.md) |  | [optional] 
 **free_item_with_subtotal** | [**\ultracart\v2\models\CouponFreeItemWithSubtotal**](CouponFreeItemWithSubtotal.md) |  | [optional] 
 **free_items_with_item_purchase** | [**\ultracart\v2\models\CouponFreeItemsWithItemPurchase**](CouponFreeItemsWithItemPurchase.md) |  | [optional] 
 **free_items_with_mixmatch_purchase** | [**\ultracart\v2\models\CouponFreeItemsWithMixMatchPurchase**](CouponFreeItemsWithMixMatchPurchase.md) |  | [optional] 

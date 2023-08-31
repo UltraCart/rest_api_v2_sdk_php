@@ -81,6 +81,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'expiration_dts' => 'string',
         'free_item_and_shipping_with_subtotal' => '\ultracart\v2\models\CouponFreeItemAndShippingWithSubtotal',
         'free_item_with_item_purchase' => '\ultracart\v2\models\CouponFreeItemWithItemPurchase',
+        'free_item_with_item_purchase_and_free_shipping' => '\ultracart\v2\models\CouponFreeItemWithItemPurchaseAndFreeShipping',
         'free_item_with_subtotal' => '\ultracart\v2\models\CouponFreeItemWithSubtotal',
         'free_items_with_item_purchase' => '\ultracart\v2\models\CouponFreeItemsWithItemPurchase',
         'free_items_with_mixmatch_purchase' => '\ultracart\v2\models\CouponFreeItemsWithMixMatchPurchase',
@@ -155,6 +156,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'expiration_dts' => 'dateTime',
         'free_item_and_shipping_with_subtotal' => null,
         'free_item_with_item_purchase' => null,
+        'free_item_with_item_purchase_and_free_shipping' => null,
         'free_item_with_subtotal' => null,
         'free_items_with_item_purchase' => null,
         'free_items_with_mixmatch_purchase' => null,
@@ -250,6 +252,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'expiration_dts' => 'expiration_dts',
         'free_item_and_shipping_with_subtotal' => 'free_item_and_shipping_with_subtotal',
         'free_item_with_item_purchase' => 'free_item_with_item_purchase',
+        'free_item_with_item_purchase_and_free_shipping' => 'free_item_with_item_purchase_and_free_shipping',
         'free_item_with_subtotal' => 'free_item_with_subtotal',
         'free_items_with_item_purchase' => 'free_items_with_item_purchase',
         'free_items_with_mixmatch_purchase' => 'free_items_with_mixmatch_purchase',
@@ -324,6 +327,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'expiration_dts' => 'setExpirationDts',
         'free_item_and_shipping_with_subtotal' => 'setFreeItemAndShippingWithSubtotal',
         'free_item_with_item_purchase' => 'setFreeItemWithItemPurchase',
+        'free_item_with_item_purchase_and_free_shipping' => 'setFreeItemWithItemPurchaseAndFreeShipping',
         'free_item_with_subtotal' => 'setFreeItemWithSubtotal',
         'free_items_with_item_purchase' => 'setFreeItemsWithItemPurchase',
         'free_items_with_mixmatch_purchase' => 'setFreeItemsWithMixmatchPurchase',
@@ -398,6 +402,7 @@ class Coupon implements ModelInterface, ArrayAccess
         'expiration_dts' => 'getExpirationDts',
         'free_item_and_shipping_with_subtotal' => 'getFreeItemAndShippingWithSubtotal',
         'free_item_with_item_purchase' => 'getFreeItemWithItemPurchase',
+        'free_item_with_item_purchase_and_free_shipping' => 'getFreeItemWithItemPurchaseAndFreeShipping',
         'free_item_with_subtotal' => 'getFreeItemWithSubtotal',
         'free_items_with_item_purchase' => 'getFreeItemsWithItemPurchase',
         'free_items_with_mixmatch_purchase' => 'getFreeItemsWithMixmatchPurchase',
@@ -547,6 +552,7 @@ class Coupon implements ModelInterface, ArrayAccess
         $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
         $this->container['free_item_and_shipping_with_subtotal'] = isset($data['free_item_and_shipping_with_subtotal']) ? $data['free_item_and_shipping_with_subtotal'] : null;
         $this->container['free_item_with_item_purchase'] = isset($data['free_item_with_item_purchase']) ? $data['free_item_with_item_purchase'] : null;
+        $this->container['free_item_with_item_purchase_and_free_shipping'] = isset($data['free_item_with_item_purchase_and_free_shipping']) ? $data['free_item_with_item_purchase_and_free_shipping'] : null;
         $this->container['free_item_with_subtotal'] = isset($data['free_item_with_subtotal']) ? $data['free_item_with_subtotal'] : null;
         $this->container['free_items_with_item_purchase'] = isset($data['free_items_with_item_purchase']) ? $data['free_items_with_item_purchase'] : null;
         $this->container['free_items_with_mixmatch_purchase'] = isset($data['free_items_with_mixmatch_purchase']) ? $data['free_items_with_mixmatch_purchase'] : null;
@@ -1227,6 +1233,30 @@ class Coupon implements ModelInterface, ArrayAccess
     public function setFreeItemWithItemPurchase($free_item_with_item_purchase)
     {
         $this->container['free_item_with_item_purchase'] = $free_item_with_item_purchase;
+
+        return $this;
+    }
+
+    /**
+     * Gets free_item_with_item_purchase_and_free_shipping
+     *
+     * @return \ultracart\v2\models\CouponFreeItemWithItemPurchaseAndFreeShipping
+     */
+    public function getFreeItemWithItemPurchaseAndFreeShipping()
+    {
+        return $this->container['free_item_with_item_purchase_and_free_shipping'];
+    }
+
+    /**
+     * Sets free_item_with_item_purchase_and_free_shipping
+     *
+     * @param \ultracart\v2\models\CouponFreeItemWithItemPurchaseAndFreeShipping $free_item_with_item_purchase_and_free_shipping free_item_with_item_purchase_and_free_shipping
+     *
+     * @return $this
+     */
+    public function setFreeItemWithItemPurchaseAndFreeShipping($free_item_with_item_purchase_and_free_shipping)
+    {
+        $this->container['free_item_with_item_purchase_and_free_shipping'] = $free_item_with_item_purchase_and_free_shipping;
 
         return $this;
     }

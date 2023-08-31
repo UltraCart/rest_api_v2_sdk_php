@@ -97,6 +97,7 @@ class Customer implements ModelInterface, ArrayAccess
         'password' => 'string',
         'pricing_tiers' => '\ultracart\v2\models\CustomerPricingTier[]',
         'privacy' => '\ultracart\v2\models\CustomerPrivacy',
+        'properties' => '\ultracart\v2\models\CustomerProperty[]',
         'qb_class' => 'string',
         'qb_code' => 'string',
         'qb_tax_exemption_reason_code' => 'int',
@@ -167,6 +168,7 @@ class Customer implements ModelInterface, ArrayAccess
         'password' => null,
         'pricing_tiers' => null,
         'privacy' => null,
+        'properties' => null,
         'qb_class' => null,
         'qb_code' => null,
         'qb_tax_exemption_reason_code' => 'int32',
@@ -258,6 +260,7 @@ class Customer implements ModelInterface, ArrayAccess
         'password' => 'password',
         'pricing_tiers' => 'pricing_tiers',
         'privacy' => 'privacy',
+        'properties' => 'properties',
         'qb_class' => 'qb_class',
         'qb_code' => 'qb_code',
         'qb_tax_exemption_reason_code' => 'qb_tax_exemption_reason_code',
@@ -328,6 +331,7 @@ class Customer implements ModelInterface, ArrayAccess
         'password' => 'setPassword',
         'pricing_tiers' => 'setPricingTiers',
         'privacy' => 'setPrivacy',
+        'properties' => 'setProperties',
         'qb_class' => 'setQbClass',
         'qb_code' => 'setQbCode',
         'qb_tax_exemption_reason_code' => 'setQbTaxExemptionReasonCode',
@@ -398,6 +402,7 @@ class Customer implements ModelInterface, ArrayAccess
         'password' => 'getPassword',
         'pricing_tiers' => 'getPricingTiers',
         'privacy' => 'getPrivacy',
+        'properties' => 'getProperties',
         'qb_class' => 'getQbClass',
         'qb_code' => 'getQbCode',
         'qb_tax_exemption_reason_code' => 'getQbTaxExemptionReasonCode',
@@ -522,6 +527,7 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['pricing_tiers'] = isset($data['pricing_tiers']) ? $data['pricing_tiers'] : null;
         $this->container['privacy'] = isset($data['privacy']) ? $data['privacy'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
         $this->container['qb_class'] = isset($data['qb_class']) ? $data['qb_class'] : null;
         $this->container['qb_code'] = isset($data['qb_code']) ? $data['qb_code'] : null;
         $this->container['qb_tax_exemption_reason_code'] = isset($data['qb_tax_exemption_reason_code']) ? $data['qb_tax_exemption_reason_code'] : null;
@@ -1594,6 +1600,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setPrivacy($privacy)
     {
         $this->container['privacy'] = $privacy;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\CustomerProperty[]
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\CustomerProperty[] $properties Properties for this customer
+     *
+     * @return $this
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

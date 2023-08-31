@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **password** | **string** | Password (may only be set, never read) | [optional] 
 **pricing_tiers** | [**\ultracart\v2\models\CustomerPricingTier[]**](CustomerPricingTier.md) | Pricing tiers for this customer | [optional] 
 **privacy** | [**\ultracart\v2\models\CustomerPrivacy**](CustomerPrivacy.md) |  | [optional] 
+**properties** | [**\ultracart\v2\models\CustomerProperty[]**](CustomerProperty.md) | Properties for this customer | [optional] 
 **qb_class** | **string** | QuickBooks class to import this customer as | [optional] 
 **qb_code** | **string** | QuickBooks name to import this customer as | [optional] 
 **qb_tax_exemption_reason_code** | **int** | QuickBooks tax exemption reason code | [optional] 
