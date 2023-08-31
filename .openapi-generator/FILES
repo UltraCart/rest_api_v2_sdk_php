@@ -234,6 +234,7 @@ docs/Model/CouponEditorValues.md
 docs/Model/CouponExistsResponse.md
 docs/Model/CouponFreeItemAndShippingWithSubtotal.md
 docs/Model/CouponFreeItemWithItemPurchase.md
+docs/Model/CouponFreeItemWithItemPurchaseAndFreeShipping.md
 docs/Model/CouponFreeItemWithSubtotal.md
 docs/Model/CouponFreeItemsWithItemPurchase.md
 docs/Model/CouponFreeItemsWithMixMatchPurchase.md
@@ -297,6 +298,7 @@ docs/Model/CustomerMergeRequest.md
 docs/Model/CustomerOrdersSummary.md
 docs/Model/CustomerPricingTier.md
 docs/Model/CustomerPrivacy.md
+docs/Model/CustomerProperty.md
 docs/Model/CustomerQuery.md
 docs/Model/CustomerQuotesSummary.md
 docs/Model/CustomerResponse.md
@@ -1037,6 +1039,7 @@ lib/models/CouponEditorValues.php
 lib/models/CouponExistsResponse.php
 lib/models/CouponFreeItemAndShippingWithSubtotal.php
 lib/models/CouponFreeItemWithItemPurchase.php
+lib/models/CouponFreeItemWithItemPurchaseAndFreeShipping.php
 lib/models/CouponFreeItemWithSubtotal.php
 lib/models/CouponFreeItemsWithItemPurchase.php
 lib/models/CouponFreeItemsWithMixMatchPurchase.php
@@ -1100,6 +1103,7 @@ lib/models/CustomerMergeRequest.php
 lib/models/CustomerOrdersSummary.php
 lib/models/CustomerPricingTier.php
 lib/models/CustomerPrivacy.php
+lib/models/CustomerProperty.php
 lib/models/CustomerQuery.php
 lib/models/CustomerQuotesSummary.php
 lib/models/CustomerResponse.php
