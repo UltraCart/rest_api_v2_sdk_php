@@ -299,6 +299,9 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public const FREQUENCY_EVERY_4_MONTHS = 'Every 4 Months';
     public const FREQUENCY_EVERY_6_MONTHS = 'Every 6 Months';
     public const FREQUENCY_YEARLY = 'Yearly';
+    public const FREQUENCY_EVERY_4_WEEKS = 'Every 4 Weeks';
+    public const FREQUENCY_EVERY_6_WEEKS = 'Every 6 Weeks';
+    public const FREQUENCY_EVERY_8_WEEKS = 'Every 8 Weeks';
 
     /**
      * Gets allowable values of the enum
@@ -321,6 +324,9 @@ class AutoOrderItem implements ModelInterface, ArrayAccess, \JsonSerializable
             self::FREQUENCY_EVERY_4_MONTHS,
             self::FREQUENCY_EVERY_6_MONTHS,
             self::FREQUENCY_YEARLY,
+            self::FREQUENCY_EVERY_4_WEEKS,
+            self::FREQUENCY_EVERY_6_WEEKS,
+            self::FREQUENCY_EVERY_8_WEEKS,
         ];
     }
 

@@ -1380,6 +1380,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.174 | 09/05/2023 | auto order schedule - add intervals for 4 6 and 8 weeks |
 | 4.0.173 | 08/31/2023 | new coupon - free item and free shipping with purchase |
 | 4.0.172 | 08/16/2023 | added validate_original_order query param to auto order update method |
 | 4.0.171 | 08/14/2023 | esp - add require_order_within_last to the settings object |
