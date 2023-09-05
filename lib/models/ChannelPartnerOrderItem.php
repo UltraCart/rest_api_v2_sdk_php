@@ -200,6 +200,9 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
     const AUTO_ORDER_SCHEDULE_EVERY_4_MONTHS = 'Every 4 Months';
     const AUTO_ORDER_SCHEDULE_EVERY_6_MONTHS = 'Every 6 Months';
     const AUTO_ORDER_SCHEDULE_YEARLY = 'Yearly';
+    const AUTO_ORDER_SCHEDULE_EVERY_4_WEEKS = 'Every 4 Weeks';
+    const AUTO_ORDER_SCHEDULE_EVERY_6_WEEKS = 'Every 6 Weeks';
+    const AUTO_ORDER_SCHEDULE_EVERY_8_WEEKS = 'Every 8 Weeks';
     
 
     
@@ -223,6 +226,9 @@ class ChannelPartnerOrderItem implements ModelInterface, ArrayAccess
             self::AUTO_ORDER_SCHEDULE_EVERY_4_MONTHS,
             self::AUTO_ORDER_SCHEDULE_EVERY_6_MONTHS,
             self::AUTO_ORDER_SCHEDULE_YEARLY,
+            self::AUTO_ORDER_SCHEDULE_EVERY_4_WEEKS,
+            self::AUTO_ORDER_SCHEDULE_EVERY_6_WEEKS,
+            self::AUTO_ORDER_SCHEDULE_EVERY_8_WEEKS,
         ];
     }
     
