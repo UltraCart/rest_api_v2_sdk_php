@@ -58,6 +58,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'customer_profile_property_oid' => 'int',
         'expiration_dts' => 'string',
         'name' => 'string',
         'value' => 'string'
@@ -71,6 +72,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'customer_profile_property_oid' => 'int32',
         'expiration_dts' => 'dateTime',
         'name' => null,
         'value' => null
@@ -103,6 +105,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'customer_profile_property_oid' => 'customer_profile_property_oid',
         'expiration_dts' => 'expiration_dts',
         'name' => 'name',
         'value' => 'value'
@@ -114,6 +117,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'customer_profile_property_oid' => 'setCustomerProfilePropertyOid',
         'expiration_dts' => 'setExpirationDts',
         'name' => 'setName',
         'value' => 'setValue'
@@ -125,6 +129,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'customer_profile_property_oid' => 'getCustomerProfilePropertyOid',
         'expiration_dts' => 'getExpirationDts',
         'name' => 'getName',
         'value' => 'getValue'
@@ -187,6 +192,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['customer_profile_property_oid'] = $data['customer_profile_property_oid'] ?? null;
         $this->container['expiration_dts'] = $data['expiration_dts'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['value'] = $data['value'] ?? null;
@@ -223,6 +229,30 @@ class CustomerProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets customer_profile_property_oid
+     *
+     * @return int|null
+     */
+    public function getCustomerProfilePropertyOid()
+    {
+        return $this->container['customer_profile_property_oid'];
+    }
+
+    /**
+     * Sets customer_profile_property_oid
+     *
+     * @param int|null $customer_profile_property_oid Customer profile property oid
+     *
+     * @return self
+     */
+    public function setCustomerProfilePropertyOid($customer_profile_property_oid)
+    {
+        $this->container['customer_profile_property_oid'] = $customer_profile_property_oid;
+
+        return $this;
+    }
 
     /**
      * Gets expiration_dts
