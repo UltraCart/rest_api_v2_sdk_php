@@ -57,6 +57,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'customer_profile_property_oid' => 'int',
         'expiration_dts' => 'string',
         'name' => 'string',
         'value' => 'string'
@@ -68,6 +69,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'customer_profile_property_oid' => 'int32',
         'expiration_dts' => 'dateTime',
         'name' => null,
         'value' => null
@@ -100,6 +102,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'customer_profile_property_oid' => 'customer_profile_property_oid',
         'expiration_dts' => 'expiration_dts',
         'name' => 'name',
         'value' => 'value'
@@ -111,6 +114,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'customer_profile_property_oid' => 'setCustomerProfilePropertyOid',
         'expiration_dts' => 'setExpirationDts',
         'name' => 'setName',
         'value' => 'setValue'
@@ -122,6 +126,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'customer_profile_property_oid' => 'getCustomerProfilePropertyOid',
         'expiration_dts' => 'getExpirationDts',
         'name' => 'getName',
         'value' => 'getValue'
@@ -187,6 +192,7 @@ class CustomerProperty implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['customer_profile_property_oid'] = isset($data['customer_profile_property_oid']) ? $data['customer_profile_property_oid'] : null;
         $this->container['expiration_dts'] = isset($data['expiration_dts']) ? $data['expiration_dts'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
@@ -223,6 +229,30 @@ class CustomerProperty implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets customer_profile_property_oid
+     *
+     * @return int
+     */
+    public function getCustomerProfilePropertyOid()
+    {
+        return $this->container['customer_profile_property_oid'];
+    }
+
+    /**
+     * Sets customer_profile_property_oid
+     *
+     * @param int $customer_profile_property_oid Customer profile property oid
+     *
+     * @return $this
+     */
+    public function setCustomerProfilePropertyOid($customer_profile_property_oid)
+    {
+        $this->container['customer_profile_property_oid'] = $customer_profile_property_oid;
+
+        return $this;
+    }
 
     /**
      * Gets expiration_dts
