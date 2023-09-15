@@ -1439,6 +1439,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.160 | 09/15/2023 | new item fields for additional barcodes |
 | 3.10.159 | 09/12/2023 | added oids to customer properties |
 | 3.10.158 | 09/06/2023 | esp condition for survey trigger |
 | 3.10.157 | 09/05/2023 | auto order schedule - add intervals for 4 6 and 8 weeks |
