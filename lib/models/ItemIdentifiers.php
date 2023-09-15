@@ -59,6 +59,10 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'barcode' => 'string',
+        'barcode_gtin12' => 'string',
+        'barcode_gtin14' => 'string',
+        'barcode_upc11' => 'string',
+        'barcode_upc12' => 'string',
         'manufacturer_name' => 'string',
         'manufacturer_sku' => 'string',
         'unspsc' => 'string'
@@ -73,6 +77,10 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'barcode' => null,
+        'barcode_gtin12' => null,
+        'barcode_gtin14' => null,
+        'barcode_upc11' => null,
+        'barcode_upc12' => null,
         'manufacturer_name' => null,
         'manufacturer_sku' => null,
         'unspsc' => null
@@ -106,6 +114,10 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'barcode' => 'barcode',
+        'barcode_gtin12' => 'barcode_gtin12',
+        'barcode_gtin14' => 'barcode_gtin14',
+        'barcode_upc11' => 'barcode_upc11',
+        'barcode_upc12' => 'barcode_upc12',
         'manufacturer_name' => 'manufacturer_name',
         'manufacturer_sku' => 'manufacturer_sku',
         'unspsc' => 'unspsc'
@@ -118,6 +130,10 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'barcode' => 'setBarcode',
+        'barcode_gtin12' => 'setBarcodeGtin12',
+        'barcode_gtin14' => 'setBarcodeGtin14',
+        'barcode_upc11' => 'setBarcodeUpc11',
+        'barcode_upc12' => 'setBarcodeUpc12',
         'manufacturer_name' => 'setManufacturerName',
         'manufacturer_sku' => 'setManufacturerSku',
         'unspsc' => 'setUnspsc'
@@ -130,6 +146,10 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'barcode' => 'getBarcode',
+        'barcode_gtin12' => 'getBarcodeGtin12',
+        'barcode_gtin14' => 'getBarcodeGtin14',
+        'barcode_upc11' => 'getBarcodeUpc11',
+        'barcode_upc12' => 'getBarcodeUpc12',
         'manufacturer_name' => 'getManufacturerName',
         'manufacturer_sku' => 'getManufacturerSku',
         'unspsc' => 'getUnspsc'
@@ -193,6 +213,10 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['barcode'] = $data['barcode'] ?? null;
+        $this->container['barcode_gtin12'] = $data['barcode_gtin12'] ?? null;
+        $this->container['barcode_gtin14'] = $data['barcode_gtin14'] ?? null;
+        $this->container['barcode_upc11'] = $data['barcode_upc11'] ?? null;
+        $this->container['barcode_upc12'] = $data['barcode_upc12'] ?? null;
         $this->container['manufacturer_name'] = $data['manufacturer_name'] ?? null;
         $this->container['manufacturer_sku'] = $data['manufacturer_sku'] ?? null;
         $this->container['unspsc'] = $data['unspsc'] ?? null;
@@ -209,6 +233,22 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['barcode']) && (mb_strlen($this->container['barcode']) > 30)) {
             $invalidProperties[] = "invalid value for 'barcode', the character length must be smaller than or equal to 30.";
+        }
+
+        if (!is_null($this->container['barcode_gtin12']) && (mb_strlen($this->container['barcode_gtin12']) > 12)) {
+            $invalidProperties[] = "invalid value for 'barcode_gtin12', the character length must be smaller than or equal to 12.";
+        }
+
+        if (!is_null($this->container['barcode_gtin14']) && (mb_strlen($this->container['barcode_gtin14']) > 14)) {
+            $invalidProperties[] = "invalid value for 'barcode_gtin14', the character length must be smaller than or equal to 14.";
+        }
+
+        if (!is_null($this->container['barcode_upc11']) && (mb_strlen($this->container['barcode_upc11']) > 11)) {
+            $invalidProperties[] = "invalid value for 'barcode_upc11', the character length must be smaller than or equal to 11.";
+        }
+
+        if (!is_null($this->container['barcode_upc12']) && (mb_strlen($this->container['barcode_upc12']) > 12)) {
+            $invalidProperties[] = "invalid value for 'barcode_upc12', the character length must be smaller than or equal to 12.";
         }
 
         if (!is_null($this->container['manufacturer_name']) && (mb_strlen($this->container['manufacturer_name']) > 50)) {
@@ -262,6 +302,118 @@ class ItemIdentifiers implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['barcode'] = $barcode;
+
+        return $this;
+    }
+
+    /**
+     * Gets barcode_gtin12
+     *
+     * @return string|null
+     */
+    public function getBarcodeGtin12()
+    {
+        return $this->container['barcode_gtin12'];
+    }
+
+    /**
+     * Sets barcode_gtin12
+     *
+     * @param string|null $barcode_gtin12 Barcode - GTIN 12
+     *
+     * @return self
+     */
+    public function setBarcodeGtin12($barcode_gtin12)
+    {
+        if (!is_null($barcode_gtin12) && (mb_strlen($barcode_gtin12) > 12)) {
+            throw new \InvalidArgumentException('invalid length for $barcode_gtin12 when calling ItemIdentifiers., must be smaller than or equal to 12.');
+        }
+
+        $this->container['barcode_gtin12'] = $barcode_gtin12;
+
+        return $this;
+    }
+
+    /**
+     * Gets barcode_gtin14
+     *
+     * @return string|null
+     */
+    public function getBarcodeGtin14()
+    {
+        return $this->container['barcode_gtin14'];
+    }
+
+    /**
+     * Sets barcode_gtin14
+     *
+     * @param string|null $barcode_gtin14 Barcode - GTIN 14
+     *
+     * @return self
+     */
+    public function setBarcodeGtin14($barcode_gtin14)
+    {
+        if (!is_null($barcode_gtin14) && (mb_strlen($barcode_gtin14) > 14)) {
+            throw new \InvalidArgumentException('invalid length for $barcode_gtin14 when calling ItemIdentifiers., must be smaller than or equal to 14.');
+        }
+
+        $this->container['barcode_gtin14'] = $barcode_gtin14;
+
+        return $this;
+    }
+
+    /**
+     * Gets barcode_upc11
+     *
+     * @return string|null
+     */
+    public function getBarcodeUpc11()
+    {
+        return $this->container['barcode_upc11'];
+    }
+
+    /**
+     * Sets barcode_upc11
+     *
+     * @param string|null $barcode_upc11 Barcode - UPC 11
+     *
+     * @return self
+     */
+    public function setBarcodeUpc11($barcode_upc11)
+    {
+        if (!is_null($barcode_upc11) && (mb_strlen($barcode_upc11) > 11)) {
+            throw new \InvalidArgumentException('invalid length for $barcode_upc11 when calling ItemIdentifiers., must be smaller than or equal to 11.');
+        }
+
+        $this->container['barcode_upc11'] = $barcode_upc11;
+
+        return $this;
+    }
+
+    /**
+     * Gets barcode_upc12
+     *
+     * @return string|null
+     */
+    public function getBarcodeUpc12()
+    {
+        return $this->container['barcode_upc12'];
+    }
+
+    /**
+     * Sets barcode_upc12
+     *
+     * @param string|null $barcode_upc12 Barcode - UPC 12
+     *
+     * @return self
+     */
+    public function setBarcodeUpc12($barcode_upc12)
+    {
+        if (!is_null($barcode_upc12) && (mb_strlen($barcode_upc12) > 12)) {
+            throw new \InvalidArgumentException('invalid length for $barcode_upc12 when calling ItemIdentifiers., must be smaller than or equal to 12.');
+        }
+
+        $this->container['barcode_upc12'] = $barcode_upc12;
 
         return $this;
     }
