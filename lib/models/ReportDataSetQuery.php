@@ -65,6 +65,7 @@ class ReportDataSetQuery implements ModelInterface, ArrayAccess
         'for_object_id' => 'string',
         'for_object_type' => 'string',
         'metrics' => '\ultracart\v2\models\ReportPageVisualizationMetric[]',
+        'order_by_columns' => '\ultracart\v2\models\ReportDataSetQueryOrderByColumn[]',
         'page_size' => 'int',
         'selected_filters' => '\ultracart\v2\models\ReportFilter[]',
         'skip_cache' => 'bool',
@@ -85,6 +86,7 @@ class ReportDataSetQuery implements ModelInterface, ArrayAccess
         'for_object_id' => null,
         'for_object_type' => null,
         'metrics' => null,
+        'order_by_columns' => null,
         'page_size' => 'int32',
         'selected_filters' => null,
         'skip_cache' => null,
@@ -126,6 +128,7 @@ class ReportDataSetQuery implements ModelInterface, ArrayAccess
         'for_object_id' => 'for_object_id',
         'for_object_type' => 'for_object_type',
         'metrics' => 'metrics',
+        'order_by_columns' => 'order_by_columns',
         'page_size' => 'page_size',
         'selected_filters' => 'selected_filters',
         'skip_cache' => 'skip_cache',
@@ -146,6 +149,7 @@ class ReportDataSetQuery implements ModelInterface, ArrayAccess
         'for_object_id' => 'setForObjectId',
         'for_object_type' => 'setForObjectType',
         'metrics' => 'setMetrics',
+        'order_by_columns' => 'setOrderByColumns',
         'page_size' => 'setPageSize',
         'selected_filters' => 'setSelectedFilters',
         'skip_cache' => 'setSkipCache',
@@ -166,6 +170,7 @@ class ReportDataSetQuery implements ModelInterface, ArrayAccess
         'for_object_id' => 'getForObjectId',
         'for_object_type' => 'getForObjectType',
         'metrics' => 'getMetrics',
+        'order_by_columns' => 'getOrderByColumns',
         'page_size' => 'getPageSize',
         'selected_filters' => 'getSelectedFilters',
         'skip_cache' => 'getSkipCache',
@@ -257,6 +262,7 @@ class ReportDataSetQuery implements ModelInterface, ArrayAccess
         $this->container['for_object_id'] = isset($data['for_object_id']) ? $data['for_object_id'] : null;
         $this->container['for_object_type'] = isset($data['for_object_type']) ? $data['for_object_type'] : null;
         $this->container['metrics'] = isset($data['metrics']) ? $data['metrics'] : null;
+        $this->container['order_by_columns'] = isset($data['order_by_columns']) ? $data['order_by_columns'] : null;
         $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
         $this->container['selected_filters'] = isset($data['selected_filters']) ? $data['selected_filters'] : null;
         $this->container['skip_cache'] = isset($data['skip_cache']) ? $data['skip_cache'] : null;
@@ -492,6 +498,30 @@ class ReportDataSetQuery implements ModelInterface, ArrayAccess
     public function setMetrics($metrics)
     {
         $this->container['metrics'] = $metrics;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_by_columns
+     *
+     * @return \ultracart\v2\models\ReportDataSetQueryOrderByColumn[]
+     */
+    public function getOrderByColumns()
+    {
+        return $this->container['order_by_columns'];
+    }
+
+    /**
+     * Sets order_by_columns
+     *
+     * @param \ultracart\v2\models\ReportDataSetQueryOrderByColumn[] $order_by_columns The columns to order by in the final result.  If not specified the dimensions will be used
+     *
+     * @return $this
+     */
+    public function setOrderByColumns($order_by_columns)
+    {
+        $this->container['order_by_columns'] = $order_by_columns;
 
         return $this;
     }
