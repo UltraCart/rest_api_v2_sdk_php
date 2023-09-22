@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **for_object_id** | **string** | An identifier that can be used to help match up the returned data set | [optional]
 **for_object_type** | **string** | The type of object this data set is for | [optional]
 **metrics** | [**\ultracart\v2\models\ReportPageVisualizationMetric[]**](ReportPageVisualizationMetric.md) |  | [optional]
+**order_by_columns** | [**\ultracart\v2\models\ReportDataSetQueryOrderByColumn[]**](ReportDataSetQueryOrderByColumn.md) | The columns to order by in the final result.  If not specified the dimensions will be used | [optional]
 **page_size** | **int** | Result set page size.  The default value is 200 records.  Max is 10000. | [optional]
 **selected_filters** | [**\ultracart\v2\models\ReportFilter[]**](ReportFilter.md) |  | [optional]
 **skip_cache** | **bool** | True if the 15 minute cache should be skipped. | [optional]

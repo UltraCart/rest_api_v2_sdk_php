@@ -1151,6 +1151,7 @@ Class | Method | HTTP request | Description
 - [ReportDataSetPage](docs/Model/ReportDataSetPage.md)
 - [ReportDataSetPageResponse](docs/Model/ReportDataSetPageResponse.md)
 - [ReportDataSetQuery](docs/Model/ReportDataSetQuery.md)
+- [ReportDataSetQueryOrderByColumn](docs/Model/ReportDataSetQueryOrderByColumn.md)
 - [ReportDataSetResponse](docs/Model/ReportDataSetResponse.md)
 - [ReportDataSetRow](docs/Model/ReportDataSetRow.md)
 - [ReportDataSetSchema](docs/Model/ReportDataSetSchema.md)
@@ -1380,6 +1381,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.178 | 09/22/2023 | dwbi - new option to control order-by of result set |
 | 4.0.177 | 09/15/2023 | new item fields for additional barcodes |
 | 4.0.176 | 09/12/2023 | added oids to customer properties |
 | 4.0.175 | 09/06/2023 | esp condition for survey trigger |

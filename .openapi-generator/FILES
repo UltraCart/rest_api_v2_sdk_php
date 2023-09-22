@@ -665,6 +665,7 @@ docs/Model/ReportDataSetColumn.md
 docs/Model/ReportDataSetPage.md
 docs/Model/ReportDataSetPageResponse.md
 docs/Model/ReportDataSetQuery.md
+docs/Model/ReportDataSetQueryOrderByColumn.md
 docs/Model/ReportDataSetResponse.md
 docs/Model/ReportDataSetRow.md
 docs/Model/ReportDataSetSchema.md
@@ -1471,6 +1472,7 @@ lib/models/ReportDataSetColumn.php
 lib/models/ReportDataSetPage.php
 lib/models/ReportDataSetPageResponse.php
 lib/models/ReportDataSetQuery.php
+lib/models/ReportDataSetQueryOrderByColumn.php
 lib/models/ReportDataSetResponse.php
 lib/models/ReportDataSetRow.php
 lib/models/ReportDataSetSchema.php
