@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **event_count** | **int** | Total event count for this variation | [optional] 
 **initiate_checkout_count** | **int** | Total initiate checkout count for this variation | [optional] 
 **order_count** | **int** | Total order count for this variation | [optional] 
+**order_ids** | **string[]** | Order ID thats converted on this variation | [optional] 
 **order_item_count** | **int** | Total order item count for this variation | [optional] 
 **page_view_count** | **int** | Total page view count for this variation | [optional] 
 **revenue** | **float** | Total revenue for this variation | [optional] 

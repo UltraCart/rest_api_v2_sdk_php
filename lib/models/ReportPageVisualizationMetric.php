@@ -178,6 +178,7 @@ class ReportPageVisualizationMetric implements ModelInterface, ArrayAccess
     const AGGREGATION_MIN = 'min';
     const AGGREGATION_MAX = 'max';
     const AGGREGATION_AVG = 'avg';
+    const AGGREGATION_NONE = 'none';
     
 
     
@@ -194,6 +195,7 @@ class ReportPageVisualizationMetric implements ModelInterface, ArrayAccess
             self::AGGREGATION_MIN,
             self::AGGREGATION_MAX,
             self::AGGREGATION_AVG,
+            self::AGGREGATION_NONE,
         ];
     }
     

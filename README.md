@@ -1440,6 +1440,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.162 | 09/28/2023 | dw bi - add aggregation constant of none |
 | 3.10.161 | 09/22/2023 | dwbi - new option to control order-by of result set |
 | 3.10.160 | 09/15/2023 | new item fields for additional barcodes |
 | 3.10.159 | 09/12/2023 | added oids to customer properties |
