@@ -181,6 +181,7 @@ class ReportPageVisualizationMetric implements ModelInterface, ArrayAccess, \Jso
     public const AGGREGATION_MIN = 'min';
     public const AGGREGATION_MAX = 'max';
     public const AGGREGATION_AVG = 'avg';
+    public const AGGREGATION_NONE = 'none';
 
     /**
      * Gets allowable values of the enum
@@ -195,6 +196,7 @@ class ReportPageVisualizationMetric implements ModelInterface, ArrayAccess, \Jso
             self::AGGREGATION_MIN,
             self::AGGREGATION_MAX,
             self::AGGREGATION_AVG,
+            self::AGGREGATION_NONE,
         ];
     }
 

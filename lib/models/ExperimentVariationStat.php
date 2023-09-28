@@ -64,6 +64,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'event_count' => 'int',
         'initiate_checkout_count' => 'int',
         'order_count' => 'int',
+        'order_ids' => 'string[]',
         'order_item_count' => 'int',
         'page_view_count' => 'int',
         'revenue' => 'float',
@@ -86,6 +87,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'event_count' => 'int32',
         'initiate_checkout_count' => 'int32',
         'order_count' => 'int32',
+        'order_ids' => null,
         'order_item_count' => 'int32',
         'page_view_count' => 'int32',
         'revenue' => null,
@@ -127,6 +129,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'event_count' => 'event_count',
         'initiate_checkout_count' => 'initiate_checkout_count',
         'order_count' => 'order_count',
+        'order_ids' => 'order_ids',
         'order_item_count' => 'order_item_count',
         'page_view_count' => 'page_view_count',
         'revenue' => 'revenue',
@@ -147,6 +150,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'event_count' => 'setEventCount',
         'initiate_checkout_count' => 'setInitiateCheckoutCount',
         'order_count' => 'setOrderCount',
+        'order_ids' => 'setOrderIds',
         'order_item_count' => 'setOrderItemCount',
         'page_view_count' => 'setPageViewCount',
         'revenue' => 'setRevenue',
@@ -167,6 +171,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         'event_count' => 'getEventCount',
         'initiate_checkout_count' => 'getInitiateCheckoutCount',
         'order_count' => 'getOrderCount',
+        'order_ids' => 'getOrderIds',
         'order_item_count' => 'getOrderItemCount',
         'page_view_count' => 'getPageViewCount',
         'revenue' => 'getRevenue',
@@ -238,6 +243,7 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['event_count'] = $data['event_count'] ?? null;
         $this->container['initiate_checkout_count'] = $data['initiate_checkout_count'] ?? null;
         $this->container['order_count'] = $data['order_count'] ?? null;
+        $this->container['order_ids'] = $data['order_ids'] ?? null;
         $this->container['order_item_count'] = $data['order_item_count'] ?? null;
         $this->container['page_view_count'] = $data['page_view_count'] ?? null;
         $this->container['revenue'] = $data['revenue'] ?? null;
@@ -410,6 +416,30 @@ class ExperimentVariationStat implements ModelInterface, ArrayAccess, \JsonSeria
     public function setOrderCount($order_count)
     {
         $this->container['order_count'] = $order_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets order_ids
+     *
+     * @return string[]|null
+     */
+    public function getOrderIds()
+    {
+        return $this->container['order_ids'];
+    }
+
+    /**
+     * Sets order_ids
+     *
+     * @param string[]|null $order_ids Order ID thats converted on this variation
+     *
+     * @return self
+     */
+    public function setOrderIds($order_ids)
+    {
+        $this->container['order_ids'] = $order_ids;
 
         return $this;
     }
