@@ -1440,6 +1440,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.163 | 10/16/2023 | CartSettingsPaymentCreditCard - add collect_credit_card_verification_number_minimum |
 | 3.10.162 | 09/28/2023 | dw bi - add aggregation constant of none |
 | 3.10.161 | 09/22/2023 | dwbi - new option to control order-by of result set |
 | 3.10.160 | 09/15/2023 | new item fields for additional barcodes |
