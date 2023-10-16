@@ -59,6 +59,7 @@ class CartSettingsPaymentCreditCard implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPITypes = [
         'collect_credit_card_verification_number' => 'bool',
+        'collect_credit_card_verification_number_minimum' => 'float',
         'credit_card_types' => 'string[]',
         'hosted_fields_shopping_cart_token' => 'string'
     ];
@@ -72,6 +73,7 @@ class CartSettingsPaymentCreditCard implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPIFormats = [
         'collect_credit_card_verification_number' => null,
+        'collect_credit_card_verification_number_minimum' => null,
         'credit_card_types' => null,
         'hosted_fields_shopping_cart_token' => null
     ];
@@ -104,6 +106,7 @@ class CartSettingsPaymentCreditCard implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $attributeMap = [
         'collect_credit_card_verification_number' => 'collect_credit_card_verification_number',
+        'collect_credit_card_verification_number_minimum' => 'collect_credit_card_verification_number_minimum',
         'credit_card_types' => 'credit_card_types',
         'hosted_fields_shopping_cart_token' => 'hosted_fields_shopping_cart_token'
     ];
@@ -115,6 +118,7 @@ class CartSettingsPaymentCreditCard implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $setters = [
         'collect_credit_card_verification_number' => 'setCollectCreditCardVerificationNumber',
+        'collect_credit_card_verification_number_minimum' => 'setCollectCreditCardVerificationNumberMinimum',
         'credit_card_types' => 'setCreditCardTypes',
         'hosted_fields_shopping_cart_token' => 'setHostedFieldsShoppingCartToken'
     ];
@@ -126,6 +130,7 @@ class CartSettingsPaymentCreditCard implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $getters = [
         'collect_credit_card_verification_number' => 'getCollectCreditCardVerificationNumber',
+        'collect_credit_card_verification_number_minimum' => 'getCollectCreditCardVerificationNumberMinimum',
         'credit_card_types' => 'getCreditCardTypes',
         'hosted_fields_shopping_cart_token' => 'getHostedFieldsShoppingCartToken'
     ];
@@ -188,6 +193,7 @@ class CartSettingsPaymentCreditCard implements ModelInterface, ArrayAccess, \Jso
     public function __construct(array $data = null)
     {
         $this->container['collect_credit_card_verification_number'] = $data['collect_credit_card_verification_number'] ?? null;
+        $this->container['collect_credit_card_verification_number_minimum'] = $data['collect_credit_card_verification_number_minimum'] ?? null;
         $this->container['credit_card_types'] = $data['credit_card_types'] ?? null;
         $this->container['hosted_fields_shopping_cart_token'] = $data['hosted_fields_shopping_cart_token'] ?? null;
     }
@@ -236,6 +242,30 @@ class CartSettingsPaymentCreditCard implements ModelInterface, ArrayAccess, \Jso
     public function setCollectCreditCardVerificationNumber($collect_credit_card_verification_number)
     {
         $this->container['collect_credit_card_verification_number'] = $collect_credit_card_verification_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets collect_credit_card_verification_number_minimum
+     *
+     * @return float|null
+     */
+    public function getCollectCreditCardVerificationNumberMinimum()
+    {
+        return $this->container['collect_credit_card_verification_number_minimum'];
+    }
+
+    /**
+     * Sets collect_credit_card_verification_number_minimum
+     *
+     * @param float|null $collect_credit_card_verification_number_minimum If this field is null or the total is greater than or equal to this value then collect the CVV2.
+     *
+     * @return self
+     */
+    public function setCollectCreditCardVerificationNumberMinimum($collect_credit_card_verification_number_minimum)
+    {
+        $this->container['collect_credit_card_verification_number_minimum'] = $collect_credit_card_verification_number_minimum;
 
         return $this;
     }
