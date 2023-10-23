@@ -5754,7 +5754,7 @@ class ConversationApi
     /**
      * Operation getConversationMultimediaUploadUrl
      *
-     * Get a presigned conersation multimedia upload URL
+     * Get a presigned conversation multimedia upload URL
      *
      * @param  string $extension extension (required)
      *
@@ -5771,7 +5771,7 @@ class ConversationApi
     /**
      * Operation getConversationMultimediaUploadUrlWithHttpInfo
      *
-     * Get a presigned conersation multimedia upload URL
+     * Get a presigned conversation multimedia upload URL
      *
      * @param  string $extension (required)
      *
@@ -5789,7 +5789,7 @@ class ConversationApi
     /**
      * Operation getConversationMultimediaUploadUrlWithHttpInfoRetry
      *
-     * Get a presigned conersation multimedia upload URL
+     * Get a presigned conversation multimedia upload URL
      *
      * @param boolean $retry should this method retry the call if a rate limit is triggered (required)
      * @param  string $extension (required)
@@ -6025,7 +6025,7 @@ class ConversationApi
     /**
      * Operation getConversationMultimediaUploadUrlAsync
      *
-     * Get a presigned conersation multimedia upload URL
+     * Get a presigned conversation multimedia upload URL
      *
      * @param  string $extension (required)
      *
@@ -6045,7 +6045,7 @@ class ConversationApi
     /**
      * Operation getConversationMultimediaUploadUrlAsyncWithHttpInfo
      *
-     * Get a presigned conersation multimedia upload URL
+     * Get a presigned conversation multimedia upload URL
      *
      * @param  string $extension (required)
      *
