@@ -506,6 +506,14 @@ Class | Method | HTTP request | Description
 *WebhookApi* | [**insertWebhook**](docs/Api/WebhookApi.md#insertwebhook) | **POST** /webhook/webhooks | Add a webhook
 *WebhookApi* | [**resendEvent**](docs/Api/WebhookApi.md#resendevent) | **POST** /webhook/webhooks/{webhookOid}/reflow/{eventName} | Resend events to the webhook endpoint.
 *WebhookApi* | [**updateWebhook**](docs/Api/WebhookApi.md#updatewebhook) | **PUT** /webhook/webhooks/{webhookOid} | Update a webhook
+*WorkflowApi* | [**getWorkflowAssignmentGroups**](docs/Api/WorkflowApi.md#getworkflowassignmentgroups) | **GET** /workflow/assignment_groups | Retrieve a list of groups that workflow tasks can be assigned to
+*WorkflowApi* | [**getWorkflowAssignmentUsers**](docs/Api/WorkflowApi.md#getworkflowassignmentusers) | **GET** /workflow/assignment_users | Retrieve a list of users that workflow tasks can be assigned to
+*WorkflowApi* | [**getWorkflowTask**](docs/Api/WorkflowApi.md#getworkflowtask) | **GET** /workflow/tasks/{task_uuid} | Retrieve a workflow task
+*WorkflowApi* | [**getWorkflowTaskAttachmentUploadUrl**](docs/Api/WorkflowApi.md#getworkflowtaskattachmentuploadurl) | **GET** /workflow/tasks/attachments/{extension} | Get a presigned workflow task attachment upload URL
+*WorkflowApi* | [**getWorkflowTaskByObjectType**](docs/Api/WorkflowApi.md#getworkflowtaskbyobjecttype) | **GET** /workflow/tasks/by/{object_type}/{object_id} | Retrieve a workflow task by object type and id
+*WorkflowApi* | [**getWorkflowTasks**](docs/Api/WorkflowApi.md#getworkflowtasks) | **POST** /workflow/tasks/search | Search workflow tasks
+*WorkflowApi* | [**insertWorkflowTask**](docs/Api/WorkflowApi.md#insertworkflowtask) | **POST** /workflow/tasks | Insert a workflow task
+*WorkflowApi* | [**updateWorkflowTask**](docs/Api/WorkflowApi.md#updateworkflowtask) | **PUT** /workflow/tasks/{task_uuid} | Update a workflow task
 
 ## Models
 
@@ -1290,6 +1298,19 @@ Class | Method | HTTP request | Description
 - [WebhookSampleRequestResponse](docs/Model/WebhookSampleRequestResponse.md)
 - [WebhooksResponse](docs/Model/WebhooksResponse.md)
 - [Weight](docs/Model/Weight.md)
+- [WorkflowAttachment](docs/Model/WorkflowAttachment.md)
+- [WorkflowAttachmentUploadUrl](docs/Model/WorkflowAttachmentUploadUrl.md)
+- [WorkflowAttachmentUploadUrlResponse](docs/Model/WorkflowAttachmentUploadUrlResponse.md)
+- [WorkflowGroup](docs/Model/WorkflowGroup.md)
+- [WorkflowGroupsResponse](docs/Model/WorkflowGroupsResponse.md)
+- [WorkflowNote](docs/Model/WorkflowNote.md)
+- [WorkflowTask](docs/Model/WorkflowTask.md)
+- [WorkflowTaskHistory](docs/Model/WorkflowTaskHistory.md)
+- [WorkflowTaskResponse](docs/Model/WorkflowTaskResponse.md)
+- [WorkflowTasksRequest](docs/Model/WorkflowTasksRequest.md)
+- [WorkflowTasksResponse](docs/Model/WorkflowTasksResponse.md)
+- [WorkflowUser](docs/Model/WorkflowUser.md)
+- [WorkflowUsersResponse](docs/Model/WorkflowUsersResponse.md)
 
 ## Authorization
 
@@ -1383,6 +1404,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.182 | 10/23/2023 | workflow tasks api |
 | 4.0.181 | 10/23/2023 | workflow tasks api |
 | 4.0.180 | 10/16/2023 | CartSettingsPaymentCreditCard - add collect_credit_card_verification_number_minimum |
 | 4.0.179 | 09/28/2023 | dw bi - add aggregation constant of none |
