@@ -217,7 +217,7 @@ Class | Method | HTTP request | Description
 *ConversationApi* | [**getConversationEngagement**](docs/Api/ConversationApi.md#getconversationengagement) | **GET** /conversation/engagements/{conversation_engagement_oid} | Retrieve an engagement
 *ConversationApi* | [**getConversationEngagements**](docs/Api/ConversationApi.md#getconversationengagements) | **GET** /conversation/engagements | Retrieve a list of engagements ordered by name
 *ConversationApi* | [**getConversationMessages**](docs/Api/ConversationApi.md#getconversationmessages) | **GET** /conversation/conversations/{conversation_uuid}/messages/{since} | Retrieve conversation messages
-*ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conersation multimedia upload URL
+*ConversationApi* | [**getConversationMultimediaUploadUrl**](docs/Api/ConversationApi.md#getconversationmultimediauploadurl) | **GET** /conversation/upload_url/{extension} | Get a presigned conversation multimedia upload URL
 *ConversationApi* | [**getConversationPermissions**](docs/Api/ConversationApi.md#getconversationpermissions) | **GET** /conversation/permissions | Retrieve conversation permissions
 *ConversationApi* | [**getConversationWebchatQueueStatuses**](docs/Api/ConversationApi.md#getconversationwebchatqueuestatuses) | **GET** /conversation/conversations/queues/statuses | Retrieve a conversation webchat queue statuses
 *ConversationApi* | [**getConversations**](docs/Api/ConversationApi.md#getconversations) | **GET** /conversation/conversations | Retrieve a list of conversation summaries newest to oldest
@@ -1419,6 +1419,8 @@ Class | Method | HTTP request | Description
  - **ultrabooks_write**: 2 of 2 required to use UltraBooks
  - **user_read**: Allows you to read user information.
  - **user_write**: Allows you to write user information.
+ - **workflow_read**: Allows you to read workflow information.
+ - **workflow_write**: Allows you to write workflow information.
 
 ## ultraCartSimpleApiKey
 
@@ -1440,6 +1442,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.164 | 10/23/2023 | workflow tasks api |
 | 3.10.163 | 10/16/2023 | CartSettingsPaymentCreditCard - add collect_credit_card_verification_number_minimum |
 | 3.10.162 | 09/28/2023 | dw bi - add aggregation constant of none |
 | 3.10.161 | 09/22/2023 | dwbi - new option to control order-by of result set |
