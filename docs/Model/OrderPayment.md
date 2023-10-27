@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **check** | [**\ultracart\v2\models\OrderPaymentCheck**](OrderPaymentCheck.md) |  | [optional] 
 **credit_card** | [**\ultracart\v2\models\OrderPaymentCreditCard**](OrderPaymentCreditCard.md) |  | [optional] 
 **echeck** | [**\ultracart\v2\models\OrderPaymentECheck**](OrderPaymentECheck.md) |  | [optional] 
+**health_benefit_card** | [**\ultracart\v2\models\OrderPaymentHealthBenefitCard**](OrderPaymentHealthBenefitCard.md) |  | [optional] 
 **hold_for_fraud_review** | **bool** | True if order has been held for fraud review | [optional] 
 **insurance** | [**\ultracart\v2\models\OrderPaymentInsurance**](OrderPaymentInsurance.md) |  | [optional] 
 **payment_dts** | **string** | Date/time that the payment was successfully processed, for new orders, this field is only considered if channel_partner.skip_payment_processing is true | [optional] 

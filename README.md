@@ -664,6 +664,7 @@ Class | Method | HTTP request | Description
  - [CartPaymentAmazon](docs/Model/CartPaymentAmazon.md)
  - [CartPaymentCheck](docs/Model/CartPaymentCheck.md)
  - [CartPaymentCreditCard](docs/Model/CartPaymentCreditCard.md)
+ - [CartPaymentHealthBenefitCard](docs/Model/CartPaymentHealthBenefitCard.md)
  - [CartPaymentPurchaseOrder](docs/Model/CartPaymentPurchaseOrder.md)
  - [CartProfileLoginRequest](docs/Model/CartProfileLoginRequest.md)
  - [CartProfileLoginResponse](docs/Model/CartProfileLoginResponse.md)
@@ -1184,6 +1185,7 @@ Class | Method | HTTP request | Description
  - [OrderPaymentCreditCardDualVaulted](docs/Model/OrderPaymentCreditCardDualVaulted.md)
  - [OrderPaymentCreditCardDualVaultedProperty](docs/Model/OrderPaymentCreditCardDualVaultedProperty.md)
  - [OrderPaymentECheck](docs/Model/OrderPaymentECheck.md)
+ - [OrderPaymentHealthBenefitCard](docs/Model/OrderPaymentHealthBenefitCard.md)
  - [OrderPaymentInsurance](docs/Model/OrderPaymentInsurance.md)
  - [OrderPaymentPurchaseOrder](docs/Model/OrderPaymentPurchaseOrder.md)
  - [OrderPaymentTransaction](docs/Model/OrderPaymentTransaction.md)
@@ -1463,6 +1465,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.166 | 10/27/2023 | workflow task object model refinement |
 | 3.10.165 | 10/23/2023 | workflow tasks api |
 | 3.10.164 | 10/23/2023 | workflow tasks api |
 | 3.10.163 | 10/16/2023 | CartSettingsPaymentCreditCard - add collect_credit_card_verification_number_minimum |

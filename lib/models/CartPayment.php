@@ -61,6 +61,7 @@ class CartPayment implements ModelInterface, ArrayAccess
         'amazon' => '\ultracart\v2\models\CartPaymentAmazon',
         'check' => '\ultracart\v2\models\CartPaymentCheck',
         'credit_card' => '\ultracart\v2\models\CartPaymentCreditCard',
+        'health_benefit_card' => '\ultracart\v2\models\CartPaymentHealthBenefitCard',
         'payment_method' => 'string',
         'purchase_order' => '\ultracart\v2\models\CartPaymentPurchaseOrder',
         'rtg_code' => 'string'
@@ -76,6 +77,7 @@ class CartPayment implements ModelInterface, ArrayAccess
         'amazon' => null,
         'check' => null,
         'credit_card' => null,
+        'health_benefit_card' => null,
         'payment_method' => null,
         'purchase_order' => null,
         'rtg_code' => null
@@ -112,6 +114,7 @@ class CartPayment implements ModelInterface, ArrayAccess
         'amazon' => 'amazon',
         'check' => 'check',
         'credit_card' => 'credit_card',
+        'health_benefit_card' => 'health_benefit_card',
         'payment_method' => 'payment_method',
         'purchase_order' => 'purchase_order',
         'rtg_code' => 'rtg_code'
@@ -127,6 +130,7 @@ class CartPayment implements ModelInterface, ArrayAccess
         'amazon' => 'setAmazon',
         'check' => 'setCheck',
         'credit_card' => 'setCreditCard',
+        'health_benefit_card' => 'setHealthBenefitCard',
         'payment_method' => 'setPaymentMethod',
         'purchase_order' => 'setPurchaseOrder',
         'rtg_code' => 'setRtgCode'
@@ -142,6 +146,7 @@ class CartPayment implements ModelInterface, ArrayAccess
         'amazon' => 'getAmazon',
         'check' => 'getCheck',
         'credit_card' => 'getCreditCard',
+        'health_benefit_card' => 'getHealthBenefitCard',
         'payment_method' => 'getPaymentMethod',
         'purchase_order' => 'getPurchaseOrder',
         'rtg_code' => 'getRtgCode'
@@ -211,6 +216,7 @@ class CartPayment implements ModelInterface, ArrayAccess
         $this->container['amazon'] = isset($data['amazon']) ? $data['amazon'] : null;
         $this->container['check'] = isset($data['check']) ? $data['check'] : null;
         $this->container['credit_card'] = isset($data['credit_card']) ? $data['credit_card'] : null;
+        $this->container['health_benefit_card'] = isset($data['health_benefit_card']) ? $data['health_benefit_card'] : null;
         $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
         $this->container['purchase_order'] = isset($data['purchase_order']) ? $data['purchase_order'] : null;
         $this->container['rtg_code'] = isset($data['rtg_code']) ? $data['rtg_code'] : null;
@@ -332,6 +338,30 @@ class CartPayment implements ModelInterface, ArrayAccess
     public function setCreditCard($credit_card)
     {
         $this->container['credit_card'] = $credit_card;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_benefit_card
+     *
+     * @return \ultracart\v2\models\CartPaymentHealthBenefitCard
+     */
+    public function getHealthBenefitCard()
+    {
+        return $this->container['health_benefit_card'];
+    }
+
+    /**
+     * Sets health_benefit_card
+     *
+     * @param \ultracart\v2\models\CartPaymentHealthBenefitCard $health_benefit_card health_benefit_card
+     *
+     * @return $this
+     */
+    public function setHealthBenefitCard($health_benefit_card)
+    {
+        $this->container['health_benefit_card'] = $health_benefit_card;
 
         return $this;
     }
