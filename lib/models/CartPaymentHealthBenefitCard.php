@@ -1,6 +1,6 @@
 <?php
 /**
- * CartPayment
+ * CartPaymentHealthBenefitCard
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \ultracart\v2\ObjectSerializer;
 
 /**
- * CartPayment Class Doc Comment
+ * CartPaymentHealthBenefitCard Class Doc Comment
  *
  * @category Class
  * @package  ultracart\v2
@@ -41,7 +41,7 @@ use \ultracart\v2\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
+class CartPaymentHealthBenefitCard implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CartPayment';
+    protected static $openAPIModelName = 'CartPaymentHealthBenefitCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,12 @@ class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'affirm' => '\ultracart\v2\models\CartPaymentAffirm',
-        'amazon' => '\ultracart\v2\models\CartPaymentAmazon',
-        'check' => '\ultracart\v2\models\CartPaymentCheck',
-        'credit_card' => '\ultracart\v2\models\CartPaymentCreditCard',
-        'health_benefit_card' => '\ultracart\v2\models\CartPaymentHealthBenefitCard',
-        'payment_method' => 'string',
-        'purchase_order' => '\ultracart\v2\models\CartPaymentPurchaseOrder',
-        'rtg_code' => 'string'
+        'health_benefit_card_expiration_month' => 'int',
+        'health_benefit_card_expiration_year' => 'int',
+        'health_benefit_card_number' => 'string',
+        'health_benefit_card_number_token' => 'string',
+        'health_benefit_card_verification_number' => 'string',
+        'health_benefit_card_verification_number_token' => 'string'
     ];
 
     /**
@@ -76,14 +74,12 @@ class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'affirm' => null,
-        'amazon' => null,
-        'check' => null,
-        'credit_card' => null,
-        'health_benefit_card' => null,
-        'payment_method' => null,
-        'purchase_order' => null,
-        'rtg_code' => null
+        'health_benefit_card_expiration_month' => 'int32',
+        'health_benefit_card_expiration_year' => 'int32',
+        'health_benefit_card_number' => null,
+        'health_benefit_card_number_token' => null,
+        'health_benefit_card_verification_number' => null,
+        'health_benefit_card_verification_number_token' => null
     ];
 
     /**
@@ -113,14 +109,12 @@ class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'affirm' => 'affirm',
-        'amazon' => 'amazon',
-        'check' => 'check',
-        'credit_card' => 'credit_card',
-        'health_benefit_card' => 'health_benefit_card',
-        'payment_method' => 'payment_method',
-        'purchase_order' => 'purchase_order',
-        'rtg_code' => 'rtg_code'
+        'health_benefit_card_expiration_month' => 'health_benefit_card_expiration_month',
+        'health_benefit_card_expiration_year' => 'health_benefit_card_expiration_year',
+        'health_benefit_card_number' => 'health_benefit_card_number',
+        'health_benefit_card_number_token' => 'health_benefit_card_number_token',
+        'health_benefit_card_verification_number' => 'health_benefit_card_verification_number',
+        'health_benefit_card_verification_number_token' => 'health_benefit_card_verification_number_token'
     ];
 
     /**
@@ -129,14 +123,12 @@ class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'affirm' => 'setAffirm',
-        'amazon' => 'setAmazon',
-        'check' => 'setCheck',
-        'credit_card' => 'setCreditCard',
-        'health_benefit_card' => 'setHealthBenefitCard',
-        'payment_method' => 'setPaymentMethod',
-        'purchase_order' => 'setPurchaseOrder',
-        'rtg_code' => 'setRtgCode'
+        'health_benefit_card_expiration_month' => 'setHealthBenefitCardExpirationMonth',
+        'health_benefit_card_expiration_year' => 'setHealthBenefitCardExpirationYear',
+        'health_benefit_card_number' => 'setHealthBenefitCardNumber',
+        'health_benefit_card_number_token' => 'setHealthBenefitCardNumberToken',
+        'health_benefit_card_verification_number' => 'setHealthBenefitCardVerificationNumber',
+        'health_benefit_card_verification_number_token' => 'setHealthBenefitCardVerificationNumberToken'
     ];
 
     /**
@@ -145,14 +137,12 @@ class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'affirm' => 'getAffirm',
-        'amazon' => 'getAmazon',
-        'check' => 'getCheck',
-        'credit_card' => 'getCreditCard',
-        'health_benefit_card' => 'getHealthBenefitCard',
-        'payment_method' => 'getPaymentMethod',
-        'purchase_order' => 'getPurchaseOrder',
-        'rtg_code' => 'getRtgCode'
+        'health_benefit_card_expiration_month' => 'getHealthBenefitCardExpirationMonth',
+        'health_benefit_card_expiration_year' => 'getHealthBenefitCardExpirationYear',
+        'health_benefit_card_number' => 'getHealthBenefitCardNumber',
+        'health_benefit_card_number_token' => 'getHealthBenefitCardNumberToken',
+        'health_benefit_card_verification_number' => 'getHealthBenefitCardVerificationNumber',
+        'health_benefit_card_verification_number_token' => 'getHealthBenefitCardVerificationNumberToken'
     ];
 
     /**
@@ -212,14 +202,12 @@ class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['affirm'] = $data['affirm'] ?? null;
-        $this->container['amazon'] = $data['amazon'] ?? null;
-        $this->container['check'] = $data['check'] ?? null;
-        $this->container['credit_card'] = $data['credit_card'] ?? null;
-        $this->container['health_benefit_card'] = $data['health_benefit_card'] ?? null;
-        $this->container['payment_method'] = $data['payment_method'] ?? null;
-        $this->container['purchase_order'] = $data['purchase_order'] ?? null;
-        $this->container['rtg_code'] = $data['rtg_code'] ?? null;
+        $this->container['health_benefit_card_expiration_month'] = $data['health_benefit_card_expiration_month'] ?? null;
+        $this->container['health_benefit_card_expiration_year'] = $data['health_benefit_card_expiration_year'] ?? null;
+        $this->container['health_benefit_card_number'] = $data['health_benefit_card_number'] ?? null;
+        $this->container['health_benefit_card_number_token'] = $data['health_benefit_card_number_token'] ?? null;
+        $this->container['health_benefit_card_verification_number'] = $data['health_benefit_card_verification_number'] ?? null;
+        $this->container['health_benefit_card_verification_number_token'] = $data['health_benefit_card_verification_number_token'] ?? null;
     }
 
     /**
@@ -247,193 +235,145 @@ class CartPayment implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets affirm
+     * Gets health_benefit_card_expiration_month
      *
-     * @return \ultracart\v2\models\CartPaymentAffirm|null
+     * @return int|null
      */
-    public function getAffirm()
+    public function getHealthBenefitCardExpirationMonth()
     {
-        return $this->container['affirm'];
+        return $this->container['health_benefit_card_expiration_month'];
     }
 
     /**
-     * Sets affirm
+     * Sets health_benefit_card_expiration_month
      *
-     * @param \ultracart\v2\models\CartPaymentAffirm|null $affirm affirm
+     * @param int|null $health_benefit_card_expiration_month Health benefit expiration month (1-12)
      *
      * @return self
      */
-    public function setAffirm($affirm)
+    public function setHealthBenefitCardExpirationMonth($health_benefit_card_expiration_month)
     {
-        $this->container['affirm'] = $affirm;
+        $this->container['health_benefit_card_expiration_month'] = $health_benefit_card_expiration_month;
 
         return $this;
     }
 
     /**
-     * Gets amazon
+     * Gets health_benefit_card_expiration_year
      *
-     * @return \ultracart\v2\models\CartPaymentAmazon|null
+     * @return int|null
      */
-    public function getAmazon()
+    public function getHealthBenefitCardExpirationYear()
     {
-        return $this->container['amazon'];
+        return $this->container['health_benefit_card_expiration_year'];
     }
 
     /**
-     * Sets amazon
+     * Sets health_benefit_card_expiration_year
      *
-     * @param \ultracart\v2\models\CartPaymentAmazon|null $amazon amazon
+     * @param int|null $health_benefit_card_expiration_year Health benefit card expiration year (four digit year)
      *
      * @return self
      */
-    public function setAmazon($amazon)
+    public function setHealthBenefitCardExpirationYear($health_benefit_card_expiration_year)
     {
-        $this->container['amazon'] = $amazon;
+        $this->container['health_benefit_card_expiration_year'] = $health_benefit_card_expiration_year;
 
         return $this;
     }
 
     /**
-     * Gets check
-     *
-     * @return \ultracart\v2\models\CartPaymentCheck|null
-     */
-    public function getCheck()
-    {
-        return $this->container['check'];
-    }
-
-    /**
-     * Sets check
-     *
-     * @param \ultracart\v2\models\CartPaymentCheck|null $check check
-     *
-     * @return self
-     */
-    public function setCheck($check)
-    {
-        $this->container['check'] = $check;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_card
-     *
-     * @return \ultracart\v2\models\CartPaymentCreditCard|null
-     */
-    public function getCreditCard()
-    {
-        return $this->container['credit_card'];
-    }
-
-    /**
-     * Sets credit_card
-     *
-     * @param \ultracart\v2\models\CartPaymentCreditCard|null $credit_card credit_card
-     *
-     * @return self
-     */
-    public function setCreditCard($credit_card)
-    {
-        $this->container['credit_card'] = $credit_card;
-
-        return $this;
-    }
-
-    /**
-     * Gets health_benefit_card
-     *
-     * @return \ultracart\v2\models\CartPaymentHealthBenefitCard|null
-     */
-    public function getHealthBenefitCard()
-    {
-        return $this->container['health_benefit_card'];
-    }
-
-    /**
-     * Sets health_benefit_card
-     *
-     * @param \ultracart\v2\models\CartPaymentHealthBenefitCard|null $health_benefit_card health_benefit_card
-     *
-     * @return self
-     */
-    public function setHealthBenefitCard($health_benefit_card)
-    {
-        $this->container['health_benefit_card'] = $health_benefit_card;
-
-        return $this;
-    }
-
-    /**
-     * Gets payment_method
+     * Gets health_benefit_card_number
      *
      * @return string|null
      */
-    public function getPaymentMethod()
+    public function getHealthBenefitCardNumber()
     {
-        return $this->container['payment_method'];
+        return $this->container['health_benefit_card_number'];
     }
 
     /**
-     * Sets payment_method
+     * Sets health_benefit_card_number
      *
-     * @param string|null $payment_method Payment method
+     * @param string|null $health_benefit_card_number Health benefit card number (masked to the last 4)
      *
      * @return self
      */
-    public function setPaymentMethod($payment_method)
+    public function setHealthBenefitCardNumber($health_benefit_card_number)
     {
-        $this->container['payment_method'] = $payment_method;
+        $this->container['health_benefit_card_number'] = $health_benefit_card_number;
 
         return $this;
     }
 
     /**
-     * Gets purchase_order
-     *
-     * @return \ultracart\v2\models\CartPaymentPurchaseOrder|null
-     */
-    public function getPurchaseOrder()
-    {
-        return $this->container['purchase_order'];
-    }
-
-    /**
-     * Sets purchase_order
-     *
-     * @param \ultracart\v2\models\CartPaymentPurchaseOrder|null $purchase_order purchase_order
-     *
-     * @return self
-     */
-    public function setPurchaseOrder($purchase_order)
-    {
-        $this->container['purchase_order'] = $purchase_order;
-
-        return $this;
-    }
-
-    /**
-     * Gets rtg_code
+     * Gets health_benefit_card_number_token
      *
      * @return string|null
      */
-    public function getRtgCode()
+    public function getHealthBenefitCardNumberToken()
     {
-        return $this->container['rtg_code'];
+        return $this->container['health_benefit_card_number_token'];
     }
 
     /**
-     * Sets rtg_code
+     * Sets health_benefit_card_number_token
      *
-     * @param string|null $rtg_code Rotating transaction gateway code
+     * @param string|null $health_benefit_card_number_token Hosted field token for the card number
      *
      * @return self
      */
-    public function setRtgCode($rtg_code)
+    public function setHealthBenefitCardNumberToken($health_benefit_card_number_token)
     {
-        $this->container['rtg_code'] = $rtg_code;
+        $this->container['health_benefit_card_number_token'] = $health_benefit_card_number_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_benefit_card_verification_number
+     *
+     * @return string|null
+     */
+    public function getHealthBenefitCardVerificationNumber()
+    {
+        return $this->container['health_benefit_card_verification_number'];
+    }
+
+    /**
+     * Sets health_benefit_card_verification_number
+     *
+     * @param string|null $health_benefit_card_verification_number Health benefit card verification number (masked)
+     *
+     * @return self
+     */
+    public function setHealthBenefitCardVerificationNumber($health_benefit_card_verification_number)
+    {
+        $this->container['health_benefit_card_verification_number'] = $health_benefit_card_verification_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_benefit_card_verification_number_token
+     *
+     * @return string|null
+     */
+    public function getHealthBenefitCardVerificationNumberToken()
+    {
+        return $this->container['health_benefit_card_verification_number_token'];
+    }
+
+    /**
+     * Sets health_benefit_card_verification_number_token
+     *
+     * @param string|null $health_benefit_card_verification_number_token Hosted field token for the health benefit card verification number
+     *
+     * @return self
+     */
+    public function setHealthBenefitCardVerificationNumberToken($health_benefit_card_verification_number_token)
+    {
+        $this->container['health_benefit_card_verification_number_token'] = $health_benefit_card_verification_number_token;
 
         return $this;
     }

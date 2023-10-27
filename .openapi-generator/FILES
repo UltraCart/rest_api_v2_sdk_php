@@ -98,6 +98,7 @@ docs/Model/CartPaymentAffirm.md
 docs/Model/CartPaymentAmazon.md
 docs/Model/CartPaymentCheck.md
 docs/Model/CartPaymentCreditCard.md
+docs/Model/CartPaymentHealthBenefitCard.md
 docs/Model/CartPaymentPurchaseOrder.md
 docs/Model/CartProfileLoginRequest.md
 docs/Model/CartProfileLoginResponse.md
@@ -617,6 +618,7 @@ docs/Model/OrderPaymentCreditCard.md
 docs/Model/OrderPaymentCreditCardDualVaulted.md
 docs/Model/OrderPaymentCreditCardDualVaultedProperty.md
 docs/Model/OrderPaymentECheck.md
+docs/Model/OrderPaymentHealthBenefitCard.md
 docs/Model/OrderPaymentInsurance.md
 docs/Model/OrderPaymentPurchaseOrder.md
 docs/Model/OrderPaymentTransaction.md
@@ -918,6 +920,7 @@ lib/models/CartPaymentAffirm.php
 lib/models/CartPaymentAmazon.php
 lib/models/CartPaymentCheck.php
 lib/models/CartPaymentCreditCard.php
+lib/models/CartPaymentHealthBenefitCard.php
 lib/models/CartPaymentPurchaseOrder.php
 lib/models/CartProfileLoginRequest.php
 lib/models/CartProfileLoginResponse.php
@@ -1438,6 +1441,7 @@ lib/models/OrderPaymentCreditCard.php
 lib/models/OrderPaymentCreditCardDualVaulted.php
 lib/models/OrderPaymentCreditCardDualVaultedProperty.php
 lib/models/OrderPaymentECheck.php
+lib/models/OrderPaymentHealthBenefitCard.php
 lib/models/OrderPaymentInsurance.php
 lib/models/OrderPaymentPurchaseOrder.php
 lib/models/OrderPaymentTransaction.php

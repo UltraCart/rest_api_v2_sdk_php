@@ -61,6 +61,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'check' => '\ultracart\v2\models\OrderPaymentCheck',
         'credit_card' => '\ultracart\v2\models\OrderPaymentCreditCard',
         'echeck' => '\ultracart\v2\models\OrderPaymentECheck',
+        'health_benefit_card' => '\ultracart\v2\models\OrderPaymentHealthBenefitCard',
         'hold_for_fraud_review' => 'bool',
         'insurance' => '\ultracart\v2\models\OrderPaymentInsurance',
         'payment_dts' => 'string',
@@ -89,6 +90,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'check' => null,
         'credit_card' => null,
         'echeck' => null,
+        'health_benefit_card' => null,
         'hold_for_fraud_review' => null,
         'insurance' => null,
         'payment_dts' => 'dateTime',
@@ -136,6 +138,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'check' => 'check',
         'credit_card' => 'credit_card',
         'echeck' => 'echeck',
+        'health_benefit_card' => 'health_benefit_card',
         'hold_for_fraud_review' => 'hold_for_fraud_review',
         'insurance' => 'insurance',
         'payment_dts' => 'payment_dts',
@@ -162,6 +165,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'check' => 'setCheck',
         'credit_card' => 'setCreditCard',
         'echeck' => 'setEcheck',
+        'health_benefit_card' => 'setHealthBenefitCard',
         'hold_for_fraud_review' => 'setHoldForFraudReview',
         'insurance' => 'setInsurance',
         'payment_dts' => 'setPaymentDts',
@@ -188,6 +192,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         'check' => 'getCheck',
         'credit_card' => 'getCreditCard',
         'echeck' => 'getEcheck',
+        'health_benefit_card' => 'getHealthBenefitCard',
         'hold_for_fraud_review' => 'getHoldForFraudReview',
         'insurance' => 'getInsurance',
         'payment_dts' => 'getPaymentDts',
@@ -270,6 +275,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     public const PAYMENT_METHOD_VENMO = 'Venmo';
     public const PAYMENT_METHOD_APPLE_PAY = 'Apple Pay';
     public const PAYMENT_METHOD_GOOGLE_PAY = 'Google Pay';
+    public const PAYMENT_METHOD_HEALTH_BENEFIT_CARD = 'Health Benefit Card';
     public const PAYMENT_STATUS_UNPROCESSED = 'Unprocessed';
     public const PAYMENT_STATUS_AUTHORIZED = 'Authorized';
     public const PAYMENT_STATUS_CAPTURE_FAILED = 'Capture Failed';
@@ -311,6 +317,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
             self::PAYMENT_METHOD_VENMO,
             self::PAYMENT_METHOD_APPLE_PAY,
             self::PAYMENT_METHOD_GOOGLE_PAY,
+            self::PAYMENT_METHOD_HEALTH_BENEFIT_CARD,
         ];
     }
 
@@ -351,6 +358,7 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['check'] = $data['check'] ?? null;
         $this->container['credit_card'] = $data['credit_card'] ?? null;
         $this->container['echeck'] = $data['echeck'] ?? null;
+        $this->container['health_benefit_card'] = $data['health_benefit_card'] ?? null;
         $this->container['hold_for_fraud_review'] = $data['hold_for_fraud_review'] ?? null;
         $this->container['insurance'] = $data['insurance'] ?? null;
         $this->container['payment_dts'] = $data['payment_dts'] ?? null;
@@ -478,6 +486,30 @@ class OrderPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEcheck($echeck)
     {
         $this->container['echeck'] = $echeck;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_benefit_card
+     *
+     * @return \ultracart\v2\models\OrderPaymentHealthBenefitCard|null
+     */
+    public function getHealthBenefitCard()
+    {
+        return $this->container['health_benefit_card'];
+    }
+
+    /**
+     * Sets health_benefit_card
+     *
+     * @param \ultracart\v2\models\OrderPaymentHealthBenefitCard|null $health_benefit_card health_benefit_card
+     *
+     * @return self
+     */
+    public function setHealthBenefitCard($health_benefit_card)
+    {
+        $this->container['health_benefit_card'] = $health_benefit_card;
 
         return $this;
     }

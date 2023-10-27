@@ -64,7 +64,8 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'created_by' => '\ultracart\v2\models\WorkflowUser',
         'created_dts_begin' => 'string',
         'created_dts_end' => 'string',
-        'delay_until_dts' => 'string',
+        'delay_until_dts_begin' => 'string',
+        'delay_until_dts_end' => 'string',
         'due_dts_begin' => 'string',
         'due_dts_end' => 'string',
         'last_update_dts_begin' => 'string',
@@ -90,7 +91,8 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'created_by' => null,
         'created_dts_begin' => 'dateTime',
         'created_dts_end' => 'dateTime',
-        'delay_until_dts' => 'dateTime',
+        'delay_until_dts_begin' => 'dateTime',
+        'delay_until_dts_end' => 'dateTime',
         'due_dts_begin' => 'dateTime',
         'due_dts_end' => 'dateTime',
         'last_update_dts_begin' => 'dateTime',
@@ -135,7 +137,8 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'created_by' => 'created_by',
         'created_dts_begin' => 'created_dts_begin',
         'created_dts_end' => 'created_dts_end',
-        'delay_until_dts' => 'delay_until_dts',
+        'delay_until_dts_begin' => 'delay_until_dts_begin',
+        'delay_until_dts_end' => 'delay_until_dts_end',
         'due_dts_begin' => 'due_dts_begin',
         'due_dts_end' => 'due_dts_end',
         'last_update_dts_begin' => 'last_update_dts_begin',
@@ -159,7 +162,8 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'created_by' => 'setCreatedBy',
         'created_dts_begin' => 'setCreatedDtsBegin',
         'created_dts_end' => 'setCreatedDtsEnd',
-        'delay_until_dts' => 'setDelayUntilDts',
+        'delay_until_dts_begin' => 'setDelayUntilDtsBegin',
+        'delay_until_dts_end' => 'setDelayUntilDtsEnd',
         'due_dts_begin' => 'setDueDtsBegin',
         'due_dts_end' => 'setDueDtsEnd',
         'last_update_dts_begin' => 'setLastUpdateDtsBegin',
@@ -183,7 +187,8 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'created_by' => 'getCreatedBy',
         'created_dts_begin' => 'getCreatedDtsBegin',
         'created_dts_end' => 'getCreatedDtsEnd',
-        'delay_until_dts' => 'getDelayUntilDts',
+        'delay_until_dts_begin' => 'getDelayUntilDtsBegin',
+        'delay_until_dts_end' => 'getDelayUntilDtsEnd',
         'due_dts_begin' => 'getDueDtsBegin',
         'due_dts_end' => 'getDueDtsEnd',
         'last_update_dts_begin' => 'getLastUpdateDtsBegin',
@@ -315,7 +320,8 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['created_by'] = $data['created_by'] ?? null;
         $this->container['created_dts_begin'] = $data['created_dts_begin'] ?? null;
         $this->container['created_dts_end'] = $data['created_dts_end'] ?? null;
-        $this->container['delay_until_dts'] = $data['delay_until_dts'] ?? null;
+        $this->container['delay_until_dts_begin'] = $data['delay_until_dts_begin'] ?? null;
+        $this->container['delay_until_dts_end'] = $data['delay_until_dts_end'] ?? null;
         $this->container['due_dts_begin'] = $data['due_dts_begin'] ?? null;
         $this->container['due_dts_end'] = $data['due_dts_end'] ?? null;
         $this->container['last_update_dts_begin'] = $data['last_update_dts_begin'] ?? null;
@@ -523,25 +529,49 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets delay_until_dts
+     * Gets delay_until_dts_begin
      *
      * @return string|null
      */
-    public function getDelayUntilDts()
+    public function getDelayUntilDtsBegin()
     {
-        return $this->container['delay_until_dts'];
+        return $this->container['delay_until_dts_begin'];
     }
 
     /**
-     * Sets delay_until_dts
+     * Sets delay_until_dts_begin
      *
-     * @param string|null $delay_until_dts Date/time that the workflow task should delay until
+     * @param string|null $delay_until_dts_begin Date/time that the workflow task should delay until
      *
      * @return self
      */
-    public function setDelayUntilDts($delay_until_dts)
+    public function setDelayUntilDtsBegin($delay_until_dts_begin)
     {
-        $this->container['delay_until_dts'] = $delay_until_dts;
+        $this->container['delay_until_dts_begin'] = $delay_until_dts_begin;
+
+        return $this;
+    }
+
+    /**
+     * Gets delay_until_dts_end
+     *
+     * @return string|null
+     */
+    public function getDelayUntilDtsEnd()
+    {
+        return $this->container['delay_until_dts_end'];
+    }
+
+    /**
+     * Sets delay_until_dts_end
+     *
+     * @param string|null $delay_until_dts_end Date/time that the workflow task should delay until
+     *
+     * @return self
+     */
+    public function setDelayUntilDtsEnd($delay_until_dts_end)
+    {
+        $this->container['delay_until_dts_end'] = $delay_until_dts_end;
 
         return $this;
     }
