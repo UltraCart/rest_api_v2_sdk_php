@@ -1465,6 +1465,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.167 | 10/30/2023 | cart/order fields for health benefit card values in summary expansion objects |
 | 3.10.166 | 10/27/2023 | workflow task object model refinement |
 | 3.10.165 | 10/23/2023 | workflow tasks api |
 | 3.10.164 | 10/23/2023 | workflow tasks api |

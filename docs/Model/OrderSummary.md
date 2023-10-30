@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **actual_payment_processing** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **actual_shipping** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **arbitrary_shipping_handling_total** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
+**health_benefit_card_amount** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
+**health_benefit_card_refunded** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **internal_gift_certificate_amount** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **internal_gift_certificate_refunded** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
 **other_refunded** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional] 
