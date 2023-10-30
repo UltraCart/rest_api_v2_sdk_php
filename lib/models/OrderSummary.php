@@ -62,6 +62,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_payment_processing' => '\ultracart\v2\models\Currency',
         'actual_shipping' => '\ultracart\v2\models\Currency',
         'arbitrary_shipping_handling_total' => '\ultracart\v2\models\Currency',
+        'health_benefit_card_amount' => '\ultracart\v2\models\Currency',
+        'health_benefit_card_refunded' => '\ultracart\v2\models\Currency',
         'internal_gift_certificate_amount' => '\ultracart\v2\models\Currency',
         'internal_gift_certificate_refunded' => '\ultracart\v2\models\Currency',
         'other_refunded' => '\ultracart\v2\models\Currency',
@@ -92,6 +94,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_payment_processing' => null,
         'actual_shipping' => null,
         'arbitrary_shipping_handling_total' => null,
+        'health_benefit_card_amount' => null,
+        'health_benefit_card_refunded' => null,
         'internal_gift_certificate_amount' => null,
         'internal_gift_certificate_refunded' => null,
         'other_refunded' => null,
@@ -141,6 +145,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_payment_processing' => 'actual_payment_processing',
         'actual_shipping' => 'actual_shipping',
         'arbitrary_shipping_handling_total' => 'arbitrary_shipping_handling_total',
+        'health_benefit_card_amount' => 'health_benefit_card_amount',
+        'health_benefit_card_refunded' => 'health_benefit_card_refunded',
         'internal_gift_certificate_amount' => 'internal_gift_certificate_amount',
         'internal_gift_certificate_refunded' => 'internal_gift_certificate_refunded',
         'other_refunded' => 'other_refunded',
@@ -169,6 +175,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_payment_processing' => 'setActualPaymentProcessing',
         'actual_shipping' => 'setActualShipping',
         'arbitrary_shipping_handling_total' => 'setArbitraryShippingHandlingTotal',
+        'health_benefit_card_amount' => 'setHealthBenefitCardAmount',
+        'health_benefit_card_refunded' => 'setHealthBenefitCardRefunded',
         'internal_gift_certificate_amount' => 'setInternalGiftCertificateAmount',
         'internal_gift_certificate_refunded' => 'setInternalGiftCertificateRefunded',
         'other_refunded' => 'setOtherRefunded',
@@ -197,6 +205,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'actual_payment_processing' => 'getActualPaymentProcessing',
         'actual_shipping' => 'getActualShipping',
         'arbitrary_shipping_handling_total' => 'getArbitraryShippingHandlingTotal',
+        'health_benefit_card_amount' => 'getHealthBenefitCardAmount',
+        'health_benefit_card_refunded' => 'getHealthBenefitCardRefunded',
         'internal_gift_certificate_amount' => 'getInternalGiftCertificateAmount',
         'internal_gift_certificate_refunded' => 'getInternalGiftCertificateRefunded',
         'other_refunded' => 'getOtherRefunded',
@@ -276,6 +286,8 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['actual_payment_processing'] = $data['actual_payment_processing'] ?? null;
         $this->container['actual_shipping'] = $data['actual_shipping'] ?? null;
         $this->container['arbitrary_shipping_handling_total'] = $data['arbitrary_shipping_handling_total'] ?? null;
+        $this->container['health_benefit_card_amount'] = $data['health_benefit_card_amount'] ?? null;
+        $this->container['health_benefit_card_refunded'] = $data['health_benefit_card_refunded'] ?? null;
         $this->container['internal_gift_certificate_amount'] = $data['internal_gift_certificate_amount'] ?? null;
         $this->container['internal_gift_certificate_refunded'] = $data['internal_gift_certificate_refunded'] ?? null;
         $this->container['other_refunded'] = $data['other_refunded'] ?? null;
@@ -410,6 +422,54 @@ class OrderSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setArbitraryShippingHandlingTotal($arbitrary_shipping_handling_total)
     {
         $this->container['arbitrary_shipping_handling_total'] = $arbitrary_shipping_handling_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_benefit_card_amount
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getHealthBenefitCardAmount()
+    {
+        return $this->container['health_benefit_card_amount'];
+    }
+
+    /**
+     * Sets health_benefit_card_amount
+     *
+     * @param \ultracart\v2\models\Currency|null $health_benefit_card_amount health_benefit_card_amount
+     *
+     * @return self
+     */
+    public function setHealthBenefitCardAmount($health_benefit_card_amount)
+    {
+        $this->container['health_benefit_card_amount'] = $health_benefit_card_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_benefit_card_refunded
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getHealthBenefitCardRefunded()
+    {
+        return $this->container['health_benefit_card_refunded'];
+    }
+
+    /**
+     * Sets health_benefit_card_refunded
+     *
+     * @param \ultracart\v2\models\Currency|null $health_benefit_card_refunded health_benefit_card_refunded
+     *
+     * @return self
+     */
+    public function setHealthBenefitCardRefunded($health_benefit_card_refunded)
+    {
+        $this->container['health_benefit_card_refunded'] = $health_benefit_card_refunded;
 
         return $this;
     }

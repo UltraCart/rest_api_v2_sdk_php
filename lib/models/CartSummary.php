@@ -62,6 +62,8 @@ class CartSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_tax' => '\ultracart\v2\models\Currency',
         'arbitrary_tax_rate' => '\ultracart\v2\models\Currency',
         'arbitrary_taxable_subtotal' => '\ultracart\v2\models\Currency',
+        'health_benefit_card_amount' => '\ultracart\v2\models\Currency',
+        'internal_gift_certificate_amount' => '\ultracart\v2\models\Currency',
         'shipping_handling' => '\ultracart\v2\models\Currency',
         'shipping_handling_discount' => '\ultracart\v2\models\Currency',
         'shipping_handling_with_discount' => '\ultracart\v2\models\Currency',
@@ -88,6 +90,8 @@ class CartSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_tax' => null,
         'arbitrary_tax_rate' => null,
         'arbitrary_taxable_subtotal' => null,
+        'health_benefit_card_amount' => null,
+        'internal_gift_certificate_amount' => null,
         'shipping_handling' => null,
         'shipping_handling_discount' => null,
         'shipping_handling_with_discount' => null,
@@ -133,6 +137,8 @@ class CartSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_tax' => 'arbitrary_tax',
         'arbitrary_tax_rate' => 'arbitrary_tax_rate',
         'arbitrary_taxable_subtotal' => 'arbitrary_taxable_subtotal',
+        'health_benefit_card_amount' => 'health_benefit_card_amount',
+        'internal_gift_certificate_amount' => 'internal_gift_certificate_amount',
         'shipping_handling' => 'shipping_handling',
         'shipping_handling_discount' => 'shipping_handling_discount',
         'shipping_handling_with_discount' => 'shipping_handling_with_discount',
@@ -157,6 +163,8 @@ class CartSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_tax' => 'setArbitraryTax',
         'arbitrary_tax_rate' => 'setArbitraryTaxRate',
         'arbitrary_taxable_subtotal' => 'setArbitraryTaxableSubtotal',
+        'health_benefit_card_amount' => 'setHealthBenefitCardAmount',
+        'internal_gift_certificate_amount' => 'setInternalGiftCertificateAmount',
         'shipping_handling' => 'setShippingHandling',
         'shipping_handling_discount' => 'setShippingHandlingDiscount',
         'shipping_handling_with_discount' => 'setShippingHandlingWithDiscount',
@@ -181,6 +189,8 @@ class CartSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'arbitrary_tax' => 'getArbitraryTax',
         'arbitrary_tax_rate' => 'getArbitraryTaxRate',
         'arbitrary_taxable_subtotal' => 'getArbitraryTaxableSubtotal',
+        'health_benefit_card_amount' => 'getHealthBenefitCardAmount',
+        'internal_gift_certificate_amount' => 'getInternalGiftCertificateAmount',
         'shipping_handling' => 'getShippingHandling',
         'shipping_handling_discount' => 'getShippingHandlingDiscount',
         'shipping_handling_with_discount' => 'getShippingHandlingWithDiscount',
@@ -256,6 +266,8 @@ class CartSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['arbitrary_tax'] = $data['arbitrary_tax'] ?? null;
         $this->container['arbitrary_tax_rate'] = $data['arbitrary_tax_rate'] ?? null;
         $this->container['arbitrary_taxable_subtotal'] = $data['arbitrary_taxable_subtotal'] ?? null;
+        $this->container['health_benefit_card_amount'] = $data['health_benefit_card_amount'] ?? null;
+        $this->container['internal_gift_certificate_amount'] = $data['internal_gift_certificate_amount'] ?? null;
         $this->container['shipping_handling'] = $data['shipping_handling'] ?? null;
         $this->container['shipping_handling_discount'] = $data['shipping_handling_discount'] ?? null;
         $this->container['shipping_handling_with_discount'] = $data['shipping_handling_with_discount'] ?? null;
@@ -386,6 +398,54 @@ class CartSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setArbitraryTaxableSubtotal($arbitrary_taxable_subtotal)
     {
         $this->container['arbitrary_taxable_subtotal'] = $arbitrary_taxable_subtotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets health_benefit_card_amount
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getHealthBenefitCardAmount()
+    {
+        return $this->container['health_benefit_card_amount'];
+    }
+
+    /**
+     * Sets health_benefit_card_amount
+     *
+     * @param \ultracart\v2\models\Currency|null $health_benefit_card_amount health_benefit_card_amount
+     *
+     * @return self
+     */
+    public function setHealthBenefitCardAmount($health_benefit_card_amount)
+    {
+        $this->container['health_benefit_card_amount'] = $health_benefit_card_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets internal_gift_certificate_amount
+     *
+     * @return \ultracart\v2\models\Currency|null
+     */
+    public function getInternalGiftCertificateAmount()
+    {
+        return $this->container['internal_gift_certificate_amount'];
+    }
+
+    /**
+     * Sets internal_gift_certificate_amount
+     *
+     * @param \ultracart\v2\models\Currency|null $internal_gift_certificate_amount internal_gift_certificate_amount
+     *
+     * @return self
+     */
+    public function setInternalGiftCertificateAmount($internal_gift_certificate_amount)
+    {
+        $this->container['internal_gift_certificate_amount'] = $internal_gift_certificate_amount;
 
         return $this;
     }
