@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **customer_profile_oid** | **int** | Customer profile object identifier | [optional]
 **dhl_account_number** | **string** | DHL account number | [optional]
 **dhl_duty_account_number** | **string** | DHL duty account number | [optional]
+**do_not_send_mail** | **bool** | Do not send mail (null will not update) | [optional]
 **edi** | [**\ultracart\v2\models\CustomerEDI**](CustomerEDI.md) |  | [optional]
 **email** | **string** | Email address of this customer profile | [optional]
 **exempt_shipping_handling_charge** | **bool** | Exempt shipping handling charge | [optional]

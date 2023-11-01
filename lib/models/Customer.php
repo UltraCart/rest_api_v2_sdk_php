@@ -77,6 +77,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'int',
         'dhl_account_number' => 'string',
         'dhl_duty_account_number' => 'string',
+        'do_not_send_mail' => 'bool',
         'edi' => '\ultracart\v2\models\CustomerEDI',
         'email' => 'string',
         'exempt_shipping_handling_charge' => 'bool',
@@ -150,6 +151,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'int32',
         'dhl_account_number' => null,
         'dhl_duty_account_number' => null,
+        'do_not_send_mail' => null,
         'edi' => null,
         'email' => null,
         'exempt_shipping_handling_charge' => null,
@@ -242,6 +244,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'customer_profile_oid',
         'dhl_account_number' => 'dhl_account_number',
         'dhl_duty_account_number' => 'dhl_duty_account_number',
+        'do_not_send_mail' => 'do_not_send_mail',
         'edi' => 'edi',
         'email' => 'email',
         'exempt_shipping_handling_charge' => 'exempt_shipping_handling_charge',
@@ -313,6 +316,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'setCustomerProfileOid',
         'dhl_account_number' => 'setDhlAccountNumber',
         'dhl_duty_account_number' => 'setDhlDutyAccountNumber',
+        'do_not_send_mail' => 'setDoNotSendMail',
         'edi' => 'setEdi',
         'email' => 'setEmail',
         'exempt_shipping_handling_charge' => 'setExemptShippingHandlingCharge',
@@ -384,6 +388,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         'customer_profile_oid' => 'getCustomerProfileOid',
         'dhl_account_number' => 'getDhlAccountNumber',
         'dhl_duty_account_number' => 'getDhlDutyAccountNumber',
+        'do_not_send_mail' => 'getDoNotSendMail',
         'edi' => 'getEdi',
         'email' => 'getEmail',
         'exempt_shipping_handling_charge' => 'getExemptShippingHandlingCharge',
@@ -506,6 +511,7 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['customer_profile_oid'] = $data['customer_profile_oid'] ?? null;
         $this->container['dhl_account_number'] = $data['dhl_account_number'] ?? null;
         $this->container['dhl_duty_account_number'] = $data['dhl_duty_account_number'] ?? null;
+        $this->container['do_not_send_mail'] = $data['do_not_send_mail'] ?? null;
         $this->container['edi'] = $data['edi'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['exempt_shipping_handling_charge'] = $data['exempt_shipping_handling_charge'] ?? null;
@@ -1084,6 +1090,30 @@ class Customer implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['dhl_duty_account_number'] = $dhl_duty_account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets do_not_send_mail
+     *
+     * @return bool|null
+     */
+    public function getDoNotSendMail()
+    {
+        return $this->container['do_not_send_mail'];
+    }
+
+    /**
+     * Sets do_not_send_mail
+     *
+     * @param bool|null $do_not_send_mail Do not send mail (null will not update)
+     *
+     * @return self
+     */
+    public function setDoNotSendMail($do_not_send_mail)
+    {
+        $this->container['do_not_send_mail'] = $do_not_send_mail;
 
         return $this;
     }
