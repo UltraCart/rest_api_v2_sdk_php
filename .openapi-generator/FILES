@@ -313,6 +313,9 @@ docs/Model/CustomerStoreCreditLedgerEntry.md
 docs/Model/CustomerStoreCreditResponse.md
 docs/Model/CustomerTag.md
 docs/Model/CustomerTaxCodes.md
+docs/Model/CustomerWishListItem.md
+docs/Model/CustomerWishListItemResponse.md
+docs/Model/CustomerWishListItemsResponse.md
 docs/Model/CustomersResponse.md
 docs/Model/DataTablesServerSideResponse.md
 docs/Model/Distance.md
@@ -1135,6 +1138,9 @@ lib/models/CustomerStoreCreditLedgerEntry.php
 lib/models/CustomerStoreCreditResponse.php
 lib/models/CustomerTag.php
 lib/models/CustomerTaxCodes.php
+lib/models/CustomerWishListItem.php
+lib/models/CustomerWishListItemResponse.php
+lib/models/CustomerWishListItemsResponse.php
 lib/models/CustomersResponse.php
 lib/models/DataTablesServerSideResponse.php
 lib/models/Distance.php

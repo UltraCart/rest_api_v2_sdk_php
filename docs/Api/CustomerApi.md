@@ -7,21 +7,26 @@ Method | HTTP request | Description
 [**addCustomerStoreCredit()**](CustomerApi.md#addCustomerStoreCredit) | **POST** /customer/customers/{customer_profile_oid}/store_credit | Adds store credit to a customer
 [**adjustInternalCertificate()**](CustomerApi.md#adjustInternalCertificate) | **POST** /customer/customers/{customer_profile_oid}/adjust_cashback_balance | Updates the cashback balance for a customer by updating the internal gift certificate used, creating the gift certificate if needed.
 [**deleteCustomer()**](CustomerApi.md#deleteCustomer) | **DELETE** /customer/customers/{customer_profile_oid} | Delete a customer
+[**deleteWishListItem()**](CustomerApi.md#deleteWishListItem) | **DELETE** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Delete a customer wishlist item
 [**getCustomer()**](CustomerApi.md#getCustomer) | **GET** /customer/customers/{customer_profile_oid} | Retrieve a customer
 [**getCustomerByEmail()**](CustomerApi.md#getCustomerByEmail) | **GET** /customer/customers/by_email/{email} | Retrieve a customer by Email
 [**getCustomerEditorValues()**](CustomerApi.md#getCustomerEditorValues) | **GET** /customer/editor_values | Retrieve values needed for a customer profile editor
 [**getCustomerEmailLists()**](CustomerApi.md#getCustomerEmailLists) | **GET** /customer/email_lists | Retrieve all email lists across all storefronts
 [**getCustomerStoreCredit()**](CustomerApi.md#getCustomerStoreCredit) | **GET** /customer/customers/{customer_profile_oid}/store_credit | Retrieve the customer store credit accumulated through loyalty programs
+[**getCustomerWishList()**](CustomerApi.md#getCustomerWishList) | **GET** /customer/customers/{customer_profile_oid}/wishlist | Retrieve wishlist items for customer
+[**getCustomerWishListItem()**](CustomerApi.md#getCustomerWishListItem) | **GET** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Retrieve wishlist item for customer
 [**getCustomers()**](CustomerApi.md#getCustomers) | **GET** /customer/customers | Retrieve customers
 [**getCustomersByQuery()**](CustomerApi.md#getCustomersByQuery) | **POST** /customer/customers/query | Retrieve customers by query
 [**getCustomersForDataTables()**](CustomerApi.md#getCustomersForDataTables) | **POST** /customer/customers/dataTables | Retrieve customers for DataTables plugin
 [**getEmailVerificationToken()**](CustomerApi.md#getEmailVerificationToken) | **POST** /customer/customers/email_verify/get_token | Create a token that can be used to verify a customer email address
 [**getMagicLink()**](CustomerApi.md#getMagicLink) | **PUT** /customer/customers/{customer_profile_oid}/magic_link/{storefront_host_name} | getMagicLink
 [**insertCustomer()**](CustomerApi.md#insertCustomer) | **POST** /customer/customers | Insert a customer
+[**insertWishListItem()**](CustomerApi.md#insertWishListItem) | **POST** /customer/customers/{customer_profile_oid}/wishlist | Insert a customer wishlist item
 [**mergeCustomer()**](CustomerApi.md#mergeCustomer) | **PUT** /customer/customers/{customer_profile_oid}/merge | Merge customer into this customer
 [**searchCustomerProfileValues()**](CustomerApi.md#searchCustomerProfileValues) | **POST** /customer/search | Searches for all matching values (using POST)
 [**updateCustomer()**](CustomerApi.md#updateCustomer) | **PUT** /customer/customers/{customer_profile_oid} | Update a customer
 [**updateCustomerEmailLists()**](CustomerApi.md#updateCustomerEmailLists) | **POST** /customer/customers/{customer_profile_oid}/email_lists | Update email list subscriptions for a customer
+[**updateWishListItem()**](CustomerApi.md#updateWishListItem) | **PUT** /customer/customers/{customer_profile_oid}/wishlist/{customer_wishlist_item_oid} | Update a customer wishlist item
 [**validateEmailVerificationToken()**](CustomerApi.md#validateEmailVerificationToken) | **POST** /customer/customers/email_verify/validate_token | Validate a token that can be used to verify a customer email address
 
 
@@ -185,6 +190,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteWishListItem()`
+
+```php
+deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid): \ultracart\v2\models\CustomerWishListItem
+```
+
+Delete a customer wishlist item
+
+Delete a customer wishlist item
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\CustomerApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$customer_profile_oid = 56; // int | The customer oid for this wishlist.
+$customer_wishlist_item_oid = 56; // int | The wishlist oid for this wishlist item to delete.
+
+try {
+    $result = $apiInstance->deleteWishListItem($customer_profile_oid, $customer_wishlist_item_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->deleteWishListItem: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. |
+ **customer_wishlist_item_oid** | **int**| The wishlist oid for this wishlist item to delete. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomerWishListItem**](../Model/CustomerWishListItem.md)
 
 ### Authorization
 
@@ -468,6 +532,122 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\CustomerStoreCreditResponse**](../Model/CustomerStoreCreditResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCustomerWishList()`
+
+```php
+getCustomerWishList($customer_profile_oid): \ultracart\v2\models\CustomerWishListItemsResponse
+```
+
+Retrieve wishlist items for customer
+
+Retrieve wishlist items for customer.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\CustomerApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$customer_profile_oid = 56; // int | The customer oid for this wishlist.
+
+try {
+    $result = $apiInstance->getCustomerWishList($customer_profile_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getCustomerWishList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomerWishListItemsResponse**](../Model/CustomerWishListItemsResponse.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCustomerWishListItem()`
+
+```php
+getCustomerWishListItem($customer_profile_oid, $customer_wishlist_item_oid): \ultracart\v2\models\CustomerWishListItemResponse
+```
+
+Retrieve wishlist item for customer
+
+Retrieve wishlist item for customer.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\CustomerApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$customer_profile_oid = 56; // int | The customer oid for this wishlist.
+$customer_wishlist_item_oid = 56; // int | The wishlist oid for this wishlist item.
+
+try {
+    $result = $apiInstance->getCustomerWishListItem($customer_profile_oid, $customer_wishlist_item_oid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->getCustomerWishListItem: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. |
+ **customer_wishlist_item_oid** | **int**| The wishlist oid for this wishlist item. |
+
+### Return type
+
+[**\ultracart\v2\models\CustomerWishListItemResponse**](../Model/CustomerWishListItemResponse.md)
 
 ### Authorization
 
@@ -900,6 +1080,65 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `insertWishListItem()`
+
+```php
+insertWishListItem($customer_profile_oid, $wishlist_item): \ultracart\v2\models\CustomerWishListItem
+```
+
+Insert a customer wishlist item
+
+Insert a customer wishlist item
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\CustomerApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$customer_profile_oid = 56; // int | The customer oid for this wishlist.
+$wishlist_item = new \ultracart\v2\models\CustomerWishListItem(); // \ultracart\v2\models\CustomerWishListItem | Wishlist item to insert
+
+try {
+    $result = $apiInstance->insertWishListItem($customer_profile_oid, $wishlist_item);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->insertWishListItem: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. |
+ **wishlist_item** | [**\ultracart\v2\models\CustomerWishListItem**](../Model/CustomerWishListItem.md)| Wishlist item to insert |
+
+### Return type
+
+[**\ultracart\v2\models\CustomerWishListItem**](../Model/CustomerWishListItem.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `mergeCustomer()`
 
 ```php
@@ -1121,6 +1360,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\ultracart\v2\models\CustomerEmailListChanges**](../Model/CustomerEmailListChanges.md)
+
+### Authorization
+
+[ultraCartOauth](../../README.md#ultraCartOauth), [ultraCartSimpleApiKey](../../README.md#ultraCartSimpleApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json; charset=UTF-8`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateWishListItem()`
+
+```php
+updateWishListItem($customer_profile_oid, $customer_wishlist_item_oid, $wishlist_item): \ultracart\v2\models\CustomerWishListItem
+```
+
+Update a customer wishlist item
+
+Update a customer wishlist item
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once 'constants.php'; // https://github.com/UltraCart/sdk_samples/blob/master/php/constants.php
+
+// This example is based on our samples_sdk project, but still contains auto-generated content from our sdk generators.
+// As such, this might not be the best way to use this object.
+// Please see https://github.com/UltraCart/sdk_samples for working examples.
+
+$apiInstance = ultracart\v2\Api\CustomerApi::usingApiKey(Constants::API_KEY, Constants::MAX_RETRY_SECONDS,
+            Constants::VERIFY_SSL, Constants::DEBUG);
+
+$customer_profile_oid = 56; // int | The customer oid for this wishlist.
+$customer_wishlist_item_oid = 56; // int | The wishlist oid for this wishlist item.
+$wishlist_item = new \ultracart\v2\models\CustomerWishListItem(); // \ultracart\v2\models\CustomerWishListItem | Wishlist item to update
+
+try {
+    $result = $apiInstance->updateWishListItem($customer_profile_oid, $customer_wishlist_item_oid, $wishlist_item);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CustomerApi->updateWishListItem: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_oid** | **int**| The customer oid for this wishlist. |
+ **customer_wishlist_item_oid** | **int**| The wishlist oid for this wishlist item. |
+ **wishlist_item** | [**\ultracart\v2\models\CustomerWishListItem**](../Model/CustomerWishListItem.md)| Wishlist item to update |
+
+### Return type
+
+[**\ultracart\v2\models\CustomerWishListItem**](../Model/CustomerWishListItem.md)
 
 ### Authorization
 
