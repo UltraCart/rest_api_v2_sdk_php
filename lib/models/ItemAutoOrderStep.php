@@ -65,6 +65,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
         'managed_by' => 'string',
         'pause_days' => 'int',
         'pause_until_date' => 'string',
+        'pause_until_day_of_month' => 'int',
+        'pause_until_minimum_delay_days' => 'int',
         'preshipment_notice_days' => 'int',
         'recurring_merchant_item_id' => 'string',
         'recurring_merchant_item_oid' => 'int',
@@ -90,6 +92,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
         'managed_by' => null,
         'pause_days' => 'int32',
         'pause_until_date' => 'dateTime',
+        'pause_until_day_of_month' => 'int32',
+        'pause_until_minimum_delay_days' => 'int32',
         'preshipment_notice_days' => 'int32',
         'recurring_merchant_item_id' => null,
         'recurring_merchant_item_oid' => 'int32',
@@ -134,6 +138,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
         'managed_by' => 'managed_by',
         'pause_days' => 'pause_days',
         'pause_until_date' => 'pause_until_date',
+        'pause_until_day_of_month' => 'pause_until_day_of_month',
+        'pause_until_minimum_delay_days' => 'pause_until_minimum_delay_days',
         'preshipment_notice_days' => 'preshipment_notice_days',
         'recurring_merchant_item_id' => 'recurring_merchant_item_id',
         'recurring_merchant_item_oid' => 'recurring_merchant_item_oid',
@@ -157,6 +163,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
         'managed_by' => 'setManagedBy',
         'pause_days' => 'setPauseDays',
         'pause_until_date' => 'setPauseUntilDate',
+        'pause_until_day_of_month' => 'setPauseUntilDayOfMonth',
+        'pause_until_minimum_delay_days' => 'setPauseUntilMinimumDelayDays',
         'preshipment_notice_days' => 'setPreshipmentNoticeDays',
         'recurring_merchant_item_id' => 'setRecurringMerchantItemId',
         'recurring_merchant_item_oid' => 'setRecurringMerchantItemOid',
@@ -180,6 +188,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
         'managed_by' => 'getManagedBy',
         'pause_days' => 'getPauseDays',
         'pause_until_date' => 'getPauseUntilDate',
+        'pause_until_day_of_month' => 'getPauseUntilDayOfMonth',
+        'pause_until_minimum_delay_days' => 'getPauseUntilMinimumDelayDays',
         'preshipment_notice_days' => 'getPreshipmentNoticeDays',
         'recurring_merchant_item_id' => 'getRecurringMerchantItemId',
         'recurring_merchant_item_oid' => 'getRecurringMerchantItemOid',
@@ -235,6 +245,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
     public const TYPE_PAUSE = 'pause';
     public const TYPE_LOOP = 'loop';
     public const TYPE_KIT_ONLY = 'kit only';
+    public const TYPE_PAUSE_UNTIL = 'pause until';
 
     /**
      * Gets allowable values of the enum
@@ -248,6 +259,7 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
             self::TYPE_PAUSE,
             self::TYPE_LOOP,
             self::TYPE_KIT_ONLY,
+            self::TYPE_PAUSE_UNTIL,
         ];
     }
 
@@ -273,6 +285,8 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['managed_by'] = $data['managed_by'] ?? null;
         $this->container['pause_days'] = $data['pause_days'] ?? null;
         $this->container['pause_until_date'] = $data['pause_until_date'] ?? null;
+        $this->container['pause_until_day_of_month'] = $data['pause_until_day_of_month'] ?? null;
+        $this->container['pause_until_minimum_delay_days'] = $data['pause_until_minimum_delay_days'] ?? null;
         $this->container['preshipment_notice_days'] = $data['preshipment_notice_days'] ?? null;
         $this->container['recurring_merchant_item_id'] = $data['recurring_merchant_item_id'] ?? null;
         $this->container['recurring_merchant_item_oid'] = $data['recurring_merchant_item_oid'] ?? null;
@@ -484,6 +498,54 @@ class ItemAutoOrderStep implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setPauseUntilDate($pause_until_date)
     {
         $this->container['pause_until_date'] = $pause_until_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets pause_until_day_of_month
+     *
+     * @return int|null
+     */
+    public function getPauseUntilDayOfMonth()
+    {
+        return $this->container['pause_until_day_of_month'];
+    }
+
+    /**
+     * Sets pause_until_day_of_month
+     *
+     * @param int|null $pause_until_day_of_month Pause until a specific day of the month
+     *
+     * @return self
+     */
+    public function setPauseUntilDayOfMonth($pause_until_day_of_month)
+    {
+        $this->container['pause_until_day_of_month'] = $pause_until_day_of_month;
+
+        return $this;
+    }
+
+    /**
+     * Gets pause_until_minimum_delay_days
+     *
+     * @return int|null
+     */
+    public function getPauseUntilMinimumDelayDays()
+    {
+        return $this->container['pause_until_minimum_delay_days'];
+    }
+
+    /**
+     * Sets pause_until_minimum_delay_days
+     *
+     * @param int|null $pause_until_minimum_delay_days Pause at least this many days between the last order and the calculated next day of month
+     *
+     * @return self
+     */
+    public function setPauseUntilMinimumDelayDays($pause_until_minimum_delay_days)
+    {
+        $this->container['pause_until_minimum_delay_days'] = $pause_until_minimum_delay_days;
 
         return $this;
     }

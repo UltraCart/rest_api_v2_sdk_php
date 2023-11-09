@@ -1414,6 +1414,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.187 | 11/09/2023 | item - new auto order step type: pause until |
 | 4.0.186 | 11/06/2023 | customer api - added wishlist methods |
 | 4.0.185 | 11/01/2023 | customer - do_no_send_mail flag added |
 | 4.0.184 | 10/30/2023 | cart/order fields for health benefit card values in summary expansion objects |
