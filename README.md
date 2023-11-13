@@ -1473,6 +1473,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.172 | 11/13/2023 | coupon - editor values for item tags |
 | 3.10.171 | 11/13/2023 | coupon - percent off items - add support for include/exclude by item tags |
 | 3.10.170 | 11/09/2023 | item - new auto order step type: pause until |
 | 3.10.169 | 11/06/2023 | customer api - added wishlist methods |
