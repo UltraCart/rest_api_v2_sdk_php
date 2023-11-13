@@ -63,6 +63,7 @@ class CouponEditorValues implements ModelInterface, ArrayAccess, \JsonSerializab
         'coupon_types_for_display' => '\ultracart\v2\models\CouponType[]',
         'currency_codes' => 'string[]',
         'deprecated_themes' => '\ultracart\v2\models\SimpleValue[]',
+        'item_tags' => 'string[]',
         'mix_and_match_names' => 'string[]',
         'shipping_methods' => 'string[]',
         'storefronts' => '\ultracart\v2\models\SimpleValue[]',
@@ -83,6 +84,7 @@ class CouponEditorValues implements ModelInterface, ArrayAccess, \JsonSerializab
         'coupon_types_for_display' => null,
         'currency_codes' => null,
         'deprecated_themes' => null,
+        'item_tags' => null,
         'mix_and_match_names' => null,
         'shipping_methods' => null,
         'storefronts' => null,
@@ -122,6 +124,7 @@ class CouponEditorValues implements ModelInterface, ArrayAccess, \JsonSerializab
         'coupon_types_for_display' => 'coupon_types_for_display',
         'currency_codes' => 'currency_codes',
         'deprecated_themes' => 'deprecated_themes',
+        'item_tags' => 'item_tags',
         'mix_and_match_names' => 'mix_and_match_names',
         'shipping_methods' => 'shipping_methods',
         'storefronts' => 'storefronts',
@@ -140,6 +143,7 @@ class CouponEditorValues implements ModelInterface, ArrayAccess, \JsonSerializab
         'coupon_types_for_display' => 'setCouponTypesForDisplay',
         'currency_codes' => 'setCurrencyCodes',
         'deprecated_themes' => 'setDeprecatedThemes',
+        'item_tags' => 'setItemTags',
         'mix_and_match_names' => 'setMixAndMatchNames',
         'shipping_methods' => 'setShippingMethods',
         'storefronts' => 'setStorefronts',
@@ -158,6 +162,7 @@ class CouponEditorValues implements ModelInterface, ArrayAccess, \JsonSerializab
         'coupon_types_for_display' => 'getCouponTypesForDisplay',
         'currency_codes' => 'getCurrencyCodes',
         'deprecated_themes' => 'getDeprecatedThemes',
+        'item_tags' => 'getItemTags',
         'mix_and_match_names' => 'getMixAndMatchNames',
         'shipping_methods' => 'getShippingMethods',
         'storefronts' => 'getStorefronts',
@@ -227,6 +232,7 @@ class CouponEditorValues implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['coupon_types_for_display'] = $data['coupon_types_for_display'] ?? null;
         $this->container['currency_codes'] = $data['currency_codes'] ?? null;
         $this->container['deprecated_themes'] = $data['deprecated_themes'] ?? null;
+        $this->container['item_tags'] = $data['item_tags'] ?? null;
         $this->container['mix_and_match_names'] = $data['mix_and_match_names'] ?? null;
         $this->container['shipping_methods'] = $data['shipping_methods'] ?? null;
         $this->container['storefronts'] = $data['storefronts'] ?? null;
@@ -374,6 +380,30 @@ class CouponEditorValues implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setDeprecatedThemes($deprecated_themes)
     {
         $this->container['deprecated_themes'] = $deprecated_themes;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_tags
+     *
+     * @return string[]|null
+     */
+    public function getItemTags()
+    {
+        return $this->container['item_tags'];
+    }
+
+    /**
+     * Sets item_tags
+     *
+     * @param string[]|null $item_tags Item tags
+     *
+     * @return self
+     */
+    public function setItemTags($item_tags)
+    {
+        $this->container['item_tags'] = $item_tags;
 
         return $this;
     }
