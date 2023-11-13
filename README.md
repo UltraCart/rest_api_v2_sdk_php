@@ -1414,6 +1414,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.188 | 11/13/2023 | coupon - percent off items - add support for include/exclude by item tags |
 | 4.0.187 | 11/09/2023 | item - new auto order step type: pause until |
 | 4.0.186 | 11/06/2023 | customer api - added wishlist methods |
 | 4.0.185 | 11/01/2023 | customer - do_no_send_mail flag added |

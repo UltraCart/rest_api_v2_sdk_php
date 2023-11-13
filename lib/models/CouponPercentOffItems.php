@@ -59,7 +59,9 @@ class CouponPercentOffItems implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'discount_percent' => 'float',
+        'excluded_item_tags' => 'string[]',
         'excluded_items' => 'string[]',
+        'item_tags' => 'string[]',
         'items' => 'string[]',
         'limit' => 'int'
     ];
@@ -73,7 +75,9 @@ class CouponPercentOffItems implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPIFormats = [
         'discount_percent' => null,
+        'excluded_item_tags' => null,
         'excluded_items' => null,
+        'item_tags' => null,
         'items' => null,
         'limit' => 'int32'
     ];
@@ -106,7 +110,9 @@ class CouponPercentOffItems implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'discount_percent' => 'discount_percent',
+        'excluded_item_tags' => 'excluded_item_tags',
         'excluded_items' => 'excluded_items',
+        'item_tags' => 'item_tags',
         'items' => 'items',
         'limit' => 'limit'
     ];
@@ -118,7 +124,9 @@ class CouponPercentOffItems implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'discount_percent' => 'setDiscountPercent',
+        'excluded_item_tags' => 'setExcludedItemTags',
         'excluded_items' => 'setExcludedItems',
+        'item_tags' => 'setItemTags',
         'items' => 'setItems',
         'limit' => 'setLimit'
     ];
@@ -130,7 +138,9 @@ class CouponPercentOffItems implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'discount_percent' => 'getDiscountPercent',
+        'excluded_item_tags' => 'getExcludedItemTags',
         'excluded_items' => 'getExcludedItems',
+        'item_tags' => 'getItemTags',
         'items' => 'getItems',
         'limit' => 'getLimit'
     ];
@@ -193,7 +203,9 @@ class CouponPercentOffItems implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(array $data = null)
     {
         $this->container['discount_percent'] = $data['discount_percent'] ?? null;
+        $this->container['excluded_item_tags'] = $data['excluded_item_tags'] ?? null;
         $this->container['excluded_items'] = $data['excluded_items'] ?? null;
+        $this->container['item_tags'] = $data['item_tags'] ?? null;
         $this->container['items'] = $data['items'] ?? null;
         $this->container['limit'] = $data['limit'] ?? null;
     }
@@ -247,6 +259,30 @@ class CouponPercentOffItems implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+     * Gets excluded_item_tags
+     *
+     * @return string[]|null
+     */
+    public function getExcludedItemTags()
+    {
+        return $this->container['excluded_item_tags'];
+    }
+
+    /**
+     * Sets excluded_item_tags
+     *
+     * @param string[]|null $excluded_item_tags A list of item tags which cannot be discounted.
+     *
+     * @return self
+     */
+    public function setExcludedItemTags($excluded_item_tags)
+    {
+        $this->container['excluded_item_tags'] = $excluded_item_tags;
+
+        return $this;
+    }
+
+    /**
      * Gets excluded_items
      *
      * @return string[]|null
@@ -266,6 +302,30 @@ class CouponPercentOffItems implements ModelInterface, ArrayAccess, \JsonSeriali
     public function setExcludedItems($excluded_items)
     {
         $this->container['excluded_items'] = $excluded_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_tags
+     *
+     * @return string[]|null
+     */
+    public function getItemTags()
+    {
+        return $this->container['item_tags'];
+    }
+
+    /**
+     * Sets item_tags
+     *
+     * @param string[]|null $item_tags An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+     *
+     * @return self
+     */
+    public function setItemTags($item_tags)
+    {
+        $this->container['item_tags'] = $item_tags;
 
         return $this;
     }
