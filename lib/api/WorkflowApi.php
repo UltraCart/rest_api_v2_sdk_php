@@ -1467,7 +1467,7 @@ class WorkflowApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \ultracart\v2\models\WorkflowTaskResponse
+     * @return \ultracart\v2\models\WorkflowTasksResponse
      */
     public function getWorkflowTaskByObjectType($object_type, $object_id)
     {
@@ -1486,7 +1486,7 @@ class WorkflowApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\WorkflowTaskResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WorkflowTasksResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWorkflowTaskByObjectTypeWithHttpInfo($object_type, $object_id)
     {
@@ -1505,11 +1505,11 @@ class WorkflowApi
      *
      * @throws \ultracart\v2\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \ultracart\v2\models\WorkflowTaskResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \ultracart\v2\models\WorkflowTasksResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWorkflowTaskByObjectTypeWithHttpInfoRetry($retry ,  $object_type,  $object_id)
     {
-        $returnType = '\ultracart\v2\models\WorkflowTaskResponse';
+        $returnType = '\ultracart\v2\models\WorkflowTasksResponse';
         $request = $this->getWorkflowTaskByObjectTypeRequest($object_type, $object_id);
 
         try {
@@ -1562,7 +1562,7 @@ class WorkflowApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\ultracart\v2\models\WorkflowTaskResponse',
+                        '\ultracart\v2\models\WorkflowTasksResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1646,7 +1646,7 @@ class WorkflowApi
      */
     public function getWorkflowTaskByObjectTypeAsyncWithHttpInfo($object_type, $object_id)
     {
-        $returnType = '\ultracart\v2\models\WorkflowTaskResponse';
+        $returnType = '\ultracart\v2\models\WorkflowTasksResponse';
         $request = $this->getWorkflowTaskByObjectTypeRequest($object_type, $object_id);
 
         return $this->client

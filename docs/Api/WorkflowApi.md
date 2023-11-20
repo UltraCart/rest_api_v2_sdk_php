@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getWorkflowTaskByObjectType**
-> \ultracart\v2\models\WorkflowTaskResponse getWorkflowTaskByObjectType($object_type, $object_id)
+> \ultracart\v2\models\WorkflowTasksResponse getWorkflowTaskByObjectType($object_type, $object_id)
 
 Retrieve a workflow task by object type and id
 
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\WorkflowTaskResponse**](../Model/WorkflowTaskResponse.md)
+[**\ultracart\v2\models\WorkflowTasksResponse**](../Model/WorkflowTasksResponse.md)
 
 ### Authorization
 
