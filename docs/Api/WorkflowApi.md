@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 ## `getWorkflowTaskByObjectType()`
 
 ```php
-getWorkflowTaskByObjectType($object_type, $object_id): \ultracart\v2\models\WorkflowTaskResponse
+getWorkflowTaskByObjectType($object_type, $object_id): \ultracart\v2\models\WorkflowTasksResponse
 ```
 
 Retrieve a workflow task by object type and id
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\ultracart\v2\models\WorkflowTaskResponse**](../Model/WorkflowTaskResponse.md)
+[**\ultracart\v2\models\WorkflowTasksResponse**](../Model/WorkflowTasksResponse.md)
 
 ### Authorization
 

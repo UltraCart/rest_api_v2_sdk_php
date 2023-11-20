@@ -519,8 +519,8 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess, \JsonSeria
             $invalidProperties[] = "invalid value for 'category_description', the character length must be smaller than or equal to 1000.";
         }
 
-        if (!is_null($this->container['color']) && (mb_strlen($this->container['color']) > 20)) {
-            $invalidProperties[] = "invalid value for 'color', the character length must be smaller than or equal to 20.";
+        if (!is_null($this->container['color']) && (mb_strlen($this->container['color']) > 100)) {
+            $invalidProperties[] = "invalid value for 'color', the character length must be smaller than or equal to 100.";
         }
 
         if (!is_null($this->container['condition']) && (mb_strlen($this->container['condition']) > 15)) {
@@ -1025,8 +1025,8 @@ class ItemGoogleProductSearch implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setColor($color)
     {
-        if (!is_null($color) && (mb_strlen($color) > 20)) {
-            throw new \InvalidArgumentException('invalid length for $color when calling ItemGoogleProductSearch., must be smaller than or equal to 20.');
+        if (!is_null($color) && (mb_strlen($color) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $color when calling ItemGoogleProductSearch., must be smaller than or equal to 100.');
         }
 
         $this->container['color'] = $color;
