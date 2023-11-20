@@ -58,7 +58,9 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
       */
     protected static $swaggerTypes = [
         'discount_percent' => 'float',
+        'excluded_item_tags' => 'string[]',
         'excluded_items' => 'string[]',
+        'item_tags' => 'string[]',
         'items' => 'string[]'
     ];
 
@@ -69,7 +71,9 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
       */
     protected static $swaggerFormats = [
         'discount_percent' => null,
+        'excluded_item_tags' => null,
         'excluded_items' => null,
+        'item_tags' => null,
         'items' => null
     ];
 
@@ -101,7 +105,9 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
      */
     protected static $attributeMap = [
         'discount_percent' => 'discount_percent',
+        'excluded_item_tags' => 'excluded_item_tags',
         'excluded_items' => 'excluded_items',
+        'item_tags' => 'item_tags',
         'items' => 'items'
     ];
 
@@ -112,7 +118,9 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
      */
     protected static $setters = [
         'discount_percent' => 'setDiscountPercent',
+        'excluded_item_tags' => 'setExcludedItemTags',
         'excluded_items' => 'setExcludedItems',
+        'item_tags' => 'setItemTags',
         'items' => 'setItems'
     ];
 
@@ -123,7 +131,9 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
      */
     protected static $getters = [
         'discount_percent' => 'getDiscountPercent',
+        'excluded_item_tags' => 'getExcludedItemTags',
         'excluded_items' => 'getExcludedItems',
+        'item_tags' => 'getItemTags',
         'items' => 'getItems'
     ];
 
@@ -188,7 +198,9 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->container['discount_percent'] = isset($data['discount_percent']) ? $data['discount_percent'] : null;
+        $this->container['excluded_item_tags'] = isset($data['excluded_item_tags']) ? $data['excluded_item_tags'] : null;
         $this->container['excluded_items'] = isset($data['excluded_items']) ? $data['excluded_items'] : null;
+        $this->container['item_tags'] = isset($data['item_tags']) ? $data['item_tags'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
     }
 
@@ -241,6 +253,30 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
     }
 
     /**
+     * Gets excluded_item_tags
+     *
+     * @return string[]
+     */
+    public function getExcludedItemTags()
+    {
+        return $this->container['excluded_item_tags'];
+    }
+
+    /**
+     * Sets excluded_item_tags
+     *
+     * @param string[] $excluded_item_tags A list of item tags which cannot be discounted.
+     *
+     * @return $this
+     */
+    public function setExcludedItemTags($excluded_item_tags)
+    {
+        $this->container['excluded_item_tags'] = $excluded_item_tags;
+
+        return $this;
+    }
+
+    /**
      * Gets excluded_items
      *
      * @return string[]
@@ -260,6 +296,30 @@ class CouponPercentOffItemsAndFreeShipping implements ModelInterface, ArrayAcces
     public function setExcludedItems($excluded_items)
     {
         $this->container['excluded_items'] = $excluded_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_tags
+     *
+     * @return string[]
+     */
+    public function getItemTags()
+    {
+        return $this->container['item_tags'];
+    }
+
+    /**
+     * Sets item_tags
+     *
+     * @param string[] $item_tags An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+     *
+     * @return $this
+     */
+    public function setItemTags($item_tags)
+    {
+        $this->container['item_tags'] = $item_tags;
 
         return $this;
     }
