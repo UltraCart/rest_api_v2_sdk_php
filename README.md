@@ -1473,6 +1473,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.175 | 11/21/2023 | coupons - addl support on tiered amount/percent off items |
 | 3.10.174 | 11/20/2023 | coupon - add item tag support to percent off items and free shipping |
 | 3.10.173 | 11/20/2023 | item.google_product_search.color bugfix for bad length validation: 20 to 100 |
 | 3.10.172 | 11/13/2023 | coupon - editor values for item tags |

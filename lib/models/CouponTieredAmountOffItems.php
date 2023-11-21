@@ -57,6 +57,7 @@ class CouponTieredAmountOffItems implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'item_tags' => 'string[]',
         'items' => 'string[]',
         'limit' => 'float',
         'tiers' => '\ultracart\v2\models\CouponTierQuantityAmount[]'
@@ -68,6 +69,7 @@ class CouponTieredAmountOffItems implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'item_tags' => null,
         'items' => null,
         'limit' => null,
         'tiers' => null
@@ -100,6 +102,7 @@ class CouponTieredAmountOffItems implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'item_tags' => 'item_tags',
         'items' => 'items',
         'limit' => 'limit',
         'tiers' => 'tiers'
@@ -111,6 +114,7 @@ class CouponTieredAmountOffItems implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'item_tags' => 'setItemTags',
         'items' => 'setItems',
         'limit' => 'setLimit',
         'tiers' => 'setTiers'
@@ -122,6 +126,7 @@ class CouponTieredAmountOffItems implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'item_tags' => 'getItemTags',
         'items' => 'getItems',
         'limit' => 'getLimit',
         'tiers' => 'getTiers'
@@ -187,6 +192,7 @@ class CouponTieredAmountOffItems implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['item_tags'] = isset($data['item_tags']) ? $data['item_tags'] : null;
         $this->container['items'] = isset($data['items']) ? $data['items'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['tiers'] = isset($data['tiers']) ? $data['tiers'] : null;
@@ -215,6 +221,30 @@ class CouponTieredAmountOffItems implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets item_tags
+     *
+     * @return string[]
+     */
+    public function getItemTags()
+    {
+        return $this->container['item_tags'];
+    }
+
+    /**
+     * Sets item_tags
+     *
+     * @param string[] $item_tags An optional list of item tags which will receive a discount.  If blank, discount applies to all items except excluded items.
+     *
+     * @return $this
+     */
+    public function setItemTags($item_tags)
+    {
+        $this->container['item_tags'] = $item_tags;
+
+        return $this;
+    }
 
     /**
      * Gets items
