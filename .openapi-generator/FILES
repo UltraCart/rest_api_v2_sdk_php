@@ -822,6 +822,7 @@ docs/Model/WorkflowTaskResponse.md
 docs/Model/WorkflowTasksRequest.md
 docs/Model/WorkflowTasksResponse.md
 docs/Model/WorkflowUser.md
+docs/Model/WorkflowUserResponse.md
 docs/Model/WorkflowUsersResponse.md
 git_push.sh
 lib/ApiException.php
@@ -1648,5 +1649,6 @@ lib/models/WorkflowTaskResponse.php
 lib/models/WorkflowTasksRequest.php
 lib/models/WorkflowTasksResponse.php
 lib/models/WorkflowUser.php
+lib/models/WorkflowUserResponse.php
 lib/models/WorkflowUsersResponse.php
 phpunit.xml.dist
