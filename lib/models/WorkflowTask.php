@@ -77,6 +77,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_url' => 'string',
         'priority' => 'string',
         'status' => 'string',
+        'task_context' => 'string',
         'task_details' => 'string',
         'task_name' => 'string',
         'workflow_task_uuid' => 'string'
@@ -109,6 +110,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_url' => null,
         'priority' => null,
         'status' => null,
+        'task_context' => null,
         'task_details' => null,
         'task_name' => null,
         'workflow_task_uuid' => null
@@ -160,6 +162,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_url' => 'object_url',
         'priority' => 'priority',
         'status' => 'status',
+        'task_context' => 'task_context',
         'task_details' => 'task_details',
         'task_name' => 'task_name',
         'workflow_task_uuid' => 'workflow_task_uuid'
@@ -190,6 +193,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_url' => 'setObjectUrl',
         'priority' => 'setPriority',
         'status' => 'setStatus',
+        'task_context' => 'setTaskContext',
         'task_details' => 'setTaskDetails',
         'task_name' => 'setTaskName',
         'workflow_task_uuid' => 'setWorkflowTaskUuid'
@@ -220,6 +224,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_url' => 'getObjectUrl',
         'priority' => 'getPriority',
         'status' => 'getStatus',
+        'task_context' => 'getTaskContext',
         'task_details' => 'getTaskDetails',
         'task_name' => 'getTaskName',
         'workflow_task_uuid' => 'getWorkflowTaskUuid'
@@ -270,6 +275,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
     public const OBJECT_TYPE_AUTO_ORDER = 'auto order';
     public const OBJECT_TYPE_ITEM = 'item';
     public const OBJECT_TYPE_CUSTOMER_PROFILE = 'customer profile';
+    public const OBJECT_TYPE_STOREFRONT = 'storefront';
     public const PRIORITY__1___LOW = '1 - low';
     public const PRIORITY__2___MEDIUM = '2 - medium';
     public const PRIORITY__3___HIGH = '3 - high';
@@ -291,6 +297,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
             self::OBJECT_TYPE_AUTO_ORDER,
             self::OBJECT_TYPE_ITEM,
             self::OBJECT_TYPE_CUSTOMER_PROFILE,
+            self::OBJECT_TYPE_STOREFRONT,
         ];
     }
 
@@ -358,6 +365,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['object_url'] = $data['object_url'] ?? null;
         $this->container['priority'] = $data['priority'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
+        $this->container['task_context'] = $data['task_context'] ?? null;
         $this->container['task_details'] = $data['task_details'] ?? null;
         $this->container['task_name'] = $data['task_name'] ?? null;
         $this->container['workflow_task_uuid'] = $data['workflow_task_uuid'] ?? null;
@@ -896,6 +904,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_context
+     *
+     * @return string|null
+     */
+    public function getTaskContext()
+    {
+        return $this->container['task_context'];
+    }
+
+    /**
+     * Sets task_context
+     *
+     * @param string|null $task_context User friendly string of the task context
+     *
+     * @return self
+     */
+    public function setTaskContext($task_context)
+    {
+        $this->container['task_context'] = $task_context;
 
         return $this;
     }
