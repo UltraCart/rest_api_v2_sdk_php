@@ -1475,6 +1475,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 3.10.178 | 01/03/2024 | workflow - add task_context field to task obj |
 | 3.10.177 | 12/15/2023 | bug fix on bad docs breaking yaml schema |
 | 3.10.176 | 12/12/2023 | webhook - added event ruler property |
 | 3.10.175 | 11/21/2023 | coupons - addl support on tiered amount/percent off items |

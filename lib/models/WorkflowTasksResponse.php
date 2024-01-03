@@ -60,6 +60,7 @@ class WorkflowTasksResponse implements ModelInterface, ArrayAccess
         'error' => '\ultracart\v2\models\Error',
         'metadata' => '\ultracart\v2\models\ResponseMetadata',
         'success' => 'bool',
+        'task_context' => 'string',
         'tasks' => '\ultracart\v2\models\WorkflowTask[]',
         'warning' => '\ultracart\v2\models\Warning'
     ];
@@ -73,6 +74,7 @@ class WorkflowTasksResponse implements ModelInterface, ArrayAccess
         'error' => null,
         'metadata' => null,
         'success' => null,
+        'task_context' => null,
         'tasks' => null,
         'warning' => null
     ];
@@ -107,6 +109,7 @@ class WorkflowTasksResponse implements ModelInterface, ArrayAccess
         'error' => 'error',
         'metadata' => 'metadata',
         'success' => 'success',
+        'task_context' => 'task_context',
         'tasks' => 'tasks',
         'warning' => 'warning'
     ];
@@ -120,6 +123,7 @@ class WorkflowTasksResponse implements ModelInterface, ArrayAccess
         'error' => 'setError',
         'metadata' => 'setMetadata',
         'success' => 'setSuccess',
+        'task_context' => 'setTaskContext',
         'tasks' => 'setTasks',
         'warning' => 'setWarning'
     ];
@@ -133,6 +137,7 @@ class WorkflowTasksResponse implements ModelInterface, ArrayAccess
         'error' => 'getError',
         'metadata' => 'getMetadata',
         'success' => 'getSuccess',
+        'task_context' => 'getTaskContext',
         'tasks' => 'getTasks',
         'warning' => 'getWarning'
     ];
@@ -200,6 +205,7 @@ class WorkflowTasksResponse implements ModelInterface, ArrayAccess
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['metadata'] = isset($data['metadata']) ? $data['metadata'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['task_context'] = isset($data['task_context']) ? $data['task_context'] : null;
         $this->container['tasks'] = isset($data['tasks']) ? $data['tasks'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
@@ -296,6 +302,30 @@ class WorkflowTasksResponse implements ModelInterface, ArrayAccess
     public function setSuccess($success)
     {
         $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets task_context
+     *
+     * @return string
+     */
+    public function getTaskContext()
+    {
+        return $this->container['task_context'];
+    }
+
+    /**
+     * Sets task_context
+     *
+     * @param string $task_context User friendly string of the task context if querying for a specific object type/id
+     *
+     * @return $this
+     */
+    public function setTaskContext($task_context)
+    {
+        $this->container['task_context'] = $task_context;
 
         return $this;
     }
