@@ -1416,6 +1416,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.196 | 01/10/2024 | workflow task - add uuids of related tasks and tags |
 | 4.0.195 | 01/03/2024 | workflow - add task_context field to task obj |
 | 4.0.194 | 12/15/2023 | bug fix on bad docs breaking yaml schema |
 | 4.0.193 | 12/12/2023 | webhook - added event ruler property |

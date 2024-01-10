@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **arbitrary_tax_rate** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
 **arbitrary_taxable_subtotal** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
 **health_benefit_card_amount** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
+**health_benefit_card_balance** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
+**health_benefit_card_requirements** | **string** | Health benefit card requirements | [optional]
 **internal_gift_certificate_amount** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
 **shipping_handling** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]
 **shipping_handling_discount** | [**\ultracart\v2\models\Currency**](Currency.md) |  | [optional]

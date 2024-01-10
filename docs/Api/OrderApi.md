@@ -1269,7 +1269,7 @@ refundOrder($order_id, $order, $reject_after_refund, $skip_customer_notification
 
 Refund an order
 
-Perform a refund operation on an order and then update the order if successful
+Perform a refund operation on an order and then update the order if successful.  All of the object properties ending in _refunded should be the TOTAL amount that should end up being refunded.  UltraCart will calculate the actual amount to refund based upon the prior refunds.
 
 ### Example
 
