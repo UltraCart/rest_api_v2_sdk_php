@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **object_type** | **string** | Object Type | [optional]
 **priority** | **string** | Priority | [optional]
 **status** | **string** | Status of the workflow task | [optional]
+**tags** | **string[]** | Tasks that are tagged with the specified tags | [optional]
 **unassigned** | **bool** | Tasks that are unassigned to a user or group | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
