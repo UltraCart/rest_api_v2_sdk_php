@@ -73,6 +73,7 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
         'object_type' => 'string',
         'priority' => 'string',
         'status' => 'string',
+        'tags' => 'string[]',
         'unassigned' => 'bool'
     ];
 
@@ -98,6 +99,7 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
         'object_type' => null,
         'priority' => null,
         'status' => null,
+        'tags' => null,
         'unassigned' => null
     ];
 
@@ -144,6 +146,7 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
         'object_type' => 'object_type',
         'priority' => 'priority',
         'status' => 'status',
+        'tags' => 'tags',
         'unassigned' => 'unassigned'
     ];
 
@@ -169,6 +172,7 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
         'object_type' => 'setObjectType',
         'priority' => 'setPriority',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'unassigned' => 'setUnassigned'
     ];
 
@@ -194,6 +198,7 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
         'object_type' => 'getObjectType',
         'priority' => 'getPriority',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'unassigned' => 'getUnassigned'
     ];
 
@@ -330,6 +335,7 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
         $this->container['object_type'] = isset($data['object_type']) ? $data['object_type'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['unassigned'] = isset($data['unassigned']) ? $data['unassigned'] : null;
     }
 
@@ -788,6 +794,30 @@ class WorkflowTasksRequest implements ModelInterface, ArrayAccess
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[] $tags Tasks that are tagged with the specified tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
