@@ -65,6 +65,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'created_by' => '\ultracart\v2\models\WorkflowUser',
         'created_dts' => 'string',
         'delay_until_dts' => 'string',
+        'dependant_workflow_task_uuid' => 'string',
         'due_dts' => 'string',
         'histories' => '\ultracart\v2\models\WorkflowTaskHistory[]',
         'last_update_dts' => 'string',
@@ -75,7 +76,9 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'object_type' => 'string',
         'object_url' => 'string',
         'priority' => 'string',
+        'related_workflow_task_uuid' => 'string',
         'status' => 'string',
+        'tags' => 'string[]',
         'task_context' => 'string',
         'task_details' => 'string',
         'task_name' => 'string',
@@ -96,6 +99,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'created_by' => null,
         'created_dts' => 'dateTime',
         'delay_until_dts' => 'dateTime',
+        'dependant_workflow_task_uuid' => null,
         'due_dts' => 'dateTime',
         'histories' => null,
         'last_update_dts' => 'dateTime',
@@ -106,7 +110,9 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'object_type' => null,
         'object_url' => null,
         'priority' => null,
+        'related_workflow_task_uuid' => null,
         'status' => null,
+        'tags' => null,
         'task_context' => null,
         'task_details' => null,
         'task_name' => null,
@@ -148,6 +154,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'created_by' => 'created_by',
         'created_dts' => 'created_dts',
         'delay_until_dts' => 'delay_until_dts',
+        'dependant_workflow_task_uuid' => 'dependant_workflow_task_uuid',
         'due_dts' => 'due_dts',
         'histories' => 'histories',
         'last_update_dts' => 'last_update_dts',
@@ -158,7 +165,9 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'object_type' => 'object_type',
         'object_url' => 'object_url',
         'priority' => 'priority',
+        'related_workflow_task_uuid' => 'related_workflow_task_uuid',
         'status' => 'status',
+        'tags' => 'tags',
         'task_context' => 'task_context',
         'task_details' => 'task_details',
         'task_name' => 'task_name',
@@ -179,6 +188,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'created_by' => 'setCreatedBy',
         'created_dts' => 'setCreatedDts',
         'delay_until_dts' => 'setDelayUntilDts',
+        'dependant_workflow_task_uuid' => 'setDependantWorkflowTaskUuid',
         'due_dts' => 'setDueDts',
         'histories' => 'setHistories',
         'last_update_dts' => 'setLastUpdateDts',
@@ -189,7 +199,9 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'object_type' => 'setObjectType',
         'object_url' => 'setObjectUrl',
         'priority' => 'setPriority',
+        'related_workflow_task_uuid' => 'setRelatedWorkflowTaskUuid',
         'status' => 'setStatus',
+        'tags' => 'setTags',
         'task_context' => 'setTaskContext',
         'task_details' => 'setTaskDetails',
         'task_name' => 'setTaskName',
@@ -210,6 +222,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'created_by' => 'getCreatedBy',
         'created_dts' => 'getCreatedDts',
         'delay_until_dts' => 'getDelayUntilDts',
+        'dependant_workflow_task_uuid' => 'getDependantWorkflowTaskUuid',
         'due_dts' => 'getDueDts',
         'histories' => 'getHistories',
         'last_update_dts' => 'getLastUpdateDts',
@@ -220,7 +233,9 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         'object_type' => 'getObjectType',
         'object_url' => 'getObjectUrl',
         'priority' => 'getPriority',
+        'related_workflow_task_uuid' => 'getRelatedWorkflowTaskUuid',
         'status' => 'getStatus',
+        'tags' => 'getTags',
         'task_context' => 'getTaskContext',
         'task_details' => 'getTaskDetails',
         'task_name' => 'getTaskName',
@@ -354,6 +369,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
         $this->container['created_dts'] = isset($data['created_dts']) ? $data['created_dts'] : null;
         $this->container['delay_until_dts'] = isset($data['delay_until_dts']) ? $data['delay_until_dts'] : null;
+        $this->container['dependant_workflow_task_uuid'] = isset($data['dependant_workflow_task_uuid']) ? $data['dependant_workflow_task_uuid'] : null;
         $this->container['due_dts'] = isset($data['due_dts']) ? $data['due_dts'] : null;
         $this->container['histories'] = isset($data['histories']) ? $data['histories'] : null;
         $this->container['last_update_dts'] = isset($data['last_update_dts']) ? $data['last_update_dts'] : null;
@@ -364,7 +380,9 @@ class WorkflowTask implements ModelInterface, ArrayAccess
         $this->container['object_type'] = isset($data['object_type']) ? $data['object_type'] : null;
         $this->container['object_url'] = isset($data['object_url']) ? $data['object_url'] : null;
         $this->container['priority'] = isset($data['priority']) ? $data['priority'] : null;
+        $this->container['related_workflow_task_uuid'] = isset($data['related_workflow_task_uuid']) ? $data['related_workflow_task_uuid'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['task_context'] = isset($data['task_context']) ? $data['task_context'] : null;
         $this->container['task_details'] = isset($data['task_details']) ? $data['task_details'] : null;
         $this->container['task_name'] = isset($data['task_name']) ? $data['task_name'] : null;
@@ -607,6 +625,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess
     public function setDelayUntilDts($delay_until_dts)
     {
         $this->container['delay_until_dts'] = $delay_until_dts;
+
+        return $this;
+    }
+
+    /**
+     * Gets dependant_workflow_task_uuid
+     *
+     * @return string
+     */
+    public function getDependantWorkflowTaskUuid()
+    {
+        return $this->container['dependant_workflow_task_uuid'];
+    }
+
+    /**
+     * Sets dependant_workflow_task_uuid
+     *
+     * @param string $dependant_workflow_task_uuid Dependant Workflow Task UUID (must be completed before this task can be completed)
+     *
+     * @return $this
+     */
+    public function setDependantWorkflowTaskUuid($dependant_workflow_task_uuid)
+    {
+        $this->container['dependant_workflow_task_uuid'] = $dependant_workflow_task_uuid;
 
         return $this;
     }
@@ -870,6 +912,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets related_workflow_task_uuid
+     *
+     * @return string
+     */
+    public function getRelatedWorkflowTaskUuid()
+    {
+        return $this->container['related_workflow_task_uuid'];
+    }
+
+    /**
+     * Sets related_workflow_task_uuid
+     *
+     * @param string $related_workflow_task_uuid Related Workflow Task UUID
+     *
+     * @return $this
+     */
+    public function setRelatedWorkflowTaskUuid($related_workflow_task_uuid)
+    {
+        $this->container['related_workflow_task_uuid'] = $related_workflow_task_uuid;
+
+        return $this;
+    }
+
+    /**
      * Gets status
      *
      * @return string
@@ -898,6 +964,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess
             );
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string[]
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[] $tags Tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
