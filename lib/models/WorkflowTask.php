@@ -77,6 +77,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_type' => 'string',
         'object_url' => 'string',
         'priority' => 'string',
+        'properties' => '\ultracart\v2\models\Property[]',
         'related_workflow_task_uuid' => 'string',
         'status' => 'string',
         'tags' => 'string[]',
@@ -113,6 +114,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_type' => null,
         'object_url' => null,
         'priority' => null,
+        'properties' => null,
         'related_workflow_task_uuid' => null,
         'status' => null,
         'tags' => null,
@@ -168,6 +170,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_type' => 'object_type',
         'object_url' => 'object_url',
         'priority' => 'priority',
+        'properties' => 'properties',
         'related_workflow_task_uuid' => 'related_workflow_task_uuid',
         'status' => 'status',
         'tags' => 'tags',
@@ -202,6 +205,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_type' => 'setObjectType',
         'object_url' => 'setObjectUrl',
         'priority' => 'setPriority',
+        'properties' => 'setProperties',
         'related_workflow_task_uuid' => 'setRelatedWorkflowTaskUuid',
         'status' => 'setStatus',
         'tags' => 'setTags',
@@ -236,6 +240,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         'object_type' => 'getObjectType',
         'object_url' => 'getObjectUrl',
         'priority' => 'getPriority',
+        'properties' => 'getProperties',
         'related_workflow_task_uuid' => 'getRelatedWorkflowTaskUuid',
         'status' => 'getStatus',
         'tags' => 'getTags',
@@ -380,6 +385,7 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['object_type'] = $data['object_type'] ?? null;
         $this->container['object_url'] = $data['object_url'] ?? null;
         $this->container['priority'] = $data['priority'] ?? null;
+        $this->container['properties'] = $data['properties'] ?? null;
         $this->container['related_workflow_task_uuid'] = $data['related_workflow_task_uuid'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['tags'] = $data['tags'] ?? null;
@@ -912,6 +918,30 @@ class WorkflowTask implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['priority'] = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Gets properties
+     *
+     * @return \ultracart\v2\models\Property[]|null
+     */
+    public function getProperties()
+    {
+        return $this->container['properties'];
+    }
+
+    /**
+     * Sets properties
+     *
+     * @param \ultracart\v2\models\Property[]|null $properties Properties
+     *
+     * @return self
+     */
+    public function setProperties($properties)
+    {
+        $this->container['properties'] = $properties;
 
         return $this;
     }

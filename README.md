@@ -1416,6 +1416,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.198 | 01/12/2024 | workflow task - add properties array |
 | 4.0.197 | 01/10/2024 | workflow tasks - support for searching by tags |
 | 4.0.196 | 01/10/2024 | workflow task - add uuids of related tasks and tags |
 | 4.0.195 | 01/03/2024 | workflow - add task_context field to task obj |
