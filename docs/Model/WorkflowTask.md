@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **object_type** | **string** | Object Type | [optional] 
 **object_url** | **string** | Object URL | [optional] 
 **priority** | **string** | Priority | [optional] 
+**properties** | [**\ultracart\v2\models\Property[]**](Property.md) | Properties | [optional] 
 **related_workflow_task_uuid** | **string** | Related Workflow Task UUID | [optional] 
 **status** | **string** | Status of the workflow task | [optional] 
 **tags** | **string[]** | Tags | [optional] 
