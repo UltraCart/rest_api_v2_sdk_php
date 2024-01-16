@@ -1416,6 +1416,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.199 | 01/16/2024 | order query - support searching by custom fields 8 through 10 |
 | 4.0.198 | 01/12/2024 | workflow task - add properties array |
 | 4.0.197 | 01/10/2024 | workflow tasks - support for searching by tags |
 | 4.0.196 | 01/10/2024 | workflow task - add uuids of related tasks and tags |

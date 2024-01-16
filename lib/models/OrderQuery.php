@@ -68,12 +68,15 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date_end' => 'string',
         'current_stage' => 'string',
         'custom_field_1' => 'string',
+        'custom_field_10' => 'string',
         'custom_field_2' => 'string',
         'custom_field_3' => 'string',
         'custom_field_4' => 'string',
         'custom_field_5' => 'string',
         'custom_field_6' => 'string',
         'custom_field_7' => 'string',
+        'custom_field_8' => 'string',
+        'custom_field_9' => 'string',
         'customer_profile_oid' => 'int',
         'email' => 'string',
         'first_name' => 'string',
@@ -117,12 +120,15 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date_end' => 'dateTime',
         'current_stage' => null,
         'custom_field_1' => null,
+        'custom_field_10' => null,
         'custom_field_2' => null,
         'custom_field_3' => null,
         'custom_field_4' => null,
         'custom_field_5' => null,
         'custom_field_6' => null,
         'custom_field_7' => null,
+        'custom_field_8' => null,
+        'custom_field_9' => null,
         'customer_profile_oid' => 'int32',
         'email' => null,
         'first_name' => null,
@@ -185,12 +191,15 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date_end' => 'creation_date_end',
         'current_stage' => 'current_stage',
         'custom_field_1' => 'custom_field_1',
+        'custom_field_10' => 'custom_field_10',
         'custom_field_2' => 'custom_field_2',
         'custom_field_3' => 'custom_field_3',
         'custom_field_4' => 'custom_field_4',
         'custom_field_5' => 'custom_field_5',
         'custom_field_6' => 'custom_field_6',
         'custom_field_7' => 'custom_field_7',
+        'custom_field_8' => 'custom_field_8',
+        'custom_field_9' => 'custom_field_9',
         'customer_profile_oid' => 'customer_profile_oid',
         'email' => 'email',
         'first_name' => 'first_name',
@@ -232,12 +241,15 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date_end' => 'setCreationDateEnd',
         'current_stage' => 'setCurrentStage',
         'custom_field_1' => 'setCustomField1',
+        'custom_field_10' => 'setCustomField10',
         'custom_field_2' => 'setCustomField2',
         'custom_field_3' => 'setCustomField3',
         'custom_field_4' => 'setCustomField4',
         'custom_field_5' => 'setCustomField5',
         'custom_field_6' => 'setCustomField6',
         'custom_field_7' => 'setCustomField7',
+        'custom_field_8' => 'setCustomField8',
+        'custom_field_9' => 'setCustomField9',
         'customer_profile_oid' => 'setCustomerProfileOid',
         'email' => 'setEmail',
         'first_name' => 'setFirstName',
@@ -279,12 +291,15 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         'creation_date_end' => 'getCreationDateEnd',
         'current_stage' => 'getCurrentStage',
         'custom_field_1' => 'getCustomField1',
+        'custom_field_10' => 'getCustomField10',
         'custom_field_2' => 'getCustomField2',
         'custom_field_3' => 'getCustomField3',
         'custom_field_4' => 'getCustomField4',
         'custom_field_5' => 'getCustomField5',
         'custom_field_6' => 'getCustomField6',
         'custom_field_7' => 'getCustomField7',
+        'custom_field_8' => 'getCustomField8',
+        'custom_field_9' => 'getCustomField9',
         'customer_profile_oid' => 'getCustomerProfileOid',
         'email' => 'getEmail',
         'first_name' => 'getFirstName',
@@ -455,12 +470,15 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['creation_date_end'] = $data['creation_date_end'] ?? null;
         $this->container['current_stage'] = $data['current_stage'] ?? null;
         $this->container['custom_field_1'] = $data['custom_field_1'] ?? null;
+        $this->container['custom_field_10'] = $data['custom_field_10'] ?? null;
         $this->container['custom_field_2'] = $data['custom_field_2'] ?? null;
         $this->container['custom_field_3'] = $data['custom_field_3'] ?? null;
         $this->container['custom_field_4'] = $data['custom_field_4'] ?? null;
         $this->container['custom_field_5'] = $data['custom_field_5'] ?? null;
         $this->container['custom_field_6'] = $data['custom_field_6'] ?? null;
         $this->container['custom_field_7'] = $data['custom_field_7'] ?? null;
+        $this->container['custom_field_8'] = $data['custom_field_8'] ?? null;
+        $this->container['custom_field_9'] = $data['custom_field_9'] ?? null;
         $this->container['customer_profile_oid'] = $data['customer_profile_oid'] ?? null;
         $this->container['email'] = $data['email'] ?? null;
         $this->container['first_name'] = $data['first_name'] ?? null;
@@ -843,6 +861,30 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets custom_field_10
+     *
+     * @return string|null
+     */
+    public function getCustomField10()
+    {
+        return $this->container['custom_field_10'];
+    }
+
+    /**
+     * Sets custom_field_10
+     *
+     * @param string|null $custom_field_10 Custom field 10
+     *
+     * @return self
+     */
+    public function setCustomField10($custom_field_10)
+    {
+        $this->container['custom_field_10'] = $custom_field_10;
+
+        return $this;
+    }
+
+    /**
      * Gets custom_field_2
      *
      * @return string|null
@@ -982,6 +1024,54 @@ class OrderQuery implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setCustomField7($custom_field_7)
     {
         $this->container['custom_field_7'] = $custom_field_7;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_8
+     *
+     * @return string|null
+     */
+    public function getCustomField8()
+    {
+        return $this->container['custom_field_8'];
+    }
+
+    /**
+     * Sets custom_field_8
+     *
+     * @param string|null $custom_field_8 Custom field 8
+     *
+     * @return self
+     */
+    public function setCustomField8($custom_field_8)
+    {
+        $this->container['custom_field_8'] = $custom_field_8;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_field_9
+     *
+     * @return string|null
+     */
+    public function getCustomField9()
+    {
+        return $this->container['custom_field_9'];
+    }
+
+    /**
+     * Sets custom_field_9
+     *
+     * @param string|null $custom_field_9 Custom field 9
+     *
+     * @return self
+     */
+    public function setCustomField9($custom_field_9)
+    {
+        $this->container['custom_field_9'] = $custom_field_9;
 
         return $this;
     }
