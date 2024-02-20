@@ -60,6 +60,7 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'currency_code' => 'string',
         'discount_amount' => 'float',
+        'item_tags' => 'string[]',
         'items' => 'string[]',
         'limit' => 'int'
     ];
@@ -74,6 +75,7 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPIFormats = [
         'currency_code' => null,
         'discount_amount' => null,
+        'item_tags' => null,
         'items' => null,
         'limit' => 'int32'
     ];
@@ -107,6 +109,7 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $attributeMap = [
         'currency_code' => 'currency_code',
         'discount_amount' => 'discount_amount',
+        'item_tags' => 'item_tags',
         'items' => 'items',
         'limit' => 'limit'
     ];
@@ -119,6 +122,7 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $setters = [
         'currency_code' => 'setCurrencyCode',
         'discount_amount' => 'setDiscountAmount',
+        'item_tags' => 'setItemTags',
         'items' => 'setItems',
         'limit' => 'setLimit'
     ];
@@ -131,6 +135,7 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $getters = [
         'currency_code' => 'getCurrencyCode',
         'discount_amount' => 'getDiscountAmount',
+        'item_tags' => 'getItemTags',
         'items' => 'getItems',
         'limit' => 'getLimit'
     ];
@@ -194,6 +199,7 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $this->container['currency_code'] = $data['currency_code'] ?? null;
         $this->container['discount_amount'] = $data['discount_amount'] ?? null;
+        $this->container['item_tags'] = $data['item_tags'] ?? null;
         $this->container['items'] = $data['items'] ?? null;
         $this->container['limit'] = $data['limit'] ?? null;
     }
@@ -274,6 +280,30 @@ class CouponAmountOffItems implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setDiscountAmount($discount_amount)
     {
         $this->container['discount_amount'] = $discount_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_tags
+     *
+     * @return string[]|null
+     */
+    public function getItemTags()
+    {
+        return $this->container['item_tags'];
+    }
+
+    /**
+     * Sets item_tags
+     *
+     * @param string[]|null $item_tags An optional list of item tags which will receive a discount.
+     *
+     * @return self
+     */
+    public function setItemTags($item_tags)
+    {
+        $this->container['item_tags'] = $item_tags;
 
         return $this;
     }

@@ -1416,6 +1416,7 @@ Not every change is committed to every SDK.
 
 | Version | Date | Comments |
 | --: | :-: | --- |
+| 4.0.200 | 02/20/2024 | Add tag support to CouponAmountOffItems, CouponBuyOneGetOneLimit, CouponDiscountItemWithItemPurchase, CouponFreeItemWithItemPurchase, CouponPercentOffItemsWithItemsPurchase |
 | 4.0.199 | 01/16/2024 | order query - support searching by custom fields 8 through 10 |
 | 4.0.198 | 01/12/2024 | workflow task - add properties array |
 | 4.0.197 | 01/10/2024 | workflow tasks - support for searching by tags |

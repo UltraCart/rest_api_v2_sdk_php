@@ -58,6 +58,7 @@ class CouponBuyOneGetOneLimit implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
+        'item_tags' => 'string[]',
         'items' => 'string[]',
         'limit' => 'int'
     ];
@@ -70,6 +71,7 @@ class CouponBuyOneGetOneLimit implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'item_tags' => null,
         'items' => null,
         'limit' => 'int32'
     ];
@@ -101,6 +103,7 @@ class CouponBuyOneGetOneLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'item_tags' => 'item_tags',
         'items' => 'items',
         'limit' => 'limit'
     ];
@@ -111,6 +114,7 @@ class CouponBuyOneGetOneLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'item_tags' => 'setItemTags',
         'items' => 'setItems',
         'limit' => 'setLimit'
     ];
@@ -121,6 +125,7 @@ class CouponBuyOneGetOneLimit implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'item_tags' => 'getItemTags',
         'items' => 'getItems',
         'limit' => 'getLimit'
     ];
@@ -182,6 +187,7 @@ class CouponBuyOneGetOneLimit implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
+        $this->container['item_tags'] = $data['item_tags'] ?? null;
         $this->container['items'] = $data['items'] ?? null;
         $this->container['limit'] = $data['limit'] ?? null;
     }
@@ -209,6 +215,30 @@ class CouponBuyOneGetOneLimit implements ModelInterface, ArrayAccess, \JsonSeria
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets item_tags
+     *
+     * @return string[]|null
+     */
+    public function getItemTags()
+    {
+        return $this->container['item_tags'];
+    }
+
+    /**
+     * Sets item_tags
+     *
+     * @param string[]|null $item_tags An optional list of item tags which will receive a discount.
+     *
+     * @return self
+     */
+    public function setItemTags($item_tags)
+    {
+        $this->container['item_tags'] = $item_tags;
+
+        return $this;
+    }
 
     /**
      * Gets items
