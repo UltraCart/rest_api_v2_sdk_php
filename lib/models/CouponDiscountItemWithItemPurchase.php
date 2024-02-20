@@ -59,9 +59,11 @@ class CouponDiscountItemWithItemPurchase implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'currency_code' => 'string',
         'discount_item' => 'string',
+        'discount_item_tags' => 'string[]',
         'discount_price' => 'float',
         'limit' => 'int',
-        'required_purchase_item' => 'string'
+        'required_purchase_item' => 'string',
+        'required_purchase_items_tags' => 'string[]'
     ];
 
     /**
@@ -72,9 +74,11 @@ class CouponDiscountItemWithItemPurchase implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'currency_code' => null,
         'discount_item' => null,
+        'discount_item_tags' => null,
         'discount_price' => null,
         'limit' => 'int32',
-        'required_purchase_item' => null
+        'required_purchase_item' => null,
+        'required_purchase_items_tags' => null
     ];
 
     /**
@@ -106,9 +110,11 @@ class CouponDiscountItemWithItemPurchase implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'currency_code' => 'currency_code',
         'discount_item' => 'discount_item',
+        'discount_item_tags' => 'discount_item_tags',
         'discount_price' => 'discount_price',
         'limit' => 'limit',
-        'required_purchase_item' => 'required_purchase_item'
+        'required_purchase_item' => 'required_purchase_item',
+        'required_purchase_items_tags' => 'required_purchase_items_tags'
     ];
 
     /**
@@ -119,9 +125,11 @@ class CouponDiscountItemWithItemPurchase implements ModelInterface, ArrayAccess
     protected static $setters = [
         'currency_code' => 'setCurrencyCode',
         'discount_item' => 'setDiscountItem',
+        'discount_item_tags' => 'setDiscountItemTags',
         'discount_price' => 'setDiscountPrice',
         'limit' => 'setLimit',
-        'required_purchase_item' => 'setRequiredPurchaseItem'
+        'required_purchase_item' => 'setRequiredPurchaseItem',
+        'required_purchase_items_tags' => 'setRequiredPurchaseItemsTags'
     ];
 
     /**
@@ -132,9 +140,11 @@ class CouponDiscountItemWithItemPurchase implements ModelInterface, ArrayAccess
     protected static $getters = [
         'currency_code' => 'getCurrencyCode',
         'discount_item' => 'getDiscountItem',
+        'discount_item_tags' => 'getDiscountItemTags',
         'discount_price' => 'getDiscountPrice',
         'limit' => 'getLimit',
-        'required_purchase_item' => 'getRequiredPurchaseItem'
+        'required_purchase_item' => 'getRequiredPurchaseItem',
+        'required_purchase_items_tags' => 'getRequiredPurchaseItemsTags'
     ];
 
     /**
@@ -199,9 +209,11 @@ class CouponDiscountItemWithItemPurchase implements ModelInterface, ArrayAccess
     {
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['discount_item'] = isset($data['discount_item']) ? $data['discount_item'] : null;
+        $this->container['discount_item_tags'] = isset($data['discount_item_tags']) ? $data['discount_item_tags'] : null;
         $this->container['discount_price'] = isset($data['discount_price']) ? $data['discount_price'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['required_purchase_item'] = isset($data['required_purchase_item']) ? $data['required_purchase_item'] : null;
+        $this->container['required_purchase_items_tags'] = isset($data['required_purchase_items_tags']) ? $data['required_purchase_items_tags'] : null;
     }
 
     /**
@@ -285,6 +297,30 @@ class CouponDiscountItemWithItemPurchase implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets discount_item_tags
+     *
+     * @return string[]
+     */
+    public function getDiscountItemTags()
+    {
+        return $this->container['discount_item_tags'];
+    }
+
+    /**
+     * Sets discount_item_tags
+     *
+     * @param string[] $discount_item_tags An optional list of item tags which will receive a discount of one of the required purchased items is purchased.
+     *
+     * @return $this
+     */
+    public function setDiscountItemTags($discount_item_tags)
+    {
+        $this->container['discount_item_tags'] = $discount_item_tags;
+
+        return $this;
+    }
+
+    /**
      * Gets discount_price
      *
      * @return float
@@ -352,6 +388,30 @@ class CouponDiscountItemWithItemPurchase implements ModelInterface, ArrayAccess
     public function setRequiredPurchaseItem($required_purchase_item)
     {
         $this->container['required_purchase_item'] = $required_purchase_item;
+
+        return $this;
+    }
+
+    /**
+     * Gets required_purchase_items_tags
+     *
+     * @return string[]
+     */
+    public function getRequiredPurchaseItemsTags()
+    {
+        return $this->container['required_purchase_items_tags'];
+    }
+
+    /**
+     * Sets required_purchase_items_tags
+     *
+     * @param string[] $required_purchase_items_tags An optional list of item tags which are required to be purchased.
+     *
+     * @return $this
+     */
+    public function setRequiredPurchaseItemsTags($required_purchase_items_tags)
+    {
+        $this->container['required_purchase_items_tags'] = $required_purchase_items_tags;
 
         return $this;
     }

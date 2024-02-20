@@ -61,6 +61,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'conversation_participant_name' => 'string',
         'jwt' => 'string',
         'merchant_id' => 'string',
+        'pbx_jwt' => 'string',
+        'pbx_voice_identity' => 'string',
+        'pbx_voice_token' => 'string',
+        'pbx_worker_token' => 'string',
         'twilio_accounts' => '\ultracart\v2\models\ConversationTwilioAccount[]',
         'websocket_url' => 'string'
     ];
@@ -75,6 +79,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'conversation_participant_name' => null,
         'jwt' => null,
         'merchant_id' => null,
+        'pbx_jwt' => null,
+        'pbx_voice_identity' => null,
+        'pbx_voice_token' => null,
+        'pbx_worker_token' => null,
         'twilio_accounts' => null,
         'websocket_url' => null
     ];
@@ -110,6 +118,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'conversation_participant_name' => 'conversation_participant_name',
         'jwt' => 'jwt',
         'merchant_id' => 'merchant_id',
+        'pbx_jwt' => 'pbx_jwt',
+        'pbx_voice_identity' => 'pbx_voice_identity',
+        'pbx_voice_token' => 'pbx_voice_token',
+        'pbx_worker_token' => 'pbx_worker_token',
         'twilio_accounts' => 'twilio_accounts',
         'websocket_url' => 'websocket_url'
     ];
@@ -124,6 +136,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'conversation_participant_name' => 'setConversationParticipantName',
         'jwt' => 'setJwt',
         'merchant_id' => 'setMerchantId',
+        'pbx_jwt' => 'setPbxJwt',
+        'pbx_voice_identity' => 'setPbxVoiceIdentity',
+        'pbx_voice_token' => 'setPbxVoiceToken',
+        'pbx_worker_token' => 'setPbxWorkerToken',
         'twilio_accounts' => 'setTwilioAccounts',
         'websocket_url' => 'setWebsocketUrl'
     ];
@@ -138,6 +154,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         'conversation_participant_name' => 'getConversationParticipantName',
         'jwt' => 'getJwt',
         'merchant_id' => 'getMerchantId',
+        'pbx_jwt' => 'getPbxJwt',
+        'pbx_voice_identity' => 'getPbxVoiceIdentity',
+        'pbx_voice_token' => 'getPbxVoiceToken',
+        'pbx_worker_token' => 'getPbxWorkerToken',
         'twilio_accounts' => 'getTwilioAccounts',
         'websocket_url' => 'getWebsocketUrl'
     ];
@@ -206,6 +226,10 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
         $this->container['conversation_participant_name'] = isset($data['conversation_participant_name']) ? $data['conversation_participant_name'] : null;
         $this->container['jwt'] = isset($data['jwt']) ? $data['jwt'] : null;
         $this->container['merchant_id'] = isset($data['merchant_id']) ? $data['merchant_id'] : null;
+        $this->container['pbx_jwt'] = isset($data['pbx_jwt']) ? $data['pbx_jwt'] : null;
+        $this->container['pbx_voice_identity'] = isset($data['pbx_voice_identity']) ? $data['pbx_voice_identity'] : null;
+        $this->container['pbx_voice_token'] = isset($data['pbx_voice_token']) ? $data['pbx_voice_token'] : null;
+        $this->container['pbx_worker_token'] = isset($data['pbx_worker_token']) ? $data['pbx_worker_token'] : null;
         $this->container['twilio_accounts'] = isset($data['twilio_accounts']) ? $data['twilio_accounts'] : null;
         $this->container['websocket_url'] = isset($data['websocket_url']) ? $data['websocket_url'] : null;
     }
@@ -326,6 +350,102 @@ class ConversationAgentAuth implements ModelInterface, ArrayAccess
     public function setMerchantId($merchant_id)
     {
         $this->container['merchant_id'] = $merchant_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets pbx_jwt
+     *
+     * @return string
+     */
+    public function getPbxJwt()
+    {
+        return $this->container['pbx_jwt'];
+    }
+
+    /**
+     * Sets pbx_jwt
+     *
+     * @param string $pbx_jwt pbx_jwt
+     *
+     * @return $this
+     */
+    public function setPbxJwt($pbx_jwt)
+    {
+        $this->container['pbx_jwt'] = $pbx_jwt;
+
+        return $this;
+    }
+
+    /**
+     * Gets pbx_voice_identity
+     *
+     * @return string
+     */
+    public function getPbxVoiceIdentity()
+    {
+        return $this->container['pbx_voice_identity'];
+    }
+
+    /**
+     * Sets pbx_voice_identity
+     *
+     * @param string $pbx_voice_identity pbx_voice_identity
+     *
+     * @return $this
+     */
+    public function setPbxVoiceIdentity($pbx_voice_identity)
+    {
+        $this->container['pbx_voice_identity'] = $pbx_voice_identity;
+
+        return $this;
+    }
+
+    /**
+     * Gets pbx_voice_token
+     *
+     * @return string
+     */
+    public function getPbxVoiceToken()
+    {
+        return $this->container['pbx_voice_token'];
+    }
+
+    /**
+     * Sets pbx_voice_token
+     *
+     * @param string $pbx_voice_token pbx_voice_token
+     *
+     * @return $this
+     */
+    public function setPbxVoiceToken($pbx_voice_token)
+    {
+        $this->container['pbx_voice_token'] = $pbx_voice_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets pbx_worker_token
+     *
+     * @return string
+     */
+    public function getPbxWorkerToken()
+    {
+        return $this->container['pbx_worker_token'];
+    }
+
+    /**
+     * Sets pbx_worker_token
+     *
+     * @param string $pbx_worker_token pbx_worker_token
+     *
+     * @return $this
+     */
+    public function setPbxWorkerToken($pbx_worker_token)
+    {
+        $this->container['pbx_worker_token'] = $pbx_worker_token;
 
         return $this;
     }
